@@ -1,0 +1,10 @@
+{
+  "title": "Perlin Ripples Study",
+  "description": "Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",
+  "date": "2026-01-30",
+  "tags": ["ripples", "perlin-noise", "distortion", "procedural"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "textures/landscape.jpeg" }
+  }
+}
