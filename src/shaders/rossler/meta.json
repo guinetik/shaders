@@ -1,0 +1,18 @@
+{
+  "title": "Attractor Study #03: Rossler",
+  "description": "Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",
+  "date": "2026-02-11",
+  "tags": [
+    "attractor",
+    "rossler",
+    "simulation",
+    "feedback",
+    "3d",
+    "interactive"
+  ],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
+}
