@@ -1,3 +1,3 @@
 <template>
-  <div id="app">App</div>
+  <router-view />
 </template>
