@@ -1,0 +1,63 @@
+<script setup lang="ts">
+defineProps<{
+  tags: readonly string[];
+  activeTag: string | null;
+}>();
+
+const emit = defineEmits<{
+  select: [tag: string | null];
+}>();
+</script>
+
+<template>
+  <div class="tag-filter">
+    <button
+      class="tag-btn"
+      :class="{ active: activeTag === null }"
+      @click="emit('select', null)"
+    >
+      All
+    </button>
+    <button
+      v-for="tag in tags"
+      :key="tag"
+      class="tag-btn"
+      :class="{ active: activeTag === tag }"
+      @click="emit('select', tag)"
+    >
+      {{ tag }}
+    </button>
+  </div>
+</template>
+
+<style scoped>
+.tag-filter {
+  display: flex;
+  gap: 8px;
+  padding: 16px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tag-btn {
+  background: var(--n-bg);
+  border: 1px solid var(--n-border);
+  color: var(--n-text);
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.tag-btn:hover {
+  border-color: var(--n-border-active);
+}
+
+.tag-btn.active {
+  border-color: var(--n-border-active);
+  background: var(--n-bg-hover);
+  box-shadow: 0 0 12px var(--n-glow);
+}
+</style>
