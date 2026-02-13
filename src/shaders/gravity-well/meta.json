@@ -1,0 +1,10 @@
+{
+  "title": "Gravity Well Study ",
+  "description": "Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",
+  "date": "2026-01-29",
+  "tags": ["gravity", "lensing", "distortion", "generative"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "textures/landscape.jpeg" }
+  }
+}
