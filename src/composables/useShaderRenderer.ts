@@ -90,6 +90,7 @@ interface BufferFBO {
 function buildFragmentSource(userGlsl: string): string {
   return `#version 300 es
 precision highp float;
+precision highp int;
 uniform float iTime;
 uniform vec3 iResolution;
 uniform vec4 iMouse;
@@ -233,7 +234,7 @@ function createPingPongFBO(
     if (!tex) { cleanupPartial(); return 'Failed to create texture'; }
     textures.push(tex);
     gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA16F, width, height, 0, gl.RGBA, gl.HALF_FLOAT, null);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
@@ -282,12 +283,12 @@ function resizeFBOTextures(
       gl.texImage2D(
         gl.TEXTURE_2D,
         0,
-        gl.RGBA8,
+        gl.RGBA16F,
         width,
         height,
         0,
         gl.RGBA,
-        gl.UNSIGNED_BYTE,
+        gl.HALF_FLOAT,
         null
       );
     }
@@ -395,11 +396,25 @@ export function useShaderRenderer(
   /** Whether the page is currently hidden */
   let pageHidden = false;
 
+  /**
+   * Mouse state matching Shadertoy iMouse convention:
+   * xy = current position while pressed, zw = click origin.
+   * z > 0 while button held, z < 0 after release.
+   */
+  let mouseX = 0;
+  let mouseY = 0;
+  let mouseClickX = 0;
+  let mouseClickY = 0;
+  let mouseDown = false;
+
   /** ResizeObserver for canvas size changes */
   let resizeObserver: ResizeObserver | null = null;
 
   /** Cached list of active buffer passes, computed during initialization */
   let cachedActiveBufferPasses: PassId[] = [];
+
+  /** Loaded image textures keyed by their channel target path */
+  let textureCache: Map<string, WebGLTexture> = new Map();
 
   /**
    * Determines the ordered list of active buffer pass IDs present in the shader.
@@ -434,12 +449,16 @@ export function useShaderRenderer(
       return fbo.textures[fbo.readIndex];
     }
 
+    // Check buffer pass targets
     const passId = TARGET_TO_PASS[target];
-    if (!passId) return null;
+    if (passId) {
+      const fbo = bufferFBOs.get(passId);
+      if (!fbo) return null;
+      return fbo.textures[fbo.readIndex];
+    }
 
-    const fbo = bufferFBOs.get(passId);
-    if (!fbo) return null;
-    return fbo.textures[fbo.readIndex];
+    // Must be an image texture path
+    return textureCache.get(target) ?? null;
   }
 
   /**
@@ -492,7 +511,13 @@ export function useShaderRenderer(
   ): void {
     context.uniform1f(passProgram.uTime, time);
     context.uniform3f(passProgram.uResolution, width, height, pixelRatio);
-    context.uniform4f(passProgram.uMouse, 0, 0, 0, 0);
+    context.uniform4f(
+      passProgram.uMouse,
+      mouseX,
+      mouseY,
+      mouseClickX,
+      mouseClickY,
+    );
     context.uniform1i(passProgram.uFrame, frameCount);
   }
 
@@ -504,12 +529,19 @@ export function useShaderRenderer(
    * @returns true if initialization succeeded, false otherwise
    */
   function initialize(canvas: HTMLCanvasElement): boolean {
-    const context = canvas.getContext('webgl2');
+    const context = canvas.getContext('webgl2', { preserveDrawingBuffer: true });
     if (!context) {
       error.value = 'WebGL2 is not supported';
       return false;
     }
     gl = context;
+
+    // Enable float color buffer extension for multi-pass shaders that
+    // store state (e.g. attractor positions) in FBO textures
+    const floatExt = gl.getExtension('EXT_color_buffer_float');
+    if (!floatExt) {
+      console.warn('[ShaderRenderer] EXT_color_buffer_float not available — float FBOs may fail');
+    }
 
     // Create fullscreen quad
     const quadResult = createFullscreenQuad(gl);
@@ -531,11 +563,14 @@ export function useShaderRenderer(
     // Build pass programs for active buffer passes
     cachedActiveBufferPasses = getActiveBufferPasses();
     const activeBuffers = cachedActiveBufferPasses;
+    console.log(`[ShaderRenderer] Active buffer passes: [${activeBuffers.join(', ')}]`);
+
     for (const passId of activeBuffers) {
       const source = passes[passId];
       if (!source) continue;
       const result = buildPassProgram(gl, sharedVertexShader, source);
       if (typeof result === 'string') {
+        console.error(`[ShaderRenderer] ${passId} compilation failed:`, result);
         error.value = result;
         cleanup();
         return false;
@@ -545,22 +580,77 @@ export function useShaderRenderer(
       // Create ping-pong FBOs for this buffer
       const fboResult = createPingPongFBO(gl, canvas.width, canvas.height);
       if (typeof fboResult === 'string') {
+        console.error(`[ShaderRenderer] FBO creation failed for ${passId}:`, fboResult);
         error.value = fboResult;
         cleanup();
         return false;
       }
       bufferFBOs.set(passId, fboResult);
+      console.log(`[ShaderRenderer] ${passId}: program + FBO OK (${canvas.width}x${canvas.height})`);
     }
 
     // Build image pass program
     const imageResult = buildPassProgram(gl, sharedVertexShader, passes.image);
     if (typeof imageResult === 'string') {
+      console.error('[ShaderRenderer] Image pass compilation failed:', imageResult);
       error.value = imageResult;
       cleanup();
       return false;
     }
     passPrograms.set('image', imageResult);
 
+    // Discover and load image texture targets
+    const textureTargets = new Set<string>();
+    for (const passChannels of Object.values(channels)) {
+      if (!passChannels) continue;
+      for (const target of Object.values(passChannels)) {
+        if (target && target !== 'self' && !(target in TARGET_TO_PASS)) {
+          textureTargets.add(target);
+        }
+      }
+    }
+
+    for (const target of textureTargets) {
+      const tex = gl.createTexture();
+      if (!tex) continue;
+
+      // Create 1x1 black placeholder so rendering can start immediately
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texImage2D(
+        gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0,
+        gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255])
+      );
+      textureCache.set(target, tex);
+
+      // Load the actual image asynchronously
+      const url = import.meta.env.BASE_URL + target;
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        if (!gl) return;
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.bindTexture(gl.TEXTURE_2D, null);
+        console.log(`[ShaderRenderer] Texture loaded: ${target}`);
+      };
+      img.onerror = () => {
+        console.warn(`[ShaderRenderer] Failed to load texture: ${url}`);
+      };
+      img.src = url;
+    }
+
+    if (textureTargets.size > 0) {
+      console.log(`[ShaderRenderer] Loading ${textureTargets.size} texture(s): ${[...textureTargets].join(', ')}`);
+    }
+
+    console.log('[ShaderRenderer] All passes compiled OK, channels:', JSON.stringify(channels));
     error.value = null;
     return true;
   }
@@ -617,6 +707,12 @@ export function useShaderRenderer(
 
     gl.bindVertexArray(null);
 
+    // Log diagnostics for the first few frames
+    if (frameCount < 3) {
+      const glErr = gl.getError();
+      console.log(`[ShaderRenderer] Frame ${frameCount} rendered, GL error: ${glErr === gl.NO_ERROR ? 'none' : glErr}, canvas: ${width}x${height}`);
+    }
+
     frameCount++;
 
     if (isRunning.value) {
@@ -666,6 +762,70 @@ export function useShaderRenderer(
   }
 
   /**
+   * Converts a mouse/touch client position to Shadertoy pixel coordinates
+   * (origin at bottom-left, matching gl_FragCoord convention).
+   */
+  function clientToPixel(
+    canvas: HTMLCanvasElement,
+    clientX: number,
+    clientY: number,
+  ): [number, number] {
+    const rect = canvas.getBoundingClientRect();
+    const x = (clientX - rect.left) / rect.width * canvas.width;
+    const y = (1 - (clientY - rect.top) / rect.height) * canvas.height;
+    return [x, y];
+  }
+
+  function onMouseDown(e: MouseEvent): void {
+    const canvas = e.currentTarget as HTMLCanvasElement;
+    const [x, y] = clientToPixel(canvas, e.clientX, e.clientY);
+    mouseX = x;
+    mouseY = y;
+    mouseClickX = x;
+    mouseClickY = y;
+    mouseDown = true;
+  }
+
+  function onMouseMove(e: MouseEvent): void {
+    if (!mouseDown) return;
+    const canvas = e.currentTarget as HTMLCanvasElement;
+    const [x, y] = clientToPixel(canvas, e.clientX, e.clientY);
+    mouseX = x;
+    mouseY = y;
+  }
+
+  function onMouseUp(): void {
+    mouseDown = false;
+  }
+
+  function onTouchStart(e: TouchEvent): void {
+    if (e.touches.length === 0) return;
+    e.preventDefault();
+    const canvas = e.currentTarget as HTMLCanvasElement;
+    const touch = e.touches[0];
+    const [x, y] = clientToPixel(canvas, touch.clientX, touch.clientY);
+    mouseX = x;
+    mouseY = y;
+    mouseClickX = x;
+    mouseClickY = y;
+    mouseDown = true;
+  }
+
+  function onTouchMove(e: TouchEvent): void {
+    if (e.touches.length === 0 || !mouseDown) return;
+    e.preventDefault();
+    const canvas = e.currentTarget as HTMLCanvasElement;
+    const touch = e.touches[0];
+    const [x, y] = clientToPixel(canvas, touch.clientX, touch.clientY);
+    mouseX = x;
+    mouseY = y;
+  }
+
+  function onTouchEnd(): void {
+    mouseDown = false;
+  }
+
+  /**
    * Handles canvas resize by updating canvas dimensions, viewport,
    * and recreating FBO textures at the new size.
    *
@@ -694,10 +854,17 @@ export function useShaderRenderer(
 
       if (width === 0 || height === 0) continue;
 
+      // Skip if dimensions haven't actually changed
+      if (canvas.width === width && canvas.height === height) continue;
+
       canvas.width = width;
       canvas.height = height;
 
       resizeFBOTextures(gl, bufferFBOs, width, height);
+
+      // Reset frame counter so shaders re-initialize their state
+      // (e.g. particle positions stored in FBO pixels on iFrame == 0)
+      frameCount = 0;
     }
   }
 
@@ -708,6 +875,18 @@ export function useShaderRenderer(
     stop();
 
     document.removeEventListener('visibilitychange', onVisibilityChange);
+
+    // Remove mouse/touch listeners
+    if (gl) {
+      const canvas = gl.canvas as HTMLCanvasElement;
+      canvas.removeEventListener('mousedown', onMouseDown);
+      canvas.removeEventListener('mousemove', onMouseMove);
+      canvas.removeEventListener('mouseup', onMouseUp);
+      canvas.removeEventListener('mouseleave', onMouseUp);
+      canvas.removeEventListener('touchstart', onTouchStart);
+      canvas.removeEventListener('touchmove', onTouchMove);
+      canvas.removeEventListener('touchend', onTouchEnd);
+    }
 
     if (resizeObserver) {
       resizeObserver.disconnect();
@@ -730,6 +909,12 @@ export function useShaderRenderer(
       }
       bufferFBOs = new Map();
       cachedActiveBufferPasses = [];
+
+      // Delete loaded image textures
+      for (const tex of textureCache.values()) {
+        gl.deleteTexture(tex);
+      }
+      textureCache = new Map();
 
       // Delete shared vertex shader
       if (sharedVertexShader) {
@@ -775,6 +960,15 @@ export function useShaderRenderer(
       // Set up resize observer
       resizeObserver = new ResizeObserver(onCanvasResize);
       resizeObserver.observe(canvas);
+
+      // Set up mouse/touch listeners for iMouse
+      canvas.addEventListener('mousedown', onMouseDown);
+      canvas.addEventListener('mousemove', onMouseMove);
+      canvas.addEventListener('mouseup', onMouseUp);
+      canvas.addEventListener('mouseleave', onMouseUp);
+      canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+      canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+      canvas.addEventListener('touchend', onTouchEnd);
 
       // Set up visibility change listener
       document.addEventListener('visibilitychange', onVisibilityChange);

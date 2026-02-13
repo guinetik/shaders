@@ -12,7 +12,7 @@ const canvasRef = ref<HTMLCanvasElement | null>(null);
 
 const { error, isRunning } = useShaderRenderer(canvasRef, props.passes, props.channels);
 
-defineExpose({ error, isRunning });
+defineExpose({ error, isRunning, canvasRef });
 </script>
 
 <template>
@@ -38,6 +38,22 @@ defineExpose({ error, isRunning });
   background: #000;
   border: 1px solid var(--n-border);
   border-radius: 4px;
+}
+
+.renderer-container:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.renderer-container:fullscreen .shader-canvas {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
 }
 
 .renderer-error {

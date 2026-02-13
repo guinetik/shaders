@@ -15,8 +15,13 @@ export interface ShaderLinks {
   shaderkit?: string;
 }
 
-/** Channel binding target for multi-pass shaders */
-export type ChannelTarget = 'buffer-a' | 'buffer-b' | 'buffer-c' | 'buffer-d' | 'self';
+/**
+ * Channel binding target.
+ * - Buffer pass references: 'buffer-a' through 'buffer-d'
+ * - Self-feedback: 'self'
+ * - Texture path relative to public/: e.g. 'textures/noise.png'
+ */
+export type ChannelTarget = 'buffer-a' | 'buffer-b' | 'buffer-c' | 'buffer-d' | 'self' | (string & Record<never, never>);
 
 /** Uniform channel slot names matching Shadertoy convention */
 export type ChannelSlot = 'iChannel0' | 'iChannel1' | 'iChannel2' | 'iChannel3';

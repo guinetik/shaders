@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useShaderDetail } from '../composables/useShaderDetail';
 import ShaderRenderer from '../components/ShaderRenderer.vue';
@@ -7,6 +8,31 @@ import CodeViewer from '../components/CodeViewer.vue';
 const route = useRoute();
 const slug = route.params.slug as string;
 const { shader, notFound, activeTab } = useShaderDetail(slug);
+
+const rendererRef = ref<InstanceType<typeof ShaderRenderer> | null>(null);
+
+function toggleFullscreen(): void {
+  const canvas = rendererRef.value?.canvasRef;
+  if (!canvas) return;
+  const container = canvas.parentElement;
+  if (!container) return;
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    container.requestFullscreen();
+  }
+}
+
+function takeScreenshot(): void {
+  const canvas = rendererRef.value?.canvasRef;
+  if (!canvas) return;
+
+  const link = document.createElement('a');
+  link.download = `${slug}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
 </script>
 
 <template>
@@ -43,6 +69,7 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
       <div class="tab-content">
         <ShaderRenderer
           v-if="activeTab === 'render'"
+          ref="rendererRef"
           :passes="shader.passes"
           :channels="shader.channels"
         />
@@ -50,6 +77,25 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
           v-else
           :passes="shader.passes"
         />
+      </div>
+
+      <!-- Action bar -->
+      <div v-if="activeTab === 'render'" class="action-bar">
+        <button class="action-button" @click="toggleFullscreen">
+          <span class="action-icon">[ ]</span> Fullscreen
+        </button>
+        <button class="action-button" @click="takeScreenshot">
+          <span class="action-icon">[*]</span> Screenshot
+        </button>
+        <a
+          v-if="shader.links.shadertoy"
+          :href="shader.links.shadertoy"
+          target="_blank"
+          rel="noopener"
+          class="action-button"
+        >
+          <span class="action-icon">&gt;_</span> Shadertoy
+        </a>
       </div>
 
       <!-- Metadata -->
@@ -141,6 +187,40 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
   border-color: var(--n-border-active);
   background: var(--n-bg-hover);
   box-shadow: 0 0 12px var(--n-glow);
+}
+
+.action-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  min-height: 44px;
+  background: var(--n-bg);
+  border: 1px solid var(--n-border);
+  border-radius: 4px;
+  color: var(--n-text);
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.action-icon {
+  color: var(--n-text-dim);
+}
+
+@media (hover: hover) {
+  .action-button:hover {
+    border-color: var(--n-border-active);
+    box-shadow: 0 0 12px var(--n-glow);
+  }
 }
 
 .metadata {

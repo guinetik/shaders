@@ -68,8 +68,5 @@ export const BUFFER_FILENAMES = [
 /** Metadata file name in each shader folder */
 export const META_FILENAME = 'meta.json';
 
-/** Screenshot path pattern (relative to /public) */
-export const SCREENSHOT_PATH_PREFIX = '/shaders/';
-
 /** Screenshot file name */
 export const SCREENSHOT_FILENAME = 'screenshot.png';

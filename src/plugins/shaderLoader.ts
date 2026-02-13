@@ -14,7 +14,6 @@ import {
   IMAGE_PASS_FILENAME,
   BUFFER_FILENAMES,
   META_FILENAME,
-  SCREENSHOT_PATH_PREFIX,
   SCREENSHOT_FILENAME,
 } from '../constants';
 import type {
@@ -222,7 +221,9 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
       ? mergeChannels(defaultChannels, rawMeta.channels)
       : defaultChannels;
 
-    const screenshotUrl = `${SCREENSHOT_PATH_PREFIX}${slug}/${SCREENSHOT_FILENAME}`;
+    // Detect screenshot in shader source folder
+    const screenshotPath = path.join(dir, SCREENSHOT_FILENAME);
+    const hasScreenshot = fs.existsSync(screenshotPath);
 
     entries.push({
       slug,
@@ -231,9 +232,10 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
       date: rawMeta.date,
       tags: rawMeta.tags,
       links: rawMeta.links,
-      screenshotUrl,
+      screenshotUrl: '',
       passes,
       channels,
+      _hasScreenshot: hasScreenshot,
     });
   }
 
@@ -268,7 +270,43 @@ export function shaderLoaderPlugin(): Plugin {
     load(id: string) {
       if (id === RESOLVED_VIRTUAL_MODULE_ID) {
         const entries = scanShaders(shadersDir);
-        return `export const shaders = ${JSON.stringify(entries, null, 2)};`;
+
+        // Generate import statements for screenshots found in shader source folders
+        const imports: string[] = [];
+        const screenshotVars = new Map<string, string>();
+
+        for (const entry of entries) {
+          const extended = entry as ShaderEntry & { _hasScreenshot?: boolean };
+          if (extended._hasScreenshot) {
+            const varName = `__ss_${entry.slug.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            const importPath = `/src/shaders/${entry.slug}/${SCREENSHOT_FILENAME}`;
+            imports.push(`import ${varName} from '${importPath}';`);
+            screenshotVars.set(entry.slug, varName);
+          }
+          // Remove internal flag before serialization
+          delete extended._hasScreenshot;
+        }
+
+        // Build module: JSON with screenshot placeholders replaced by import refs
+        const PLACEHOLDER_PREFIX = '__SCREENSHOT_IMPORT_';
+        const serializable = entries.map((e) => ({
+          ...e,
+          screenshotUrl: screenshotVars.has(e.slug)
+            ? `${PLACEHOLDER_PREFIX}${e.slug}__`
+            : '',
+        }));
+
+        let dataStr = JSON.stringify(serializable, null, 2);
+
+        // Replace placeholder strings with actual import variable references
+        for (const [slug, varName] of screenshotVars) {
+          dataStr = dataStr.replace(
+            `"${PLACEHOLDER_PREFIX}${slug}__"`,
+            varName,
+          );
+        }
+
+        return `${imports.join('\n')}\nexport const shaders = ${dataStr};\n`;
       }
     },
 
