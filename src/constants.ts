@@ -69,4 +69,4 @@ export const BUFFER_FILENAMES = [
 export const META_FILENAME = 'meta.json';
 
 /** Screenshot file name */
-export const SCREENSHOT_FILENAME = 'screenshot.png';
+export const SCREENSHOT_FILENAME = 'screenshot.webp';
