@@ -4,5 +4,6 @@ import { shaderLoaderPlugin } from './src/plugins/shaderLoader';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/shaders/',
   plugins: [shaderLoaderPlugin(), vue()],
 });
