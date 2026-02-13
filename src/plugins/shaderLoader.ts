@@ -104,6 +104,30 @@ function mergeChannels(
   return result;
 }
 
+/** Assign a buffer source to the correct pass property in a type-safe way. */
+function assignBufferPass(
+  passes: ShaderPasses,
+  passId: PassId,
+  source: string,
+): void {
+  switch (passId) {
+    case 'bufferA':
+      passes.bufferA = source;
+      break;
+    case 'bufferB':
+      passes.bufferB = source;
+      break;
+    case 'bufferC':
+      passes.bufferC = source;
+      break;
+    case 'bufferD':
+      passes.bufferD = source;
+      break;
+    default:
+      break;
+  }
+}
+
 /**
  * Scan all shader directories and assemble the registry.
  */
@@ -111,13 +135,27 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
   if (!fs.existsSync(shadersDir)) return [];
 
   const entries: ShaderEntry[] = [];
-  const slugs = fs
-    .readdirSync(shadersDir, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name)
-    .sort();
+
+  // Issue #4: Directory read error handling
+  let slugs: string[];
+  try {
+    slugs = fs
+      .readdirSync(shadersDir, { withFileTypes: true })
+      .filter((d) => d.isDirectory())
+      .map((d) => d.name)
+      .sort();
+  } catch (err) {
+    console.warn(`[shader-loader] Failed to read directory ${shadersDir}:`, err);
+    return [];
+  }
 
   for (const slug of slugs) {
+    // Issue #5: Path traversal protection
+    if (slug.includes('..') || slug.includes('/') || slug.includes('\\')) {
+      console.warn(`[shader-loader] Skipping slug with suspicious path characters: ${slug}`);
+      continue;
+    }
+
     const dir = path.join(shadersDir, slug);
     const metaPath = path.join(dir, META_FILENAME);
     const imagePath = path.join(dir, IMAGE_PASS_FILENAME);
@@ -125,10 +163,36 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
     // Both meta.json and image.glsl are required
     if (!fs.existsSync(metaPath) || !fs.existsSync(imagePath)) continue;
 
-    const rawMeta: RawShaderMeta = JSON.parse(
-      fs.readFileSync(metaPath, 'utf-8'),
-    );
-    const imageSource = fs.readFileSync(imagePath, 'utf-8');
+    // Issue #1: JSON parse error handling
+    // Issue #2: File read error handling for meta.json
+    let rawMeta: RawShaderMeta;
+    try {
+      rawMeta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+    } catch (err) {
+      console.warn(`[shader-loader] Malformed JSON in ${metaPath}:`, err);
+      continue;
+    }
+
+    // Issue #3: JSON schema validation
+    if (
+      !rawMeta.title ||
+      !rawMeta.description ||
+      !rawMeta.date ||
+      !rawMeta.tags ||
+      !rawMeta.links
+    ) {
+      console.warn(`[shader-loader] Missing required fields in ${metaPath}`);
+      continue;
+    }
+
+    // Issue #2: File read error handling for image.glsl
+    let imageSource: string;
+    try {
+      imageSource = fs.readFileSync(imagePath, 'utf-8');
+    } catch (err) {
+      console.warn(`[shader-loader] Failed to read ${imagePath}:`, err);
+      continue;
+    }
 
     const passes: ShaderPasses = { image: imageSource };
     const existingBuffers: string[] = [];
@@ -138,10 +202,16 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
       if (fs.existsSync(bufferPath)) {
         const passId = BUFFER_PASS_MAP[bufferFile];
         if (passId) {
-          (passes as unknown as Record<string, string>)[passId] = fs.readFileSync(
-            bufferPath,
-            'utf-8',
-          );
+          // Issue #2: File read error handling for buffer files
+          let bufferSource: string;
+          try {
+            bufferSource = fs.readFileSync(bufferPath, 'utf-8');
+          } catch (err) {
+            console.warn(`[shader-loader] Failed to read ${bufferPath}:`, err);
+            continue;
+          }
+          // Issue #6: Type-safe buffer pass assignment
+          assignBufferPass(passes, passId, bufferSource);
           existingBuffers.push(bufferFile);
         }
       }
@@ -165,6 +235,11 @@ function scanShaders(shadersDir: string): ShaderEntry[] {
       passes,
       channels,
     });
+  }
+
+  // Issue #7: Warning when zero shaders found
+  if (entries.length === 0) {
+    console.warn(`[shader-loader] No shaders found in ${shadersDir}`);
   }
 
   return entries;
