@@ -1,0 +1,11 @@
+{
+  "title": "Attractor Study #01: Dadras",
+  "description": "Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",
+  "date": "2026-02-10",
+  "tags": ["attractor", "dadras", "simulation", "feedback", "3d"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
+}
