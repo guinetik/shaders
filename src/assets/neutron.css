@@ -1,0 +1,125 @@
+/* ============================================================
+   Neutron UI Theme — CSS Custom Properties & Base Styles
+   Oscilloscope / particle detector aesthetic
+   ============================================================ */
+
+/* Google Fonts: Fira Code */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+/* ---- CSS Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Custom Properties (cyan default) ---- */
+:root {
+  --n-primary: #0ff;
+  --n-glow: rgba(0, 200, 255, 0.4);
+  --n-glow-strong: rgba(0, 200, 255, 0.8);
+  --n-bg: rgba(0, 5, 10, 0.95);
+  --n-bg-light: rgba(0, 10, 20, 0.9);
+  --n-bg-hover: rgba(0, 200, 255, 0.15);
+  --n-border: rgba(0, 200, 255, 0.4);
+  --n-border-active: #0ff;
+  --n-text: #0ff;
+  --n-text-dim: rgba(0, 200, 255, 0.5);
+  --n-text-white: #fff;
+  --n-surface: #0a0a0f;
+}
+
+/* ---- Body ---- */
+body {
+  background: #0a0a0f;
+  color: #e0e0e8;
+  font-family: "Fira Code", monospace;
+  min-height: 100vh;
+}
+
+/* ---- Variant: Danger ---- */
+.neutron-danger {
+  --n-primary: #f50;
+  --n-glow: rgba(255, 50, 50, 0.4);
+  --n-glow-strong: rgba(255, 50, 50, 0.8);
+  --n-bg: rgba(20, 0, 0, 0.95);
+  --n-bg-light: rgba(40, 5, 5, 0.9);
+  --n-bg-hover: rgba(255, 100, 50, 0.15);
+  --n-border: rgba(255, 100, 50, 0.5);
+  --n-border-active: #f50;
+  --n-text: #f90;
+  --n-text-dim: rgba(255, 150, 100, 0.7);
+  --n-text-white: rgba(255, 200, 180, 0.9);
+}
+
+/* ---- Variant: Magenta ---- */
+.neutron-magenta {
+  --n-primary: #f0f;
+  --n-glow: rgba(255, 50, 255, 0.4);
+  --n-glow-strong: rgba(255, 100, 255, 0.8);
+  --n-bg: rgba(15, 0, 15, 0.95);
+  --n-bg-light: rgba(25, 5, 25, 0.9);
+  --n-bg-hover: rgba(255, 100, 255, 0.15);
+  --n-border: rgba(255, 100, 255, 0.4);
+  --n-border-active: #f0f;
+  --n-text: #f6f;
+  --n-text-dim: rgba(255, 150, 255, 0.6);
+  --n-text-white: #fff;
+}
+
+/* ---- Variant: Yellow ---- */
+.neutron-yellow {
+  --n-primary: #ff0;
+  --n-glow: rgba(255, 255, 50, 0.4);
+  --n-glow-strong: rgba(255, 255, 100, 0.8);
+  --n-bg: rgba(15, 15, 0, 0.95);
+  --n-bg-light: rgba(25, 25, 5, 0.9);
+  --n-bg-hover: rgba(255, 255, 100, 0.15);
+  --n-border: rgba(255, 255, 100, 0.4);
+  --n-border-active: #ff0;
+  --n-text: #ff8;
+  --n-text-dim: rgba(255, 255, 150, 0.6);
+  --n-text-white: #fff;
+}
+
+/* ---- Variant: Green ---- */
+.neutron-green {
+  --n-primary: #0f0;
+  --n-glow: rgba(50, 255, 50, 0.4);
+  --n-glow-strong: rgba(100, 255, 100, 0.8);
+  --n-bg: rgba(0, 15, 5, 0.95);
+  --n-bg-light: rgba(5, 25, 10, 0.9);
+  --n-bg-hover: rgba(100, 255, 100, 0.15);
+  --n-border: rgba(100, 255, 100, 0.4);
+  --n-border-active: #0f0;
+  --n-text: #8f8;
+  --n-text-dim: rgba(150, 255, 150, 0.6);
+  --n-text-white: #fff;
+}
+
+/* ---- Utility: Links ---- */
+a {
+  color: var(--n-text);
+  text-decoration: none;
+}
+
+/* ---- Scrollbar (WebKit) ---- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 200, 255, 0.6);
+}
