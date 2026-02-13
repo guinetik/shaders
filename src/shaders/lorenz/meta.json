@@ -1,0 +1,11 @@
+{
+  "title": "Attractor Study #02: Lorenz",
+  "description": "Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",
+  "date": "2026-02-10",
+  "tags": ["attractor", "lorenz", "simulation", "feedback"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
+}
