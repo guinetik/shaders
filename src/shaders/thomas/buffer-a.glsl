@@ -75,20 +75,28 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     int py = int(floor(fragCoord.y));
 
     // ── Camera state (persisted at pixel CAM_PIXEL,0) ──
-    // Frozen in place — drag mouse to orbit, angle persists on release
+    // rg = yaw/pitch, zw = last mouse position (-1 = not tracking)
     vec4 camState = texelFetch(iChannel0, ivec2(CAM_PIXEL, 0), 0);
     float yaw, pitch;
+    vec2 lastMouse = camState.zw;
     if (iFrame == 0) {
         yaw = 0.2;
         pitch = 0.35;
+        lastMouse = vec2(-1.0);
     } else {
         yaw   = camState.r * 6.28318;
         pitch = (camState.g - 0.5) * 3.14159;
     }
-    if (iMouse.z > 0.0) {
+
+    bool pressed = iMouse.z > 0.0;
+    if (pressed) {
         yaw   = (iMouse.x / iResolution.x) * 6.28318;
         pitch = (iMouse.y / iResolution.y - 0.5) * 3.14159 * 0.6;
     }
+
+    // Detect active mouse movement for instant trail clear
+    bool wasTracking = lastMouse.x >= 0.0;
+    bool rotating = pressed && wasTracking && length(iMouse.xy - lastMouse) > 1.0;
 
     // Precompute camera trig (same for all particles & segments)
     float cy = cos(yaw),  sy = sin(yaw);
@@ -151,11 +159,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             fragColor = vec4(pos, 0.0);
         }
     } else if (py == 0 && px == CAM_PIXEL) {
-        // Camera state pixel — persist yaw & pitch as [0,1]
-        fragColor = vec4(mod(yaw, 6.28318) / 6.28318, pitch / 3.14159 + 0.5, 0.0, 0.0);
+        // Camera state pixel — persist yaw & pitch as [0,1], mouse pos in zw
+        vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);
+        fragColor = vec4(mod(yaw, 6.28318) / 6.28318, pitch / 3.14159 + 0.5, storeMouse);
     } else {
-        // Visual pixels — accumulate with fade
+        // Visual pixels — accumulate with fade; instant clear when rotating
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;
-        fragColor = vec4(lineColor * c + prev * FADE, 0.0);
+        float fade = rotating ? 0.0 : FADE;
+        fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }

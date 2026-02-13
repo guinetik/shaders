@@ -1,8 +1,8 @@
 #define STEPS 100.0
-#define VIEW_SCALE 0.05
-#define SPEED 0.65
-#define INTENSITY 0.15
-#define FADE 0.997
+#define VIEW_SCALE 0.08
+#define SPEED 0.75
+#define INTENSITY 0.25
+#define FADE 0.998
 #define FOCUS 2.4
 #define MODE xy
 

@@ -1,10 +1,14 @@
 #define PARTICLES 8
-#define STEPS 90.0
+#define STEPS 100.0
 #define VIEW_SCALE 0.045
 #define SPEED 0.8
-#define INTENSITY 0.15
-#define FADE 0.993
-#define FOCUS 1.0
+#define INTENSITY 0.10
+#define FADE 0.992
+#define FOCUS 2.0
+
+// Full-cycle restart: all particles respawn, trail fades out smoothly
+#define CYCLE_FRAMES 540
+#define FADE_OUT_FRAMES 60
 
 // 3D view rotation defaults (radians)
 #define DEFAULT_ROT_X 1.0    // tilt forward to see z-spike
@@ -172,12 +176,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);
         fragColor = vec4(offsetRx, offsetRy, storeMouse);
     } else if (py == 0 && px < PARTICLES) {
-        // Staggered respawn: one particle resets every RESPAWN_STAGGER frames
-        // so particles are always at different phases of the orbit
-        int respawnInterval = 180;  // full cycle in frames
-        int stagger = respawnInterval / PARTICLES;  // 45 frames between respawns
-        float phase = mod(float(iFrame - px * stagger), float(respawnInterval));
-        bool shouldRespawn = iFrame == 0 || (iFrame > 0 && phase < 1.0);
+        // Cycle-based respawn: all particles restart together at cycle boundary
+        int cycleFrame = iFrame - (iFrame / CYCLE_FRAMES) * CYCLE_FRAMES;
+        bool shouldRespawn = iFrame == 0 || cycleFrame == 0;
 
         if (shouldRespawn) {
             // Random start position near the attractor
@@ -194,6 +195,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     } else {
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;
         float fade = rotating ? 0.0 : FADE;
+
+        // Accelerated fade near end of cycle to clear trail for next burst
+        int cycleFrame = iFrame - (iFrame / CYCLE_FRAMES) * CYCLE_FRAMES;
+        int framesLeft = CYCLE_FRAMES - cycleFrame;
+        if (framesLeft < FADE_OUT_FRAMES) {
+            float t = 1.0 - float(framesLeft) / float(FADE_OUT_FRAMES);
+            fade *= mix(1.0, 0.9, t * t);
+        }
+
         vec3 newCol = lineColor * c + prev * fade;
         fragColor = vec4(min(newCol, 1.5), 0);  // cap prevents white blowout
     }

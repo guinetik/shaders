@@ -5,6 +5,6 @@
   "tags": ["gravity", "lensing", "distortion", "generative"],
   "links": {},
   "channels": {
-    "image": { "iChannel0": "textures/landscape.jpeg" }
+    "image": { "iChannel0": "textures/space.jpg" }
   }
 }
