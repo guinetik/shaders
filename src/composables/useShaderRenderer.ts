@@ -34,6 +34,12 @@ const CHANNEL_SLOTS: readonly ChannelSlot[] = [
 /** Number of channel slots available per pass */
 const NUM_CHANNELS = 4;
 
+/** Number of vertices in the fullscreen quad (two triangles) */
+const FULLSCREEN_QUAD_VERTICES = 6;
+
+/** Milliseconds per second, for time conversion */
+const MS_PER_SECOND = 1000;
+
 /** Vertex shader source for the fullscreen quad */
 const VERTEX_SHADER_SOURCE = `#version 300 es
 in vec2 a_position;
@@ -148,6 +154,7 @@ function linkProgram(
   }
   gl.attachShader(program, vertexShader);
   gl.attachShader(program, fragmentShader);
+  gl.bindAttribLocation(program, 0, 'a_position');
   gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
     const log = gl.getProgramInfoLog(program) ?? 'Unknown link error';
@@ -216,9 +223,15 @@ function createPingPongFBO(
   const fbos: WebGLFramebuffer[] = [];
   const textures: WebGLTexture[] = [];
 
+  function cleanupPartial(): void {
+    for (const t of textures) gl.deleteTexture(t);
+    for (const f of fbos) gl.deleteFramebuffer(f);
+  }
+
   for (let i = 0; i < FBOS_PER_BUFFER; i++) {
     const tex = gl.createTexture();
-    if (!tex) return 'Failed to create texture';
+    if (!tex) { cleanupPartial(); return 'Failed to create texture'; }
+    textures.push(tex);
     gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -227,17 +240,16 @@ function createPingPongFBO(
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 
     const fbo = gl.createFramebuffer();
-    if (!fbo) return 'Failed to create framebuffer';
+    if (!fbo) { cleanupPartial(); return 'Failed to create framebuffer'; }
+    fbos.push(fbo);
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
     gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
 
     const status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
     if (status !== gl.FRAMEBUFFER_COMPLETE) {
+      cleanupPartial();
       return `Framebuffer incomplete: ${status}`;
     }
-
-    fbos.push(fbo);
-    textures.push(tex);
   }
 
   gl.bindFramebuffer(gl.FRAMEBUFFER, null);
@@ -386,6 +398,9 @@ export function useShaderRenderer(
   /** ResizeObserver for canvas size changes */
   let resizeObserver: ResizeObserver | null = null;
 
+  /** Cached list of active buffer passes, computed during initialization */
+  let cachedActiveBufferPasses: PassId[] = [];
+
   /**
    * Determines the ordered list of active buffer pass IDs present in the shader.
    *
@@ -514,13 +529,15 @@ export function useShaderRenderer(
     sharedVertexShader = vs;
 
     // Build pass programs for active buffer passes
-    const activeBuffers = getActiveBufferPasses();
+    cachedActiveBufferPasses = getActiveBufferPasses();
+    const activeBuffers = cachedActiveBufferPasses;
     for (const passId of activeBuffers) {
       const source = passes[passId];
       if (!source) continue;
       const result = buildPassProgram(gl, sharedVertexShader, source);
       if (typeof result === 'string') {
         error.value = result;
+        cleanup();
         return false;
       }
       passPrograms.set(passId, result);
@@ -529,6 +546,7 @@ export function useShaderRenderer(
       const fboResult = createPingPongFBO(gl, canvas.width, canvas.height);
       if (typeof fboResult === 'string') {
         error.value = fboResult;
+        cleanup();
         return false;
       }
       bufferFBOs.set(passId, fboResult);
@@ -538,18 +556,10 @@ export function useShaderRenderer(
     const imageResult = buildPassProgram(gl, sharedVertexShader, passes.image);
     if (typeof imageResult === 'string') {
       error.value = imageResult;
+      cleanup();
       return false;
     }
     passPrograms.set('image', imageResult);
-
-    // Bind attribute location (a_position at 0) for all programs
-    for (const pp of passPrograms.values()) {
-      const loc = gl.getAttribLocation(pp.program, 'a_position');
-      if (loc !== 0) {
-        gl.bindAttribLocation(pp.program, 0, 'a_position');
-        gl.linkProgram(pp.program);
-      }
-    }
 
     error.value = null;
     return true;
@@ -566,13 +576,13 @@ export function useShaderRenderer(
     const width = canvas.width;
     const height = canvas.height;
     const pixelRatio = window.devicePixelRatio || 1;
-    const elapsed = accumulatedTime + (performance.now() - resumeTimestamp) / 1000;
+    const elapsed = accumulatedTime + (performance.now() - resumeTimestamp) / MS_PER_SECOND;
 
     gl.viewport(0, 0, width, height);
     gl.bindVertexArray(quadVAO);
 
     // Render buffer passes in order: A -> B -> C -> D
-    const activeBuffers = getActiveBufferPasses();
+    const activeBuffers = cachedActiveBufferPasses;
     for (const passId of activeBuffers) {
       const pp = passPrograms.get(passId);
       const fbo = bufferFBOs.get(passId);
@@ -587,7 +597,7 @@ export function useShaderRenderer(
       setUniforms(gl, pp, elapsed, width, height, pixelRatio);
       bindChannelTextures(gl, passId, pp);
 
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      gl.drawArrays(gl.TRIANGLES, 0, FULLSCREEN_QUAD_VERTICES);
 
       // Swap read/write indices
       fbo.readIndex = writeIndex;
@@ -603,7 +613,7 @@ export function useShaderRenderer(
     setUniforms(gl, imagePP, elapsed, width, height, pixelRatio);
     bindChannelTextures(gl, 'image', imagePP);
 
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    gl.drawArrays(gl.TRIANGLES, 0, FULLSCREEN_QUAD_VERTICES);
 
     gl.bindVertexArray(null);
 
@@ -630,7 +640,7 @@ export function useShaderRenderer(
   function stop(): void {
     if (!isRunning.value) return;
     isRunning.value = false;
-    accumulatedTime += (performance.now() - resumeTimestamp) / 1000;
+    accumulatedTime += (performance.now() - resumeTimestamp) / MS_PER_SECOND;
     if (rafHandle) {
       cancelAnimationFrame(rafHandle);
       rafHandle = 0;
@@ -719,6 +729,7 @@ export function useShaderRenderer(
         }
       }
       bufferFBOs = new Map();
+      cachedActiveBufferPasses = [];
 
       // Delete shared vertex shader
       if (sharedVertexShader) {
