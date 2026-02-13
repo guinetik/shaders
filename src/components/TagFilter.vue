@@ -37,6 +37,21 @@ const emit = defineEmits<{
   padding: 16px 0;
   overflow-x: auto;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
+}
+
+.tag-filter::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
+@media (min-width: 768px) {
+  .tag-filter {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    white-space: normal;
+  }
 }
 
 .tag-btn {
@@ -49,10 +64,13 @@ const emit = defineEmits<{
   border-radius: 4px;
   cursor: pointer;
   min-height: 44px;
+  flex-shrink: 0;
 }
 
-.tag-btn:hover {
-  border-color: var(--n-border-active);
+@media (hover: hover) {
+  .tag-btn:hover {
+    border-color: var(--n-border-active);
+  }
 }
 
 .tag-btn.active {

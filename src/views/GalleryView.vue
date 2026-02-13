@@ -34,7 +34,7 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 
 .gallery-title {
   color: var(--n-text);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -45,14 +45,28 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 }
 
 @media (min-width: 768px) {
+  .gallery-view {
+    padding: 24px;
+  }
+
+  .gallery-title {
+    font-size: 24px;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (min-width: 1024px) {
+  .gallery-title {
+    font-size: 28px;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 }
 

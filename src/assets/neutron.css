@@ -31,6 +31,12 @@
   --n-surface: #0a0a0f;
 }
 
+/* ---- HTML ---- */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 /* ---- Body ---- */
 body {
   background: #0a0a0f;

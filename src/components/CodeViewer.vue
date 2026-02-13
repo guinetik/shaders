@@ -83,6 +83,7 @@ watch(activePass, (passId) => {
   padding: 8px 0;
   overflow-x: auto;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab-btn {
@@ -95,10 +96,13 @@ watch(activePass, (passId) => {
   border-radius: 4px;
   cursor: pointer;
   min-height: 44px;
+  flex-shrink: 0;
 }
 
-.tab-btn:hover {
-  border-color: var(--n-border-active);
+@media (hover: hover) {
+  .tab-btn:hover {
+    border-color: var(--n-border-active);
+  }
 }
 
 .tab-btn.active {
@@ -114,19 +118,30 @@ watch(activePass, (passId) => {
   border-radius: 4px;
   padding: 0;
   position: relative;
-  overflow-y: auto;
-  max-height: 70vh;
+  overflow: auto;
+  max-height: 60vh;
 }
 
 .code-panel :deep(pre) {
   background: transparent !important;
   margin: 0;
   padding: 16px;
+  overflow-x: auto;
 }
 
 .code-panel :deep(code) {
   font-family: "Fira Code", monospace;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .code-panel {
+    max-height: 70vh;
+  }
+
+  .code-panel :deep(code) {
+    font-size: 13px;
+  }
 }
 </style>

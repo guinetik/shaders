@@ -36,9 +36,11 @@ defineProps<{
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.shader-card:hover {
-  border-color: var(--n-border-active);
-  box-shadow: 0 0 20px var(--n-glow);
+@media (hover: hover) {
+  .shader-card:hover {
+    border-color: var(--n-border-active);
+    box-shadow: 0 0 20px var(--n-glow);
+  }
 }
 
 .card-image {

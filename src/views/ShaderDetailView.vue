@@ -91,14 +91,19 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
 }
 
 .back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--n-text);
   font-size: 14px;
   text-decoration: none;
   transition: text-shadow 0.2s;
 }
 
-.back-link:hover {
-  text-shadow: 0 0 12px var(--n-glow);
+@media (hover: hover) {
+  .back-link:hover {
+    text-shadow: 0 0 12px var(--n-glow);
+  }
 }
 
 .detail-header {
@@ -138,10 +143,14 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
   box-shadow: 0 0 12px var(--n-glow);
 }
 
+.metadata {
+  padding: 16px 0;
+}
+
 .shader-title {
   color: var(--n-text-white);
-  font-size: 24px;
-  margin-top: 24px;
+  font-size: 20px;
+  margin-top: 0;
 }
 
 .shader-description {
@@ -180,24 +189,59 @@ const { shader, notFound, activeTab } = useShaderDetail(slug);
 
 .shader-links {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   margin-top: 16px;
 }
 
 .link-button {
-  display: inline-block;
-  padding: 8px 16px;
+  display: block;
+  padding: 12px 16px;
   background: var(--n-bg);
   border: 1px solid var(--n-border);
   border-radius: 4px;
   color: var(--n-text);
   font-size: 12px;
   text-decoration: none;
+  text-align: center;
+  min-height: 44px;
   transition: all 0.2s;
 }
 
-.link-button:hover {
-  border-color: var(--n-border-active);
-  box-shadow: 0 0 12px var(--n-glow);
+@media (hover: hover) {
+  .link-button:hover {
+    border-color: var(--n-border-active);
+    box-shadow: 0 0 12px var(--n-glow);
+  }
+}
+
+@media (min-width: 768px) {
+  .detail-view {
+    padding: 24px;
+  }
+
+  .tab-bar {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .metadata {
+    padding: 24px 0;
+  }
+
+  .shader-title {
+    font-size: 24px;
+  }
+
+  .shader-links {
+    flex-direction: row;
+  }
+
+  .link-button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: left;
+  }
 }
 </style>
