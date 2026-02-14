@@ -2,6 +2,6 @@
   "title": "Star Study",
   "description": "A procedural star with boiling plasma surface and an orbiting planet",
   "date": "2025-11-30",
-  "tags": ["raymarching", "3d", "stars", "procedural", "planets"],
+  "tags": ["raymarching", "3d", "procedural", "planets", "space"],
   "links": {}
 }
