@@ -61,7 +61,7 @@ const emit = defineEmits<{
   font-family: "Fira Code", monospace;
   font-size: 12px;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   min-height: 44px;
   flex-shrink: 0;

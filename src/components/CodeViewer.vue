@@ -67,7 +67,7 @@ watch(activePass, (passId) => {
         {{ PASS_LABELS[passId] }}
       </button>
     </div>
-    <div class="code-panel" v-html="highlightedHtml" />
+    <div class="code-panel n-corner-frame" v-html="highlightedHtml" />
   </div>
 </template>
 
@@ -75,6 +75,12 @@ watch(activePass, (passId) => {
 .code-viewer {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.code-viewer .code-panel {
+  flex: 1;
+  min-height: 0;
 }
 
 .pass-tabs {
@@ -93,7 +99,7 @@ watch(activePass, (passId) => {
   font-family: "Fira Code", monospace;
   font-size: 12px;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   min-height: 44px;
   flex-shrink: 0;
@@ -115,7 +121,7 @@ watch(activePass, (passId) => {
   background: var(--n-bg);
   border: 1px solid var(--n-border);
   border-left: 3px solid var(--n-primary);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0;
   position: relative;
   overflow: auto;
@@ -142,6 +148,22 @@ watch(activePass, (passId) => {
 
   .code-panel :deep(code) {
     font-size: 13px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .code-panel {
+    max-height: 76vh;
+  }
+}
+
+@media (min-width: 1920px) {
+  .code-panel {
+    max-height: 80vh;
+  }
+
+  .code-panel :deep(code) {
+    font-size: 14px;
   }
 }
 </style>

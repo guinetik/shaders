@@ -29,6 +29,11 @@ import type {
 const VIRTUAL_MODULE_ID = 'virtual:shader-registry';
 const RESOLVED_VIRTUAL_MODULE_ID = '\0virtual:shader-registry';
 
+/**
+ * Internal shader entry shape used during plugin scan before serialization.
+ */
+type ShaderEntryInternal = ShaderEntry & { _hasScreenshot?: boolean };
+
 /** Map buffer filenames to their PassId keys */
 const BUFFER_PASS_MAP: Record<string, PassId> = {
   'buffer-a.glsl': 'bufferA',
@@ -130,10 +135,10 @@ function assignBufferPass(
 /**
  * Scan all shader directories and assemble the registry.
  */
-function scanShaders(shadersDir: string): ShaderEntry[] {
+function scanShaders(shadersDir: string): ShaderEntryInternal[] {
   if (!fs.existsSync(shadersDir)) return [];
 
-  const entries: ShaderEntry[] = [];
+  const entries: ShaderEntryInternal[] = [];
 
   // Issue #4: Directory read error handling
   let slugs: string[];
@@ -276,23 +281,20 @@ export function shaderLoaderPlugin(): Plugin {
         const screenshotVars = new Map<string, string>();
 
         for (const entry of entries) {
-          const extended = entry as ShaderEntry & { _hasScreenshot?: boolean };
-          if (extended._hasScreenshot) {
+          if (entry._hasScreenshot) {
             const varName = `__ss_${entry.slug.replace(/[^a-zA-Z0-9]/g, '_')}`;
             const importPath = `/src/shaders/${entry.slug}/${SCREENSHOT_FILENAME}`;
             imports.push(`import ${varName} from '${importPath}';`);
             screenshotVars.set(entry.slug, varName);
           }
-          // Remove internal flag before serialization
-          delete extended._hasScreenshot;
         }
 
         // Build module: JSON with screenshot placeholders replaced by import refs
         const PLACEHOLDER_PREFIX = '__SCREENSHOT_IMPORT_';
-        const serializable = entries.map((e) => ({
-          ...e,
-          screenshotUrl: screenshotVars.has(e.slug)
-            ? `${PLACEHOLDER_PREFIX}${e.slug}__`
+        const serializable = entries.map(({ _hasScreenshot, ...entry }) => ({
+          ...entry,
+          screenshotUrl: screenshotVars.has(entry.slug)
+            ? `${PLACEHOLDER_PREFIX}${entry.slug}__`
             : '',
         }));
 

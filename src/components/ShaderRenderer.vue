@@ -16,7 +16,7 @@ defineExpose({ error, isRunning, canvasRef });
 </script>
 
 <template>
-  <div class="renderer-container">
+  <div class="renderer-container n-panel n-vignette-overlay">
     <canvas ref="canvasRef" class="shader-canvas"></canvas>
     <div v-if="error" class="renderer-error">
       <span class="error-label">Shader Error</span>
@@ -29,6 +29,8 @@ defineExpose({ error, isRunning, canvasRef });
 .renderer-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .shader-canvas {
@@ -37,7 +39,7 @@ defineExpose({ error, isRunning, canvasRef });
   aspect-ratio: 16 / 9;
   background: #000;
   border: 1px solid var(--n-border);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .renderer-container:fullscreen {
@@ -46,6 +48,7 @@ defineExpose({ error, isRunning, canvasRef });
   justify-content: center;
   background: #000;
 }
+
 
 .renderer-container:fullscreen .shader-canvas {
   width: 100%;
@@ -68,7 +71,7 @@ defineExpose({ error, isRunning, canvasRef });
   justify-content: center;
   background: var(--n-bg);
   border: 1px solid rgba(255, 50, 50, 0.5);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 24px;
 }
 

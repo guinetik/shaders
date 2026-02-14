@@ -26,9 +26,37 @@ export function useShaderDetail(slug: string) {
   /** Active tab: 'render' or 'code' */
   const activeTab = ref<'render' | 'code'>('render');
 
+  /** Whether the mobile info drawer is currently open */
+  const isInfoDrawerOpen = ref<boolean>(false);
+
+  /**
+   * Opens the mobile info drawer.
+   */
+  function openInfoDrawer(): void {
+    isInfoDrawerOpen.value = true;
+  }
+
+  /**
+   * Closes the mobile info drawer.
+   */
+  function closeInfoDrawer(): void {
+    isInfoDrawerOpen.value = false;
+  }
+
+  /**
+   * Toggles the mobile info drawer open/closed state.
+   */
+  function toggleInfoDrawer(): void {
+    isInfoDrawerOpen.value = !isInfoDrawerOpen.value;
+  }
+
   return {
     shader,
     notFound,
     activeTab,
+    isInfoDrawerOpen,
+    openInfoDrawer,
+    closeInfoDrawer,
+    toggleInfoDrawer,
   };
 }

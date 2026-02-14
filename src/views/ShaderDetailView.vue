@@ -4,13 +4,24 @@ import { useRoute } from 'vue-router';
 import { useShaderDetail } from '../composables/useShaderDetail';
 import ShaderRenderer from '../components/ShaderRenderer.vue';
 import CodeViewer from '../components/CodeViewer.vue';
+import ShaderInfoDrawer from '../components/ShaderInfoDrawer.vue';
 
 const route = useRoute();
 const slug = route.params.slug as string;
-const { shader, notFound, activeTab } = useShaderDetail(slug);
+const {
+  shader,
+  notFound,
+  activeTab,
+  isInfoDrawerOpen,
+  openInfoDrawer,
+  closeInfoDrawer,
+} = useShaderDetail(slug);
 
 const rendererRef = ref<InstanceType<typeof ShaderRenderer> | null>(null);
 
+/**
+ * Toggles fullscreen mode on the renderer container.
+ */
 function toggleFullscreen(): void {
   const canvas = rendererRef.value?.canvasRef;
   if (!canvas) return;
@@ -24,6 +35,9 @@ function toggleFullscreen(): void {
   }
 }
 
+/**
+ * Captures the current renderer frame as a PNG image.
+ */
 function takeScreenshot(): void {
   const canvas = rendererRef.value?.canvasRef;
   if (!canvas) return;
@@ -33,10 +47,18 @@ function takeScreenshot(): void {
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
+
+/**
+ * Opens the code tab from the mobile drawer action.
+ */
+function showCodeFromDrawer(): void {
+  activeTab.value = 'code';
+  closeInfoDrawer();
+}
 </script>
 
 <template>
-  <div class="detail-view">
+  <div class="detail-view n-layout-shell">
     <!-- Not found state -->
     <div v-if="notFound" class="not-found">
       <h1>Shader Not Found</h1>
@@ -46,27 +68,23 @@ function takeScreenshot(): void {
 
     <!-- Shader detail -->
     <template v-else-if="shader">
-      <!-- Header: back button + title -->
-      <header class="detail-header">
+      <header class="detail-header n-panel">
         <router-link to="/" class="back-link">&larr; Back</router-link>
+        <div class="tab-bar">
+          <button
+            class="tab-button"
+            :class="{ active: activeTab === 'render' }"
+            @click="activeTab = 'render'"
+          >Render</button>
+          <button
+            class="tab-button"
+            :class="{ active: activeTab === 'code' }"
+            @click="activeTab = 'code'"
+          >Code</button>
+        </div>
       </header>
 
-      <!-- Toggle tabs -->
-      <div class="tab-bar">
-        <button
-          class="tab-button"
-          :class="{ active: activeTab === 'render' }"
-          @click="activeTab = 'render'"
-        >Render</button>
-        <button
-          class="tab-button"
-          :class="{ active: activeTab === 'code' }"
-          @click="activeTab = 'code'"
-        >Code</button>
-      </div>
-
-      <!-- Content area -->
-      <div class="tab-content">
+      <section class="tab-content">
         <ShaderRenderer
           v-if="activeTab === 'render'"
           ref="rendererRef"
@@ -77,9 +95,8 @@ function takeScreenshot(): void {
           v-else
           :passes="shader.passes"
         />
-      </div>
+      </section>
 
-      <!-- Action bar -->
       <div v-if="activeTab === 'render'" class="action-bar">
         <button class="action-button" @click="toggleFullscreen">
           <span class="action-icon">[ ]</span> Fullscreen
@@ -98,8 +115,7 @@ function takeScreenshot(): void {
         </a>
       </div>
 
-      <!-- Metadata -->
-      <section class="metadata">
+      <section class="metadata n-panel">
         <h1 class="shader-title">{{ shader.title }}</h1>
         <p class="shader-description">{{ shader.description }}</p>
         <div class="shader-meta-row">
@@ -113,15 +129,42 @@ function takeScreenshot(): void {
           <a v-if="shader.links.shaderkit" :href="shader.links.shaderkit" target="_blank" rel="noopener" class="link-button">ShaderKit</a>
         </div>
       </section>
+
+      <!-- Mobile overlay controls (render mode only) -->
+      <div v-if="activeTab === 'render'" class="mobile-overlay-controls">
+        <router-link to="/" class="mobile-overlay-btn" aria-label="Back to gallery">
+          &larr;
+        </router-link>
+        <button class="mobile-overlay-btn" type="button" aria-label="Open shader info" @click="openInfoDrawer">
+          i
+        </button>
+      </div>
+
+      <!-- Mobile helper controls while viewing code -->
+      <div v-if="activeTab === 'code'" class="mobile-code-controls">
+        <router-link to="/" class="mobile-overlay-btn" aria-label="Back to gallery">
+          &larr;
+        </router-link>
+        <button class="mobile-overlay-btn" type="button" aria-label="Back to render view" @click="activeTab = 'render'">
+          ▶
+        </button>
+      </div>
+
+      <ShaderInfoDrawer
+        :shader="shader"
+        :isOpen="isInfoDrawerOpen"
+        @close="closeInfoDrawer"
+        @showCode="showCodeFromDrawer"
+        @fullscreen="toggleFullscreen"
+        @screenshot="takeScreenshot"
+      />
     </template>
   </div>
 </template>
 
 <style scoped>
 .detail-view {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px;
+  position: relative;
 }
 
 .not-found {
@@ -153,20 +196,26 @@ function takeScreenshot(): void {
 }
 
 .detail-header {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
 }
 
 .tab-bar {
   display: flex;
-  gap: 0;
-  margin-bottom: 16px;
+  gap: 8px;
 }
 
 .tab-button {
-  flex: 1;
-  padding: 12px;
-  background: var(--n-bg);
+  min-width: 96px;
+  padding: 10px 14px;
+  background: rgba(14, 21, 35, 0.8);
   border: 1px solid var(--n-border);
+  border-radius: 8px;
   color: var(--n-text);
   font-family: "Fira Code", monospace;
   font-size: 14px;
@@ -175,18 +224,14 @@ function takeScreenshot(): void {
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
-.tab-button:first-child {
-  border-radius: 4px 0 0 4px;
-}
-
-.tab-button:last-child {
-  border-radius: 0 4px 4px 0;
-}
-
 .tab-button.active {
   border-color: var(--n-border-active);
   background: var(--n-bg-hover);
   box-shadow: 0 0 12px var(--n-glow);
+}
+
+.tab-content {
+  position: relative;
 }
 
 .action-bar {
@@ -203,7 +248,7 @@ function takeScreenshot(): void {
   min-height: 44px;
   background: var(--n-bg);
   border: 1px solid var(--n-border);
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--n-text);
   font-family: "Fira Code", monospace;
   font-size: 12px;
@@ -224,7 +269,9 @@ function takeScreenshot(): void {
 }
 
 .metadata {
-  padding: 16px 0;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
 }
 
 .shader-title {
@@ -263,7 +310,7 @@ function takeScreenshot(): void {
   font-size: 10px;
   padding: 2px 8px;
   border: 1px solid var(--n-border);
-  border-radius: 2px;
+  border-radius: 8px;
   color: var(--n-text-dim);
 }
 
@@ -277,9 +324,9 @@ function takeScreenshot(): void {
 .link-button {
   display: block;
   padding: 12px 16px;
-  background: var(--n-bg);
+  background: rgba(14, 21, 35, 0.8);
   border: 1px solid var(--n-border);
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--n-text);
   font-size: 12px;
   text-decoration: none;
@@ -295,19 +342,29 @@ function takeScreenshot(): void {
   }
 }
 
+.mobile-overlay-controls,
+.mobile-code-controls {
+  display: none;
+}
+
+.mobile-overlay-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--n-border);
+  background: rgba(10, 15, 26, 0.8);
+  color: var(--n-text-white);
+  font-family: "Fira Code", monospace;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
 @media (min-width: 768px) {
-  .detail-view {
-    padding: 24px;
-  }
-
-  .tab-bar {
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .metadata {
-    padding: 24px 0;
+    padding: 20px;
   }
 
   .shader-title {
@@ -322,6 +379,65 @@ function takeScreenshot(): void {
     display: inline-block;
     padding: 8px 16px;
     text-align: left;
+  }
+}
+
+@media (min-width: 1440px) {
+  .shader-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-view {
+    padding: 0;
+    max-width: none;
+  }
+
+  .detail-header,
+  .action-bar,
+  .metadata {
+    display: none;
+  }
+
+  .tab-content {
+    min-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .tab-content :deep(.renderer-container),
+  .tab-content :deep(.shader-canvas) {
+    width: 100%;
+    min-height: 100dvh;
+    height: 100dvh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .tab-content :deep(.code-viewer) {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: calc(64px + var(--n-safe-top)) 12px calc(12px + var(--n-safe-bottom));
+    background: var(--n-surface);
+  }
+
+  .tab-content :deep(.code-viewer .code-panel) {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .mobile-overlay-controls,
+  .mobile-code-controls {
+    position: fixed;
+    top: calc(12px + var(--n-safe-top));
+    left: max(12px, var(--n-safe-left));
+    right: max(12px, var(--n-safe-right));
+    z-index: 65;
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

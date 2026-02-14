@@ -22,8 +22,35 @@ export const BREAKPOINT_TABLET = 768;
 /** Breakpoint for desktop layout in pixels */
 export const BREAKPOINT_DESKTOP = 1024;
 
+/** Breakpoint for extra-large desktop layout in pixels */
+export const BREAKPOINT_XL = 1440;
+
+/** Breakpoint for 2K desktop layout in pixels */
+export const BREAKPOINT_2K = 1920;
+
+/** Breakpoint for 4K desktop layout in pixels */
+export const BREAKPOINT_4K = 2560;
+
 /** Minimum touch target size in pixels (WCAG) */
 export const MIN_TOUCH_TARGET_PX = 44;
+
+/** Responsive max-width for content containers on standard desktop */
+export const CONTAINER_MAX_WIDTH_DESKTOP = 1280;
+
+/** Responsive max-width for content containers on extra-large desktop */
+export const CONTAINER_MAX_WIDTH_XL = 1600;
+
+/** Responsive max-width for content containers on 2K displays */
+export const CONTAINER_MAX_WIDTH_2K = 2048;
+
+/** Responsive max-width for content containers on 4K displays */
+export const CONTAINER_MAX_WIDTH_4K = 2880;
+
+/** Number of gallery columns on extra-large desktop viewports (>=1440px) */
+export const GALLERY_COLUMNS_XL = 4;
+
+/** Number of gallery columns on 2K and above viewports (>=1920px) */
+export const GALLERY_COLUMNS_2K = 5;
 
 // -- Spacing Scale (px) --
 
@@ -32,6 +59,8 @@ export const SPACING_SM = 8;
 export const SPACING_MD = 12;
 export const SPACING_LG = 16;
 export const SPACING_XL = 24;
+export const SPACING_2XL = 32;
+export const SPACING_3XL = 40;
 
 // -- Font Sizes (px) --
 
