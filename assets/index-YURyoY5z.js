@@ -1,32 +1,39 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-DkJbBgUB.js","assets/ShaderDetailView-BYgFgITj.css"])))=>i.map(i=>d[i]);
-(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const s of a.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&r(s)}).observe(document,{childList:!0,subtree:!0});function t(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(o){if(o.ep)return;o.ep=!0;const a=t(o);fetch(o.href,a)}})();/**
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-TfkjsumY.js","assets/ShaderDetailView-DneXjzD-.css"])))=>i.map(i=>d[i]);
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function t(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(o){if(o.ep)return;o.ep=!0;const a=t(o);fetch(o.href,a)}})();/**
 * @vue/shared v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function kr(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const se={},Fn=[],rn=()=>{},xa=()=>!1,Gt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Hr=e=>e.startsWith("onUpdate:"),me=Object.assign,Ur=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},$s=Object.prototype.hasOwnProperty,ne=(e,n)=>$s.call(e,n),F=Array.isArray,Gn=e=>bt(e)==="[object Map]",ba=e=>bt(e)==="[object Set]",co=e=>bt(e)==="[object Date]",V=e=>typeof e=="function",de=e=>typeof e=="string",on=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",Ca=e=>(te(e)||V(e))&&V(e.then)&&V(e.catch),_a=Object.prototype.toString,bt=e=>_a.call(e),Qs=e=>bt(e).slice(8,-1),Sa=e=>bt(e)==="[object Object]",Br=e=>de(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,rt=kr(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),Vt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},Js=/-\w/g,ze=Vt(e=>e.replace(Js,n=>n.slice(1).toUpperCase())),ei=/\B([A-Z])/g,kn=Vt(e=>e.replace(ei,"-$1").toLowerCase()),Kt=Vt(e=>e.charAt(0).toUpperCase()+e.slice(1)),nr=Vt(e=>e?`on${Kt(e)}`:""),An=(e,n)=>!Object.is(e,n),tr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Ea=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},ni=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ti=e=>{const n=de(e)?Number(e):NaN;return isNaN(n)?e:n};let fo;const Yt=()=>fo||(fo=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function zr(e){if(F(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],o=de(r)?si(r):zr(r);if(o)for(const a in o)n[a]=o[a]}return n}else if(de(e)||te(e))return e}const ri=/;(?![^(]*\))/g,oi=/:([^]+)/,ai=/\/\*[^]*?\*\//g;function si(e){const n={};return e.replace(ai,"").split(ri).forEach(t=>{if(t){const r=t.split(oi);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Yn(e){let n="";if(de(e))n=e;else if(F(e))for(let t=0;t<e.length;t++){const r=Yn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ii="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",li=kr(ii);function Ta(e){return!!e||e===""}function ci(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Fr(e[r],n[r]);return t}function Fr(e,n){if(e===n)return!0;let t=co(e),r=co(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=on(e),r=on(n),t||r)return e===n;if(t=F(e),r=F(n),t||r)return t&&r?ci(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const o=Object.keys(e).length,a=Object.keys(n).length;if(o!==a)return!1;for(const s in e){const i=e.hasOwnProperty(s),l=n.hasOwnProperty(s);if(i&&!l||!i&&l||!Fr(e[s],n[s]))return!1}}return String(e)===String(n)}const Aa=e=>!!(e&&e.__v_isRef===!0),ot=e=>de(e)?e:e==null?"":F(e)||te(e)&&(e.toString===_a||!V(e.toString))?Aa(e)?ot(e.value):JSON.stringify(e,Ra,2):String(e),Ra=(e,n)=>Aa(n)?Ra(e,n.value):Gn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,o],a)=>(t[rr(r,a)+" =>"]=o,t),{})}:ba(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>rr(t))}:on(n)?rr(n):te(n)&&!F(n)&&!Sa(n)?String(n):n,rr=(e,n="")=>{var t;return on(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
+**/function Mr(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const ie={},Fn=[],rn=()=>{},ba=()=>!1,Gt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Hr=e=>e.startsWith("onUpdate:"),he=Object.assign,zr=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},Zi=Object.prototype.hasOwnProperty,ne=(e,n)=>Zi.call(e,n),F=Array.isArray,Gn=e=>xt(e)==="[object Map]",xa=e=>xt(e)==="[object Set]",co=e=>xt(e)==="[object Date]",V=e=>typeof e=="function",de=e=>typeof e=="string",on=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",wa=e=>(te(e)||V(e))&&V(e.then)&&V(e.catch),Ea=Object.prototype.toString,xt=e=>Ea.call(e),$i=e=>xt(e).slice(8,-1),Sa=e=>xt(e)==="[object Object]",Br=e=>de(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,rt=Mr(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),Vt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},Ji=/-\w/g,Ue=Vt(e=>e.replace(Ji,n=>n.slice(1).toUpperCase())),es=/\B([A-Z])/g,Mn=Vt(e=>e.replace(es,"-$1").toLowerCase()),Kt=Vt(e=>e.charAt(0).toUpperCase()+e.slice(1)),nr=Vt(e=>e?`on${Kt(e)}`:""),_n=(e,n)=>!Object.is(e,n),tr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Ca=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},ns=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ts=e=>{const n=de(e)?Number(e):NaN;return isNaN(n)?e:n};let fo;const Yt=()=>fo||(fo=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function Ur(e){if(F(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],o=de(r)?is(r):Ur(r);if(o)for(const a in o)n[a]=o[a]}return n}else if(de(e)||te(e))return e}const rs=/;(?![^(]*\))/g,os=/:([^]+)/,as=/\/\*[^]*?\*\//g;function is(e){const n={};return e.replace(as,"").split(rs).forEach(t=>{if(t){const r=t.split(os);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Yn(e){let n="";if(de(e))n=e;else if(F(e))for(let t=0;t<e.length;t++){const r=Yn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ss="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",ls=Mr(ss);function Ta(e){return!!e||e===""}function cs(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Fr(e[r],n[r]);return t}function Fr(e,n){if(e===n)return!0;let t=co(e),r=co(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=on(e),r=on(n),t||r)return e===n;if(t=F(e),r=F(n),t||r)return t&&r?cs(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const o=Object.keys(e).length,a=Object.keys(n).length;if(o!==a)return!1;for(const i in e){const s=e.hasOwnProperty(i),l=n.hasOwnProperty(i);if(s&&!l||!s&&l||!Fr(e[i],n[i]))return!1}}return String(e)===String(n)}const _a=e=>!!(e&&e.__v_isRef===!0),ot=e=>de(e)?e:e==null?"":F(e)||te(e)&&(e.toString===Ea||!V(e.toString))?_a(e)?ot(e.value):JSON.stringify(e,Aa,2):String(e),Aa=(e,n)=>_a(n)?Aa(e,n.value):Gn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,o],a)=>(t[rr(r,a)+" =>"]=o,t),{})}:xa(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>rr(t))}:on(n)?rr(n):te(n)&&!F(n)&&!Sa(n)?String(n):n,rr=(e,n="")=>{var t;return on(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
 * @vue/reactivity v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let De;class fi{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=De,!n&&De&&(this.index=(De.scopes||(De.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=De;try{return De=this,n()}finally{De=t}}}on(){++this._on===1&&(this.prevScope=De,De=this)}off(){this._on>0&&--this._on===0&&(De=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const o=this.parent.scopes.pop();o&&o!==this&&(this.parent.scopes[this.index]=o,o.index=this.index)}this.parent=void 0}}}function di(){return De}let ae;const or=new WeakSet;class wa{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,De&&De.active&&De.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,or.has(this)&&(or.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Da(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,uo(this),Pa(this);const n=ae,t=Ve;ae=this,Ve=!0;try{return this.fn()}finally{Na(this),ae=n,Ve=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Kr(n);this.deps=this.depsTail=void 0,uo(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?or.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){yr(this)&&this.run()}get dirty(){return yr(this)}}let Ia=0,at,st;function Da(e,n=!1){if(e.flags|=8,n){e.next=st,st=e;return}e.next=at,at=e}function Gr(){Ia++}function Vr(){if(--Ia>0)return;if(st){let n=st;for(st=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;at;){let n=at;for(at=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Pa(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function Na(e){let n,t=e.depsTail,r=t;for(;r;){const o=r.prevDep;r.version===-1?(r===t&&(t=o),Kr(r),ui(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=o}e.deps=n,e.depsTail=t}function yr(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(Oa(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function Oa(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===pt)||(e.globalVersion=pt,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!yr(e))))return;e.flags|=2;const n=e.dep,t=ae,r=Ve;ae=e,Ve=!0;try{Pa(e);const o=e.fn(e._value);(n.version===0||An(o,e._value))&&(e.flags|=128,e._value=o,n.version++)}catch(o){throw n.version++,o}finally{ae=t,Ve=r,Na(e),e.flags&=-3}}function Kr(e,n=!1){const{dep:t,prevSub:r,nextSub:o}=e;if(r&&(r.nextSub=o,e.prevSub=void 0),o&&(o.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let a=t.computed.deps;a;a=a.nextDep)Kr(a,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function ui(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let Ve=!0;const La=[];function pn(){La.push(Ve),Ve=!1}function mn(){const e=La.pop();Ve=e===void 0?!0:e}function uo(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ae;ae=void 0;try{n()}finally{ae=t}}}let pt=0;class pi{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Yr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ae||!Ve||ae===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ae)t=this.activeLink=new pi(ae,this),ae.deps?(t.prevDep=ae.depsTail,ae.depsTail.nextDep=t,ae.depsTail=t):ae.deps=ae.depsTail=t,Ma(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ae.depsTail,t.nextDep=void 0,ae.depsTail.nextDep=t,ae.depsTail=t,ae.deps===t&&(ae.deps=r)}return t}trigger(n){this.version++,pt++,this.notify(n)}notify(n){Gr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{Vr()}}}function Ma(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)Ma(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const xr=new WeakMap,On=Symbol(""),br=Symbol(""),mt=Symbol("");function ye(e,n,t){if(Ve&&ae){let r=xr.get(e);r||xr.set(e,r=new Map);let o=r.get(t);o||(r.set(t,o=new Yr),o.map=r,o.key=t),o.track()}}function un(e,n,t,r,o,a){const s=xr.get(e);if(!s){pt++;return}const i=l=>{l&&l.trigger()};if(Gr(),n==="clear")s.forEach(i);else{const l=F(e),f=l&&Br(t);if(l&&t==="length"){const c=Number(r);s.forEach((d,m)=>{(m==="length"||m===mt||!on(m)&&m>=c)&&i(d)})}else switch((t!==void 0||s.has(void 0))&&i(s.get(t)),f&&i(s.get(mt)),n){case"add":l?f&&i(s.get("length")):(i(s.get(On)),Gn(e)&&i(s.get(br)));break;case"delete":l||(i(s.get(On)),Gn(e)&&i(s.get(br)));break;case"set":Gn(e)&&i(s.get(On));break}}Vr()}function Hn(e){const n=$(e);return n===e?n:(ye(n,"iterate",mt),Ue(e)?n:n.map(Ye))}function Wt(e){return ye(e=$(e),"iterate",mt),e}function _n(e,n){return vn(e)?Wn(Ln(e)?Ye(n):n):Ye(n)}const mi={__proto__:null,[Symbol.iterator](){return ar(this,Symbol.iterator,e=>_n(this,e))},concat(...e){return Hn(this).concat(...e.map(n=>F(n)?Hn(n):n))},entries(){return ar(this,"entries",e=>(e[1]=_n(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>_n(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>_n(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>_n(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return sr(this,"includes",e)},indexOf(...e){return sr(this,"indexOf",e)},join(e){return Hn(this).join(e)},lastIndexOf(...e){return sr(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return Qn(this,"pop")},push(...e){return Qn(this,"push",e)},reduce(e,...n){return po(this,"reduce",e,n)},reduceRight(e,...n){return po(this,"reduceRight",e,n)},shift(){return Qn(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return Qn(this,"splice",e)},toReversed(){return Hn(this).toReversed()},toSorted(e){return Hn(this).toSorted(e)},toSpliced(...e){return Hn(this).toSpliced(...e)},unshift(...e){return Qn(this,"unshift",e)},values(){return ar(this,"values",e=>_n(this,e))}};function ar(e,n,t){const r=Wt(e),o=r[n]();return r!==e&&!Ue(e)&&(o._next=o.next,o.next=()=>{const a=o._next();return a.done||(a.value=t(a.value)),a}),o}const vi=Array.prototype;function ln(e,n,t,r,o,a){const s=Wt(e),i=s!==e&&!Ue(e),l=s[n];if(l!==vi[n]){const d=l.apply(e,a);return i?Ye(d):d}let f=t;s!==e&&(i?f=function(d,m){return t.call(this,_n(e,d),m,e)}:t.length>2&&(f=function(d,m){return t.call(this,d,m,e)}));const c=l.call(s,f,r);return i&&o?o(c):c}function po(e,n,t,r){const o=Wt(e);let a=t;return o!==e&&(Ue(e)?t.length>3&&(a=function(s,i,l){return t.call(this,s,i,l,e)}):a=function(s,i,l){return t.call(this,s,_n(e,i),l,e)}),o[n](a,...r)}function sr(e,n,t){const r=$(e);ye(r,"iterate",mt);const o=r[n](...t);return(o===-1||o===!1)&&qr(t[0])?(t[0]=$(t[0]),r[n](...t)):o}function Qn(e,n,t=[]){pn(),Gr();const r=$(e)[n].apply(e,t);return Vr(),mn(),r}const hi=kr("__proto__,__v_isRef,__isVue"),ka=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(on));function gi(e){on(e)||(e=String(e));const n=$(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Ha{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const o=this._isReadonly,a=this._isShallow;if(t==="__v_isReactive")return!o;if(t==="__v_isReadonly")return o;if(t==="__v_isShallow")return a;if(t==="__v_raw")return r===(o?a?Ri:Fa:a?za:Ba).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const s=F(n);if(!o){let l;if(s&&(l=mi[t]))return l;if(t==="hasOwnProperty")return gi}const i=Reflect.get(n,t,be(n)?n:r);if((on(t)?ka.has(t):hi(t))||(o||ye(n,"get",t),a))return i;if(be(i)){const l=s&&Br(t)?i:i.value;return o&&te(l)?_r(l):l}return te(i)?o?_r(i):Xt(i):i}}class Ua extends Ha{constructor(n=!1){super(!1,n)}set(n,t,r,o){let a=n[t];const s=F(n)&&Br(t);if(!this._isShallow){const f=vn(a);if(!Ue(r)&&!vn(r)&&(a=$(a),r=$(r)),!s&&be(a)&&!be(r))return f||(a.value=r),!0}const i=s?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,be(n)?n:o);return n===$(o)&&(i?An(r,a)&&un(n,"set",t,r):un(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const o=Reflect.deleteProperty(n,t);return o&&r&&un(n,"delete",t,void 0),o}has(n,t){const r=Reflect.has(n,t);return(!on(t)||!ka.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",F(n)?"length":On),Reflect.ownKeys(n)}}class yi extends Ha{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const xi=new Ua,bi=new yi,Ci=new Ua(!0);const Cr=e=>e,Et=e=>Reflect.getPrototypeOf(e);function _i(e,n,t){return function(...r){const o=this.__v_raw,a=$(o),s=Gn(a),i=e==="entries"||e===Symbol.iterator&&s,l=e==="keys"&&s,f=o[e](...r),c=t?Cr:n?Wn:Ye;return!n&&ye(a,"iterate",l?br:On),me(Object.create(f),{next(){const{value:d,done:m}=f.next();return m?{value:d,done:m}:{value:i?[c(d[0]),c(d[1])]:c(d),done:m}}})}}function Tt(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function Si(e,n){const t={get(o){const a=this.__v_raw,s=$(a),i=$(o);e||(An(o,i)&&ye(s,"get",o),ye(s,"get",i));const{has:l}=Et(s),f=n?Cr:e?Wn:Ye;if(l.call(s,o))return f(a.get(o));if(l.call(s,i))return f(a.get(i));a!==s&&a.get(o)},get size(){const o=this.__v_raw;return!e&&ye($(o),"iterate",On),o.size},has(o){const a=this.__v_raw,s=$(a),i=$(o);return e||(An(o,i)&&ye(s,"has",o),ye(s,"has",i)),o===i?a.has(o):a.has(o)||a.has(i)},forEach(o,a){const s=this,i=s.__v_raw,l=$(i),f=n?Cr:e?Wn:Ye;return!e&&ye(l,"iterate",On),i.forEach((c,d)=>o.call(a,f(c),f(d),s))}};return me(t,e?{add:Tt("add"),set:Tt("set"),delete:Tt("delete"),clear:Tt("clear")}:{add(o){!n&&!Ue(o)&&!vn(o)&&(o=$(o));const a=$(this);return Et(a).has.call(a,o)||(a.add(o),un(a,"add",o,o)),this},set(o,a){!n&&!Ue(a)&&!vn(a)&&(a=$(a));const s=$(this),{has:i,get:l}=Et(s);let f=i.call(s,o);f||(o=$(o),f=i.call(s,o));const c=l.call(s,o);return s.set(o,a),f?An(a,c)&&un(s,"set",o,a):un(s,"add",o,a),this},delete(o){const a=$(this),{has:s,get:i}=Et(a);let l=s.call(a,o);l||(o=$(o),l=s.call(a,o)),i&&i.call(a,o);const f=a.delete(o);return l&&un(a,"delete",o,void 0),f},clear(){const o=$(this),a=o.size!==0,s=o.clear();return a&&un(o,"clear",void 0,void 0),s}}),["keys","values","entries",Symbol.iterator].forEach(o=>{t[o]=_i(o,e,n)}),t}function Wr(e,n){const t=Si(e,n);return(r,o,a)=>o==="__v_isReactive"?!e:o==="__v_isReadonly"?e:o==="__v_raw"?r:Reflect.get(ne(t,o)&&o in r?t:r,o,a)}const Ei={get:Wr(!1,!1)},Ti={get:Wr(!1,!0)},Ai={get:Wr(!0,!1)};const Ba=new WeakMap,za=new WeakMap,Fa=new WeakMap,Ri=new WeakMap;function wi(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Ii(e){return e.__v_skip||!Object.isExtensible(e)?0:wi(Qs(e))}function Xt(e){return vn(e)?e:Xr(e,!1,xi,Ei,Ba)}function Ga(e){return Xr(e,!1,Ci,Ti,za)}function _r(e){return Xr(e,!0,bi,Ai,Fa)}function Xr(e,n,t,r,o){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const a=Ii(e);if(a===0)return e;const s=o.get(e);if(s)return s;const i=new Proxy(e,a===2?r:t);return o.set(e,i),i}function Ln(e){return vn(e)?Ln(e.__v_raw):!!(e&&e.__v_isReactive)}function vn(e){return!!(e&&e.__v_isReadonly)}function Ue(e){return!!(e&&e.__v_isShallow)}function qr(e){return e?!!e.__v_raw:!1}function $(e){const n=e&&e.__v_raw;return n?$(n):e}function Di(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Ea(e,"__v_skip",!0),e}const Ye=e=>te(e)?Xt(e):e,Wn=e=>te(e)?_r(e):e;function be(e){return e?e.__v_isRef===!0:!1}function Ne(e){return Va(e,!1)}function Pi(e){return Va(e,!0)}function Va(e,n){return be(e)?e:new Ni(e,n)}class Ni{constructor(n,t){this.dep=new Yr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:$(n),this._value=t?n:Ye(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||Ue(n)||vn(n);n=r?n:$(n),An(n,t)&&(this._rawValue=n,this._value=r?n:Ye(n),this.dep.trigger())}}function Pe(e){return be(e)?e.value:e}const Oi={get:(e,n,t)=>n==="__v_raw"?e:Pe(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const o=e[n];return be(o)&&!be(t)?(o.value=t,!0):Reflect.set(e,n,t,r)}};function Ka(e){return Ln(e)?e:new Proxy(e,Oi)}class Li{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Yr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=pt-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ae!==this)return Da(this,!0),!0}get value(){const n=this.dep.track();return Oa(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function Mi(e,n,t=!1){let r,o;return V(e)?r=e:(r=e.get,o=e.set),new Li(r,o,t)}const At={},Nt=new WeakMap;let Pn;function ki(e,n=!1,t=Pn){if(t){let r=Nt.get(t);r||Nt.set(t,r=[]),r.push(e)}}function Hi(e,n,t=se){const{immediate:r,deep:o,once:a,scheduler:s,augmentJob:i,call:l}=t,f=N=>o?N:Ue(N)||o===!1||o===0?Tn(N,1):Tn(N);let c,d,m,h,S=!1,_=!1;if(be(e)?(d=()=>e.value,S=Ue(e)):Ln(e)?(d=()=>f(e),S=!0):F(e)?(_=!0,S=e.some(N=>Ln(N)||Ue(N)),d=()=>e.map(N=>{if(be(N))return N.value;if(Ln(N))return f(N);if(V(N))return l?l(N,2):N()})):V(e)?n?d=l?()=>l(e,2):e:d=()=>{if(m){pn();try{m()}finally{mn()}}const N=Pn;Pn=c;try{return l?l(e,3,[h]):e(h)}finally{Pn=N}}:d=rn,n&&o){const N=d,B=o===!0?1/0:o;d=()=>Tn(N(),B)}const T=di(),R=()=>{c.stop(),T&&T.active&&Ur(T.effects,c)};if(a&&n){const N=n;n=(...B)=>{N(...B),R()}}let E=_?new Array(e.length).fill(At):At;const P=N=>{if(!(!(c.flags&1)||!c.dirty&&!N))if(n){const B=c.run();if(o||S||(_?B.some((X,W)=>An(X,E[W])):An(B,E))){m&&m();const X=Pn;Pn=c;try{const W=[B,E===At?void 0:_&&E[0]===At?[]:E,h];E=B,l?l(n,3,W):n(...W)}finally{Pn=X}}}else c.run()};return i&&i(P),c=new wa(d),c.scheduler=s?()=>s(P,!1):P,h=N=>ki(N,!1,c),m=c.onStop=()=>{const N=Nt.get(c);if(N){if(l)l(N,4);else for(const B of N)B();Nt.delete(c)}},n?r?P(!0):E=c.run():s?s(P.bind(null,!0),!0):c.run(),R.pause=c.pause.bind(c),R.resume=c.resume.bind(c),R.stop=R,R}function Tn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,be(e))Tn(e.value,n,t);else if(F(e))for(let r=0;r<e.length;r++)Tn(e[r],n,t);else if(ba(e)||Gn(e))e.forEach(r=>{Tn(r,n,t)});else if(Sa(e)){for(const r in e)Tn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Tn(e[r],n,t)}return e}/**
+**/let De;class fs{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=De,!n&&De&&(this.index=(De.scopes||(De.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=De;try{return De=this,n()}finally{De=t}}}on(){++this._on===1&&(this.prevScope=De,De=this)}off(){this._on>0&&--this._on===0&&(De=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const o=this.parent.scopes.pop();o&&o!==this&&(this.parent.scopes[this.index]=o,o.index=this.index)}this.parent=void 0}}}function ds(){return De}let ae;const or=new WeakSet;class Ra{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,De&&De.active&&De.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,or.has(this)&&(or.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Da(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,uo(this),Pa(this);const n=ae,t=Ve;ae=this,Ve=!0;try{return this.fn()}finally{Na(this),ae=n,Ve=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Kr(n);this.deps=this.depsTail=void 0,uo(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?or.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){yr(this)&&this.run()}get dirty(){return yr(this)}}let Ia=0,at,it;function Da(e,n=!1){if(e.flags|=8,n){e.next=it,it=e;return}e.next=at,at=e}function Gr(){Ia++}function Vr(){if(--Ia>0)return;if(it){let n=it;for(it=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;at;){let n=at;for(at=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Pa(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function Na(e){let n,t=e.depsTail,r=t;for(;r;){const o=r.prevDep;r.version===-1?(r===t&&(t=o),Kr(r),us(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=o}e.deps=n,e.depsTail=t}function yr(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(La(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function La(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===pt)||(e.globalVersion=pt,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!yr(e))))return;e.flags|=2;const n=e.dep,t=ae,r=Ve;ae=e,Ve=!0;try{Pa(e);const o=e.fn(e._value);(n.version===0||_n(o,e._value))&&(e.flags|=128,e._value=o,n.version++)}catch(o){throw n.version++,o}finally{ae=t,Ve=r,Na(e),e.flags&=-3}}function Kr(e,n=!1){const{dep:t,prevSub:r,nextSub:o}=e;if(r&&(r.nextSub=o,e.prevSub=void 0),o&&(o.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let a=t.computed.deps;a;a=a.nextDep)Kr(a,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function us(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let Ve=!0;const Oa=[];function pn(){Oa.push(Ve),Ve=!1}function hn(){const e=Oa.pop();Ve=e===void 0?!0:e}function uo(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ae;ae=void 0;try{n()}finally{ae=t}}}let pt=0;class ps{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Yr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ae||!Ve||ae===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ae)t=this.activeLink=new ps(ae,this),ae.deps?(t.prevDep=ae.depsTail,ae.depsTail.nextDep=t,ae.depsTail=t):ae.deps=ae.depsTail=t,ka(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ae.depsTail,t.nextDep=void 0,ae.depsTail.nextDep=t,ae.depsTail=t,ae.deps===t&&(ae.deps=r)}return t}trigger(n){this.version++,pt++,this.notify(n)}notify(n){Gr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{Vr()}}}function ka(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)ka(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const br=new WeakMap,Ln=Symbol(""),xr=Symbol(""),ht=Symbol("");function ye(e,n,t){if(Ve&&ae){let r=br.get(e);r||br.set(e,r=new Map);let o=r.get(t);o||(r.set(t,o=new Yr),o.map=r,o.key=t),o.track()}}function un(e,n,t,r,o,a){const i=br.get(e);if(!i){pt++;return}const s=l=>{l&&l.trigger()};if(Gr(),n==="clear")i.forEach(s);else{const l=F(e),f=l&&Br(t);if(l&&t==="length"){const c=Number(r);i.forEach((d,h)=>{(h==="length"||h===ht||!on(h)&&h>=c)&&s(d)})}else switch((t!==void 0||i.has(void 0))&&s(i.get(t)),f&&s(i.get(ht)),n){case"add":l?f&&s(i.get("length")):(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"delete":l||(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"set":Gn(e)&&s(i.get(Ln));break}}Vr()}function Hn(e){const n=Z(e);return n===e?n:(ye(n,"iterate",ht),ze(e)?n:n.map(Ye))}function Wt(e){return ye(e=Z(e),"iterate",ht),e}function En(e,n){return mn(e)?Wn(On(e)?Ye(n):n):Ye(n)}const hs={__proto__:null,[Symbol.iterator](){return ar(this,Symbol.iterator,e=>En(this,e))},concat(...e){return Hn(this).concat(...e.map(n=>F(n)?Hn(n):n))},entries(){return ar(this,"entries",e=>(e[1]=En(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>En(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>En(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>En(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return ir(this,"includes",e)},indexOf(...e){return ir(this,"indexOf",e)},join(e){return Hn(this).join(e)},lastIndexOf(...e){return ir(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return $n(this,"pop")},push(...e){return $n(this,"push",e)},reduce(e,...n){return po(this,"reduce",e,n)},reduceRight(e,...n){return po(this,"reduceRight",e,n)},shift(){return $n(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return $n(this,"splice",e)},toReversed(){return Hn(this).toReversed()},toSorted(e){return Hn(this).toSorted(e)},toSpliced(...e){return Hn(this).toSpliced(...e)},unshift(...e){return $n(this,"unshift",e)},values(){return ar(this,"values",e=>En(this,e))}};function ar(e,n,t){const r=Wt(e),o=r[n]();return r!==e&&!ze(e)&&(o._next=o.next,o.next=()=>{const a=o._next();return a.done||(a.value=t(a.value)),a}),o}const ms=Array.prototype;function ln(e,n,t,r,o,a){const i=Wt(e),s=i!==e&&!ze(e),l=i[n];if(l!==ms[n]){const d=l.apply(e,a);return s?Ye(d):d}let f=t;i!==e&&(s?f=function(d,h){return t.call(this,En(e,d),h,e)}:t.length>2&&(f=function(d,h){return t.call(this,d,h,e)}));const c=l.call(i,f,r);return s&&o?o(c):c}function po(e,n,t,r){const o=Wt(e);let a=t;return o!==e&&(ze(e)?t.length>3&&(a=function(i,s,l){return t.call(this,i,s,l,e)}):a=function(i,s,l){return t.call(this,i,En(e,s),l,e)}),o[n](a,...r)}function ir(e,n,t){const r=Z(e);ye(r,"iterate",ht);const o=r[n](...t);return(o===-1||o===!1)&&Xr(t[0])?(t[0]=Z(t[0]),r[n](...t)):o}function $n(e,n,t=[]){pn(),Gr();const r=Z(e)[n].apply(e,t);return Vr(),hn(),r}const vs=Mr("__proto__,__v_isRef,__isVue"),Ma=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(on));function gs(e){on(e)||(e=String(e));const n=Z(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Ha{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const o=this._isReadonly,a=this._isShallow;if(t==="__v_isReactive")return!o;if(t==="__v_isReadonly")return o;if(t==="__v_isShallow")return a;if(t==="__v_raw")return r===(o?a?As:Fa:a?Ua:Ba).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const i=F(n);if(!o){let l;if(i&&(l=hs[t]))return l;if(t==="hasOwnProperty")return gs}const s=Reflect.get(n,t,xe(n)?n:r);if((on(t)?Ma.has(t):vs(t))||(o||ye(n,"get",t),a))return s;if(xe(s)){const l=i&&Br(t)?s:s.value;return o&&te(l)?Er(l):l}return te(s)?o?Er(s):qt(s):s}}class za extends Ha{constructor(n=!1){super(!1,n)}set(n,t,r,o){let a=n[t];const i=F(n)&&Br(t);if(!this._isShallow){const f=mn(a);if(!ze(r)&&!mn(r)&&(a=Z(a),r=Z(r)),!i&&xe(a)&&!xe(r))return f||(a.value=r),!0}const s=i?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,xe(n)?n:o);return n===Z(o)&&(s?_n(r,a)&&un(n,"set",t,r):un(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const o=Reflect.deleteProperty(n,t);return o&&r&&un(n,"delete",t,void 0),o}has(n,t){const r=Reflect.has(n,t);return(!on(t)||!Ma.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",F(n)?"length":Ln),Reflect.ownKeys(n)}}class ys extends Ha{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const bs=new za,xs=new ys,ws=new za(!0);const wr=e=>e,Ct=e=>Reflect.getPrototypeOf(e);function Es(e,n,t){return function(...r){const o=this.__v_raw,a=Z(o),i=Gn(a),s=e==="entries"||e===Symbol.iterator&&i,l=e==="keys"&&i,f=o[e](...r),c=t?wr:n?Wn:Ye;return!n&&ye(a,"iterate",l?xr:Ln),he(Object.create(f),{next(){const{value:d,done:h}=f.next();return h?{value:d,done:h}:{value:s?[c(d[0]),c(d[1])]:c(d),done:h}}})}}function Tt(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function Ss(e,n){const t={get(o){const a=this.__v_raw,i=Z(a),s=Z(o);e||(_n(o,s)&&ye(i,"get",o),ye(i,"get",s));const{has:l}=Ct(i),f=n?wr:e?Wn:Ye;if(l.call(i,o))return f(a.get(o));if(l.call(i,s))return f(a.get(s));a!==i&&a.get(o)},get size(){const o=this.__v_raw;return!e&&ye(Z(o),"iterate",Ln),o.size},has(o){const a=this.__v_raw,i=Z(a),s=Z(o);return e||(_n(o,s)&&ye(i,"has",o),ye(i,"has",s)),o===s?a.has(o):a.has(o)||a.has(s)},forEach(o,a){const i=this,s=i.__v_raw,l=Z(s),f=n?wr:e?Wn:Ye;return!e&&ye(l,"iterate",Ln),s.forEach((c,d)=>o.call(a,f(c),f(d),i))}};return he(t,e?{add:Tt("add"),set:Tt("set"),delete:Tt("delete"),clear:Tt("clear")}:{add(o){!n&&!ze(o)&&!mn(o)&&(o=Z(o));const a=Z(this);return Ct(a).has.call(a,o)||(a.add(o),un(a,"add",o,o)),this},set(o,a){!n&&!ze(a)&&!mn(a)&&(a=Z(a));const i=Z(this),{has:s,get:l}=Ct(i);let f=s.call(i,o);f||(o=Z(o),f=s.call(i,o));const c=l.call(i,o);return i.set(o,a),f?_n(a,c)&&un(i,"set",o,a):un(i,"add",o,a),this},delete(o){const a=Z(this),{has:i,get:s}=Ct(a);let l=i.call(a,o);l||(o=Z(o),l=i.call(a,o)),s&&s.call(a,o);const f=a.delete(o);return l&&un(a,"delete",o,void 0),f},clear(){const o=Z(this),a=o.size!==0,i=o.clear();return a&&un(o,"clear",void 0,void 0),i}}),["keys","values","entries",Symbol.iterator].forEach(o=>{t[o]=Es(o,e,n)}),t}function Wr(e,n){const t=Ss(e,n);return(r,o,a)=>o==="__v_isReactive"?!e:o==="__v_isReadonly"?e:o==="__v_raw"?r:Reflect.get(ne(t,o)&&o in r?t:r,o,a)}const Cs={get:Wr(!1,!1)},Ts={get:Wr(!1,!0)},_s={get:Wr(!0,!1)};const Ba=new WeakMap,Ua=new WeakMap,Fa=new WeakMap,As=new WeakMap;function Rs(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Is(e){return e.__v_skip||!Object.isExtensible(e)?0:Rs($i(e))}function qt(e){return mn(e)?e:qr(e,!1,bs,Cs,Ba)}function Ga(e){return qr(e,!1,ws,Ts,Ua)}function Er(e){return qr(e,!0,xs,_s,Fa)}function qr(e,n,t,r,o){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const a=Is(e);if(a===0)return e;const i=o.get(e);if(i)return i;const s=new Proxy(e,a===2?r:t);return o.set(e,s),s}function On(e){return mn(e)?On(e.__v_raw):!!(e&&e.__v_isReactive)}function mn(e){return!!(e&&e.__v_isReadonly)}function ze(e){return!!(e&&e.__v_isShallow)}function Xr(e){return e?!!e.__v_raw:!1}function Z(e){const n=e&&e.__v_raw;return n?Z(n):e}function Ds(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Ca(e,"__v_skip",!0),e}const Ye=e=>te(e)?qt(e):e,Wn=e=>te(e)?Er(e):e;function xe(e){return e?e.__v_isRef===!0:!1}function Ne(e){return Va(e,!1)}function Ps(e){return Va(e,!0)}function Va(e,n){return xe(e)?e:new Ns(e,n)}class Ns{constructor(n,t){this.dep=new Yr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:Z(n),this._value=t?n:Ye(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||ze(n)||mn(n);n=r?n:Z(n),_n(n,t)&&(this._rawValue=n,this._value=r?n:Ye(n),this.dep.trigger())}}function Pe(e){return xe(e)?e.value:e}const Ls={get:(e,n,t)=>n==="__v_raw"?e:Pe(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const o=e[n];return xe(o)&&!xe(t)?(o.value=t,!0):Reflect.set(e,n,t,r)}};function Ka(e){return On(e)?e:new Proxy(e,Ls)}class Os{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Yr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=pt-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ae!==this)return Da(this,!0),!0}get value(){const n=this.dep.track();return La(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function ks(e,n,t=!1){let r,o;return V(e)?r=e:(r=e.get,o=e.set),new Os(r,o,t)}const _t={},Nt=new WeakMap;let Pn;function Ms(e,n=!1,t=Pn){if(t){let r=Nt.get(t);r||Nt.set(t,r=[]),r.push(e)}}function Hs(e,n,t=ie){const{immediate:r,deep:o,once:a,scheduler:i,augmentJob:s,call:l}=t,f=N=>o?N:ze(N)||o===!1||o===0?Tn(N,1):Tn(N);let c,d,h,v,S=!1,E=!1;if(xe(e)?(d=()=>e.value,S=ze(e)):On(e)?(d=()=>f(e),S=!0):F(e)?(E=!0,S=e.some(N=>On(N)||ze(N)),d=()=>e.map(N=>{if(xe(N))return N.value;if(On(N))return f(N);if(V(N))return l?l(N,2):N()})):V(e)?n?d=l?()=>l(e,2):e:d=()=>{if(h){pn();try{h()}finally{hn()}}const N=Pn;Pn=c;try{return l?l(e,3,[v]):e(v)}finally{Pn=N}}:d=rn,n&&o){const N=d,B=o===!0?1/0:o;d=()=>Tn(N(),B)}const T=ds(),A=()=>{c.stop(),T&&T.active&&zr(T.effects,c)};if(a&&n){const N=n;n=(...B)=>{N(...B),A()}}let C=E?new Array(e.length).fill(_t):_t;const P=N=>{if(!(!(c.flags&1)||!c.dirty&&!N))if(n){const B=c.run();if(o||S||(E?B.some((q,W)=>_n(q,C[W])):_n(B,C))){h&&h();const q=Pn;Pn=c;try{const W=[B,C===_t?void 0:E&&C[0]===_t?[]:C,v];C=B,l?l(n,3,W):n(...W)}finally{Pn=q}}}else c.run()};return s&&s(P),c=new Ra(d),c.scheduler=i?()=>i(P,!1):P,v=N=>Ms(N,!1,c),h=c.onStop=()=>{const N=Nt.get(c);if(N){if(l)l(N,4);else for(const B of N)B();Nt.delete(c)}},n?r?P(!0):C=c.run():i?i(P.bind(null,!0),!0):c.run(),A.pause=c.pause.bind(c),A.resume=c.resume.bind(c),A.stop=A,A}function Tn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,xe(e))Tn(e.value,n,t);else if(F(e))for(let r=0;r<e.length;r++)Tn(e[r],n,t);else if(xa(e)||Gn(e))e.forEach(r=>{Tn(r,n,t)});else if(Sa(e)){for(const r in e)Tn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Tn(e[r],n,t)}return e}/**
 * @vue/runtime-core v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function Ct(e,n,t,r){try{return r?e(...r):e()}catch(o){qt(o,n,t)}}function We(e,n,t,r){if(V(e)){const o=Ct(e,n,t,r);return o&&Ca(o)&&o.catch(a=>{qt(a,n,t)}),o}if(F(e)){const o=[];for(let a=0;a<e.length;a++)o.push(We(e[a],n,t,r));return o}}function qt(e,n,t,r=!0){const o=n?n.vnode:null,{errorHandler:a,throwUnhandledErrorInProduction:s}=n&&n.appContext.config||se;if(n){let i=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;i;){const c=i.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}i=i.parent}if(a){pn(),Ct(a,null,10,[e,l,f]),mn();return}}Ui(e,t,o,r,s)}function Ui(e,n,t,r=!0,o=!1){if(o)throw e;console.error(e)}const Ee=[];let nn=-1;const Vn=[];let Sn=null,Un=0;const Ya=Promise.resolve();let Ot=null;function Wa(e){const n=Ot||Ya;return e?n.then(this?e.bind(this):e):n}function Bi(e){let n=nn+1,t=Ee.length;for(;n<t;){const r=n+t>>>1,o=Ee[r],a=vt(o);a<e||a===e&&o.flags&2?n=r+1:t=r}return n}function jr(e){if(!(e.flags&1)){const n=vt(e),t=Ee[Ee.length-1];!t||!(e.flags&2)&&n>=vt(t)?Ee.push(e):Ee.splice(Bi(n),0,e),e.flags|=1,Xa()}}function Xa(){Ot||(Ot=Ya.then(ja))}function zi(e){F(e)?Vn.push(...e):Sn&&e.id===-1?Sn.splice(Un+1,0,e):e.flags&1||(Vn.push(e),e.flags|=1),Xa()}function mo(e,n,t=nn+1){for(;t<Ee.length;t++){const r=Ee[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;Ee.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function qa(e){if(Vn.length){const n=[...new Set(Vn)].sort((t,r)=>vt(t)-vt(r));if(Vn.length=0,Sn){Sn.push(...n);return}for(Sn=n,Un=0;Un<Sn.length;Un++){const t=Sn[Un];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}Sn=null,Un=0}}const vt=e=>e.id==null?e.flags&2?-1:1/0:e.id;function ja(e){try{for(nn=0;nn<Ee.length;nn++){const n=Ee[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),Ct(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<Ee.length;nn++){const n=Ee[nn];n&&(n.flags&=-2)}nn=-1,Ee.length=0,qa(),Ot=null,(Ee.length||Vn.length)&&ja()}}let Ge=null,Za=null;function Lt(e){const n=Ge;return Ge=e,Za=e&&e.type.__scopeId||null,n}function Zr(e,n=Ge,t){if(!n||e._n)return e;const r=(...o)=>{r._d&&Ht(-1);const a=Lt(n);let s;try{s=e(...o)}finally{Lt(a),r._d&&Ht(1)}return s};return r._n=!0,r._c=!0,r._d=!0,r}function wn(e,n,t,r){const o=e.dirs,a=n&&n.dirs;for(let s=0;s<o.length;s++){const i=o[s];a&&(i.oldValue=a[s].value);let l=i.dir[r];l&&(pn(),We(l,t,8,[e.el,i,e,n]),mn())}}function wt(e,n){if(xe){let t=xe.provides;const r=xe.parent&&xe.parent.provides;r===t&&(t=xe.provides=Object.create(r)),t[e]=n}}function Ke(e,n,t=!1){const r=As();if(r||Kn){let o=Kn?Kn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(o&&e in o)return o[e];if(arguments.length>1)return t&&V(n)?n.call(r&&r.proxy):n}}const Fi=Symbol.for("v-scx"),Gi=()=>Ke(Fi);function it(e,n,t){return $a(e,n,t)}function $a(e,n,t=se){const{immediate:r,deep:o,flush:a,once:s}=t,i=me({},t),l=n&&r||!n&&a!=="post";let f;if(yt){if(a==="sync"){const h=Gi();f=h.__watcherHandles||(h.__watcherHandles=[])}else if(!l){const h=()=>{};return h.stop=rn,h.resume=rn,h.pause=rn,h}}const c=xe;i.call=(h,S,_)=>We(h,c,S,_);let d=!1;a==="post"?i.scheduler=h=>{Ie(h,c&&c.suspense)}:a!=="sync"&&(d=!0,i.scheduler=(h,S)=>{S?h():jr(h)}),i.augmentJob=h=>{n&&(h.flags|=4),d&&(h.flags|=2,c&&(h.id=c.uid,h.i=c))};const m=Hi(e,n,i);return yt&&(f?f.push(m):l&&m()),m}function Vi(e,n,t){const r=this.proxy,o=de(e)?e.includes(".")?Qa(r,e):()=>r[e]:e.bind(r,r);let a;V(n)?a=n:(a=n.handler,t=n);const s=_t(this),i=$a(o,a.bind(r),t);return s(),i}function Qa(e,n){const t=n.split(".");return()=>{let r=e;for(let o=0;o<t.length&&r;o++)r=r[t[o]];return r}}const Ki=Symbol("_vte"),Yi=e=>e.__isTeleport,bn=Symbol("_leaveCb"),Jn=Symbol("_enterCb");function Wi(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Zn(()=>{e.isMounted=!0}),os(()=>{e.isUnmounting=!0}),e}const ke=[Function,Array],Xi={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:ke,onEnter:ke,onAfterEnter:ke,onEnterCancelled:ke,onBeforeLeave:ke,onLeave:ke,onAfterLeave:ke,onLeaveCancelled:ke,onBeforeAppear:ke,onAppear:ke,onAfterAppear:ke,onAppearCancelled:ke};function qi(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function Sr(e,n,t,r,o){const{appear:a,mode:s,persisted:i=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:m,onLeave:h,onAfterLeave:S,onLeaveCancelled:_,onBeforeAppear:T,onAppear:R,onAfterAppear:E,onAppearCancelled:P}=n,N=String(e.key),B=qi(t,e),X=(z,K)=>{z&&We(z,r,9,K)},W=(z,K)=>{const Q=K[1];X(z,K),F(z)?z.every(L=>L.length<=1)&&Q():z.length<=1&&Q()},ue={mode:s,persisted:i,beforeEnter(z){let K=l;if(!t.isMounted)if(a)K=T||l;else return;z[bn]&&z[bn](!0);const Q=B[N];Q&&Bn(e,Q)&&Q.el[bn]&&Q.el[bn](),X(K,[z])},enter(z){let K=f,Q=c,L=d;if(!t.isMounted)if(a)K=R||f,Q=E||c,L=P||d;else return;let Z=!1;z[Jn]=he=>{Z||(Z=!0,he?X(L,[z]):X(Q,[z]),ue.delayedLeave&&ue.delayedLeave(),z[Jn]=void 0)};const ie=z[Jn].bind(null,!1);K?W(K,[z,ie]):ie()},leave(z,K){const Q=String(e.key);if(z[Jn]&&z[Jn](!0),t.isUnmounting)return K();X(m,[z]);let L=!1;z[bn]=ie=>{L||(L=!0,K(),ie?X(_,[z]):X(S,[z]),z[bn]=void 0,B[Q]===e&&delete B[Q])};const Z=z[bn].bind(null,!1);B[Q]=e,h?W(h,[z,Z]):Z()},clone(z){return Sr(z,n,t,r)}};return ue}function ht(e,n){e.shapeFlag&6&&e.component?(e.transition=n,ht(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function Ja(e,n=!1,t){let r=[],o=0;for(let a=0;a<e.length;a++){let s=e[a];const i=t==null?s.key:String(t)+String(s.key!=null?s.key:a);s.type===Te?(s.patchFlag&128&&o++,r=r.concat(Ja(s.children,n,i))):(n||s.type!==hn)&&r.push(i!=null?Mn(s,{key:i}):s)}if(o>1)for(let a=0;a<r.length;a++)r[a].patchFlag=-2;return r}function Rn(e,n){return V(e)?me({name:e.name},n,{setup:e}):e}function es(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function vo(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const Mt=new WeakMap;function lt(e,n,t,r,o=!1){if(F(e)){e.forEach((_,T)=>lt(_,n&&(F(n)?n[T]:n),t,r,o));return}if(ct(r)&&!o){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&lt(e,n,t,r.component.subTree);return}const a=r.shapeFlag&4?to(r.component):r.el,s=o?null:a,{i,r:l}=e,f=n&&n.r,c=i.refs===se?i.refs={}:i.refs,d=i.setupState,m=$(d),h=d===se?xa:_=>vo(c,_)?!1:ne(m,_),S=(_,T)=>!(T&&vo(c,T));if(f!=null&&f!==l){if(ho(n),de(f))c[f]=null,h(f)&&(d[f]=null);else if(be(f)){const _=n;S(f,_.k)&&(f.value=null),_.k&&(c[_.k]=null)}}if(V(l))Ct(l,i,12,[s,c]);else{const _=de(l),T=be(l);if(_||T){const R=()=>{if(e.f){const E=_?h(l)?d[l]:c[l]:S()||!e.k?l.value:c[e.k];if(o)F(E)&&Ur(E,a);else if(F(E))E.includes(a)||E.push(a);else if(_)c[l]=[a],h(l)&&(d[l]=c[l]);else{const P=[a];S(l,e.k)&&(l.value=P),e.k&&(c[e.k]=P)}}else _?(c[l]=s,h(l)&&(d[l]=s)):T&&(S(l,e.k)&&(l.value=s),e.k&&(c[e.k]=s))};if(s){const E=()=>{R(),Mt.delete(e)};E.id=-1,Mt.set(e,E),Ie(E,t)}else ho(e),R()}}}function ho(e){const n=Mt.get(e);n&&(n.flags|=8,Mt.delete(e))}Yt().requestIdleCallback;Yt().cancelIdleCallback;const ct=e=>!!e.type.__asyncLoader,ns=e=>e.type.__isKeepAlive;function ji(e,n){ts(e,"a",n)}function Zi(e,n){ts(e,"da",n)}function ts(e,n,t=xe){const r=e.__wdc||(e.__wdc=()=>{let o=t;for(;o;){if(o.isDeactivated)return;o=o.parent}return e()});if(jt(n,r,t),t){let o=t.parent;for(;o&&o.parent;)ns(o.parent.vnode)&&$i(r,n,t,o),o=o.parent}}function $i(e,n,t,r){const o=jt(n,e,r,!0);Zt(()=>{Ur(r[n],o)},t)}function jt(e,n,t=xe,r=!1){if(t){const o=t[e]||(t[e]=[]),a=n.__weh||(n.__weh=(...s)=>{pn();const i=_t(t),l=We(n,t,e,s);return i(),mn(),l});return r?o.unshift(a):o.push(a),a}}const gn=e=>(n,t=xe)=>{(!yt||e==="sp")&&jt(e,(...r)=>n(...r),t)},Qi=gn("bm"),Zn=gn("m"),Ji=gn("bu"),rs=gn("u"),os=gn("bum"),Zt=gn("um"),el=gn("sp"),nl=gn("rtg"),tl=gn("rtc");function rl(e,n=xe){jt("ec",e,n)}const ol="components";function as(e,n){return sl(ol,e,!0,n)||e}const al=Symbol.for("v-ndc");function sl(e,n,t=!0,r=!1){const o=Ge||xe;if(o){const a=o.type;{const i=Wl(a,!1);if(i&&(i===n||i===ze(n)||i===Kt(ze(n))))return a}const s=go(o[e]||a[e],n)||go(o.appContext[e],n);return!s&&r?a:s}}function go(e,n){return e&&(e[n]||e[ze(n)]||e[Kt(ze(n))])}function $r(e,n,t,r){let o;const a=t,s=F(e);if(s||de(e)){const i=s&&Ln(e);let l=!1,f=!1;i&&(l=!Ue(e),f=vn(e),e=Wt(e)),o=new Array(e.length);for(let c=0,d=e.length;c<d;c++)o[c]=n(l?f?Wn(Ye(e[c])):Ye(e[c]):e[c],c,void 0,a)}else if(typeof e=="number"){o=new Array(e);for(let i=0;i<e;i++)o[i]=n(i+1,i,void 0,a)}else if(te(e))if(e[Symbol.iterator])o=Array.from(e,(i,l)=>n(i,l,void 0,a));else{const i=Object.keys(e);o=new Array(i.length);for(let l=0,f=i.length;l<f;l++){const c=i[l];o[l]=n(e[c],c,l,a)}}else o=[];return o}const Er=e=>e?Rs(e)?to(e):Er(e.parent):null,ft=me(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>Er(e.parent),$root:e=>Er(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>is(e),$forceUpdate:e=>e.f||(e.f=()=>{jr(e.update)}),$nextTick:e=>e.n||(e.n=Wa.bind(e.proxy)),$watch:e=>Vi.bind(e)}),ir=(e,n)=>e!==se&&!e.__isScriptSetup&&ne(e,n),il={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:o,props:a,accessCache:s,type:i,appContext:l}=e;if(n[0]!=="$"){const m=s[n];if(m!==void 0)switch(m){case 1:return r[n];case 2:return o[n];case 4:return t[n];case 3:return a[n]}else{if(ir(r,n))return s[n]=1,r[n];if(o!==se&&ne(o,n))return s[n]=2,o[n];if(ne(a,n))return s[n]=3,a[n];if(t!==se&&ne(t,n))return s[n]=4,t[n];Tr&&(s[n]=0)}}const f=ft[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=i.__cssModules)&&(c=c[n]))return c;if(t!==se&&ne(t,n))return s[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:o,ctx:a}=e;return ir(o,n)?(o[n]=t,!0):r!==se&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(a[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:o,props:a,type:s}},i){let l;return!!(t[i]||e!==se&&i[0]!=="$"&&ne(e,i)||ir(n,i)||ne(a,i)||ne(r,i)||ne(ft,i)||ne(o.config.globalProperties,i)||(l=s.__cssModules)&&l[i])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function yo(e){return F(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Tr=!0;function ll(e){const n=is(e),t=e.proxy,r=e.ctx;Tr=!1,n.beforeCreate&&xo(n.beforeCreate,e,"bc");const{data:o,computed:a,methods:s,watch:i,provide:l,inject:f,created:c,beforeMount:d,mounted:m,beforeUpdate:h,updated:S,activated:_,deactivated:T,beforeDestroy:R,beforeUnmount:E,destroyed:P,unmounted:N,render:B,renderTracked:X,renderTriggered:W,errorCaptured:ue,serverPrefetch:z,expose:K,inheritAttrs:Q,components:L,directives:Z,filters:ie}=n;if(f&&cl(f,r,null),s)for(const J in s){const Y=s[J];V(Y)&&(r[J]=Y.bind(t))}if(o){const J=o.call(t,t);te(J)&&(e.data=Xt(J))}if(Tr=!0,a)for(const J in a){const Y=a[J],Fe=V(Y)?Y.bind(t,t):V(Y.get)?Y.get.bind(t,t):rn,qe=!V(Y)&&V(Y.set)?Y.set.bind(t):rn,fe=He({get:Fe,set:qe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>fe.value,set:ge=>fe.value=ge})}if(i)for(const J in i)ss(i[J],r,t,J);if(l){const J=V(l)?l.call(t):l;Reflect.ownKeys(J).forEach(Y=>{wt(Y,J[Y])})}c&&xo(c,e,"c");function le(J,Y){F(Y)?Y.forEach(Fe=>J(Fe.bind(t))):Y&&J(Y.bind(t))}if(le(Qi,d),le(Zn,m),le(Ji,h),le(rs,S),le(ji,_),le(Zi,T),le(rl,ue),le(tl,X),le(nl,W),le(os,E),le(Zt,N),le(el,z),F(K))if(K.length){const J=e.exposed||(e.exposed={});K.forEach(Y=>{Object.defineProperty(J,Y,{get:()=>t[Y],set:Fe=>t[Y]=Fe,enumerable:!0})})}else e.exposed||(e.exposed={});B&&e.render===rn&&(e.render=B),Q!=null&&(e.inheritAttrs=Q),L&&(e.components=L),Z&&(e.directives=Z),z&&es(e)}function cl(e,n,t=rn){F(e)&&(e=Ar(e));for(const r in e){const o=e[r];let a;te(o)?"default"in o?a=Ke(o.from||r,o.default,!0):a=Ke(o.from||r):a=Ke(o),be(a)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>a.value,set:s=>a.value=s}):n[r]=a}}function xo(e,n,t){We(F(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function ss(e,n,t,r){let o=r.includes(".")?Qa(t,r):()=>t[r];if(de(e)){const a=n[e];V(a)&&it(o,a)}else if(V(e))it(o,e.bind(t));else if(te(e))if(F(e))e.forEach(a=>ss(a,n,t,r));else{const a=V(e.handler)?e.handler.bind(t):n[e.handler];V(a)&&it(o,a,e)}}function is(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:o,optionsCache:a,config:{optionMergeStrategies:s}}=e.appContext,i=a.get(n);let l;return i?l=i:!o.length&&!t&&!r?l=n:(l={},o.length&&o.forEach(f=>kt(l,f,s,!0)),kt(l,n,s)),te(n)&&a.set(n,l),l}function kt(e,n,t,r=!1){const{mixins:o,extends:a}=n;a&&kt(e,a,t,!0),o&&o.forEach(s=>kt(e,s,t,!0));for(const s in n)if(!(r&&s==="expose")){const i=fl[s]||t&&t[s];e[s]=i?i(e[s],n[s]):n[s]}return e}const fl={data:bo,props:Co,emits:Co,methods:tt,computed:tt,beforeCreate:_e,created:_e,beforeMount:_e,mounted:_e,beforeUpdate:_e,updated:_e,beforeDestroy:_e,beforeUnmount:_e,destroyed:_e,unmounted:_e,activated:_e,deactivated:_e,errorCaptured:_e,serverPrefetch:_e,components:tt,directives:tt,watch:ul,provide:bo,inject:dl};function bo(e,n){return n?e?function(){return me(V(e)?e.call(this,this):e,V(n)?n.call(this,this):n)}:n:e}function dl(e,n){return tt(Ar(e),Ar(n))}function Ar(e){if(F(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function _e(e,n){return e?[...new Set([].concat(e,n))]:n}function tt(e,n){return e?me(Object.create(null),e,n):n}function Co(e,n){return e?F(e)&&F(n)?[...new Set([...e,...n])]:me(Object.create(null),yo(e),yo(n??{})):n}function ul(e,n){if(!e)return n;if(!n)return e;const t=me(Object.create(null),e);for(const r in n)t[r]=_e(e[r],n[r]);return t}function ls(){return{app:null,config:{isNativeTag:xa,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let pl=0;function ml(e,n){return function(r,o=null){V(r)||(r=me({},r)),o!=null&&!te(o)&&(o=null);const a=ls(),s=new WeakSet,i=[];let l=!1;const f=a.app={_uid:pl++,_component:r,_props:o,_container:null,_context:a,_instance:null,version:ql,get config(){return a.config},set config(c){},use(c,...d){return s.has(c)||(c&&V(c.install)?(s.add(c),c.install(f,...d)):V(c)&&(s.add(c),c(f,...d))),f},mixin(c){return a.mixins.includes(c)||a.mixins.push(c),f},component(c,d){return d?(a.components[c]=d,f):a.components[c]},directive(c,d){return d?(a.directives[c]=d,f):a.directives[c]},mount(c,d,m){if(!l){const h=f._ceVNode||pe(r,o);return h.appContext=a,m===!0?m="svg":m===!1&&(m=void 0),e(h,c,m),l=!0,f._container=c,c.__vue_app__=f,to(h.component)}},onUnmount(c){i.push(c)},unmount(){l&&(We(i,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return a.provides[c]=d,f},runWithContext(c){const d=Kn;Kn=f;try{return c()}finally{Kn=d}}};return f}}let Kn=null;const vl=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${ze(n)}Modifiers`]||e[`${kn(n)}Modifiers`];function hl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||se;let o=t;const a=n.startsWith("update:"),s=a&&vl(r,n.slice(7));s&&(s.trim&&(o=t.map(c=>de(c)?c.trim():c)),s.number&&(o=t.map(ni)));let i,l=r[i=nr(n)]||r[i=nr(ze(n))];!l&&a&&(l=r[i=nr(kn(n))]),l&&We(l,e,6,o);const f=r[i+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[i])return;e.emitted[i]=!0,We(f,e,6,o)}}const gl=new WeakMap;function cs(e,n,t=!1){const r=t?gl:n.emitsCache,o=r.get(e);if(o!==void 0)return o;const a=e.emits;let s={},i=!1;if(!V(e)){const l=f=>{const c=cs(f,n,!0);c&&(i=!0,me(s,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!a&&!i?(te(e)&&r.set(e,null),null):(F(a)?a.forEach(l=>s[l]=null):me(s,a),te(e)&&r.set(e,s),s)}function $t(e,n){return!e||!Gt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,kn(n))||ne(e,n))}function _o(e){const{type:n,vnode:t,proxy:r,withProxy:o,propsOptions:[a],slots:s,attrs:i,emit:l,render:f,renderCache:c,props:d,data:m,setupState:h,ctx:S,inheritAttrs:_}=e,T=Lt(e);let R,E;try{if(t.shapeFlag&4){const N=o||r,B=N;R=tn(f.call(B,N,c,d,h,m,S)),E=i}else{const N=n;R=tn(N.length>1?N(d,{attrs:i,slots:s,emit:l}):N(d,null)),E=n.props?i:yl(i)}}catch(N){dt.length=0,qt(N,e,1),R=pe(hn)}let P=R;if(E&&_!==!1){const N=Object.keys(E),{shapeFlag:B}=P;N.length&&B&7&&(a&&N.some(Hr)&&(E=xl(E,a)),P=Mn(P,E,!1,!0))}return t.dirs&&(P=Mn(P,null,!1,!0),P.dirs=P.dirs?P.dirs.concat(t.dirs):t.dirs),t.transition&&ht(P,t.transition),R=P,Lt(T),R}const yl=e=>{let n;for(const t in e)(t==="class"||t==="style"||Gt(t))&&((n||(n={}))[t]=e[t]);return n},xl=(e,n)=>{const t={};for(const r in e)(!Hr(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function bl(e,n,t){const{props:r,children:o,component:a}=e,{props:s,children:i,patchFlag:l}=n,f=a.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?So(r,s,f):!!s;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const m=c[d];if(fs(s,r,m)&&!$t(f,m))return!0}}}else return(o||i)&&(!i||!i.$stable)?!0:r===s?!1:r?s?So(r,s,f):!0:!!s;return!1}function So(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let o=0;o<r.length;o++){const a=r[o];if(fs(n,e,a)&&!$t(t,a))return!0}return!1}function fs(e,n,t){const r=e[t],o=n[t];return t==="style"&&te(r)&&te(o)?!Fr(r,o):r!==o}function Cl({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const ds={},us=()=>Object.create(ds),ps=e=>Object.getPrototypeOf(e)===ds;function _l(e,n,t,r=!1){const o={},a=us();e.propsDefaults=Object.create(null),ms(e,n,o,a);for(const s in e.propsOptions[0])s in o||(o[s]=void 0);t?e.props=r?o:Ga(o):e.type.props?e.props=o:e.props=a,e.attrs=a}function Sl(e,n,t,r){const{props:o,attrs:a,vnode:{patchFlag:s}}=e,i=$(o),[l]=e.propsOptions;let f=!1;if((r||s>0)&&!(s&16)){if(s&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let m=c[d];if($t(e.emitsOptions,m))continue;const h=n[m];if(l)if(ne(a,m))h!==a[m]&&(a[m]=h,f=!0);else{const S=ze(m);o[S]=Rr(l,i,S,h,e,!1)}else h!==a[m]&&(a[m]=h,f=!0)}}}else{ms(e,n,o,a)&&(f=!0);let c;for(const d in i)(!n||!ne(n,d)&&((c=kn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(o[d]=Rr(l,i,d,void 0,e,!0)):delete o[d]);if(a!==i)for(const d in a)(!n||!ne(n,d))&&(delete a[d],f=!0)}f&&un(e.attrs,"set","")}function ms(e,n,t,r){const[o,a]=e.propsOptions;let s=!1,i;if(n)for(let l in n){if(rt(l))continue;const f=n[l];let c;o&&ne(o,c=ze(l))?!a||!a.includes(c)?t[c]=f:(i||(i={}))[c]=f:$t(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,s=!0)}if(a){const l=$(t),f=i||se;for(let c=0;c<a.length;c++){const d=a[c];t[d]=Rr(o,l,d,f[d],e,!ne(f,d))}}return s}function Rr(e,n,t,r,o,a){const s=e[t];if(s!=null){const i=ne(s,"default");if(i&&r===void 0){const l=s.default;if(s.type!==Function&&!s.skipFactory&&V(l)){const{propsDefaults:f}=o;if(t in f)r=f[t];else{const c=_t(o);r=f[t]=l.call(null,n),c()}}else r=l;o.ce&&o.ce._setProp(t,r)}s[0]&&(a&&!i?r=!1:s[1]&&(r===""||r===kn(t))&&(r=!0))}return r}const El=new WeakMap;function vs(e,n,t=!1){const r=t?El:n.propsCache,o=r.get(e);if(o)return o;const a=e.props,s={},i=[];let l=!1;if(!V(e)){const c=d=>{l=!0;const[m,h]=vs(d,n,!0);me(s,m),h&&i.push(...h)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!a&&!l)return te(e)&&r.set(e,Fn),Fn;if(F(a))for(let c=0;c<a.length;c++){const d=ze(a[c]);Eo(d)&&(s[d]=se)}else if(a)for(const c in a){const d=ze(c);if(Eo(d)){const m=a[c],h=s[d]=F(m)||V(m)?{type:m}:me({},m),S=h.type;let _=!1,T=!0;if(F(S))for(let R=0;R<S.length;++R){const E=S[R],P=V(E)&&E.name;if(P==="Boolean"){_=!0;break}else P==="String"&&(T=!1)}else _=V(S)&&S.name==="Boolean";h[0]=_,h[1]=T,(_||ne(h,"default"))&&i.push(d)}}const f=[s,i];return te(e)&&r.set(e,f),f}function Eo(e){return e[0]!=="$"&&!rt(e)}const Qr=e=>e==="_"||e==="_ctx"||e==="$stable",Jr=e=>F(e)?e.map(tn):[tn(e)],Tl=(e,n,t)=>{if(n._n)return n;const r=Zr((...o)=>Jr(n(...o)),t);return r._c=!1,r},hs=(e,n,t)=>{const r=e._ctx;for(const o in e){if(Qr(o))continue;const a=e[o];if(V(a))n[o]=Tl(o,a,r);else if(a!=null){const s=Jr(a);n[o]=()=>s}}},gs=(e,n)=>{const t=Jr(n);e.slots.default=()=>t},ys=(e,n,t)=>{for(const r in n)(t||!Qr(r))&&(e[r]=n[r])},Al=(e,n,t)=>{const r=e.slots=us();if(e.vnode.shapeFlag&32){const o=n._;o?(ys(r,n,t),t&&Ea(r,"_",o,!0)):hs(n,r)}else n&&gs(e,n)},Rl=(e,n,t)=>{const{vnode:r,slots:o}=e;let a=!0,s=se;if(r.shapeFlag&32){const i=n._;i?t&&i===1?a=!1:ys(o,n,t):(a=!n.$stable,hs(n,o)),s=n}else n&&(gs(e,n),s={default:1});if(a)for(const i in o)!Qr(i)&&s[i]==null&&delete o[i]},Ie=Nl;function wl(e){return Il(e)}function Il(e,n){const t=Yt();t.__VUE__=!0;const{insert:r,remove:o,patchProp:a,createElement:s,createText:i,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:m,setScopeId:h=rn,insertStaticContent:S}=e,_=(u,p,v,g=null,b=null,x=null,I=void 0,w=null,A=!!p.dynamicChildren)=>{if(u===p)return;u&&!Bn(u,p)&&(g=y(u),ge(u,b,x,!0),u=null),p.patchFlag===-2&&(A=!1,p.dynamicChildren=null);const{type:C,ref:U,shapeFlag:O}=p;switch(C){case Qt:T(u,p,v,g);break;case hn:R(u,p,v,g);break;case It:u==null&&E(p,v,g,I);break;case Te:L(u,p,v,g,b,x,I,w,A);break;default:O&1?B(u,p,v,g,b,x,I,w,A):O&6?Z(u,p,v,g,b,x,I,w,A):(O&64||O&128)&&C.process(u,p,v,g,b,x,I,w,A,k)}U!=null&&b?lt(U,u&&u.ref,x,p||u,!p):U==null&&u&&u.ref!=null&&lt(u.ref,null,x,u,!0)},T=(u,p,v,g)=>{if(u==null)r(p.el=i(p.children),v,g);else{const b=p.el=u.el;p.children!==u.children&&f(b,p.children)}},R=(u,p,v,g)=>{u==null?r(p.el=l(p.children||""),v,g):p.el=u.el},E=(u,p,v,g)=>{[u.el,u.anchor]=S(u.children,p,v,g,u.el,u.anchor)},P=({el:u,anchor:p},v,g)=>{let b;for(;u&&u!==p;)b=m(u),r(u,v,g),u=b;r(p,v,g)},N=({el:u,anchor:p})=>{let v;for(;u&&u!==p;)v=m(u),o(u),u=v;o(p)},B=(u,p,v,g,b,x,I,w,A)=>{if(p.type==="svg"?I="svg":p.type==="math"&&(I="mathml"),u==null)X(p,v,g,b,x,I,w,A);else{const C=u.el&&u.el._isVueCE?u.el:null;try{C&&C._beginPatch(),z(u,p,b,x,I,w,A)}finally{C&&C._endPatch()}}},X=(u,p,v,g,b,x,I,w)=>{let A,C;const{props:U,shapeFlag:O,transition:H,dirs:G}=u;if(A=u.el=s(u.type,x,U&&U.is,U),O&8?c(A,u.children):O&16&&ue(u.children,A,null,g,b,lr(u,x),I,w),G&&wn(u,null,g,"created"),W(A,u,u.scopeId,I,g),U){for(const oe in U)oe!=="value"&&!rt(oe)&&a(A,oe,null,U[oe],x,g);"value"in U&&a(A,"value",null,U.value,x),(C=U.onVnodeBeforeMount)&&Je(C,g,u)}G&&wn(u,null,g,"beforeMount");const j=Dl(b,H);j&&H.beforeEnter(A),r(A,p,v),((C=U&&U.onVnodeMounted)||j||G)&&Ie(()=>{C&&Je(C,g,u),j&&H.enter(A),G&&wn(u,null,g,"mounted")},b)},W=(u,p,v,g,b)=>{if(v&&h(u,v),g)for(let x=0;x<g.length;x++)h(u,g[x]);if(b){let x=b.subTree;if(p===x||_s(x.type)&&(x.ssContent===p||x.ssFallback===p)){const I=b.vnode;W(u,I,I.scopeId,I.slotScopeIds,b.parent)}}},ue=(u,p,v,g,b,x,I,w,A=0)=>{for(let C=A;C<u.length;C++){const U=u[C]=w?dn(u[C]):tn(u[C]);_(null,U,p,v,g,b,x,I,w)}},z=(u,p,v,g,b,x,I)=>{const w=p.el=u.el;let{patchFlag:A,dynamicChildren:C,dirs:U}=p;A|=u.patchFlag&16;const O=u.props||se,H=p.props||se;let G;if(v&&In(v,!1),(G=H.onVnodeBeforeUpdate)&&Je(G,v,p,u),U&&wn(p,u,v,"beforeUpdate"),v&&In(v,!0),(O.innerHTML&&H.innerHTML==null||O.textContent&&H.textContent==null)&&c(w,""),C?K(u.dynamicChildren,C,w,v,g,lr(p,b),x):I||Y(u,p,w,null,v,g,lr(p,b),x,!1),A>0){if(A&16)Q(w,O,H,v,b);else if(A&2&&O.class!==H.class&&a(w,"class",null,H.class,b),A&4&&a(w,"style",O.style,H.style,b),A&8){const j=p.dynamicProps;for(let oe=0;oe<j.length;oe++){const re=j[oe],Re=O[re],we=H[re];(we!==Re||re==="value")&&a(w,re,Re,we,b,v)}}A&1&&u.children!==p.children&&c(w,p.children)}else!I&&C==null&&Q(w,O,H,v,b);((G=H.onVnodeUpdated)||U)&&Ie(()=>{G&&Je(G,v,p,u),U&&wn(p,u,v,"updated")},g)},K=(u,p,v,g,b,x,I)=>{for(let w=0;w<p.length;w++){const A=u[w],C=p[w],U=A.el&&(A.type===Te||!Bn(A,C)||A.shapeFlag&198)?d(A.el):v;_(A,C,U,null,g,b,x,I,!0)}},Q=(u,p,v,g,b)=>{if(p!==v){if(p!==se)for(const x in p)!rt(x)&&!(x in v)&&a(u,x,p[x],null,b,g);for(const x in v){if(rt(x))continue;const I=v[x],w=p[x];I!==w&&x!=="value"&&a(u,x,w,I,b,g)}"value"in v&&a(u,"value",p.value,v.value,b)}},L=(u,p,v,g,b,x,I,w,A)=>{const C=p.el=u?u.el:i(""),U=p.anchor=u?u.anchor:i("");let{patchFlag:O,dynamicChildren:H,slotScopeIds:G}=p;G&&(w=w?w.concat(G):G),u==null?(r(C,v,g),r(U,v,g),ue(p.children||[],v,U,b,x,I,w,A)):O>0&&O&64&&H&&u.dynamicChildren&&u.dynamicChildren.length===H.length?(K(u.dynamicChildren,H,v,b,x,I,w),(p.key!=null||b&&p===b.subTree)&&xs(u,p,!0)):Y(u,p,v,U,b,x,I,w,A)},Z=(u,p,v,g,b,x,I,w,A)=>{p.slotScopeIds=w,u==null?p.shapeFlag&512?b.ctx.activate(p,v,g,I,A):ie(p,v,g,b,x,I,A):he(u,p,A)},ie=(u,p,v,g,b,x,I)=>{const w=u.component=Fl(u,g,b);if(ns(u)&&(w.ctx.renderer=k),Gl(w,!1,I),w.asyncDep){if(b&&b.registerDep(w,le,I),!u.el){const A=w.subTree=pe(hn);R(null,A,p,v),u.placeholder=A.el}}else le(w,u,p,v,b,x,I)},he=(u,p,v)=>{const g=p.component=u.component;if(bl(u,p,v))if(g.asyncDep&&!g.asyncResolved){J(g,p,v);return}else g.next=p,g.update();else p.el=u.el,g.vnode=p},le=(u,p,v,g,b,x,I)=>{const w=()=>{if(u.isMounted){let{next:O,bu:H,u:G,parent:j,vnode:oe}=u;{const $e=bs(u);if($e){O&&(O.el=oe.el,J(u,O,I)),$e.asyncDep.then(()=>{Ie(()=>{u.isUnmounted||C()},b)});return}}let re=O,Re;In(u,!1),O?(O.el=oe.el,J(u,O,I)):O=oe,H&&tr(H),(Re=O.props&&O.props.onVnodeBeforeUpdate)&&Je(Re,j,O,oe),In(u,!0);const we=_o(u),Ze=u.subTree;u.subTree=we,_(Ze,we,d(Ze.el),y(Ze),u,b,x),O.el=we.el,re===null&&Cl(u,we.el),G&&Ie(G,b),(Re=O.props&&O.props.onVnodeUpdated)&&Ie(()=>Je(Re,j,O,oe),b)}else{let O;const{el:H,props:G}=p,{bm:j,m:oe,parent:re,root:Re,type:we}=u,Ze=ct(p);In(u,!1),j&&tr(j),!Ze&&(O=G&&G.onVnodeBeforeMount)&&Je(O,re,p),In(u,!0);{Re.ce&&Re.ce._hasShadowRoot()&&Re.ce._injectChildStyle(we);const $e=u.subTree=_o(u);_(null,$e,v,g,u,b,x),p.el=$e.el}if(oe&&Ie(oe,b),!Ze&&(O=G&&G.onVnodeMounted)){const $e=p;Ie(()=>Je(O,re,$e),b)}(p.shapeFlag&256||re&&ct(re.vnode)&&re.vnode.shapeFlag&256)&&u.a&&Ie(u.a,b),u.isMounted=!0,p=v=g=null}};u.scope.on();const A=u.effect=new wa(w);u.scope.off();const C=u.update=A.run.bind(A),U=u.job=A.runIfDirty.bind(A);U.i=u,U.id=u.uid,A.scheduler=()=>jr(U),In(u,!0),C()},J=(u,p,v)=>{p.component=u;const g=u.vnode.props;u.vnode=p,u.next=null,Sl(u,p.props,g,v),Rl(u,p.children,v),pn(),mo(u),mn()},Y=(u,p,v,g,b,x,I,w,A=!1)=>{const C=u&&u.children,U=u?u.shapeFlag:0,O=p.children,{patchFlag:H,shapeFlag:G}=p;if(H>0){if(H&128){qe(C,O,v,g,b,x,I,w,A);return}else if(H&256){Fe(C,O,v,g,b,x,I,w,A);return}}G&8?(U&16&&Ce(C,b,x),O!==C&&c(v,O)):U&16?G&16?qe(C,O,v,g,b,x,I,w,A):Ce(C,b,x,!0):(U&8&&c(v,""),G&16&&ue(O,v,g,b,x,I,w,A))},Fe=(u,p,v,g,b,x,I,w,A)=>{u=u||Fn,p=p||Fn;const C=u.length,U=p.length,O=Math.min(C,U);let H;for(H=0;H<O;H++){const G=p[H]=A?dn(p[H]):tn(p[H]);_(u[H],G,v,null,b,x,I,w,A)}C>U?Ce(u,b,x,!0,!1,O):ue(p,v,g,b,x,I,w,A,O)},qe=(u,p,v,g,b,x,I,w,A)=>{let C=0;const U=p.length;let O=u.length-1,H=U-1;for(;C<=O&&C<=H;){const G=u[C],j=p[C]=A?dn(p[C]):tn(p[C]);if(Bn(G,j))_(G,j,v,null,b,x,I,w,A);else break;C++}for(;C<=O&&C<=H;){const G=u[O],j=p[H]=A?dn(p[H]):tn(p[H]);if(Bn(G,j))_(G,j,v,null,b,x,I,w,A);else break;O--,H--}if(C>O){if(C<=H){const G=H+1,j=G<U?p[G].el:g;for(;C<=H;)_(null,p[C]=A?dn(p[C]):tn(p[C]),v,j,b,x,I,w,A),C++}}else if(C>H)for(;C<=O;)ge(u[C],b,x,!0),C++;else{const G=C,j=C,oe=new Map;for(C=j;C<=H;C++){const Oe=p[C]=A?dn(p[C]):tn(p[C]);Oe.key!=null&&oe.set(Oe.key,C)}let re,Re=0;const we=H-j+1;let Ze=!1,$e=0;const $n=new Array(we);for(C=0;C<we;C++)$n[C]=0;for(C=G;C<=O;C++){const Oe=u[C];if(Re>=we){ge(Oe,b,x,!0);continue}let Qe;if(Oe.key!=null)Qe=oe.get(Oe.key);else for(re=j;re<=H;re++)if($n[re-j]===0&&Bn(Oe,p[re])){Qe=re;break}Qe===void 0?ge(Oe,b,x,!0):($n[Qe-j]=C+1,Qe>=$e?$e=Qe:Ze=!0,_(Oe,p[Qe],v,null,b,x,I,w,A),Re++)}const so=Ze?Pl($n):Fn;for(re=so.length-1,C=we-1;C>=0;C--){const Oe=j+C,Qe=p[Oe],io=p[Oe+1],lo=Oe+1<U?io.el||Cs(io):g;$n[C]===0?_(null,Qe,v,lo,b,x,I,w,A):Ze&&(re<0||C!==so[re]?fe(Qe,v,lo,2):re--)}}},fe=(u,p,v,g,b=null)=>{const{el:x,type:I,transition:w,children:A,shapeFlag:C}=u;if(C&6){fe(u.component.subTree,p,v,g);return}if(C&128){u.suspense.move(p,v,g);return}if(C&64){I.move(u,p,v,k);return}if(I===Te){r(x,p,v);for(let O=0;O<A.length;O++)fe(A[O],p,v,g);r(u.anchor,p,v);return}if(I===It){P(u,p,v);return}if(g!==2&&C&1&&w)if(g===0)w.beforeEnter(x),r(x,p,v),Ie(()=>w.enter(x),b);else{const{leave:O,delayLeave:H,afterLeave:G}=w,j=()=>{u.ctx.isUnmounted?o(x):r(x,p,v)},oe=()=>{x._isLeaving&&x[bn](!0),O(x,()=>{j(),G&&G()})};H?H(x,j,oe):oe()}else r(x,p,v)},ge=(u,p,v,g=!1,b=!1)=>{const{type:x,props:I,ref:w,children:A,dynamicChildren:C,shapeFlag:U,patchFlag:O,dirs:H,cacheIndex:G}=u;if(O===-2&&(b=!1),w!=null&&(pn(),lt(w,null,v,u,!0),mn()),G!=null&&(p.renderCache[G]=void 0),U&256){p.ctx.deactivate(u);return}const j=U&1&&H,oe=!ct(u);let re;if(oe&&(re=I&&I.onVnodeBeforeUnmount)&&Je(re,p,u),U&6)je(u.component,v,g);else{if(U&128){u.suspense.unmount(v,g);return}j&&wn(u,null,p,"beforeUnmount"),U&64?u.type.remove(u,p,v,k,g):C&&!C.hasOnce&&(x!==Te||O>0&&O&64)?Ce(C,p,v,!1,!0):(x===Te&&O&384||!b&&U&16)&&Ce(A,p,v),g&&an(u)}(oe&&(re=I&&I.onVnodeUnmounted)||j)&&Ie(()=>{re&&Je(re,p,u),j&&wn(u,null,p,"unmounted")},v)},an=u=>{const{type:p,el:v,anchor:g,transition:b}=u;if(p===Te){sn(v,g);return}if(p===It){N(u);return}const x=()=>{o(v),b&&!b.persisted&&b.afterLeave&&b.afterLeave()};if(u.shapeFlag&1&&b&&!b.persisted){const{leave:I,delayLeave:w}=b,A=()=>I(v,x);w?w(u.el,x,A):A()}else x()},sn=(u,p)=>{let v;for(;u!==p;)v=m(u),o(u),u=v;o(p)},je=(u,p,v)=>{const{bum:g,scope:b,job:x,subTree:I,um:w,m:A,a:C}=u;To(A),To(C),g&&tr(g),b.stop(),x&&(x.flags|=8,ge(I,u,p,v)),w&&Ie(w,p),Ie(()=>{u.isUnmounted=!0},p)},Ce=(u,p,v,g=!1,b=!1,x=0)=>{for(let I=x;I<u.length;I++)ge(u[I],p,v,g,b)},y=u=>{if(u.shapeFlag&6)return y(u.component.subTree);if(u.shapeFlag&128)return u.suspense.next();const p=m(u.anchor||u.el),v=p&&p[Ki];return v?m(v):p};let M=!1;const D=(u,p,v)=>{let g;u==null?p._vnode&&(ge(p._vnode,null,null,!0),g=p._vnode.component):_(p._vnode||null,u,p,null,null,null,v),p._vnode=u,M||(M=!0,mo(g),qa(),M=!1)},k={p:_,um:ge,m:fe,r:an,mt:ie,mc:ue,pc:Y,pbc:K,n:y,o:e};return{render:D,hydrate:void 0,createApp:ml(D)}}function lr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Dl(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function xs(e,n,t=!1){const r=e.children,o=n.children;if(F(r)&&F(o))for(let a=0;a<r.length;a++){const s=r[a];let i=o[a];i.shapeFlag&1&&!i.dynamicChildren&&((i.patchFlag<=0||i.patchFlag===32)&&(i=o[a]=dn(o[a]),i.el=s.el),!t&&i.patchFlag!==-2&&xs(s,i)),i.type===Qt&&(i.patchFlag===-1&&(i=o[a]=dn(i)),i.el=s.el),i.type===hn&&!i.el&&(i.el=s.el)}}function Pl(e){const n=e.slice(),t=[0];let r,o,a,s,i;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(o=t[t.length-1],e[o]<f){n[r]=o,t.push(r);continue}for(a=0,s=t.length-1;a<s;)i=a+s>>1,e[t[i]]<f?a=i+1:s=i;f<e[t[a]]&&(a>0&&(n[r]=t[a-1]),t[a]=r)}}for(a=t.length,s=t[a-1];a-- >0;)t[a]=s,s=n[s];return t}function bs(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:bs(n)}function To(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function Cs(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?Cs(n.subTree):null}const _s=e=>e.__isSuspense;function Nl(e,n){n&&n.pendingBranch?F(e)?n.effects.push(...e):n.effects.push(e):zi(e)}const Te=Symbol.for("v-fgt"),Qt=Symbol.for("v-txt"),hn=Symbol.for("v-cmt"),It=Symbol.for("v-stc"),dt=[];let Me=null;function Ae(e=!1){dt.push(Me=e?null:[])}function Ol(){dt.pop(),Me=dt[dt.length-1]||null}let gt=1;function Ht(e,n=!1){gt+=e,e<0&&Me&&n&&(Me.hasOnce=!0)}function Ss(e){return e.dynamicChildren=gt>0?Me||Fn:null,Ol(),gt>0&&Me&&Me.push(e),e}function Be(e,n,t,r,o,a){return Ss(Le(e,n,t,r,o,a,!0))}function eo(e,n,t,r,o){return Ss(pe(e,n,t,r,o,!0))}function Ut(e){return e?e.__v_isVNode===!0:!1}function Bn(e,n){return e.type===n.type&&e.key===n.key}const Es=({key:e})=>e??null,Dt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?de(e)||be(e)||V(e)?{i:Ge,r:e,k:n,f:!!t}:e:null);function Le(e,n=null,t=null,r=0,o=null,a=e===Te?0:1,s=!1,i=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Es(n),ref:n&&Dt(n),scopeId:Za,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:a,patchFlag:r,dynamicProps:o,dynamicChildren:null,appContext:null,ctx:Ge};return i?(no(l,t),a&128&&e.normalize(l)):t&&(l.shapeFlag|=de(t)?8:16),gt>0&&!s&&Me&&(l.patchFlag>0||a&6)&&l.patchFlag!==32&&Me.push(l),l}const pe=Ll;function Ll(e,n=null,t=null,r=0,o=null,a=!1){if((!e||e===al)&&(e=hn),Ut(e)){const i=Mn(e,n,!0);return t&&no(i,t),gt>0&&!a&&Me&&(i.shapeFlag&6?Me[Me.indexOf(e)]=i:Me.push(i)),i.patchFlag=-2,i}if(Xl(e)&&(e=e.__vccOpts),n){n=Ml(n);let{class:i,style:l}=n;i&&!de(i)&&(n.class=Yn(i)),te(l)&&(qr(l)&&!F(l)&&(l=me({},l)),n.style=zr(l))}const s=de(e)?1:_s(e)?128:Yi(e)?64:te(e)?4:V(e)?2:0;return Le(e,n,t,r,o,s,a,!0)}function Ml(e){return e?qr(e)||ps(e)?me({},e):e:null}function Mn(e,n,t=!1,r=!1){const{props:o,ref:a,patchFlag:s,children:i,transition:l}=e,f=n?Ul(o||{},n):o,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Es(f),ref:n&&n.ref?t&&a?F(a)?a.concat(Dt(n)):[a,Dt(n)]:Dt(n):a,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:i,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Te?s===-1?16:s|16:s,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&Mn(e.ssContent),ssFallback:e.ssFallback&&Mn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&ht(c,l.clone(c)),c}function kl(e=" ",n=0){return pe(Qt,null,e,n)}function Hl(e,n){const t=pe(It,null,e);return t.staticCount=n,t}function Ts(e="",n=!1){return n?(Ae(),eo(hn,null,e)):pe(hn,null,e)}function tn(e){return e==null||typeof e=="boolean"?pe(hn):F(e)?pe(Te,null,e.slice()):Ut(e)?dn(e):pe(Qt,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:Mn(e)}function no(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(F(n))t=16;else if(typeof n=="object")if(r&65){const o=n.default;o&&(o._c&&(o._d=!1),no(e,o()),o._c&&(o._d=!0));return}else{t=32;const o=n._;!o&&!ps(n)?n._ctx=Ge:o===3&&Ge&&(Ge.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else V(n)?(n={default:n,_ctx:Ge},t=32):(n=String(n),r&64?(t=16,n=[kl(n)]):t=8);e.children=n,e.shapeFlag|=t}function Ul(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const o in r)if(o==="class")n.class!==r.class&&(n.class=Yn([n.class,r.class]));else if(o==="style")n.style=zr([n.style,r.style]);else if(Gt(o)){const a=n[o],s=r[o];s&&a!==s&&!(F(a)&&a.includes(s))&&(n[o]=a?[].concat(a,s):s)}else o!==""&&(n[o]=r[o])}return n}function Je(e,n,t,r=null){We(e,n,7,[t,r])}const Bl=ls();let zl=0;function Fl(e,n,t){const r=e.type,o=(n?n.appContext:e.appContext)||Bl,a={uid:zl++,vnode:e,type:r,parent:n,appContext:o,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new fi(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(o.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:vs(r,o),emitsOptions:cs(r,o),emit:null,emitted:null,propsDefaults:se,inheritAttrs:r.inheritAttrs,ctx:se,data:se,props:se,attrs:se,slots:se,refs:se,setupState:se,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return a.ctx={_:a},a.root=n?n.root:a,a.emit=hl.bind(null,a),e.ce&&e.ce(a),a}let xe=null;const As=()=>xe||Ge;let Bt,wr;{const e=Yt(),n=(t,r)=>{let o;return(o=e[t])||(o=e[t]=[]),o.push(r),a=>{o.length>1?o.forEach(s=>s(a)):o[0](a)}};Bt=n("__VUE_INSTANCE_SETTERS__",t=>xe=t),wr=n("__VUE_SSR_SETTERS__",t=>yt=t)}const _t=e=>{const n=xe;return Bt(e),e.scope.on(),()=>{e.scope.off(),Bt(n)}},Ao=()=>{xe&&xe.scope.off(),Bt(null)};function Rs(e){return e.vnode.shapeFlag&4}let yt=!1;function Gl(e,n=!1,t=!1){n&&wr(n);const{props:r,children:o}=e.vnode,a=Rs(e);_l(e,r,a,n),Al(e,o,t||n);const s=a?Vl(e,n):void 0;return n&&wr(!1),s}function Vl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,il);const{setup:r}=t;if(r){pn();const o=e.setupContext=r.length>1?Yl(e):null,a=_t(e),s=Ct(r,e,0,[e.props,o]),i=Ca(s);if(mn(),a(),(i||e.sp)&&!ct(e)&&es(e),i){if(s.then(Ao,Ao),n)return s.then(l=>{Ro(e,l)}).catch(l=>{qt(l,e,0)});e.asyncDep=s}else Ro(e,s)}else ws(e)}function Ro(e,n,t){V(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Ka(n)),ws(e)}function ws(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const o=_t(e);pn();try{ll(e)}finally{mn(),o()}}}const Kl={get(e,n){return ye(e,"get",""),e[n]}};function Yl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,Kl),slots:e.slots,emit:e.emit,expose:n}}function to(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Ka(Di(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in ft)return ft[t](e)},has(n,t){return t in n||t in ft}})):e.proxy}function Wl(e,n=!0){return V(e)?e.displayName||e.name:e.name||n&&e.__name}function Xl(e){return V(e)&&"__vccOpts"in e}const He=(e,n)=>Mi(e,n,yt);function Is(e,n,t){try{Ht(-1);const r=arguments.length;return r===2?te(n)&&!F(n)?Ut(n)?pe(e,null,[n]):pe(e,n):pe(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&Ut(t)&&(t=[t]),pe(e,n,t))}finally{Ht(1)}}const ql="3.5.28";/**
+**/function wt(e,n,t,r){try{return r?e(...r):e()}catch(o){Xt(o,n,t)}}function We(e,n,t,r){if(V(e)){const o=wt(e,n,t,r);return o&&wa(o)&&o.catch(a=>{Xt(a,n,t)}),o}if(F(e)){const o=[];for(let a=0;a<e.length;a++)o.push(We(e[a],n,t,r));return o}}function Xt(e,n,t,r=!0){const o=n?n.vnode:null,{errorHandler:a,throwUnhandledErrorInProduction:i}=n&&n.appContext.config||ie;if(n){let s=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;s;){const c=s.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}s=s.parent}if(a){pn(),wt(a,null,10,[e,l,f]),hn();return}}zs(e,t,o,r,i)}function zs(e,n,t,r=!0,o=!1){if(o)throw e;console.error(e)}const Ce=[];let nn=-1;const Vn=[];let Sn=null,zn=0;const Ya=Promise.resolve();let Lt=null;function Wa(e){const n=Lt||Ya;return e?n.then(this?e.bind(this):e):n}function Bs(e){let n=nn+1,t=Ce.length;for(;n<t;){const r=n+t>>>1,o=Ce[r],a=mt(o);a<e||a===e&&o.flags&2?n=r+1:t=r}return n}function jr(e){if(!(e.flags&1)){const n=mt(e),t=Ce[Ce.length-1];!t||!(e.flags&2)&&n>=mt(t)?Ce.push(e):Ce.splice(Bs(n),0,e),e.flags|=1,qa()}}function qa(){Lt||(Lt=Ya.then(ja))}function Us(e){F(e)?Vn.push(...e):Sn&&e.id===-1?Sn.splice(zn+1,0,e):e.flags&1||(Vn.push(e),e.flags|=1),qa()}function ho(e,n,t=nn+1){for(;t<Ce.length;t++){const r=Ce[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;Ce.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function Xa(e){if(Vn.length){const n=[...new Set(Vn)].sort((t,r)=>mt(t)-mt(r));if(Vn.length=0,Sn){Sn.push(...n);return}for(Sn=n,zn=0;zn<Sn.length;zn++){const t=Sn[zn];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}Sn=null,zn=0}}const mt=e=>e.id==null?e.flags&2?-1:1/0:e.id;function ja(e){try{for(nn=0;nn<Ce.length;nn++){const n=Ce[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),wt(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<Ce.length;nn++){const n=Ce[nn];n&&(n.flags&=-2)}nn=-1,Ce.length=0,Xa(),Lt=null,(Ce.length||Vn.length)&&ja()}}let Ge=null,Qa=null;function Ot(e){const n=Ge;return Ge=e,Qa=e&&e.type.__scopeId||null,n}function Qr(e,n=Ge,t){if(!n||e._n)return e;const r=(...o)=>{r._d&&Ht(-1);const a=Ot(n);let i;try{i=e(...o)}finally{Ot(a),r._d&&Ht(1)}return i};return r._n=!0,r._c=!0,r._d=!0,r}function Rn(e,n,t,r){const o=e.dirs,a=n&&n.dirs;for(let i=0;i<o.length;i++){const s=o[i];a&&(s.oldValue=a[i].value);let l=s.dir[r];l&&(pn(),We(l,t,8,[e.el,s,e,n]),hn())}}function Rt(e,n){if(be){let t=be.provides;const r=be.parent&&be.parent.provides;r===t&&(t=be.provides=Object.create(r)),t[e]=n}}function Ke(e,n,t=!1){const r=_i();if(r||Kn){let o=Kn?Kn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(o&&e in o)return o[e];if(arguments.length>1)return t&&V(n)?n.call(r&&r.proxy):n}}const Fs=Symbol.for("v-scx"),Gs=()=>Ke(Fs);function st(e,n,t){return Za(e,n,t)}function Za(e,n,t=ie){const{immediate:r,deep:o,flush:a,once:i}=t,s=he({},t),l=n&&r||!n&&a!=="post";let f;if(yt){if(a==="sync"){const v=Gs();f=v.__watcherHandles||(v.__watcherHandles=[])}else if(!l){const v=()=>{};return v.stop=rn,v.resume=rn,v.pause=rn,v}}const c=be;s.call=(v,S,E)=>We(v,c,S,E);let d=!1;a==="post"?s.scheduler=v=>{Ie(v,c&&c.suspense)}:a!=="sync"&&(d=!0,s.scheduler=(v,S)=>{S?v():jr(v)}),s.augmentJob=v=>{n&&(v.flags|=4),d&&(v.flags|=2,c&&(v.id=c.uid,v.i=c))};const h=Hs(e,n,s);return yt&&(f?f.push(h):l&&h()),h}function Vs(e,n,t){const r=this.proxy,o=de(e)?e.includes(".")?$a(r,e):()=>r[e]:e.bind(r,r);let a;V(n)?a=n:(a=n.handler,t=n);const i=Et(this),s=Za(o,a.bind(r),t);return i(),s}function $a(e,n){const t=n.split(".");return()=>{let r=e;for(let o=0;o<t.length&&r;o++)r=r[t[o]];return r}}const Ks=Symbol("_vte"),Ys=e=>e.__isTeleport,xn=Symbol("_leaveCb"),Jn=Symbol("_enterCb");function Ws(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Qn(()=>{e.isMounted=!0}),oi(()=>{e.isUnmounting=!0}),e}const Me=[Function,Array],qs={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:Me,onEnter:Me,onAfterEnter:Me,onEnterCancelled:Me,onBeforeLeave:Me,onLeave:Me,onAfterLeave:Me,onLeaveCancelled:Me,onBeforeAppear:Me,onAppear:Me,onAfterAppear:Me,onAppearCancelled:Me};function Xs(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function Sr(e,n,t,r,o){const{appear:a,mode:i,persisted:s=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:h,onLeave:v,onAfterLeave:S,onLeaveCancelled:E,onBeforeAppear:T,onAppear:A,onAfterAppear:C,onAppearCancelled:P}=n,N=String(e.key),B=Xs(t,e),q=(U,K)=>{U&&We(U,r,9,K)},W=(U,K)=>{const $=K[1];q(U,K),F(U)?U.every(O=>O.length<=1)&&$():U.length<=1&&$()},ue={mode:i,persisted:s,beforeEnter(U){let K=l;if(!t.isMounted)if(a)K=T||l;else return;U[xn]&&U[xn](!0);const $=B[N];$&&Bn(e,$)&&$.el[xn]&&$.el[xn](),q(K,[U])},enter(U){let K=f,$=c,O=d;if(!t.isMounted)if(a)K=A||f,$=C||c,O=P||d;else return;let Q=!1;U[Jn]=ve=>{Q||(Q=!0,ve?q(O,[U]):q($,[U]),ue.delayedLeave&&ue.delayedLeave(),U[Jn]=void 0)};const se=U[Jn].bind(null,!1);K?W(K,[U,se]):se()},leave(U,K){const $=String(e.key);if(U[Jn]&&U[Jn](!0),t.isUnmounting)return K();q(h,[U]);let O=!1;U[xn]=se=>{O||(O=!0,K(),se?q(E,[U]):q(S,[U]),U[xn]=void 0,B[$]===e&&delete B[$])};const Q=U[xn].bind(null,!1);B[$]=e,v?W(v,[U,Q]):Q()},clone(U){return Sr(U,n,t,r)}};return ue}function vt(e,n){e.shapeFlag&6&&e.component?(e.transition=n,vt(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function Ja(e,n=!1,t){let r=[],o=0;for(let a=0;a<e.length;a++){let i=e[a];const s=t==null?i.key:String(t)+String(i.key!=null?i.key:a);i.type===Te?(i.patchFlag&128&&o++,r=r.concat(Ja(i.children,n,s))):(n||i.type!==vn)&&r.push(s!=null?kn(i,{key:s}):i)}if(o>1)for(let a=0;a<r.length;a++)r[a].patchFlag=-2;return r}function An(e,n){return V(e)?he({name:e.name},n,{setup:e}):e}function ei(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function mo(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const kt=new WeakMap;function lt(e,n,t,r,o=!1){if(F(e)){e.forEach((E,T)=>lt(E,n&&(F(n)?n[T]:n),t,r,o));return}if(ct(r)&&!o){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&lt(e,n,t,r.component.subTree);return}const a=r.shapeFlag&4?to(r.component):r.el,i=o?null:a,{i:s,r:l}=e,f=n&&n.r,c=s.refs===ie?s.refs={}:s.refs,d=s.setupState,h=Z(d),v=d===ie?ba:E=>mo(c,E)?!1:ne(h,E),S=(E,T)=>!(T&&mo(c,T));if(f!=null&&f!==l){if(vo(n),de(f))c[f]=null,v(f)&&(d[f]=null);else if(xe(f)){const E=n;S(f,E.k)&&(f.value=null),E.k&&(c[E.k]=null)}}if(V(l))wt(l,s,12,[i,c]);else{const E=de(l),T=xe(l);if(E||T){const A=()=>{if(e.f){const C=E?v(l)?d[l]:c[l]:S()||!e.k?l.value:c[e.k];if(o)F(C)&&zr(C,a);else if(F(C))C.includes(a)||C.push(a);else if(E)c[l]=[a],v(l)&&(d[l]=c[l]);else{const P=[a];S(l,e.k)&&(l.value=P),e.k&&(c[e.k]=P)}}else E?(c[l]=i,v(l)&&(d[l]=i)):T&&(S(l,e.k)&&(l.value=i),e.k&&(c[e.k]=i))};if(i){const C=()=>{A(),kt.delete(e)};C.id=-1,kt.set(e,C),Ie(C,t)}else vo(e),A()}}}function vo(e){const n=kt.get(e);n&&(n.flags|=8,kt.delete(e))}Yt().requestIdleCallback;Yt().cancelIdleCallback;const ct=e=>!!e.type.__asyncLoader,ni=e=>e.type.__isKeepAlive;function js(e,n){ti(e,"a",n)}function Qs(e,n){ti(e,"da",n)}function ti(e,n,t=be){const r=e.__wdc||(e.__wdc=()=>{let o=t;for(;o;){if(o.isDeactivated)return;o=o.parent}return e()});if(jt(n,r,t),t){let o=t.parent;for(;o&&o.parent;)ni(o.parent.vnode)&&Zs(r,n,t,o),o=o.parent}}function Zs(e,n,t,r){const o=jt(n,e,r,!0);Qt(()=>{zr(r[n],o)},t)}function jt(e,n,t=be,r=!1){if(t){const o=t[e]||(t[e]=[]),a=n.__weh||(n.__weh=(...i)=>{pn();const s=Et(t),l=We(n,t,e,i);return s(),hn(),l});return r?o.unshift(a):o.push(a),a}}const gn=e=>(n,t=be)=>{(!yt||e==="sp")&&jt(e,(...r)=>n(...r),t)},$s=gn("bm"),Qn=gn("m"),Js=gn("bu"),ri=gn("u"),oi=gn("bum"),Qt=gn("um"),el=gn("sp"),nl=gn("rtg"),tl=gn("rtc");function rl(e,n=be){jt("ec",e,n)}const ol="components";function ai(e,n){return il(ol,e,!0,n)||e}const al=Symbol.for("v-ndc");function il(e,n,t=!0,r=!1){const o=Ge||be;if(o){const a=o.type;{const s=Wl(a,!1);if(s&&(s===n||s===Ue(n)||s===Kt(Ue(n))))return a}const i=go(o[e]||a[e],n)||go(o.appContext[e],n);return!i&&r?a:i}}function go(e,n){return e&&(e[n]||e[Ue(n)]||e[Kt(Ue(n))])}function Zr(e,n,t,r){let o;const a=t,i=F(e);if(i||de(e)){const s=i&&On(e);let l=!1,f=!1;s&&(l=!ze(e),f=mn(e),e=Wt(e)),o=new Array(e.length);for(let c=0,d=e.length;c<d;c++)o[c]=n(l?f?Wn(Ye(e[c])):Ye(e[c]):e[c],c,void 0,a)}else if(typeof e=="number"){o=new Array(e);for(let s=0;s<e;s++)o[s]=n(s+1,s,void 0,a)}else if(te(e))if(e[Symbol.iterator])o=Array.from(e,(s,l)=>n(s,l,void 0,a));else{const s=Object.keys(e);o=new Array(s.length);for(let l=0,f=s.length;l<f;l++){const c=s[l];o[l]=n(e[c],c,l,a)}}else o=[];return o}const Cr=e=>e?Ai(e)?to(e):Cr(e.parent):null,ft=he(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>Cr(e.parent),$root:e=>Cr(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>si(e),$forceUpdate:e=>e.f||(e.f=()=>{jr(e.update)}),$nextTick:e=>e.n||(e.n=Wa.bind(e.proxy)),$watch:e=>Vs.bind(e)}),sr=(e,n)=>e!==ie&&!e.__isScriptSetup&&ne(e,n),sl={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:o,props:a,accessCache:i,type:s,appContext:l}=e;if(n[0]!=="$"){const h=i[n];if(h!==void 0)switch(h){case 1:return r[n];case 2:return o[n];case 4:return t[n];case 3:return a[n]}else{if(sr(r,n))return i[n]=1,r[n];if(o!==ie&&ne(o,n))return i[n]=2,o[n];if(ne(a,n))return i[n]=3,a[n];if(t!==ie&&ne(t,n))return i[n]=4,t[n];Tr&&(i[n]=0)}}const f=ft[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=s.__cssModules)&&(c=c[n]))return c;if(t!==ie&&ne(t,n))return i[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:o,ctx:a}=e;return sr(o,n)?(o[n]=t,!0):r!==ie&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(a[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:o,props:a,type:i}},s){let l;return!!(t[s]||e!==ie&&s[0]!=="$"&&ne(e,s)||sr(n,s)||ne(a,s)||ne(r,s)||ne(ft,s)||ne(o.config.globalProperties,s)||(l=i.__cssModules)&&l[s])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function yo(e){return F(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Tr=!0;function ll(e){const n=si(e),t=e.proxy,r=e.ctx;Tr=!1,n.beforeCreate&&bo(n.beforeCreate,e,"bc");const{data:o,computed:a,methods:i,watch:s,provide:l,inject:f,created:c,beforeMount:d,mounted:h,beforeUpdate:v,updated:S,activated:E,deactivated:T,beforeDestroy:A,beforeUnmount:C,destroyed:P,unmounted:N,render:B,renderTracked:q,renderTriggered:W,errorCaptured:ue,serverPrefetch:U,expose:K,inheritAttrs:$,components:O,directives:Q,filters:se}=n;if(f&&cl(f,r,null),i)for(const J in i){const Y=i[J];V(Y)&&(r[J]=Y.bind(t))}if(o){const J=o.call(t,t);te(J)&&(e.data=qt(J))}if(Tr=!0,a)for(const J in a){const Y=a[J],Fe=V(Y)?Y.bind(t,t):V(Y.get)?Y.get.bind(t,t):rn,Xe=!V(Y)&&V(Y.set)?Y.set.bind(t):rn,fe=He({get:Fe,set:Xe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>fe.value,set:ge=>fe.value=ge})}if(s)for(const J in s)ii(s[J],r,t,J);if(l){const J=V(l)?l.call(t):l;Reflect.ownKeys(J).forEach(Y=>{Rt(Y,J[Y])})}c&&bo(c,e,"c");function le(J,Y){F(Y)?Y.forEach(Fe=>J(Fe.bind(t))):Y&&J(Y.bind(t))}if(le($s,d),le(Qn,h),le(Js,v),le(ri,S),le(js,E),le(Qs,T),le(rl,ue),le(tl,q),le(nl,W),le(oi,C),le(Qt,N),le(el,U),F(K))if(K.length){const J=e.exposed||(e.exposed={});K.forEach(Y=>{Object.defineProperty(J,Y,{get:()=>t[Y],set:Fe=>t[Y]=Fe,enumerable:!0})})}else e.exposed||(e.exposed={});B&&e.render===rn&&(e.render=B),$!=null&&(e.inheritAttrs=$),O&&(e.components=O),Q&&(e.directives=Q),U&&ei(e)}function cl(e,n,t=rn){F(e)&&(e=_r(e));for(const r in e){const o=e[r];let a;te(o)?"default"in o?a=Ke(o.from||r,o.default,!0):a=Ke(o.from||r):a=Ke(o),xe(a)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>a.value,set:i=>a.value=i}):n[r]=a}}function bo(e,n,t){We(F(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function ii(e,n,t,r){let o=r.includes(".")?$a(t,r):()=>t[r];if(de(e)){const a=n[e];V(a)&&st(o,a)}else if(V(e))st(o,e.bind(t));else if(te(e))if(F(e))e.forEach(a=>ii(a,n,t,r));else{const a=V(e.handler)?e.handler.bind(t):n[e.handler];V(a)&&st(o,a,e)}}function si(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:o,optionsCache:a,config:{optionMergeStrategies:i}}=e.appContext,s=a.get(n);let l;return s?l=s:!o.length&&!t&&!r?l=n:(l={},o.length&&o.forEach(f=>Mt(l,f,i,!0)),Mt(l,n,i)),te(n)&&a.set(n,l),l}function Mt(e,n,t,r=!1){const{mixins:o,extends:a}=n;a&&Mt(e,a,t,!0),o&&o.forEach(i=>Mt(e,i,t,!0));for(const i in n)if(!(r&&i==="expose")){const s=fl[i]||t&&t[i];e[i]=s?s(e[i],n[i]):n[i]}return e}const fl={data:xo,props:wo,emits:wo,methods:tt,computed:tt,beforeCreate:Ee,created:Ee,beforeMount:Ee,mounted:Ee,beforeUpdate:Ee,updated:Ee,beforeDestroy:Ee,beforeUnmount:Ee,destroyed:Ee,unmounted:Ee,activated:Ee,deactivated:Ee,errorCaptured:Ee,serverPrefetch:Ee,components:tt,directives:tt,watch:ul,provide:xo,inject:dl};function xo(e,n){return n?e?function(){return he(V(e)?e.call(this,this):e,V(n)?n.call(this,this):n)}:n:e}function dl(e,n){return tt(_r(e),_r(n))}function _r(e){if(F(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function Ee(e,n){return e?[...new Set([].concat(e,n))]:n}function tt(e,n){return e?he(Object.create(null),e,n):n}function wo(e,n){return e?F(e)&&F(n)?[...new Set([...e,...n])]:he(Object.create(null),yo(e),yo(n??{})):n}function ul(e,n){if(!e)return n;if(!n)return e;const t=he(Object.create(null),e);for(const r in n)t[r]=Ee(e[r],n[r]);return t}function li(){return{app:null,config:{isNativeTag:ba,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let pl=0;function hl(e,n){return function(r,o=null){V(r)||(r=he({},r)),o!=null&&!te(o)&&(o=null);const a=li(),i=new WeakSet,s=[];let l=!1;const f=a.app={_uid:pl++,_component:r,_props:o,_container:null,_context:a,_instance:null,version:Xl,get config(){return a.config},set config(c){},use(c,...d){return i.has(c)||(c&&V(c.install)?(i.add(c),c.install(f,...d)):V(c)&&(i.add(c),c(f,...d))),f},mixin(c){return a.mixins.includes(c)||a.mixins.push(c),f},component(c,d){return d?(a.components[c]=d,f):a.components[c]},directive(c,d){return d?(a.directives[c]=d,f):a.directives[c]},mount(c,d,h){if(!l){const v=f._ceVNode||pe(r,o);return v.appContext=a,h===!0?h="svg":h===!1&&(h=void 0),e(v,c,h),l=!0,f._container=c,c.__vue_app__=f,to(v.component)}},onUnmount(c){s.push(c)},unmount(){l&&(We(s,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return a.provides[c]=d,f},runWithContext(c){const d=Kn;Kn=f;try{return c()}finally{Kn=d}}};return f}}let Kn=null;const ml=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${Ue(n)}Modifiers`]||e[`${Mn(n)}Modifiers`];function vl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||ie;let o=t;const a=n.startsWith("update:"),i=a&&ml(r,n.slice(7));i&&(i.trim&&(o=t.map(c=>de(c)?c.trim():c)),i.number&&(o=t.map(ns)));let s,l=r[s=nr(n)]||r[s=nr(Ue(n))];!l&&a&&(l=r[s=nr(Mn(n))]),l&&We(l,e,6,o);const f=r[s+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[s])return;e.emitted[s]=!0,We(f,e,6,o)}}const gl=new WeakMap;function ci(e,n,t=!1){const r=t?gl:n.emitsCache,o=r.get(e);if(o!==void 0)return o;const a=e.emits;let i={},s=!1;if(!V(e)){const l=f=>{const c=ci(f,n,!0);c&&(s=!0,he(i,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!a&&!s?(te(e)&&r.set(e,null),null):(F(a)?a.forEach(l=>i[l]=null):he(i,a),te(e)&&r.set(e,i),i)}function Zt(e,n){return!e||!Gt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,Mn(n))||ne(e,n))}function Eo(e){const{type:n,vnode:t,proxy:r,withProxy:o,propsOptions:[a],slots:i,attrs:s,emit:l,render:f,renderCache:c,props:d,data:h,setupState:v,ctx:S,inheritAttrs:E}=e,T=Ot(e);let A,C;try{if(t.shapeFlag&4){const N=o||r,B=N;A=tn(f.call(B,N,c,d,v,h,S)),C=s}else{const N=n;A=tn(N.length>1?N(d,{attrs:s,slots:i,emit:l}):N(d,null)),C=n.props?s:yl(s)}}catch(N){dt.length=0,Xt(N,e,1),A=pe(vn)}let P=A;if(C&&E!==!1){const N=Object.keys(C),{shapeFlag:B}=P;N.length&&B&7&&(a&&N.some(Hr)&&(C=bl(C,a)),P=kn(P,C,!1,!0))}return t.dirs&&(P=kn(P,null,!1,!0),P.dirs=P.dirs?P.dirs.concat(t.dirs):t.dirs),t.transition&&vt(P,t.transition),A=P,Ot(T),A}const yl=e=>{let n;for(const t in e)(t==="class"||t==="style"||Gt(t))&&((n||(n={}))[t]=e[t]);return n},bl=(e,n)=>{const t={};for(const r in e)(!Hr(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function xl(e,n,t){const{props:r,children:o,component:a}=e,{props:i,children:s,patchFlag:l}=n,f=a.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?So(r,i,f):!!i;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const h=c[d];if(fi(i,r,h)&&!Zt(f,h))return!0}}}else return(o||s)&&(!s||!s.$stable)?!0:r===i?!1:r?i?So(r,i,f):!0:!!i;return!1}function So(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let o=0;o<r.length;o++){const a=r[o];if(fi(n,e,a)&&!Zt(t,a))return!0}return!1}function fi(e,n,t){const r=e[t],o=n[t];return t==="style"&&te(r)&&te(o)?!Fr(r,o):r!==o}function wl({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const di={},ui=()=>Object.create(di),pi=e=>Object.getPrototypeOf(e)===di;function El(e,n,t,r=!1){const o={},a=ui();e.propsDefaults=Object.create(null),hi(e,n,o,a);for(const i in e.propsOptions[0])i in o||(o[i]=void 0);t?e.props=r?o:Ga(o):e.type.props?e.props=o:e.props=a,e.attrs=a}function Sl(e,n,t,r){const{props:o,attrs:a,vnode:{patchFlag:i}}=e,s=Z(o),[l]=e.propsOptions;let f=!1;if((r||i>0)&&!(i&16)){if(i&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let h=c[d];if(Zt(e.emitsOptions,h))continue;const v=n[h];if(l)if(ne(a,h))v!==a[h]&&(a[h]=v,f=!0);else{const S=Ue(h);o[S]=Ar(l,s,S,v,e,!1)}else v!==a[h]&&(a[h]=v,f=!0)}}}else{hi(e,n,o,a)&&(f=!0);let c;for(const d in s)(!n||!ne(n,d)&&((c=Mn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(o[d]=Ar(l,s,d,void 0,e,!0)):delete o[d]);if(a!==s)for(const d in a)(!n||!ne(n,d))&&(delete a[d],f=!0)}f&&un(e.attrs,"set","")}function hi(e,n,t,r){const[o,a]=e.propsOptions;let i=!1,s;if(n)for(let l in n){if(rt(l))continue;const f=n[l];let c;o&&ne(o,c=Ue(l))?!a||!a.includes(c)?t[c]=f:(s||(s={}))[c]=f:Zt(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,i=!0)}if(a){const l=Z(t),f=s||ie;for(let c=0;c<a.length;c++){const d=a[c];t[d]=Ar(o,l,d,f[d],e,!ne(f,d))}}return i}function Ar(e,n,t,r,o,a){const i=e[t];if(i!=null){const s=ne(i,"default");if(s&&r===void 0){const l=i.default;if(i.type!==Function&&!i.skipFactory&&V(l)){const{propsDefaults:f}=o;if(t in f)r=f[t];else{const c=Et(o);r=f[t]=l.call(null,n),c()}}else r=l;o.ce&&o.ce._setProp(t,r)}i[0]&&(a&&!s?r=!1:i[1]&&(r===""||r===Mn(t))&&(r=!0))}return r}const Cl=new WeakMap;function mi(e,n,t=!1){const r=t?Cl:n.propsCache,o=r.get(e);if(o)return o;const a=e.props,i={},s=[];let l=!1;if(!V(e)){const c=d=>{l=!0;const[h,v]=mi(d,n,!0);he(i,h),v&&s.push(...v)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!a&&!l)return te(e)&&r.set(e,Fn),Fn;if(F(a))for(let c=0;c<a.length;c++){const d=Ue(a[c]);Co(d)&&(i[d]=ie)}else if(a)for(const c in a){const d=Ue(c);if(Co(d)){const h=a[c],v=i[d]=F(h)||V(h)?{type:h}:he({},h),S=v.type;let E=!1,T=!0;if(F(S))for(let A=0;A<S.length;++A){const C=S[A],P=V(C)&&C.name;if(P==="Boolean"){E=!0;break}else P==="String"&&(T=!1)}else E=V(S)&&S.name==="Boolean";v[0]=E,v[1]=T,(E||ne(v,"default"))&&s.push(d)}}const f=[i,s];return te(e)&&r.set(e,f),f}function Co(e){return e[0]!=="$"&&!rt(e)}const $r=e=>e==="_"||e==="_ctx"||e==="$stable",Jr=e=>F(e)?e.map(tn):[tn(e)],Tl=(e,n,t)=>{if(n._n)return n;const r=Qr((...o)=>Jr(n(...o)),t);return r._c=!1,r},vi=(e,n,t)=>{const r=e._ctx;for(const o in e){if($r(o))continue;const a=e[o];if(V(a))n[o]=Tl(o,a,r);else if(a!=null){const i=Jr(a);n[o]=()=>i}}},gi=(e,n)=>{const t=Jr(n);e.slots.default=()=>t},yi=(e,n,t)=>{for(const r in n)(t||!$r(r))&&(e[r]=n[r])},_l=(e,n,t)=>{const r=e.slots=ui();if(e.vnode.shapeFlag&32){const o=n._;o?(yi(r,n,t),t&&Ca(r,"_",o,!0)):vi(n,r)}else n&&gi(e,n)},Al=(e,n,t)=>{const{vnode:r,slots:o}=e;let a=!0,i=ie;if(r.shapeFlag&32){const s=n._;s?t&&s===1?a=!1:yi(o,n,t):(a=!n.$stable,vi(n,o)),i=n}else n&&(gi(e,n),i={default:1});if(a)for(const s in o)!$r(s)&&i[s]==null&&delete o[s]},Ie=Nl;function Rl(e){return Il(e)}function Il(e,n){const t=Yt();t.__VUE__=!0;const{insert:r,remove:o,patchProp:a,createElement:i,createText:s,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:h,setScopeId:v=rn,insertStaticContent:S}=e,E=(u,p,m,g=null,x=null,b=null,I=void 0,R=null,_=!!p.dynamicChildren)=>{if(u===p)return;u&&!Bn(u,p)&&(g=y(u),ge(u,x,b,!0),u=null),p.patchFlag===-2&&(_=!1,p.dynamicChildren=null);const{type:w,ref:z,shapeFlag:L}=p;switch(w){case $t:T(u,p,m,g);break;case vn:A(u,p,m,g);break;case It:u==null&&C(p,m,g,I);break;case Te:O(u,p,m,g,x,b,I,R,_);break;default:L&1?B(u,p,m,g,x,b,I,R,_):L&6?Q(u,p,m,g,x,b,I,R,_):(L&64||L&128)&&w.process(u,p,m,g,x,b,I,R,_,M)}z!=null&&x?lt(z,u&&u.ref,b,p||u,!p):z==null&&u&&u.ref!=null&&lt(u.ref,null,b,u,!0)},T=(u,p,m,g)=>{if(u==null)r(p.el=s(p.children),m,g);else{const x=p.el=u.el;p.children!==u.children&&f(x,p.children)}},A=(u,p,m,g)=>{u==null?r(p.el=l(p.children||""),m,g):p.el=u.el},C=(u,p,m,g)=>{[u.el,u.anchor]=S(u.children,p,m,g,u.el,u.anchor)},P=({el:u,anchor:p},m,g)=>{let x;for(;u&&u!==p;)x=h(u),r(u,m,g),u=x;r(p,m,g)},N=({el:u,anchor:p})=>{let m;for(;u&&u!==p;)m=h(u),o(u),u=m;o(p)},B=(u,p,m,g,x,b,I,R,_)=>{if(p.type==="svg"?I="svg":p.type==="math"&&(I="mathml"),u==null)q(p,m,g,x,b,I,R,_);else{const w=u.el&&u.el._isVueCE?u.el:null;try{w&&w._beginPatch(),U(u,p,x,b,I,R,_)}finally{w&&w._endPatch()}}},q=(u,p,m,g,x,b,I,R)=>{let _,w;const{props:z,shapeFlag:L,transition:H,dirs:G}=u;if(_=u.el=i(u.type,b,z&&z.is,z),L&8?c(_,u.children):L&16&&ue(u.children,_,null,g,x,lr(u,b),I,R),G&&Rn(u,null,g,"created"),W(_,u,u.scopeId,I,g),z){for(const oe in z)oe!=="value"&&!rt(oe)&&a(_,oe,null,z[oe],b,g);"value"in z&&a(_,"value",null,z.value,b),(w=z.onVnodeBeforeMount)&&Je(w,g,u)}G&&Rn(u,null,g,"beforeMount");const j=Dl(x,H);j&&H.beforeEnter(_),r(_,p,m),((w=z&&z.onVnodeMounted)||j||G)&&Ie(()=>{w&&Je(w,g,u),j&&H.enter(_),G&&Rn(u,null,g,"mounted")},x)},W=(u,p,m,g,x)=>{if(m&&v(u,m),g)for(let b=0;b<g.length;b++)v(u,g[b]);if(x){let b=x.subTree;if(p===b||Ei(b.type)&&(b.ssContent===p||b.ssFallback===p)){const I=x.vnode;W(u,I,I.scopeId,I.slotScopeIds,x.parent)}}},ue=(u,p,m,g,x,b,I,R,_=0)=>{for(let w=_;w<u.length;w++){const z=u[w]=R?dn(u[w]):tn(u[w]);E(null,z,p,m,g,x,b,I,R)}},U=(u,p,m,g,x,b,I)=>{const R=p.el=u.el;let{patchFlag:_,dynamicChildren:w,dirs:z}=p;_|=u.patchFlag&16;const L=u.props||ie,H=p.props||ie;let G;if(m&&In(m,!1),(G=H.onVnodeBeforeUpdate)&&Je(G,m,p,u),z&&Rn(p,u,m,"beforeUpdate"),m&&In(m,!0),(L.innerHTML&&H.innerHTML==null||L.textContent&&H.textContent==null)&&c(R,""),w?K(u.dynamicChildren,w,R,m,g,lr(p,x),b):I||Y(u,p,R,null,m,g,lr(p,x),b,!1),_>0){if(_&16)$(R,L,H,m,x);else if(_&2&&L.class!==H.class&&a(R,"class",null,H.class,x),_&4&&a(R,"style",L.style,H.style,x),_&8){const j=p.dynamicProps;for(let oe=0;oe<j.length;oe++){const re=j[oe],Ae=L[re],Re=H[re];(Re!==Ae||re==="value")&&a(R,re,Ae,Re,x,m)}}_&1&&u.children!==p.children&&c(R,p.children)}else!I&&w==null&&$(R,L,H,m,x);((G=H.onVnodeUpdated)||z)&&Ie(()=>{G&&Je(G,m,p,u),z&&Rn(p,u,m,"updated")},g)},K=(u,p,m,g,x,b,I)=>{for(let R=0;R<p.length;R++){const _=u[R],w=p[R],z=_.el&&(_.type===Te||!Bn(_,w)||_.shapeFlag&198)?d(_.el):m;E(_,w,z,null,g,x,b,I,!0)}},$=(u,p,m,g,x)=>{if(p!==m){if(p!==ie)for(const b in p)!rt(b)&&!(b in m)&&a(u,b,p[b],null,x,g);for(const b in m){if(rt(b))continue;const I=m[b],R=p[b];I!==R&&b!=="value"&&a(u,b,R,I,x,g)}"value"in m&&a(u,"value",p.value,m.value,x)}},O=(u,p,m,g,x,b,I,R,_)=>{const w=p.el=u?u.el:s(""),z=p.anchor=u?u.anchor:s("");let{patchFlag:L,dynamicChildren:H,slotScopeIds:G}=p;G&&(R=R?R.concat(G):G),u==null?(r(w,m,g),r(z,m,g),ue(p.children||[],m,z,x,b,I,R,_)):L>0&&L&64&&H&&u.dynamicChildren&&u.dynamicChildren.length===H.length?(K(u.dynamicChildren,H,m,x,b,I,R),(p.key!=null||x&&p===x.subTree)&&bi(u,p,!0)):Y(u,p,m,z,x,b,I,R,_)},Q=(u,p,m,g,x,b,I,R,_)=>{p.slotScopeIds=R,u==null?p.shapeFlag&512?x.ctx.activate(p,m,g,I,_):se(p,m,g,x,b,I,_):ve(u,p,_)},se=(u,p,m,g,x,b,I)=>{const R=u.component=Fl(u,g,x);if(ni(u)&&(R.ctx.renderer=M),Gl(R,!1,I),R.asyncDep){if(x&&x.registerDep(R,le,I),!u.el){const _=R.subTree=pe(vn);A(null,_,p,m),u.placeholder=_.el}}else le(R,u,p,m,x,b,I)},ve=(u,p,m)=>{const g=p.component=u.component;if(xl(u,p,m))if(g.asyncDep&&!g.asyncResolved){J(g,p,m);return}else g.next=p,g.update();else p.el=u.el,g.vnode=p},le=(u,p,m,g,x,b,I)=>{const R=()=>{if(u.isMounted){let{next:L,bu:H,u:G,parent:j,vnode:oe}=u;{const Ze=xi(u);if(Ze){L&&(L.el=oe.el,J(u,L,I)),Ze.asyncDep.then(()=>{Ie(()=>{u.isUnmounted||w()},x)});return}}let re=L,Ae;In(u,!1),L?(L.el=oe.el,J(u,L,I)):L=oe,H&&tr(H),(Ae=L.props&&L.props.onVnodeBeforeUpdate)&&Je(Ae,j,L,oe),In(u,!0);const Re=Eo(u),Qe=u.subTree;u.subTree=Re,E(Qe,Re,d(Qe.el),y(Qe),u,x,b),L.el=Re.el,re===null&&wl(u,Re.el),G&&Ie(G,x),(Ae=L.props&&L.props.onVnodeUpdated)&&Ie(()=>Je(Ae,j,L,oe),x)}else{let L;const{el:H,props:G}=p,{bm:j,m:oe,parent:re,root:Ae,type:Re}=u,Qe=ct(p);In(u,!1),j&&tr(j),!Qe&&(L=G&&G.onVnodeBeforeMount)&&Je(L,re,p),In(u,!0);{Ae.ce&&Ae.ce._hasShadowRoot()&&Ae.ce._injectChildStyle(Re);const Ze=u.subTree=Eo(u);E(null,Ze,m,g,u,x,b),p.el=Ze.el}if(oe&&Ie(oe,x),!Qe&&(L=G&&G.onVnodeMounted)){const Ze=p;Ie(()=>Je(L,re,Ze),x)}(p.shapeFlag&256||re&&ct(re.vnode)&&re.vnode.shapeFlag&256)&&u.a&&Ie(u.a,x),u.isMounted=!0,p=m=g=null}};u.scope.on();const _=u.effect=new Ra(R);u.scope.off();const w=u.update=_.run.bind(_),z=u.job=_.runIfDirty.bind(_);z.i=u,z.id=u.uid,_.scheduler=()=>jr(z),In(u,!0),w()},J=(u,p,m)=>{p.component=u;const g=u.vnode.props;u.vnode=p,u.next=null,Sl(u,p.props,g,m),Al(u,p.children,m),pn(),ho(u),hn()},Y=(u,p,m,g,x,b,I,R,_=!1)=>{const w=u&&u.children,z=u?u.shapeFlag:0,L=p.children,{patchFlag:H,shapeFlag:G}=p;if(H>0){if(H&128){Xe(w,L,m,g,x,b,I,R,_);return}else if(H&256){Fe(w,L,m,g,x,b,I,R,_);return}}G&8?(z&16&&we(w,x,b),L!==w&&c(m,L)):z&16?G&16?Xe(w,L,m,g,x,b,I,R,_):we(w,x,b,!0):(z&8&&c(m,""),G&16&&ue(L,m,g,x,b,I,R,_))},Fe=(u,p,m,g,x,b,I,R,_)=>{u=u||Fn,p=p||Fn;const w=u.length,z=p.length,L=Math.min(w,z);let H;for(H=0;H<L;H++){const G=p[H]=_?dn(p[H]):tn(p[H]);E(u[H],G,m,null,x,b,I,R,_)}w>z?we(u,x,b,!0,!1,L):ue(p,m,g,x,b,I,R,_,L)},Xe=(u,p,m,g,x,b,I,R,_)=>{let w=0;const z=p.length;let L=u.length-1,H=z-1;for(;w<=L&&w<=H;){const G=u[w],j=p[w]=_?dn(p[w]):tn(p[w]);if(Bn(G,j))E(G,j,m,null,x,b,I,R,_);else break;w++}for(;w<=L&&w<=H;){const G=u[L],j=p[H]=_?dn(p[H]):tn(p[H]);if(Bn(G,j))E(G,j,m,null,x,b,I,R,_);else break;L--,H--}if(w>L){if(w<=H){const G=H+1,j=G<z?p[G].el:g;for(;w<=H;)E(null,p[w]=_?dn(p[w]):tn(p[w]),m,j,x,b,I,R,_),w++}}else if(w>H)for(;w<=L;)ge(u[w],x,b,!0),w++;else{const G=w,j=w,oe=new Map;for(w=j;w<=H;w++){const Le=p[w]=_?dn(p[w]):tn(p[w]);Le.key!=null&&oe.set(Le.key,w)}let re,Ae=0;const Re=H-j+1;let Qe=!1,Ze=0;const Zn=new Array(Re);for(w=0;w<Re;w++)Zn[w]=0;for(w=G;w<=L;w++){const Le=u[w];if(Ae>=Re){ge(Le,x,b,!0);continue}let $e;if(Le.key!=null)$e=oe.get(Le.key);else for(re=j;re<=H;re++)if(Zn[re-j]===0&&Bn(Le,p[re])){$e=re;break}$e===void 0?ge(Le,x,b,!0):(Zn[$e-j]=w+1,$e>=Ze?Ze=$e:Qe=!0,E(Le,p[$e],m,null,x,b,I,R,_),Ae++)}const io=Qe?Pl(Zn):Fn;for(re=io.length-1,w=Re-1;w>=0;w--){const Le=j+w,$e=p[Le],so=p[Le+1],lo=Le+1<z?so.el||wi(so):g;Zn[w]===0?E(null,$e,m,lo,x,b,I,R,_):Qe&&(re<0||w!==io[re]?fe($e,m,lo,2):re--)}}},fe=(u,p,m,g,x=null)=>{const{el:b,type:I,transition:R,children:_,shapeFlag:w}=u;if(w&6){fe(u.component.subTree,p,m,g);return}if(w&128){u.suspense.move(p,m,g);return}if(w&64){I.move(u,p,m,M);return}if(I===Te){r(b,p,m);for(let L=0;L<_.length;L++)fe(_[L],p,m,g);r(u.anchor,p,m);return}if(I===It){P(u,p,m);return}if(g!==2&&w&1&&R)if(g===0)R.beforeEnter(b),r(b,p,m),Ie(()=>R.enter(b),x);else{const{leave:L,delayLeave:H,afterLeave:G}=R,j=()=>{u.ctx.isUnmounted?o(b):r(b,p,m)},oe=()=>{b._isLeaving&&b[xn](!0),L(b,()=>{j(),G&&G()})};H?H(b,j,oe):oe()}else r(b,p,m)},ge=(u,p,m,g=!1,x=!1)=>{const{type:b,props:I,ref:R,children:_,dynamicChildren:w,shapeFlag:z,patchFlag:L,dirs:H,cacheIndex:G}=u;if(L===-2&&(x=!1),R!=null&&(pn(),lt(R,null,m,u,!0),hn()),G!=null&&(p.renderCache[G]=void 0),z&256){p.ctx.deactivate(u);return}const j=z&1&&H,oe=!ct(u);let re;if(oe&&(re=I&&I.onVnodeBeforeUnmount)&&Je(re,p,u),z&6)je(u.component,m,g);else{if(z&128){u.suspense.unmount(m,g);return}j&&Rn(u,null,p,"beforeUnmount"),z&64?u.type.remove(u,p,m,M,g):w&&!w.hasOnce&&(b!==Te||L>0&&L&64)?we(w,p,m,!1,!0):(b===Te&&L&384||!x&&z&16)&&we(_,p,m),g&&an(u)}(oe&&(re=I&&I.onVnodeUnmounted)||j)&&Ie(()=>{re&&Je(re,p,u),j&&Rn(u,null,p,"unmounted")},m)},an=u=>{const{type:p,el:m,anchor:g,transition:x}=u;if(p===Te){sn(m,g);return}if(p===It){N(u);return}const b=()=>{o(m),x&&!x.persisted&&x.afterLeave&&x.afterLeave()};if(u.shapeFlag&1&&x&&!x.persisted){const{leave:I,delayLeave:R}=x,_=()=>I(m,b);R?R(u.el,b,_):_()}else b()},sn=(u,p)=>{let m;for(;u!==p;)m=h(u),o(u),u=m;o(p)},je=(u,p,m)=>{const{bum:g,scope:x,job:b,subTree:I,um:R,m:_,a:w}=u;To(_),To(w),g&&tr(g),x.stop(),b&&(b.flags|=8,ge(I,u,p,m)),R&&Ie(R,p),Ie(()=>{u.isUnmounted=!0},p)},we=(u,p,m,g=!1,x=!1,b=0)=>{for(let I=b;I<u.length;I++)ge(u[I],p,m,g,x)},y=u=>{if(u.shapeFlag&6)return y(u.component.subTree);if(u.shapeFlag&128)return u.suspense.next();const p=h(u.anchor||u.el),m=p&&p[Ks];return m?h(m):p};let k=!1;const D=(u,p,m)=>{let g;u==null?p._vnode&&(ge(p._vnode,null,null,!0),g=p._vnode.component):E(p._vnode||null,u,p,null,null,null,m),p._vnode=u,k||(k=!0,ho(g),Xa(),k=!1)},M={p:E,um:ge,m:fe,r:an,mt:se,mc:ue,pc:Y,pbc:K,n:y,o:e};return{render:D,hydrate:void 0,createApp:hl(D)}}function lr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Dl(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function bi(e,n,t=!1){const r=e.children,o=n.children;if(F(r)&&F(o))for(let a=0;a<r.length;a++){const i=r[a];let s=o[a];s.shapeFlag&1&&!s.dynamicChildren&&((s.patchFlag<=0||s.patchFlag===32)&&(s=o[a]=dn(o[a]),s.el=i.el),!t&&s.patchFlag!==-2&&bi(i,s)),s.type===$t&&(s.patchFlag===-1&&(s=o[a]=dn(s)),s.el=i.el),s.type===vn&&!s.el&&(s.el=i.el)}}function Pl(e){const n=e.slice(),t=[0];let r,o,a,i,s;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(o=t[t.length-1],e[o]<f){n[r]=o,t.push(r);continue}for(a=0,i=t.length-1;a<i;)s=a+i>>1,e[t[s]]<f?a=s+1:i=s;f<e[t[a]]&&(a>0&&(n[r]=t[a-1]),t[a]=r)}}for(a=t.length,i=t[a-1];a-- >0;)t[a]=i,i=n[i];return t}function xi(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:xi(n)}function To(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function wi(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?wi(n.subTree):null}const Ei=e=>e.__isSuspense;function Nl(e,n){n&&n.pendingBranch?F(e)?n.effects.push(...e):n.effects.push(e):Us(e)}const Te=Symbol.for("v-fgt"),$t=Symbol.for("v-txt"),vn=Symbol.for("v-cmt"),It=Symbol.for("v-stc"),dt=[];let ke=null;function _e(e=!1){dt.push(ke=e?null:[])}function Ll(){dt.pop(),ke=dt[dt.length-1]||null}let gt=1;function Ht(e,n=!1){gt+=e,e<0&&ke&&n&&(ke.hasOnce=!0)}function Si(e){return e.dynamicChildren=gt>0?ke||Fn:null,Ll(),gt>0&&ke&&ke.push(e),e}function Be(e,n,t,r,o,a){return Si(Oe(e,n,t,r,o,a,!0))}function eo(e,n,t,r,o){return Si(pe(e,n,t,r,o,!0))}function zt(e){return e?e.__v_isVNode===!0:!1}function Bn(e,n){return e.type===n.type&&e.key===n.key}const Ci=({key:e})=>e??null,Dt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?de(e)||xe(e)||V(e)?{i:Ge,r:e,k:n,f:!!t}:e:null);function Oe(e,n=null,t=null,r=0,o=null,a=e===Te?0:1,i=!1,s=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Ci(n),ref:n&&Dt(n),scopeId:Qa,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:a,patchFlag:r,dynamicProps:o,dynamicChildren:null,appContext:null,ctx:Ge};return s?(no(l,t),a&128&&e.normalize(l)):t&&(l.shapeFlag|=de(t)?8:16),gt>0&&!i&&ke&&(l.patchFlag>0||a&6)&&l.patchFlag!==32&&ke.push(l),l}const pe=Ol;function Ol(e,n=null,t=null,r=0,o=null,a=!1){if((!e||e===al)&&(e=vn),zt(e)){const s=kn(e,n,!0);return t&&no(s,t),gt>0&&!a&&ke&&(s.shapeFlag&6?ke[ke.indexOf(e)]=s:ke.push(s)),s.patchFlag=-2,s}if(ql(e)&&(e=e.__vccOpts),n){n=kl(n);let{class:s,style:l}=n;s&&!de(s)&&(n.class=Yn(s)),te(l)&&(Xr(l)&&!F(l)&&(l=he({},l)),n.style=Ur(l))}const i=de(e)?1:Ei(e)?128:Ys(e)?64:te(e)?4:V(e)?2:0;return Oe(e,n,t,r,o,i,a,!0)}function kl(e){return e?Xr(e)||pi(e)?he({},e):e:null}function kn(e,n,t=!1,r=!1){const{props:o,ref:a,patchFlag:i,children:s,transition:l}=e,f=n?zl(o||{},n):o,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Ci(f),ref:n&&n.ref?t&&a?F(a)?a.concat(Dt(n)):[a,Dt(n)]:Dt(n):a,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:s,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Te?i===-1?16:i|16:i,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&kn(e.ssContent),ssFallback:e.ssFallback&&kn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&vt(c,l.clone(c)),c}function Ml(e=" ",n=0){return pe($t,null,e,n)}function Hl(e,n){const t=pe(It,null,e);return t.staticCount=n,t}function Ti(e="",n=!1){return n?(_e(),eo(vn,null,e)):pe(vn,null,e)}function tn(e){return e==null||typeof e=="boolean"?pe(vn):F(e)?pe(Te,null,e.slice()):zt(e)?dn(e):pe($t,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:kn(e)}function no(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(F(n))t=16;else if(typeof n=="object")if(r&65){const o=n.default;o&&(o._c&&(o._d=!1),no(e,o()),o._c&&(o._d=!0));return}else{t=32;const o=n._;!o&&!pi(n)?n._ctx=Ge:o===3&&Ge&&(Ge.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else V(n)?(n={default:n,_ctx:Ge},t=32):(n=String(n),r&64?(t=16,n=[Ml(n)]):t=8);e.children=n,e.shapeFlag|=t}function zl(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const o in r)if(o==="class")n.class!==r.class&&(n.class=Yn([n.class,r.class]));else if(o==="style")n.style=Ur([n.style,r.style]);else if(Gt(o)){const a=n[o],i=r[o];i&&a!==i&&!(F(a)&&a.includes(i))&&(n[o]=a?[].concat(a,i):i)}else o!==""&&(n[o]=r[o])}return n}function Je(e,n,t,r=null){We(e,n,7,[t,r])}const Bl=li();let Ul=0;function Fl(e,n,t){const r=e.type,o=(n?n.appContext:e.appContext)||Bl,a={uid:Ul++,vnode:e,type:r,parent:n,appContext:o,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new fs(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(o.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:mi(r,o),emitsOptions:ci(r,o),emit:null,emitted:null,propsDefaults:ie,inheritAttrs:r.inheritAttrs,ctx:ie,data:ie,props:ie,attrs:ie,slots:ie,refs:ie,setupState:ie,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return a.ctx={_:a},a.root=n?n.root:a,a.emit=vl.bind(null,a),e.ce&&e.ce(a),a}let be=null;const _i=()=>be||Ge;let Bt,Rr;{const e=Yt(),n=(t,r)=>{let o;return(o=e[t])||(o=e[t]=[]),o.push(r),a=>{o.length>1?o.forEach(i=>i(a)):o[0](a)}};Bt=n("__VUE_INSTANCE_SETTERS__",t=>be=t),Rr=n("__VUE_SSR_SETTERS__",t=>yt=t)}const Et=e=>{const n=be;return Bt(e),e.scope.on(),()=>{e.scope.off(),Bt(n)}},_o=()=>{be&&be.scope.off(),Bt(null)};function Ai(e){return e.vnode.shapeFlag&4}let yt=!1;function Gl(e,n=!1,t=!1){n&&Rr(n);const{props:r,children:o}=e.vnode,a=Ai(e);El(e,r,a,n),_l(e,o,t||n);const i=a?Vl(e,n):void 0;return n&&Rr(!1),i}function Vl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,sl);const{setup:r}=t;if(r){pn();const o=e.setupContext=r.length>1?Yl(e):null,a=Et(e),i=wt(r,e,0,[e.props,o]),s=wa(i);if(hn(),a(),(s||e.sp)&&!ct(e)&&ei(e),s){if(i.then(_o,_o),n)return i.then(l=>{Ao(e,l)}).catch(l=>{Xt(l,e,0)});e.asyncDep=i}else Ao(e,i)}else Ri(e)}function Ao(e,n,t){V(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Ka(n)),Ri(e)}function Ri(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const o=Et(e);pn();try{ll(e)}finally{hn(),o()}}}const Kl={get(e,n){return ye(e,"get",""),e[n]}};function Yl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,Kl),slots:e.slots,emit:e.emit,expose:n}}function to(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Ka(Ds(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in ft)return ft[t](e)},has(n,t){return t in n||t in ft}})):e.proxy}function Wl(e,n=!0){return V(e)?e.displayName||e.name:e.name||n&&e.__name}function ql(e){return V(e)&&"__vccOpts"in e}const He=(e,n)=>ks(e,n,yt);function Ii(e,n,t){try{Ht(-1);const r=arguments.length;return r===2?te(n)&&!F(n)?zt(n)?pe(e,null,[n]):pe(e,n):pe(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&zt(t)&&(t=[t]),pe(e,n,t))}finally{Ht(1)}}const Xl="3.5.28";/**
 * @vue/runtime-dom v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let Ir;const wo=typeof window<"u"&&window.trustedTypes;if(wo)try{Ir=wo.createPolicy("vue",{createHTML:e=>e})}catch{}const Ds=Ir?e=>Ir.createHTML(e):e=>e,jl="http://www.w3.org/2000/svg",Zl="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,Io=fn&&fn.createElement("template"),$l={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const o=n==="svg"?fn.createElementNS(jl,e):n==="mathml"?fn.createElementNS(Zl,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&o.setAttribute("multiple",r.multiple),o},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,o,a){const s=t?t.previousSibling:n.lastChild;if(o&&(o===a||o.nextSibling))for(;n.insertBefore(o.cloneNode(!0),t),!(o===a||!(o=o.nextSibling)););else{Io.innerHTML=Ds(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const i=Io.content;if(r==="svg"||r==="mathml"){const l=i.firstChild;for(;l.firstChild;)i.appendChild(l.firstChild);i.removeChild(l)}n.insertBefore(i,t)}return[s?s.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",et="animation",Xn=Symbol("_vtc"),Ps={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},Ql=me({},Xi,Ps),Dn=(e,n=[])=>{F(e)?e.forEach(t=>t(...n)):e&&e(...n)},Do=e=>e?F(e)?e.some(n=>n.length>1):e.length>1:!1;function Jl(e){const n={};for(const L in e)L in Ps||(n[L]=e[L]);if(e.css===!1)return n;const{name:t="v",type:r,duration:o,enterFromClass:a=`${t}-enter-from`,enterActiveClass:s=`${t}-enter-active`,enterToClass:i=`${t}-enter-to`,appearFromClass:l=a,appearActiveClass:f=s,appearToClass:c=i,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:m=`${t}-leave-active`,leaveToClass:h=`${t}-leave-to`}=e,S=ec(o),_=S&&S[0],T=S&&S[1],{onBeforeEnter:R,onEnter:E,onEnterCancelled:P,onLeave:N,onLeaveCancelled:B,onBeforeAppear:X=R,onAppear:W=E,onAppearCancelled:ue=P}=n,z=(L,Z,ie,he)=>{L._enterCancelled=he,Cn(L,Z?c:i),Cn(L,Z?f:s),ie&&ie()},K=(L,Z)=>{L._isLeaving=!1,Cn(L,d),Cn(L,h),Cn(L,m),Z&&Z()},Q=L=>(Z,ie)=>{const he=L?W:E,le=()=>z(Z,L,ie);Dn(he,[Z,le]),Po(()=>{Cn(Z,L?l:a),en(Z,L?c:i),Do(he)||No(Z,r,_,le)})};return me(n,{onBeforeEnter(L){Dn(R,[L]),en(L,a),en(L,s)},onBeforeAppear(L){Dn(X,[L]),en(L,l),en(L,f)},onEnter:Q(!1),onAppear:Q(!0),onLeave(L,Z){L._isLeaving=!0;const ie=()=>K(L,Z);en(L,d),L._enterCancelled?(en(L,m),Dr(L)):(Dr(L),en(L,m)),Po(()=>{L._isLeaving&&(Cn(L,d),en(L,h),Do(N)||No(L,r,T,ie))}),Dn(N,[L,ie])},onEnterCancelled(L){z(L,!1,void 0,!0),Dn(P,[L])},onAppearCancelled(L){z(L,!0,void 0,!0),Dn(ue,[L])},onLeaveCancelled(L){K(L),Dn(B,[L])}})}function ec(e){if(e==null)return null;if(te(e))return[cr(e.enter),cr(e.leave)];{const n=cr(e);return[n,n]}}function cr(e){return ti(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[Xn]||(e[Xn]=new Set)).add(n)}function Cn(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[Xn];t&&(t.delete(n),t.size||(e[Xn]=void 0))}function Po(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let nc=0;function No(e,n,t,r){const o=e._endId=++nc,a=()=>{o===e._endId&&r()};if(t!=null)return setTimeout(a,t);const{type:s,timeout:i,propCount:l}=Ns(e,n);if(!s)return r();const f=s+"end";let c=0;const d=()=>{e.removeEventListener(f,m),a()},m=h=>{h.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},i+1),e.addEventListener(f,m)}function Ns(e,n){const t=window.getComputedStyle(e),r=S=>(t[S]||"").split(", "),o=r(`${yn}Delay`),a=r(`${yn}Duration`),s=Oo(o,a),i=r(`${et}Delay`),l=r(`${et}Duration`),f=Oo(i,l);let c=null,d=0,m=0;n===yn?s>0&&(c=yn,d=s,m=a.length):n===et?f>0&&(c=et,d=f,m=l.length):(d=Math.max(s,f),c=d>0?s>f?yn:et:null,m=c?c===yn?a.length:l.length:0);const h=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:m,hasTransform:h}}function Oo(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Lo(t)+Lo(e[r])))}function Lo(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Dr(e){return(e?e.ownerDocument:document).body.offsetHeight}function tc(e,n,t){const r=e[Xn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const Mo=Symbol("_vod"),rc=Symbol("_vsh"),oc=Symbol(""),ac=/(?:^|;)\s*display\s*:/;function sc(e,n,t){const r=e.style,o=de(t);let a=!1;if(t&&!o){if(n)if(de(n))for(const s of n.split(";")){const i=s.slice(0,s.indexOf(":")).trim();t[i]==null&&Pt(r,i,"")}else for(const s in n)t[s]==null&&Pt(r,s,"");for(const s in t)s==="display"&&(a=!0),Pt(r,s,t[s])}else if(o){if(n!==t){const s=r[oc];s&&(t+=";"+s),r.cssText=t,a=ac.test(t)}}else n&&e.removeAttribute("style");Mo in e&&(e[Mo]=a?r.display:"",e[rc]&&(r.display="none"))}const ko=/\s*!important$/;function Pt(e,n,t){if(F(t))t.forEach(r=>Pt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=ic(e,n);ko.test(t)?e.setProperty(kn(r),t.replace(ko,""),"important"):e[r]=t}}const Ho=["Webkit","Moz","ms"],fr={};function ic(e,n){const t=fr[n];if(t)return t;let r=ze(n);if(r!=="filter"&&r in e)return fr[n]=r;r=Kt(r);for(let o=0;o<Ho.length;o++){const a=Ho[o]+r;if(a in e)return fr[n]=a}return n}const Uo="http://www.w3.org/1999/xlink";function Bo(e,n,t,r,o,a=li(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(Uo,n.slice(6,n.length)):e.setAttributeNS(Uo,n,t):t==null||a&&!Ta(t)?e.removeAttribute(n):e.setAttribute(n,a?"":on(t)?String(t):t)}function zo(e,n,t,r,o){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Ds(t):t);return}const a=e.tagName;if(n==="value"&&a!=="PROGRESS"&&!a.includes("-")){const i=a==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(i!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let s=!1;if(t===""||t==null){const i=typeof e[n];i==="boolean"?t=Ta(t):t==null&&i==="string"?(t="",s=!0):i==="number"&&(t=0,s=!0)}try{e[n]=t}catch{}s&&e.removeAttribute(o||n)}function lc(e,n,t,r){e.addEventListener(n,t,r)}function cc(e,n,t,r){e.removeEventListener(n,t,r)}const Fo=Symbol("_vei");function fc(e,n,t,r,o=null){const a=e[Fo]||(e[Fo]={}),s=a[n];if(r&&s)s.value=r;else{const[i,l]=dc(n);if(r){const f=a[n]=mc(r,o);lc(e,i,f,l)}else s&&(cc(e,i,s,l),a[n]=void 0)}}const Go=/(?:Once|Passive|Capture)$/;function dc(e){let n;if(Go.test(e)){n={};let r;for(;r=e.match(Go);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):kn(e.slice(2)),n]}let dr=0;const uc=Promise.resolve(),pc=()=>dr||(uc.then(()=>dr=0),dr=Date.now());function mc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;We(vc(r,t.value),n,5,[r])};return t.value=e,t.attached=pc(),t}function vc(e,n){if(F(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>o=>!o._stopped&&r&&r(o))}else return n}const Vo=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,hc=(e,n,t,r,o,a)=>{const s=o==="svg";n==="class"?tc(e,r,s):n==="style"?sc(e,t,r):Gt(n)?Hr(n)||fc(e,n,t,r,a):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):gc(e,n,r,s))?(zo(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&Bo(e,n,r,s,a,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!de(r))?zo(e,ze(n),r,a,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),Bo(e,n,r,s))};function gc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&Vo(n)&&V(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const o=e.tagName;if(o==="IMG"||o==="VIDEO"||o==="CANVAS"||o==="SOURCE")return!1}return Vo(n)&&de(t)?!1:n in e}const Os=new WeakMap,Ls=new WeakMap,zt=Symbol("_moveCb"),Ko=Symbol("_enterCb"),yc=e=>(delete e.props.mode,e),xc=yc({name:"TransitionGroup",props:me({},Ql,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=As(),r=Wi();let o,a;return rs(()=>{if(!o.length)return;const s=e.moveClass||`${e.name||"v"}-move`;if(!Ec(o[0].el,t.vnode.el,s)){o=[];return}o.forEach(Cc),o.forEach(_c);const i=o.filter(Sc);Dr(t.vnode.el),i.forEach(l=>{const f=l.el,c=f.style;en(f,s),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[zt]=m=>{m&&m.target!==f||(!m||m.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[zt]=null,Cn(f,s))};f.addEventListener("transitionend",d)}),o=[]}),()=>{const s=$(e),i=Jl(s);let l=s.tag||Te;if(o=[],a)for(let f=0;f<a.length;f++){const c=a[f];c.el&&c.el instanceof Element&&(o.push(c),ht(c,Sr(c,i,r,t)),Os.set(c,Ms(c.el)))}a=n.default?Ja(n.default()):[];for(let f=0;f<a.length;f++){const c=a[f];c.key!=null&&ht(c,Sr(c,i,r,t))}return pe(l,null,a)}}}),bc=xc;function Cc(e){const n=e.el;n[zt]&&n[zt](),n[Ko]&&n[Ko]()}function _c(e){Ls.set(e,Ms(e.el))}function Sc(e){const n=Os.get(e),t=Ls.get(e),r=n.left-t.left,o=n.top-t.top;if(r||o){const a=e.el,s=a.style,i=a.getBoundingClientRect();let l=1,f=1;return a.offsetWidth&&(l=i.width/a.offsetWidth),a.offsetHeight&&(f=i.height/a.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),s.transform=s.webkitTransform=`translate(${r/l}px,${o/f}px)`,s.transitionDuration="0s",e}}function Ms(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function Ec(e,n,t){const r=e.cloneNode(),o=e[Xn];o&&o.forEach(i=>{i.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(i=>i&&r.classList.add(i)),r.style.display="none";const a=n.nodeType===1?n:n.parentNode;a.appendChild(r);const{hasTransform:s}=Ns(r);return a.removeChild(r),s}const Tc=me({patchProp:hc},$l);let Yo;function Ac(){return Yo||(Yo=wl(Tc))}const Rc=((...e)=>{const n=Ac().createApp(...e),{mount:t}=n;return n.mount=r=>{const o=Ic(r);if(!o)return;const a=n._component;!V(a)&&!a.render&&!a.template&&(a.template=o.innerHTML),o.nodeType===1&&(o.textContent="");const s=t(o,!1,wc(o));return o instanceof Element&&(o.removeAttribute("v-cloak"),o.setAttribute("data-v-app","")),s},n});function wc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Ic(e){return de(e)?document.querySelector(e):e}const pd=4,md=2,Wo=400,Xo=300,qo=50,Dc=800,jo=500,Pc=300,Nc=250,ur=8,Oc=8,Lc=18,Mc=2.5,kc=1.2,Hc=1.5,Uc=10,Bc=4,zc=2,Fc=2,Gc=1.5,Vc=8,Zo=Ne(null),Ft=Ne("full");let $o=!1,pr=null;function Kc(){$o||($o=!0,pr=window.matchMedia("(prefers-reduced-motion: reduce)"),Ft.value=pr.matches?"reduced":"full",pr.addEventListener("change",e=>{Ft.value=e.matches?"reduced":"full"}))}function ro(){Zn(()=>{Kc()});const e=Ft;function n(o,a){if(a<=1)return 0;const s=Dc-qo,i=Math.min(qo,s/(a-1));return Math.round(o*i)}function t(o){Zo.value=o}function r(o){return Ft.value==="reduced"?Promise.resolve():o.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Nc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Zo,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Yc=["src"],Wc=Rn({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=ro(),o=Ne(null),a=Ne(null),s=Ne(!1);return it(n,i=>{!i||r.value==="reduced"||(s.value=!0,requestAnimationFrame(()=>{const l=a.value,f=o.value;if(!l||!f){s.value=!1,t(null);return}const{top:c,left:d,width:m,height:h}=i.rect;f.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),l.animate([{top:`${c}px`,left:`${d}px`,width:`${m}px`,height:`${h}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{f&&f.animate([{opacity:1},{opacity:0}],{duration:200,fill:"forwards"}).finished.then(()=>{s.value=!1,t(null)})},100)})}))}),(i,l)=>s.value&&Pe(n)?(Ae(),Be("div",{key:0,ref_key:"overlayRef",ref:o,class:"transition-overlay"},[Le("img",{ref_key:"imgRef",ref:a,src:Pe(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Yc)],512)):Ts("",!0)}}),St=(e,n)=>{const t=e.__vccOpts||e;for(const[r,o]of n)t[r]=o;return t},Xc=St(Wc,[["__scopeId","data-v-f5768e1f"]]),qc=Rn({__name:"App",setup(e){return(n,t)=>{const r=as("router-view");return Ae(),Be(Te,null,[pe(r),pe(Xc)],64)}}}),jc="modulepreload",Zc=function(e){return"/"+e},Qo={},$c=function(n,t,r){let o=Promise.resolve();if(t&&t.length>0){let s=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const i=document.querySelector("meta[property=csp-nonce]"),l=(i==null?void 0:i.nonce)||(i==null?void 0:i.getAttribute("nonce"));o=s(t.map(f=>{if(f=Zc(f),f in Qo)return;Qo[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const m=document.createElement("link");if(m.rel=c?"stylesheet":jc,c||(m.as="script"),m.crossOrigin="",m.href=f,l&&m.setAttribute("nonce",l),document.head.appendChild(m),c)return new Promise((h,S)=>{m.addEventListener("load",h),m.addEventListener("error",()=>S(new Error(`Unable to preload CSS for ${f}`)))})}))}function a(s){const i=new Event("vite:preloadError",{cancelable:!0});if(i.payload=s,window.dispatchEvent(i),!i.defaultPrevented)throw s}return o.then(s=>{for(const i of s||[])i.status==="rejected"&&a(i.reason);return n().catch(a)})};/*!
+**/let Ir;const Ro=typeof window<"u"&&window.trustedTypes;if(Ro)try{Ir=Ro.createPolicy("vue",{createHTML:e=>e})}catch{}const Di=Ir?e=>Ir.createHTML(e):e=>e,jl="http://www.w3.org/2000/svg",Ql="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,Io=fn&&fn.createElement("template"),Zl={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const o=n==="svg"?fn.createElementNS(jl,e):n==="mathml"?fn.createElementNS(Ql,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&o.setAttribute("multiple",r.multiple),o},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,o,a){const i=t?t.previousSibling:n.lastChild;if(o&&(o===a||o.nextSibling))for(;n.insertBefore(o.cloneNode(!0),t),!(o===a||!(o=o.nextSibling)););else{Io.innerHTML=Di(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const s=Io.content;if(r==="svg"||r==="mathml"){const l=s.firstChild;for(;l.firstChild;)s.appendChild(l.firstChild);s.removeChild(l)}n.insertBefore(s,t)}return[i?i.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",et="animation",qn=Symbol("_vtc"),Pi={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},$l=he({},qs,Pi),Dn=(e,n=[])=>{F(e)?e.forEach(t=>t(...n)):e&&e(...n)},Do=e=>e?F(e)?e.some(n=>n.length>1):e.length>1:!1;function Jl(e){const n={};for(const O in e)O in Pi||(n[O]=e[O]);if(e.css===!1)return n;const{name:t="v",type:r,duration:o,enterFromClass:a=`${t}-enter-from`,enterActiveClass:i=`${t}-enter-active`,enterToClass:s=`${t}-enter-to`,appearFromClass:l=a,appearActiveClass:f=i,appearToClass:c=s,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:h=`${t}-leave-active`,leaveToClass:v=`${t}-leave-to`}=e,S=ec(o),E=S&&S[0],T=S&&S[1],{onBeforeEnter:A,onEnter:C,onEnterCancelled:P,onLeave:N,onLeaveCancelled:B,onBeforeAppear:q=A,onAppear:W=C,onAppearCancelled:ue=P}=n,U=(O,Q,se,ve)=>{O._enterCancelled=ve,wn(O,Q?c:s),wn(O,Q?f:i),se&&se()},K=(O,Q)=>{O._isLeaving=!1,wn(O,d),wn(O,v),wn(O,h),Q&&Q()},$=O=>(Q,se)=>{const ve=O?W:C,le=()=>U(Q,O,se);Dn(ve,[Q,le]),Po(()=>{wn(Q,O?l:a),en(Q,O?c:s),Do(ve)||No(Q,r,E,le)})};return he(n,{onBeforeEnter(O){Dn(A,[O]),en(O,a),en(O,i)},onBeforeAppear(O){Dn(q,[O]),en(O,l),en(O,f)},onEnter:$(!1),onAppear:$(!0),onLeave(O,Q){O._isLeaving=!0;const se=()=>K(O,Q);en(O,d),O._enterCancelled?(en(O,h),Dr(O)):(Dr(O),en(O,h)),Po(()=>{O._isLeaving&&(wn(O,d),en(O,v),Do(N)||No(O,r,T,se))}),Dn(N,[O,se])},onEnterCancelled(O){U(O,!1,void 0,!0),Dn(P,[O])},onAppearCancelled(O){U(O,!0,void 0,!0),Dn(ue,[O])},onLeaveCancelled(O){K(O),Dn(B,[O])}})}function ec(e){if(e==null)return null;if(te(e))return[cr(e.enter),cr(e.leave)];{const n=cr(e);return[n,n]}}function cr(e){return ts(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[qn]||(e[qn]=new Set)).add(n)}function wn(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[qn];t&&(t.delete(n),t.size||(e[qn]=void 0))}function Po(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let nc=0;function No(e,n,t,r){const o=e._endId=++nc,a=()=>{o===e._endId&&r()};if(t!=null)return setTimeout(a,t);const{type:i,timeout:s,propCount:l}=Ni(e,n);if(!i)return r();const f=i+"end";let c=0;const d=()=>{e.removeEventListener(f,h),a()},h=v=>{v.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},s+1),e.addEventListener(f,h)}function Ni(e,n){const t=window.getComputedStyle(e),r=S=>(t[S]||"").split(", "),o=r(`${yn}Delay`),a=r(`${yn}Duration`),i=Lo(o,a),s=r(`${et}Delay`),l=r(`${et}Duration`),f=Lo(s,l);let c=null,d=0,h=0;n===yn?i>0&&(c=yn,d=i,h=a.length):n===et?f>0&&(c=et,d=f,h=l.length):(d=Math.max(i,f),c=d>0?i>f?yn:et:null,h=c?c===yn?a.length:l.length:0);const v=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:h,hasTransform:v}}function Lo(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Oo(t)+Oo(e[r])))}function Oo(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Dr(e){return(e?e.ownerDocument:document).body.offsetHeight}function tc(e,n,t){const r=e[qn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const ko=Symbol("_vod"),rc=Symbol("_vsh"),oc=Symbol(""),ac=/(?:^|;)\s*display\s*:/;function ic(e,n,t){const r=e.style,o=de(t);let a=!1;if(t&&!o){if(n)if(de(n))for(const i of n.split(";")){const s=i.slice(0,i.indexOf(":")).trim();t[s]==null&&Pt(r,s,"")}else for(const i in n)t[i]==null&&Pt(r,i,"");for(const i in t)i==="display"&&(a=!0),Pt(r,i,t[i])}else if(o){if(n!==t){const i=r[oc];i&&(t+=";"+i),r.cssText=t,a=ac.test(t)}}else n&&e.removeAttribute("style");ko in e&&(e[ko]=a?r.display:"",e[rc]&&(r.display="none"))}const Mo=/\s*!important$/;function Pt(e,n,t){if(F(t))t.forEach(r=>Pt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=sc(e,n);Mo.test(t)?e.setProperty(Mn(r),t.replace(Mo,""),"important"):e[r]=t}}const Ho=["Webkit","Moz","ms"],fr={};function sc(e,n){const t=fr[n];if(t)return t;let r=Ue(n);if(r!=="filter"&&r in e)return fr[n]=r;r=Kt(r);for(let o=0;o<Ho.length;o++){const a=Ho[o]+r;if(a in e)return fr[n]=a}return n}const zo="http://www.w3.org/1999/xlink";function Bo(e,n,t,r,o,a=ls(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(zo,n.slice(6,n.length)):e.setAttributeNS(zo,n,t):t==null||a&&!Ta(t)?e.removeAttribute(n):e.setAttribute(n,a?"":on(t)?String(t):t)}function Uo(e,n,t,r,o){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Di(t):t);return}const a=e.tagName;if(n==="value"&&a!=="PROGRESS"&&!a.includes("-")){const s=a==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(s!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let i=!1;if(t===""||t==null){const s=typeof e[n];s==="boolean"?t=Ta(t):t==null&&s==="string"?(t="",i=!0):s==="number"&&(t=0,i=!0)}try{e[n]=t}catch{}i&&e.removeAttribute(o||n)}function lc(e,n,t,r){e.addEventListener(n,t,r)}function cc(e,n,t,r){e.removeEventListener(n,t,r)}const Fo=Symbol("_vei");function fc(e,n,t,r,o=null){const a=e[Fo]||(e[Fo]={}),i=a[n];if(r&&i)i.value=r;else{const[s,l]=dc(n);if(r){const f=a[n]=hc(r,o);lc(e,s,f,l)}else i&&(cc(e,s,i,l),a[n]=void 0)}}const Go=/(?:Once|Passive|Capture)$/;function dc(e){let n;if(Go.test(e)){n={};let r;for(;r=e.match(Go);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Mn(e.slice(2)),n]}let dr=0;const uc=Promise.resolve(),pc=()=>dr||(uc.then(()=>dr=0),dr=Date.now());function hc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;We(mc(r,t.value),n,5,[r])};return t.value=e,t.attached=pc(),t}function mc(e,n){if(F(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>o=>!o._stopped&&r&&r(o))}else return n}const Vo=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,vc=(e,n,t,r,o,a)=>{const i=o==="svg";n==="class"?tc(e,r,i):n==="style"?ic(e,t,r):Gt(n)?Hr(n)||fc(e,n,t,r,a):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):gc(e,n,r,i))?(Uo(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&Bo(e,n,r,i,a,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!de(r))?Uo(e,Ue(n),r,a,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),Bo(e,n,r,i))};function gc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&Vo(n)&&V(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const o=e.tagName;if(o==="IMG"||o==="VIDEO"||o==="CANVAS"||o==="SOURCE")return!1}return Vo(n)&&de(t)?!1:n in e}const Li=new WeakMap,Oi=new WeakMap,Ut=Symbol("_moveCb"),Ko=Symbol("_enterCb"),yc=e=>(delete e.props.mode,e),bc=yc({name:"TransitionGroup",props:he({},$l,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=_i(),r=Ws();let o,a;return ri(()=>{if(!o.length)return;const i=e.moveClass||`${e.name||"v"}-move`;if(!Cc(o[0].el,t.vnode.el,i)){o=[];return}o.forEach(wc),o.forEach(Ec);const s=o.filter(Sc);Dr(t.vnode.el),s.forEach(l=>{const f=l.el,c=f.style;en(f,i),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[Ut]=h=>{h&&h.target!==f||(!h||h.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[Ut]=null,wn(f,i))};f.addEventListener("transitionend",d)}),o=[]}),()=>{const i=Z(e),s=Jl(i);let l=i.tag||Te;if(o=[],a)for(let f=0;f<a.length;f++){const c=a[f];c.el&&c.el instanceof Element&&(o.push(c),vt(c,Sr(c,s,r,t)),Li.set(c,ki(c.el)))}a=n.default?Ja(n.default()):[];for(let f=0;f<a.length;f++){const c=a[f];c.key!=null&&vt(c,Sr(c,s,r,t))}return pe(l,null,a)}}}),xc=bc;function wc(e){const n=e.el;n[Ut]&&n[Ut](),n[Ko]&&n[Ko]()}function Ec(e){Oi.set(e,ki(e.el))}function Sc(e){const n=Li.get(e),t=Oi.get(e),r=n.left-t.left,o=n.top-t.top;if(r||o){const a=e.el,i=a.style,s=a.getBoundingClientRect();let l=1,f=1;return a.offsetWidth&&(l=s.width/a.offsetWidth),a.offsetHeight&&(f=s.height/a.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),i.transform=i.webkitTransform=`translate(${r/l}px,${o/f}px)`,i.transitionDuration="0s",e}}function ki(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function Cc(e,n,t){const r=e.cloneNode(),o=e[qn];o&&o.forEach(s=>{s.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(s=>s&&r.classList.add(s)),r.style.display="none";const a=n.nodeType===1?n:n.parentNode;a.appendChild(r);const{hasTransform:i}=Ni(r);return a.removeChild(r),i}const Tc=he({patchProp:vc},Zl);let Yo;function _c(){return Yo||(Yo=Rl(Tc))}const Ac=((...e)=>{const n=_c().createApp(...e),{mount:t}=n;return n.mount=r=>{const o=Ic(r);if(!o)return;const a=n._component;!V(a)&&!a.render&&!a.template&&(a.template=o.innerHTML),o.nodeType===1&&(o.textContent="");const i=t(o,!1,Rc(o));return o instanceof Element&&(o.removeAttribute("v-cloak"),o.setAttribute("data-v-app","")),i},n});function Rc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Ic(e){return de(e)?document.querySelector(e):e}const pd=4,hd=2,Wo=400,qo=300,Xo=50,Dc=800,jo=500,Pc=300,Nc=250,ur=8,Lc=8,Oc=18,kc=2.5,Mc=1.2,Hc=1.5,zc=10,Bc=4,Uc=2,Fc=2,Gc=1.5,Vc=8,Qo=Ne(null),Ft=Ne("full");let Zo=!1,pr=null;function Kc(){Zo||(Zo=!0,pr=window.matchMedia("(prefers-reduced-motion: reduce)"),Ft.value=pr.matches?"reduced":"full",pr.addEventListener("change",e=>{Ft.value=e.matches?"reduced":"full"}))}function ro(){Qn(()=>{Kc()});const e=Ft;function n(o,a){if(a<=1)return 0;const i=Dc-Xo,s=Math.min(Xo,i/(a-1));return Math.round(o*s)}function t(o){Qo.value=o}function r(o){return Ft.value==="reduced"?Promise.resolve():o.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Nc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Qo,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Yc=["src"],Wc=An({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=ro(),o=Ne(null),a=Ne(null),i=Ne(!1);return st(n,s=>{!s||r.value==="reduced"||(i.value=!0,requestAnimationFrame(()=>{const l=a.value,f=o.value;if(!l||!f){i.value=!1,t(null);return}const{top:c,left:d,width:h,height:v}=s.rect;f.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),l.animate([{top:`${c}px`,left:`${d}px`,width:`${h}px`,height:`${v}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{f&&f.animate([{opacity:1},{opacity:0}],{duration:200,fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})},100)})}))}),(s,l)=>i.value&&Pe(n)?(_e(),Be("div",{key:0,ref_key:"overlayRef",ref:o,class:"transition-overlay"},[Oe("img",{ref_key:"imgRef",ref:a,src:Pe(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Yc)],512)):Ti("",!0)}}),St=(e,n)=>{const t=e.__vccOpts||e;for(const[r,o]of n)t[r]=o;return t},qc=St(Wc,[["__scopeId","data-v-f5768e1f"]]),Xc=An({__name:"App",setup(e){return(n,t)=>{const r=ai("router-view");return _e(),Be(Te,null,[pe(r),pe(qc)],64)}}}),jc="modulepreload",Qc=function(e){return"/"+e},$o={},Zc=function(n,t,r){let o=Promise.resolve();if(t&&t.length>0){let i=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=(s==null?void 0:s.nonce)||(s==null?void 0:s.getAttribute("nonce"));o=i(t.map(f=>{if(f=Qc(f),f in $o)return;$o[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const h=document.createElement("link");if(h.rel=c?"stylesheet":jc,c||(h.as="script"),h.crossOrigin="",h.href=f,l&&h.setAttribute("nonce",l),document.head.appendChild(h),c)return new Promise((v,S)=>{h.addEventListener("load",v),h.addEventListener("error",()=>S(new Error(`Unable to preload CSS for ${f}`)))})}))}function a(i){const s=new Event("vite:preloadError",{cancelable:!0});if(s.payload=i,window.dispatchEvent(s),!s.defaultPrevented)throw i}return o.then(i=>{for(const s of i||[])s.status==="rejected"&&a(s.reason);return n().catch(a)})};/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */const zn=typeof document<"u";function ks(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function Qc(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&ks(e.default)}const ee=Object.assign;function mr(e,n){const t={};for(const r in n){const o=n[r];t[r]=Xe(o)?o.map(e):e(o)}return t}const ut=()=>{},Xe=Array.isArray;function Jo(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Hs=/#/g,Jc=/&/g,e0=/\//g,n0=/=/g,t0=/\?/g,Us=/\+/g,r0=/%5B/g,o0=/%5D/g,Bs=/%5E/g,a0=/%60/g,zs=/%7B/g,s0=/%7C/g,Fs=/%7D/g,i0=/%20/g;function oo(e){return e==null?"":encodeURI(""+e).replace(s0,"|").replace(r0,"[").replace(o0,"]")}function l0(e){return oo(e).replace(zs,"{").replace(Fs,"}").replace(Bs,"^")}function Pr(e){return oo(e).replace(Us,"%2B").replace(i0,"+").replace(Hs,"%23").replace(Jc,"%26").replace(a0,"`").replace(zs,"{").replace(Fs,"}").replace(Bs,"^")}function c0(e){return Pr(e).replace(n0,"%3D")}function f0(e){return oo(e).replace(Hs,"%23").replace(t0,"%3F")}function d0(e){return f0(e).replace(e0,"%2F")}function xt(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const u0=/\/$/,p0=e=>e.replace(u0,"");function vr(e,n,t="/"){let r,o={},a="",s="";const i=n.indexOf("#");let l=n.indexOf("?");return l=i>=0&&l>i?-1:l,l>=0&&(r=n.slice(0,l),a=n.slice(l,i>0?i:n.length),o=e(a.slice(1))),i>=0&&(r=r||n.slice(0,i),s=n.slice(i,n.length)),r=g0(r??n,t),{fullPath:r+a+s,path:r,query:o,hash:xt(s)}}function m0(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function ea(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function v0(e,n,t){const r=n.matched.length-1,o=t.matched.length-1;return r>-1&&r===o&&qn(n.matched[r],t.matched[o])&&Gs(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function qn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Gs(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!h0(e[t],n[t]))return!1;return!0}function h0(e,n){return Xe(e)?na(e,n):Xe(n)?na(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function na(e,n){return Xe(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function g0(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),o=r[r.length-1];(o===".."||o===".")&&r.push("");let a=t.length-1,s,i;for(s=0;s<r.length;s++)if(i=r[s],i!==".")if(i==="..")a>1&&a--;else break;return t.slice(0,a).join("/")+"/"+r.slice(s).join("/")}const xn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Nr=(function(e){return e.pop="pop",e.push="push",e})({}),hr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function y0(e){if(!e)if(zn){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),p0(e)}const x0=/^[^#]+#/;function b0(e,n){return e.replace(x0,"#")+n}function C0(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const Jt=()=>({left:window.scrollX,top:window.scrollY});function _0(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),o=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!o)return;n=C0(o,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function ta(e,n){return(history.state?history.state.position-n:-1)+e}const Or=new Map;function S0(e,n){Or.set(e,n)}function E0(e){const n=Or.get(e);return Or.delete(e),n}function T0(e){return typeof e=="string"||e&&typeof e=="object"}function Vs(e){return typeof e=="string"||typeof e=="symbol"}let ce=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const Ks=Symbol("");ce.MATCHER_NOT_FOUND+"",ce.NAVIGATION_GUARD_REDIRECT+"",ce.NAVIGATION_ABORTED+"",ce.NAVIGATION_CANCELLED+"",ce.NAVIGATION_DUPLICATED+"";function jn(e,n){return ee(new Error,{type:e,[Ks]:!0},n)}function cn(e,n){return e instanceof Error&&Ks in e&&(n==null||!!(e.type&n))}const A0=["params","query","hash"];function R0(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of A0)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function w0(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const o=t[r].replace(Us," "),a=o.indexOf("="),s=xt(a<0?o:o.slice(0,a)),i=a<0?null:xt(o.slice(a+1));if(s in n){let l=n[s];Xe(l)||(l=n[s]=[l]),l.push(i)}else n[s]=i}return n}function ra(e){let n="";for(let t in e){const r=e[t];if(t=c0(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(Xe(r)?r.map(o=>o&&Pr(o)):[r&&Pr(r)]).forEach(o=>{o!==void 0&&(n+=(n.length?"&":"")+t,o!=null&&(n+="="+o))})}return n}function I0(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=Xe(r)?r.map(o=>o==null?null:""+o):r==null?r:""+r)}return n}const D0=Symbol(""),oa=Symbol(""),er=Symbol(""),ao=Symbol(""),Lr=Symbol("");function nt(){let e=[];function n(r){return e.push(r),()=>{const o=e.indexOf(r);o>-1&&e.splice(o,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function En(e,n,t,r,o,a=s=>s()){const s=r&&(r.enterCallbacks[o]=r.enterCallbacks[o]||[]);return()=>new Promise((i,l)=>{const f=m=>{m===!1?l(jn(ce.NAVIGATION_ABORTED,{from:t,to:n})):m instanceof Error?l(m):T0(m)?l(jn(ce.NAVIGATION_GUARD_REDIRECT,{from:n,to:m})):(s&&r.enterCallbacks[o]===s&&typeof m=="function"&&s.push(m),i())},c=a(()=>e.call(r&&r.instances[o],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(m=>l(m))})}function gr(e,n,t,r,o=a=>a()){const a=[];for(const s of e)for(const i in s.components){let l=s.components[i];if(!(n!=="beforeRouteEnter"&&!s.instances[i]))if(ks(l)){const f=(l.__vccOpts||l)[n];f&&a.push(En(f,t,r,s,i,o))}else{let f=l();a.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${i}" at "${s.path}"`);const d=Qc(c)?c.default:c;s.mods[i]=c,s.components[i]=d;const m=(d.__vccOpts||d)[n];return m&&En(m,t,r,s,i,o)()}))}}return a}function P0(e,n){const t=[],r=[],o=[],a=Math.max(n.matched.length,e.matched.length);for(let s=0;s<a;s++){const i=n.matched[s];i&&(e.matched.find(f=>qn(f,i))?r.push(i):t.push(i));const l=e.matched[s];l&&(n.matched.find(f=>qn(f,l))||o.push(l))}return[t,r,o]}/*!
+ */const Un=typeof document<"u";function Mi(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function $c(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&Mi(e.default)}const ee=Object.assign;function hr(e,n){const t={};for(const r in n){const o=n[r];t[r]=qe(o)?o.map(e):e(o)}return t}const ut=()=>{},qe=Array.isArray;function Jo(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Hi=/#/g,Jc=/&/g,e0=/\//g,n0=/=/g,t0=/\?/g,zi=/\+/g,r0=/%5B/g,o0=/%5D/g,Bi=/%5E/g,a0=/%60/g,Ui=/%7B/g,i0=/%7C/g,Fi=/%7D/g,s0=/%20/g;function oo(e){return e==null?"":encodeURI(""+e).replace(i0,"|").replace(r0,"[").replace(o0,"]")}function l0(e){return oo(e).replace(Ui,"{").replace(Fi,"}").replace(Bi,"^")}function Pr(e){return oo(e).replace(zi,"%2B").replace(s0,"+").replace(Hi,"%23").replace(Jc,"%26").replace(a0,"`").replace(Ui,"{").replace(Fi,"}").replace(Bi,"^")}function c0(e){return Pr(e).replace(n0,"%3D")}function f0(e){return oo(e).replace(Hi,"%23").replace(t0,"%3F")}function d0(e){return f0(e).replace(e0,"%2F")}function bt(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const u0=/\/$/,p0=e=>e.replace(u0,"");function mr(e,n,t="/"){let r,o={},a="",i="";const s=n.indexOf("#");let l=n.indexOf("?");return l=s>=0&&l>s?-1:l,l>=0&&(r=n.slice(0,l),a=n.slice(l,s>0?s:n.length),o=e(a.slice(1))),s>=0&&(r=r||n.slice(0,s),i=n.slice(s,n.length)),r=g0(r??n,t),{fullPath:r+a+i,path:r,query:o,hash:bt(i)}}function h0(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function ea(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function m0(e,n,t){const r=n.matched.length-1,o=t.matched.length-1;return r>-1&&r===o&&Xn(n.matched[r],t.matched[o])&&Gi(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function Xn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Gi(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!v0(e[t],n[t]))return!1;return!0}function v0(e,n){return qe(e)?na(e,n):qe(n)?na(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function na(e,n){return qe(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function g0(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),o=r[r.length-1];(o===".."||o===".")&&r.push("");let a=t.length-1,i,s;for(i=0;i<r.length;i++)if(s=r[i],s!==".")if(s==="..")a>1&&a--;else break;return t.slice(0,a).join("/")+"/"+r.slice(i).join("/")}const bn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Nr=(function(e){return e.pop="pop",e.push="push",e})({}),vr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function y0(e){if(!e)if(Un){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),p0(e)}const b0=/^[^#]+#/;function x0(e,n){return e.replace(b0,"#")+n}function w0(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const Jt=()=>({left:window.scrollX,top:window.scrollY});function E0(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),o=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!o)return;n=w0(o,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function ta(e,n){return(history.state?history.state.position-n:-1)+e}const Lr=new Map;function S0(e,n){Lr.set(e,n)}function C0(e){const n=Lr.get(e);return Lr.delete(e),n}function T0(e){return typeof e=="string"||e&&typeof e=="object"}function Vi(e){return typeof e=="string"||typeof e=="symbol"}let ce=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const Ki=Symbol("");ce.MATCHER_NOT_FOUND+"",ce.NAVIGATION_GUARD_REDIRECT+"",ce.NAVIGATION_ABORTED+"",ce.NAVIGATION_CANCELLED+"",ce.NAVIGATION_DUPLICATED+"";function jn(e,n){return ee(new Error,{type:e,[Ki]:!0},n)}function cn(e,n){return e instanceof Error&&Ki in e&&(n==null||!!(e.type&n))}const _0=["params","query","hash"];function A0(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of _0)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function R0(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const o=t[r].replace(zi," "),a=o.indexOf("="),i=bt(a<0?o:o.slice(0,a)),s=a<0?null:bt(o.slice(a+1));if(i in n){let l=n[i];qe(l)||(l=n[i]=[l]),l.push(s)}else n[i]=s}return n}function ra(e){let n="";for(let t in e){const r=e[t];if(t=c0(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(qe(r)?r.map(o=>o&&Pr(o)):[r&&Pr(r)]).forEach(o=>{o!==void 0&&(n+=(n.length?"&":"")+t,o!=null&&(n+="="+o))})}return n}function I0(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=qe(r)?r.map(o=>o==null?null:""+o):r==null?r:""+r)}return n}const D0=Symbol(""),oa=Symbol(""),er=Symbol(""),ao=Symbol(""),Or=Symbol("");function nt(){let e=[];function n(r){return e.push(r),()=>{const o=e.indexOf(r);o>-1&&e.splice(o,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function Cn(e,n,t,r,o,a=i=>i()){const i=r&&(r.enterCallbacks[o]=r.enterCallbacks[o]||[]);return()=>new Promise((s,l)=>{const f=h=>{h===!1?l(jn(ce.NAVIGATION_ABORTED,{from:t,to:n})):h instanceof Error?l(h):T0(h)?l(jn(ce.NAVIGATION_GUARD_REDIRECT,{from:n,to:h})):(i&&r.enterCallbacks[o]===i&&typeof h=="function"&&i.push(h),s())},c=a(()=>e.call(r&&r.instances[o],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(h=>l(h))})}function gr(e,n,t,r,o=a=>a()){const a=[];for(const i of e)for(const s in i.components){let l=i.components[s];if(!(n!=="beforeRouteEnter"&&!i.instances[s]))if(Mi(l)){const f=(l.__vccOpts||l)[n];f&&a.push(Cn(f,t,r,i,s,o))}else{let f=l();a.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${s}" at "${i.path}"`);const d=$c(c)?c.default:c;i.mods[s]=c,i.components[s]=d;const h=(d.__vccOpts||d)[n];return h&&Cn(h,t,r,i,s,o)()}))}}return a}function P0(e,n){const t=[],r=[],o=[],a=Math.max(n.matched.length,e.matched.length);for(let i=0;i<a;i++){const s=n.matched[i];s&&(e.matched.find(f=>Xn(f,s))?r.push(s):t.push(s));const l=e.matched[i];l&&(n.matched.find(f=>Xn(f,l))||o.push(l))}return[t,r,o]}/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */let N0=()=>location.protocol+"//"+location.host;function Ys(e,n){const{pathname:t,search:r,hash:o}=n,a=e.indexOf("#");if(a>-1){let s=o.includes(e.slice(a))?e.slice(a).length:1,i=o.slice(s);return i[0]!=="/"&&(i="/"+i),ea(i,"")}return ea(t,e)+r+o}function O0(e,n,t,r){let o=[],a=[],s=null;const i=({state:m})=>{const h=Ys(e,location),S=t.value,_=n.value;let T=0;if(m){if(t.value=h,n.value=m,s&&s===S){s=null;return}T=_?m.position-_.position:0}else r(h);o.forEach(R=>{R(t.value,S,{delta:T,type:Nr.pop,direction:T?T>0?hr.forward:hr.back:hr.unknown})})};function l(){s=t.value}function f(m){o.push(m);const h=()=>{const S=o.indexOf(m);S>-1&&o.splice(S,1)};return a.push(h),h}function c(){if(document.visibilityState==="hidden"){const{history:m}=window;if(!m.state)return;m.replaceState(ee({},m.state,{scroll:Jt()}),"")}}function d(){for(const m of a)m();a=[],window.removeEventListener("popstate",i),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",i),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function aa(e,n,t,r=!1,o=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:o?Jt():null}}function L0(e){const{history:n,location:t}=window,r={value:Ys(e,t)},o={value:n.state};o.value||a(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function a(l,f,c){const d=e.indexOf("#"),m=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:N0()+e+l;try{n[c?"replaceState":"pushState"](f,"",m),o.value=f}catch(h){console.error(h),t[c?"replace":"assign"](m)}}function s(l,f){a(l,ee({},n.state,aa(o.value.back,l,o.value.forward,!0),f,{position:o.value.position}),!0),r.value=l}function i(l,f){const c=ee({},o.value,n.state,{forward:l,scroll:Jt()});a(c.current,c,!0),a(l,ee({},aa(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:o,push:i,replace:s}}function M0(e){e=y0(e);const n=L0(e),t=O0(e,n.state,n.location,n.replace);function r(a,s=!0){s||t.pauseListeners(),history.go(a)}const o=ee({location:"",base:e,go:r,createHref:b0.bind(null,e)},n,t);return Object.defineProperty(o,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(o,"state",{enumerable:!0,get:()=>n.state.value}),o}function k0(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),M0(e)}let Nn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var ve=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(ve||{});const H0={type:Nn.Static,value:""},U0=/[a-zA-Z0-9_]/;function B0(e){if(!e)return[[]];if(e==="/")return[[H0]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(h){throw new Error(`ERR (${t})/"${f}": ${h}`)}let t=ve.Static,r=t;const o=[];let a;function s(){a&&o.push(a),a=[]}let i=0,l,f="",c="";function d(){f&&(t===ve.Static?a.push({type:Nn.Static,value:f}):t===ve.Param||t===ve.ParamRegExp||t===ve.ParamRegExpEnd?(a.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),a.push({type:Nn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function m(){f+=l}for(;i<e.length;){if(l=e[i++],l==="\\"&&t!==ve.ParamRegExp){r=t,t=ve.EscapeNext;continue}switch(t){case ve.Static:l==="/"?(f&&d(),s()):l===":"?(d(),t=ve.Param):m();break;case ve.EscapeNext:m(),t=r;break;case ve.Param:l==="("?t=ve.ParamRegExp:U0.test(l)?m():(d(),t=ve.Static,l!=="*"&&l!=="?"&&l!=="+"&&i--);break;case ve.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=ve.ParamRegExpEnd:c+=l;break;case ve.ParamRegExpEnd:d(),t=ve.Static,l!=="*"&&l!=="?"&&l!=="+"&&i--,c="";break;default:n("Unknown state");break}}return t===ve.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),s(),o}const sa="[^/]+?",z0={sensitive:!1,strict:!1,start:!0,end:!0};var Se=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(Se||{});const F0=/[.+*?^${}()[\]/\\]/g;function G0(e,n){const t=ee({},z0,n),r=[];let o=t.start?"^":"";const a=[];for(const f of e){const c=f.length?[]:[Se.Root];t.strict&&!f.length&&(o+="/");for(let d=0;d<f.length;d++){const m=f[d];let h=Se.Segment+(t.sensitive?Se.BonusCaseSensitive:0);if(m.type===Nn.Static)d||(o+="/"),o+=m.value.replace(F0,"\\$&"),h+=Se.Static;else if(m.type===Nn.Param){const{value:S,repeatable:_,optional:T,regexp:R}=m;a.push({name:S,repeatable:_,optional:T});const E=R||sa;if(E!==sa){h+=Se.BonusCustomRegExp;try{`${E}`}catch(N){throw new Error(`Invalid custom RegExp for param "${S}" (${E}): `+N.message)}}let P=_?`((?:${E})(?:/(?:${E}))*)`:`(${E})`;d||(P=T&&f.length<2?`(?:/${P})`:"/"+P),T&&(P+="?"),o+=P,h+=Se.Dynamic,T&&(h+=Se.BonusOptional),_&&(h+=Se.BonusRepeatable),E===".*"&&(h+=Se.BonusWildcard)}c.push(h)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=Se.BonusStrict}t.strict||(o+="/?"),t.end?o+="$":t.strict&&!o.endsWith("/")&&(o+="(?:/|$)");const s=new RegExp(o,t.sensitive?"":"i");function i(f){const c=f.match(s),d={};if(!c)return null;for(let m=1;m<c.length;m++){const h=c[m]||"",S=a[m-1];d[S.name]=h&&S.repeatable?h.split("/"):h}return d}function l(f){let c="",d=!1;for(const m of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const h of m)if(h.type===Nn.Static)c+=h.value;else if(h.type===Nn.Param){const{value:S,repeatable:_,optional:T}=h,R=S in f?f[S]:"";if(Xe(R)&&!_)throw new Error(`Provided param "${S}" is an array but it is not repeatable (* or + modifiers)`);const E=Xe(R)?R.join("/"):R;if(!E)if(T)m.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${S}"`);c+=E}}return c||"/"}return{re:s,score:r,keys:a,parse:i,stringify:l}}function V0(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===Se.Static+Se.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===Se.Static+Se.Segment?1:-1:0}function Ws(e,n){let t=0;const r=e.score,o=n.score;for(;t<r.length&&t<o.length;){const a=V0(r[t],o[t]);if(a)return a;t++}if(Math.abs(o.length-r.length)===1){if(ia(r))return 1;if(ia(o))return-1}return o.length-r.length}function ia(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const K0={strict:!1,end:!0,sensitive:!1};function Y0(e,n,t){const r=G0(B0(e.path),t),o=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!o.record.aliasOf==!n.record.aliasOf&&n.children.push(o),o}function W0(e,n){const t=[],r=new Map;n=Jo(K0,n);function o(d){return r.get(d)}function a(d,m,h){const S=!h,_=ca(d);_.aliasOf=h&&h.record;const T=Jo(n,d),R=[_];if("alias"in d){const N=typeof d.alias=="string"?[d.alias]:d.alias;for(const B of N)R.push(ca(ee({},_,{components:h?h.record.components:_.components,path:B,aliasOf:h?h.record:_})))}let E,P;for(const N of R){const{path:B}=N;if(m&&B[0]!=="/"){const X=m.record.path,W=X[X.length-1]==="/"?"":"/";N.path=m.record.path+(B&&W+B)}if(E=Y0(N,m,T),h?h.alias.push(E):(P=P||E,P!==E&&P.alias.push(E),S&&d.name&&!fa(E)&&s(d.name)),Xs(E)&&l(E),_.children){const X=_.children;for(let W=0;W<X.length;W++)a(X[W],E,h&&h.children[W])}h=h||E}return P?()=>{s(P)}:ut}function s(d){if(Vs(d)){const m=r.get(d);m&&(r.delete(d),t.splice(t.indexOf(m),1),m.children.forEach(s),m.alias.forEach(s))}else{const m=t.indexOf(d);m>-1&&(t.splice(m,1),d.record.name&&r.delete(d.record.name),d.children.forEach(s),d.alias.forEach(s))}}function i(){return t}function l(d){const m=j0(d,t);t.splice(m,0,d),d.record.name&&!fa(d)&&r.set(d.record.name,d)}function f(d,m){let h,S={},_,T;if("name"in d&&d.name){if(h=r.get(d.name),!h)throw jn(ce.MATCHER_NOT_FOUND,{location:d});T=h.record.name,S=ee(la(m.params,h.keys.filter(P=>!P.optional).concat(h.parent?h.parent.keys.filter(P=>P.optional):[]).map(P=>P.name)),d.params&&la(d.params,h.keys.map(P=>P.name))),_=h.stringify(S)}else if(d.path!=null)_=d.path,h=t.find(P=>P.re.test(_)),h&&(S=h.parse(_),T=h.record.name);else{if(h=m.name?r.get(m.name):t.find(P=>P.re.test(m.path)),!h)throw jn(ce.MATCHER_NOT_FOUND,{location:d,currentLocation:m});T=h.record.name,S=ee({},m.params,d.params),_=h.stringify(S)}const R=[];let E=h;for(;E;)R.unshift(E.record),E=E.parent;return{name:T,path:_,params:S,matched:R,meta:q0(R)}}e.forEach(d=>a(d));function c(){t.length=0,r.clear()}return{addRoute:a,resolve:f,removeRoute:s,clearRoutes:c,getRoutes:i,getRecordMatcher:o}}function la(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function ca(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:X0(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function X0(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function fa(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function q0(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function j0(e,n){let t=0,r=n.length;for(;t!==r;){const a=t+r>>1;Ws(e,n[a])<0?r=a:t=a+1}const o=Z0(e);return o&&(r=n.lastIndexOf(o,r-1)),r}function Z0(e){let n=e;for(;n=n.parent;)if(Xs(n)&&Ws(e,n)===0)return n}function Xs({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function da(e){const n=Ke(er),t=Ke(ao),r=He(()=>{const l=Pe(e.to);return n.resolve(l)}),o=He(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const m=d.findIndex(qn.bind(null,c));if(m>-1)return m;const h=ua(l[f-2]);return f>1&&ua(c)===h&&d[d.length-1].path!==h?d.findIndex(qn.bind(null,l[f-2])):m}),a=He(()=>o.value>-1&&nf(t.params,r.value.params)),s=He(()=>o.value>-1&&o.value===t.matched.length-1&&Gs(t.params,r.value.params));function i(l={}){if(ef(l)){const f=n[Pe(e.replace)?"replace":"push"](Pe(e.to)).catch(ut);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:He(()=>r.value.href),isActive:a,isExactActive:s,navigate:i}}function $0(e){return e.length===1?e[0]:e}const Q0=Rn({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:da,setup(e,{slots:n}){const t=Xt(da(e)),{options:r}=Ke(er),o=He(()=>({[pa(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[pa(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const a=n.default&&$0(n.default(t));return e.custom?a:Is("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:o.value},a)}}}),J0=Q0;function ef(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function nf(e,n){for(const t in n){const r=n[t],o=e[t];if(typeof r=="string"){if(r!==o)return!1}else if(!Xe(o)||o.length!==r.length||r.some((a,s)=>a.valueOf()!==o[s].valueOf()))return!1}return!0}function ua(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const pa=(e,n,t)=>e??n??t,tf=Rn({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=Ke(Lr),o=He(()=>e.route||r.value),a=Ke(oa,0),s=He(()=>{let f=Pe(a);const{matched:c}=o.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),i=He(()=>o.value.matched[s.value]);wt(oa,He(()=>s.value+1)),wt(D0,i),wt(Lr,o);const l=Ne();return it(()=>[l.value,i.value,e.name],([f,c,d],[m,h,S])=>{c&&(c.instances[d]=f,h&&h!==c&&f&&f===m&&(c.leaveGuards.size||(c.leaveGuards=h.leaveGuards),c.updateGuards.size||(c.updateGuards=h.updateGuards))),f&&c&&(!h||!qn(c,h)||!m)&&(c.enterCallbacks[d]||[]).forEach(_=>_(f))},{flush:"post"}),()=>{const f=o.value,c=e.name,d=i.value,m=d&&d.components[c];if(!m)return ma(t.default,{Component:m,route:f});const h=d.props[c],S=h?h===!0?f.params:typeof h=="function"?h(f):h:null,T=Is(m,ee({},S,n,{onVnodeUnmounted:R=>{R.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ma(t.default,{Component:T,route:f})||T}}});function ma(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const rf=tf;function of(e){const n=W0(e.routes,e),t=e.parseQuery||w0,r=e.stringifyQuery||ra,o=e.history,a=nt(),s=nt(),i=nt(),l=Pi(xn);let f=xn;zn&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=mr.bind(null,y=>""+y),d=mr.bind(null,d0),m=mr.bind(null,xt);function h(y,M){let D,k;return Vs(y)?(D=n.getRecordMatcher(y),k=M):k=y,n.addRoute(k,D)}function S(y){const M=n.getRecordMatcher(y);M&&n.removeRoute(M)}function _(){return n.getRoutes().map(y=>y.record)}function T(y){return!!n.getRecordMatcher(y)}function R(y,M){if(M=ee({},M||l.value),typeof y=="string"){const v=vr(t,y,M.path),g=n.resolve({path:v.path},M),b=o.createHref(v.fullPath);return ee(v,g,{params:m(g.params),hash:xt(v.hash),redirectedFrom:void 0,href:b})}let D;if(y.path!=null)D=ee({},y,{path:vr(t,y.path,M.path).path});else{const v=ee({},y.params);for(const g in v)v[g]==null&&delete v[g];D=ee({},y,{params:d(v)}),M.params=d(M.params)}const k=n.resolve(D,M),q=y.hash||"";k.params=c(m(k.params));const u=m0(r,ee({},y,{hash:l0(q),path:k.path})),p=o.createHref(u);return ee({fullPath:u,hash:q,query:r===ra?I0(y.query):y.query||{}},k,{redirectedFrom:void 0,href:p})}function E(y){return typeof y=="string"?vr(t,y,l.value.path):ee({},y)}function P(y,M){if(f!==y)return jn(ce.NAVIGATION_CANCELLED,{from:M,to:y})}function N(y){return W(y)}function B(y){return N(ee(E(y),{replace:!0}))}function X(y,M){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:k}=D;let q=typeof k=="function"?k(y,M):k;return typeof q=="string"&&(q=q.includes("?")||q.includes("#")?q=E(q):{path:q},q.params={}),ee({query:y.query,hash:y.hash,params:q.path!=null?{}:y.params},q)}}function W(y,M){const D=f=R(y),k=l.value,q=y.state,u=y.force,p=y.replace===!0,v=X(D,k);if(v)return W(ee(E(v),{state:typeof v=="object"?ee({},q,v.state):q,force:u,replace:p}),M||D);const g=D;g.redirectedFrom=M;let b;return!u&&v0(r,k,D)&&(b=jn(ce.NAVIGATION_DUPLICATED,{to:g,from:k}),fe(k,k,!0,!1)),(b?Promise.resolve(b):K(g,k)).catch(x=>cn(x)?cn(x,ce.NAVIGATION_GUARD_REDIRECT)?x:qe(x):Y(x,g,k)).then(x=>{if(x){if(cn(x,ce.NAVIGATION_GUARD_REDIRECT))return W(ee({replace:p},E(x.to),{state:typeof x.to=="object"?ee({},q,x.to.state):q,force:u}),M||g)}else x=L(g,k,!0,p,q);return Q(g,k,x),x})}function ue(y,M){const D=P(y,M);return D?Promise.reject(D):Promise.resolve()}function z(y){const M=sn.values().next().value;return M&&typeof M.runWithContext=="function"?M.runWithContext(y):y()}function K(y,M){let D;const[k,q,u]=P0(y,M);D=gr(k.reverse(),"beforeRouteLeave",y,M);for(const v of k)v.leaveGuards.forEach(g=>{D.push(En(g,y,M))});const p=ue.bind(null,y,M);return D.push(p),Ce(D).then(()=>{D=[];for(const v of a.list())D.push(En(v,y,M));return D.push(p),Ce(D)}).then(()=>{D=gr(q,"beforeRouteUpdate",y,M);for(const v of q)v.updateGuards.forEach(g=>{D.push(En(g,y,M))});return D.push(p),Ce(D)}).then(()=>{D=[];for(const v of u)if(v.beforeEnter)if(Xe(v.beforeEnter))for(const g of v.beforeEnter)D.push(En(g,y,M));else D.push(En(v.beforeEnter,y,M));return D.push(p),Ce(D)}).then(()=>(y.matched.forEach(v=>v.enterCallbacks={}),D=gr(u,"beforeRouteEnter",y,M,z),D.push(p),Ce(D))).then(()=>{D=[];for(const v of s.list())D.push(En(v,y,M));return D.push(p),Ce(D)}).catch(v=>cn(v,ce.NAVIGATION_CANCELLED)?v:Promise.reject(v))}function Q(y,M,D){i.list().forEach(k=>z(()=>k(y,M,D)))}function L(y,M,D,k,q){const u=P(y,M);if(u)return u;const p=M===xn,v=zn?history.state:{};D&&(k||p?o.replace(y.fullPath,ee({scroll:p&&v&&v.scroll},q)):o.push(y.fullPath,q)),l.value=y,fe(y,M,D,p),qe()}let Z;function ie(){Z||(Z=o.listen((y,M,D)=>{if(!je.listening)return;const k=R(y),q=X(k,je.currentRoute.value);if(q){W(ee(q,{replace:!0,force:!0}),k).catch(ut);return}f=k;const u=l.value;zn&&S0(ta(u.fullPath,D.delta),Jt()),K(k,u).catch(p=>cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_CANCELLED)?p:cn(p,ce.NAVIGATION_GUARD_REDIRECT)?(W(ee(E(p.to),{force:!0}),k).then(v=>{cn(v,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Nr.pop&&o.go(-1,!1)}).catch(ut),Promise.reject()):(D.delta&&o.go(-D.delta,!1),Y(p,k,u))).then(p=>{p=p||L(k,u,!1),p&&(D.delta&&!cn(p,ce.NAVIGATION_CANCELLED)?o.go(-D.delta,!1):D.type===Nr.pop&&cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&o.go(-1,!1)),Q(k,u,p)}).catch(ut)}))}let he=nt(),le=nt(),J;function Y(y,M,D){qe(y);const k=le.list();return k.length?k.forEach(q=>q(y,M,D)):console.error(y),Promise.reject(y)}function Fe(){return J&&l.value!==xn?Promise.resolve():new Promise((y,M)=>{he.add([y,M])})}function qe(y){return J||(J=!y,ie(),he.list().forEach(([M,D])=>y?D(y):M()),he.reset()),y}function fe(y,M,D,k){const{scrollBehavior:q}=e;if(!zn||!q)return Promise.resolve();const u=!D&&E0(ta(y.fullPath,0))||(k||!D)&&history.state&&history.state.scroll||null;return Wa().then(()=>q(y,M,u)).then(p=>p&&_0(p)).catch(p=>Y(p,y,M))}const ge=y=>o.go(y);let an;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:h,removeRoute:S,clearRoutes:n.clearRoutes,hasRoute:T,getRoutes:_,resolve:R,options:e,push:N,replace:B,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:a.add,beforeResolve:s.add,afterEach:i.add,onError:le.add,isReady:Fe,install(y){y.component("RouterLink",J0),y.component("RouterView",rf),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Pe(l)}),zn&&!an&&l.value===xn&&(an=!0,N(o.location).catch(k=>{}));const M={};for(const k in xn)Object.defineProperty(M,k,{get:()=>l.value[k],enumerable:!0});y.provide(er,je),y.provide(ao,Ga(M)),y.provide(Lr,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=xn,Z&&Z(),Z=null,l.value=xn,an=!1,J=!1),D()}}};function Ce(y){return y.reduce((M,D)=>M.then(()=>z(D)),Promise.resolve())}return je}function af(){return Ke(er)}function vd(e){return Ke(ao)}const sf="/assets/screenshot-BGlXLzxn.webp",lf="/assets/screenshot-BU-MfndP.webp",cf="/assets/screenshot-BbBk66JL.webp",ff="/assets/screenshot-DJ8DWsNe.webp",df="/assets/screenshot-Bgnvpmle.webp",uf="/assets/screenshot-DI4mxV0q.webp",pf="/assets/screenshot-Cr4gcPub.webp",mf="/assets/screenshot-Bftu4Vm4.webp",vf="/assets/screenshot-D69-qLJd.webp",hf="/assets/screenshot-BHPmctOt.webp",gf="/assets/screenshot-uj0WCOUe.webp",yf="/assets/screenshot-CbvnZ5gw.webp",xf="/assets/screenshot-D2kvp1Pc.webp",bf="/assets/screenshot-FespJOdi.webp",Cf="/assets/screenshot-BYNpPvRq.webp",_f="/assets/screenshot-TbFZaVjZ.webp",Sf="/assets/screenshot-eXevvs9S.webp",Ef="/assets/screenshot-BXUdMyeo.webp",Tf="/assets/screenshot-CLKNMPWT.webp",Af="/assets/screenshot-Dge5FRDF.webp",Rf="/assets/screenshot-DtcnOqgw.webp",wf="/assets/screenshot-o465L8pw.webp",If="/assets/screenshot-BeLUHnME.webp",Df="/assets/screenshot-dnSW_Jt8.webp",Pf="/assets/screenshot-Zy4Ap0si.webp",Nf="/assets/screenshot-GJoazymJ.webp",Of="/assets/screenshot-Dj7Yx2aa.webp",Lf="/assets/screenshot-CHzCcHjz.webp",Mf="/assets/screenshot-UCJWYxEG.webp",kf="/assets/screenshot-DXkgzLB7.webp",qs=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:sf,passes:{image:`// arrakis
-// "arrakis is so beautiful when the sun is low"
-// the desert planet — twin suns arc across the sky,
-// spice-laden winds, heat shimmer, and the worm's domain
+ */let N0=()=>location.protocol+"//"+location.host;function Yi(e,n){const{pathname:t,search:r,hash:o}=n,a=e.indexOf("#");if(a>-1){let i=o.includes(e.slice(a))?e.slice(a).length:1,s=o.slice(i);return s[0]!=="/"&&(s="/"+s),ea(s,"")}return ea(t,e)+r+o}function L0(e,n,t,r){let o=[],a=[],i=null;const s=({state:h})=>{const v=Yi(e,location),S=t.value,E=n.value;let T=0;if(h){if(t.value=v,n.value=h,i&&i===S){i=null;return}T=E?h.position-E.position:0}else r(v);o.forEach(A=>{A(t.value,S,{delta:T,type:Nr.pop,direction:T?T>0?vr.forward:vr.back:vr.unknown})})};function l(){i=t.value}function f(h){o.push(h);const v=()=>{const S=o.indexOf(h);S>-1&&o.splice(S,1)};return a.push(v),v}function c(){if(document.visibilityState==="hidden"){const{history:h}=window;if(!h.state)return;h.replaceState(ee({},h.state,{scroll:Jt()}),"")}}function d(){for(const h of a)h();a=[],window.removeEventListener("popstate",s),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",s),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function aa(e,n,t,r=!1,o=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:o?Jt():null}}function O0(e){const{history:n,location:t}=window,r={value:Yi(e,t)},o={value:n.state};o.value||a(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function a(l,f,c){const d=e.indexOf("#"),h=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:N0()+e+l;try{n[c?"replaceState":"pushState"](f,"",h),o.value=f}catch(v){console.error(v),t[c?"replace":"assign"](h)}}function i(l,f){a(l,ee({},n.state,aa(o.value.back,l,o.value.forward,!0),f,{position:o.value.position}),!0),r.value=l}function s(l,f){const c=ee({},o.value,n.state,{forward:l,scroll:Jt()});a(c.current,c,!0),a(l,ee({},aa(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:o,push:s,replace:i}}function k0(e){e=y0(e);const n=O0(e),t=L0(e,n.state,n.location,n.replace);function r(a,i=!0){i||t.pauseListeners(),history.go(a)}const o=ee({location:"",base:e,go:r,createHref:x0.bind(null,e)},n,t);return Object.defineProperty(o,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(o,"state",{enumerable:!0,get:()=>n.state.value}),o}function M0(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),k0(e)}let Nn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var me=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(me||{});const H0={type:Nn.Static,value:""},z0=/[a-zA-Z0-9_]/;function B0(e){if(!e)return[[]];if(e==="/")return[[H0]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(v){throw new Error(`ERR (${t})/"${f}": ${v}`)}let t=me.Static,r=t;const o=[];let a;function i(){a&&o.push(a),a=[]}let s=0,l,f="",c="";function d(){f&&(t===me.Static?a.push({type:Nn.Static,value:f}):t===me.Param||t===me.ParamRegExp||t===me.ParamRegExpEnd?(a.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),a.push({type:Nn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function h(){f+=l}for(;s<e.length;){if(l=e[s++],l==="\\"&&t!==me.ParamRegExp){r=t,t=me.EscapeNext;continue}switch(t){case me.Static:l==="/"?(f&&d(),i()):l===":"?(d(),t=me.Param):h();break;case me.EscapeNext:h(),t=r;break;case me.Param:l==="("?t=me.ParamRegExp:z0.test(l)?h():(d(),t=me.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--);break;case me.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=me.ParamRegExpEnd:c+=l;break;case me.ParamRegExpEnd:d(),t=me.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--,c="";break;default:n("Unknown state");break}}return t===me.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),i(),o}const ia="[^/]+?",U0={sensitive:!1,strict:!1,start:!0,end:!0};var Se=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(Se||{});const F0=/[.+*?^${}()[\]/\\]/g;function G0(e,n){const t=ee({},U0,n),r=[];let o=t.start?"^":"";const a=[];for(const f of e){const c=f.length?[]:[Se.Root];t.strict&&!f.length&&(o+="/");for(let d=0;d<f.length;d++){const h=f[d];let v=Se.Segment+(t.sensitive?Se.BonusCaseSensitive:0);if(h.type===Nn.Static)d||(o+="/"),o+=h.value.replace(F0,"\\$&"),v+=Se.Static;else if(h.type===Nn.Param){const{value:S,repeatable:E,optional:T,regexp:A}=h;a.push({name:S,repeatable:E,optional:T});const C=A||ia;if(C!==ia){v+=Se.BonusCustomRegExp;try{`${C}`}catch(N){throw new Error(`Invalid custom RegExp for param "${S}" (${C}): `+N.message)}}let P=E?`((?:${C})(?:/(?:${C}))*)`:`(${C})`;d||(P=T&&f.length<2?`(?:/${P})`:"/"+P),T&&(P+="?"),o+=P,v+=Se.Dynamic,T&&(v+=Se.BonusOptional),E&&(v+=Se.BonusRepeatable),C===".*"&&(v+=Se.BonusWildcard)}c.push(v)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=Se.BonusStrict}t.strict||(o+="/?"),t.end?o+="$":t.strict&&!o.endsWith("/")&&(o+="(?:/|$)");const i=new RegExp(o,t.sensitive?"":"i");function s(f){const c=f.match(i),d={};if(!c)return null;for(let h=1;h<c.length;h++){const v=c[h]||"",S=a[h-1];d[S.name]=v&&S.repeatable?v.split("/"):v}return d}function l(f){let c="",d=!1;for(const h of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const v of h)if(v.type===Nn.Static)c+=v.value;else if(v.type===Nn.Param){const{value:S,repeatable:E,optional:T}=v,A=S in f?f[S]:"";if(qe(A)&&!E)throw new Error(`Provided param "${S}" is an array but it is not repeatable (* or + modifiers)`);const C=qe(A)?A.join("/"):A;if(!C)if(T)h.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${S}"`);c+=C}}return c||"/"}return{re:i,score:r,keys:a,parse:s,stringify:l}}function V0(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===Se.Static+Se.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===Se.Static+Se.Segment?1:-1:0}function Wi(e,n){let t=0;const r=e.score,o=n.score;for(;t<r.length&&t<o.length;){const a=V0(r[t],o[t]);if(a)return a;t++}if(Math.abs(o.length-r.length)===1){if(sa(r))return 1;if(sa(o))return-1}return o.length-r.length}function sa(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const K0={strict:!1,end:!0,sensitive:!1};function Y0(e,n,t){const r=G0(B0(e.path),t),o=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!o.record.aliasOf==!n.record.aliasOf&&n.children.push(o),o}function W0(e,n){const t=[],r=new Map;n=Jo(K0,n);function o(d){return r.get(d)}function a(d,h,v){const S=!v,E=ca(d);E.aliasOf=v&&v.record;const T=Jo(n,d),A=[E];if("alias"in d){const N=typeof d.alias=="string"?[d.alias]:d.alias;for(const B of N)A.push(ca(ee({},E,{components:v?v.record.components:E.components,path:B,aliasOf:v?v.record:E})))}let C,P;for(const N of A){const{path:B}=N;if(h&&B[0]!=="/"){const q=h.record.path,W=q[q.length-1]==="/"?"":"/";N.path=h.record.path+(B&&W+B)}if(C=Y0(N,h,T),v?v.alias.push(C):(P=P||C,P!==C&&P.alias.push(C),S&&d.name&&!fa(C)&&i(d.name)),qi(C)&&l(C),E.children){const q=E.children;for(let W=0;W<q.length;W++)a(q[W],C,v&&v.children[W])}v=v||C}return P?()=>{i(P)}:ut}function i(d){if(Vi(d)){const h=r.get(d);h&&(r.delete(d),t.splice(t.indexOf(h),1),h.children.forEach(i),h.alias.forEach(i))}else{const h=t.indexOf(d);h>-1&&(t.splice(h,1),d.record.name&&r.delete(d.record.name),d.children.forEach(i),d.alias.forEach(i))}}function s(){return t}function l(d){const h=j0(d,t);t.splice(h,0,d),d.record.name&&!fa(d)&&r.set(d.record.name,d)}function f(d,h){let v,S={},E,T;if("name"in d&&d.name){if(v=r.get(d.name),!v)throw jn(ce.MATCHER_NOT_FOUND,{location:d});T=v.record.name,S=ee(la(h.params,v.keys.filter(P=>!P.optional).concat(v.parent?v.parent.keys.filter(P=>P.optional):[]).map(P=>P.name)),d.params&&la(d.params,v.keys.map(P=>P.name))),E=v.stringify(S)}else if(d.path!=null)E=d.path,v=t.find(P=>P.re.test(E)),v&&(S=v.parse(E),T=v.record.name);else{if(v=h.name?r.get(h.name):t.find(P=>P.re.test(h.path)),!v)throw jn(ce.MATCHER_NOT_FOUND,{location:d,currentLocation:h});T=v.record.name,S=ee({},h.params,d.params),E=v.stringify(S)}const A=[];let C=v;for(;C;)A.unshift(C.record),C=C.parent;return{name:T,path:E,params:S,matched:A,meta:X0(A)}}e.forEach(d=>a(d));function c(){t.length=0,r.clear()}return{addRoute:a,resolve:f,removeRoute:i,clearRoutes:c,getRoutes:s,getRecordMatcher:o}}function la(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function ca(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:q0(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function q0(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function fa(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function X0(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function j0(e,n){let t=0,r=n.length;for(;t!==r;){const a=t+r>>1;Wi(e,n[a])<0?r=a:t=a+1}const o=Q0(e);return o&&(r=n.lastIndexOf(o,r-1)),r}function Q0(e){let n=e;for(;n=n.parent;)if(qi(n)&&Wi(e,n)===0)return n}function qi({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function da(e){const n=Ke(er),t=Ke(ao),r=He(()=>{const l=Pe(e.to);return n.resolve(l)}),o=He(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const h=d.findIndex(Xn.bind(null,c));if(h>-1)return h;const v=ua(l[f-2]);return f>1&&ua(c)===v&&d[d.length-1].path!==v?d.findIndex(Xn.bind(null,l[f-2])):h}),a=He(()=>o.value>-1&&nf(t.params,r.value.params)),i=He(()=>o.value>-1&&o.value===t.matched.length-1&&Gi(t.params,r.value.params));function s(l={}){if(ef(l)){const f=n[Pe(e.replace)?"replace":"push"](Pe(e.to)).catch(ut);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:He(()=>r.value.href),isActive:a,isExactActive:i,navigate:s}}function Z0(e){return e.length===1?e[0]:e}const $0=An({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:da,setup(e,{slots:n}){const t=qt(da(e)),{options:r}=Ke(er),o=He(()=>({[pa(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[pa(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const a=n.default&&Z0(n.default(t));return e.custom?a:Ii("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:o.value},a)}}}),J0=$0;function ef(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function nf(e,n){for(const t in n){const r=n[t],o=e[t];if(typeof r=="string"){if(r!==o)return!1}else if(!qe(o)||o.length!==r.length||r.some((a,i)=>a.valueOf()!==o[i].valueOf()))return!1}return!0}function ua(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const pa=(e,n,t)=>e??n??t,tf=An({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=Ke(Or),o=He(()=>e.route||r.value),a=Ke(oa,0),i=He(()=>{let f=Pe(a);const{matched:c}=o.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),s=He(()=>o.value.matched[i.value]);Rt(oa,He(()=>i.value+1)),Rt(D0,s),Rt(Or,o);const l=Ne();return st(()=>[l.value,s.value,e.name],([f,c,d],[h,v,S])=>{c&&(c.instances[d]=f,v&&v!==c&&f&&f===h&&(c.leaveGuards.size||(c.leaveGuards=v.leaveGuards),c.updateGuards.size||(c.updateGuards=v.updateGuards))),f&&c&&(!v||!Xn(c,v)||!h)&&(c.enterCallbacks[d]||[]).forEach(E=>E(f))},{flush:"post"}),()=>{const f=o.value,c=e.name,d=s.value,h=d&&d.components[c];if(!h)return ha(t.default,{Component:h,route:f});const v=d.props[c],S=v?v===!0?f.params:typeof v=="function"?v(f):v:null,T=Ii(h,ee({},S,n,{onVnodeUnmounted:A=>{A.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ha(t.default,{Component:T,route:f})||T}}});function ha(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const rf=tf;function of(e){const n=W0(e.routes,e),t=e.parseQuery||R0,r=e.stringifyQuery||ra,o=e.history,a=nt(),i=nt(),s=nt(),l=Ps(bn);let f=bn;Un&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=hr.bind(null,y=>""+y),d=hr.bind(null,d0),h=hr.bind(null,bt);function v(y,k){let D,M;return Vi(y)?(D=n.getRecordMatcher(y),M=k):M=y,n.addRoute(M,D)}function S(y){const k=n.getRecordMatcher(y);k&&n.removeRoute(k)}function E(){return n.getRoutes().map(y=>y.record)}function T(y){return!!n.getRecordMatcher(y)}function A(y,k){if(k=ee({},k||l.value),typeof y=="string"){const m=mr(t,y,k.path),g=n.resolve({path:m.path},k),x=o.createHref(m.fullPath);return ee(m,g,{params:h(g.params),hash:bt(m.hash),redirectedFrom:void 0,href:x})}let D;if(y.path!=null)D=ee({},y,{path:mr(t,y.path,k.path).path});else{const m=ee({},y.params);for(const g in m)m[g]==null&&delete m[g];D=ee({},y,{params:d(m)}),k.params=d(k.params)}const M=n.resolve(D,k),X=y.hash||"";M.params=c(h(M.params));const u=h0(r,ee({},y,{hash:l0(X),path:M.path})),p=o.createHref(u);return ee({fullPath:u,hash:X,query:r===ra?I0(y.query):y.query||{}},M,{redirectedFrom:void 0,href:p})}function C(y){return typeof y=="string"?mr(t,y,l.value.path):ee({},y)}function P(y,k){if(f!==y)return jn(ce.NAVIGATION_CANCELLED,{from:k,to:y})}function N(y){return W(y)}function B(y){return N(ee(C(y),{replace:!0}))}function q(y,k){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:M}=D;let X=typeof M=="function"?M(y,k):M;return typeof X=="string"&&(X=X.includes("?")||X.includes("#")?X=C(X):{path:X},X.params={}),ee({query:y.query,hash:y.hash,params:X.path!=null?{}:y.params},X)}}function W(y,k){const D=f=A(y),M=l.value,X=y.state,u=y.force,p=y.replace===!0,m=q(D,M);if(m)return W(ee(C(m),{state:typeof m=="object"?ee({},X,m.state):X,force:u,replace:p}),k||D);const g=D;g.redirectedFrom=k;let x;return!u&&m0(r,M,D)&&(x=jn(ce.NAVIGATION_DUPLICATED,{to:g,from:M}),fe(M,M,!0,!1)),(x?Promise.resolve(x):K(g,M)).catch(b=>cn(b)?cn(b,ce.NAVIGATION_GUARD_REDIRECT)?b:Xe(b):Y(b,g,M)).then(b=>{if(b){if(cn(b,ce.NAVIGATION_GUARD_REDIRECT))return W(ee({replace:p},C(b.to),{state:typeof b.to=="object"?ee({},X,b.to.state):X,force:u}),k||g)}else b=O(g,M,!0,p,X);return $(g,M,b),b})}function ue(y,k){const D=P(y,k);return D?Promise.reject(D):Promise.resolve()}function U(y){const k=sn.values().next().value;return k&&typeof k.runWithContext=="function"?k.runWithContext(y):y()}function K(y,k){let D;const[M,X,u]=P0(y,k);D=gr(M.reverse(),"beforeRouteLeave",y,k);for(const m of M)m.leaveGuards.forEach(g=>{D.push(Cn(g,y,k))});const p=ue.bind(null,y,k);return D.push(p),we(D).then(()=>{D=[];for(const m of a.list())D.push(Cn(m,y,k));return D.push(p),we(D)}).then(()=>{D=gr(X,"beforeRouteUpdate",y,k);for(const m of X)m.updateGuards.forEach(g=>{D.push(Cn(g,y,k))});return D.push(p),we(D)}).then(()=>{D=[];for(const m of u)if(m.beforeEnter)if(qe(m.beforeEnter))for(const g of m.beforeEnter)D.push(Cn(g,y,k));else D.push(Cn(m.beforeEnter,y,k));return D.push(p),we(D)}).then(()=>(y.matched.forEach(m=>m.enterCallbacks={}),D=gr(u,"beforeRouteEnter",y,k,U),D.push(p),we(D))).then(()=>{D=[];for(const m of i.list())D.push(Cn(m,y,k));return D.push(p),we(D)}).catch(m=>cn(m,ce.NAVIGATION_CANCELLED)?m:Promise.reject(m))}function $(y,k,D){s.list().forEach(M=>U(()=>M(y,k,D)))}function O(y,k,D,M,X){const u=P(y,k);if(u)return u;const p=k===bn,m=Un?history.state:{};D&&(M||p?o.replace(y.fullPath,ee({scroll:p&&m&&m.scroll},X)):o.push(y.fullPath,X)),l.value=y,fe(y,k,D,p),Xe()}let Q;function se(){Q||(Q=o.listen((y,k,D)=>{if(!je.listening)return;const M=A(y),X=q(M,je.currentRoute.value);if(X){W(ee(X,{replace:!0,force:!0}),M).catch(ut);return}f=M;const u=l.value;Un&&S0(ta(u.fullPath,D.delta),Jt()),K(M,u).catch(p=>cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_CANCELLED)?p:cn(p,ce.NAVIGATION_GUARD_REDIRECT)?(W(ee(C(p.to),{force:!0}),M).then(m=>{cn(m,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Nr.pop&&o.go(-1,!1)}).catch(ut),Promise.reject()):(D.delta&&o.go(-D.delta,!1),Y(p,M,u))).then(p=>{p=p||O(M,u,!1),p&&(D.delta&&!cn(p,ce.NAVIGATION_CANCELLED)?o.go(-D.delta,!1):D.type===Nr.pop&&cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&o.go(-1,!1)),$(M,u,p)}).catch(ut)}))}let ve=nt(),le=nt(),J;function Y(y,k,D){Xe(y);const M=le.list();return M.length?M.forEach(X=>X(y,k,D)):console.error(y),Promise.reject(y)}function Fe(){return J&&l.value!==bn?Promise.resolve():new Promise((y,k)=>{ve.add([y,k])})}function Xe(y){return J||(J=!y,se(),ve.list().forEach(([k,D])=>y?D(y):k()),ve.reset()),y}function fe(y,k,D,M){const{scrollBehavior:X}=e;if(!Un||!X)return Promise.resolve();const u=!D&&C0(ta(y.fullPath,0))||(M||!D)&&history.state&&history.state.scroll||null;return Wa().then(()=>X(y,k,u)).then(p=>p&&E0(p)).catch(p=>Y(p,y,k))}const ge=y=>o.go(y);let an;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:v,removeRoute:S,clearRoutes:n.clearRoutes,hasRoute:T,getRoutes:E,resolve:A,options:e,push:N,replace:B,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:a.add,beforeResolve:i.add,afterEach:s.add,onError:le.add,isReady:Fe,install(y){y.component("RouterLink",J0),y.component("RouterView",rf),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Pe(l)}),Un&&!an&&l.value===bn&&(an=!0,N(o.location).catch(M=>{}));const k={};for(const M in bn)Object.defineProperty(k,M,{get:()=>l.value[M],enumerable:!0});y.provide(er,je),y.provide(ao,Ga(k)),y.provide(Or,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=bn,Q&&Q(),Q=null,l.value=bn,an=!1,J=!1),D()}}};function we(y){return y.reduce((k,D)=>k.then(()=>U(D)),Promise.resolve())}return je}function af(){return Ke(er)}function md(e){return Ke(ao)}const sf="/assets/screenshot-BGlXLzxn.webp",lf="/assets/screenshot-BU-MfndP.webp",cf="/assets/screenshot-BbBk66JL.webp",ff="/assets/screenshot-DJ8DWsNe.webp",df="/assets/screenshot-Bgnvpmle.webp",uf="/assets/screenshot-DI4mxV0q.webp",pf="/assets/screenshot-Cr4gcPub.webp",hf="/assets/screenshot-Bftu4Vm4.webp",mf="/assets/screenshot-D69-qLJd.webp",vf="/assets/screenshot-BHPmctOt.webp",gf="/assets/screenshot-uj0WCOUe.webp",yf="/assets/screenshot-CbvnZ5gw.webp",bf="/assets/screenshot-D2kvp1Pc.webp",xf="/assets/screenshot-FespJOdi.webp",wf="/assets/screenshot-BYNpPvRq.webp",Ef="/assets/screenshot-TbFZaVjZ.webp",Sf="/assets/screenshot-eXevvs9S.webp",Cf="/assets/screenshot-BXUdMyeo.webp",Tf="/assets/screenshot-CLKNMPWT.webp",_f="/assets/screenshot-Dge5FRDF.webp",Af="/assets/screenshot-DtcnOqgw.webp",Rf="/assets/screenshot-o465L8pw.webp",If="/assets/screenshot-BeLUHnME.webp",Df="/assets/screenshot-dnSW_Jt8.webp",Pf="/assets/screenshot-Zy4Ap0si.webp",Nf="/assets/screenshot-GJoazymJ.webp",Lf="/assets/screenshot-Dj7Yx2aa.webp",Of="/assets/screenshot-CHzCcHjz.webp",kf="/assets/screenshot-UCJWYxEG.webp",Mf="/assets/screenshot-DXkgzLB7.webp",Xi=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:sf,passes:{image:`/**
+ * 24h in Arrakis
+ * @author guinetik
+ * @date 2026-02-12
+ *
+ * "Arrakis is so beautiful when the sun is low."
+ * The desert planet — twin suns arc across the sky,
+ * spice-laden winds, heat shimmer, and the worm's domain.
+ * Full day/night cycle (~80s) with raymarched dune terrain,
+ * periodic spice storms, and sandworm tracks.
+ */
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
@@ -213,11 +220,16 @@ vec3 spiceBlow(vec2 uv, float time) {
 }
 
 // ── heat distortion ───────────────────────────────────────────
+// Two noise layers simulate convective air shimmer above hot sand:
+//   Layer 1: 3.0 x 20.0 — wide horizontally, narrow vertically (tall rising-air columns)
+//   Layer 2: 5.0 x 35.0 — finer detail at higher frequency, scrolls faster
+// The asymmetric UV scaling stretches noise vertically, mimicking real
+// heat shimmer which distorts more along the vertical axis.
 
 vec2 heatHaze(vec2 uv, float time) {
     float distort = noise(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
     distort += noise(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
-    // stronger near the horizon
+    // stronger near the horizon — where real mirages appear
     float horizonMask = smoothstep(0.1, -0.15, uv.y);
     return vec2(distort * 0.006 * horizonMask, distort * 0.003 * horizonMask);
 }
@@ -584,6 +596,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * Ported from Genuary 2026 Day 31 (blackhole.frag).
  *
  * @author guinetik
+ * @date 2026-01-31
  */
 
 // ── Constants ──────────────────────────────────────────────
@@ -842,6 +855,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 }
 `},channels:{}},{slug:"caustics-pool",title:"Caustic Study #02: Pool",description:"Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",date:"2026-02-15",tags:["caustics","raymarching","3d","physics"],links:{},screenshotUrl:cf,passes:{image:`/**
  * Caustics Pool
+ *
+ * @author guinetik
+ * @date 2026-02-15
  *
  * Ray-marched 3D swimming pool — an open-top box with tiled interior
  * surfaces, a transparent water plane, and caustic light patterns
@@ -1340,6 +1356,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 `,bufferA:`/**
  * Caustics Pool — Buffer A: Camera state
  *
+ * @author guinetik
+ * @date 2026-02-15
+ *
  * Pixel (0,0) stores camera angles and velocities:
  *   .x = yaw angle (radians, wraps TAU)
  *   .y = pitch angle (radians, clamped)
@@ -1461,14 +1480,21 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 }
 `},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"caustics-study",title:"Caustic Study #01: Simple",description:"Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",date:"2026-02-15",tags:["caustics","procedural","physics"],links:{},screenshotUrl:ff,passes:{image:`/**
  * Caustic Study #01: Simple
+ * @author guinetik
+ * @date 2026-02-15
  *
  * Animated caustic light patterns refracting an input texture.
  * The water surface displaces UV sampling (chromatic aberration
  * per-channel), and caustic intensity brightens the displaced
- * image — so light and texture interact naturally.
+ * image -- so light and texture interact naturally.
+ *
+ * TECHNIQUE: Iterative domain warping for caustics
+ * Each iteration displaces UV coordinates with sin/cos feedback,
+ * accumulating inverse distance to create bright convergence lines
+ * mimicking refracted light on a pool floor. Two layers at different
+ * scales are blended for depth and complexity.
  *
  * Caustic pattern: joltz0r / David Hoskins iterative domain warp.
- *
  * Based on the water turbulence effect by joltz0r,
  * made tileable by David Hoskins.
  */
@@ -1477,35 +1503,49 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 #define TAU             6.28318530718
 
 // -- Animation --
-#define TIME_SCALE      0.5
-#define TIME_OFFSET     23.0
+#define TIME_SCALE      0.5   // Global time multiplier — lower = slower ripple animation.
+                              // 0.2 = very calm pool. 1.0+ = turbulent water.
+#define TIME_OFFSET     23.0  // Time offset to avoid boring initial state at t=0.
 
 // -- Caustic pattern --
-#define WARP_ITERATIONS 5
-#define INTENSITY       0.005
-#define CAUSTIC_POWER   1.4
-#define CAUSTIC_BASE    1.17
-#define BRIGHT_POWER    8.0
+#define WARP_ITERATIONS 5     // Domain warp iterations — more = sharper, more defined caustic lines.
+                              // 3 = soft blobs. 5 = crisp caustics. 8+ = very sharp but expensive.
+#define INTENSITY       0.005 // Inverse-distance sensitivity — smaller = tighter, brighter convergence lines.
+#define CAUSTIC_POWER   1.4   // Power curve applied to raw caustic value — higher = more contrast.
+#define CAUSTIC_BASE    1.17  // Base subtracted before power — shifts the brightness threshold.
+                              // Values near 1.0 produce more visible caustic patterns.
+#define BRIGHT_POWER    8.0   // Final brightness exponent — higher = caustic lines become thinner and brighter.
+                              // 4 = broad glow. 8 = defined lines. 12+ = very thin, intense lines.
 
 // -- Dual caustic layers --
-#define CAUSTIC_SCALE_A 2.5
-#define CAUSTIC_SCALE_B 1.5
-#define CAUSTIC_MIX_B   0.4
+#define CAUSTIC_SCALE_A 2.5   // UV scale for the primary caustic layer — larger = finer pattern.
+#define CAUSTIC_SCALE_B 1.5   // UV scale for the secondary layer — offset in time for parallax depth.
+#define CAUSTIC_MIX_B   0.4   // Blend weight of the second layer — 0 = single layer only, 1 = equal.
 
 // -- Water distortion (uses same time base as caustics) --
-#define DISTORT_STR     0.008
-#define DISTORT_FREQ    3.0
-#define CHROMA_SPREAD   0.001
+#define DISTORT_STR     0.008 // UV displacement amplitude — how much the water surface warps the image.
+                              // 0.005 = subtle shimmer. 0.02 = strong wavy distortion.
+#define DISTORT_FREQ    3.0   // Frequency of the sinusoidal displacement field.
+#define CHROMA_SPREAD   0.001 // Chromatic aberration offset between R/G/B channels.
+                              // 0 = no aberration. 0.005+ = very visible color fringing.
 
 // -- Water / depth --
-#define POOL_BLUE       vec3(0.3, 0.7, 1.0)
-#define CAUSTIC_COL     vec3(0.95, 0.98, 1.0)
-#define CAUSTIC_ADD     0.8
-#define VIGNETTE_STR    0.35
+#define POOL_BLUE       vec3(0.3, 0.7, 1.0)   // Tint color multiplied onto the texture — simulates water absorption.
+#define CAUSTIC_COL     vec3(0.95, 0.98, 1.0)  // Color of the additive caustic highlights — near-white with slight blue.
+#define CAUSTIC_ADD     0.8   // Additive intensity of caustic highlights — 0 = invisible, 1 = full brightness.
+#define VIGNETTE_STR    0.35  // Radial darkening strength — simulates depth falloff at pool edges.
+                              // 0 = no vignette. 0.5+ = strong edge darkening.
 
 // -------------------------------------------------------
 // Caustic pattern (joltz0r / David Hoskins)
 // -------------------------------------------------------
+
+// TECHNIQUE: Iterative domain warp caustics
+// Starting from a TAU-scaled, tiled UV, each iteration displaces the
+// coordinate using sin/cos of the running position plus time. The
+// accumulator \`c\` sums inverse distances: where displaced coordinates
+// nearly converge, c spikes, creating bright caustic lines.
+
 float caustic(vec2 uv, float scale, float t)
 {
     float time = t * TIME_SCALE + TIME_OFFSET;
@@ -1533,7 +1573,9 @@ float caustic(vec2 uv, float scale, float t)
 
 // -------------------------------------------------------
 // Water surface displacement field
-// Returns a 2D offset for UV distortion
+// Returns a 2D offset for UV distortion.
+// Uses overlapping sin/cos waves at slightly different frequencies
+// to approximate a rippling water surface.
 // -------------------------------------------------------
 vec2 waterDisplace(vec2 uv, float t)
 {
@@ -1591,53 +1633,107 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     fragColor = vec4(col, 1.0);
 }
-`},channels:{image:{iChannel0:"textures/pool.webp"}}},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","simulation","3d"],links:{},screenshotUrl:df,passes:{image:`void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
+`},channels:{image:{iChannel0:"textures/pool.webp"}}},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","simulation","3d"],links:{},screenshotUrl:df,passes:{image:`/**\r
+ * Attractor Study #01: Dadras — Image Pass\r
+ * @author guinetik\r
+ * @date 2026-02-10\r
+ *\r
+ * Composite pass for the Dadras attractor. Reads the accumulated trail from\r
+ * Buffer A, applies filmic tone-mapping and a soft vignette for final display.\r
+ */\r
+\r
+// TECHNIQUE: Filmic tone-mapping via exponential exposure\r
+// The formula col = 1 - exp(-col * EXPOSURE) compresses HDR accumulation\r
+// from the buffer into displayable [0,1] range while preserving bright detail.\r
+#define EXPOSURE 2.5        // Tone-map strength — higher values brighten midtones\r
+                            // and compress highlights. Below 1.0: dim/flat. Above 4.0: washed out.\r
+#define VIGNETTE_STRENGTH 0.3  // Darkening at screen edges — 0.0 = none, 0.5 = heavy.\r
+\r
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     vec2 uv = fragCoord.xy / iResolution.xy;\r
     vec3 col = texture(iChannel0, uv).rgb;\r
-    col = 1.0 - exp(-col * 2.5);\r
-    float vig = 1.0 - 0.3 * length(uv - 0.5);\r
+    col = 1.0 - exp(-col * EXPOSURE);\r
+    float vig = 1.0 - VIGNETTE_STRENGTH * length(uv - 0.5);\r
     col *= vig;\r
     fragColor = vec4(col, 1.0);\r
 }\r
-`,bufferA:`#define STEPS 500.0
-#define VIEW_SCALE 0.05
-#define SPEED 0.85
-#define INTENSITY 0.35
-#define FADE 0.990
-#define FOCUS 1.5
+`,bufferA:`/**
+ * Attractor Study #01: Dadras — Buffer A (Simulation + Trail Rendering)
+ * @author guinetik
+ * @date 2026-02-10
+ *
+ * Simulates the Dadras strange attractor (2010, Sara Dadras & Hamid Reza Momeni),
+ * a three-scroll chaotic system. A single particle is integrated via forward Euler,
+ * projected to 2D, and rendered as distance-field line segments with feedback
+ * accumulation for persistent trails. Velocity-mapped HSL coloring with random
+ * blink pulses provides visual variety.
+ *
+ * Dadras attractor equations:
+ *   dx/dt = y - a*x + b*y*z
+ *   dy/dt = c*y - x*z + z
+ *   dz/dt = d*x*y - e*z
+ * Parameters: a=3, b=2.7, c=1.7, d=2, e=9
+ *
+ * Reference: Dadras, S. & Momeni, H.R. (2010). "A novel three-dimensional
+ * autonomous chaotic system generating two, three and four-scroll attractors."
+ */
 
-// 3D view rotation defaults (radians)
+// === STATE LAYOUT (buffer-a, self-feedback via iChannel0) ===
+// Pixel (0, 0):          Particle position (xyz). Initialized to \`start\` on frame 0.
+// Pixel (CAM_PIXEL, 0):  Camera state — xy = rotation offsets, zw = last mouse position.
+// All other pixels:      Accumulated trail color (RGB). Faded each frame by FADE.
+
+// ── Integration & rendering ──
+#define STEPS 500.0        // Euler integration steps per frame — more = longer trail segment
+                           // per frame. Below 100: short/sparse trail. Above 800: GPU-heavy.
+#define BASE_VIEW_SCALE 0.05  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
+#define SPEED 0.85         // Time-step multiplier for integration — higher = faster traversal.
+                           // Below 0.3: sluggish. Above 1.5: may overshoot and diverge.
+#define INTENSITY 0.35     // Base brightness of each line segment — higher = brighter trails.
+                           // Below 0.1: barely visible. Above 0.6: over-saturated accumulation.
+#define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.
+                           // Below 0.98: trails vanish quickly. Above 0.999: ghosting/smearing.
+#define FOCUS 1.5          // Distance-field softness in pixels — smaller = sharper/thinner lines.
+                           // Below 0.5: aliased. Above 3.0: wide, blurry glow.
+
+// ── 3D view rotation defaults (radians) ──
 // Identity shows xy plane — matches the thumbnail
-#define DEFAULT_ROT_X 0.0
-#define DEFAULT_ROT_Y 0.0
-#define MOUSE_SENSITIVITY 3.0
+#define DEFAULT_ROT_X 0.0          // Initial pitch rotation — 0 = front-on view of xy plane.
+#define DEFAULT_ROT_Y 0.0          // Initial yaw rotation — 0 = no horizontal rotation.
+#define MOUSE_SENSITIVITY 3.0      // Drag-to-rotate speed — higher = faster orbit on drag.
 
 // Camera state stored at pixel (1, 0)
 #define CAM_PIXEL 1
 
-// Color settings
-#define MIN_HUE 60.0
-#define MAX_HUE 240.0
-#define MAX_SPEED 30.0
-#define HUE_SHIFT_SPEED 15.0
-#define SATURATION 0.85
-#define LIGHTNESS 0.55
+// ── Color settings ──
+#define MIN_HUE 60.0       // Hue for fastest velocity (yellow-green region).
+#define MAX_HUE 240.0      // Hue for slowest velocity (blue region).
+#define MAX_SPEED 30.0     // Velocity clamp for hue mapping — speeds above this all map to MIN_HUE.
+#define HUE_SHIFT_SPEED 15.0  // Degrees/sec of continuous hue rotation over time.
+#define SATURATION 0.85    // Base color saturation — 0.0 = grayscale, 1.0 = fully vivid.
+#define LIGHTNESS 0.55     // Base HSL lightness — 0.5 = pure color, higher = pastel.
 
-// Blink settings
-#define BLINK_FREQ 8.0
-#define BLINK_INTENSITY 1.8
-#define BLINK_SAT_BOOST 1.3
-#define BLINK_LIT_BOOST 1.4
+// ── Blink settings — random brightness pulses for visual interest ──
+#define BLINK_FREQ 8.0         // Pulse evaluation rate (Hz). Higher = more frequent blink checks.
+#define BLINK_INTENSITY 1.8    // Brightness multiplier during blink peak — 1.0 = no change.
+#define BLINK_SAT_BOOST 1.3    // Saturation multiplier during blink — pushes color more vivid.
+#define BLINK_LIT_BOOST 1.4    // Lightness multiplier during blink — makes highlight whiter.
 
-// Dadras parameters
-float pa = 3.0;
-float pb = 2.7;
-float pc = 1.7;
-float pd = 2.0;
-float pe = 9.0;
+// ── Dadras attractor parameters ──
+// These define the chaotic regime producing three-scroll behavior.
+float pa = 3.0;    // Dadras 'a' — linear damping on x. Higher = stronger contraction.
+float pb = 2.7;    // Dadras 'b' — coupling strength of y*z into dx/dt.
+float pc = 1.7;    // Dadras 'c' — linear gain on y. Drives the instability.
+float pd = 2.0;    // Dadras 'd' — coupling of x*y into dz/dt.
+float pe = 9.0;    // Dadras 'e' — linear damping on z. Higher = faster z-decay.
 
-vec3 start = vec3(1.0, 1.0, 1.0);
+vec3 start = vec3(1.0, 1.0, 1.0);  // Initial particle position on frame 0.
 
+// Forward Euler integration of the Dadras system.
+// dx/dt = y - a*x + b*y*z
+// dy/dt = c*y - x*z + z
+// dz/dt = d*x*y - e*z
 vec3 integrate(vec3 cur, float dt) {
     return cur + vec3(
         cur.y - pa * cur.x + pb * cur.y * cur.z,
@@ -1646,31 +1742,38 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
+// Rotation matrix around the X axis by angle \`a\` (radians).
 mat3 rotX(float a) {
     float c = cos(a), s = sin(a);
     return mat3(1,0,0, 0,c,-s, 0,s,c);
 }
 
+// Rotation matrix around the Y axis by angle \`a\` (radians).
 mat3 rotY(float a) {
     float c = cos(a), s = sin(a);
     return mat3(c,0,s, 0,1,0, -s,0,c);
 }
 
-vec2 project(vec3 p, mat3 viewRot) {
-    return (viewRot * p).xy * VIEW_SCALE;
+// Project a 3D attractor point to 2D screen space via camera rotation + scale.
+vec2 project(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * p).xy * scale;
 }
 
+// TECHNIQUE: Distance-field line segment rendering
+// Computes the minimum distance from point \`p\` to the line segment (a, b).
+// Used to evaluate per-pixel intensity of each trail segment.
 float dfLine(vec2 a, vec2 b, vec2 p) {
     vec2 ab = b - a;
     float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
     return distance(a + ab * t, p);
 }
 
-// Pseudo-random hash
+// Pseudo-random hash — maps a float seed to [0, 1).
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
 
+// Convert HSL (hue in degrees, saturation, lightness) to RGB.
 vec3 hsl2rgb(float h, float s, float l) {
     h = mod(h, 360.0) / 60.0;
     float c = (1.0 - abs(2.0 * l - 1.0)) * s;
@@ -1691,10 +1794,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
-    // ── Camera state (persisted at pixel CAM_PIXEL,0) ──
+    // TECHNIQUE: Frame-persistent state via texelFetch
+    // Camera rotation offsets and last mouse position are stored in a dedicated
+    // pixel (CAM_PIXEL, 0) in the self-feedback buffer and read back each frame.
     vec4 camState = texelFetch(iChannel0, ivec2(CAM_PIXEL, 0), 0);
     float offsetRx = camState.x;
     float offsetRy = camState.y;
@@ -1723,8 +1831,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Detect active mouse movement for instant trail clear
     bool rotating = pressed && wasTracking && length(iMouse.xy - lastMouse) > 1.0;
 
-    float d = 1e6;
-    float bestSpeed = 0.0;
+    // ── Integrate particle, find closest line segment ──
+    // Each frame, the particle is advanced STEPS times. For every step, the
+    // projected segment is tested against this pixel's UV. The closest segment
+    // determines brightness and its velocity determines color hue.
+    float d = 1e6;         // Minimum distance from pixel to any trail segment.
+    float bestSpeed = 0.0; // Velocity magnitude at the closest segment.
 
     vec3 last = texelFetch(iChannel0, ivec2(0, 0), 0).xyz;
     vec3 next;
@@ -1732,9 +1844,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.005 * SPEED);
 
-        float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);
+        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
+            // Recompute derivative at \`next\` to get instantaneous speed for color mapping.
             bestSpeed = length(vec3(
                 next.y - pa * next.x + pb * next.y * next.z,
                 pc * next.y - next.x * next.z + next.z,
@@ -1745,6 +1858,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         last = next;
     }
 
+    // TECHNIQUE: Dual-layer intensity — smoothstep for soft falloff + Gaussian for bright core.
     float c = (INTENSITY / SPEED) * smoothstep(FOCUS / iResolution.y, 0.0, d);
     c += (INTENSITY / 8.5) * exp(-1000.0 * d * d);
 
@@ -1761,12 +1875,18 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 lineColor = hsl2rgb(hue, sat, lit);
     c *= 1.0 + blink * (BLINK_INTENSITY - 1.0);
 
+    // ── State persistence (row 0) & trail accumulation ──
     if (py == 0 && px == 0) {
+        // Pixel (0,0): Particle position — seed on frame 0, else store latest state.
         fragColor = (iFrame == 0) ? vec4(start, 0) : vec4(next, 0);
     } else if (py == 0 && px == CAM_PIXEL) {
+        // Pixel (1,0): Camera state — rotation offsets + mouse for drag continuity.
+        // lastMouse = -1 sentinel means "not tracking" (mouse released).
         vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);
         fragColor = vec4(offsetRx, offsetRy, storeMouse);
     } else {
+        // Visual pixels — blend new line color onto faded previous frame.
+        // Instant clear (fade=0) while actively rotating to avoid smeared trails.
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;
         float fade = rotating ? 0.0 : FADE;
         fragColor = vec4(lineColor * c + prev * fade, 0);
@@ -1774,10 +1894,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 }
 `},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"domain-warping",title:"06. Domain Warping Study",description:"Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",date:"2026-01-27",tags:["10-days","procedural","interactive"],links:{},screenshotUrl:uf,passes:{image:`/**\r
  * Domain Warping Study\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-01-27\r
+ *\r
+ * Multi-layer domain warping with recursive coordinate distortion.\r
+ * Uses Inigo Quilez's classic domain warping approach: f(p + f(p + f(p))).\r
  *\r
  * Domain Warping Techniques:\r
  * - Multi-layer FBM noise for base pattern\r
@@ -1786,8 +1907,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * - Mouse-reactive warping (interactive domain distortion)\r
  * - Time-based warping for animation\r
  *\r
+ * Color Palette:\r
+ * - Terminal green base (col2-col4) for the "hacker aesthetic"\r
+ * - Orange/pink/purple accents (col5-col7) mapped to warp layers q, r, f2\r
+ *   so each color appears in different warping regimes\r
+ * - Black vortex centers (col1) create contrast against bright folds\r
+ *\r
  * Visual Features:\r
- * - Terminal green aesthetic with accent colors\r
  * - Dark vortex areas for contrast\r
  * - Cyan mouse interactions for visibility\r
  * - Pulsing rings from warped coordinates\r
@@ -1913,14 +2039,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
     float f2 = fbm(pp * 1.5 + r * 1.8 + t * 0.25);\r
 \r
     // === COLOR MAPPING ===\r
-    // More distinct color palette with dark contrast\r
-    vec3 col1 = vec3(0.0, 0.0, 0.0);        // Black\r
-    vec3 col2 = vec3(0.0, 0.2, 0.05);       // Very dark green\r
-    vec3 col3 = vec3(0.0, 0.6, 0.15);       // Medium green\r
-    vec3 col4 = vec3(0.0, 0.9, 0.3);        // Bright green (terminal)\r
-    vec3 col5 = vec3(1.0, 0.4, 0.0);        // Orange (celebration)\r
-    vec3 col6 = vec3(1.0, 0.0, 0.4);        // Pink (celebration)\r
-    vec3 col7 = vec3(0.4, 0.0, 0.9);        // Purple (celebration)\r
+    // Terminal green base with celebration accents; each accent is driven\r
+    // by a different warp layer (q, r, f2) so colors separate spatially\r
+    vec3 col1 = vec3(0.0, 0.0, 0.0);        // Black — vortex centers\r
+    vec3 col2 = vec3(0.0, 0.2, 0.05);       // Very dark green — shadow regions\r
+    vec3 col3 = vec3(0.0, 0.6, 0.15);       // Medium green — mid-warp zones\r
+    vec3 col4 = vec3(0.0, 0.9, 0.3);        // Bright green — terminal highlights\r
+    vec3 col5 = vec3(1.0, 0.4, 0.0);        // Orange — mapped to q.x (1st warp)\r
+    vec3 col6 = vec3(1.0, 0.0, 0.4);        // Pink — mapped to r.y (2nd warp)\r
+    vec3 col7 = vec3(0.4, 0.0, 0.9);        // Purple — mapped to f2 (recursive warp)\r
 \r
     // Color mixing - green base with celebration colors and dark areas\r
     vec3 color = col1;\r
@@ -1980,24 +2107,35 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
     fragColor = vec4(color, 1.0);\r
 }\r
 `},channels:{}},{slug:"exoplanets",title:"Exoplanets Study",description:"A procedural solar system with a star and three different planet types",date:"2025-11-26",tags:["exoplanets","raymarching","3d","space","interactive"],links:{},screenshotUrl:pf,passes:{image:`/**\r
- * Exoplanet Shader Showcase for Shadertoy\r
- * ========================================\r
- * A procedural solar system with a realistic star and three different planet types\r
+ * Exoplanets Study\r
+ * @author guinetik\r
+ * @date 2025-11-26\r
+ *\r
+ * A procedural solar system with a realistic star and three different planet types.\r
+ * All geometry is ray-sphere intersected (no raymarching), with procedural surface\r
+ * shading driven by simplex noise, FBM, and tiled noise for seamless flame textures.\r
  *\r
  * Scene:\r
  * - Central star with boiling plasma surface, corona flames, and rays\r
- * - Rocky planet (inner orbit) - Earth/Mars-like with terrain\r
- * - Gas giant (middle orbit) - Jupiter-like with bands and storms\r
- * - Ice giant (outer orbit) - Neptune-like with soft atmosphere\r
+ * - Rocky planet (inner orbit) -- Earth/Mars-like with FBM terrain, craters, and ice/lava biomes\r
+ * - Gas giant (middle orbit) -- Jupiter-like with latitudinal bands and storm spots\r
+ * - Ice giant (outer orbit) -- Neptune-like with methane atmosphere and haze\r
  *\r
  * Controls:\r
- * - Mouse X: Orbit camera horizontally (full 360°)\r
+ * - Mouse X: Orbit camera horizontally (full 360 degrees)\r
  * - Mouse Y: Orbit camera vertically (pitch up/down)\r
  * - Click anywhere: Change star temperature (cycles through spectral types)\r
  * - No interaction: Camera gently auto-orbits\r
  *\r
  * Star temperatures cycle through: Y-dwarf (purple) -> M (red) -> K (orange) ->\r
  *                                   G (yellow) -> F (white) -> A (blue-white) -> O (blue)\r
+ *\r
+ * Physical models:\r
+ * - Stellar surface: tiled FBM plasma + spherical distortion + limb darkening\r
+ * - Corona: angular noise prominences with lifecycle modulation\r
+ * - Star rays: outward-traveling wave pulses along angular spokes\r
+ * - Temperature-to-color: piecewise linear interpolation across spectral types\r
+ *   (Y/T/L brown dwarfs through O-type blue giants)\r
  *\r
  * Created from the Exoplanets visualization project\r
  * https://github.com/guinetik/exoplanets\r
@@ -2008,31 +2146,31 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
 // =============================================================================\r
 \r
 // 3D positions - Star at center, planets orbiting\r
-#define STAR_CENTER vec3(0.0, 0.0, 0.0)\r
-#define STAR_RADIUS 1.0\r
-#define CORONA_RADIUS 1.5              // Corona extends to 1.5x star radius\r
-#define RAY_LENGTH 0.8                 // How far rays extend beyond star\r
+#define STAR_CENTER vec3(0.0, 0.0, 0.0)  // Star placed at world origin.\r
+#define STAR_RADIUS 1.0                   // Star radius — all other distances are relative to this.\r
+#define CORONA_RADIUS 1.5                 // Corona extends to 1.5x star radius — larger = wider flame halo.\r
+#define RAY_LENGTH 0.8                    // How far light rays extend beyond star surface (in star radii).\r
 \r
 // Rocky planet (closest to star - like Mercury/Venus/Earth)\r
-#define ROCKY_CENTER vec3(2.5, 0.0, 0.0)\r
-#define ROCKY_RADIUS 0.3\r
+#define ROCKY_CENTER vec3(2.5, 0.0, 0.0) // Orbital position — closer = more star illumination.\r
+#define ROCKY_RADIUS 0.3                  // Planet radius — smaller = more Earth-like scale relative to star.\r
 \r
 // Gas giant (middle distance - like Jupiter/Saturn)\r
-#define GAS_CENTER vec3(0.0, 0.0, 4.0)\r
-#define GAS_RADIUS 0.7\r
+#define GAS_CENTER vec3(0.0, 0.0, 4.0)   // Placed along Z axis for visual separation.\r
+#define GAS_RADIUS 0.7                    // Largest planet — visually dominant in the mid-field.\r
 \r
 // Ice giant (farthest - like Uranus/Neptune)\r
-#define ICE_CENTER vec3(-3.5, 0.5, -2.0)\r
-#define ICE_RADIUS 0.5\r
+#define ICE_CENTER vec3(-3.5, 0.5, -2.0) // Off-axis position for depth variety.\r
+#define ICE_RADIUS 0.5                    // Medium size — between rocky and gas giant.\r
 \r
 // Camera settings\r
-#define CAMERA_DISTANCE 8.0\r
-#define CAMERA_FOV 1.8\r
+#define CAMERA_DISTANCE 8.0               // Orbit radius — larger = wider view of the system.\r
+#define CAMERA_FOV 1.8                    // Focal length factor — higher = narrower FOV (more telephoto).\r
 \r
 // Planet base colors - vivid and distinct\r
-#define ROCKY_COLOR vec3(0.3, 0.5, 0.8)\r
-#define GAS_GIANT_COLOR vec3(0.95, 0.6, 0.3)\r
-#define ICE_GIANT_COLOR vec3(0.2, 0.5, 0.95)\r
+#define ROCKY_COLOR vec3(0.3, 0.5, 0.8)       // Blue-tinted base for rocky terrain.\r
+#define GAS_GIANT_COLOR vec3(0.95, 0.6, 0.3)  // Warm orange-amber for Jupiter-like bands.\r
+#define ICE_GIANT_COLOR vec3(0.2, 0.5, 0.95)  // Cool blue for Neptune-like atmosphere.\r
 \r
 // =============================================================================\r
 // SHADER CONSTANTS\r
@@ -2042,33 +2180,38 @@ const float PI = 3.14159265359;\r
 const float TAU = 6.28318530718;\r
 const float MOD_DIVISOR = 289.0;\r
 \r
-// Star surface constants (from v2 shaders)\r
-const float PLASMA_SCALE = 3.0;\r
-const float PLASMA_SPEED = 0.12;\r
-const float FLAME_SCALE_COARSE = 15.0;\r
-const float FLAME_SCALE_FINE = 45.0;\r
-const float FLAME_FLOW_SPEED = 0.35;\r
-const int FLAME_OCTAVES = 5;\r
+// Star surface constants\r
+const float PLASMA_SCALE = 3.0;          // UV scale for plasma noise — higher = finer granules.\r
+const float PLASMA_SPEED = 0.12;         // Time multiplier for plasma animation — higher = faster boiling.\r
+const float FLAME_SCALE_COARSE = 15.0;   // Tiled noise resolution for large flame structures.\r
+const float FLAME_SCALE_FINE = 45.0;     // Tiled noise resolution for fine flame detail.\r
+const float FLAME_FLOW_SPEED = 0.35;     // Outward flow speed of flame patterns along latitude.\r
+const int FLAME_OCTAVES = 5;             // FBM octaves for flame detail — more = finer but costlier.\r
 \r
 // Corona constants\r
-const float CORONA_FLAME_INTENSITY = 2.0;\r
-const int NUM_PROMINENCES = 5;\r
-const float PROMINENCE_BRIGHTNESS = 3.0;\r
+const float CORONA_FLAME_INTENSITY = 2.0; // Brightness multiplier for corona flames.\r
+const int NUM_PROMINENCES = 5;            // Number of solar prominence arcs — more = busier corona.\r
+const float PROMINENCE_BRIGHTNESS = 3.0;  // Peak brightness of individual prominences.\r
 \r
 // Star rays constants\r
-const int NUM_MAIN_RAYS = 6;\r
-const int NUM_SECONDARY_RAYS = 8;\r
-const float RAY_INTENSITY = 1.2;\r
-const float RAY_FADE_POWER = 3.0;\r
+const int NUM_MAIN_RAYS = 6;             // Primary light ray spokes around the star.\r
+const int NUM_SECONDARY_RAYS = 8;        // Fainter secondary rays for visual richness.\r
+const float RAY_INTENSITY = 1.2;         // Overall ray brightness multiplier.\r
+const float RAY_FADE_POWER = 3.0;        // Exponential distance falloff — higher = rays fade faster.\r
 \r
 // Planet constants\r
-const float BAND_FREQ_BASE = 10.0;\r
-const float TURBULENCE_STRENGTH = 0.15;\r
-const float STORM_SIZE = 0.06;\r
+const float BAND_FREQ_BASE = 10.0;       // Base frequency of gas giant latitude bands.\r
+const float TURBULENCE_STRENGTH = 0.15;  // Noise-based turbulence amplitude in the bands.\r
+const float STORM_SIZE = 0.06;           // Radius of storm spots (Great Red Spot analogue).\r
 \r
 // =============================================================================\r
 // TEMPERATURE TO COLOR - Full spectral range including brown dwarfs\r
 // =============================================================================\r
+// PHYSICS: Stellar spectral classification\r
+// Real star colors follow blackbody radiation (Planck's law), but brown dwarfs\r
+// (< ~2000K) deviate significantly due to molecular absorption (methane, water).\r
+// Colors below are artist-interpreted from spectral type observations,\r
+// interpolated piecewise-linearly between anchor temperatures.\r
 \r
 // Brown dwarfs (substellar objects) - non-blackbody due to methane absorption\r
 const vec3 TEMP_300K = vec3(0.35, 0.2, 0.45);      // Dark purple (Y-dwarf, ultra-cool)\r
@@ -2133,6 +2276,13 @@ vec3 temperatureToColor(float tempK) {\r
 // =============================================================================\r
 // NOISE FUNCTIONS\r
 // =============================================================================\r
+// Noise algorithm choices:\r
+// - 3D Simplex (snoise3D): Used for star surface, corona, and planet terrain.\r
+//   Simplex is preferred over Perlin for its lack of axis-aligned artifacts and\r
+//   lower computational cost in 3D (4 corners vs 8 for classic Perlin).\r
+// - 2D Simplex (snoise2D): Used for planet surface detail where 3D is unnecessary.\r
+// - Tiled noise (tiledNoise3D): Used for star flames — tiles seamlessly at a\r
+//   given resolution to prevent visible seams on the spherical surface.\r
 \r
 vec3 mod289_3(vec3 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }\r
 vec4 mod289_4(vec4 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }\r
@@ -2331,6 +2481,16 @@ float outwardWave(float edgeDist, float time, float frequency, float speed) {\r
 // =============================================================================\r
 // STAR SURFACE SHADER - Boiling plasma with spherical distortion\r
 // =============================================================================\r
+// TECHNIQUE: Spherical UV distortion for boiling plasma\r
+// The star surface is projected through a spherical lens distortion\r
+// (similar to a fish-eye effect) before sampling plasma noise. This creates\r
+// the characteristic "boiling" appearance where granules appear to emerge\r
+// from the center and flow toward the limb.\r
+//\r
+// PHYSICS: Limb darkening\r
+// Real stars appear dimmer at the edge (limb) because we see deeper into\r
+// hotter layers when looking at the center. Approximated here with\r
+// pow(dot(normal, viewDir), 0.4).\r
 \r
 vec3 renderStarSurface(vec3 spherePos, vec3 normal, vec3 rayDir, vec3 baseColor, float activityLevel, float seed) {\r
     float time = wrapTime(iTime);\r
@@ -3098,24 +3258,30 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{}},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:mf,passes:{image:`/**\r
- * day31_finale.glsl - Genuary 2026 Day 31: GLSL Day\r
+`},channels:{}},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:hf,passes:{image:`/**\r
+ * Genuary 2026 Day 31: GLSL Day\r
+ * @author guinetik\r
+ * @date 2026-01-31\r
  *\r
- * Synthwave terrain with Sierpinski fractal sky and Black Hole\r
+ * Synthwave terrain with Sierpinski fractal sky and Black Hole.\r
+ * A kitchen-sink shader combining multiple techniques as a Genuary finale:\r
+ * raymarched triangular-grid terrain, Sierpinski-triangle sky dome,\r
+ * raytraced black hole with gravitational lensing and accretion disk,\r
+ * animated bird flocks, and a Matrix-rain glyph overlay.\r
  *\r
  * Features:\r
- * - Raymarched triangular grid terrain with dramatic peaks\r
- * - Terminal green color palette\r
+ * - Raymarched triangular grid terrain with dramatic peaks and canyon\r
+ * - Terminal green color palette throughout\r
  * - Sierpinski triangle pattern projected onto the sky dome\r
  * - Raytraced black hole with gravitational lensing and accretion disk\r
- * - Bird flocks flying across the sky\r
+ * - Bird flocks flying across the sky in periodic waves\r
  * - Mouse-controlled camera rotation (yaw/pitch)\r
+ * - Matrix rain overlay with procedural katakana-like glyphs\r
  * - Scanline and vignette post-processing\r
  *\r
  * Based on "another synthwave sunset thing" by stduhpf\r
  * Original: https://www.shadertoy.com/view/tsScRK\r
  *\r
- * @author guinetik\r
  * @project Genuary 2026\r
  * @see https://genuary2026.guinetik.com\r
  */\r
@@ -3130,105 +3296,107 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 // ============================================\r
 \r
 // Camera\r
-#define CAM_SPEED 10.0\r
-#define CAM_HEIGHT 1.5\r
-#define CAM_START_Z 20000.0\r
-#define CAM_YAW_SENS 0.8\r
-#define CAM_PITCH_SENS 0.08\r
-#define CAM_VIEW_OFFSET 0.15\r
-#define CAM_FOV 1.333           // 4/3\r
+#define CAM_SPEED 10.0            // Forward travel speed — higher = faster flythrough.\r
+#define CAM_HEIGHT 1.5            // Camera altitude above terrain — raise to see more terrain.\r
+#define CAM_START_Z 20000.0       // Starting Z offset — large value avoids terrain edge artifacts at start.\r
+#define CAM_YAW_SENS 0.8          // Mouse-X sensitivity for horizontal camera rotation.\r
+#define CAM_PITCH_SENS 0.08       // Mouse-Y sensitivity for vertical camera tilt.\r
+#define CAM_VIEW_OFFSET 0.15      // Vertical UV offset — tilts default view slightly downward.\r
+#define CAM_FOV 1.333             // 4/3 aspect FOV factor — higher = narrower field of view.\r
 \r
 // Terrain\r
-#define TERRAIN_HEIGHT 3.0\r
-#define TERRAIN_WAVE_FREQ 0.15\r
-#define TERRAIN_WAVE_SPEED 2.0\r
-#define TERRAIN_WAVE_AMP 0.3\r
-#define TERRAIN_WAVE_FADE 5.0\r
-#define TERRAIN_CANYON_WIDTH 0.02\r
-#define TERRAIN_CANYON_DEPTH 0.8\r
-#define TERRAIN_SPIKE_FREQ 0.5\r
-#define TERRAIN_SPIKE_PERIOD 8.0\r
-#define TERRAIN_SPIKE_HEIGHT 1.5\r
+#define TERRAIN_HEIGHT 3.0        // Peak terrain height from triangular noise.\r
+#define TERRAIN_WAVE_FREQ 0.15    // Frequency of rolling wave ridges along Z — higher = tighter waves.\r
+#define TERRAIN_WAVE_SPEED 2.0    // Speed of wave ridge animation — higher = faster rolling.\r
+#define TERRAIN_WAVE_AMP 0.3      // Amplitude of rolling waves — higher = taller ridges.\r
+#define TERRAIN_WAVE_FADE 5.0     // X-distance at which waves fade in — prevents center canyon disruption.\r
+#define TERRAIN_CANYON_WIDTH 0.02  // Gaussian width of the central canyon — smaller = narrower canyon.\r
+#define TERRAIN_CANYON_DEPTH 0.8   // Depth of the central canyon groove.\r
+#define TERRAIN_SPIKE_FREQ 0.5    // How often spike formations repeat along Z.\r
+#define TERRAIN_SPIKE_PERIOD 8.0  // Period of spike repetition pattern.\r
+#define TERRAIN_SPIKE_HEIGHT 1.5  // Maximum height of dramatic spike peaks.\r
 \r
 // Grid\r
-#define GRID_GLOW_THRESH 0.08\r
-#define GRID_PULSE_SPEED 3.0\r
-#define GRID_PULSE_SCALE 0.1\r
-#define GRID_COLOR vec3(0.0, 1.0, 0.3)\r
-#define GRID_GLOW_COLOR vec3(0.0, 0.4, 0.15)\r
+#define GRID_GLOW_THRESH 0.08     // Distance from triangle edge where glow activates — wider = thicker lines.\r
+#define GRID_PULSE_SPEED 3.0      // Speed of the grid brightness pulsing.\r
+#define GRID_PULSE_SCALE 0.1      // Spatial frequency of the pulse wave along Z.\r
+#define GRID_COLOR vec3(0.0, 1.0, 0.3)       // Bright neon green grid line color.\r
+#define GRID_GLOW_COLOR vec3(0.0, 0.4, 0.15) // Softer green for the grid bloom/glow halo.\r
 \r
 // Raymarching\r
-#define MARCH_MAX_ITER 500\r
-#define MARCH_STEP_MULT 0.5\r
-#define MARCH_HIT_THRESH 0.003\r
-#define MARCH_MAX_DIST 150.0\r
-#define MARCH_MAX_Y 4.0\r
+#define MARCH_MAX_ITER 500        // Maximum raymarch iterations — higher = more detail but slower.\r
+#define MARCH_STEP_MULT 0.5       // Step size multiplier (relaxation) — 0.5 is conservative/safe,\r
+                                  // 0.8+ is faster but may cause surface artifacts.\r
+#define MARCH_HIT_THRESH 0.003    // Surface hit threshold — smaller = more precise but more iterations.\r
+#define MARCH_MAX_DIST 150.0      // Maximum ray travel distance before giving up.\r
+#define MARCH_MAX_Y 4.0           // Y height above which aggressive stepping is used (above terrain).\r
 \r
-// Sky\r
-#define SKY_LAYER1_SCALE 60.0\r
-#define SKY_LAYER2_SCALE 120.0\r
-#define SKY_LAYER3_SCALE 200.0\r
-#define SKY_DRIFT_SPEED vec2(2.0, 1.5)\r
-#define SKY_PATTERN_INTENSITY 0.38\r
-#define SKY_BG_COLOR vec3(0.0, 0.10, 0.03)\r
-#define SKY_HAZE_COLOR vec3(0.0, 0.22, 0.07)\r
-#define SKY_PATTERN_COLOR vec3(0.1, 0.55, 0.22)\r
+// Sky (Sierpinski fractal dome)\r
+#define SKY_LAYER1_SCALE 60.0     // Scale of the largest Sierpinski layer — smaller = bigger triangles.\r
+#define SKY_LAYER2_SCALE 120.0    // Medium Sierpinski layer scale.\r
+#define SKY_LAYER3_SCALE 200.0    // Finest Sierpinski layer scale.\r
+#define SKY_DRIFT_SPEED vec2(2.0, 1.5)    // Drift velocity of fractal layers across the sky dome.\r
+#define SKY_PATTERN_INTENSITY 0.38         // Brightness of the Sierpinski pattern — 0 = invisible, 1 = full.\r
+#define SKY_BG_COLOR vec3(0.0, 0.10, 0.03) // Deep green-black sky background.\r
+#define SKY_HAZE_COLOR vec3(0.0, 0.22, 0.07)   // Horizon haze color — green-tinged fog.\r
+#define SKY_PATTERN_COLOR vec3(0.1, 0.55, 0.22) // Color of the Sierpinski fractal triangles.\r
 \r
 // Black hole\r
-#define BH_POSITION vec2(0.5, 0.5)\r
-#define BH_SIZE 0.08\r
-#define BH_CAM_DIST 2.0\r
-#define BH_CAM_ANGLE 0.48       // * PI\r
-#define BH_EVENT_HORIZON 0.1\r
-#define BH_GRAVITY 0.005\r
-#define BH_STEP_SIZE 0.02\r
-#define BH_DISK_OUTER vec3(0.1, 0.5, 0.2)\r
-#define BH_DISK_INNER vec3(0.4, 1.0, 0.6)\r
-#define BH_GLOW_COLOR vec3(0.3, 1.0, 0.5)\r
-#define BH_COUNTER_YAW 0.7\r
-#define BH_COUNTER_PITCH 0.06\r
+#define BH_POSITION vec2(0.5, 0.5)   // Screen-space position of the black hole (0-1 range).\r
+#define BH_SIZE 0.08                  // Visual size scaling — smaller = smaller black hole on screen.\r
+#define BH_CAM_DIST 2.0              // Camera distance from the black hole center.\r
+#define BH_CAM_ANGLE 0.48            // Camera elevation angle (multiplied by PI) — ~86 deg from pole.\r
+#define BH_EVENT_HORIZON 0.1         // Radius of the event horizon — light inside is fully captured.\r
+#define BH_GRAVITY 0.005             // Gravitational lensing strength — higher = more bending.\r
+#define BH_STEP_SIZE 0.02            // Base integration step for light ray bending.\r
+#define BH_DISK_OUTER vec3(0.1, 0.5, 0.2)  // Outer accretion disk color (cooler, green-tinted).\r
+#define BH_DISK_INNER vec3(0.4, 1.0, 0.6)  // Inner accretion disk color (hotter, bright green).\r
+#define BH_GLOW_COLOR vec3(0.3, 1.0, 0.5)  // Point-source glow around the singularity.\r
+#define BH_COUNTER_YAW 0.7           // Counter-rotation factor to keep BH fixed when camera pans.\r
+#define BH_COUNTER_PITCH 0.06        // Counter-pitch factor for vertical camera movement.\r
 \r
 // Birds\r
-#define BIRD_FLOCK_COUNT 4.0\r
-#define BIRD_FLOCK_OFFSET 6.0\r
-#define BIRD_CYCLE_TIME 25.0\r
-#define BIRD_ACTIVE_TIME 18.0\r
-#define BIRD_SIZE 12.0\r
-#define BIRD_LINE_THICK 1.5\r
-#define BIRD_Y_MIN 0.55\r
-#define BIRD_Y_RANGE 0.30\r
-#define BIRD_COUNT_MIN 6.0\r
-#define BIRD_COUNT_RANGE 7.0\r
-#define BIRD_SPREAD_X 80.0\r
-#define BIRD_SPREAD_Y 50.0\r
-#define BIRD_WING_SPEED 12.0\r
-#define BIRD_COLOR vec3(0.1, 0.9, 0.4)\r
+#define BIRD_FLOCK_COUNT 4.0     // Number of independent bird flocks.\r
+#define BIRD_FLOCK_OFFSET 6.0    // Time offset between flock appearances (seconds).\r
+#define BIRD_CYCLE_TIME 25.0     // Full cycle duration (active + rest) per flock.\r
+#define BIRD_ACTIVE_TIME 18.0    // How long a flock is visible during its cycle.\r
+#define BIRD_SIZE 12.0           // Wingspan in pixels — larger = bigger birds.\r
+#define BIRD_LINE_THICK 1.5      // Stroke thickness of the V-shaped bird silhouette.\r
+#define BIRD_Y_MIN 0.55          // Minimum normalized Y position for flock path.\r
+#define BIRD_Y_RANGE 0.30        // Range of vertical variation for flock paths.\r
+#define BIRD_COUNT_MIN 6.0       // Minimum birds per flock.\r
+#define BIRD_COUNT_RANGE 7.0     // Random range added to min — so 6 to 13 birds per flock.\r
+#define BIRD_SPREAD_X 80.0       // Horizontal scatter of birds within a flock (pixels).\r
+#define BIRD_SPREAD_Y 50.0       // Vertical scatter of birds within a flock (pixels).\r
+#define BIRD_WING_SPEED 12.0     // Wing flapping frequency — higher = faster flapping.\r
+#define BIRD_COLOR vec3(0.1, 0.9, 0.4) // Bird silhouette color (bright green to match theme).\r
 \r
 // Matrix rain (Quine style)\r
-#define MATRIX_CYCLE 30.0\r
-#define MATRIX_BURST 5.0\r
-#define MATRIX_CELL_W 11.0\r
-#define MATRIX_CELL_H 18.0\r
-#define MATRIX_DENSITY 0.35\r
-#define MATRIX_DELAY_MAX 2.5\r
-#define MATRIX_TICK 0.07\r
-#define MATRIX_TAIL_MIN 25.0\r
-#define MATRIX_TAIL_RANGE 25.0\r
-#define MATRIX_HEAD_COLOR vec3(0.95, 1.0, 0.98)\r
-#define MATRIX_HEAD_GLOW 0.4\r
-#define MATRIX_TAIL_COLOR vec3(0.0, 0.85, 0.35)\r
-#define MATRIX_BG_FLICKER 0.02\r
-#define MATRIX_CHAR_CHANGE 15.0\r
+#define MATRIX_CYCLE 30.0        // Full cycle time — rain triggers once per cycle.\r
+#define MATRIX_BURST 5.0         // Duration of the initial burst window when new drops start.\r
+#define MATRIX_CELL_W 11.0       // Width of each character cell in pixels.\r
+#define MATRIX_CELL_H 18.0       // Height of each character cell in pixels.\r
+#define MATRIX_DENSITY 0.35      // Fraction of columns that are active — 0.35 = 35% have rain.\r
+#define MATRIX_DELAY_MAX 2.5     // Max random start delay for staggered drops (seconds).\r
+#define MATRIX_TICK 0.07         // Time per discrete drop step — smaller = faster rain.\r
+#define MATRIX_TAIL_MIN 25.0     // Minimum tail length in character rows.\r
+#define MATRIX_TAIL_RANGE 25.0   // Random additional tail length — so 25 to 50 rows.\r
+#define MATRIX_HEAD_COLOR vec3(0.95, 1.0, 0.98)  // Bright white-green head of each rain drop.\r
+#define MATRIX_HEAD_GLOW 0.4     // Bloom intensity around the leading character.\r
+#define MATRIX_TAIL_COLOR vec3(0.0, 0.85, 0.35)  // Classic Matrix green for the trailing tail.\r
+#define MATRIX_BG_FLICKER 0.02   // Probability of a random background glyph flickering on.\r
+#define MATRIX_CHAR_CHANGE 15.0  // Speed of character mutation — higher = glyphs change faster.\r
 \r
 // Post-processing\r
-#define SCANLINE_MIN 0.95\r
-#define SCANLINE_RANGE 0.05\r
-#define SCANLINE_FREQ 2.0\r
-#define VIGNETTE_STRENGTH 0.5\r
+#define SCANLINE_MIN 0.95        // Minimum brightness in scanline troughs — 1.0 = no scanlines.\r
+#define SCANLINE_RANGE 0.05      // Amplitude of scanline brightness variation.\r
+#define SCANLINE_FREQ 2.0        // Spatial frequency of scanlines — higher = tighter lines.\r
+#define VIGNETTE_STRENGTH 0.5    // Corner darkening intensity — 0 = off, 1 = heavy.\r
 \r
 // Terrain colors\r
-#define TERRAIN_BASE_COLOR vec3(0.0, 0.12, 0.05)\r
-#define FOG_DECAY vec3(0.2, 0.08, 0.25)\r
+#define TERRAIN_BASE_COLOR vec3(0.0, 0.12, 0.05)  // Base terrain diffuse color (dark green).\r
+#define FOG_DECAY vec3(0.2, 0.08, 0.25)           // Per-channel exponential fog falloff rates.\r
+                                                    // Lower = fog extends farther in that channel.\r
 \r
 // ============================================\r
 // GLOBALS\r
@@ -3515,6 +3683,12 @@ vec2 intersect(vec3 ro, vec3 rd) {\r
 // ============================================\r
 // SIERPINSKI SKY\r
 // ============================================\r
+\r
+// TECHNIQUE: Sierpinski carpet test\r
+// For each scale level, check if the pixel falls in a "removed" quadrant\r
+// (both x and y in the middle third). If so, the pixel is empty (0).\r
+// Multiple scales layered together create the fractal sky dome pattern.\r
+\r
 float sierpinski(vec2 p, float iterations) {\r
     float filled = 1.0;\r
     for (float i = 0.0; i < 8.0; i++) {\r
@@ -3553,6 +3727,13 @@ vec3 gsky(vec3 rd, vec3 ld, bool mask) {\r
 // ============================================\r
 // BLACK HOLE\r
 // ============================================\r
+\r
+// TECHNIQUE: Gravitational lensing via ray deflection\r
+// Light rays are stepped through space and deflected toward the black hole\r
+// center by an inverse-square gravitational force. Rays that cross the\r
+// event horizon are absorbed (captured). The accretion disk is rendered\r
+// as a flattened torus with FBM-textured emissive color.\r
+\r
 vec4 renderBlackHole(vec2 screenPos, float time) {\r
     vec2 bhOffset = (BH_POSITION - 0.5) * 2.0;\r
     bhOffset.x *= iResolution.x / iResolution.y;\r
@@ -3691,7 +3872,14 @@ vec3 renderBirds(vec2 fragCoord, vec2 resolution, float time) {\r
 // MATRIX RAIN (Quine Style)\r
 // ============================================\r
 \r
-// Pseudo-glyph pattern - creates katakana-like shapes\r
+// TECHNIQUE: Procedural glyph rain\r
+// Each screen column is independently seeded. A "drop head" advances\r
+// downward in discrete tick steps, leaving a fading green tail behind.\r
+// Glyphs are procedurally constructed from simple geometric primitives\r
+// (vertical/horizontal strokes, diagonals, boxes) to approximate\r
+// katakana-like characters without any font texture.\r
+\r
+/** Procedural glyph pattern — creates katakana-like shapes from geometric primitives. */\r
 float matrixGlyph(vec2 uv, float seed) {\r
     // Create a procedural glyph based on seed\r
     float glyphType = floor(seed * 8.0);\r
@@ -3822,29 +4010,32 @@ vec3 renderMatrix(vec2 fragCoord, vec2 resolution, float time) {\r
 \r
     return col;\r
 }\r
-`},channels:{}},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:vf,passes:{image:`/**\r
+`},channels:{}},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:mf,passes:{image:`/**\r
  * Gravity Well Study\r
  *\r
  * @author guinetik\r
+ * @date 2026-01-29\r
  * @project Genuary 2026\r
  * @see https://genuary2026.guinetik.com\r
  *\r
- * Gravity Well Techniques:\r
- * - Inverse-square gravitational lensing\r
- * - Multi-well interference warping\r
- * - Image-based color sampling\r
+ * Gravitational lensing effect that warps input images through orbiting\r
+ * singularities. Wells sample and boost colors from the texture beneath\r
+ * them for glowing halos, while dark cores create the event horizon effect.\r
  *\r
- * Visual Features:\r
- * - Orbiting gravity wells warp the image\r
- * - Colors sampled from warped texture\r
- * - Glowing wells with dark cores\r
+ * Techniques:\r
+ * - Inverse-square gravitational lensing via gravityWarp()\r
+ * - Multi-well interference warping (1 central + 4 orbiting)\r
+ * - Image-based color sampling at well positions for glow tinting\r
  */\r
 \r
 #define PI 3.14159265359\r
 #define TAU 6.28318530718\r
 \r
 /**\r
- * Warp UV toward a gravity point\r
+ * Warp UV toward a gravity point.\r
+ * The softness parameter prevents the singularity at dist=0 by adding\r
+ * a floor to the denominator: pull = mass / (dist^2 + softness).\r
+ * Lower softness = sharper warp near the center; higher = gentler falloff.\r
  */\r
 vec2 gravityWarp(vec2 uv, vec2 center, float mass, float softness) {\r
     vec2 delta = uv - center;\r
@@ -3953,58 +4144,102 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/space.jpg"}}},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","simulation","3d"],links:{},screenshotUrl:hf,passes:{image:`// Halvorsen Attractor — Attractor Study #05
-// A symmetric chaotic attractor with three-fold rotational symmetry.
-// Ported from gcanvas attractor-3d-demo / halvorsen.js
-//
-// Shadertoy setup:
-//   Buffer A: iChannel0 = Buffer A (self-feedback)
-//   Image:    iChannel0 = Buffer A
+`},channels:{image:{iChannel0:"textures/space.jpg"}}},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","simulation","3d"],links:{},screenshotUrl:vf,passes:{image:`/**
+ * Attractor Study #05: Halvorsen — Image Pass
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Composite pass for Halvorsen's symmetric chaotic attractor. Reads the
+ * accumulated trail from Buffer A, applies filmic tone-mapping and a soft
+ * vignette for final display. Ported from gcanvas attractor-3d-demo / halvorsen.js.
+ */
+
+// TECHNIQUE: Filmic tone-mapping via exponential exposure
+// The formula col = 1 - exp(-col * EXPOSURE) compresses HDR accumulation
+// from the buffer into displayable [0,1] range while preserving bright detail.
+#define EXPOSURE 2.5        // Tone-map strength — higher values brighten midtones
+                            // and compress highlights. Below 1.0: dim/flat. Above 4.0: washed out.
+#define VIGNETTE_STRENGTH 0.3  // Darkening at screen edges — 0.0 = none, 0.5 = heavy.
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
     vec3 col = texture(iChannel0, uv).rgb;
-    col = 1.0 - exp(-col * 2.5);
-    float vig = 1.0 - 0.3 * length(uv - 0.5);
+    col = 1.0 - exp(-col * EXPOSURE);
+    float vig = 1.0 - VIGNETTE_STRENGTH * length(uv - 0.5);
     col *= vig;
     fragColor = vec4(col, 1.0);
 }
-`,bufferA:`// Halvorsen Attractor — Buffer A (state + line rendering)
+`,bufferA:`/**
+ * Attractor Study #05: Halvorsen — Buffer A (Simulation + Trail Rendering)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Simulates Halvorsen's symmetric chaotic attractor, a system with exact
+ * three-fold rotational symmetry. 10 particles with stochastic respawn dynamics
+ * are traced through 3D phase space using distance-field line rendering and
+ * feedback accumulation. Velocity-mapped HSL coloring (pink-to-blue) with
+ * blink pulses. Ported from gcanvas attractor-3d-demo / halvorsen.js.
+ *
+ * Halvorsen attractor equations:
+ *   dx/dt = -A*x - 4*y - 4*z - y^2
+ *   dy/dt = -A*y - 4*z - 4*x - z^2
+ *   dz/dt = -A*z - 4*x - 4*y - x^2
+ * Parameter: A = 1.89
+ *
+ * The three-fold symmetry is evident: each equation has the same structure,
+ * cyclically permuting (x, y, z). This produces a triangular-lobed attractor
+ * when viewed along the (1,1,1) diagonal.
+ */
+
+// === STATE LAYOUT (buffer-a, self-feedback via iChannel0) ===
+// Pixels (0..9, 0):       Particle positions (xyz). Respawn on escape or by random chance.
+// Pixel (CAM_PIXEL, 0):   Camera state — rg = yaw/pitch as [0,1], zw = last mouse.
+// All other pixels:       Accumulated trail color (RGB). Faded each frame by FADE.
+
+// ── Integration & rendering ──
+#define NUM_PARTICLES 10   // Simultaneous particles tracing the attractor.
+                           // More = denser trails. Above 20: GPU-heavy (NUM_PARTICLES * STEPS).
+#define STEPS 5.0          // Euler steps per particle per frame — kept low since the
+                           // Halvorsen system moves fast. Above 15: trail segments get long.
+#define BASE_VIEW_SCALE 0.05  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
+#define SPEED 0.95         // Time-step multiplier — higher = faster traversal.
+#define INTENSITY 0.5      // Base brightness per segment.
+#define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.
+                           // Below 0.98: trails vanish quickly. Above 0.999: ghosting.
+#define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.
+#define RESPAWN_CHANCE 0.025  // Per-particle per-frame probability of random respawn.
+                              // Higher = more frequent refreshes. 0.0 = only respawn on escape.
+
+// ── Halvorsen parameter ──
+// A controls the linear dissipation on each axis. At A=1.89 the system is chaotic.
+// Lower values make the attractor expand; higher values cause it to collapse.
+#define A 1.89             // Dissipation constant — classic value for chaotic regime.
+
+// ── Color settings — pink-to-blue palette ──
+#define MIN_HUE 320.0      // Hue for fastest velocity (pink-magenta).
+#define MAX_HUE 220.0      // Hue for slowest velocity (blue).
+                           // Note: MIN_HUE > MAX_HUE means hue wraps through red/pink.
+#define MAX_SPEED 40.0     // Velocity clamp for hue mapping.
+#define HUE_SHIFT_SPEED 15.0  // Degrees/sec of continuous hue rotation.
+#define SATURATION 0.80    // Base color saturation.
+#define LIGHTNESS 0.55     // Base HSL lightness.
+
+// ── Blink settings — random brightness pulses ──
+#define BLINK_FREQ 7.0         // Pulse rate (Hz).
+#define BLINK_INTENSITY 1.5    // Brightness multiplier during blink peak.
+#define BLINK_SAT_BOOST 1.2    // Saturation boost during blink.
+#define BLINK_LIT_BOOST 1.3    // Lightness boost during blink.
+
+// ── State pixel index for camera ──
+// Stored immediately after the last particle pixel.
+#define CAM_PIXEL NUM_PARTICLES
+
+// Forward Euler integration of the Halvorsen system.
 // dx/dt = -A*x - 4*y - 4*z - y^2
 // dy/dt = -A*y - 4*z - 4*x - z^2
 // dz/dt = -A*z - 4*x - 4*y - x^2
-
-#define NUM_PARTICLES 10
-#define STEPS 5.0
-#define VIEW_SCALE 0.05
-#define SPEED 0.95
-#define INTENSITY 0.2
-#define FADE 0.990
-#define FOCUS 2.0
-#define RESPAWN_CHANCE 0.025
-
-// Halvorsen parameter
-#define A 1.89
-
-// Color settings — pink-to-blue palette
-#define MIN_HUE 320.0
-#define MAX_HUE 220.0
-#define MAX_SPEED 40.0
-#define HUE_SHIFT_SPEED 15.0
-#define SATURATION 0.80
-#define LIGHTNESS 0.55
-
-// Blink settings
-#define BLINK_FREQ 7.0
-#define BLINK_INTENSITY 1.5
-#define BLINK_SAT_BOOST 1.2
-#define BLINK_LIT_BOOST 1.3
-
-// State layout: row 0 pixels
-//   [0..NUM_PARTICLES-1] = particle positions
-//   [NUM_PARTICLES]       = camera state (yaw, pitch, mouseXY)
-#define CAM_PIXEL NUM_PARTICLES
-
+// Note the cyclic symmetry: each component has the same form under (x,y,z) -> (y,z,x).
 vec3 integrate(vec3 cur, float dt) {
     return cur + vec3(
         -A * cur.x - 4.0 * cur.y - 4.0 * cur.z - cur.y * cur.y,
@@ -4013,21 +4248,27 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
+// Inline yaw-pitch projection — applies yaw (cy/sy) then pitch (cp/sp) rotation.
+// More efficient than building a full mat3 when only 2D output is needed.
 vec2 project(vec3 p, float cy, float sy, float cp, float sp) {
     vec3 r = vec3(p.x * cy - p.z * sy, p.y, p.x * sy + p.z * cy);
     return vec2(r.x, r.y * cp - r.z * sp);
 }
 
+// TECHNIQUE: Distance-field line segment rendering
+// Computes the minimum distance from point \`p\` to the line segment (a, b).
 float dfLine(vec2 a, vec2 b, vec2 p) {
     vec2 ab = b - a;
     float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
     return distance(a + ab * t, p);
 }
 
+// Pseudo-random hash — maps a float seed to [0, 1).
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
 
+// Convert HSL (hue in degrees, saturation, lightness) to RGB.
 vec3 hsl2rgb(float h, float s, float l) {
     h = mod(h, 360.0) / 60.0;
     float c = (1.0 - abs(2.0 * l - 1.0)) * s;
@@ -4048,10 +4289,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
-    // ── Camera state (persisted at pixel CAM_PIXEL,0) ──
+    // TECHNIQUE: Frame-persistent state via texelFetch
+    // Camera yaw/pitch stored as normalized [0,1] values in rg channels;
+    // last mouse position in zw (-1 = not tracking).
     vec4 camState = texelFetch(iChannel0, ivec2(CAM_PIXEL, 0), 0);
     float yaw, pitch;
     vec2 lastMouse = camState.zw;
@@ -4079,8 +4325,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float cp = cos(pitch), sp = sin(pitch);
 
     // ── Integrate all particles, find closest line segment ──
-    float d = 1e6;
-    float bestSpeed = 0.0;
+    // Each of the NUM_PARTICLES particles is advanced STEPS times. The closest
+    // projected segment to this pixel determines brightness and velocity color.
+    float d = 1e6;         // Minimum distance from pixel to any trail segment.
+    float bestSpeed = 0.0; // Velocity magnitude at the closest segment.
     float dt = 0.008 * SPEED;
 
     for (int pid = 0; pid < NUM_PARTICLES; pid++) {
@@ -4089,8 +4337,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         for (float i = 0.0; i < STEPS; i++) {
             vec3 next = integrate(pos, dt);
 
-            vec2 a = project(pos,  cy, sy, cp, sp) * VIEW_SCALE;
-            vec2 b = project(next, cy, sy, cp, sp) * VIEW_SCALE;
+            vec2 a = project(pos,  cy, sy, cp, sp) * viewScale;
+            vec2 b = project(next, cy, sy, cp, sp) * viewScale;
 
             float segD = dfLine(a, b, uv);
             if (segD < d) {
@@ -4102,7 +4350,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
-    // ── Line intensity ──
+    // TECHNIQUE: Dual-layer intensity — smoothstep for soft falloff + Gaussian for bright core.
     float c = (INTENSITY / SPEED) * smoothstep(FOCUS / iResolution.y, 0.0, d);
     c += (INTENSITY / 8.5) * exp(-1000.0 * d * d);
 
@@ -4111,7 +4359,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float blink = hash(blinkSeed) < 0.25
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
-    // ── Color: pink (fast) → blue (slow) ──
+    // ── Color: pink (fast) -> blue (slow), with continuous hue rotation ──
     float speedNorm = clamp(bestSpeed / MAX_SPEED, 0.0, 1.0);
     float hue = mod(MAX_HUE - speedNorm * (MAX_HUE - MIN_HUE) + iTime * HUE_SHIFT_SPEED, 360.0);
     float sat = min(1.0, SATURATION * (1.0 + blink * (BLINK_SAT_BOOST - 1.0)));
@@ -4119,10 +4367,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 lineColor = hsl2rgb(hue, sat, lit);
     c *= 1.0 + blink * (BLINK_INTENSITY - 1.0);
 
-    // ── State persistence (row 0) ──
+    // ── State persistence (row 0) & trail accumulation ──
     if (py == 0 && px < NUM_PARTICLES) {
-        // Particle state pixels — integrate forward
+        // Particle state pixels — integrate this particle forward.
         if (iFrame == 0) {
+            // Spread particles evenly around a small circle near the attractor.
+            // Radius 0.5 is well within the basin of attraction for A=1.89.
             float angle = float(px) * 6.28318 / float(NUM_PARTICLES);
             float r = 0.5;
             fragColor = vec4(r * cos(angle), r * sin(angle), r * sin(angle * 0.7 + 1.0), 0.0);
@@ -4131,7 +4381,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             for (float i = 0.0; i < STEPS; i++) {
                 pos = integrate(pos, dt);
             }
-            // Respawn to origin if escaped or by random chance
+            // TECHNIQUE: Stochastic respawn
+            // Particles that escape beyond radius 20 are respawned, plus a small
+            // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal
+            // even for well-behaved orbits. Prevents stale/stuck particles.
             float rng = hash(float(px) * 13.7 + iTime * 60.0);
             if (length(pos) > 20.0 || rng < RESPAWN_CHANCE) {
                 float angle = hash(float(px) + iTime) * 6.28318;
@@ -4141,11 +4394,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             fragColor = vec4(pos, 0.0);
         }
     } else if (py == 0 && px == CAM_PIXEL) {
-        // Camera state pixel — persist yaw & pitch as [0,1], mouse pos in zw
+        // Camera state pixel — persist yaw & pitch as normalized [0,1], mouse pos in zw.
+        // lastMouse = -1 sentinel means "not tracking" (mouse released).
         vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);
         fragColor = vec4(mod(yaw, 6.28318) / 6.28318, pitch / 3.14159 + 0.5, storeMouse);
     } else {
-        // Visual pixels — accumulate with fade; instant clear when rotating
+        // Visual pixels — blend new line color onto faded previous frame.
+        // Instant clear (fade=0) while actively rotating to avoid smeared trails.
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;
         float fade = rotating ? 0.0 : FADE;
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
@@ -4153,10 +4408,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 }
 `},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"kaleidoscope-study",title:"Kaleidoscope Interactive",description:"Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",date:"2026-01-28",tags:["procedural","interactive"],links:{},screenshotUrl:gf,passes:{image:`/**\r
  * Kaleidoscope Interactive\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-01-28\r
+ *\r
+ * Polar coordinate folding with iterative symmetry. Auto-rotating\r
+ * with mouse X/Y control for speed and zoom, producing vignette-focused\r
+ * mandala-like patterns from a sampled texture.\r
  *\r
  * Kaleidoscope Techniques:\r
  * - Polar coordinate transformation\r
@@ -4178,7 +4435,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  */\r
 \r
 #define PI 3.14159265359\r
-#define KALEIDO_ITERATIONS 10\r
+#define KALEIDO_ITERATIONS 10  // number of fold passes — higher = more complex symmetry\r
 \r
 vec2 safeUV(vec2 uv) {\r
     return clamp(uv, vec2(0.001), vec2(0.999));\r
@@ -4194,10 +4451,13 @@ vec3 renderKaleidoscope(vec2 p, float aspect, float time, vec2 mouse) {\r
     float mouseModifier = (mouse.x - 0.5) * 2.0;\r
     angle += baseRotation * (1.0 + mouseModifier);\r
 \r
-    // Fold the angle space repeatedly - each iteration doubles the symmetry\r
+    // Fold the angle space repeatedly — each iteration compounds the symmetry.\r
+    // abs() mirrors negative angles, mod() wraps into a 60-degree wedge,\r
+    // then centering by -half shifts the seam. Repeated folding creates\r
+    // exponentially complex symmetry patterns.\r
     for (int i = 0; i < KALEIDO_ITERATIONS; i++) {\r
         angle = abs(angle);  // Mirror across the fold line\r
-        float foldAngle = PI / 3.0;  // 60 degrees looks nice\r
+        float foldAngle = PI / 3.0;  // 60 degrees — hexagonal symmetry base\r
         angle = mod(angle, foldAngle) - foldAngle * 0.5;\r
     }\r
 \r
@@ -4248,10 +4508,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 }\r
 `},channels:{image:{iChannel0:"textures/penrose.png"}}},{slug:"kaleidoscopic",title:"Kaleidoscopic Study",description:"Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",date:"2026-02-01",tags:["10-days","procedural"],links:{},screenshotUrl:yf,passes:{image:`/**\r
  * Kaleidoscopic Study\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-02-01\r
+ *\r
+ * Mandala-like symmetric patterns through polar coordinate folding.\r
+ * Three kaleidoscope styles cycle over time: simple N-fold symmetry,\r
+ * iterative fractal folding, and spiral twist warped with radius.\r
  *\r
  * Kaleidoscope Techniques:\r
  * - Polar coordinate folding\r
@@ -4278,7 +4540,12 @@ mat2 rot2D(float a) {\r
 \r
 /**\r
  * Simple kaleidoscope - fold into N segments\r
- * Fixed: shift angle to avoid atan discontinuity at 9 o'clock\r
+ * Polar fold math:\r
+ *   1. Convert to polar (angle, radius)\r
+ *   2. mod(angle, TAU/N) maps all angles into one wedge of N segments\r
+ *   3. Mirror within the wedge (if angle > half-wedge, reflect it)\r
+ *   4. Convert back to Cartesian — produces N-fold mirror symmetry\r
+ * The +PI offset shifts atan's discontinuity from 9 o'clock to 3 o'clock.\r
  */\r
 vec2 kaleido(vec2 p, float segments) {\r
     // Add PI to shift discontinuity from -PI/+PI (9 o'clock) to 0/TAU (3 o'clock)\r
@@ -4289,7 +4556,7 @@ vec2 kaleido(vec2 p, float segments) {\r
     float segmentAngle = TAU / segments;\r
     angle = mod(angle, segmentAngle);\r
 \r
-    // Mirror within segment\r
+    // Mirror within segment — creates bilateral symmetry inside each wedge\r
     if (angle > segmentAngle * 0.5) {\r
         angle = segmentAngle - angle;\r
     }\r
@@ -4299,10 +4566,11 @@ vec2 kaleido(vec2 p, float segments) {\r
 \r
 /**\r
  * Iterative kaleidoscope - multiple fold passes\r
- * Creates more complex fractal-like patterns\r
+ * Each iteration: rotate -> fold into 60-degree wedge -> abs-fold -> scale down.\r
+ * Repeated folding creates fractal self-similarity at progressively smaller scales.\r
  */\r
 vec2 kaleidoIterative(vec2 p, float time, int iterations) {\r
-    float scale = PI / 3.0;  // 60 degree segments (hexagonal)\r
+    float scale = PI / 3.0;  // 60 degree segments (hexagonal symmetry)\r
 \r
     for (int i = 0; i < iterations; i++) {\r
         float fi = float(i);\r
@@ -4443,8 +4711,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:xf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:bf,passes:{image:`/**
  * Liquid Glass
+ * @author guinetik
+ * @date 2026-01-23
  *
  * Two superellipse glass blobs drifting over an input image,
  * bouncing off screen edges like billiard balls and merging
@@ -4459,76 +4729,85 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
  * - Superellipse SDF for rounded-square lens shape
  * - Smooth minimum (smin) for organic metaball merging
  *
- * @author guinetik
  * @credit PaoloCurtoni (shader inspiration), IQ (superellipse SDF)
  */
 
 // -- Glass properties --
-#define IOR                 1.5
-#define BLUR_STRENGTH       1.5
+#define IOR                 1.5   // Index of refraction — 1.5 is typical crown glass.
+                                  // Higher (1.8+) = more reflection, stronger Fresnel.
+#define BLUR_STRENGTH       1.5   // Frosted glass scatter radius — higher = more diffuse/frosted.
+                                  // 0 = perfectly clear glass. 3+ = heavily frosted.
 
 // -- Shape --
-#define RADIUS              0.22
-#define SUPERELLIPSE_N      4.0
-#define BLEND_RADIUS        0.12
+#define RADIUS              0.22  // Blob radius in NDC — larger = bigger glass blobs.
+#define SUPERELLIPSE_N      4.0   // Superellipse exponent — 2.0 = circle, 4.0 = rounded square,
+                                  // higher = sharper corners approaching a true square.
+#define BLEND_RADIUS        0.12  // Smooth-minimum blend radius for metaball merging.
+                                  // Larger = blobs merge from farther apart; 0 = no blending.
 
 // -- Lens distortion --
-#define BASE_MAGNIFICATION  0.75
-#define LENS_STRENGTH       0.4
-#define EDGE_EXPONENT       3.0
-#define DEPTH_NORMALIZER    0.8
-#define ABERRATION_AMOUNT   0.08
+#define BASE_MAGNIFICATION  0.75  // UV scale inside the lens — <1.0 zooms out (minifies),
+                                  // >1.0 zooms in (magnifies).
+#define LENS_STRENGTH       0.4   // Edge distortion intensity — how much the lens warps near edges.
+#define EDGE_EXPONENT       3.0   // Exponential distortion ramp — higher = distortion concentrated at edges.
+#define DEPTH_NORMALIZER    0.8   // Fraction of radius used as max SDF depth — controls distortion falloff shape.
+#define ABERRATION_AMOUNT   0.08  // Chromatic aberration — separation between R and B channels.
+                                  // 0 = no aberration. 0.15+ = very visible color fringing.
 
 // -- Edge highlight --
-#define EDGE_THICKNESS      0.008
-#define EDGE_DIAG_SCALE     1.5
-#define EDGE_DIAG_POWER     1.8
-#define EDGE_BRIGHTNESS     1.2
+#define EDGE_THICKNESS      0.008 // Width of the bright rim at the glass boundary.
+#define EDGE_DIAG_SCALE     1.5   // Scale for diagonal highlight pattern on the edge rim.
+#define EDGE_DIAG_POWER     1.8   // Sharpness of diagonal highlight — higher = tighter specular band.
+#define EDGE_BRIGHTNESS     1.2   // Peak brightness of the edge highlight (>1.0 = HDR white).
 
 // -- Shadow --
-#define SHADOW_OFFSET       0.02
-#define SHADOW_SPREAD       0.06
-#define SHADOW_OPACITY      0.15
+#define SHADOW_OFFSET       0.02  // Vertical offset of the drop shadow below the blob.
+#define SHADOW_SPREAD       0.06  // How far the shadow feathers outward from the blob edge.
+#define SHADOW_OPACITY      0.15  // Peak shadow darkness — 0.0 = invisible, 1.0 = fully opaque.
 
 // -- Fresnel --
-#define FRESNEL_STRENGTH    0.35
-#define FRESNEL_GRAD_EPS    0.01
-#define NORMAL_Z            0.5
+#define FRESNEL_STRENGTH    0.35  // How much Fresnel reflection tints the glass surface.
+                                  // 0.0 = no reflection. 1.0 = fully reflective at grazing angles.
+#define FRESNEL_GRAD_EPS    0.01  // Epsilon for numerical gradient of the blended SDF (normal estimation).
+#define NORMAL_Z            0.5   // Z component of the pseudo-3D normal — controls perceived curvature depth.
 
 // -- Blur kernel --
-#define BLUR_SAMPLES        16
-#define BLUR_SIGMA_FACTOR   0.25
-#define BLUR_PIXEL_SCALE    0.002
+#define BLUR_SAMPLES        16    // Gaussian blur grid side length — total taps = (SAMPLES/2)^2.
+                                  // 8 = fast/coarse. 32 = smooth but expensive.
+#define BLUR_SIGMA_FACTOR   0.25  // Gaussian sigma as fraction of sample count — controls blur bell width.
+#define BLUR_PIXEL_SCALE    0.002 // UV-space size of each blur tap offset.
 
 // -- Motion (blob A) --
-#define SPEED_AX            0.31
-#define SPEED_AY            0.23
-#define PHASE_AX            0.37
-#define PHASE_AY            0.71
+#define SPEED_AX            0.31  // Horizontal bounce speed for blob A — larger = faster drift.
+#define SPEED_AY            0.23  // Vertical bounce speed for blob A.
+#define PHASE_AX            0.37  // Horizontal phase offset — shifts starting position.
+#define PHASE_AY            0.71  // Vertical phase offset.
 
 // -- Motion (blob B) --
-#define SPEED_BX            0.43
-#define SPEED_BY            0.29
-#define PHASE_BX            2.13
-#define PHASE_BY            1.47
+#define SPEED_BX            0.43  // Horizontal bounce speed for blob B.
+#define SPEED_BY            0.29  // Vertical bounce speed for blob B.
+#define PHASE_BX            2.13  // Horizontal phase offset.
+#define PHASE_BY            1.47  // Vertical phase offset.
 
 // -- Bounds --
-#define BOUNDS_MARGIN       0.02
+#define BOUNDS_MARGIN       0.02  // Inset from screen edge for bounce limits.
 
 // -- Weighted center --
-#define CENTER_FALLOFF      8.0
+#define CENTER_FALLOFF      8.0   // Gaussian falloff for weighted center calculation.
+                                  // Higher = each blob's lens effect stays more localized.
 
 // -- Post-processing --
-#define VIGNETTE_START      0.6
-#define VIGNETTE_END        1.4
-#define VIGNETTE_MIX        0.1
-#define GAMMA               0.95
-#define GLASS_TINT          vec3(0.95, 0.98, 1.0)
-#define GLASS_LIFT          0.15
-#define FRESNEL_COLOR       vec3(1.0, 0.98, 0.95)
+#define VIGNETTE_START      0.6   // Radial distance where vignette begins (0 = center, 1 = edge).
+#define VIGNETTE_END        1.4   // Radial distance where vignette reaches full darkness.
+#define VIGNETTE_MIX        0.1   // Vignette blending strength — 0 = off, 1 = full effect.
+#define GAMMA               0.95  // Output gamma — <1.0 brightens midtones, >1.0 darkens.
+#define GLASS_TINT          vec3(0.95, 0.98, 1.0)   // Subtle cool tint applied inside the glass.
+#define GLASS_LIFT          0.15  // Additive brightness lift inside the glass — simulates internal scattering.
+#define FRESNEL_COLOR       vec3(1.0, 0.98, 0.95)   // Warm-white Fresnel reflection highlight color.
 
 // -- SDF iteration --
-#define SDF_ITERATIONS      12
+#define SDF_ITERATIONS      12    // Accuracy of superellipse SDF distance — more = tighter fit to the shape.
+                                  // 6 = fast but rough. 16+ = very accurate but expensive.
 #define PI_OVER_4           0.7853981634
 
 // =============================================================================
@@ -4788,56 +5067,105 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(clamp(finalColor, 0.0, 1.0), 1.0);
 }
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:bf,passes:{image:`void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:xf,passes:{image:`/**
+ * Attractor Study #02: Lorenz — Image Pass
+ * @author guinetik
+ * @date 2026-02-10
+ *
+ * Composite pass for the Lorenz attractor. Reads the accumulated trail from
+ * Buffer A, applies filmic tone-mapping and a soft vignette for final display.
+ */
+
+// TECHNIQUE: Filmic tone-mapping via exponential exposure
+// The formula col = 1 - exp(-col * EXPOSURE) compresses HDR accumulation
+// from the buffer into displayable [0,1] range while preserving bright detail.
+#define EXPOSURE 2.5        // Tone-map strength — higher values brighten midtones
+                            // and compress highlights. Below 1.0: dim/flat. Above 4.0: washed out.
+#define VIGNETTE_STRENGTH 0.3  // Darkening at screen edges — 0.0 = none, 0.5 = heavy.
+
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
     vec3 col = texture(iChannel0, uv).rgb;
-    col = 1.0 - exp(-col * 2.5);
-    float vig = 1.0 - 0.3 * length(uv - 0.5);
+    col = 1.0 - exp(-col * EXPOSURE);
+    float vig = 1.0 - VIGNETTE_STRENGTH * length(uv - 0.5);
     col *= vig;
     fragColor = vec4(col, 1.0);
 }
-`,bufferA:`#define STEPS 96.0
-#define VIEW_SCALE 0.025
-#define SPEED 0.55
-#define INTENSITY 0.18
-#define FADE 0.985
-#define FOCUS 2.0
+`,bufferA:`/**
+ * Attractor Study #02: Lorenz — Buffer A (Simulation + Trail Rendering)
+ * @author guinetik
+ * @date 2026-02-10
+ *
+ * Simulates the Lorenz attractor (1963, Edward Lorenz), the foundational
+ * "butterfly effect" system of deterministic chaos. A single particle is
+ * integrated via forward Euler, projected to 2D with interactive orbit
+ * control, and rendered as distance-field line segments with feedback
+ * accumulation for persistent trails. Velocity-mapped HSL coloring with
+ * continuous hue shift and random blink pulses.
+ *
+ * Lorenz attractor equations:
+ *   dx/dt = sigma * (y - x)
+ *   dy/dt = x * (rho - z) - y
+ *   dz/dt = x * y - beta * z
+ * Parameters: sigma=10, rho=28, beta=8/3 (classic chaotic regime)
+ */
 
-// 3D attractor center (midpoint of the two lobes at z≈27 for rho=28)
+// === STATE LAYOUT (buffer-a, self-feedback via iChannel0) ===
+// Pixel (0, 0):          Particle position (xyz). Initialized to \`start\` on frame 0.
+// Pixel (CAM_PIXEL, 0):  Camera state — xy = rotation offsets, zw = last mouse position.
+// All other pixels:      Accumulated trail color (RGB). Faded each frame by FADE.
+
+// ── Integration & rendering ──
+#define STEPS 96.0         // Euler steps per frame — more = longer trail per frame.
+                           // Below 30: sparse trail. Above 200: GPU-heavy.
+#define BASE_VIEW_SCALE 0.025  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                               // Automatically scaled down on portrait/mobile screens.
+#define SPEED 0.55         // Time-step multiplier — higher = faster traversal of attractor.
+                           // Below 0.2: sluggish. Above 1.0: may overshoot.
+#define INTENSITY 0.18     // Base brightness per segment — higher = brighter trails.
+                           // Below 0.05: dim. Above 0.4: over-saturated.
+#define FADE 0.985         // Trail persistence per frame — closer to 1.0 = longer trails.
+                           // Below 0.97: trails vanish quickly. Above 0.999: ghosting.
+#define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.
+
+// 3D attractor center (midpoint of the two lobes at z~27 for rho=28).
+// Subtracted before projection to keep the attractor centered on screen.
 vec3 center3d = vec3(0.0, 0.0, 27.0);
 
-// 3D view rotation defaults (radians)
-// rotX = π/2 maps xz plane to screen → classic butterfly silhouette
-#define DEFAULT_ROT_X 1.5708
-#define DEFAULT_ROT_Y 0.0
-#define MOUSE_SENSITIVITY 3.0
+// ── 3D view rotation defaults (radians) ──
+// rotX = pi/2 maps xz plane to screen, producing the classic butterfly silhouette.
+#define DEFAULT_ROT_X 1.5708       // Initial pitch — pi/2 rotates view to show butterfly wings.
+#define DEFAULT_ROT_Y 0.0          // Initial yaw — 0 = symmetric front-on view.
+#define MOUSE_SENSITIVITY 3.0      // Drag-to-rotate speed — higher = faster orbit.
 
-// State layout: row 0 pixels
-//   [0] = particle position
-//   [1] = camera state (rotX offset, rotY offset, lastMouse.xy)
 #define CAM_PIXEL 1
 
-// Color settings
-#define MIN_HUE 30.0
-#define MAX_HUE 200.0
-#define MAX_SPEED 50.0
-#define HUE_SHIFT_SPEED 15.0
-#define SATURATION 0.85
-#define LIGHTNESS 0.55
+// ── Color settings ──
+#define MIN_HUE 30.0       // Hue for fastest velocity (orange region).
+#define MAX_HUE 200.0      // Hue for slowest velocity (cyan-blue region).
+#define MAX_SPEED 50.0     // Velocity clamp for hue mapping — above this maps to MIN_HUE.
+#define HUE_SHIFT_SPEED 15.0  // Degrees/sec of continuous hue rotation.
+#define SATURATION 0.85    // Base color saturation.
+#define LIGHTNESS 0.55     // Base HSL lightness.
 
-// Blink settings
-#define BLINK_FREQ 8.0
-#define BLINK_INTENSITY 1.8
-#define BLINK_SAT_BOOST 1.3
-#define BLINK_LIT_BOOST 1.4
+// ── Blink settings — random brightness pulses ──
+#define BLINK_FREQ 8.0         // Pulse rate (Hz).
+#define BLINK_INTENSITY 1.8    // Brightness multiplier during blink peak.
+#define BLINK_SAT_BOOST 1.3    // Saturation boost during blink.
+#define BLINK_LIT_BOOST 1.4    // Lightness boost during blink.
 
-// Lorenz parameters
+// ── Lorenz parameters (classic chaotic regime) ──
+// sigma (Prandtl number): controls coupling between x and y.
+// rho (Rayleigh number): drives convection — above ~24.74 the system is chaotic.
+// beta (geometric factor): relates to the aspect ratio of convection cells.
 const float sigma = 10.0;
 const float rho   = 28.0;
 const float beta  = 8.0 / 3.0;
 
-const vec3 start = vec3(0.1, 0.001, 0.0);
+const vec3 start = vec3(0.1, 0.001, 0.0);  // Initial position — off-center seed for chaos.
 
+// Forward Euler integration of the Lorenz system.
+// dx/dt = sigma*(y-x), dy/dt = x*(rho-z)-y, dz/dt = x*y - beta*z
 vec3 integrate(vec3 cur, float dt) {
     return cur + vec3(
         sigma * (cur.y - cur.x),
@@ -4846,20 +5174,27 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
+// Rotation matrix around the X axis by angle \`a\` (radians).
 mat3 rotX(float a) {
     float c = cos(a), s = sin(a);
     return mat3(1,0,0, 0,c,-s, 0,s,c);
 }
 
+// Rotation matrix around the Y axis by angle \`a\` (radians).
 mat3 rotY(float a) {
     float c = cos(a), s = sin(a);
     return mat3(c,0,s, 0,1,0, -s,0,c);
 }
 
-vec2 project(vec3 p, mat3 viewRot) {
-    return (viewRot * (p - center3d)).xy * VIEW_SCALE;
+// Project a 3D attractor point to 2D screen space.
+// Subtracts the attractor center to keep both lobes visible on screen.
+vec2 project(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * (p - center3d)).xy * scale;
 }
 
+// TECHNIQUE: Distance-field line segment rendering
+// Computes the minimum distance from point \`p\` to the line segment (a, b).
+// Guards against degenerate zero-length segments.
 float dfLine(vec2 a, vec2 b, vec2 p) {
     vec2 ab = b - a;
     float denom = dot(ab, ab);
@@ -4868,10 +5203,12 @@ float dfLine(vec2 a, vec2 b, vec2 p) {
     return distance(a + ab * t, p);
 }
 
+// Pseudo-random hash — maps a float seed to [0, 1).
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
 
+// Convert HSL (hue in degrees, saturation, lightness) to RGB.
 vec3 hsl2rgb(float h, float s, float l) {
     h = mod(h, 360.0) / 60.0;
     float c = (1.0 - abs(2.0 * l - 1.0)) * s;
@@ -4892,10 +5229,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
-    // ── Camera state (persisted at pixel CAM_PIXEL,0) ──
+    // TECHNIQUE: Frame-persistent state via texelFetch
+    // Camera rotation offsets and last mouse position are stored in a dedicated
+    // pixel (CAM_PIXEL, 0) in the self-feedback buffer and read back each frame.
     vec4 camState = texelFetch(iChannel0, ivec2(CAM_PIXEL, 0), 0);
     float offsetRx = camState.x;
     float offsetRy = camState.y;
@@ -4925,8 +5267,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     bool rotating = pressed && wasTracking && length(iMouse.xy - lastMouse) > 1.0;
 
     // ── Integrate particle, find closest line segment ──
-    float d = 1e6;
-    float bestSpeed = 0.0;
+    // Each frame, the particle is advanced STEPS times. For every step, the
+    // projected segment is tested against this pixel's UV. The closest segment
+    // determines brightness and its velocity determines color hue.
+    float d = 1e6;         // Minimum distance from pixel to any trail segment.
+    float bestSpeed = 0.0; // Velocity magnitude at the closest segment.
 
     vec3 last = texelFetch(iChannel0, ivec2(0, 0), 0).xyz;
     vec3 next;
@@ -4934,9 +5279,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.016 * SPEED);
 
-        float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);
+        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
+            // Recompute derivative at \`next\` to get instantaneous speed for color mapping.
             bestSpeed = length(vec3(
                 sigma * (next.y - next.x),
                 next.x * (rho - next.z) - next.y,
@@ -4947,15 +5293,17 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         last = next;
     }
 
+    // TECHNIQUE: Dual-layer intensity — smoothstep for soft falloff + Gaussian for bright core.
     float c = (INTENSITY / SPEED) * smoothstep(FOCUS / iResolution.y, 0.0, d);
     c += (INTENSITY / 8.5) * exp(-1000.0 * d * d);
 
-    // Blink
+    // Blink: random pulses of brightness — 30% chance each tick, sine-shaped.
     float blinkSeed = floor(iTime * BLINK_FREQ);
     float blink = hash(blinkSeed) < 0.3
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
-    // Velocity-based color with hue shift + blink
+    // Velocity-based color: fast regions map to MIN_HUE, slow to MAX_HUE.
+    // Continuous hue shift over time adds temporal variety.
     float speedNorm = clamp(bestSpeed / MAX_SPEED, 0.0, 1.0);
     float hue = mod(MAX_HUE - speedNorm * (MAX_HUE - MIN_HUE) + iTime * HUE_SHIFT_SPEED, 360.0);
     float sat = min(1.0, SATURATION * (1.0 + blink * (BLINK_SAT_BOOST - 1.0)));
@@ -4978,10 +5326,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space","interactive"],links:{},screenshotUrl:Cf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space","interactive"],links:{},screenshotUrl:wf,passes:{image:`/**\r
  * Nebula Background Shadertoy Study\r
  *\r
  * @author guinetik\r
+ * @date 2025-11-25\r
  * @see https://github.com/guinetik\r
  *\r
  * Cinematic camera movement with cuts every 4 seconds.\r
@@ -5975,21 +6324,45 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(finalColor, 1.0);\r
 }\r
-`},channels:{}},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:_f,passes:{image:`/**
+`},channels:{}},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Ef,passes:{image:`/**
  * Earth-like Planet
+ * @author guinetik
+ * @date 2025-11-27
  *
- * Procedural terrain with oceans, forests, deserts, ice caps, and clouds.
- * All noise is generated inline (no texture dependencies).
+ * Procedural Earth-like world with oceans, forests, deserts, ice caps, clouds,
+ * and atmospheric scattering. All terrain is generated from inline hash-based
+ * noise with no texture dependencies.
  *
  * Based on the atmospheric study shader from the exoplanets project.
  * Original texture-based noise replaced with hash-based procedural noise.
  *
- * @author guinetik
+ * Rendering layers (front to back):
+ *   1. Surface — terrain heightmap drives biome selection (water/tropics/forest/desert/ice)
+ *   2. Clouds  — separate FBM layer with independent drift speed
+ *   3. Atmosphere — Fresnel-like rim glow simulating Rayleigh scattering
+ *   4. Halo   — off-sphere atmospheric glow for the background
+ *
+ * TECHNIQUE: Analytic unit-sphere projection. The planet is rendered as a unit
+ * sphere centered at the origin. For each pixel, z is derived from the
+ * Pythagorean identity (x^2 + y^2 + z^2 = 1), giving both the 3D position and
+ * the surface normal in a single step — no raymarching needed.
+ *
+ * TECHNIQUE: Finite-difference normal mapping. Land normals are computed by
+ * sampling the heightmap at two offset points along the tangent and binormal
+ * directions, then reconstructing the perturbed normal for diffuse/specular
+ * lighting.
+ *
+ * Noise: Hash-based 3D value noise (fract-sin family) chosen for speed and
+ * simplicity. Produces smooth, non-directional terrain suitable for planetary
+ * surfaces. 6-octave FBM provides multi-scale detail from continental shapes
+ * down to small terrain features.
  */
 
 // =============================================================================
 // INLINE NOISE (replaces iChannel0 texture lookups)
 // =============================================================================
+// Noise: Hash-based value noise using the fract(sin(x)*43758.5453) family.
+// Fast and simple, produces smooth non-directional noise suitable for terrain.
 
 float hashN(float n) { return fract(sin(n) * 43758.5453123); }
 
@@ -5998,7 +6371,7 @@ float hashN2(vec2 p) {
     return fract(sin(h) * 43758.5453123);
 }
 
-// 2D value noise
+// 2D value noise — Hermite smoothstep interpolation (3t^2 - 2t^3) for C1 continuity
 float valueNoise2D(vec2 p) {
     vec2 i = floor(p);
     vec2 f = fract(p);
@@ -6028,12 +6401,14 @@ vec2 Rotate(vec2 p, float a) {
     return p * cos(a) + vec2(-p.y, p.x) * sin(a);
 }
 
-// FBM for terrain height & clouds
+// FBM for terrain height & clouds — 6 octaves, lacunarity ~2.77, gain ~1/2.1
+// Higher octave count = more fine detail on terrain. The pos offset (0.23, 0.77, 0.57)
+// and rotation (0.6 rad) between octaves decorrelate layers to avoid grid artifacts.
 float Heightmap(vec3 pos) {
     float height = 0.0;
     float scale = 0.5;
     float total = 0.0;
-    pos *= 1.5;
+    pos *= 1.5;                     // Base frequency — higher = smaller continents
     for (int i = 0; i < 6; i++) {
         height += scale * ValueNoise(pos);
         total += scale;
@@ -6051,18 +6426,18 @@ float Heightmap(vec3 pos) {
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
-    // Constants
-    const vec3 ICE_COL = vec3(1.0, 1.0, 1.0);
-    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 1.0));
-    const float HEIGHT_SCALE = 0.09;
+    // ── Biome color palette ──
+    const vec3 ICE_COL = vec3(1.0, 1.0, 1.0);          // Polar ice caps and snow peaks
+    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 1.0)); // Sun direction (upper-right)
+    const float HEIGHT_SCALE = 0.09;                    // Normal perturbation strength — higher = sharper terrain relief
 
-    vec3 ATMOS_COL = vec3(0.37, 0.71, 0.95);
-    vec3 WATER_COL = vec3(0.17, 0.32, 0.52) * 0.8;
-    vec3 TROPICS_COL = vec3(0.0, 1.0, 1.0) * 0.75;
-    vec3 FOREST_COL = vec3(0.15, 0.58, 0.22);
-    vec3 DESERT_COL = vec3(0.8, 0.58, 0.52);
+    vec3 ATMOS_COL = vec3(0.37, 0.71, 0.95);           // Atmosphere tint — Rayleigh-like blue
+    vec3 WATER_COL = vec3(0.17, 0.32, 0.52) * 0.8;     // Deep ocean blue
+    vec3 TROPICS_COL = vec3(0.0, 1.0, 1.0) * 0.75;     // Shallow tropical water — cyan-teal
+    vec3 FOREST_COL = vec3(0.15, 0.58, 0.22);           // Temperate forest green
+    vec3 DESERT_COL = vec3(0.8, 0.58, 0.52);            // Arid desert tan
 
-    float WATER_LEVEL = 0.48;
+    float WATER_LEVEL = 0.48;                           // FBM threshold for ocean — lower = more water, higher = more land
 
     // Map window roughly to -1..1, planet has r=1
     vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
@@ -6075,9 +6450,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 pos = vec3(uv, sqrt(z2));
         vec3 normal = pos;
 
-        // Terrain height
+        // Terrain height — rotate noise space for planetary spin
         vec3 noiseNormal = pos;
-        float surfaceRot = -0.1 * iTime;
+        float surfaceRot = -0.1 * iTime;               // Rotation speed — negative = eastward spin
         noiseNormal.xz = Rotate(noiseNormal.xz, surfaceRot);
         vec3 noisePos = noiseNormal + vec3(0.0, 0.0, 0.025 * iTime);
         float height = Heightmap(noisePos);
@@ -6126,24 +6501,26 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
                 smoothstep(WATER_LEVEL + 0.1, WATER_LEVEL + 0.2, height));
         }
 
-        // Surface lighting
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0));
-        float specular = specAmount * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 15.0);
-        fragColor.rgb = diffuse * surfaceColor + vec3(1.0, 0.92, 0.81) * specular;
+        // Surface lighting — Blinn-Phong model with warm-tinted specular
+        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);  // 0.05 ambient floor
+        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0)); // Half-vector (view is +Z)
+        float specular = specAmount * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 15.0); // Exponent 15 = moderate gloss
+        fragColor.rgb = diffuse * surfaceColor + vec3(1.0, 0.92, 0.81) * specular; // Warm sun-tinted highlight
 
-        // Clouds
-        vec3 cloudPos = vec3(2.0, 6.0, 2.0) * noisePos + 0.07 * iTime;
-        cloudPos.xz = Rotate(cloudPos.xz, 0.007 * iTime);
-        cloudPos.xy = Rotate(cloudPos.xy, 0.3);
-        float cloudMin = 0.35;
-        float cloudAmt = 0.75 * smoothstep(cloudMin, 0.7, Heightmap(cloudPos));
-        fragColor.rgb = mix(fragColor.rgb, vec3(pow(diffuse, 0.9)), cloudAmt);
+        // Clouds — separate noise layer with independent drift
+        vec3 cloudPos = vec3(2.0, 6.0, 2.0) * noisePos + 0.07 * iTime;  // Anisotropic scale stretches clouds latitudinally
+        cloudPos.xz = Rotate(cloudPos.xz, 0.007 * iTime);               // Slow jet-stream drift
+        cloudPos.xy = Rotate(cloudPos.xy, 0.3);                          // Tilt cloud patterns off-axis
+        float cloudMin = 0.35;                                            // FBM threshold for cloud formation
+        float cloudAmt = 0.75 * smoothstep(cloudMin, 0.7, Heightmap(cloudPos)); // Max 75% opacity
+        fragColor.rgb = mix(fragColor.rgb, vec3(pow(diffuse, 0.9)), cloudAmt);  // Clouds lit by diffuse, slight gamma lift
 
-        // Atmosphere, edge antialias
+        // TECHNIQUE: Fresnel-like atmospheric rim glow simulating Rayleigh scattering
+        // Atmosphere blue intensifies at the limb where the optical path through
+        // the atmosphere is longest, approximated by pow(1 - z, 1.2).
         vec3 atmosCol = ATMOS_COL * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv)));
-        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol;
+        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv))); // Edge antialias
+        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol;  // Rim glow — exponent 1.2 controls falloff width
     }
     // If off the sphere...
     else {
@@ -6158,49 +6535,81 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     fragColor.a = 1.0;
 }
 `},channels:{}},{slug:"planet-gas-giant",title:"Gas Giant",description:"Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Sf,passes:{image:`/**
- * Jupiter
+ * Gas Giant (Jupiter)
+ * @author guinetik
+ * @date 2025-11-27
  *
- * Jupiter with alternating tan zones and brown belts, turbulent
- * eddies at band boundaries, and the Great Red Spot.
- * Fully procedural with no texture dependencies.
+ * Jupiter-like gas giant with alternating tan zones and brown belts, turbulent
+ * eddies at band boundaries, and the Great Red Spot. Fully procedural with no
+ * texture dependencies.
  *
  * Based on the gas giant template by guinetik.
  *
- * @author guinetik
+ * Rendering layers (front to back):
+ *   1. Banded atmosphere — alternating light zones and dark belts driven by
+ *      sinusoidal latitude mapping with FBM turbulence at band edges
+ *   2. Great Red Spot   — elliptical storm feature at ~22 deg S latitude with
+ *      internal swirl pattern from polar-coordinate distortion
+ *   3. Storm features   — small scattered bright spots from 1D FBM
+ *   4. Specular + diffuse lighting with Blinn-Phong half-vector model
+ *   5. Atmosphere limb  — Fresnel-like rim glow at the sphere edge
+ *   6. Halo             — off-sphere atmospheric glow for background
+ *
+ * TECHNIQUE: Analytic unit-sphere projection. Same approach as the other planet
+ * shaders: z derived from Pythagorean identity, giving position and normal.
+ *
+ * TECHNIQUE: Band-edge turbulence amplification. FBM turbulence is amplified at
+ * band boundaries (detected via cos derivative of the band function) to simulate
+ * the chaotic eddies that form at Jupiter's zone/belt interfaces.
+ *
+ * TECHNIQUE: Great Red Spot. An elliptical mask in latitude/longitude space is
+ * combined with a swirl pattern generated by converting the local GRS coordinates
+ * to polar angle + spiral offset. This creates the characteristic anti-cyclonic
+ * vortex appearance.
+ *
+ * Noise: Hash-based 3D noise with a decorrelation matrix between FBM octaves,
+ * identical to the Neptune-like shader. 5-octave 3D FBM for atmospheric bands
+ * and 5-octave 1D FBM for storm features.
  */
 
-const float tau = 6.283185;
+const float tau = 6.283185;  // 2*PI — full circle in radians
 
-// Jupiter color palette
-#define ZONE_COLOR vec3(0.95, 0.75, 0.45)
-#define BELT_LIGHT vec3(0.82, 0.48, 0.20)
-#define BELT_DARK vec3(0.60, 0.28, 0.10)
-#define POLAR_COLOR vec3(0.50, 0.38, 0.28)
-#define GRS_COLOR vec3(0.78, 0.25, 0.10)
+// ── Jupiter color palette ────────────────────────────────────────────────────
+#define ZONE_COLOR vec3(0.95, 0.75, 0.45)   // Light ammonia-ice zones — warm cream/tan
+#define BELT_LIGHT vec3(0.82, 0.48, 0.20)   // Lighter brown belts — ammonium hydrosulfide
+#define BELT_DARK vec3(0.60, 0.28, 0.10)    // Darker brown belts — deeper cloud deck
+#define POLAR_COLOR vec3(0.50, 0.38, 0.28)  // Polar darkening — less reflective at high latitudes
+#define GRS_COLOR vec3(0.78, 0.25, 0.10)    // Great Red Spot — phosphine/sulfur reddish tint
 
-// Atmosphere
-#define ATMOS_COLOR vec3(0.90, 0.60, 0.30)
+// ── Atmosphere ───────────────────────────────────────────────────────────────
+#define ATMOS_COLOR vec3(0.90, 0.60, 0.30)  // Warm orange atmospheric glow and specular tint
 
-// Band structure
-#define BAND_COUNT 7.0
-#define BAND_TURBULENCE 0.06
-#define EDGE_TURBULENCE 0.15
+// ── Band structure ───────────────────────────────────────────────────────────
+#define BAND_COUNT 7.0           // Number of zone/belt pairs — higher = more/thinner bands.
+                                 // Jupiter has ~6-8 major bands; 7.0 gives a good balance.
+#define BAND_TURBULENCE 0.06     // FBM displacement of band latitude — higher = wavier edges.
+                                 // Below 0.02: very clean stripes. Above 0.15: chaotic.
+#define EDGE_TURBULENCE 0.15     // Extra turbulence at band boundaries — simulates the eddies
+                                 // and vortex streets that form where zones meet belts.
+                                 // Higher = more chaotic boundary layers.
 
-// Great Red Spot — latitude ~-22 degrees, so Y ~ -0.37 on unit sphere
-#define GRS_LAT -0.37
-#define GRS_LON 0.0
-#define GRS_WIDTH 0.28
-#define GRS_HEIGHT 0.14
+// ── Great Red Spot ───────────────────────────────────────────────────────────
+// Positioned at ~22 deg S latitude (Y ~ -0.37 on unit sphere)
+#define GRS_LAT -0.37            // Latitude center — negative = southern hemisphere
+#define GRS_LON 0.0              // Longitude center — 0.0 = centered on visible face at start
+#define GRS_WIDTH 0.28           // Longitudinal half-width — wider = fatter storm ellipse
+#define GRS_HEIGHT 0.14          // Latitudinal half-height — taller = more circular storm
 
-// Lighting
-#define LIGHT_DIR normalize(vec3(0.5, 1.0, 1.0))
-
-// Rotation
-#define ROTATION_SPEED -0.1
+// ── Lighting & rotation ─────────────────────────────────────────────────────
+#define LIGHT_DIR normalize(vec3(0.5, 1.0, 1.0))  // Sun direction (upper-right)
+#define ROTATION_SPEED -0.1      // Planet spin rate — negative = eastward. Jupiter's ~10hr
+                                 // rotation is the fastest in our solar system.
 
 // =============================================================================
 // HASH & NOISE
 // =============================================================================
+// Same hash-based value noise as the Neptune-like shader. PCG-style polynomial
+// hashing avoids sin-based precision issues on some mobile GPUs.
 
 float hash1(float p) {
     p = fract(p * 0.1031);
@@ -6246,6 +6655,8 @@ float fbm1(float p) {
     return f / 1.9375;
 }
 
+// Decorrelation matrix for 3D FBM — same as Neptune-like shader.
+// Rotates domain between octaves to prevent axis-aligned grid artifacts.
 const mat3 m = mat3(0.51162, -1.54702, 1.15972,
                     -1.70666, -0.92510, -0.48114,
                      0.90858, -0.86654, -1.55678);
@@ -6320,13 +6731,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Turbulence displaces latitude for wavy band edges
         vec3 p = noisePos;
-        vec3 turb = fbm3(12.0 * p);
-        float latDisplaced = lat + turb.x * BAND_TURBULENCE;
+        vec3 turb = fbm3(12.0 * p);                            // 3-channel FBM for independent X/Y/Z turbulence
+        float latDisplaced = lat + turb.x * BAND_TURBULENCE;   // Baseline latitude wobble
 
-        // Extra turbulence at band boundaries (where derivative is high)
+        // TECHNIQUE: Band-edge turbulence amplification — cos() derivative peaks
+        // at band transitions (where sin() crosses zero). smoothstep isolates
+        // only the sharpest transitions, then extra turbulence is added to
+        // simulate the chaotic eddies at Jupiter's zone/belt interfaces.
         float bandEdge = abs(cos(lat * BAND_COUNT * tau * 0.5));
-        bandEdge = smoothstep(0.85, 1.0, bandEdge);
-        latDisplaced += turb.y * EDGE_TURBULENCE * bandEdge;
+        bandEdge = smoothstep(0.85, 1.0, bandEdge);                  // Isolate sharp band boundaries
+        latDisplaced += turb.y * EDGE_TURBULENCE * bandEdge;          // Extra chaos at boundaries only
 
         // Base band color
         vec3 color = bandColor(latDisplaced, lon);
@@ -6336,15 +6750,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         color += detail * 0.06;
 
         // ── Great Red Spot ──────────────────────────────────
-        float grsLat = (lat - GRS_LAT) / GRS_HEIGHT;
-        float grsLon = (lon - GRS_LON) / GRS_WIDTH;
-        float grsDist = grsLat * grsLat + grsLon * grsLon;
-        float grsMask = smoothstep(1.0, 0.3, grsDist);
+        // TECHNIQUE: Elliptical mask in normalized lat/lon space. grsDist is the
+        // squared distance in GRS-local coordinates; smoothstep gives soft edges.
+        float grsLat = (lat - GRS_LAT) / GRS_HEIGHT;     // Normalize to ellipse half-height
+        float grsLon = (lon - GRS_LON) / GRS_WIDTH;      // Normalize to ellipse half-width
+        float grsDist = grsLat * grsLat + grsLon * grsLon; // Elliptical distance (1.0 = edge)
+        float grsMask = smoothstep(1.0, 0.3, grsDist);   // Soft falloff — 0 outside, 1 at center
 
-        // Swirling inside the spot
-        float grsSwirl = atan(grsLat, grsLon) + sqrt(max(grsDist, 0.0)) * 4.0;
-        float grsTexture = 0.5 + 0.5 * sin(grsSwirl * 3.0 + iTime * 0.3);
-        vec3 grsCol = mix(GRS_COLOR, GRS_COLOR * 1.4, grsTexture * 0.3);
+        // TECHNIQUE: Anti-cyclonic swirl pattern. Converting GRS-local coords to
+        // polar angle + spiral offset (atan + sqrt*4) creates the characteristic
+        // rotating vortex appearance of the Great Red Spot.
+        float grsSwirl = atan(grsLat, grsLon) + sqrt(max(grsDist, 0.0)) * 4.0;  // Spiral factor 4.0 — tighter = more swirl arms
+        float grsTexture = 0.5 + 0.5 * sin(grsSwirl * 3.0 + iTime * 0.3);       // 3 swirl arms, slow rotation
+        vec3 grsCol = mix(GRS_COLOR, GRS_COLOR * 1.4, grsTexture * 0.3);         // Subtle brightness variation within spot
 
         color = mix(color, grsCol, grsMask);
 
@@ -6353,11 +6771,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float storm = smoothstep(0.65, 0.85, stormNoise) * 0.15;
         color = mix(color, color * 1.3 + vec3(0.05, 0.03, 0.0), storm);
 
-        // ── Lighting ────────────────────────────────────────
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0));
-        float specular = 0.1 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 30.0);
-        fragColor.rgb = diffuse * color * 2.0 + ATMOS_COLOR * specular;
+        // ── Lighting — Blinn-Phong with atmosphere-tinted specular ─────────
+        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);   // 0.05 ambient floor
+        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0));  // Half-vector (view is +Z)
+        float specular = 0.1 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 30.0); // Exponent 30 = moderately tight highlight
+        fragColor.rgb = diffuse * color * 2.0 + ATMOS_COLOR * specular;   // 2x boost for HDR vibrancy
 
         // Atmosphere limb
         vec3 atmosCol = ATMOS_COLOR * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
@@ -6373,30 +6791,57 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor.rgb = ATMOS_COLOR * halo * lightFacing * 0.3;
     }
 
-    // Gamma correction
+    // Gamma correction — standard sRGB approximation (1/2.2 ~ 0.45)
+    // max() protects against negative values before pow()
     fragColor.rgb = pow(max(fragColor.rgb, vec3(0.0)), vec3(0.45));
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Ef,passes:{image:`/**
+`},channels:{}},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Cf,passes:{image:`/**
  * Lava World
+ * @author guinetik
+ * @date 2025-11-27
  *
  * A molten lava planet with dark cooled crust, glowing magma cracks, and a
  * hot atmospheric haze. Fully procedural using hash-based noise.
  *
- * Based on "Tiny Planet: Vulcan" by Morgan McGuire @CasualEffects
+ * Based on "Tiny Planet: Vulcan" by Morgan McGuire @CasualEffects.
  * Adapted for standalone rendering with no texture dependencies.
  *
- * @author guinetik
+ * Rendering layers (front to back):
+ *   1. Crust surface — tectonic plates formed by FBM heightmap
+ *   2. Lava emission — glowing cracks where crust height is low (lava pools)
+ *      and at plate boundaries (edge heat from height gradient)
+ *   3. Rim glow     — hot atmospheric haze at the limb
+ *   4. Halo         — off-sphere atmospheric glow for background
+ *
+ * TECHNIQUE: Analytic unit-sphere projection — same as the Earth shader.
+ * Surface position and normal derived from Pythagorean identity on a unit sphere.
+ *
+ * TECHNIQUE: Height-inverted heat mapping. Crust height from FBM is inverted so
+ * low regions become hot lava pools and high regions become cool solidified crust.
+ * Plate boundaries (mid-height zones) get extra crack detail, simulating tectonic
+ * spreading ridges.
+ *
+ * Physics: Lava emission uses a self-illumination model — hot areas add emissive
+ * light proportional to heat^2, while cool crust relies on diffuse sun lighting.
+ * The pulsing glow modulates heat over time to simulate convective churning.
+ *
+ * Noise: Hash-based 3D value noise (fract-sin family) with configurable FBM
+ * octaves. Crust uses 6 octaves for detailed plate structure; lava cracks use
+ * 4-5 octaves at different scales for veins and large fissures.
  */
 
 // =============================================================================
 // NOISE
 // =============================================================================
+// Noise: Hash-based 3D value noise using fract(sin(n)*1e4) family.
+// The step vector (110, 241, 171) creates a unique hash per lattice cell,
+// and Hermite smoothstep interpolation (3t^2 - 2t^3) gives C1 continuity.
 
 float hash(float n) { return fract(sin(n) * 1e4); }
 
 float noise(vec3 x) {
-    const vec3 step = vec3(110.0, 241.0, 171.0);
+    const vec3 step = vec3(110.0, 241.0, 171.0);   // Prime-ish lattice offsets — chosen to avoid correlation
     vec3 i = floor(x);
     vec3 f = fract(x);
     float n = dot(i, step);
@@ -6407,14 +6852,16 @@ float noise(vec3 x) {
                    mix(hash(n + dot(step, vec3(0, 1, 1))), hash(n + dot(step, vec3(1, 1, 1))), u.x), u.y), u.z);
 }
 
+// FBM with configurable octave count — lacunarity 2.0, gain 0.5
+// The shift vec3(100.0) offsets each octave's domain to decorrelate layers.
 float fbm(vec3 x, int octaves) {
     float v = 0.0;
-    float a = 0.5;
-    vec3 shift = vec3(100.0);
+    float a = 0.5;              // Amplitude — halves per octave (gain = 0.5)
+    vec3 shift = vec3(100.0);   // Domain offset between octaves to avoid self-correlation
     for (int i = 0; i < 6; ++i) {
         if (i >= octaves) break;
         v += a * noise(x);
-        x = x * 2.0 + shift;
+        x = x * 2.0 + shift;   // Lacunarity 2.0 — doubles frequency each octave
         a *= 0.5;
     }
     return v;
@@ -6452,13 +6899,17 @@ vec3 lavaRamp(float t) {
 // =============================================================================
 
 // Crust elevation — forms tectonic plates
+// Scale 3.0 controls plate size — lower = larger continents, higher = more fragmented
+// 6 octaves gives fine detail on plate surfaces
 float crustHeight(vec3 pos) {
     return fbm(pos * 3.0, 6);
 }
 
 // Lava heat — where the cracks glow hot
+// TECHNIQUE: Height-inverted heat mapping — low crust = hot lava pools,
+// high crust = cool solidified plates, mid-height = glowing plate edges
 float lavaHeat(vec3 pos, float time) {
-    // Large-scale cracks between plates
+    // Large-scale cracks between plates — scale 4.0, slow drift
     float cracks = fbm(pos * 4.0 + vec3(0.0, time * 0.01, 0.0), 5);
 
     // Fine detail veins
@@ -6488,9 +6939,9 @@ float lavaHeat(vec3 pos, float time) {
 // =============================================================================
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 0.8));
-    const vec3 ATMOS_COL = vec3(0.7, 0.15, 0.02);
-    const vec3 RIM_COL = vec3(1.0, 0.4, 0.05);
+    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 0.8));  // Sun direction (upper-right-forward)
+    const vec3 ATMOS_COL = vec3(0.7, 0.15, 0.02);         // Atmosphere tint — sulfurous orange-red haze
+    const vec3 RIM_COL = vec3(1.0, 0.4, 0.05);            // Hot atmospheric rim — bright orange for thermal glow
 
     // Map window to -1..1, planet has r=1
     vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
@@ -6510,8 +6961,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float height = crustHeight(noisePos);
         vec3 tangent = normalize(cross(noisePos, vec3(0.0, 1.0, 0.0)));
         vec3 binormal = cross(noisePos, tangent);
-        const float DX = 0.01;
-        const float HEIGHT_SCALE = 0.08;
+        const float DX = 0.01;              // Finite-difference step for normal computation — smaller = sharper but noisier
+        const float HEIGHT_SCALE = 0.08;   // Normal perturbation amplitude — higher = bumpier crust terrain
         float he = height * HEIGHT_SCALE;
         float tangentW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * tangent)) / DX;
         float binormalW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * binormal)) / DX;
@@ -6531,8 +6982,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 emission = surfaceColor * heat * heat * 2.0;
         fragColor.rgb = mix(litCrust, litCrust + emission, heat);
 
-        // Rim glow — hot atmosphere at edges
-        float rim = pow(1.0 - pos.z, 1.5);
+        // TECHNIQUE: Rim glow simulating hot atmospheric haze at limb
+        // pow(1-z, 1.5) approximates long optical path through volcanic atmosphere
+        float rim = pow(1.0 - pos.z, 1.5);     // Exponent 1.5 — steeper = thinner rim
         fragColor.rgb += RIM_COL * rim * 0.8;
 
         // Atmosphere edge blend
@@ -6549,27 +7001,55 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor.rgb = ATMOS_COL * halo * lightFacing * 1.5;
     }
 
-    // Gamma
+    // Gamma — 0.9 exponent (slightly less than standard 0.45) to preserve
+    // contrast in the dark crust while boosting lava glow visibility
     fragColor.rgb = pow(fragColor.rgb, vec3(0.9));
     fragColor.a = 1.0;
 }
 `},channels:{}},{slug:"planet-neptune-like",title:"Neptune-like",description:"A Neptune-like ice giant with colorful banded atmosphere, turbulent storms, and dramatic lighting. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Tf,passes:{image:`/**
- * Gas Giant
+ * Neptune-like Ice Giant
+ * @author guinetik
+ * @date 2025-11-27
  *
- * A massive gas giant planet with colorful banded atmosphere and turbulent
- * storms. Fully procedural with no texture dependencies.
+ * A Neptune-like ice giant planet with colorful banded atmosphere, turbulent
+ * storms, and dramatic lighting. Fully procedural with no texture dependencies.
  *
  * Based on the exoplanets study shader by guinetik.
  * Stripped down to a single planet — no star, moons, or rings.
  *
- * @author guinetik
+ * Rendering layers (front to back):
+ *   1. Banded atmosphere — FBM-driven color bands stretched along latitude,
+ *      with seed-based HSV palette for consistent hue across runs
+ *   2. Storm features   — high-frequency 1D FBM along latitude creates
+ *      localized bright storm ovals
+ *   3. Specular highlight — Blinn-Phong half-vector specular tinted by
+ *      atmosphere color
+ *   4. Atmosphere limb   — Fresnel-like rim glow at the sphere edge
+ *   5. Halo              — off-sphere atmospheric glow for background
+ *
+ * TECHNIQUE: Analytic unit-sphere projection — planet rendered as a unit sphere
+ * with z derived from the Pythagorean identity. No raymarching needed.
+ *
+ * TECHNIQUE: Anisotropic band scaling. The 3D noise input is scaled with
+ * vec3(0.05, 1.0, 0.05), compressing X/Z to stretch features into horizontal
+ * bands while preserving vertical (latitudinal) variation. Small turbulence
+ * displacement (bandTurbulence) breaks up perfect stripes.
+ *
+ * Noise: Hash-based 3D noise with a decorrelation matrix (const mat3 m) applied
+ * between FBM octaves. The matrix rotates and scales the domain to eliminate
+ * axis-aligned artifacts that would otherwise create visible grid lines on
+ * the planetary bands. 5-octave FBM provides detail from broad belt structure
+ * down to fine turbulent wisps.
  */
 
-const float tau = 6.283185;
+const float tau = 6.283185;  // 2*PI — full circle in radians
 
 // =============================================================================
 // HASH & NOISE
 // =============================================================================
+// Noise: Hash-based value noise using PCG-style integer hashing (fract of
+// polynomial). Produces uniform distribution without the precision issues of
+// sin-based hashing on some GPUs.
 
 float hash1(float p) {
     p = fract(p * 0.1031);
@@ -6621,6 +7101,9 @@ float fbm1(float p) {
     return f / 1.9375;
 }
 
+// Decorrelation matrix for 3D FBM — rotates and scales domain between octaves
+// to eliminate axis-aligned artifacts. The non-orthogonal entries create
+// a pseudo-random rotation that prevents visible grid lines in the bands.
 const mat3 m = mat3(0.51162, -1.54702, 1.15972,
                     -1.70666, -0.92510, -0.48114,
                      0.90858, -0.86654, -1.55678);
@@ -6651,22 +7134,26 @@ vec2 Rotate(vec2 p, float a) {
 // =============================================================================
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 1.0));
+    const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 1.0));  // Sun direction (upper-right)
 
-    // Fixed seed for consistent gas giant look
+    // Fixed seed for consistent gas giant look — changing this value generates
+    // a completely different color palette and band pattern
     const float seed = 3.7;
 
     // Planet visual properties
-    float bandScale = 4.5;
-    float bandTurbulence = 0.04;
+    float bandScale = 4.5;          // Number of atmospheric bands — higher = more/thinner bands
+    float bandTurbulence = 0.04;    // FBM displacement of bands — higher = wavier band edges
 
+    // TECHNIQUE: Seed-based HSV palette generation. The seed is hashed to derive
+    // a base hue, then minor color axes are offset in hue/sat/val to create
+    // coherent but varied color bands when mixed by the 3-channel FBM.
     vec4 planetHash = hash4(seed + 0.3);
-    vec3 planetColor = hsv(planetHash.x, 0.5, 0.5 + 0.2 * planetHash.y);
-    vec3 planetMinorX = hsv(planetHash.x, 0.3, 0.5 + 0.2 * planetHash.y + 0.3 * planetHash.w) - planetColor;
-    vec3 planetMinorY = hsv(planetHash.x + 0.4 * planetHash.z, 0.5, 0.5 + 0.2 * planetHash.y) - planetColor;
-    vec3 planetMinorZ = hsv(planetHash.x + 0.4 * planetHash.z, 0.3, 0.5 + 0.2 * planetHash.y - 0.4 * planetHash.w) - planetColor;
+    vec3 planetColor = hsv(planetHash.x, 0.5, 0.5 + 0.2 * planetHash.y);          // Base band color
+    vec3 planetMinorX = hsv(planetHash.x, 0.3, 0.5 + 0.2 * planetHash.y + 0.3 * planetHash.w) - planetColor;  // Band variation axis X
+    vec3 planetMinorY = hsv(planetHash.x + 0.4 * planetHash.z, 0.5, 0.5 + 0.2 * planetHash.y) - planetColor;  // Band variation axis Y
+    vec3 planetMinorZ = hsv(planetHash.x + 0.4 * planetHash.z, 0.3, 0.5 + 0.2 * planetHash.y - 0.4 * planetHash.w) - planetColor; // Band variation axis Z
 
-    // Atmospheric glow color
+    // Atmospheric glow color — derived from same hue family for consistency
     vec3 atmosColor = hsv(planetHash.x, 0.3, 0.7);
 
     // Map window to -1..1, planet has r=1
@@ -6680,15 +7167,17 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Auto rotation
         vec3 noisePos = pos;
-        float surfaceRot = -0.08 * iTime;
+        float surfaceRot = -0.08 * iTime;   // Rotation speed — negative = eastward spin
         noisePos.xz = Rotate(noisePos.xz, surfaceRot);
 
         // Use Y (screen vertical) as latitude for horizontal bands
         // Add slight turbulence to break up perfect stripes
         vec3 p = noisePos;
-        p += bandTurbulence * fbm3(10.0 * p);
+        p += bandTurbulence * fbm3(10.0 * p);  // Turbulence displacement — breaks geometric perfection
 
-        // Banded atmosphere — bands vary along Y (latitude), stretched along X/Z
+        // TECHNIQUE: Anisotropic band scaling — vec3(0.05, 1.0, 0.05) compresses
+        // X and Z by 20x, stretching features into horizontal bands while keeping
+        // latitudinal variation at full resolution
         vec3 bands = fbm3(bandScale * vec3(0.05, 1.0, 0.05) * p + seed);
         vec3 color = planetColor;
         color += planetMinorX * bands.x;
@@ -6700,16 +7189,17 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float storm = smoothstep(0.6, 0.8, stormNoise) * 0.3;
         color = mix(color, color * 1.5 + vec3(0.1), storm);
 
-        // Lighting
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0));
-        float specular = 0.15 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 20.0);
-        fragColor.rgb = diffuse * color * 2.0 + atmosColor * specular;
+        // Lighting — Blinn-Phong with atmosphere-tinted specular
+        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);  // 0.05 ambient floor
+        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0)); // Half-vector (view is +Z)
+        float specular = 0.15 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 20.0); // Exponent 20 = mild gloss
+        fragColor.rgb = diffuse * color * 2.0 + atmosColor * specular;   // 2x color boost for HDR vibrancy
 
-        // Atmosphere edge
+        // TECHNIQUE: Fresnel-like atmospheric rim — intensifies at limb where
+        // optical path through the atmosphere is longest
         vec3 atmosCol = atmosColor * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv)));
-        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol * 0.8;
+        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv))); // Edge antialias
+        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol * 0.8;  // Rim glow — exponent 1.2, 80% intensity
     }
     // Off sphere — atmospheric halo
     else {
@@ -6722,12 +7212,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Af,passes:{image:`/**\r
+`},channels:{}},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:_f,passes:{image:`/**\r
  * Perlin Plasma Study\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-01-30\r
+ *\r
+ * Classic demoscene plasma enhanced with 3D Perlin gradient noise\r
+ * for organic turbulence. Multiple sine wave interference patterns\r
+ * warped through FBM noise create flowing psychedelic color fields.\r
  *\r
  * Plasma Techniques:\r
  * - True 3D Perlin gradient noise\r
@@ -6784,14 +7276,18 @@ float perlin3D(vec3 p) {\r
 \r
 /**\r
  * Perlin FBM - layered gradient noise\r
+ * 5 octaves with standard lacunarity 2.0 and gain 0.5:\r
+ *   - Each octave doubles spatial frequency (p *= 2.0)\r
+ *   - Each octave halves amplitude (a *= 0.5)\r
+ *   - This 1/f weighting produces natural-looking turbulence\r
  */\r
 float perlinFBM(vec3 p) {\r
     float v = 0.0;\r
     float a = 0.5;\r
     for (int i = 0; i < 5; i++) {\r
         v += a * perlin3D(p);\r
-        p *= 2.0;\r
-        a *= 0.5;\r
+        p *= 2.0;  // lacunarity: double frequency each octave\r
+        a *= 0.5;  // gain: halve amplitude each octave\r
     }\r
     return v;\r
 }\r
@@ -6935,12 +7431,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{}},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Rf,passes:{image:`/**\r
+`},channels:{}},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Af,passes:{image:`/**\r
  * Perlin Ripples Study\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-01-30\r
+ *\r
+ * Chaotic liquid surface with multiple wandering ripple sources\r
+ * that move unpredictably through noise space. Each source has\r
+ * randomized parameters and pulsing intensity.\r
  *\r
  * Perlin Ripple Techniques:\r
  * - 3D gradient noise for smooth animation\r
@@ -7014,6 +7512,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     for (int i = 0; i < 6; i++) {\r
         float fi = float(i);\r
+        // Seed offset per source — 73.156 is an arbitrary irrational-ish\r
+        // constant that spaces sources far apart in noise space, avoiding\r
+        // correlated motion between emitters\r
         float seed = fi * 73.156;\r
 \r
         // Each source wanders unpredictably using noise\r
@@ -7026,9 +7527,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
         float dist = length(p - sourcePos);\r
 \r
         // Ripple with unique frequency, speed, and phase\r
-        float freq = 15.0 + hash(fi * 5.1) * 20.0;\r
-        float speed = 2.0 + hash(fi * 7.3) * 3.0;\r
-        float phase = hash(fi * 11.7) * 6.28;\r
+        // Hash seeds (5.1, 7.3, 11.7) are coprime-ish multipliers that\r
+        // ensure each source gets decorrelated freq/speed/phase values\r
+        float freq = 15.0 + hash(fi * 5.1) * 20.0;   // 15-35 Hz range\r
+        float speed = 2.0 + hash(fi * 7.3) * 3.0;     // 2-5 propagation speed\r
+        float phase = hash(fi * 11.7) * 6.28;          // random initial phase\r
 \r
         float ripple = sin(dist * freq - time * speed + phase);\r
 \r
@@ -7105,57 +7608,118 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","simulation","3d","interactive"],links:{},screenshotUrl:wf,passes:{image:`void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","simulation","3d","interactive"],links:{},screenshotUrl:Rf,passes:{image:`/**\r
+ * Attractor Study #03: Rossler — Image Pass\r
+ * @author guinetik\r
+ * @date 2026-02-11\r
+ *\r
+ * Composite pass for the Rossler attractor. Reads the accumulated trail from\r
+ * Buffer A, applies filmic tone-mapping and a soft vignette for final display.\r
+ */\r
+\r
+// TECHNIQUE: Filmic tone-mapping via exponential exposure\r
+// The formula col = 1 - exp(-col * EXPOSURE) compresses HDR accumulation\r
+// from the buffer into displayable [0,1] range while preserving bright detail.\r
+#define EXPOSURE 2.5        // Tone-map strength — higher values brighten midtones\r
+                            // and compress highlights. Below 1.0: dim/flat. Above 4.0: washed out.\r
+#define VIGNETTE_STRENGTH 0.3  // Darkening at screen edges — 0.0 = none, 0.5 = heavy.\r
+\r
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     vec2 uv = fragCoord.xy / iResolution.xy;\r
     vec3 col = texture(iChannel0, uv).rgb;\r
-    col = 1.0 - exp(-col * 2.5);\r
-    float vig = 1.0 - 0.3 * length(uv - 0.5);\r
+    col = 1.0 - exp(-col * EXPOSURE);\r
+    float vig = 1.0 - VIGNETTE_STRENGTH * length(uv - 0.5);\r
     col *= vig;\r
     fragColor = vec4(col, 1.0);\r
 }\r
-`,bufferA:`#define PARTICLES 8\r
-#define STEPS 100.0\r
-#define VIEW_SCALE 0.045\r
-#define SPEED 0.8\r
-#define INTENSITY 0.10\r
-#define FADE 0.992\r
-#define FOCUS 2.0\r
+`,bufferA:`/**\r
+ * Attractor Study #03: Rossler — Buffer A (Simulation + Trail Rendering)\r
+ * @author guinetik\r
+ * @date 2026-02-11\r
+ *\r
+ * Simulates the Rossler attractor (1976, Otto Rossler), a minimal three-variable\r
+ * system that produces a single-scroll spiral with periodic z-axis foldback bursts.\r
+ * 8 particles with per-particle parameter variation trace the attractor with\r
+ * distance-field line rendering and feedback accumulation. Stochastic respawn\r
+ * dynamics continuously regenerate particles for organic renewal without hard\r
+ * cycle cuts. Velocity-mapped HSL coloring (yellow-orange to purple) with\r
+ * per-particle intensity modulation and blink pulses.\r
+ *\r
+ * Rossler attractor equations:\r
+ *   dx/dt = -y - z\r
+ *   dy/dt = x + a*y\r
+ *   dz/dt = b + z*(x - c)\r
+ * Parameters: a=0.2, b=0.2, c=5.7 (classic single-scroll chaotic regime)\r
+ *\r
+ * The z-equation creates the characteristic "foldback" spike: when x exceeds c,\r
+ * z grows exponentially, then reinjection occurs as the trajectory spirals back.\r
+ */\r
 \r
-// Full-cycle restart: all particles respawn, trail fades out smoothly\r
-#define CYCLE_FRAMES 540\r
-#define FADE_OUT_FRAMES 60\r
+// === STATE LAYOUT (buffer-a, self-feedback via iChannel0) ===\r
+// Pixels (0..7, 0):       Particle positions (xyz). Respawn on escape or by random chance.\r
+// Pixel (PARTICLES, 0):   Camera state — xy = rotation offsets, zw = last mouse.\r
+// All other pixels:       Accumulated trail color (RGB). Faded each frame by FADE.\r
 \r
-// 3D view rotation defaults (radians)\r
-#define DEFAULT_ROT_X 1.0    // tilt forward to see z-spike\r
-#define DEFAULT_ROT_Y 0.2    // slight side rotation\r
-#define MOUSE_SENSITIVITY 3.0\r
+// ── Integration & rendering ──\r
+#define PARTICLES 8        // Number of simultaneous particles — each gets slight parameter\r
+                           // variation for orbit separation. More = denser but heavier.\r
+#define STEPS 50.0        // Euler steps per particle per frame — more = longer trail segment.\r
+                           // Below 30: sparse. Above 200: GPU cost grows (PARTICLES * STEPS).\r
+#define BASE_VIEW_SCALE 0.045  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.\r
+                               // Automatically scaled down on portrait/mobile screens.\r
+#define SPEED 0.8          // Time-step multiplier — higher = faster traversal.\r
+#define INTENSITY 0.50     // Base brightness per segment — kept low since 8 particles overlap.\r
+#define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.\r
+                           // Below 0.98: trails vanish quickly. Above 0.999: ghosting.\r
+#define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.\r
 \r
-// Attractor 3D center\r
+// ── Stochastic respawn — individual particles reset randomly for continuous renewal ──\r
+#define RESPAWN_CHANCE 0.025   // Per-particle per-frame probability of random respawn.\r
+                               // Higher = more frequent refreshes. 0.0 = only respawn on escape.\r
+                               // At 0.02, each particle respawns roughly every 50 frames (~0.8s at 60fps).\r
+#define ESCAPE_RADIUS 50.0     // Particles beyond this distance are respawned immediately.\r
+                               // The Rossler attractor stays within ~30 units for classic params.\r
+\r
+// ── 3D view rotation defaults (radians) ──\r
+#define DEFAULT_ROT_X 1.0      // Initial pitch — tilted forward to reveal the z-axis spike.\r
+#define DEFAULT_ROT_Y 0.2      // Initial yaw — slight side rotation for depth perception.\r
+#define MOUSE_SENSITIVITY 3.0  // Drag-to-rotate speed.\r
+\r
+// Attractor 3D center — offset to keep the spiral centered on screen.\r
+// The Rossler attractor orbits roughly around (0, -3, 5) for these parameters.\r
 vec3 center3d = vec3(0.0, -3.0, 5.0);\r
 \r
-// Color settings — yellow-orange to purple palette\r
-#define MIN_HUE 40.0\r
-#define MAX_HUE 280.0\r
-#define MAX_SPEED 20.0\r
-#define HUE_SHIFT_SPEED 10.0\r
-#define SATURATION 0.85\r
-#define LIGHTNESS 0.55\r
+// ── Color settings — yellow-orange to purple palette ──\r
+#define MIN_HUE 40.0       // Hue for fastest velocity (yellow-orange).\r
+#define MAX_HUE 280.0      // Hue for slowest velocity (purple-magenta).\r
+#define MAX_SPEED 20.0     // Velocity clamp for hue mapping.\r
+#define HUE_SHIFT_SPEED 10.0  // Degrees/sec of continuous hue rotation.\r
+#define SATURATION 0.85    // Base color saturation.\r
+#define LIGHTNESS 0.55     // Base HSL lightness.\r
 \r
-// Blink settings\r
-#define BLINK_FREQ 8.0\r
-#define BLINK_INTENSITY 1.8\r
-#define BLINK_SAT_BOOST 1.3\r
-#define BLINK_LIT_BOOST 1.4\r
+// ── Blink settings — random brightness pulses ──\r
+#define BLINK_FREQ 8.0         // Pulse rate (Hz).\r
+#define BLINK_INTENSITY 1.8    // Brightness multiplier during blink peak.\r
+#define BLINK_SAT_BOOST 1.3    // Saturation boost during blink.\r
+#define BLINK_LIT_BOOST 1.4    // Lightness boost during blink.\r
 \r
-// Rössler parameters\r
-#define PA 0.2\r
-#define PB 0.2\r
-#define PC 5.7\r
+// ── Rossler parameters (classic single-scroll chaotic regime) ──\r
+// a: controls the speed of spiral growth in the xy-plane.\r
+// b: sets the minimal z-injection rate. Small but critical for reinjection.\r
+// c: threshold for the z-foldback. When x > c, z spikes upward.\r
+#define PA 0.2             // Rossler 'a' — spiral growth rate. Higher = faster expansion.\r
+#define PB 0.2             // Rossler 'b' — z-injection constant. Higher = more frequent spikes.\r
+#define PC 5.7             // Rossler 'c' — foldback threshold. Higher = larger spiral before spike.\r
 \r
+// Pseudo-random hash — maps a float seed to [0, 1).\r
 float hash(float n) {\r
     return fract(sin(n) * 43758.5453);\r
 }\r
 \r
+// Forward Euler integration of the Rossler system with per-particle variation.\r
+// \`pv\` is a small fractional offset (e.g. +/-5%) applied to all three parameters,\r
+// giving each particle a slightly different orbit to fill the attractor volume.\r
+// dx/dt = -y - z, dy/dt = x + a*y, dz/dt = b + z*(x - c)\r
 vec3 integrateV(vec3 cur, float dt, float pv) {\r
     float a = PA * (1.0 + pv);\r
     float b = PB * (1.0 + pv);\r
@@ -7167,26 +7731,33 @@ vec3 integrateV(vec3 cur, float dt, float pv) {\r
     ) * dt;\r
 }\r
 \r
+// Rotation matrix around the X axis by angle \`a\` (radians).\r
 mat3 rotX(float a) {\r
     float c = cos(a), s = sin(a);\r
     return mat3(1,0,0, 0,c,-s, 0,s,c);\r
 }\r
 \r
+// Rotation matrix around the Y axis by angle \`a\` (radians).\r
 mat3 rotY(float a) {\r
     float c = cos(a), s = sin(a);\r
     return mat3(c,0,s, 0,1,0, -s,0,c);\r
 }\r
 \r
-vec2 project(vec3 p, mat3 viewRot) {\r
-    return (viewRot * (p - center3d)).xy * VIEW_SCALE;\r
+// Project a 3D attractor point to 2D screen space.\r
+// Subtracts the attractor center to keep the spiral visible on screen.\r
+vec2 project(vec3 p, mat3 viewRot, float scale) {\r
+    return (viewRot * (p - center3d)).xy * scale;\r
 }\r
 \r
+// TECHNIQUE: Distance-field line segment rendering\r
+// Computes the minimum distance from point \`p\` to the line segment (a, b).\r
 float dfLine(vec2 a, vec2 b, vec2 p) {\r
     vec2 ab = b - a;\r
     float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);\r
     return distance(a + ab * t, p);\r
 }\r
 \r
+// Convert HSL (hue in degrees, saturation, lightness) to RGB.\r
 vec3 hsl2rgb(float h, float s, float l) {\r
     h = mod(h, 360.0) / 60.0;\r
     float c = (1.0 - abs(2.0 * l - 1.0)) * s;\r
@@ -7207,7 +7778,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     vec2 uv = fragCoord / iResolution.y;\r
     uv -= res / 2.0;\r
 \r
-    // Persistent rotation: accumulate drag offsets in state pixel (PARTICLES, 0)\r
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping\r
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);\r
+\r
+    // TECHNIQUE: Frame-persistent state via texelFetch\r
+    // Camera rotation offsets and last mouse position are stored in a dedicated\r
+    // pixel (PARTICLES, 0) in the self-feedback buffer and read back each frame.\r
     vec4 rotState = texelFetch(iChannel0, ivec2(PARTICLES, 0), 0);\r
     float offsetRx = rotState.x;\r
     float offsetRy = rotState.y;\r
@@ -7230,19 +7806,25 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     // Detect actual mouse movement for instant fade\r
     bool rotating = pressed && wasTracking && length(iMouse.xy - lastMouse) > 1.0;\r
 \r
-    float d = 1e6;\r
-    float bestSpeed = 0.0;\r
-    float bestAlpha = 1.0;\r
-    vec3 finalPos[8];\r
+    // ── Integrate all particles, find closest line segment ──\r
+    // Each of the PARTICLES particles gets +/-5% parameter variation for orbit\r
+    // separation and a per-particle intensity oscillation for visual depth.\r
+    float d = 1e6;         // Minimum distance from pixel to any trail segment.\r
+    float bestSpeed = 0.0; // Velocity magnitude at the closest segment.\r
+    float bestAlpha = 1.0; // Per-particle intensity oscillation at the closest segment.\r
+    vec3 finalPos[8];      // Final position of each particle (stored back to state row).\r
 \r
     for (int p = 0; p < PARTICLES; p++) {\r
         vec3 last = texelFetch(iChannel0, ivec2(p, 0), 0).xyz;\r
         vec3 next;\r
 \r
-        // ±5% parameter variation per particle for orbit separation\r
+        // +/-5% parameter variation per particle for orbit separation.\r
+        // Each particle explores a slightly different dynamical regime.\r
         float pv = (hash(float(p) * 7.13) - 0.5) * 0.10;\r
 \r
-        // Per-particle intensity: each oscillates at its own frequency/phase\r
+        // TECHNIQUE: Per-particle intensity modulation\r
+        // Each particle oscillates brightness at its own frequency/phase,\r
+        // creating a firefly-like effect where different orbits pulse independently.\r
         float pFreq = 0.3 + hash(float(p) * 3.71) * 0.7;\r
         float pPhase = hash(float(p) * 11.3) * 6.2832;\r
         float pAlpha = 0.3 + 0.7 * max(0.0, sin(iTime * pFreq + pPhase));\r
@@ -7250,10 +7832,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         for (float i = 0.0; i < STEPS; i++) {\r
             next = integrateV(last, 0.016 * SPEED, pv);\r
 \r
-            float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);\r
+            float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);\r
             if (segD < d) {\r
                 d = segD;\r
                 bestAlpha = pAlpha;\r
+                // Recompute derivative at \`next\` for instantaneous speed (color mapping).\r
                 bestSpeed = length(vec3(\r
                     -next.y - next.z,\r
                     next.x + PA * next.y,\r
@@ -7266,15 +7849,18 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         finalPos[p] = next;\r
     }\r
 \r
+    // TECHNIQUE: Dual-layer intensity — smoothstep for soft falloff + Gaussian for bright core.\r
+    // Modulated by per-particle alpha for depth variation.\r
     float c = bestAlpha * (INTENSITY / SPEED) * smoothstep(FOCUS / iResolution.y, 0.0, d);\r
     c += bestAlpha * (INTENSITY / 8.5) * exp(-1000.0 * d * d);\r
 \r
-    // Blink\r
+    // Blink: random pulses of brightness — 30% chance each tick, sine-shaped.\r
     float blinkSeed = floor(iTime * BLINK_FREQ);\r
     float blink = hash(blinkSeed) < 0.3\r
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;\r
 \r
-    // Velocity-based color with hue shift + blink\r
+    // Velocity-based color: fast regions map to MIN_HUE, slow to MAX_HUE.\r
+    // Continuous hue shift over time adds temporal variety.\r
     float speedNorm = clamp(bestSpeed / MAX_SPEED, 0.0, 1.0);\r
     float hue = mod(MAX_HUE - speedNorm * (MAX_HUE - MIN_HUE) + iTime * HUE_SHIFT_SPEED, 360.0);\r
     float sat = min(1.0, SATURATION * (1.0 + blink * (BLINK_SAT_BOOST - 1.0)));\r
@@ -7282,22 +7868,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     vec3 lineColor = hsl2rgb(hue, sat, lit);\r
     c *= 1.0 + blink * (BLINK_INTENSITY - 1.0);\r
 \r
-    // State pixels store particle positions\r
+    // ── State persistence (row 0) & trail accumulation ──\r
     int px = int(floor(fragCoord.x));\r
     int py = int(floor(fragCoord.y));\r
     if (py == 0 && px == PARTICLES) {\r
-        // Store rotation offsets + mouse position for next frame\r
-        // lastMouse = -1 sentinel means "not tracking" (mouse released)\r
+        // Pixel (PARTICLES, 0): Camera state — rotation offsets + mouse for drag continuity.\r
+        // lastMouse = -1 sentinel means "not tracking" (mouse released).\r
         vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);\r
         fragColor = vec4(offsetRx, offsetRy, storeMouse);\r
     } else if (py == 0 && px < PARTICLES) {\r
-        // Cycle-based respawn: all particles restart together at cycle boundary\r
-        int cycleFrame = iFrame - (iFrame / CYCLE_FRAMES) * CYCLE_FRAMES;\r
-        bool shouldRespawn = iFrame == 0 || cycleFrame == 0;\r
-\r
-        if (shouldRespawn) {\r
-            // Random start position near the attractor\r
-            float seed = float(iFrame) + float(px) * 37.0;\r
+        if (iFrame == 0) {\r
+            // Initial spawn near the attractor — z kept small since the\r
+            // Rossler spiral lives mostly in the xy-plane with occasional z-spikes.\r
+            float seed = float(px) * 37.0;\r
             vec3 pos = vec3(\r
                 (hash(seed) - 0.5) * 10.0,\r
                 (hash(seed * 1.31) - 0.5) * 10.0,\r
@@ -7305,36 +7888,70 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
             );\r
             fragColor = vec4(pos, 0);\r
         } else {\r
-            fragColor = vec4(finalPos[px], 0);\r
+            vec3 pos = finalPos[px];\r
+            // TECHNIQUE: Stochastic respawn\r
+            // Particles that escape beyond ESCAPE_RADIUS are respawned, plus a small\r
+            // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal\r
+            // even for well-behaved orbits. Prevents stale/stuck particles and keeps\r
+            // the form regenerating organically without hard cycle cuts.\r
+            float rng = hash(float(px) * 13.7 + iTime * 60.0);\r
+            if (length(pos) > ESCAPE_RADIUS || rng < RESPAWN_CHANCE) {\r
+                float seed = float(px) + iTime * 60.0;\r
+                pos = vec3(\r
+                    (hash(seed) - 0.5) * 10.0,\r
+                    (hash(seed * 1.31) - 0.5) * 10.0,\r
+                    hash(seed * 2.17) * 0.2\r
+                );\r
+            }\r
+            fragColor = vec4(pos, 0);\r
         }\r
     } else {\r
+        // Visual pixels — blend new line color onto faded previous frame.\r
+        // Instant clear (fade=0) while actively rotating.\r
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;\r
         float fade = rotating ? 0.0 : FADE;\r
 \r
-        // Accelerated fade near end of cycle to clear trail for next burst\r
-        int cycleFrame = iFrame - (iFrame / CYCLE_FRAMES) * CYCLE_FRAMES;\r
-        int framesLeft = CYCLE_FRAMES - cycleFrame;\r
-        if (framesLeft < FADE_OUT_FRAMES) {\r
-            float t = 1.0 - float(framesLeft) / float(FADE_OUT_FRAMES);\r
-            fade *= mix(1.0, 0.9, t * t);\r
-        }\r
-\r
         vec3 newCol = lineColor * c + prev * fade;\r
-        fragColor = vec4(min(newCol, 1.5), 0);  // cap prevents white blowout\r
+        fragColor = vec4(min(newCol, 1.5), 0);  // Cap at 1.5 to prevent white blowout in HDR buffer.\r
     }\r
 }\r
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","simulation","space"],links:{},screenshotUrl:If,passes:{image:`// signal/noise
-// a valentine card
-// A meditation on: attractors, cosmic distance, electronic pulse,
-// the act of making the invisible visible, and connection across void
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","simulation","space"],links:{},screenshotUrl:If,passes:{image:`/**
+ * Signal / Noise
+ * @author guinetik
+ * @date 2026-02-11
+ *
+ * A meditation on attractors, cosmic distance, and connection across void.
+ * Two pulsing signals interfere through a Lorenz attractor field, connected
+ * by a breathing filament amid cosmic dust and nebula. A valentine card.
+ *
+ * Techniques used:
+ * - Lorenz attractor field distortion
+ * - Multi-layer FBM domain warping for cosmic dust
+ * - IQ-style cosine palette coloring for nebula hues
+ * - Wave interference from two orbiting signal sources
+ * - Diffraction spikes on procedural star field
+ */
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
+// ---------------------------------------------------------------------------
+// Hash / Noise
+// ---------------------------------------------------------------------------
+
+/**
+ * Pseudo-random hash — classic sin-dot construction.
+ * Returns [0, 1) for any 2D input.
+ */
 float hash(vec2 p) {
     return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
 }
 
+/**
+ * Value noise with Hermite smoothing (smoothstep-style interpolation).
+ * Chosen over simplex for its simplicity; adequate for the soft
+ * nebula textures that don't need gradient continuity.
+ */
 float noise(vec2 p) {
     vec2 i = floor(p), f = fract(p);
     f = f * f * (3.0 - 2.0 * f);
@@ -7345,9 +7962,14 @@ float noise(vec2 p) {
     );
 }
 
+/**
+ * Fractal Brownian Motion — 6 octaves with domain rotation.
+ * The rotation matrix between octaves prevents axis-aligned artifacts
+ * and produces more isotropic, cloud-like patterns.
+ */
 float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
-    mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);
+    mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);  // ~36.87 degree rotation between octaves
     for (int i = 0; i < 6; i++) {
         v += a * noise(p);
         p = rot * p * 2.0;
@@ -7356,6 +7978,20 @@ float fbm(vec2 p) {
     return v;
 }
 
+// ---------------------------------------------------------------------------
+// Lorenz attractor
+// ---------------------------------------------------------------------------
+
+// TECHNIQUE: Lorenz attractor field
+// The Lorenz system (sigma=10, rho=28, beta=8/3) defines a chaotic vector
+// field. Instead of integrating a trajectory, we evaluate the derivative
+// at each pixel to get a flow-magnitude map that creates organic swirls.
+
+/**
+ * Lorenz attractor derivative.
+ * PHYSICS: dx/dt = sigma*(y-x), dy/dt = x*(rho-z)-y, dz/dt = x*y - beta*z
+ * Returns the instantaneous velocity vector at point p.
+ */
 vec3 attractor(vec3 p, float sigma, float rho, float beta) {
     return vec3(
         sigma * (p.y - p.x),
@@ -7364,6 +8000,16 @@ vec3 attractor(vec3 p, float sigma, float rho, float beta) {
     );
 }
 
+// ---------------------------------------------------------------------------
+// IQ cosine palettes for nebula coloring
+// ---------------------------------------------------------------------------
+
+// TECHNIQUE: Cosine color palette (Inigo Quilez)
+// color(t) = a + b * cos(TAU * (c*t + d))
+// Produces smooth, looping gradients ideal for nebula and emission coloring.
+// See https://iquilezles.org/articles/palettes/
+
+/** Primary nebula palette — dark purples and deep space blues. */
 vec3 nebula1(float t) {
     vec3 a = vec3(0.12, 0.03, 0.20);
     vec3 b = vec3(0.15, 0.05, 0.18);
@@ -7372,6 +8018,7 @@ vec3 nebula1(float t) {
     return a + b * cos(TAU * (c * t + d));
 }
 
+/** Secondary nebula palette — shifted phase for attractor regions. */
 vec3 nebula2(float t) {
     vec3 a = vec3(0.16, 0.04, 0.22);
     vec3 b = vec3(0.18, 0.06, 0.20);
@@ -7380,6 +8027,7 @@ vec3 nebula2(float t) {
     return a + b * cos(TAU * (c * t + d));
 }
 
+/** Emission glow palette — brighter tones for hot nebula regions. */
 vec3 emissionGlow(float t) {
     vec3 a = vec3(0.20, 0.06, 0.22);
     vec3 b = vec3(0.20, 0.06, 0.18);
@@ -7392,47 +8040,54 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = (fragCoord - 0.5 * iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = iTime * 0.3;
 
-    // cosmic dust
+    // TECHNIQUE: Triple-layer domain warping for cosmic dust
+    // Each FBM feeds into the next as a coordinate offset, creating
+    // deeply organic, slowly drifting nebula structures.
     vec2 q = vec2(fbm(uv * 2.0 + time * 0.08), fbm(uv * 2.0 + vec2(5.2, 1.3)));
     vec2 rr = vec2(fbm(uv * 2.0 + 4.0 * q + vec2(1.7, 9.2) + 0.12 * time),
                    fbm(uv * 2.0 + 4.0 * q + vec2(8.3, 2.8) + 0.1 * time));
     float f = fbm(uv * 2.0 + 4.0 * rr);
 
-    // dust lanes
+    // Dust lanes — FBM thresholded to create dark absorption bands
     float dust = fbm(uv * 3.5 + vec2(time * 0.05, -time * 0.03));
     float dustLanes = smoothstep(0.35, 0.55, dust) * 0.6;
 
-    // attractor field
+    // Lorenz attractor field — evaluate derivative at each pixel
+    // sigma=10, rho=28, beta=8/3 are the classic chaotic parameters
     vec3 ap = vec3(uv * 15.0, sin(time * 0.25) * 10.0 + 15.0);
     vec3 da = attractor(ap, 10.0, 28.0, 8.0 / 3.0);
     float attractorField = length(da.xy) * 0.003;
     attractorField = sin(attractorField * 6.0 + time * 0.8) * 0.5 + 0.5;
 
-    // two signals
+    // Two orbiting signal sources — concentric wave emitters
     vec2 focus1 = vec2(sin(time * 0.5) * 0.3, cos(time * 0.35) * 0.2);
     vec2 focus2 = vec2(cos(time * 0.4) * 0.25, sin(time * 0.55) * 0.3);
     float d1 = length(uv - focus1);
     float d2 = length(uv - focus2);
 
+    // Radial pulses with exponential falloff — simulates signal attenuation
     float pulse1 = sin(d1 * 18.0 - time * 2.5) * exp(-d1 * 2.5);
     float pulse2 = sin(d2 * 18.0 - time * 2.5) * exp(-d2 * 2.5);
 
+    // Wave interference — product of pulses plus standing-wave pattern
+    // along the equal-distance locus (where d1 ~ d2)
     float interference = pulse1 * pulse2 * 3.0;
     interference += sin((d1 + d2) * 12.0 - time * 1.5) * 0.12 *
                     smoothstep(1.0, 0.2, abs(d1 - d2));
 
-    // connection filament
+    // Connection filament — Gaussian beam along the line between foci
+    // Represents the invisible tether binding the two signals
     vec2 dir = normalize(focus2 - focus1);
     vec2 toP = uv - focus1;
     float proj = dot(toP, dir);
     float projClamped = clamp(proj, 0.0, length(focus2 - focus1));
     vec2 closest = focus1 + dir * projClamped;
     float lineDist = length(uv - closest);
-    float breath = sin(time * 0.4) * 0.5 + 0.5;
+    float breath = sin(time * 0.4) * 0.5 + 0.5;  // slow breathing modulation
     float connectionLine = exp(-lineDist * lineDist * 600.0) *
                            (0.3 + 0.4 * breath) * 0.5;
 
-    // compose
+    // ---- Compose layers ----
     vec3 col = nebula1(f * 0.7 + time * 0.015);
 
     vec3 darkDust = vec3(0.02, 0.015, 0.03);
@@ -7457,7 +8112,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     col += vec3(0.55, 0.25, 0.70) * connectionLine;
 
-    // stars with diffraction spikes
+    // TECHNIQUE: Procedural star field with diffraction spikes
+    // Multiple grid layers at different scales prevent visible tiling.
+    // Bright stars (hash > 0.96) get four-pointed diffraction spikes
+    // via cos^20 angular falloff — mimics real telescope optics.
     float stars = 0.0;
     float spikes = 0.0;
     for (float i = 0.0; i < 4.0; i++) {
@@ -7483,7 +8141,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
                          hash(floor(uv * 80.0)));
     col += (stars + spikes) * starColor * 0.5;
 
-    // guide stars
+    // Guide stars — a few fixed bright points with soft Gaussian halos
     for (float i = 0.0; i < 3.0; i++) {
         vec2 gPos = vec2(sin(i * 2.39 + 0.5) * 0.6, cos(i * 3.17 + 0.8) * 0.4);
         float gDist = length(uv - gPos);
@@ -7493,11 +8151,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         col += gCol * glow * (0.7 + 0.3 * sin(time * 0.5 + i));
     }
 
-    // vignette
+    // Vignette — soft radial darkening
     float vig = 1.0 - dot(uv * 0.6, uv * 0.6);
     col *= smoothstep(-0.1, 0.6, vig);
 
+    // Film grain — subtle dithering to break banding
     col += (hash(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
+    // Near-unity gamma — slight contrast lift
     col = pow(max(col, 0.0), vec3(0.95));
     col = clamp(col, 0.0, 1.0);
 
@@ -7505,22 +8165,54 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 }
 `},channels:{}},{slug:"star-blue-giant",title:"Blue Giant",description:"A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Df,passes:{image:`/**
  * Blue Giant Star
+ * @author guinetik
+ * @date 2025-11-29
  *
  * A massive blue giant with a smooth, intensely luminous surface and powerful
  * corona glow. Temperature at ~20000K with low but steady stellar activity.
  * Smoother, larger-scale features than cooler stars.
  *
- * Based on the exoplanets v2 star shaders by guinetik
+ * Based on the exoplanets v2 star shaders by guinetik.
  *
- * @author guinetik
+ * Rendering layers (back to front):
+ *   1. Background      — near-black with cool blue tint
+ *   2. Glow            — inverse-square radial falloff, wider reach than Sun
+ *   3. Corona          — FBM flame tendrils + only 2 subtle prominences
+ *   4. Star surface    — large smooth convection cells, minimal starspots
+ *   5. Tone mapping    — Reinhard at 2.0x exposure (highest of the three stars)
+ *
+ * TECHNIQUE: Ray-sphere intersection with orbiting camera. Same architecture as
+ * the red dwarf and sun shaders but with the slowest orbital and self-rotation
+ * speeds, emphasizing the massive scale of a blue giant.
+ *
+ * TECHNIQUE: Limb darkening with pow(viewAngle, 0.5). The highest exponent of
+ * the three star types, producing the strongest center-to-edge contrast. Hot
+ * blue giants have steep temperature gradients in their photospheres.
+ *
+ * TECHNIQUE: Wider corona (extends to r=2.5 vs r=2.0 for other stars) with
+ * slower exponential decay (exp(-rimFactor * 3.0) vs 4.0-4.5), reflecting the
+ * powerful radiation pressure of a luminous blue giant.
+ *
+ * Physics: Color palette approximates ~20000K blackbody radiation — dominated
+ * by blue-white emission. Wien's displacement law places peak emission in the
+ * UV, so visible light appears strongly blue-shifted. The high base brightness
+ * multiplier (2.0 + heat * 1.5) models the extreme luminosity — blue giants
+ * can be 10,000-100,000x more luminous than the Sun.
+ *
+ * Noise: 3D simplex noise (Ashima Arts implementation). Lower frequency
+ * multipliers and fewer FBM octaves than cooler stars produce the smoother,
+ * larger-scale convection patterns characteristic of massive stellar envelopes.
  */
 
-#define PI 3.14159265359
-#define TAU 6.28318530718
+#define PI 3.14159265359   // Half-circle — used for prominence angular wrapping
+#define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE
+// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
 // =============================================================================
+// Same simplex noise implementation as the other star shaders. Lower base
+// frequencies are used throughout to produce the smoother, larger-scale
+// convection patterns characteristic of massive stellar envelopes.
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -7570,14 +8262,17 @@ float snoise(vec3 v) {
     return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
+// FBM with configurable octaves — lacunarity 2.0, gain 0.5
+// Called with fewer octaves (3-4) than the other stars to produce the
+// smoother surface characteristic of a massive blue giant.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
         v += a * snoise(p * f);
-        f *= 2.0;
-        a *= 0.5;
-        p += vec3(100.0);
+        f *= 2.0;         // Double frequency each octave
+        a *= 0.5;         // Halve amplitude each octave
+        p += vec3(100.0); // Domain shift to decorrelate
     }
     return v;
 }
@@ -7585,13 +8280,17 @@ float fbm(vec3 p, int octaves) {
 // =============================================================================
 // BLUE GIANT PALETTE — blue-white, intensely luminous
 // =============================================================================
+// Physics: ~20000K blackbody color ramp. Wien's displacement law places peak
+// emission at ~145nm (deep UV), so visible light is dominated by the blue tail
+// of the Planck distribution. The narrow color range (blue -> near-white)
+// reflects the compressed visible portion of such a hot spectrum.
 
 vec3 starRamp(float t) {
-    const vec3 SPOT     = vec3(0.15, 0.2, 0.4);      // dark blue spot
-    const vec3 COOL     = vec3(0.5, 0.6, 0.9);       // cooler blue surface
-    const vec3 WARM     = vec3(0.7, 0.8, 1.0);       // warm blue-white
-    const vec3 HOT      = vec3(0.85, 0.9, 1.0);      // hot near-white
-    const vec3 BRIGHT   = vec3(0.95, 0.97, 1.0);     // intense white-blue
+    const vec3 SPOT     = vec3(0.15, 0.2, 0.4);      // Dark blue spot — still blue even when cool
+    const vec3 COOL     = vec3(0.5, 0.6, 0.9);       // Cooler blue surface — rare on such a hot star
+    const vec3 WARM     = vec3(0.7, 0.8, 1.0);       // Warm blue-white — typical photosphere
+    const vec3 HOT      = vec3(0.85, 0.9, 1.0);      // Hot near-white — convective peak
+    const vec3 BRIGHT   = vec3(0.95, 0.97, 1.0);     // Intense white-blue — maximum emission
 
     if (t < 0.15) return mix(SPOT, COOL, t / 0.15);
     if (t < 0.4)  return mix(COOL, WARM, (t - 0.15) / 0.25);
@@ -7602,34 +8301,41 @@ vec3 starRamp(float t) {
 // =============================================================================
 // STAR SURFACE — low activity, smooth large-scale features
 // =============================================================================
+// All frequencies are the lowest of the three star types (3/7/14 vs Sun's
+// 4.5/10/20 vs red dwarf's 5/12/25). The large cells weigh more (0.55) and
+// fine detail weighs less (0.15), producing the smooth appearance of a massive
+// stellar envelope where convection operates on much larger spatial scales.
 
 float convectionCells(vec3 p, float time) {
-    // Larger, smoother cells for a massive star
-    float cells = snoise(p * 3.0 + vec3(0.0, time * 0.01, 0.0));
-    float med = snoise(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006));
-    float fine = snoise(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01));
-    return cells * 0.55 + med * 0.3 + fine * 0.15;
+    float cells = snoise(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
+    float med = snoise(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
+    float fine = snoise(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
+    return cells * 0.55 + med * 0.3 + fine * 0.15;  // Large features dominate (0.55 vs 0.5)
 }
 
+// Starspots — rarest and most subtle of the three star types.
+// Lowest frequency (2.0) and highest threshold (0.6) = very few, faint spots.
+// Massive blue giants have weaker magnetic fields relative to their luminosity.
 float starSpots(vec3 p, float time) {
-    // Fewer, subtler spots on a blue giant
-    float spots = snoise(p * 2.0 + vec3(0.0, time * 0.003, 0.0));
-    return smoothstep(0.6, 0.85, spots);
+    float spots = snoise(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
+    return smoothstep(0.6, 0.85, spots);  // Highest threshold = fewest spots of any star type
 }
 
+// Plasma flow — lowest frequencies and fewest FBM octaves of any star type.
+// Scales 2.5/3.0 (vs red dwarf 3.5/4.5), octaves 4/3 (vs 5/4).
 float plasmaFlow(vec3 p, float time) {
-    // Smoother, slower plasma for a massive star
-    vec3 q = p * 2.5;
-    q += vec3(sin(time * 0.06) * 0.2, cos(time * 0.08) * 0.2, time * 0.03);
-    float n1 = fbm(q, 4) * 0.5 + 0.5;
+    vec3 q = p * 2.5;    // Lowest base frequency — largest flow patterns
+    q += vec3(sin(time * 0.06) * 0.2, cos(time * 0.08) * 0.2, time * 0.03); // Slowest drift
+    float n1 = fbm(q, 4) * 0.5 + 0.5;   // 4 octaves (vs 5 for red dwarf)
 
-    vec3 r = p * 3.0 + vec3(50.0);
+    vec3 r = p * 3.0 + vec3(50.0);       // Secondary flow layer
     r += vec3(cos(time * 0.05) * 0.25, sin(time * 0.07) * 0.2, time * 0.04);
-    float n2 = fbm(r, 3) * 0.5 + 0.5;
+    float n2 = fbm(r, 3) * 0.5 + 0.5;   // Only 3 octaves — smoothest of all
 
     return n1 * 0.6 + n2 * 0.4;
 }
 
+// Surface rendering — the most stable and luminous of the three star types.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float edgeDist = 1.0 - viewAngle;
 
@@ -7637,25 +8343,29 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
     float spots = starSpots(spherePos, time);
 
-    // Very subtle pulsing
+    // Very subtle pulsing — +/-5% (vs +/-8% Sun, +/-10% red dwarf)
     float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise(spherePos * 1.5) * 2.0);
 
-    float heat = plasma * 0.65 + cells * 0.35;
+    float heat = plasma * 0.65 + cells * 0.35;  // Plasma dominates even more
     heat *= pulse;
-    heat *= 1.0 - spots * 0.5;
+    heat *= 1.0 - spots * 0.5;   // 50% spot darkening — mildest of all (vs 65% Sun, 70% red dwarf)
 
-    // Stronger limb darkening for blue giant
+    // TECHNIQUE: Limb darkening — pow(viewAngle, 0.5), strongest of the three
+    // star types. Hot blue giants have steep photospheric temperature gradients.
     float limb = pow(viewAngle, 0.5);
-    heat *= 0.65 + limb * 0.35;
+    heat *= 0.65 + limb * 0.35;   // 35% range — strongest center-to-edge contrast
 
-    // Minimal edge flares — blue giants are more stable
+    // Minimal edge flares — blue giants are more stable due to their
+    // radiation-dominated envelopes (less convective turbulence at surface)
     float edgeFlare = pow(edgeDist, 3.0) * fbm(spherePos * 6.0 + vec3(time * 0.1), 3);
-    heat += edgeFlare * 0.12;
+    heat += edgeFlare * 0.12;     // Lowest flare contribution (vs 0.2 Sun, 0.3 red dwarf)
 
     heat = clamp(heat, 0.0, 1.0);
 
-    // Higher base brightness — blue giants are extremely luminous
+    // Highest base brightness multiplier: (2.0 + heat*1.5) gives range [2.0, 3.5]
+    // vs [1.5, 3.0] for other stars. Models 10,000-100,000x solar luminosity.
     vec3 color = starRamp(heat) * (2.0 + heat * 1.5);
+    // Blue-white granule highlights
     color += vec3(0.7, 0.8, 1.0) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 1.2;
 
     return color;
@@ -7665,48 +8375,56 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
 // GLOW AND CORONA — intense blue-white, wider glow
 // =============================================================================
 
+// Radial glow — widest and brightest of all three star types.
+// Extends to 5x/7x radius (vs 4x/6x), lower falloff factor (1.2 vs 1.5),
+// and highest intensity (0.18 vs 0.12-0.15) — models extreme luminosity.
 vec3 renderGlow(vec2 p, float starRadius) {
     float dist = length(p);
     float r = dist / starRadius;
 
-    // Stronger glow — blue giants are very luminous
+    // Stronger glow — gentler falloff factor (1.2 vs 1.5) and wider reach (5x vs 4x)
     float glow = 1.0 / (r * r * 1.2 + 0.01);
-    glow *= smoothstep(5.0, 1.0, r);
-    vec3 glowColor = vec3(0.6, 0.75, 1.0) * glow * 0.18;
+    glow *= smoothstep(5.0, 1.0, r);                        // Extends to 5x radius
+    vec3 glowColor = vec3(0.6, 0.75, 1.0) * glow * 0.18;   // Blue-white, 0.18 intensity (highest)
 
-    float haze = 1.0 / (r * r * 4.0 + 0.1);
-    haze *= smoothstep(7.0, 1.5, r);
-    glowColor += vec3(0.4, 0.5, 0.9) * haze * 0.1;
+    float haze = 1.0 / (r * r * 4.0 + 0.1);                // Outer haze — gentler falloff (4.0 vs 5.0)
+    haze *= smoothstep(7.0, 1.5, r);                        // Extends to 7x radius (widest)
+    glowColor += vec3(0.4, 0.5, 0.9) * haze * 0.1;         // Deep blue outer haze
 
     return glowColor;
 }
 
+// Corona — widest extent (2.5x vs 2.0x for other stars) but with calmer,
+// smoother flame patterns. Fewer prominences (2) reflect the more stable
+// magnetic environment of a massive blue giant.
 vec3 renderCorona(vec2 p, float starRadius, float time) {
     float dist = length(p);
     float r = dist / starRadius;
 
-    if (r < 1.0 || r > 2.5) return vec3(0.0);
+    if (r < 1.0 || r > 2.5) return vec3(0.0);  // Widest corona range — 2.5x (vs 2.0x)
 
     float rimFactor = (r - 1.0);
     float angle = atan(p.y, p.x);
 
-    // Smoother, more uniform corona
+    // Smoother corona — lower angular frequencies (1.5/3.0 vs 2.0/4.0) and
+    // only 3 FBM octaves per layer (vs 4/3 for red dwarf)
     float flame1 = fbm(vec3(angle * 1.5, rimFactor * 4.0, time * 0.2), 3);
     float flame2 = fbm(vec3(angle * 3.0 + 10.0, rimFactor * 2.5, time * 0.15), 3);
     float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;
 
-    // Slower fade — wider corona for a giant star
-    float fade = exp(-rimFactor * 3.0);
-    float intensity = flames * fade * 0.6;
+    // Slowest exponential decay — wider corona powered by extreme radiation pressure
+    float fade = exp(-rimFactor * 3.0);       // Gentlest decay (3.0 vs 4.0-4.5)
+    float intensity = flames * fade * 0.6;     // Lowest base intensity (0.6 vs 0.7-0.9)
 
-    // Very few, subtle prominences
+    // Only 2 prominences — fewest of any star type
+    // Tightest angular mask (12.0) and slowest lifecycle (0.15)
     for (int i = 0; i < 2; i++) {
         float fi = float(i);
         float promAngle = fract(fi * 0.618 + 0.5) * TAU;
         float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI);
-        float promMask = exp(-angleDiff * angleDiff * 12.0);
-        float lifecycle = max(sin(time * 0.15 * (1.0 + fi * 0.4) + fi * 3.0), 0.0);
-        intensity += promMask * lifecycle * fade * 0.8;
+        float promMask = exp(-angleDiff * angleDiff * 12.0);  // Tightest mask
+        float lifecycle = max(sin(time * 0.15 * (1.0 + fi * 0.4) + fi * 3.0), 0.0); // Slowest cycle
+        intensity += promMask * lifecycle * fade * 0.8;        // 0.8x brightness (lowest)
     }
 
     vec3 coronaColor = mix(vec3(0.7, 0.8, 1.0), vec3(0.5, 0.6, 1.0), rimFactor);
@@ -7721,14 +8439,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 p = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = mod(iTime, 1000.0);
 
-    float starRadius = 0.85;
-    float focalLength = 1.5;
+    float starRadius = 0.85;   // World-space star radius
+    float focalLength = 1.5;  // Camera focal length
 
-    // Slower rotation for a massive star
-    float rotX = time * 0.1;
-    float rotY = sin(time * 0.04) * 0.2;
+    // Slowest rotation of all three star types — emphasizes massive scale
+    float rotX = time * 0.1;               // Horizontal orbit (slowest: 0.1 vs 0.12 vs 0.15)
+    float rotY = sin(time * 0.04) * 0.2;   // Vertical bob — gentlest (+/-0.2 vs 0.25 vs 0.3)
 
-    float camDist = 3.5;
+    float camDist = 3.5;  // Camera distance
     vec3 camPos = vec3(
         camDist * sin(rotX) * cos(rotY),
         camDist * sin(rotY),
@@ -7740,13 +8458,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 camUp = cross(camDir, camRight);
     vec3 rd = normalize(p.x * camRight + p.y * camUp + focalLength * camDir);
 
+    // Project world-space radius to screen space
     float apparentRadius = starRadius / sqrt(camDist * camDist - starRadius * starRadius) * focalLength;
 
-    vec3 color = vec3(0.0, 0.0, 0.01);
+    vec3 color = vec3(0.0, 0.0, 0.01);  // Near-black background with cool blue tint
 
     color += renderGlow(p, apparentRadius);
     color += renderCorona(p, apparentRadius, time);
 
+    // Ray-sphere intersection (quadratic formula)
     vec3 oc = camPos;
     float b = dot(oc, rd);
     float c = dot(oc, oc) - starRadius * starRadius;
@@ -7759,7 +8479,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 normal = normalize(hitPos);
             vec3 spherePos = normal;
 
-            // Slower self-rotation
+            // Slowest axial rotation — 0.03 rad/s (vs 0.04 Sun, 0.05 red dwarf)
             float starRot = time * 0.03;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
@@ -7773,35 +8493,70 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
-    // Higher exposure for blue giant's intense luminosity
+    // Tone mapping — Reinhard with highest exposure (2.0x vs 1.8x for others)
+    // The higher exposure reflects the extreme luminosity of blue giants
     color *= 2.0;
     color = color / (color + vec3(1.0));
 
-    // Slight cool tint to blacks
+    // Cool blue tint to blacks — opposite of the warm tint used for red/yellow stars
     color += vec3(0.003, 0.004, 0.01);
 
+    // Gamma — same 0.85 exponent as other stars
     color = pow(color, vec3(0.85));
 
     fragColor = vec4(color, 1.0);
 }
 `},channels:{}},{slug:"star-red-dwarf",title:"Red Dwarf",description:"A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Pf,passes:{image:`/**
  * Red Dwarf Star
+ * @author guinetik
+ * @date 2025-11-29
  *
  * A small, turbulent red dwarf star with orange-red plasma, boiling convection
- * cells, dark starspots, and a warm glowing corona.
- * Temperature locked at ~3000K with high activity level.
+ * cells, dark starspots, and a warm glowing corona. Temperature locked at ~3000K
+ * with high stellar activity.
  *
- * Based on the exoplanets v2 star shaders by guinetik
+ * Based on the exoplanets v2 star shaders by guinetik.
  *
- * @author guinetik
+ * Rendering layers (back to front):
+ *   1. Background      — near-black with subtle blue tint
+ *   2. Glow            — inverse-square radial falloff around the star
+ *   3. Corona          — FBM-driven flame tendrils + cyclic prominences
+ *   4. Star surface    — convection cells, plasma flow, starspots, limb darkening
+ *   5. Tone mapping    — Reinhard operator with exposure boost
+ *
+ * TECHNIQUE: Ray-sphere intersection. Unlike the planet shaders (which use
+ * analytic Pythagorean projection), the star shaders use a proper 3D camera
+ * with orbital rotation and ray-sphere intersection (quadratic formula). This
+ * allows the camera to orbit and zoom around the star.
+ *
+ * TECHNIQUE: Limb darkening. The star's edges are darkened using pow(viewAngle,
+ * 0.35), approximating the physical effect where photons escaping at shallow
+ * angles traverse more stellar atmosphere. The exponent 0.35 is tuned for a
+ * red dwarf's convective envelope (cooler stars show stronger limb darkening).
+ *
+ * TECHNIQUE: Prominence lifecycle. Corona prominences use a golden-ratio angular
+ * distribution (0.618 * i) for even spacing, modulated by sin()-based lifecycle
+ * functions so prominences grow and fade over time independently.
+ *
+ * Physics: Color palette approximates ~3000K blackbody radiation — dominant
+ * orange-red emission with occasional yellow-white flare peaks. Red dwarfs
+ * are fully convective, so the surface shows vigorous boiling granulation
+ * at higher activity levels than hotter stars.
+ *
+ * Noise: 3D simplex noise (Ashima Arts implementation) chosen for its smooth,
+ * isotropic gradients — critical for convincing stellar surface turbulence
+ * without visible grid artifacts. FBM with up to 5 octaves for plasma flow.
  */
 
-#define PI 3.14159265359
-#define TAU 6.28318530718
+#define PI 3.14159265359   // Half-circle — used for prominence angular wrapping
+#define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE
+// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
 // =============================================================================
+// Chosen for smooth, isotropic gradients essential for convincing stellar
+// surface turbulence. Simplex noise has no visible grid artifacts and is
+// computationally cheaper than classic Perlin noise in 3D.
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -7851,14 +8606,17 @@ float snoise(vec3 v) {
     return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
+// FBM with configurable octaves — lacunarity 2.0, gain 0.5
+// Domain offset vec3(100.0) between octaves decorrelates layers.
+// 5 octaves for plasma detail, 3-4 for corona flames.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
         v += a * snoise(p * f);
-        f *= 2.0;
-        a *= 0.5;
-        p += vec3(100.0);
+        f *= 2.0;         // Double frequency each octave
+        a *= 0.5;         // Halve amplitude each octave
+        p += vec3(100.0); // Domain shift to decorrelate
     }
     return v;
 }
@@ -7867,13 +8625,15 @@ float fbm(vec3 p, int octaves) {
 // STAR COLOR PALETTE — direct ramp, no normalization that kills brightness
 // =============================================================================
 
-// Red dwarf palette: dark spots → warm orange → bright yellow-white
+// Physics: ~3000K blackbody color ramp. Red dwarfs peak in infrared; visible
+// emission is dominated by red-orange. Flare peaks can briefly reach yellow-white.
+// Ramp: dark spots -> warm orange -> bright yellow-white
 vec3 starRamp(float t) {
-    const vec3 SPOT     = vec3(0.3, 0.08, 0.0);     // dark sunspot
-    const vec3 COOL     = vec3(0.8, 0.25, 0.02);     // cool surface
-    const vec3 WARM     = vec3(1.0, 0.55, 0.08);     // warm convection
-    const vec3 HOT      = vec3(1.0, 0.8, 0.3);       // hot granule center
-    const vec3 BRIGHT   = vec3(1.0, 0.95, 0.7);      // brightest flare
+    const vec3 SPOT     = vec3(0.3, 0.08, 0.0);     // Dark starspot — cooler magnetic regions
+    const vec3 COOL     = vec3(0.8, 0.25, 0.02);     // Cool surface — typical photosphere
+    const vec3 WARM     = vec3(1.0, 0.55, 0.08);     // Warm convection upwelling
+    const vec3 HOT      = vec3(1.0, 0.8, 0.3);       // Hot granule center — convective peak
+    const vec3 BRIGHT   = vec3(1.0, 0.95, 0.7);      // Brightest flare — transient energy release
 
     if (t < 0.15) return mix(SPOT, COOL, t / 0.15);
     if (t < 0.4)  return mix(COOL, WARM, (t - 0.15) / 0.25);
@@ -7885,22 +8645,23 @@ vec3 starRamp(float t) {
 // STAR SURFACE
 // =============================================================================
 
+// Convection granulation — three octaves at hand-tuned frequencies for
+// red dwarf's vigorous convective envelope. Higher frequencies than the
+// Sun/blue giant reflect the smaller, more turbulent convection cells.
 float convectionCells(vec3 p, float time) {
-    // Large granulation cells
-    float cells = snoise(p * 5.0 + vec3(0.0, time * 0.02, 0.0));
-    // Medium detail
-    float med = snoise(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01));
-    // Fine turbulent detail
-    float fine = snoise(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02));
+    float cells = snoise(p * 5.0 + vec3(0.0, time * 0.02, 0.0));     // Large granules — freq 5.0
+    float med = snoise(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01)); // Medium detail — freq 12.0
+    float fine = snoise(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02)); // Fine turbulence — freq 25.0
 
-    return cells * 0.5 + med * 0.3 + fine * 0.2;
+    return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend: large features dominate
 }
 
+// Starspots — magnetically active regions where convection is suppressed.
+// Red dwarfs have frequent, large starspots due to their fully convective interiors.
 float starSpots(vec3 p, float time) {
-    // Large dark spot regions
-    float spots = snoise(p * 3.0 + vec3(0.0, time * 0.005, 0.0));
-    // Only the peaks become dark spots
-    return smoothstep(0.5, 0.75, spots);
+    float spots = snoise(p * 3.0 + vec3(0.0, time * 0.005, 0.0));  // Freq 3.0 — large spot regions
+    return smoothstep(0.5, 0.75, spots);  // Only noise peaks become spots. Threshold 0.5 = ~30% coverage.
+                                           // Lower threshold = more spots. Higher = fewer, rarer spots.
 }
 
 float plasmaFlow(vec3 p, float time) {
@@ -7917,42 +8678,46 @@ float plasmaFlow(vec3 p, float time) {
     return n1 * 0.6 + n2 * 0.4;
 }
 
+// Surface rendering — combines all stellar surface effects into final color.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float edgeDist = 1.0 - viewAngle;
 
-    // Plasma base
+    // Plasma base — large-scale flow pattern
     float plasma = plasmaFlow(spherePos, time);
 
-    // Convection granulation
+    // Convection granulation — remapped to [0,1]
     float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
 
-    // Dark starspots
+    // Dark starspots — magnetically suppressed regions
     float spots = starSpots(spherePos, time);
 
-    // Pulsing brightness variation
-    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise(spherePos * 2.0) * 3.0);
+    // Pulsing brightness — simulates global oscillation modes
+    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise(spherePos * 2.0) * 3.0); // +/-10% variation
 
     // Combine into a single heat value [0..1]
-    float heat = plasma * 0.6 + cells * 0.4;
+    float heat = plasma * 0.6 + cells * 0.4;  // Plasma dominates, cells add texture
     heat *= pulse;
 
-    // Darken spots
+    // Darken spots — 70% darkening factor (red dwarfs have prominent spots)
     heat *= 1.0 - spots * 0.7;
 
-    // Limb darkening — edges slightly darker
+    // TECHNIQUE: Limb darkening — pow(viewAngle, 0.35) approximates the physical
+    // effect where photons escaping at shallow angles traverse more photosphere.
+    // Exponent 0.35 tuned for red dwarf's deep convective envelope.
     float limb = pow(viewAngle, 0.35);
-    heat *= 0.7 + limb * 0.3;
+    heat *= 0.7 + limb * 0.3;   // 30% intensity range from edge to center
 
-    // Edge brightening for active flares
+    // Edge brightening for active flares — visible at the limb
     float edgeFlare = pow(edgeDist, 2.0) * fbm(spherePos * 8.0 + vec3(time * 0.2), 3);
-    heat += edgeFlare * 0.3;
+    heat += edgeFlare * 0.3;    // 30% flare contribution — high for an active red dwarf
 
     heat = clamp(heat, 0.0, 1.0);
 
-    // Map to color — values above 1.0 give HDR bloom into tone mapper
+    // Map to color — multiplier (1.5 + heat*1.5) gives range [1.5, 3.0] for HDR
+    // Hot areas push above 1.0 and get compressed by tone mapping for natural bloom
     vec3 color = starRamp(heat) * (1.5 + heat * 1.5);
 
-    // Extra brightness at center of convection granules
+    // Extra brightness at center of convection granules — warm orange highlight
     color += vec3(1.0, 0.7, 0.2) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 2.0;
 
     return color;
@@ -7962,51 +8727,57 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
 // GLOW AND CORONA
 // =============================================================================
 
+// Radial glow — inverse-square falloff simulating scattered light in the
+// interstellar medium and instrumental diffraction.
 vec3 renderGlow(vec2 p, float starRadius) {
     float dist = length(p);
-    float r = dist / starRadius;
+    float r = dist / starRadius;   // Normalized distance from star center
 
-    // Soft inner glow
-    float glow = 1.0 / (r * r * 1.5 + 0.01);
-    glow *= smoothstep(4.0, 1.0, r);
+    // Soft inner glow — 1/r^2 with small epsilon to prevent division by zero
+    float glow = 1.0 / (r * r * 1.5 + 0.01);  // Factor 1.5 controls falloff steepness
+    glow *= smoothstep(4.0, 1.0, r);           // Fade to zero beyond 4x star radius
 
-    // Warm orange glow color
-    vec3 glowColor = vec3(1.0, 0.5, 0.1) * glow * 0.15;
+    // Warm orange glow color — matches ~3000K blackbody
+    vec3 glowColor = vec3(1.0, 0.5, 0.1) * glow * 0.15;  // 0.15 intensity — brighter = more bloom
 
-    // Wider, dimmer haze
-    float haze = 1.0 / (r * r * 5.0 + 0.1);
-    haze *= smoothstep(6.0, 1.5, r);
-    glowColor += vec3(0.6, 0.2, 0.03) * haze * 0.1;
+    // Wider, dimmer haze — secondary falloff layer
+    float haze = 1.0 / (r * r * 5.0 + 0.1);   // Steeper 1/r^2 for outer haze
+    haze *= smoothstep(6.0, 1.5, r);            // Extends to 6x radius
+    glowColor += vec3(0.6, 0.2, 0.03) * haze * 0.1;  // Deep red outer haze
 
     return glowColor;
 }
 
+// Corona — FBM-driven flame tendrils extending beyond the stellar surface.
+// Only rendered in the annular region between 1.0x and 2.0x star radius.
 vec3 renderCorona(vec2 p, float starRadius, float time) {
     float dist = length(p);
     float r = dist / starRadius;
 
-    if (r < 1.0 || r > 2.0) return vec3(0.0);
+    if (r < 1.0 || r > 2.0) return vec3(0.0);  // Skip pixels outside corona range
 
-    float rimFactor = (r - 1.0);
-    float angle = atan(p.y, p.x);
+    float rimFactor = (r - 1.0);   // 0 at surface, 1 at outer corona edge
+    float angle = atan(p.y, p.x);  // Polar angle around star
 
-    // Flame-like corona tendrils
-    float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.3), 4);
-    float flame2 = fbm(vec3(angle * 4.0 + 10.0, rimFactor * 3.0, time * 0.2), 3);
-    float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;
+    // Two-layer flame pattern at different angular frequencies for organic look
+    float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.3), 4);   // Broad flames
+    float flame2 = fbm(vec3(angle * 4.0 + 10.0, rimFactor * 3.0, time * 0.2), 3); // Fine detail
+    float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;  // Remap to [0,1]
 
-    // Fade with distance from surface
-    float fade = exp(-rimFactor * 4.0);
-    float intensity = flames * fade * 0.9;
+    // Physics: Exponential decay with distance — models density falloff in stellar corona
+    float fade = exp(-rimFactor * 4.0);    // Decay rate 4.0 — higher = more concentrated near surface
+    float intensity = flames * fade * 0.9; // 0.9 base intensity — high for active red dwarf
 
-    // Prominences — localized bright arcs
-    for (int i = 0; i < 4; i++) {
+    // TECHNIQUE: Prominence lifecycle. 4 prominences distributed by golden ratio
+    // (0.618) for even angular spacing. Each has an independent sin()-based
+    // lifecycle so prominences grow and fade over time.
+    for (int i = 0; i < 4; i++) {          // 4 prominences — highest count of the three star types
         float fi = float(i);
-        float promAngle = fract(fi * 0.618 + 0.2) * TAU;
-        float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI);
-        float promMask = exp(-angleDiff * angleDiff * 8.0);
-        float lifecycle = max(sin(time * 0.25 * (1.0 + fi * 0.3) + fi * 2.0), 0.0);
-        intensity += promMask * lifecycle * fade * 1.5;
+        float promAngle = fract(fi * 0.618 + 0.2) * TAU;  // Golden-ratio spacing
+        float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI); // Wrapped angular distance
+        float promMask = exp(-angleDiff * angleDiff * 8.0);           // Gaussian angular mask — 8.0 = spread width
+        float lifecycle = max(sin(time * 0.25 * (1.0 + fi * 0.3) + fi * 2.0), 0.0); // Half-wave rectified sine
+        intensity += promMask * lifecycle * fade * 1.5;    // 1.5x prominence brightness
     }
 
     vec3 coronaColor = mix(vec3(1.0, 0.55, 0.1), vec3(1.0, 0.3, 0.02), rimFactor);
@@ -8021,14 +8792,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 p = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = mod(iTime, 1000.0);
 
-    float starRadius = 0.85;
-    float focalLength = 1.5;
+    float starRadius = 0.85;   // World-space star radius — red dwarfs are 0.1-0.6 solar radii
+    float focalLength = 1.5;  // Camera focal length — higher = more zoomed in
 
-    // Auto rotation camera
-    float rotX = time * 0.15;
-    float rotY = sin(time * 0.07) * 0.3;
+    // Auto rotation camera — orbits around star
+    float rotX = time * 0.15;              // Horizontal orbit speed — fastest of three star types
+    float rotY = sin(time * 0.07) * 0.3;  // Vertical bob amplitude — +/-0.3 rad
 
-    float camDist = 3.5;
+    float camDist = 3.5;                   // Camera distance from origin — affects apparent size
     vec3 camPos = vec3(
         camDist * sin(rotX) * cos(rotY),
         camDist * sin(rotY),
@@ -8040,7 +8811,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 camUp = cross(camDir, camRight);
     vec3 rd = normalize(p.x * camRight + p.y * camUp + focalLength * camDir);
 
-    // Apparent screen radius: project world radius to screen space
+    // TECHNIQUE: Apparent radius projection — project world-space star radius to
+    // screen space so glow/corona effects match the rendered sphere exactly
     float apparentRadius = starRadius / sqrt(camDist * camDist - starRadius * starRadius) * focalLength;
 
     // Dark background
@@ -8050,7 +8822,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     color += renderGlow(p, apparentRadius);
     color += renderCorona(p, apparentRadius, time);
 
-    // Ray-sphere intersection
+    // TECHNIQUE: Ray-sphere intersection using the quadratic formula.
+    // For a sphere centered at origin: |camPos + t*rd|^2 = r^2
+    // Discriminant h = b^2 - c determines hit (h > 0) or miss (h <= 0)
     vec3 oc = camPos;
     float b = dot(oc, rd);
     float c = dot(oc, oc) - starRadius * starRadius;
@@ -8065,7 +8839,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // Sphere position in object space
             vec3 spherePos = normal;
 
-            // Add star's own rotation
+            // Add star's own axial rotation — 0.05 rad/s
             float starRot = time * 0.05;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
@@ -8081,21 +8855,25 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
-    // Tone mapping — Reinhard with exposure boost
+    // Tone mapping — Reinhard operator: color / (color + 1)
+    // Exposure 1.8x boosts overall brightness before compression
     color *= 1.8;
-    color = color / (color + vec3(1.0));
+    color = color / (color + vec3(1.0));  // Maps [0, inf) -> [0, 1) with soft rolloff
 
-    // Slight warm tint to blacks
+    // Slight warm tint to blacks — prevents pure black, adds ambient warmth
     color += vec3(0.01, 0.003, 0.0);
 
-    // Gamma
+    // Gamma — 0.85 exponent (brighter than standard 0.45) preserves corona detail
     color = pow(color, vec3(0.85));
 
     fragColor = vec4(color, 1.0);
 }
 `},channels:{}},{slug:"star-study",title:"Star Study",description:"A procedural star with boiling plasma surface and an orbiting planet",date:"2025-11-30",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Nf,passes:{image:`/**\r
  * Star Study - 3D Raymarched Star with Orbiting Planet\r
- * =====================================================\r
+ *\r
+ * @author guinetik\r
+ * @date 2025-11-30\r
+ *\r
  * A procedural star system featuring a realistic boiling plasma surface,\r
  * corona flames, solar prominences, and an orbiting rocky planet.\r
  *\r
@@ -8415,6 +9193,12 @@ vec3 starSurface(vec3 pos, vec3 normal, vec3 rayDir, vec3 baseColor, float time)
 \r
     // ==========================================================================\r
     // SPHERICAL DISTORTION - THE KEY BOILING EFFECT\r
+    // Maps the flat XY sphere hit into curved UV space using the formula:\r
+    //   f = (1 - sqrt(1 - r^2)) / r^2\r
+    // This is the inverse stereographic-like projection that compresses\r
+    // UVs toward the limb, so noise patterns wrap convincingly around\r
+    // the sphere rather than sliding flat across it. The brightness-\r
+    // modulated distortStrength makes the surface "breathe" as it pulses.\r
     // ==========================================================================\r
     vec2 sp = spherePos.xy;\r
     float distortStrength = 2.0 - brightness;\r
@@ -9058,24 +9842,53 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(col, 1.0);\r
 }\r
-`},channels:{}},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Of,passes:{image:`/**
+`},channels:{}},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Lf,passes:{image:`/**
  * Solar Star
- *
- * Our Sun — a yellow-white G-type main sequence star with balanced convection
- * cells, moderate flare activity, and a warm corona glow.
- * Temperature set to 5778K.
- *
- * Based on the exoplanets v2 star shaders by guinetik
- *
  * @author guinetik
+ * @date 2025-11-29
+ *
+ * Our Sun -- a yellow-white G-type main sequence star with balanced convection
+ * cells, moderate flare activity, and a warm corona glow. Temperature set to
+ * 5778K, the measured effective temperature of the Sun.
+ *
+ * Based on the exoplanets v2 star shaders by guinetik.
+ *
+ * Rendering layers (back to front):
+ *   1. Background      — near-black with subtle warm tint
+ *   2. Glow            — inverse-square radial falloff, warm yellow-orange
+ *   3. Corona          — FBM flame tendrils + 3 cyclic prominences
+ *   4. Star surface    — convection cells, plasma flow, sunspots, limb darkening
+ *   5. Tone mapping    — Reinhard operator with exposure boost
+ *
+ * TECHNIQUE: Ray-sphere intersection with orbiting camera, identical structure
+ * to the red dwarf shader but with tuned parameters for a G-type star.
+ *
+ * TECHNIQUE: Limb darkening with pow(viewAngle, 0.4). The exponent is slightly
+ * higher than the red dwarf (0.35), producing a gentler falloff consistent with
+ * the Sun's radiative/convective boundary layer structure.
+ *
+ * TECHNIQUE: Moderate prominence activity. 3 prominences (vs 4 for red dwarf)
+ * with slower lifecycle oscillation and tighter angular masking, reflecting the
+ * Sun's calmer magnetic activity compared to fully-convective red dwarfs.
+ *
+ * Physics: Color palette approximates ~5778K blackbody radiation — warm
+ * yellow-white surface with orange-tinted cooler granule edges and near-white
+ * hot granule centers. Sunspots are darker (smoothstep threshold 0.55-0.8)
+ * and less frequent than on the red dwarf.
+ *
+ * Noise: 3D simplex noise (Ashima Arts implementation), same as the red dwarf
+ * shader. FBM octave counts are identical but frequency multipliers are lower,
+ * producing larger, smoother convection cells appropriate for a larger star.
  */
 
-#define PI 3.14159265359
-#define TAU 6.28318530718
+#define PI 3.14159265359   // Half-circle — used for prominence angular wrapping
+#define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE
+// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
 // =============================================================================
+// Same simplex noise implementation as the red dwarf shader. Smooth, isotropic
+// gradients produce convincing stellar surface turbulence.
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -9125,14 +9938,17 @@ float snoise(vec3 v) {
     return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
+// FBM with configurable octaves — lacunarity 2.0, gain 0.5
+// Same structure as red dwarf but called with lower base frequencies
+// to produce the Sun's larger, smoother convection features.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
         v += a * snoise(p * f);
-        f *= 2.0;
-        a *= 0.5;
-        p += vec3(100.0);
+        f *= 2.0;         // Double frequency each octave
+        a *= 0.5;         // Halve amplitude each octave
+        p += vec3(100.0); // Domain shift to decorrelate
     }
     return v;
 }
@@ -9140,13 +9956,16 @@ float fbm(vec3 p, int octaves) {
 // =============================================================================
 // SOLAR PALETTE — yellow-white with warm tones
 // =============================================================================
+// Physics: ~5778K blackbody color ramp. The Sun's peak emission is in the
+// green-yellow band (Wien's law: ~500nm), but the broad spectrum appears
+// yellow-white to the human eye.
 
 vec3 starRamp(float t) {
-    const vec3 SPOT     = vec3(0.35, 0.12, 0.02);    // dark sunspot
-    const vec3 COOL     = vec3(0.9, 0.5, 0.1);       // cooler granule edge
-    const vec3 WARM     = vec3(1.0, 0.75, 0.3);      // warm surface
-    const vec3 HOT      = vec3(1.0, 0.92, 0.6);      // hot granule center
-    const vec3 BRIGHT   = vec3(1.0, 1.0, 0.9);       // brightest — near white
+    const vec3 SPOT     = vec3(0.35, 0.12, 0.02);    // Dark sunspot — ~3500-4500K cooler magnetic region
+    const vec3 COOL     = vec3(0.9, 0.5, 0.1);       // Cooler granule edge — intergranular lanes
+    const vec3 WARM     = vec3(1.0, 0.75, 0.3);      // Warm surface — average photosphere
+    const vec3 HOT      = vec3(1.0, 0.92, 0.6);      // Hot granule center — convective upwelling
+    const vec3 BRIGHT   = vec3(1.0, 1.0, 0.9);       // Brightest — near white, flare or facular region
 
     if (t < 0.15) return mix(SPOT, COOL, t / 0.15);
     if (t < 0.4)  return mix(COOL, WARM, (t - 0.15) / 0.25);
@@ -9155,19 +9974,25 @@ vec3 starRamp(float t) {
 }
 
 // =============================================================================
-// STAR SURFACE — moderate activity
+// STAR SURFACE — moderate activity (G-type main sequence)
 // =============================================================================
+// Convection frequencies are lower than the red dwarf (4.5/10/20 vs 5/12/25)
+// and time multipliers are slower, producing larger, calmer granulation cells
+// consistent with the Sun's ~1000km granule size.
 
 float convectionCells(vec3 p, float time) {
-    float cells = snoise(p * 4.5 + vec3(0.0, time * 0.015, 0.0));
-    float med = snoise(p * 10.0 + vec3(time * 0.01, 0.0, time * 0.008));
-    float fine = snoise(p * 20.0 + vec3(0.0, time * 0.02, time * 0.015));
-    return cells * 0.5 + med * 0.3 + fine * 0.2;
+    float cells = snoise(p * 4.5 + vec3(0.0, time * 0.015, 0.0));    // Large granules — freq 4.5
+    float med = snoise(p * 10.0 + vec3(time * 0.01, 0.0, time * 0.008)); // Medium detail — freq 10.0
+    float fine = snoise(p * 20.0 + vec3(0.0, time * 0.02, time * 0.015)); // Fine texture — freq 20.0
+    return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend
 }
 
+// Sunspots — cooler magnetic regions. Lower frequency (2.5) and higher
+// threshold (0.55) than red dwarf = fewer, larger spots. The Sun's ~11-year
+// cycle produces 0-200 spots; this approximates moderate activity.
 float starSpots(vec3 p, float time) {
-    float spots = snoise(p * 2.5 + vec3(0.0, time * 0.004, 0.0));
-    return smoothstep(0.55, 0.8, spots);
+    float spots = snoise(p * 2.5 + vec3(0.0, time * 0.004, 0.0));  // Freq 2.5 — large spot groups
+    return smoothstep(0.55, 0.8, spots);  // Higher threshold = fewer spots than red dwarf (0.5)
 }
 
 float plasmaFlow(vec3 p, float time) {
@@ -9182,6 +10007,7 @@ float plasmaFlow(vec3 p, float time) {
     return n1 * 0.6 + n2 * 0.4;
 }
 
+// Surface rendering — moderate activity parameters compared to red dwarf.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float edgeDist = 1.0 - viewAngle;
 
@@ -9189,22 +10015,27 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
     float spots = starSpots(spherePos, time);
 
+    // Gentler pulse than red dwarf — +/-8% vs +/-10%
     float pulse = 0.92 + 0.08 * sin(time * 0.4 + snoise(spherePos * 2.0) * 3.0);
 
     float heat = plasma * 0.6 + cells * 0.4;
     heat *= pulse;
-    heat *= 1.0 - spots * 0.65;
+    heat *= 1.0 - spots * 0.65;   // 65% spot darkening (vs 70% for red dwarf)
 
+    // TECHNIQUE: Limb darkening — pow(viewAngle, 0.4). Slightly gentler than
+    // red dwarf (0.35) due to Sun's radiative-convective boundary structure.
     float limb = pow(viewAngle, 0.4);
     heat *= 0.7 + limb * 0.3;
 
-    // Moderate edge flares
+    // Moderate edge flares — steeper falloff (2.5) and lower intensity (0.2)
+    // than red dwarf (2.0, 0.3), reflecting the Sun's calmer magnetic activity
     float edgeFlare = pow(edgeDist, 2.5) * fbm(spherePos * 7.0 + vec3(time * 0.15), 3);
     heat += edgeFlare * 0.2;
 
     heat = clamp(heat, 0.0, 1.0);
 
     vec3 color = starRamp(heat) * (1.5 + heat * 1.5);
+    // Yellow-white granule highlights — warmer tint than red dwarf's orange
     color += vec3(1.0, 0.85, 0.4) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 1.5;
 
     return color;
@@ -9214,21 +10045,27 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
 // GLOW AND CORONA — warm yellow-white
 // =============================================================================
 
+// Radial glow — same structure as red dwarf but with yellow-white tint and
+// slightly lower intensity (0.12 vs 0.15) for the Sun's more moderate luminosity.
 vec3 renderGlow(vec2 p, float starRadius) {
     float dist = length(p);
     float r = dist / starRadius;
 
-    float glow = 1.0 / (r * r * 1.5 + 0.01);
-    glow *= smoothstep(4.0, 1.0, r);
-    vec3 glowColor = vec3(1.0, 0.7, 0.2) * glow * 0.12;
+    float glow = 1.0 / (r * r * 1.5 + 0.01);     // Inverse-square falloff
+    glow *= smoothstep(4.0, 1.0, r);               // Fade beyond 4x radius
+    vec3 glowColor = vec3(1.0, 0.7, 0.2) * glow * 0.12;  // Warm yellow glow
 
-    float haze = 1.0 / (r * r * 5.0 + 0.1);
+    float haze = 1.0 / (r * r * 5.0 + 0.1);       // Outer haze layer
     haze *= smoothstep(6.0, 1.5, r);
-    glowColor += vec3(0.8, 0.4, 0.08) * haze * 0.08;
+    glowColor += vec3(0.8, 0.4, 0.08) * haze * 0.08;  // Orange outer haze
 
     return glowColor;
 }
 
+// Corona — same structure as red dwarf but with calmer parameters:
+// - Steeper decay (4.5 vs 4.0) = more concentrated near surface
+// - Lower base intensity (0.7 vs 0.9)
+// - Only 3 prominences at 1.0x brightness (vs 4 at 1.5x)
 vec3 renderCorona(vec2 p, float starRadius, float time) {
     float dist = length(p);
     float r = dist / starRadius;
@@ -9238,21 +10075,23 @@ vec3 renderCorona(vec2 p, float starRadius, float time) {
     float rimFactor = (r - 1.0);
     float angle = atan(p.y, p.x);
 
+    // Two-layer flame pattern — slightly slower than red dwarf (0.25/0.18 vs 0.3/0.2)
     float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.25), 4);
     float flame2 = fbm(vec3(angle * 4.0 + 10.0, rimFactor * 3.0, time * 0.18), 3);
     float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;
 
-    float fade = exp(-rimFactor * 4.5);
-    float intensity = flames * fade * 0.7;
+    float fade = exp(-rimFactor * 4.5);       // Steeper decay than red dwarf (4.5 vs 4.0)
+    float intensity = flames * fade * 0.7;     // Lower base intensity — calmer corona
 
-    // Fewer, calmer prominences
+    // Fewer, calmer prominences — 3 (vs 4 for red dwarf)
+    // Tighter angular mask (10.0 vs 8.0) and slower lifecycle (0.2 vs 0.25)
     for (int i = 0; i < 3; i++) {
         float fi = float(i);
         float promAngle = fract(fi * 0.618 + 0.4) * TAU;
         float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI);
-        float promMask = exp(-angleDiff * angleDiff * 10.0);
+        float promMask = exp(-angleDiff * angleDiff * 10.0);  // Narrower than red dwarf (10 vs 8)
         float lifecycle = max(sin(time * 0.2 * (1.0 + fi * 0.3) + fi * 2.5), 0.0);
-        intensity += promMask * lifecycle * fade * 1.0;
+        intensity += promMask * lifecycle * fade * 1.0;        // 1.0x prominence (vs 1.5x for red dwarf)
     }
 
     vec3 coronaColor = mix(vec3(1.0, 0.75, 0.25), vec3(1.0, 0.5, 0.08), rimFactor);
@@ -9267,13 +10106,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 p = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = mod(iTime, 1000.0);
 
-    float starRadius = 0.85;
-    float focalLength = 1.5;
+    float starRadius = 0.85;   // World-space star radius
+    float focalLength = 1.5;  // Camera focal length
 
-    float rotX = time * 0.12;
-    float rotY = sin(time * 0.06) * 0.25;
+    // Slightly slower orbit than red dwarf (0.12 vs 0.15)
+    float rotX = time * 0.12;              // Horizontal orbit speed
+    float rotY = sin(time * 0.06) * 0.25;  // Vertical bob — gentler than red dwarf (+/-0.25 vs 0.3)
 
-    float camDist = 3.5;
+    float camDist = 3.5;  // Camera distance
     vec3 camPos = vec3(
         camDist * sin(rotX) * cos(rotY),
         camDist * sin(rotY),
@@ -9285,13 +10125,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 camUp = cross(camDir, camRight);
     vec3 rd = normalize(p.x * camRight + p.y * camUp + focalLength * camDir);
 
+    // Project world-space radius to screen space for glow/corona alignment
     float apparentRadius = starRadius / sqrt(camDist * camDist - starRadius * starRadius) * focalLength;
 
-    vec3 color = vec3(0.0, 0.0, 0.01);
+    vec3 color = vec3(0.0, 0.0, 0.01);  // Near-black background with warm tint
 
     color += renderGlow(p, apparentRadius);
     color += renderCorona(p, apparentRadius, time);
 
+    // Ray-sphere intersection (quadratic formula)
     vec3 oc = camPos;
     float b = dot(oc, rd);
     float c = dot(oc, oc) - starRadius * starRadius;
@@ -9304,7 +10146,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 normal = normalize(hitPos);
             vec3 spherePos = normal;
 
-            float starRot = time * 0.04;
+            float starRot = time * 0.04;  // Axial rotation — slower than red dwarf (0.04 vs 0.05)
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
                 spherePos.x * cs + spherePos.z * sn,
@@ -9317,44 +10159,47 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
+    // Tone mapping — Reinhard with 1.8x exposure (same as red dwarf)
     color *= 1.8;
     color = color / (color + vec3(1.0));
-    color += vec3(0.008, 0.004, 0.0);
-    color = pow(color, vec3(0.85));
+    color += vec3(0.008, 0.004, 0.0);   // Warm tint to blacks
+    color = pow(color, vec3(0.85));      // Gamma — brighter than standard 0.45
 
     fragColor = vec4(color, 1.0);
 }
-`},channels:{}},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:Lf,passes:{image:`/**\r
- * Raymarch Stargate Study\r
- *\r
+`},channels:{}},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:Of,passes:{image:`/**\r
+ * Stargate Study\r
  * @author guinetik\r
+ * @date 2026-02-02\r
+ *\r
+ * A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey\r
+ * Stargate sequence. Sphere-traces through a box corridor, mapping the input\r
+ * image onto walls with noise-based distortion and cycling hue shifts.\r
+ *\r
+ * Techniques:\r
+ * - Raymarched box corridor with wall-distance SDF\r
+ * - Input texture mapped to walls with noise-warped UVs\r
+ * - HSV hue cycling over time and depth for psychedelic color\r
+ * - Screen blend compositing (additive light model)\r
+ * - Alternating horizontal/vertical tunnel orientation every 4 seconds\r
+ *\r
  * @project Genuary 2026\r
  * @see https://genuary2026.guinetik.com\r
- *\r
- * Stargate Techniques:\r
- * - Raymarched infinite corridor\r
- * - Video texture mapped to walls\r
- * - Screen blend with base image\r
- *\r
- * Visual Features:\r
- * - Tunnel walls show warped input texture\r
- * - Screen blend overlay (additive light)\r
- * - Alternating horizontal/vertical orientation\r
  */\r
 \r
 #define PI 3.14159265359\r
 \r
-/**\r
- * Hash for noise\r
- */\r
+// ---------------------------------------------------------------------------\r
+// Noise utilities\r
+// ---------------------------------------------------------------------------\r
+\r
+/** Pseudo-random hash — returns [-1, 1] range for signed noise. */\r
 float hash(vec2 p) {\r
     p = 50.0 * fract(p * 0.3183099 + vec2(0.71, 0.113));\r
     return -1.0 + 2.0 * fract(p.x * p.y * (p.x + p.y));\r
 }\r
 \r
-/**\r
- * 2D Signed noise\r
- */\r
+/** 2D value noise with Hermite smoothing — returns [-1, 1]. */\r
 float noise(vec2 p) {\r
     vec2 i = floor(p);\r
     vec2 f = fract(p);\r
@@ -9366,16 +10211,16 @@ float noise(vec2 p) {\r
         u.y);\r
 }\r
 \r
-/**\r
- * Screen blend mode - adds light\r
- */\r
+// ---------------------------------------------------------------------------\r
+// Blend modes and color space\r
+// ---------------------------------------------------------------------------\r
+\r
+/** Screen blend mode — 1-(1-a)*(1-b). Adds light without blowing out to white. */\r
 vec3 blendScreen(vec3 base, vec3 blend) {\r
     return 1.0 - (1.0 - base) * (1.0 - blend);\r
 }\r
 \r
-/**\r
- * RGB to HSV conversion\r
- */\r
+/** RGB to HSV conversion — used for hue-shifting wall textures. */\r
 vec3 rgb2hsv(vec3 c) {\r
     vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);\r
     vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));\r
@@ -9385,40 +10230,49 @@ vec3 rgb2hsv(vec3 c) {\r
     return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);\r
 }\r
 \r
-/**\r
- * HSV to RGB conversion\r
- */\r
+/** HSV to RGB conversion. */\r
 vec3 hsv2rgb(vec3 c) {\r
     vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);\r
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);\r
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);\r
 }\r
 \r
+// ---------------------------------------------------------------------------\r
+// Raymarch tunnel\r
+// ---------------------------------------------------------------------------\r
+\r
+// TECHNIQUE: Raymarched box corridor\r
+// The SDF is simply the minimum distance to the four walls (two horizontal\r
+// or two vertical depending on orientation). The ray marches forward until\r
+// it hits a wall, then the wall is textured with the input image and\r
+// noise-warped UVs for a psychedelic Stargate look.\r
+\r
 /**\r
- * Raymarch tunnel - video texture on walls\r
+ * Raymarch an infinite corridor and sample the input texture on the walls.\r
+ * @param isVertical 0.0 = horizontal walls, 1.0 = vertical walls\r
  */\r
 vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {\r
-    const float FOV_ZOOM = 0.4;\r
+    const float FOV_ZOOM = 0.4;  // Controls field-of-view width — smaller = wider FOV\r
 \r
-    // Camera oscillation\r
+    // Camera oscillation — subtle drift for organic camera movement\r
     float oscillation = 0.1 * sin(time * 1.137) * (1.0 + 0.1 * cos(time * 0.37));\r
 \r
-    // Camera rotation\r
+    // Camera rotation — snaps between 0 and 90 degrees using smoothstep threshold\r
     float rot = smoothstep(-0.005, 0.005, sin(0.1 * time + 4.0)) * PI * 0.5;\r
     float c = cos(rot), s = sin(rot);\r
     uv = uv * mat2(c, -s, s, c);\r
 \r
-    // Camera setup\r
+    // Camera setup — slightly off-center, looking mostly down the corridor\r
     vec3 camPos = vec3(oscillation, sin(time * 17.39) * oscillation * oscillation, -1.0);\r
     vec3 forward = normalize(mix(-camPos, vec3(0.0, 0.0, 1.0), 0.6));\r
     vec3 up = vec3(0.0, 1.0, 0.0);\r
     vec3 right = cross(forward, up);\r
 \r
-    // Ray direction\r
+    // Ray direction — project screen pixel through camera basis\r
     vec3 screenPoint = camPos + forward * FOV_ZOOM + uv.x * right + uv.y * up;\r
     vec3 rayDir = normalize(screenPoint - camPos);\r
 \r
-    // Raymarch\r
+    // Raymarch through the corridor (250 max steps)\r
     vec3 rayPos;\r
     float rayLength = 0.0;\r
     float stepDist = 0.0;\r
@@ -9460,8 +10314,9 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
         float mixFactor = 0.6 + 0.35 * sin(0.253 * time);\r
         wallColor = mix(noiseColor, wallColor, mixFactor);\r
 \r
-        // === COLOR CYCLING (like 2001 Stargate) ===\r
-        // Shift hue over time with depth variation\r
+        // TECHNIQUE: HSV hue cycling (2001 Stargate homage)\r
+        // Hue rotates with time and ray depth so distant walls shift color\r
+        // faster, creating the characteristic psychedelic corridor effect.\r
         vec3 hsv = rgb2hsv(wallColor);\r
         float hueShift = time * 0.15 + rayLength * 0.1;  // Time + depth based\r
         hsv.x = fract(hsv.x + hueShift);\r
@@ -9529,51 +10384,96 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","simulation","3d"],links:{},screenshotUrl:Mf,passes:{image:`// Thomas' Cyclically Symmetric Attractor (1999) — René Thomas
-// Ported from gcanvas attractor-3d-demo / thomas.js
-//
-// Shadertoy setup:
-//   Buffer A: iChannel0 = Buffer A (self-feedback)
-//   Image:    iChannel0 = Buffer A
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","simulation","3d"],links:{},screenshotUrl:kf,passes:{image:`/**
+ * Attractor Study #04: Thomas — Image Pass
+ * @author guinetik
+ * @date 2026-02-13
+ *
+ * Composite pass for Thomas' cyclically symmetric attractor. Reads the
+ * accumulated trail from Buffer A, applies filmic tone-mapping and a soft
+ * vignette for final display. Ported from gcanvas attractor-3d-demo / thomas.js.
+ */
+
+// TECHNIQUE: Filmic tone-mapping via exponential exposure
+// The formula col = 1 - exp(-col * EXPOSURE) compresses HDR accumulation
+// from the buffer into displayable [0,1] range while preserving bright detail.
+#define EXPOSURE 2.5        // Tone-map strength — higher values brighten midtones
+                            // and compress highlights. Below 1.0: dim/flat. Above 4.0: washed out.
+#define VIGNETTE_STRENGTH 0.3  // Darkening at screen edges — 0.0 = none, 0.5 = heavy.
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
     vec3 col = texture(iChannel0, uv).rgb;
-    col = 1.0 - exp(-col * 2.5);
-    float vig = 1.0 - 0.3 * length(uv - 0.5);
+    col = 1.0 - exp(-col * EXPOSURE);
+    float vig = 1.0 - VIGNETTE_STRENGTH * length(uv - 0.5);
     col *= vig;
     fragColor = vec4(col, 1.0);
 }
-`,bufferA:`#define NUM_PARTICLES 16
-#define STEPS 32.0
-#define VIEW_SCALE 0.16
-#define SPEED 0.65
-#define INTENSITY 0.18
-#define FADE 0.993
-#define FOCUS 2.0
+`,bufferA:`/**
+ * Attractor Study #04: Thomas — Buffer A (Simulation + Trail Rendering)
+ * @author guinetik
+ * @date 2026-02-13
+ *
+ * Simulates Thomas' cyclically symmetric attractor (1999, Rene Thomas), a
+ * dissipative system with three-fold cyclic symmetry where each variable feeds
+ * into the next via sine coupling. 16 particles are traced simultaneously through
+ * 3D phase space with distance-field line rendering and feedback accumulation.
+ * Velocity-mapped HSL coloring (green/teal) with blink pulses.
+ *
+ * Thomas attractor equations:
+ *   dx/dt = sin(y) - b*x
+ *   dy/dt = sin(z) - b*y
+ *   dz/dt = sin(x) - b*z
+ * Parameter: b = 0.208186 (dissipation — below ~0.2 the system becomes chaotic,
+ *   above ~0.3 it decays to a fixed point)
+ */
 
-// Thomas attractor parameter
-#define B 0.208186
+// === STATE LAYOUT (buffer-a, self-feedback via iChannel0) ===
+// Pixels (0..15, 0):     Particle positions (xyz), one per pixel. 16 total.
+// Pixel (CAM_PIXEL, 0):  Camera state — rg = yaw/pitch as [0,1], zw = last mouse.
+// All other pixels:      Accumulated trail color (RGB). Faded each frame by FADE.
 
-// Color settings — green/teal palette
-#define MIN_HUE 120.0
-#define MAX_HUE 200.0
-#define MAX_SPEED 2.5
-#define HUE_SHIFT_SPEED 8.0
-#define SATURATION 0.85
-#define LIGHTNESS 0.55
+// ── Integration & rendering ──
+#define NUM_PARTICLES 16   // Number of simultaneous particles tracing the attractor.
+                           // More = denser visualization. Above 32: GPU-heavy per frame.
+#define STEPS 32.0         // Euler steps per particle per frame — more = longer trail segment.
+                           // Below 8: sparse. Above 64: GPU cost grows (NUM_PARTICLES * STEPS).
+#define BASE_VIEW_SCALE 0.16  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
+#define SPEED 0.65         // Time-step multiplier — higher = faster traversal.
+                           // Below 0.2: sluggish. Above 1.5: may overshoot sine coupling.
+#define INTENSITY 0.18     // Base brightness per segment — higher = brighter trails.
+#define FADE 0.993         // Trail persistence per frame — closer to 1.0 = longer trails.
+                           // Below 0.98: trails vanish quickly. Above 0.999: ghosting.
+#define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.
 
-// Blink settings
-#define BLINK_FREQ 6.0
-#define BLINK_INTENSITY 1.4
-#define BLINK_SAT_BOOST 1.15
-#define BLINK_LIT_BOOST 1.2
+// ── Thomas attractor parameter ──
+// b controls dissipation. The system is cyclically symmetric: each axis damps
+// itself by -b*x_i and is driven by sin(x_{i+1}). At b=0.208186, the system
+// exhibits a strange attractor with intricate folded structure.
+#define B 0.208186         // Dissipation constant — lower = more chaotic, higher = decays to fixed point.
 
-// State layout: row 0 pixels
-//   [0..NUM_PARTICLES-1] = particle positions
-//   [NUM_PARTICLES]       = camera state (yaw, pitch)
+// ── Color settings — green/teal palette ──
+#define MIN_HUE 120.0      // Hue for fastest velocity (green).
+#define MAX_HUE 200.0      // Hue for slowest velocity (teal-cyan).
+#define MAX_SPEED 2.5      // Velocity clamp for hue mapping — Thomas is slow-moving compared to Lorenz.
+#define HUE_SHIFT_SPEED 8.0   // Degrees/sec of continuous hue rotation.
+#define SATURATION 0.85    // Base color saturation.
+#define LIGHTNESS 0.55     // Base HSL lightness.
+
+// ── Blink settings — subtle random brightness pulses ──
+#define BLINK_FREQ 6.0         // Pulse rate (Hz).
+#define BLINK_INTENSITY 1.4    // Brightness multiplier during blink peak.
+#define BLINK_SAT_BOOST 1.15   // Saturation boost during blink.
+#define BLINK_LIT_BOOST 1.2    // Lightness boost during blink.
+
+// ── State pixel index for camera ──
+// Stored immediately after the last particle pixel.
 #define CAM_PIXEL NUM_PARTICLES
 
+// Forward Euler integration of the Thomas system.
+// dx/dt = sin(y) - b*x, dy/dt = sin(z) - b*y, dz/dt = sin(x) - b*z
+// The cyclic symmetry means swapping (x,y,z) -> (y,z,x) gives the same equations.
 vec3 integrate(vec3 cur, float dt) {
     return cur + vec3(
         sin(cur.y) - B * cur.x,
@@ -9582,21 +10482,27 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
+// Inline yaw-pitch projection — applies yaw (cy/sy) then pitch (cp/sp) rotation.
+// More efficient than building a full mat3 when only 2D output is needed.
 vec2 project(vec3 p, float cy, float sy, float cp, float sp) {
     vec3 r = vec3(p.x * cy - p.z * sy, p.y, p.x * sy + p.z * cy);
     return vec2(r.x, r.y * cp - r.z * sp);
 }
 
+// TECHNIQUE: Distance-field line segment rendering
+// Computes the minimum distance from point \`p\` to the line segment (a, b).
 float dfLine(vec2 a, vec2 b, vec2 p) {
     vec2 ab = b - a;
     float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
     return distance(a + ab * t, p);
 }
 
+// Pseudo-random hash — maps a float seed to [0, 1).
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
 
+// Convert HSL (hue in degrees, saturation, lightness) to RGB.
 vec3 hsl2rgb(float h, float s, float l) {
     h = mod(h, 360.0) / 60.0;
     float c = (1.0 - abs(2.0 * l - 1.0)) * s;
@@ -9617,11 +10523,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
-    // ── Camera state (persisted at pixel CAM_PIXEL,0) ──
-    // rg = yaw/pitch, zw = last mouse position (-1 = not tracking)
+    // TECHNIQUE: Frame-persistent state via texelFetch
+    // Camera yaw/pitch stored as normalized [0,1] values in rg channels;
+    // last mouse position in zw (-1 = not tracking).
     vec4 camState = texelFetch(iChannel0, ivec2(CAM_PIXEL, 0), 0);
     float yaw, pitch;
     vec2 lastMouse = camState.zw;
@@ -9649,8 +10559,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float cp = cos(pitch), sp = sin(pitch);
 
     // ── Integrate all particles, find closest line segment ──
-    float d = 1e6;
-    float bestSpeed = 0.0;
+    // Each of the NUM_PARTICLES particles is advanced STEPS times. The closest
+    // projected segment to this pixel determines brightness and velocity color.
+    float d = 1e6;         // Minimum distance from pixel to any trail segment.
+    float bestSpeed = 0.0; // Velocity magnitude at the closest segment.
     float dt = 0.08 * SPEED;
 
     for (int pid = 0; pid < NUM_PARTICLES; pid++) {
@@ -9659,8 +10571,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         for (float i = 0.0; i < STEPS; i++) {
             vec3 next = integrate(pos, dt);
 
-            vec2 a = project(pos,  cy, sy, cp, sp) * VIEW_SCALE;
-            vec2 b = project(next, cy, sy, cp, sp) * VIEW_SCALE;
+            vec2 a = project(pos,  cy, sy, cp, sp) * viewScale;
+            vec2 b = project(next, cy, sy, cp, sp) * viewScale;
 
             float segD = dfLine(a, b, uv);
             if (segD < d) {
@@ -9672,7 +10584,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
-    // ── Line intensity ──
+    // TECHNIQUE: Dual-layer intensity — smoothstep for soft falloff + Gaussian for bright core.
     float c = (INTENSITY / SPEED) * smoothstep(FOCUS / iResolution.y, 0.0, d);
     c += (INTENSITY / 8.5) * exp(-1000.0 * d * d);
 
@@ -9681,7 +10593,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float blink = hash(blinkSeed) < 0.25
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
-    // ── Color: green (fast) → cyan-blue (slow) ──
+    // ── Color: green (fast) -> cyan-blue (slow), with continuous hue rotation ──
     float speedNorm = clamp(bestSpeed / MAX_SPEED, 0.0, 1.0);
     float hue = mod(MAX_HUE - speedNorm * (MAX_HUE - MIN_HUE) + iTime * HUE_SHIFT_SPEED, 360.0);
     float sat = min(1.0, SATURATION * (1.0 + blink * (BLINK_SAT_BOOST - 1.0)));
@@ -9689,11 +10601,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 lineColor = hsl2rgb(hue, sat, lit);
     c *= 1.0 + blink * (BLINK_INTENSITY - 1.0);
 
-    // ── State persistence (row 0) ──
+    // ── State persistence (row 0) & trail accumulation ──
     if (py == 0 && px < NUM_PARTICLES) {
-        // Particle state pixels — integrate this particle forward
+        // Particle state pixels — integrate this particle forward.
         if (iFrame == 0) {
-            // Spread particles around the attractor's domain
+            // Spread particles evenly around a circle in the attractor's domain.
+            // Radius 1.5 is within the basin of attraction for b=0.208186.
             float angle = float(px) * 6.28318 / float(NUM_PARTICLES);
             float r = 1.5;
             fragColor = vec4(r * cos(angle), r * sin(angle), r * sin(angle * 0.7 + 1.0), 0.0);
@@ -9705,22 +10618,25 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             fragColor = vec4(pos, 0.0);
         }
     } else if (py == 0 && px == CAM_PIXEL) {
-        // Camera state pixel — persist yaw & pitch as [0,1], mouse pos in zw
+        // Camera state pixel — persist yaw & pitch as normalized [0,1], mouse pos in zw.
+        // lastMouse = -1 sentinel means "not tracking" (mouse released).
         vec2 storeMouse = pressed ? iMouse.xy : vec2(-1.0);
         fragColor = vec4(mod(yaw, 6.28318) / 6.28318, pitch / 3.14159 + 0.5, storeMouse);
     } else {
-        // Visual pixels — accumulate with fade; instant clear when rotating
+        // Visual pixels — blend new line color onto faded previous frame.
+        // Instant clear (fade=0) while actively rotating to avoid smeared trails.
         vec3 prev = texelFetch(iChannel0, ivec2(fragCoord), 0).rgb;
         float fade = rotating ? 0.0 : FADE;
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:kf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:Mf,passes:{image:`/**\r
  * Smooth Waves Study\r
- *\r
  * @author guinetik\r
- * @project Genuary 2026\r
- * @see https://genuary2026.guinetik.com\r
+ * @date 2026-01-29\r
+ *\r
+ * Dali-inspired liquid surface with layered sine waves, center ripple\r
+ * source, corner-based interference patterns, and heat shimmer.\r
  *\r
  * Wave Distortion Techniques:\r
  * - Layered sine waves (Dali-inspired liquid)\r
@@ -9738,20 +10654,24 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 \r
 /**\r
  * Layered wave distortion\r
- * Multiple sine waves at different frequencies create organic flow\r
+ * Three frequency bands mimic real water wave spectra:\r
+ *   Layer 1 (4-3 Hz):  large swell — slow, high amplitude, diagonal\r
+ *   Layer 2 (8-6 Hz):  medium chop — moderate speed & amplitude\r
+ *   Layer 3 (15-12 Hz): surface ripples — fast, low amplitude\r
+ * Diagonal cross-terms (uv.y*freq + uv.x*freq) create wave interference.\r
  */\r
 vec2 waveDistort(vec2 uv, float time, float intensity) {\r
     vec2 offset = vec2(0.0);\r
 \r
-    // Layer 1: Large slow diagonal waves\r
+    // Layer 1: Large slow diagonal waves (longest wavelength, biggest amplitude)\r
     offset.x += sin(uv.y * 4.0 + uv.x * 2.0 + time * 1.2) * 0.03;\r
     offset.y += cos(uv.x * 3.0 + uv.y * 2.0 + time * 1.0) * 0.03;\r
 \r
-    // Layer 2: Medium flowing waves\r
+    // Layer 2: Medium flowing waves (2x frequency, ~half amplitude)\r
     offset.x += sin(uv.y * 8.0 + time * 1.8) * 0.015;\r
     offset.y += cos(uv.x * 6.0 + time * 1.5) * 0.02;\r
 \r
-    // Layer 3: Small fast ripples\r
+    // Layer 3: Small fast ripples (~4x frequency, ~quarter amplitude)\r
     offset.x += sin(uv.y * 15.0 + uv.x * 10.0 + time * 3.0) * 0.008;\r
     offset.y += sin(uv.x * 12.0 + uv.y * 8.0 + time * 2.5) * 0.008;\r
 \r
@@ -9799,10 +10719,12 @@ vec2 interferenceDistort(vec2 uv, float time, float intensity) {\r
 \r
 /**\r
  * Horizontal heat shimmer effect\r
+ * Two high-frequency sine layers (40 Hz, 80 Hz) create the jittery\r
+ * horizontal displacement characteristic of heat convection.\r
  */\r
 vec2 shimmerDistort(vec2 uv, float time, float intensity) {\r
-    float shimmer = sin(uv.y * 40.0 + time * 5.0) * 0.003;\r
-    shimmer += sin(uv.y * 80.0 + time * 8.0) * 0.001;\r
+    float shimmer = sin(uv.y * 40.0 + time * 5.0) * 0.003;  // primary shimmer\r
+    shimmer += sin(uv.y * 80.0 + time * 8.0) * 0.001;        // fine detail at 2x freq\r
 \r
     // Stronger in middle, fade at edges\r
     float mask = smoothstep(0.0, 0.3, uv.y) * smoothstep(1.0, 0.7, uv.y);\r
@@ -9864,4 +10786,4 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}}],Mr=[...qs].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),Hf=[...new Set(qs.flatMap(e=>e.tags))].sort();function hd(e){return Mr.find(n=>n.slug===e)}function Uf(){const e=Ne(null),n=He(()=>e.value===null?Mr:Mr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:Hf,filteredShaders:n,setTag:t}}const Bf=Math.PI*.5,va=150;function js(e,n){let t=null,r=null,o=0,a=null,s=0,i="none",l=0;function f(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function c(){return window.matchMedia("(hover: hover)").matches}function d(){t=document.createElement("canvas"),t.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",t.setAttribute("aria-hidden","true"),document.body.appendChild(t),r=t.getContext("2d")}function m(T){if(!t)return;const R=T.getBoundingClientRect(),P=getComputedStyle(T).borderRadius||"0";t.style.top=`${R.top}px`,t.style.left=`${R.left}px`,t.style.width=`${R.width}px`,t.style.height=`${R.height}px`,t.style.borderRadius=P,t.style.overflow="hidden";const N=window.devicePixelRatio||1,B=Math.round(R.width*N),X=Math.round(R.height*N);(t.width!==B||t.height!==X)&&(t.width=B,t.height=X)}function h(T){if((!t||!r||!a)&&i==="none"&&s<=0)return;const R=l?T-l:16;if(l=T,i==="in")s=Math.min(1,s+R/va),s>=1&&(i="none");else if(i==="out"&&(s=Math.max(0,s-R/va),s<=0)){i="none",t&&(t.style.opacity="0");return}if(t&&(t.style.opacity=String(s)),!t||!r)return;a&&m(a);const E=window.devicePixelRatio||1,P=t.width/E,N=t.height/E;r.setTransform(E,0,0,E,0,0),r.clearRect(0,0,P,N);const B=T*.001*Fc,X=N*.5;for(let W=0;W<2;W++){const ue=W===0?0:Bf,z=W===0?.5:.25;r.beginPath(),r.strokeStyle=`rgba(17, 220, 255, ${z})`,r.lineWidth=Gc,r.shadowColor=`rgba(17, 220, 255, ${z*.5})`,r.shadowBlur=Vc;for(let K=0;K<=P;K+=2){const Q=X+Math.sin(K/P*Math.PI*2*zc+B+ue)*Bc;K===0?r.moveTo(K,Q):r.lineTo(K,Q)}r.stroke(),r.shadowBlur=0}o=requestAnimationFrame(h)}function S(T){if(f()||!c())return;const R=T.target.closest(n);R&&(t||d(),a=R,m(R),i="in",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(h))}function _(T){if(!T.target.closest(n))return;const E=T.relatedTarget;E&&E.closest(n)||(a=null,i="out",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(h))}Zn(()=>{const T=e.value;T&&(T.addEventListener("mouseenter",S,!0),T.addEventListener("mouseleave",_,!0))}),Zt(()=>{cancelAnimationFrame(o);const T=e.value;T&&(T.removeEventListener("mouseenter",S,!0),T.removeEventListener("mouseleave",_,!0)),t&&t.parentNode&&t.parentNode.removeChild(t),t=null,r=null,a=null})}const zf=["onClick"],Ff=Rn({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=Ne(null);return js(r,".tag-btn"),(o,a)=>(Ae(),Be("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Le("button",{class:Yn(["tag-btn",{active:e.activeTag===null}]),onClick:a[0]||(a[0]=s=>t("select",null))}," All ",2),(Ae(!0),Be(Te,null,$r(e.tags,s=>(Ae(),Be("button",{key:s,class:Yn(["tag-btn",{active:e.activeTag===s}]),onClick:i=>t("select",s)},ot(s),11,zf))),128))],512))}}),Gf=St(Ff,[["__scopeId","data-v-f002c231"]]),Vf={class:"card-trace-svg","aria-hidden":"true"},Kf=["stroke-dasharray","stroke-dashoffset"],Yf={class:"card-content"},Wf=["src","alt"],Xf={class:"card-overlay"},qf={class:"card-kicker"},jf={class:"card-title"},Zf={class:"card-tags"},$f=Rn({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=af(),{prefersReducedMotion:o,getStaggerDelay:a,setTransitionSnapshot:s}=ro(),i=Ne(null),l=Ne(null),f=Ne("hidden"),c=Ne(0);function d(){const S=i.value;if(!S)return null;const _=S.$el;return _ instanceof HTMLElement?_:null}Zn(()=>{if(o.value==="reduced"){f.value="visible";return}const S=d(),_=l.value;if(!S||!_){f.value="visible";return}const T=S.getBoundingClientRect();c.value=(T.width+T.height)*2;const R=a(t.index,t.total);setTimeout(()=>{f.value="tracing",_.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xo)})},R)});function m(){if(o.value==="reduced"){f.value="visible";return}const S=l.value;if(!S||!c.value){f.value="visible";return}f.value="tracing",S.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xo)})}function h(S){if(o.value==="reduced")return;S.preventDefault();const _=d();if(!_)return;const T=_.getBoundingClientRect();s({slug:t.shader.slug,rect:{top:T.top,left:T.left,width:T.width,height:T.height},screenshotUrl:t.shader.screenshotUrl});const R=_.parentElement;R&&Array.from(R.children).filter(P=>P!==_).forEach(P=>{P.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Pc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:m,getCardEl:d}),(S,_)=>{const T=as("router-link");return Ae(),eo(T,{ref_key:"cardRef",ref:i,to:"/shader/"+e.shader.slug,class:Yn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:h},{default:Zr(()=>[(Ae(),Be("svg",Vf,[Le("rect",{ref_key:"svgRef",ref:l,x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,Kf)])),Le("div",Yf,[Le("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Wf),_[0]||(_[0]=Le("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Le("div",Xf,[Le("span",qf,ot(e.shader.date),1),Le("span",jf,ot(e.shader.title),1)]),Le("div",Zf,[(Ae(!0),Be(Te,null,$r(e.shader.tags,R=>(Ae(),Be("span",{key:R,class:"card-tag"},ot(R),1))),128))])])]),_:1},8,["to","class"])}}}),Qf=St($f,[["__scopeId","data-v-f240d199"]]),Rt=200,ha=40,Jf=280,ed=12,ga=85,nd=55,ya=.45,td=.12,rd=.25,od=15;function ad(e){let n=0,t=-1,r=-1,o=!0;function a(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function s(){t=-1,r=-1}function i(){o=!document.hidden,o&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!o)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const m=window.devicePixelRatio||1,h=c.clientWidth,S=c.clientHeight;if(h===0||S===0){n=requestAnimationFrame(l);return}const _=Math.round(h*m),T=Math.round(S*m);(c.width!==_||c.height!==T)&&(c.width=_,c.height=T),d.setTransform(m,0,0,m,0,0),d.clearRect(0,0,h,S);const R=f*.001,E=R*kc,P=R*ed,N=2;for(let B=0;B<ur;B++){const X=B/(ur-1),W=S*(.08+X*.84),ue=B*Math.PI*.6,z=Mc+B%3*.3,K=1+(B%2===0?.15:-.1)*(B/ur),L=(ha+X*(Jf-ha)+P)%360,Z=Math.abs(X-.5)*2;let ie=ya-(ya-td)*Z,he=nd;const le=.4+B%4*.15,J=Math.sin(R*le+B*1.7)*.5+.5;ie*=.7+J*.3;let Y=0;if(t>=0&&r>=0){const fe=Math.abs(W-r);fe<Rt&&(Y=1-fe/Rt,Y*=Y,ie=Math.min(1,ie+rd*Y),he=he+od*Y)}const Fe=`hsla(${L}, ${ga}%, ${he}%, ${ie})`,qe=`hsla(${L}, ${ga}%, ${he}%, ${ie*.5})`;d.beginPath(),d.strokeStyle=Fe,d.lineWidth=Hc+Y*.5,d.shadowColor=qe,d.shadowBlur=Uc+Y*6;for(let fe=0;fe<=h;fe+=N){let ge=Oc;if(t>=0&&r>=0){const sn=fe-t,je=W-r,Ce=Math.sqrt(sn*sn+je*je);if(Ce<Rt){const y=1-Ce/Rt;ge+=Lc*y*y}}const an=W+Math.sin(fe/h*Math.PI*2*z+E*K+ue)*ge;fe===0?d.moveTo(fe,an):d.lineTo(fe,an)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Zn(()=>{const f=e.value;f&&(f.addEventListener("mousemove",a),f.addEventListener("mouseleave",s),document.addEventListener("visibilitychange",i),n=requestAnimationFrame(l))}),Zt(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",a),f.removeEventListener("mouseleave",s)),document.removeEventListener("visibilitychange",i)})}const sd=Rn({__name:"SineWaveDivider",setup(e){const n=Ne(null);return ad(n),(t,r)=>(Ae(),Be("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),id=St(sd,[["__scopeId","data-v-05c59859"]]),ld={class:"gallery-view n-layout-shell"},cd={key:0,class:"gallery-empty"},fd=Rn({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:o}=Uf(),{triggerCardExit:a,prefersReducedMotion:s}=ro(),i=Ne(null);js(i,".profile-link, .github-link");function l(c,d){if(s.value==="reduced"){d();return}setTimeout(d,800)}function f(c,d){if(s.value==="reduced"){d();return}a(c).then(d)}return(c,d)=>(Ae(),Be("div",ld,[Le("header",{ref_key:"headerRef",ref:i,class:"gallery-header n-panel"},[pe(id),d[0]||(d[0]=Hl('<div class="gallery-brand" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-cd37ac52><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-cd37ac52><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-cd37ac52></path></svg></a><h1 class="gallery-title" data-v-cd37ac52>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Website</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>@guinetik</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Shadertoy</a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-cd37ac52><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-cd37ac52><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-cd37ac52></path></svg></a></nav><p class="gallery-subtitle" data-v-cd37ac52> Interactive GPU programming experiments using WebGL. </p>',3))],512),pe(Gf,{tags:Pe(t),activeTag:Pe(n),onSelect:Pe(o)},null,8,["tags","activeTag","onSelect"]),pe(bc,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:l,onLeave:f,css:!1},{default:Zr(()=>[(Ae(!0),Be(Te,null,$r(Pe(r),(m,h)=>(Ae(),eo(Qf,{key:m.slug,shader:m,index:h,total:Pe(r).length},null,8,["shader","index","total"]))),128))]),_:1}),Pe(r).length===0?(Ae(),Be("p",cd," No shaders found. ")):Ts("",!0)]))}}),dd=St(fd,[["__scopeId","data-v-cd37ac52"]]),ud=[{path:"/",name:"gallery",component:dd},{path:"/shader/:slug",name:"shader-detail",component:()=>$c(()=>import("./ShaderDetailView-DkJbBgUB.js"),__vite__mapDeps([0,1]))}],Zs=of({history:k0(),routes:ud});Zs.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Rc(qc).use(Zs).mount("#app");export{jo as C,md as F,pd as M,St as _,Be as a,Le as b,He as c,Rn as d,Ts as e,hd as f,Ae as g,$c as h,Te as i,$r as j,ro as k,js as l,Zn as m,Yn as n,Zt as o,pe as p,Zr as q,Ne as r,eo as s,ot as t,Pe as u,kl as v,it as w,vd as x,as as y,af as z};
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}}],kr=[...Xi].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),Hf=[...new Set(Xi.flatMap(e=>e.tags))].sort();function vd(e){return kr.find(n=>n.slug===e)}function zf(){const e=Ne(null),n=He(()=>e.value===null?kr:kr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:Hf,filteredShaders:n,setTag:t}}const Bf=Math.PI*.5,ma=150;function ji(e,n){let t=null,r=null,o=0,a=null,i=0,s="none",l=0;function f(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function c(){return window.matchMedia("(hover: hover)").matches}function d(){t=document.createElement("canvas"),t.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",t.setAttribute("aria-hidden","true"),document.body.appendChild(t),r=t.getContext("2d")}function h(T){if(!t)return;const A=T.getBoundingClientRect(),P=getComputedStyle(T).borderRadius||"0";t.style.top=`${A.top}px`,t.style.left=`${A.left}px`,t.style.width=`${A.width}px`,t.style.height=`${A.height}px`,t.style.borderRadius=P,t.style.overflow="hidden";const N=window.devicePixelRatio||1,B=Math.round(A.width*N),q=Math.round(A.height*N);(t.width!==B||t.height!==q)&&(t.width=B,t.height=q)}function v(T){if((!t||!r||!a)&&s==="none"&&i<=0)return;const A=l?T-l:16;if(l=T,s==="in")i=Math.min(1,i+A/ma),i>=1&&(s="none");else if(s==="out"&&(i=Math.max(0,i-A/ma),i<=0)){s="none",t&&(t.style.opacity="0");return}if(t&&(t.style.opacity=String(i)),!t||!r)return;a&&h(a);const C=window.devicePixelRatio||1,P=t.width/C,N=t.height/C;r.setTransform(C,0,0,C,0,0),r.clearRect(0,0,P,N);const B=T*.001*Fc,q=N*.5;for(let W=0;W<2;W++){const ue=W===0?0:Bf,U=W===0?.5:.25;r.beginPath(),r.strokeStyle=`rgba(17, 220, 255, ${U})`,r.lineWidth=Gc,r.shadowColor=`rgba(17, 220, 255, ${U*.5})`,r.shadowBlur=Vc;for(let K=0;K<=P;K+=2){const $=q+Math.sin(K/P*Math.PI*2*Uc+B+ue)*Bc;K===0?r.moveTo(K,$):r.lineTo(K,$)}r.stroke(),r.shadowBlur=0}o=requestAnimationFrame(v)}function S(T){if(f()||!c())return;const A=T.target.closest(n);A&&(t||d(),a=A,h(A),s="in",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(v))}function E(T){if(!T.target.closest(n))return;const C=T.relatedTarget;C&&C.closest(n)||(a=null,s="out",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(v))}Qn(()=>{const T=e.value;T&&(T.addEventListener("mouseenter",S,!0),T.addEventListener("mouseleave",E,!0))}),Qt(()=>{cancelAnimationFrame(o);const T=e.value;T&&(T.removeEventListener("mouseenter",S,!0),T.removeEventListener("mouseleave",E,!0)),t&&t.parentNode&&t.parentNode.removeChild(t),t=null,r=null,a=null})}const Uf=["onClick"],Ff=An({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=Ne(null);return ji(r,".tag-btn"),(o,a)=>(_e(),Be("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Oe("button",{class:Yn(["tag-btn",{active:e.activeTag===null}]),onClick:a[0]||(a[0]=i=>t("select",null))}," All ",2),(_e(!0),Be(Te,null,Zr(e.tags,i=>(_e(),Be("button",{key:i,class:Yn(["tag-btn",{active:e.activeTag===i}]),onClick:s=>t("select",i)},ot(i),11,Uf))),128))],512))}}),Gf=St(Ff,[["__scopeId","data-v-f002c231"]]),Vf={class:"card-trace-svg","aria-hidden":"true"},Kf=["stroke-dasharray","stroke-dashoffset"],Yf={class:"card-content"},Wf=["src","alt"],qf={class:"card-overlay"},Xf={class:"card-kicker"},jf={class:"card-title"},Qf={class:"card-tags"},Zf=An({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=af(),{prefersReducedMotion:o,getStaggerDelay:a,setTransitionSnapshot:i}=ro(),s=Ne(null),l=Ne(null),f=Ne("hidden"),c=Ne(0);function d(){const S=s.value;if(!S)return null;const E=S.$el;return E instanceof HTMLElement?E:null}Qn(()=>{if(o.value==="reduced"){f.value="visible";return}const S=d(),E=l.value;if(!S||!E){f.value="visible";return}const T=S.getBoundingClientRect();c.value=(T.width+T.height)*2;const A=a(t.index,t.total);setTimeout(()=>{f.value="tracing",E.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},qo)})},A)});function h(){if(o.value==="reduced"){f.value="visible";return}const S=l.value;if(!S||!c.value){f.value="visible";return}f.value="tracing",S.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},qo)})}function v(S){if(o.value==="reduced")return;S.preventDefault();const E=d();if(!E)return;const T=E.getBoundingClientRect();i({slug:t.shader.slug,rect:{top:T.top,left:T.left,width:T.width,height:T.height},screenshotUrl:t.shader.screenshotUrl});const A=E.parentElement;A&&Array.from(A.children).filter(P=>P!==E).forEach(P=>{P.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Pc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:h,getCardEl:d}),(S,E)=>{const T=ai("router-link");return _e(),eo(T,{ref_key:"cardRef",ref:s,to:"/shader/"+e.shader.slug,class:Yn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:v},{default:Qr(()=>[(_e(),Be("svg",Vf,[Oe("rect",{ref_key:"svgRef",ref:l,x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,Kf)])),Oe("div",Yf,[Oe("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Wf),E[0]||(E[0]=Oe("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Oe("div",qf,[Oe("span",Xf,ot(e.shader.date),1),Oe("span",jf,ot(e.shader.title),1)]),Oe("div",Qf,[(_e(!0),Be(Te,null,Zr(e.shader.tags,A=>(_e(),Be("span",{key:A,class:"card-tag"},ot(A),1))),128))])])]),_:1},8,["to","class"])}}}),$f=St(Zf,[["__scopeId","data-v-f240d199"]]),At=200,va=40,Jf=280,ed=12,ga=85,nd=55,ya=.45,td=.12,rd=.25,od=15;function ad(e){let n=0,t=-1,r=-1,o=!0;function a(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function i(){t=-1,r=-1}function s(){o=!document.hidden,o&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!o)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const h=window.devicePixelRatio||1,v=c.clientWidth,S=c.clientHeight;if(v===0||S===0){n=requestAnimationFrame(l);return}const E=Math.round(v*h),T=Math.round(S*h);(c.width!==E||c.height!==T)&&(c.width=E,c.height=T),d.setTransform(h,0,0,h,0,0),d.clearRect(0,0,v,S);const A=f*.001,C=A*Mc,P=A*ed,N=2;for(let B=0;B<ur;B++){const q=B/(ur-1),W=S*(.08+q*.84),ue=B*Math.PI*.6,U=kc+B%3*.3,K=1+(B%2===0?.15:-.1)*(B/ur),O=(va+q*(Jf-va)+P)%360,Q=Math.abs(q-.5)*2;let se=ya-(ya-td)*Q,ve=nd;const le=.4+B%4*.15,J=Math.sin(A*le+B*1.7)*.5+.5;se*=.7+J*.3;let Y=0;if(t>=0&&r>=0){const fe=Math.abs(W-r);fe<At&&(Y=1-fe/At,Y*=Y,se=Math.min(1,se+rd*Y),ve=ve+od*Y)}const Fe=`hsla(${O}, ${ga}%, ${ve}%, ${se})`,Xe=`hsla(${O}, ${ga}%, ${ve}%, ${se*.5})`;d.beginPath(),d.strokeStyle=Fe,d.lineWidth=Hc+Y*.5,d.shadowColor=Xe,d.shadowBlur=zc+Y*6;for(let fe=0;fe<=v;fe+=N){let ge=Lc;if(t>=0&&r>=0){const sn=fe-t,je=W-r,we=Math.sqrt(sn*sn+je*je);if(we<At){const y=1-we/At;ge+=Oc*y*y}}const an=W+Math.sin(fe/v*Math.PI*2*U+C*K+ue)*ge;fe===0?d.moveTo(fe,an):d.lineTo(fe,an)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Qn(()=>{const f=e.value;f&&(f.addEventListener("mousemove",a),f.addEventListener("mouseleave",i),document.addEventListener("visibilitychange",s),n=requestAnimationFrame(l))}),Qt(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",a),f.removeEventListener("mouseleave",i)),document.removeEventListener("visibilitychange",s)})}const id=An({__name:"SineWaveDivider",setup(e){const n=Ne(null);return ad(n),(t,r)=>(_e(),Be("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),sd=St(id,[["__scopeId","data-v-05c59859"]]),ld={class:"gallery-view n-layout-shell"},cd={key:0,class:"gallery-empty"},fd=An({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:o}=zf(),{triggerCardExit:a,prefersReducedMotion:i}=ro(),s=Ne(null);ji(s,".profile-link, .github-link");function l(c,d){if(i.value==="reduced"){d();return}setTimeout(d,800)}function f(c,d){if(i.value==="reduced"){d();return}a(c).then(d)}return(c,d)=>(_e(),Be("div",ld,[Oe("header",{ref_key:"headerRef",ref:s,class:"gallery-header n-panel"},[pe(sd),d[0]||(d[0]=Hl('<div class="gallery-brand" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-cd37ac52><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-cd37ac52><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-cd37ac52></path></svg></a><h1 class="gallery-title" data-v-cd37ac52>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Website</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>@guinetik</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Shadertoy</a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-cd37ac52><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-cd37ac52><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-cd37ac52></path></svg></a></nav><p class="gallery-subtitle" data-v-cd37ac52> Interactive GPU programming experiments using WebGL. </p>',3))],512),pe(Gf,{tags:Pe(t),activeTag:Pe(n),onSelect:Pe(o)},null,8,["tags","activeTag","onSelect"]),pe(xc,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:l,onLeave:f,css:!1},{default:Qr(()=>[(_e(!0),Be(Te,null,Zr(Pe(r),(h,v)=>(_e(),eo($f,{key:h.slug,shader:h,index:v,total:Pe(r).length},null,8,["shader","index","total"]))),128))]),_:1}),Pe(r).length===0?(_e(),Be("p",cd," No shaders found. ")):Ti("",!0)]))}}),dd=St(fd,[["__scopeId","data-v-cd37ac52"]]),ud=[{path:"/",name:"gallery",component:dd},{path:"/shader/:slug",name:"shader-detail",component:()=>Zc(()=>import("./ShaderDetailView-TfkjsumY.js"),__vite__mapDeps([0,1]))}],Qi=of({history:M0(),routes:ud});Qi.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Ac(Xc).use(Qi).mount("#app");export{jo as C,hd as F,pd as M,St as _,Be as a,Oe as b,He as c,An as d,Ti as e,vd as f,_e as g,Zc as h,Te as i,Zr as j,ro as k,ji as l,Qn as m,Yn as n,Qt as o,pe as p,Qr as q,Ne as r,eo as s,ot as t,Pe as u,Ml as v,st as w,md as x,ai as y,af as z};
