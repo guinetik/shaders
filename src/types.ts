@@ -119,4 +119,6 @@ export interface RawShaderMeta {
   links: ShaderLinks;
   /** Optional channel wiring overrides */
   channels?: ShaderChannels;
+  /** Optional shared GLSL library files to prepend (resolved from src/lib/) */
+  commons?: string[];
 }

@@ -100,6 +100,9 @@ export const META_FILENAME = 'meta.json';
 /** Screenshot file name */
 export const SCREENSHOT_FILENAME = 'screenshot.webp';
 
+/** Directory name for shared GLSL library files */
+export const LIB_DIRNAME = 'lib';
+
 // -- Animation Timing (ms) --
 
 /** Duration of the SVG border trace animation */
