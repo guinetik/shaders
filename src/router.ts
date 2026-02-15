@@ -26,4 +26,11 @@ const router = createRouter({
   routes,
 });
 
+/** Track SPA page views in Google Analytics v4 */
+router.afterEach((to) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', { page_path: to.fullPath });
+  }
+});
+
 export default router;

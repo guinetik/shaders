@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { useShaderDetail } from '../composables/useShaderDetail';
+import { useNeutronMotion } from '../composables/useNeutronMotion';
+import { useSineWaveHover } from '../composables/useSineWaveHover';
+import { CARD_EXPAND_MS } from '../constants';
 import ShaderRenderer from '../components/ShaderRenderer.vue';
 import CodeViewer from '../components/CodeViewer.vue';
 import ShaderInfoDrawer from '../components/ShaderInfoDrawer.vue';
 
 const route = useRoute();
+const router = useRouter();
 const slug = route.params.slug as string;
 const {
   shader,
@@ -17,7 +21,23 @@ const {
   closeInfoDrawer,
 } = useShaderDetail(slug);
 
+const { prefersReducedMotion } = useNeutronMotion();
+
 const rendererRef = ref<InstanceType<typeof ShaderRenderer> | null>(null);
+const isEntering = ref(true);
+const detailRef = ref<HTMLElement | null>(null);
+
+useSineWaveHover(detailRef, '.tab-button, .action-button, .link-button');
+
+onMounted(() => {
+  if (prefersReducedMotion.value === 'reduced') {
+    isEntering.value = false;
+    return;
+  }
+  setTimeout(() => {
+    isEntering.value = false;
+  }, CARD_EXPAND_MS);
+});
 
 /**
  * Toggles fullscreen mode on the renderer container.
@@ -55,10 +75,30 @@ function showCodeFromDrawer(): void {
   activeTab.value = 'code';
   closeInfoDrawer();
 }
+
+/**
+ * Navigates back with a fade-out transition.
+ */
+function navigateBack(event: MouseEvent): void {
+  if (prefersReducedMotion.value === 'reduced') return;
+
+  event.preventDefault();
+  const view = (event.target as HTMLElement).closest('.detail-view');
+  if (view) {
+    (view as HTMLElement).animate(
+      [{ opacity: 1 }, { opacity: 0 }],
+      { duration: 200, fill: 'forwards' },
+    ).finished.then(() => {
+      router.push('/');
+    });
+  } else {
+    router.push('/');
+  }
+}
 </script>
 
 <template>
-  <div class="detail-view n-layout-shell">
+  <div ref="detailRef" class="detail-view n-layout-shell" :class="{ 'detail--entering': isEntering }">
     <!-- Not found state -->
     <div v-if="notFound" class="not-found">
       <h1>Shader Not Found</h1>
@@ -68,8 +108,8 @@ function showCodeFromDrawer(): void {
 
     <!-- Shader detail -->
     <template v-else-if="shader">
-      <header class="detail-header n-panel">
-        <router-link to="/" class="back-link">&larr; Back</router-link>
+      <header class="detail-header n-panel detail-stagger-1">
+        <router-link to="/" class="back-link" @click="navigateBack">&larr; Back</router-link>
         <div class="tab-bar">
           <button
             class="tab-button"
@@ -84,7 +124,7 @@ function showCodeFromDrawer(): void {
         </div>
       </header>
 
-      <section class="tab-content">
+      <section class="tab-content detail-stagger-2">
         <ShaderRenderer
           v-if="activeTab === 'render'"
           ref="rendererRef"
@@ -115,7 +155,7 @@ function showCodeFromDrawer(): void {
         </a>
       </div>
 
-      <section class="metadata n-panel">
+      <section class="metadata n-panel detail-stagger-3">
         <h1 class="shader-title">{{ shader.title }}</h1>
         <p class="shader-description">{{ shader.description }}</p>
         <div class="shader-meta-row">
@@ -165,6 +205,47 @@ function showCodeFromDrawer(): void {
 <style scoped>
 .detail-view {
   position: relative;
+  max-width: 1500px;
+}
+
+/* -- Entrance stagger animation -- */
+.detail-stagger-1,
+.detail-stagger-2,
+.detail-stagger-3 {
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.detail--entering .detail-stagger-1 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition-delay: 200ms;
+}
+
+.detail--entering .detail-stagger-2 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition-delay: 300ms;
+}
+
+.detail--entering .detail-stagger-3 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-stagger-1,
+  .detail-stagger-2,
+  .detail-stagger-3 {
+    transition: none;
+  }
+
+  .detail--entering .detail-stagger-1,
+  .detail--entering .detail-stagger-2,
+  .detail--entering .detail-stagger-3 {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .not-found {

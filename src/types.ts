@@ -75,6 +75,36 @@ export interface ShaderEntry extends ShaderMeta {
   channels: ShaderChannels;
 }
 
+// -- Animation Types --
+
+/** Bounding-box snapshot for FLIP animations */
+export interface FlipRect {
+  /** Distance from viewport top in pixels */
+  top: number;
+  /** Distance from viewport left in pixels */
+  left: number;
+  /** Element width in pixels */
+  width: number;
+  /** Element height in pixels */
+  height: number;
+}
+
+/** Card entrance animation state machine */
+export type CardAnimationState = 'hidden' | 'tracing' | 'filling' | 'visible';
+
+/** User motion preference derived from prefers-reduced-motion */
+export type MotionPreference = 'full' | 'reduced';
+
+/** Shared state for FLIP page transitions between gallery and detail */
+export interface TransitionSnapshot {
+  /** Shader slug for routing */
+  slug: string;
+  /** Card bounding rect at time of click */
+  rect: FlipRect;
+  /** Screenshot URL for the transition image */
+  screenshotUrl: string;
+}
+
 /** Raw meta.json structure before slug/screenshot are injected */
 export interface RawShaderMeta {
   /** Display title */

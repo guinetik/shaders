@@ -160,6 +160,9 @@ function scanShaders(shadersDir: string): ShaderEntryInternal[] {
       continue;
     }
 
+    // Skip underscore-prefixed folders (e.g. _template)
+    if (slug.startsWith('_')) continue;
+
     const dir = path.join(shadersDir, slug);
     const metaPath = path.join(dir, META_FILENAME);
     const imagePath = path.join(dir, IMAGE_PASS_FILENAME);

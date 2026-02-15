@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useSineWaveHover } from '../composables/useSineWaveHover';
+
 defineProps<{
   tags: readonly string[];
   activeTag: string | null;
@@ -7,10 +10,14 @@ defineProps<{
 const emit = defineEmits<{
   select: [tag: string | null];
 }>();
+
+const filterRef = ref<HTMLElement | null>(null);
+
+useSineWaveHover(filterRef, '.tag-btn');
 </script>
 
 <template>
-  <div class="tag-filter">
+  <div ref="filterRef" class="tag-filter">
     <button
       class="tag-btn"
       :class="{ active: activeTag === null }"
@@ -65,6 +72,7 @@ const emit = defineEmits<{
   cursor: pointer;
   min-height: 44px;
   flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 @media (hover: hover) {
@@ -77,5 +85,21 @@ const emit = defineEmits<{
   border-color: var(--n-border-active);
   background: var(--n-bg-hover);
   box-shadow: 0 0 12px var(--n-glow);
+  animation: tag-pulse 2000ms ease-in-out infinite;
+}
+
+@keyframes tag-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px var(--n-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--n-glow), 0 0 6px var(--n-accent-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tag-btn.active {
+    animation: none;
+  }
 }
 </style>

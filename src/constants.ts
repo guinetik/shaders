@@ -99,3 +99,86 @@ export const META_FILENAME = 'meta.json';
 
 /** Screenshot file name */
 export const SCREENSHOT_FILENAME = 'screenshot.webp';
+
+// -- Animation Timing (ms) --
+
+/** Duration of the SVG border trace animation */
+export const WIRE_FRAME_TRACE_MS = 400;
+
+/** Duration of content fade-in after trace completes */
+export const WIRE_FRAME_FADE_MS = 300;
+
+/** Delay between successive card entrance animations */
+export const CARD_STAGGER_MS = 50;
+
+/** Maximum total time for grid entrance reveal */
+export const GRID_ENTRANCE_MAX_MS = 800;
+
+/** Hover translate distance in pixels */
+export const CARD_HOVER_LIFT_PX = 6;
+
+/** Corner bracket growth on hover in pixels */
+export const CORNER_EXPAND_PX = 4;
+
+/** Hover scanline sweep duration */
+export const SCANLINE_SWEEP_MS = 600;
+
+/** Hover glow pulse cycle duration */
+export const GLOW_PULSE_MS = 1500;
+
+/** Click-to-expand transition duration */
+export const CARD_EXPAND_MS = 500;
+
+/** Sibling cards fade duration during expand */
+export const SIBLING_FADEOUT_MS = 300;
+
+/** Card exit animation on tag filter change */
+export const FILTER_EXIT_MS = 250;
+
+/** Active tag glow pulse cycle duration */
+export const TAG_PULSE_MS = 2000;
+
+// -- Sine Wave Background --
+
+/** Number of wave lines to draw across the header */
+export const WAVE_COUNT = 8;
+
+/** Base wave amplitude in pixels */
+export const WAVE_BASE_AMP = 8;
+
+/** Mouse-proximity wave amplitude boost in pixels */
+export const WAVE_MOUSE_AMP = 18;
+
+/** Wave frequency multiplier (cycles across width) */
+export const WAVE_FREQ = 2.5;
+
+/** Wave animation speed multiplier */
+export const WAVE_SPEED = 1.2;
+
+/** Wave line stroke width in pixels */
+export const WAVE_LINE_W = 1.5;
+
+/** Wave glow blur radius in pixels */
+export const WAVE_GLOW_BLUR = 10;
+
+// -- Button Sine Wave Hover --
+
+/** Wave amplitude for button hover effect in pixels */
+export const BTN_WAVE_AMP = 4;
+
+/** Wave frequency for button hover (cycles across button width) */
+export const BTN_WAVE_FREQ = 2;
+
+/** Wave animation speed for button hover */
+export const BTN_WAVE_SPEED = 2.0;
+
+/** Line width for button hover wave */
+export const BTN_WAVE_LINE_W = 1.5;
+
+/** Glow blur for button hover wave */
+export const BTN_WAVE_GLOW_BLUR = 8;
+
+// -- Reduced Motion --
+
+/** Simple fade duration for reduced-motion preference */
+export const REDUCED_MOTION_FADE_MS = 200;

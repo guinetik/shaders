@@ -1,14 +1,51 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useShaderGallery } from '../composables/useShaderGallery';
+import { useNeutronMotion } from '../composables/useNeutronMotion';
+import { useSineWaveHover } from '../composables/useSineWaveHover';
 import TagFilter from '../components/TagFilter.vue';
 import ShaderCard from '../components/ShaderCard.vue';
+import SineWaveDivider from '../components/SineWaveDivider.vue';
 
 const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
+const { triggerCardExit, prefersReducedMotion } = useNeutronMotion();
+
+const headerRef = ref<HTMLElement | null>(null);
+
+useSineWaveHover(headerRef, '.profile-link, .github-link');
+
+/**
+ * TransitionGroup @enter hook — triggers the wire-frame entrance
+ * for cards entering the grid after a filter change.
+ */
+function onCardEnter(_el: Element, done: () => void): void {
+  if (prefersReducedMotion.value === 'reduced') {
+    done();
+    return;
+  }
+
+  // Let the component's onMounted handle the entrance animation.
+  // Signal done after the entrance animation duration.
+  setTimeout(done, 800);
+}
+
+/**
+ * TransitionGroup @leave hook — scales down + fades out exiting cards.
+ */
+function onCardLeave(el: Element, done: () => void): void {
+  if (prefersReducedMotion.value === 'reduced') {
+    done();
+    return;
+  }
+
+  triggerCardExit(el).then(done);
+}
 </script>
 
 <template>
   <div class="gallery-view n-layout-shell">
-    <header class="gallery-header n-panel">
+    <header ref="headerRef" class="gallery-header n-panel">
+      <SineWaveDivider />
       <div class="gallery-brand">
         <a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website">
           <svg
@@ -46,13 +83,22 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
       </p>
     </header>
     <TagFilter :tags="allTags" :activeTag="activeTag" @select="setTag" />
-    <div class="gallery-grid">
+    <TransitionGroup
+      name="shader-card"
+      tag="div"
+      class="gallery-grid"
+      @enter="onCardEnter"
+      @leave="onCardLeave"
+      :css="false"
+    >
       <ShaderCard
-        v-for="shader in filteredShaders"
+        v-for="(shader, index) in filteredShaders"
         :key="shader.slug"
         :shader="shader"
+        :index="index"
+        :total="filteredShaders.length"
       />
-    </div>
+    </TransitionGroup>
     <p v-if="filteredShaders.length === 0" class="gallery-empty">
       No shaders found.
     </p>
@@ -65,9 +111,11 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 }
 
 .gallery-header {
+  position: relative;
   margin-bottom: 20px;
   padding: 14px;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .gallery-title {
@@ -78,6 +126,7 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 }
 
 .gallery-brand {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -103,6 +152,7 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 }
 
 .gallery-links {
+  position: relative;
   margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -129,6 +179,7 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 }
 
 .gallery-subtitle {
+  position: relative;
   margin-top: 10px;
   max-width: 60ch;
   color: var(--n-text-dim);
@@ -140,6 +191,12 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
+  position: relative;
+}
+
+/* FLIP: smooth repositioning of remaining cards */
+.gallery-grid :deep(.shader-card) {
+  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @media (min-width: 768px) {

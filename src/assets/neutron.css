@@ -244,3 +244,22 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(117, 156, 220, 0.68);
 }
+
+/* View Transitions API — progressive enhancement */
+::view-transition-old(root) {
+  animation: vt-fade-out 200ms ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 300ms ease-out forwards;
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
