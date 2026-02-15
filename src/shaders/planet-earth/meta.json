@@ -3,5 +3,6 @@
   "description": "A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",
   "date": "2025-11-27",
   "tags": ["exoplanets", "space", "3d"],
-  "links": {}
+  "links": {},
+  "commons": ["sphere", "noise-value", "normal-map", "lighting", "atmosphere"]
 }
