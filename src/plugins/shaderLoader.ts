@@ -15,6 +15,7 @@ import {
   BUFFER_FILENAMES,
   META_FILENAME,
   SCREENSHOT_FILENAME,
+  LIB_DIRNAME,
 } from '../constants';
 import type {
   RawShaderMeta,
@@ -133,9 +134,54 @@ function assignBufferPass(
 }
 
 /**
+ * Load and concatenate commons GLSL source files.
+ *
+ * @param libDir - Absolute path to the src/lib/ directory
+ * @param commons - Array of common names (e.g. ['sphere', 'lighting'])
+ * @param slug - Shader slug for error messages
+ * @returns Concatenated GLSL source string to prepend
+ */
+function loadCommons(libDir: string, commons: string[], slug: string): string {
+  const sources: string[] = [];
+
+  for (const name of commons) {
+    if (name.includes('..') || name.includes('/') || name.includes('\\')) {
+      console.warn(`[shader-loader] Skipping commons entry with suspicious path characters in ${slug}: ${name}`);
+      continue;
+    }
+
+    const filePath = path.join(libDir, `${name}.glsl`);
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`[shader-loader] Commons file not found for shader "${slug}": src/lib/${name}.glsl`);
+    }
+
+    try {
+      sources.push(fs.readFileSync(filePath, 'utf-8'));
+    } catch (err) {
+      throw new Error(`[shader-loader] Failed to read commons file src/lib/${name}.glsl for shader "${slug}": ${err}`);
+    }
+  }
+
+  return sources.length > 0 ? sources.join('\n') + '\n' : '';
+}
+
+/**
+ * Prepend commons source to all passes in a ShaderPasses object.
+ */
+function prependCommons(passes: ShaderPasses, commonsSource: string): void {
+  if (!commonsSource) return;
+
+  passes.image = commonsSource + passes.image;
+  if (passes.bufferA) passes.bufferA = commonsSource + passes.bufferA;
+  if (passes.bufferB) passes.bufferB = commonsSource + passes.bufferB;
+  if (passes.bufferC) passes.bufferC = commonsSource + passes.bufferC;
+  if (passes.bufferD) passes.bufferD = commonsSource + passes.bufferD;
+}
+
+/**
  * Scan all shader directories and assemble the registry.
  */
-function scanShaders(shadersDir: string): ShaderEntryInternal[] {
+function scanShaders(shadersDir: string, libDir: string): ShaderEntryInternal[] {
   if (!fs.existsSync(shadersDir)) return [];
 
   const entries: ShaderEntryInternal[] = [];
@@ -229,6 +275,12 @@ function scanShaders(shadersDir: string): ShaderEntryInternal[] {
       ? mergeChannels(defaultChannels, rawMeta.channels)
       : defaultChannels;
 
+    // Load and prepend commons if specified
+    if (rawMeta.commons && rawMeta.commons.length > 0) {
+      const commonsSource = loadCommons(libDir, rawMeta.commons, slug);
+      prependCommons(passes, commonsSource);
+    }
+
     // Detect screenshot in shader source folder
     const screenshotPath = path.join(dir, SCREENSHOT_FILENAME);
     const hasScreenshot = fs.existsSync(screenshotPath);
@@ -261,12 +313,14 @@ function scanShaders(shadersDir: string): ShaderEntryInternal[] {
  */
 export function shaderLoaderPlugin(): Plugin {
   let shadersDir: string;
+  let libDir: string;
 
   return {
     name: 'shader-loader',
 
     configResolved(config) {
       shadersDir = path.resolve(config.root, 'src/shaders');
+      libDir = path.resolve(config.root, 'src', LIB_DIRNAME);
     },
 
     resolveId(id: string) {
@@ -277,7 +331,7 @@ export function shaderLoaderPlugin(): Plugin {
 
     load(id: string) {
       if (id === RESOLVED_VIRTUAL_MODULE_ID) {
-        const entries = scanShaders(shadersDir);
+        const entries = scanShaders(shadersDir, libDir);
 
         // Generate import statements for screenshots found in shader source folders
         const imports: string[] = [];
@@ -319,11 +373,13 @@ export function shaderLoaderPlugin(): Plugin {
       // Watch shader files for HMR
       server.watcher.add(path.join(shadersDir, '**/*.glsl'));
       server.watcher.add(path.join(shadersDir, `**/${META_FILENAME}`));
+      // Watch shared lib files for HMR
+      server.watcher.add(path.join(libDir, '**/*.glsl'));
 
       server.watcher.on('change', (file: string) => {
         const normalized = file.replace(/\\/g, '/');
         if (
-          normalized.includes('/src/shaders/') &&
+          (normalized.includes('/src/shaders/') || normalized.includes('/src/lib/')) &&
           (normalized.endsWith('.glsl') || normalized.endsWith('.json'))
         ) {
           const mod = server.moduleGraph.getModuleById(
