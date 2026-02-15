@@ -2,6 +2,7 @@
  * Nebula Background Shadertoy Study
  *
  * @author guinetik
+ * @date 2025-11-25
  * @see https://github.com/guinetik
  *
  * Cinematic camera movement with cuts every 4 seconds.

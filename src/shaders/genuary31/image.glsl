@@ -1,21 +1,27 @@
 /**
- * day31_finale.glsl - Genuary 2026 Day 31: GLSL Day
+ * Genuary 2026 Day 31: GLSL Day
+ * @author guinetik
+ * @date 2026-01-31
  *
- * Synthwave terrain with Sierpinski fractal sky and Black Hole
+ * Synthwave terrain with Sierpinski fractal sky and Black Hole.
+ * A kitchen-sink shader combining multiple techniques as a Genuary finale:
+ * raymarched triangular-grid terrain, Sierpinski-triangle sky dome,
+ * raytraced black hole with gravitational lensing and accretion disk,
+ * animated bird flocks, and a Matrix-rain glyph overlay.
  *
  * Features:
- * - Raymarched triangular grid terrain with dramatic peaks
- * - Terminal green color palette
+ * - Raymarched triangular grid terrain with dramatic peaks and canyon
+ * - Terminal green color palette throughout
  * - Sierpinski triangle pattern projected onto the sky dome
  * - Raytraced black hole with gravitational lensing and accretion disk
- * - Bird flocks flying across the sky
+ * - Bird flocks flying across the sky in periodic waves
  * - Mouse-controlled camera rotation (yaw/pitch)
+ * - Matrix rain overlay with procedural katakana-like glyphs
  * - Scanline and vignette post-processing
  *
  * Based on "another synthwave sunset thing" by stduhpf
  * Original: https://www.shadertoy.com/view/tsScRK
  *
- * @author guinetik
  * @project Genuary 2026
  * @see https://genuary2026.guinetik.com
  */
@@ -30,105 +36,107 @@
 // ============================================
 
 // Camera
-#define CAM_SPEED 10.0
-#define CAM_HEIGHT 1.5
-#define CAM_START_Z 20000.0
-#define CAM_YAW_SENS 0.8
-#define CAM_PITCH_SENS 0.08
-#define CAM_VIEW_OFFSET 0.15
-#define CAM_FOV 1.333           // 4/3
+#define CAM_SPEED 10.0            // Forward travel speed — higher = faster flythrough.
+#define CAM_HEIGHT 1.5            // Camera altitude above terrain — raise to see more terrain.
+#define CAM_START_Z 20000.0       // Starting Z offset — large value avoids terrain edge artifacts at start.
+#define CAM_YAW_SENS 0.8          // Mouse-X sensitivity for horizontal camera rotation.
+#define CAM_PITCH_SENS 0.08       // Mouse-Y sensitivity for vertical camera tilt.
+#define CAM_VIEW_OFFSET 0.15      // Vertical UV offset — tilts default view slightly downward.
+#define CAM_FOV 1.333             // 4/3 aspect FOV factor — higher = narrower field of view.
 
 // Terrain
-#define TERRAIN_HEIGHT 3.0
-#define TERRAIN_WAVE_FREQ 0.15
-#define TERRAIN_WAVE_SPEED 2.0
-#define TERRAIN_WAVE_AMP 0.3
-#define TERRAIN_WAVE_FADE 5.0
-#define TERRAIN_CANYON_WIDTH 0.02
-#define TERRAIN_CANYON_DEPTH 0.8
-#define TERRAIN_SPIKE_FREQ 0.5
-#define TERRAIN_SPIKE_PERIOD 8.0
-#define TERRAIN_SPIKE_HEIGHT 1.5
+#define TERRAIN_HEIGHT 3.0        // Peak terrain height from triangular noise.
+#define TERRAIN_WAVE_FREQ 0.15    // Frequency of rolling wave ridges along Z — higher = tighter waves.
+#define TERRAIN_WAVE_SPEED 2.0    // Speed of wave ridge animation — higher = faster rolling.
+#define TERRAIN_WAVE_AMP 0.3      // Amplitude of rolling waves — higher = taller ridges.
+#define TERRAIN_WAVE_FADE 5.0     // X-distance at which waves fade in — prevents center canyon disruption.
+#define TERRAIN_CANYON_WIDTH 0.02  // Gaussian width of the central canyon — smaller = narrower canyon.
+#define TERRAIN_CANYON_DEPTH 0.8   // Depth of the central canyon groove.
+#define TERRAIN_SPIKE_FREQ 0.5    // How often spike formations repeat along Z.
+#define TERRAIN_SPIKE_PERIOD 8.0  // Period of spike repetition pattern.
+#define TERRAIN_SPIKE_HEIGHT 1.5  // Maximum height of dramatic spike peaks.
 
 // Grid
-#define GRID_GLOW_THRESH 0.08
-#define GRID_PULSE_SPEED 3.0
-#define GRID_PULSE_SCALE 0.1
-#define GRID_COLOR vec3(0.0, 1.0, 0.3)
-#define GRID_GLOW_COLOR vec3(0.0, 0.4, 0.15)
+#define GRID_GLOW_THRESH 0.08     // Distance from triangle edge where glow activates — wider = thicker lines.
+#define GRID_PULSE_SPEED 3.0      // Speed of the grid brightness pulsing.
+#define GRID_PULSE_SCALE 0.1      // Spatial frequency of the pulse wave along Z.
+#define GRID_COLOR vec3(0.0, 1.0, 0.3)       // Bright neon green grid line color.
+#define GRID_GLOW_COLOR vec3(0.0, 0.4, 0.15) // Softer green for the grid bloom/glow halo.
 
 // Raymarching
-#define MARCH_MAX_ITER 500
-#define MARCH_STEP_MULT 0.5
-#define MARCH_HIT_THRESH 0.003
-#define MARCH_MAX_DIST 150.0
-#define MARCH_MAX_Y 4.0
+#define MARCH_MAX_ITER 500        // Maximum raymarch iterations — higher = more detail but slower.
+#define MARCH_STEP_MULT 0.5       // Step size multiplier (relaxation) — 0.5 is conservative/safe,
+                                  // 0.8+ is faster but may cause surface artifacts.
+#define MARCH_HIT_THRESH 0.003    // Surface hit threshold — smaller = more precise but more iterations.
+#define MARCH_MAX_DIST 150.0      // Maximum ray travel distance before giving up.
+#define MARCH_MAX_Y 4.0           // Y height above which aggressive stepping is used (above terrain).
 
-// Sky
-#define SKY_LAYER1_SCALE 60.0
-#define SKY_LAYER2_SCALE 120.0
-#define SKY_LAYER3_SCALE 200.0
-#define SKY_DRIFT_SPEED vec2(2.0, 1.5)
-#define SKY_PATTERN_INTENSITY 0.38
-#define SKY_BG_COLOR vec3(0.0, 0.10, 0.03)
-#define SKY_HAZE_COLOR vec3(0.0, 0.22, 0.07)
-#define SKY_PATTERN_COLOR vec3(0.1, 0.55, 0.22)
+// Sky (Sierpinski fractal dome)
+#define SKY_LAYER1_SCALE 60.0     // Scale of the largest Sierpinski layer — smaller = bigger triangles.
+#define SKY_LAYER2_SCALE 120.0    // Medium Sierpinski layer scale.
+#define SKY_LAYER3_SCALE 200.0    // Finest Sierpinski layer scale.
+#define SKY_DRIFT_SPEED vec2(2.0, 1.5)    // Drift velocity of fractal layers across the sky dome.
+#define SKY_PATTERN_INTENSITY 0.38         // Brightness of the Sierpinski pattern — 0 = invisible, 1 = full.
+#define SKY_BG_COLOR vec3(0.0, 0.10, 0.03) // Deep green-black sky background.
+#define SKY_HAZE_COLOR vec3(0.0, 0.22, 0.07)   // Horizon haze color — green-tinged fog.
+#define SKY_PATTERN_COLOR vec3(0.1, 0.55, 0.22) // Color of the Sierpinski fractal triangles.
 
 // Black hole
-#define BH_POSITION vec2(0.5, 0.5)
-#define BH_SIZE 0.08
-#define BH_CAM_DIST 2.0
-#define BH_CAM_ANGLE 0.48       // * PI
-#define BH_EVENT_HORIZON 0.1
-#define BH_GRAVITY 0.005
-#define BH_STEP_SIZE 0.02
-#define BH_DISK_OUTER vec3(0.1, 0.5, 0.2)
-#define BH_DISK_INNER vec3(0.4, 1.0, 0.6)
-#define BH_GLOW_COLOR vec3(0.3, 1.0, 0.5)
-#define BH_COUNTER_YAW 0.7
-#define BH_COUNTER_PITCH 0.06
+#define BH_POSITION vec2(0.5, 0.5)   // Screen-space position of the black hole (0-1 range).
+#define BH_SIZE 0.08                  // Visual size scaling — smaller = smaller black hole on screen.
+#define BH_CAM_DIST 2.0              // Camera distance from the black hole center.
+#define BH_CAM_ANGLE 0.48            // Camera elevation angle (multiplied by PI) — ~86 deg from pole.
+#define BH_EVENT_HORIZON 0.1         // Radius of the event horizon — light inside is fully captured.
+#define BH_GRAVITY 0.005             // Gravitational lensing strength — higher = more bending.
+#define BH_STEP_SIZE 0.02            // Base integration step for light ray bending.
+#define BH_DISK_OUTER vec3(0.1, 0.5, 0.2)  // Outer accretion disk color (cooler, green-tinted).
+#define BH_DISK_INNER vec3(0.4, 1.0, 0.6)  // Inner accretion disk color (hotter, bright green).
+#define BH_GLOW_COLOR vec3(0.3, 1.0, 0.5)  // Point-source glow around the singularity.
+#define BH_COUNTER_YAW 0.7           // Counter-rotation factor to keep BH fixed when camera pans.
+#define BH_COUNTER_PITCH 0.06        // Counter-pitch factor for vertical camera movement.
 
 // Birds
-#define BIRD_FLOCK_COUNT 4.0
-#define BIRD_FLOCK_OFFSET 6.0
-#define BIRD_CYCLE_TIME 25.0
-#define BIRD_ACTIVE_TIME 18.0
-#define BIRD_SIZE 12.0
-#define BIRD_LINE_THICK 1.5
-#define BIRD_Y_MIN 0.55
-#define BIRD_Y_RANGE 0.30
-#define BIRD_COUNT_MIN 6.0
-#define BIRD_COUNT_RANGE 7.0
-#define BIRD_SPREAD_X 80.0
-#define BIRD_SPREAD_Y 50.0
-#define BIRD_WING_SPEED 12.0
-#define BIRD_COLOR vec3(0.1, 0.9, 0.4)
+#define BIRD_FLOCK_COUNT 4.0     // Number of independent bird flocks.
+#define BIRD_FLOCK_OFFSET 6.0    // Time offset between flock appearances (seconds).
+#define BIRD_CYCLE_TIME 25.0     // Full cycle duration (active + rest) per flock.
+#define BIRD_ACTIVE_TIME 18.0    // How long a flock is visible during its cycle.
+#define BIRD_SIZE 12.0           // Wingspan in pixels — larger = bigger birds.
+#define BIRD_LINE_THICK 1.5      // Stroke thickness of the V-shaped bird silhouette.
+#define BIRD_Y_MIN 0.55          // Minimum normalized Y position for flock path.
+#define BIRD_Y_RANGE 0.30        // Range of vertical variation for flock paths.
+#define BIRD_COUNT_MIN 6.0       // Minimum birds per flock.
+#define BIRD_COUNT_RANGE 7.0     // Random range added to min — so 6 to 13 birds per flock.
+#define BIRD_SPREAD_X 80.0       // Horizontal scatter of birds within a flock (pixels).
+#define BIRD_SPREAD_Y 50.0       // Vertical scatter of birds within a flock (pixels).
+#define BIRD_WING_SPEED 12.0     // Wing flapping frequency — higher = faster flapping.
+#define BIRD_COLOR vec3(0.1, 0.9, 0.4) // Bird silhouette color (bright green to match theme).
 
 // Matrix rain (Quine style)
-#define MATRIX_CYCLE 30.0
-#define MATRIX_BURST 5.0
-#define MATRIX_CELL_W 11.0
-#define MATRIX_CELL_H 18.0
-#define MATRIX_DENSITY 0.35
-#define MATRIX_DELAY_MAX 2.5
-#define MATRIX_TICK 0.07
-#define MATRIX_TAIL_MIN 25.0
-#define MATRIX_TAIL_RANGE 25.0
-#define MATRIX_HEAD_COLOR vec3(0.95, 1.0, 0.98)
-#define MATRIX_HEAD_GLOW 0.4
-#define MATRIX_TAIL_COLOR vec3(0.0, 0.85, 0.35)
-#define MATRIX_BG_FLICKER 0.02
-#define MATRIX_CHAR_CHANGE 15.0
+#define MATRIX_CYCLE 30.0        // Full cycle time — rain triggers once per cycle.
+#define MATRIX_BURST 5.0         // Duration of the initial burst window when new drops start.
+#define MATRIX_CELL_W 11.0       // Width of each character cell in pixels.
+#define MATRIX_CELL_H 18.0       // Height of each character cell in pixels.
+#define MATRIX_DENSITY 0.35      // Fraction of columns that are active — 0.35 = 35% have rain.
+#define MATRIX_DELAY_MAX 2.5     // Max random start delay for staggered drops (seconds).
+#define MATRIX_TICK 0.07         // Time per discrete drop step — smaller = faster rain.
+#define MATRIX_TAIL_MIN 25.0     // Minimum tail length in character rows.
+#define MATRIX_TAIL_RANGE 25.0   // Random additional tail length — so 25 to 50 rows.
+#define MATRIX_HEAD_COLOR vec3(0.95, 1.0, 0.98)  // Bright white-green head of each rain drop.
+#define MATRIX_HEAD_GLOW 0.4     // Bloom intensity around the leading character.
+#define MATRIX_TAIL_COLOR vec3(0.0, 0.85, 0.35)  // Classic Matrix green for the trailing tail.
+#define MATRIX_BG_FLICKER 0.02   // Probability of a random background glyph flickering on.
+#define MATRIX_CHAR_CHANGE 15.0  // Speed of character mutation — higher = glyphs change faster.
 
 // Post-processing
-#define SCANLINE_MIN 0.95
-#define SCANLINE_RANGE 0.05
-#define SCANLINE_FREQ 2.0
-#define VIGNETTE_STRENGTH 0.5
+#define SCANLINE_MIN 0.95        // Minimum brightness in scanline troughs — 1.0 = no scanlines.
+#define SCANLINE_RANGE 0.05      // Amplitude of scanline brightness variation.
+#define SCANLINE_FREQ 2.0        // Spatial frequency of scanlines — higher = tighter lines.
+#define VIGNETTE_STRENGTH 0.5    // Corner darkening intensity — 0 = off, 1 = heavy.
 
 // Terrain colors
-#define TERRAIN_BASE_COLOR vec3(0.0, 0.12, 0.05)
-#define FOG_DECAY vec3(0.2, 0.08, 0.25)
+#define TERRAIN_BASE_COLOR vec3(0.0, 0.12, 0.05)  // Base terrain diffuse color (dark green).
+#define FOG_DECAY vec3(0.2, 0.08, 0.25)           // Per-channel exponential fog falloff rates.
+                                                    // Lower = fog extends farther in that channel.
 
 // ============================================
 // GLOBALS
@@ -415,6 +423,12 @@ vec2 intersect(vec3 ro, vec3 rd) {
 // ============================================
 // SIERPINSKI SKY
 // ============================================
+
+// TECHNIQUE: Sierpinski carpet test
+// For each scale level, check if the pixel falls in a "removed" quadrant
+// (both x and y in the middle third). If so, the pixel is empty (0).
+// Multiple scales layered together create the fractal sky dome pattern.
+
 float sierpinski(vec2 p, float iterations) {
     float filled = 1.0;
     for (float i = 0.0; i < 8.0; i++) {
@@ -453,6 +467,13 @@ vec3 gsky(vec3 rd, vec3 ld, bool mask) {
 // ============================================
 // BLACK HOLE
 // ============================================
+
+// TECHNIQUE: Gravitational lensing via ray deflection
+// Light rays are stepped through space and deflected toward the black hole
+// center by an inverse-square gravitational force. Rays that cross the
+// event horizon are absorbed (captured). The accretion disk is rendered
+// as a flattened torus with FBM-textured emissive color.
+
 vec4 renderBlackHole(vec2 screenPos, float time) {
     vec2 bhOffset = (BH_POSITION - 0.5) * 2.0;
     bhOffset.x *= iResolution.x / iResolution.y;
@@ -591,7 +612,14 @@ vec3 renderBirds(vec2 fragCoord, vec2 resolution, float time) {
 // MATRIX RAIN (Quine Style)
 // ============================================
 
-// Pseudo-glyph pattern - creates katakana-like shapes
+// TECHNIQUE: Procedural glyph rain
+// Each screen column is independently seeded. A "drop head" advances
+// downward in discrete tick steps, leaving a fading green tail behind.
+// Glyphs are procedurally constructed from simple geometric primitives
+// (vertical/horizontal strokes, diagonals, boxes) to approximate
+// katakana-like characters without any font texture.
+
+/** Procedural glyph pattern — creates katakana-like shapes from geometric primitives. */
 float matrixGlyph(vec2 uv, float seed) {
     // Create a procedural glyph based on seed
     float glyphType = floor(seed * 8.0);

@@ -1,9 +1,10 @@
 /**
  * Smooth Waves Study
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-01-29
+ *
+ * Dali-inspired liquid surface with layered sine waves, center ripple
+ * source, corner-based interference patterns, and heat shimmer.
  *
  * Wave Distortion Techniques:
  * - Layered sine waves (Dali-inspired liquid)
@@ -21,20 +22,24 @@
 
 /**
  * Layered wave distortion
- * Multiple sine waves at different frequencies create organic flow
+ * Three frequency bands mimic real water wave spectra:
+ *   Layer 1 (4-3 Hz):  large swell — slow, high amplitude, diagonal
+ *   Layer 2 (8-6 Hz):  medium chop — moderate speed & amplitude
+ *   Layer 3 (15-12 Hz): surface ripples — fast, low amplitude
+ * Diagonal cross-terms (uv.y*freq + uv.x*freq) create wave interference.
  */
 vec2 waveDistort(vec2 uv, float time, float intensity) {
     vec2 offset = vec2(0.0);
 
-    // Layer 1: Large slow diagonal waves
+    // Layer 1: Large slow diagonal waves (longest wavelength, biggest amplitude)
     offset.x += sin(uv.y * 4.0 + uv.x * 2.0 + time * 1.2) * 0.03;
     offset.y += cos(uv.x * 3.0 + uv.y * 2.0 + time * 1.0) * 0.03;
 
-    // Layer 2: Medium flowing waves
+    // Layer 2: Medium flowing waves (2x frequency, ~half amplitude)
     offset.x += sin(uv.y * 8.0 + time * 1.8) * 0.015;
     offset.y += cos(uv.x * 6.0 + time * 1.5) * 0.02;
 
-    // Layer 3: Small fast ripples
+    // Layer 3: Small fast ripples (~4x frequency, ~quarter amplitude)
     offset.x += sin(uv.y * 15.0 + uv.x * 10.0 + time * 3.0) * 0.008;
     offset.y += sin(uv.x * 12.0 + uv.y * 8.0 + time * 2.5) * 0.008;
 
@@ -82,10 +87,12 @@ vec2 interferenceDistort(vec2 uv, float time, float intensity) {
 
 /**
  * Horizontal heat shimmer effect
+ * Two high-frequency sine layers (40 Hz, 80 Hz) create the jittery
+ * horizontal displacement characteristic of heat convection.
  */
 vec2 shimmerDistort(vec2 uv, float time, float intensity) {
-    float shimmer = sin(uv.y * 40.0 + time * 5.0) * 0.003;
-    shimmer += sin(uv.y * 80.0 + time * 8.0) * 0.001;
+    float shimmer = sin(uv.y * 40.0 + time * 5.0) * 0.003;  // primary shimmer
+    shimmer += sin(uv.y * 80.0 + time * 8.0) * 0.001;        // fine detail at 2x freq
 
     // Stronger in middle, fade at edges
     float mask = smoothstep(0.0, 0.3, uv.y) * smoothstep(1.0, 0.7, uv.y);

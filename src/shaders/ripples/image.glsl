@@ -1,9 +1,11 @@
 /**
  * Perlin Ripples Study
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-01-30
+ *
+ * Chaotic liquid surface with multiple wandering ripple sources
+ * that move unpredictably through noise space. Each source has
+ * randomized parameters and pulsing intensity.
  *
  * Perlin Ripple Techniques:
  * - 3D gradient noise for smooth animation
@@ -77,6 +79,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     for (int i = 0; i < 6; i++) {
         float fi = float(i);
+        // Seed offset per source — 73.156 is an arbitrary irrational-ish
+        // constant that spaces sources far apart in noise space, avoiding
+        // correlated motion between emitters
         float seed = fi * 73.156;
 
         // Each source wanders unpredictably using noise
@@ -89,9 +94,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         float dist = length(p - sourcePos);
 
         // Ripple with unique frequency, speed, and phase
-        float freq = 15.0 + hash(fi * 5.1) * 20.0;
-        float speed = 2.0 + hash(fi * 7.3) * 3.0;
-        float phase = hash(fi * 11.7) * 6.28;
+        // Hash seeds (5.1, 7.3, 11.7) are coprime-ish multipliers that
+        // ensure each source gets decorrelated freq/speed/phase values
+        float freq = 15.0 + hash(fi * 5.1) * 20.0;   // 15-35 Hz range
+        float speed = 2.0 + hash(fi * 7.3) * 3.0;     // 2-5 propagation speed
+        float phase = hash(fi * 11.7) * 6.28;          // random initial phase
 
         float ripple = sin(dist * freq - time * speed + phase);
 

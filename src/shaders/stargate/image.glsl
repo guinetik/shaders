@@ -1,34 +1,36 @@
 /**
- * Raymarch Stargate Study
- *
+ * Stargate Study
  * @author guinetik
+ * @date 2026-02-02
+ *
+ * A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey
+ * Stargate sequence. Sphere-traces through a box corridor, mapping the input
+ * image onto walls with noise-based distortion and cycling hue shifts.
+ *
+ * Techniques:
+ * - Raymarched box corridor with wall-distance SDF
+ * - Input texture mapped to walls with noise-warped UVs
+ * - HSV hue cycling over time and depth for psychedelic color
+ * - Screen blend compositing (additive light model)
+ * - Alternating horizontal/vertical tunnel orientation every 4 seconds
+ *
  * @project Genuary 2026
  * @see https://genuary2026.guinetik.com
- *
- * Stargate Techniques:
- * - Raymarched infinite corridor
- * - Video texture mapped to walls
- * - Screen blend with base image
- *
- * Visual Features:
- * - Tunnel walls show warped input texture
- * - Screen blend overlay (additive light)
- * - Alternating horizontal/vertical orientation
  */
 
 #define PI 3.14159265359
 
-/**
- * Hash for noise
- */
+// ---------------------------------------------------------------------------
+// Noise utilities
+// ---------------------------------------------------------------------------
+
+/** Pseudo-random hash — returns [-1, 1] range for signed noise. */
 float hash(vec2 p) {
     p = 50.0 * fract(p * 0.3183099 + vec2(0.71, 0.113));
     return -1.0 + 2.0 * fract(p.x * p.y * (p.x + p.y));
 }
 
-/**
- * 2D Signed noise
- */
+/** 2D value noise with Hermite smoothing — returns [-1, 1]. */
 float noise(vec2 p) {
     vec2 i = floor(p);
     vec2 f = fract(p);
@@ -40,16 +42,16 @@ float noise(vec2 p) {
         u.y);
 }
 
-/**
- * Screen blend mode - adds light
- */
+// ---------------------------------------------------------------------------
+// Blend modes and color space
+// ---------------------------------------------------------------------------
+
+/** Screen blend mode — 1-(1-a)*(1-b). Adds light without blowing out to white. */
 vec3 blendScreen(vec3 base, vec3 blend) {
     return 1.0 - (1.0 - base) * (1.0 - blend);
 }
 
-/**
- * RGB to HSV conversion
- */
+/** RGB to HSV conversion — used for hue-shifting wall textures. */
 vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);
     vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
@@ -59,40 +61,49 @@ vec3 rgb2hsv(vec3 c) {
     return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 
-/**
- * HSV to RGB conversion
- */
+/** HSV to RGB conversion. */
 vec3 hsv2rgb(vec3 c) {
     vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
+// ---------------------------------------------------------------------------
+// Raymarch tunnel
+// ---------------------------------------------------------------------------
+
+// TECHNIQUE: Raymarched box corridor
+// The SDF is simply the minimum distance to the four walls (two horizontal
+// or two vertical depending on orientation). The ray marches forward until
+// it hits a wall, then the wall is textured with the input image and
+// noise-warped UVs for a psychedelic Stargate look.
+
 /**
- * Raymarch tunnel - video texture on walls
+ * Raymarch an infinite corridor and sample the input texture on the walls.
+ * @param isVertical 0.0 = horizontal walls, 1.0 = vertical walls
  */
 vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
-    const float FOV_ZOOM = 0.4;
+    const float FOV_ZOOM = 0.4;  // Controls field-of-view width — smaller = wider FOV
 
-    // Camera oscillation
+    // Camera oscillation — subtle drift for organic camera movement
     float oscillation = 0.1 * sin(time * 1.137) * (1.0 + 0.1 * cos(time * 0.37));
 
-    // Camera rotation
+    // Camera rotation — snaps between 0 and 90 degrees using smoothstep threshold
     float rot = smoothstep(-0.005, 0.005, sin(0.1 * time + 4.0)) * PI * 0.5;
     float c = cos(rot), s = sin(rot);
     uv = uv * mat2(c, -s, s, c);
 
-    // Camera setup
+    // Camera setup — slightly off-center, looking mostly down the corridor
     vec3 camPos = vec3(oscillation, sin(time * 17.39) * oscillation * oscillation, -1.0);
     vec3 forward = normalize(mix(-camPos, vec3(0.0, 0.0, 1.0), 0.6));
     vec3 up = vec3(0.0, 1.0, 0.0);
     vec3 right = cross(forward, up);
 
-    // Ray direction
+    // Ray direction — project screen pixel through camera basis
     vec3 screenPoint = camPos + forward * FOV_ZOOM + uv.x * right + uv.y * up;
     vec3 rayDir = normalize(screenPoint - camPos);
 
-    // Raymarch
+    // Raymarch through the corridor (250 max steps)
     vec3 rayPos;
     float rayLength = 0.0;
     float stepDist = 0.0;
@@ -134,8 +145,9 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
         float mixFactor = 0.6 + 0.35 * sin(0.253 * time);
         wallColor = mix(noiseColor, wallColor, mixFactor);
 
-        // === COLOR CYCLING (like 2001 Stargate) ===
-        // Shift hue over time with depth variation
+        // TECHNIQUE: HSV hue cycling (2001 Stargate homage)
+        // Hue rotates with time and ray depth so distant walls shift color
+        // faster, creating the characteristic psychedelic corridor effect.
         vec3 hsv = rgb2hsv(wallColor);
         float hueShift = time * 0.15 + rayLength * 0.1;  // Time + depth based
         hsv.x = fract(hsv.x + hueShift);

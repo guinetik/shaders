@@ -1,9 +1,11 @@
 /**
  * Perlin Plasma Study
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-01-30
+ *
+ * Classic demoscene plasma enhanced with 3D Perlin gradient noise
+ * for organic turbulence. Multiple sine wave interference patterns
+ * warped through FBM noise create flowing psychedelic color fields.
  *
  * Plasma Techniques:
  * - True 3D Perlin gradient noise
@@ -60,14 +62,18 @@ float perlin3D(vec3 p) {
 
 /**
  * Perlin FBM - layered gradient noise
+ * 5 octaves with standard lacunarity 2.0 and gain 0.5:
+ *   - Each octave doubles spatial frequency (p *= 2.0)
+ *   - Each octave halves amplitude (a *= 0.5)
+ *   - This 1/f weighting produces natural-looking turbulence
  */
 float perlinFBM(vec3 p) {
     float v = 0.0;
     float a = 0.5;
     for (int i = 0; i < 5; i++) {
         v += a * perlin3D(p);
-        p *= 2.0;
-        a *= 0.5;
+        p *= 2.0;  // lacunarity: double frequency each octave
+        a *= 0.5;  // gain: halve amplitude each octave
     }
     return v;
 }

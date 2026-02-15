@@ -2,25 +2,28 @@
  * Gravity Well Study
  *
  * @author guinetik
+ * @date 2026-01-29
  * @project Genuary 2026
  * @see https://genuary2026.guinetik.com
  *
- * Gravity Well Techniques:
- * - Inverse-square gravitational lensing
- * - Multi-well interference warping
- * - Image-based color sampling
+ * Gravitational lensing effect that warps input images through orbiting
+ * singularities. Wells sample and boost colors from the texture beneath
+ * them for glowing halos, while dark cores create the event horizon effect.
  *
- * Visual Features:
- * - Orbiting gravity wells warp the image
- * - Colors sampled from warped texture
- * - Glowing wells with dark cores
+ * Techniques:
+ * - Inverse-square gravitational lensing via gravityWarp()
+ * - Multi-well interference warping (1 central + 4 orbiting)
+ * - Image-based color sampling at well positions for glow tinting
  */
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
 /**
- * Warp UV toward a gravity point
+ * Warp UV toward a gravity point.
+ * The softness parameter prevents the singularity at dist=0 by adding
+ * a floor to the denominator: pull = mass / (dist^2 + softness).
+ * Lower softness = sharper warp near the center; higher = gentler falloff.
  */
 vec2 gravityWarp(vec2 uv, vec2 center, float mass, float softness) {
     vec2 delta = uv - center;

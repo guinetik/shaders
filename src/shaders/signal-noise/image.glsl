@@ -1,15 +1,40 @@
-// signal/noise
-// a valentine card
-// A meditation on: attractors, cosmic distance, electronic pulse,
-// the act of making the invisible visible, and connection across void
+/**
+ * Signal / Noise
+ * @author guinetik
+ * @date 2026-02-11
+ *
+ * A meditation on attractors, cosmic distance, and connection across void.
+ * Two pulsing signals interfere through a Lorenz attractor field, connected
+ * by a breathing filament amid cosmic dust and nebula. A valentine card.
+ *
+ * Techniques used:
+ * - Lorenz attractor field distortion
+ * - Multi-layer FBM domain warping for cosmic dust
+ * - IQ-style cosine palette coloring for nebula hues
+ * - Wave interference from two orbiting signal sources
+ * - Diffraction spikes on procedural star field
+ */
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
+// ---------------------------------------------------------------------------
+// Hash / Noise
+// ---------------------------------------------------------------------------
+
+/**
+ * Pseudo-random hash — classic sin-dot construction.
+ * Returns [0, 1) for any 2D input.
+ */
 float hash(vec2 p) {
     return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
 }
 
+/**
+ * Value noise with Hermite smoothing (smoothstep-style interpolation).
+ * Chosen over simplex for its simplicity; adequate for the soft
+ * nebula textures that don't need gradient continuity.
+ */
 float noise(vec2 p) {
     vec2 i = floor(p), f = fract(p);
     f = f * f * (3.0 - 2.0 * f);
@@ -20,9 +45,14 @@ float noise(vec2 p) {
     );
 }
 
+/**
+ * Fractal Brownian Motion — 6 octaves with domain rotation.
+ * The rotation matrix between octaves prevents axis-aligned artifacts
+ * and produces more isotropic, cloud-like patterns.
+ */
 float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
-    mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);
+    mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);  // ~36.87 degree rotation between octaves
     for (int i = 0; i < 6; i++) {
         v += a * noise(p);
         p = rot * p * 2.0;
@@ -31,6 +61,20 @@ float fbm(vec2 p) {
     return v;
 }
 
+// ---------------------------------------------------------------------------
+// Lorenz attractor
+// ---------------------------------------------------------------------------
+
+// TECHNIQUE: Lorenz attractor field
+// The Lorenz system (sigma=10, rho=28, beta=8/3) defines a chaotic vector
+// field. Instead of integrating a trajectory, we evaluate the derivative
+// at each pixel to get a flow-magnitude map that creates organic swirls.
+
+/**
+ * Lorenz attractor derivative.
+ * PHYSICS: dx/dt = sigma*(y-x), dy/dt = x*(rho-z)-y, dz/dt = x*y - beta*z
+ * Returns the instantaneous velocity vector at point p.
+ */
 vec3 attractor(vec3 p, float sigma, float rho, float beta) {
     return vec3(
         sigma * (p.y - p.x),
@@ -39,6 +83,16 @@ vec3 attractor(vec3 p, float sigma, float rho, float beta) {
     );
 }
 
+// ---------------------------------------------------------------------------
+// IQ cosine palettes for nebula coloring
+// ---------------------------------------------------------------------------
+
+// TECHNIQUE: Cosine color palette (Inigo Quilez)
+// color(t) = a + b * cos(TAU * (c*t + d))
+// Produces smooth, looping gradients ideal for nebula and emission coloring.
+// See https://iquilezles.org/articles/palettes/
+
+/** Primary nebula palette — dark purples and deep space blues. */
 vec3 nebula1(float t) {
     vec3 a = vec3(0.12, 0.03, 0.20);
     vec3 b = vec3(0.15, 0.05, 0.18);
@@ -47,6 +101,7 @@ vec3 nebula1(float t) {
     return a + b * cos(TAU * (c * t + d));
 }
 
+/** Secondary nebula palette — shifted phase for attractor regions. */
 vec3 nebula2(float t) {
     vec3 a = vec3(0.16, 0.04, 0.22);
     vec3 b = vec3(0.18, 0.06, 0.20);
@@ -55,6 +110,7 @@ vec3 nebula2(float t) {
     return a + b * cos(TAU * (c * t + d));
 }
 
+/** Emission glow palette — brighter tones for hot nebula regions. */
 vec3 emissionGlow(float t) {
     vec3 a = vec3(0.20, 0.06, 0.22);
     vec3 b = vec3(0.20, 0.06, 0.18);
@@ -67,47 +123,54 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = (fragCoord - 0.5 * iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = iTime * 0.3;
 
-    // cosmic dust
+    // TECHNIQUE: Triple-layer domain warping for cosmic dust
+    // Each FBM feeds into the next as a coordinate offset, creating
+    // deeply organic, slowly drifting nebula structures.
     vec2 q = vec2(fbm(uv * 2.0 + time * 0.08), fbm(uv * 2.0 + vec2(5.2, 1.3)));
     vec2 rr = vec2(fbm(uv * 2.0 + 4.0 * q + vec2(1.7, 9.2) + 0.12 * time),
                    fbm(uv * 2.0 + 4.0 * q + vec2(8.3, 2.8) + 0.1 * time));
     float f = fbm(uv * 2.0 + 4.0 * rr);
 
-    // dust lanes
+    // Dust lanes — FBM thresholded to create dark absorption bands
     float dust = fbm(uv * 3.5 + vec2(time * 0.05, -time * 0.03));
     float dustLanes = smoothstep(0.35, 0.55, dust) * 0.6;
 
-    // attractor field
+    // Lorenz attractor field — evaluate derivative at each pixel
+    // sigma=10, rho=28, beta=8/3 are the classic chaotic parameters
     vec3 ap = vec3(uv * 15.0, sin(time * 0.25) * 10.0 + 15.0);
     vec3 da = attractor(ap, 10.0, 28.0, 8.0 / 3.0);
     float attractorField = length(da.xy) * 0.003;
     attractorField = sin(attractorField * 6.0 + time * 0.8) * 0.5 + 0.5;
 
-    // two signals
+    // Two orbiting signal sources — concentric wave emitters
     vec2 focus1 = vec2(sin(time * 0.5) * 0.3, cos(time * 0.35) * 0.2);
     vec2 focus2 = vec2(cos(time * 0.4) * 0.25, sin(time * 0.55) * 0.3);
     float d1 = length(uv - focus1);
     float d2 = length(uv - focus2);
 
+    // Radial pulses with exponential falloff — simulates signal attenuation
     float pulse1 = sin(d1 * 18.0 - time * 2.5) * exp(-d1 * 2.5);
     float pulse2 = sin(d2 * 18.0 - time * 2.5) * exp(-d2 * 2.5);
 
+    // Wave interference — product of pulses plus standing-wave pattern
+    // along the equal-distance locus (where d1 ~ d2)
     float interference = pulse1 * pulse2 * 3.0;
     interference += sin((d1 + d2) * 12.0 - time * 1.5) * 0.12 *
                     smoothstep(1.0, 0.2, abs(d1 - d2));
 
-    // connection filament
+    // Connection filament — Gaussian beam along the line between foci
+    // Represents the invisible tether binding the two signals
     vec2 dir = normalize(focus2 - focus1);
     vec2 toP = uv - focus1;
     float proj = dot(toP, dir);
     float projClamped = clamp(proj, 0.0, length(focus2 - focus1));
     vec2 closest = focus1 + dir * projClamped;
     float lineDist = length(uv - closest);
-    float breath = sin(time * 0.4) * 0.5 + 0.5;
+    float breath = sin(time * 0.4) * 0.5 + 0.5;  // slow breathing modulation
     float connectionLine = exp(-lineDist * lineDist * 600.0) *
                            (0.3 + 0.4 * breath) * 0.5;
 
-    // compose
+    // ---- Compose layers ----
     vec3 col = nebula1(f * 0.7 + time * 0.015);
 
     vec3 darkDust = vec3(0.02, 0.015, 0.03);
@@ -132,7 +195,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     col += vec3(0.55, 0.25, 0.70) * connectionLine;
 
-    // stars with diffraction spikes
+    // TECHNIQUE: Procedural star field with diffraction spikes
+    // Multiple grid layers at different scales prevent visible tiling.
+    // Bright stars (hash > 0.96) get four-pointed diffraction spikes
+    // via cos^20 angular falloff — mimics real telescope optics.
     float stars = 0.0;
     float spikes = 0.0;
     for (float i = 0.0; i < 4.0; i++) {
@@ -158,7 +224,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
                          hash(floor(uv * 80.0)));
     col += (stars + spikes) * starColor * 0.5;
 
-    // guide stars
+    // Guide stars — a few fixed bright points with soft Gaussian halos
     for (float i = 0.0; i < 3.0; i++) {
         vec2 gPos = vec2(sin(i * 2.39 + 0.5) * 0.6, cos(i * 3.17 + 0.8) * 0.4);
         float gDist = length(uv - gPos);
@@ -168,11 +234,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         col += gCol * glow * (0.7 + 0.3 * sin(time * 0.5 + i));
     }
 
-    // vignette
+    // Vignette — soft radial darkening
     float vig = 1.0 - dot(uv * 0.6, uv * 0.6);
     col *= smoothstep(-0.1, 0.6, vig);
 
+    // Film grain — subtle dithering to break banding
     col += (hash(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
+    // Near-unity gamma — slight contrast lift
     col = pow(max(col, 0.0), vec3(0.95));
     col = clamp(col, 0.0, 1.0);
 

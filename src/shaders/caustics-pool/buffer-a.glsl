@@ -1,6 +1,9 @@
 /**
  * Caustics Pool — Buffer A: Camera state
  *
+ * @author guinetik
+ * @date 2026-02-15
+ *
  * Pixel (0,0) stores camera angles and velocities:
  *   .x = yaw angle (radians, wraps TAU)
  *   .y = pitch angle (radians, clamped)

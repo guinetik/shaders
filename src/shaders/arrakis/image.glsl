@@ -1,7 +1,14 @@
-// arrakis
-// "arrakis is so beautiful when the sun is low"
-// the desert planet — twin suns arc across the sky,
-// spice-laden winds, heat shimmer, and the worm's domain
+/**
+ * 24h in Arrakis
+ * @author guinetik
+ * @date 2026-02-12
+ *
+ * "Arrakis is so beautiful when the sun is low."
+ * The desert planet — twin suns arc across the sky,
+ * spice-laden winds, heat shimmer, and the worm's domain.
+ * Full day/night cycle (~80s) with raymarched dune terrain,
+ * periodic spice storms, and sandworm tracks.
+ */
 
 #define PI 3.14159265359
 #define TAU 6.28318530718
@@ -188,11 +195,16 @@ vec3 spiceBlow(vec2 uv, float time) {
 }
 
 // ── heat distortion ───────────────────────────────────────────
+// Two noise layers simulate convective air shimmer above hot sand:
+//   Layer 1: 3.0 x 20.0 — wide horizontally, narrow vertically (tall rising-air columns)
+//   Layer 2: 5.0 x 35.0 — finer detail at higher frequency, scrolls faster
+// The asymmetric UV scaling stretches noise vertically, mimicking real
+// heat shimmer which distorts more along the vertical axis.
 
 vec2 heatHaze(vec2 uv, float time) {
     float distort = noise(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
     distort += noise(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
-    // stronger near the horizon
+    // stronger near the horizon — where real mirages appear
     float horizonMask = smoothstep(0.1, -0.15, uv.y);
     return vec2(distort * 0.006 * horizonMask, distort * 0.003 * horizonMask);
 }

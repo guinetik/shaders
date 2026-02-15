@@ -1,9 +1,11 @@
 /**
  * Kaleidoscope Interactive
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-01-28
+ *
+ * Polar coordinate folding with iterative symmetry. Auto-rotating
+ * with mouse X/Y control for speed and zoom, producing vignette-focused
+ * mandala-like patterns from a sampled texture.
  *
  * Kaleidoscope Techniques:
  * - Polar coordinate transformation
@@ -25,7 +27,7 @@
  */
 
 #define PI 3.14159265359
-#define KALEIDO_ITERATIONS 10
+#define KALEIDO_ITERATIONS 10  // number of fold passes — higher = more complex symmetry
 
 vec2 safeUV(vec2 uv) {
     return clamp(uv, vec2(0.001), vec2(0.999));
@@ -41,10 +43,13 @@ vec3 renderKaleidoscope(vec2 p, float aspect, float time, vec2 mouse) {
     float mouseModifier = (mouse.x - 0.5) * 2.0;
     angle += baseRotation * (1.0 + mouseModifier);
 
-    // Fold the angle space repeatedly - each iteration doubles the symmetry
+    // Fold the angle space repeatedly — each iteration compounds the symmetry.
+    // abs() mirrors negative angles, mod() wraps into a 60-degree wedge,
+    // then centering by -half shifts the seam. Repeated folding creates
+    // exponentially complex symmetry patterns.
     for (int i = 0; i < KALEIDO_ITERATIONS; i++) {
         angle = abs(angle);  // Mirror across the fold line
-        float foldAngle = PI / 3.0;  // 60 degrees looks nice
+        float foldAngle = PI / 3.0;  // 60 degrees — hexagonal symmetry base
         angle = mod(angle, foldAngle) - foldAngle * 0.5;
     }
 

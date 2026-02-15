@@ -1,21 +1,54 @@
 /**
  * Red Dwarf Star
+ * @author guinetik
+ * @date 2025-11-29
  *
  * A small, turbulent red dwarf star with orange-red plasma, boiling convection
- * cells, dark starspots, and a warm glowing corona.
- * Temperature locked at ~3000K with high activity level.
+ * cells, dark starspots, and a warm glowing corona. Temperature locked at ~3000K
+ * with high stellar activity.
  *
- * Based on the exoplanets v2 star shaders by guinetik
+ * Based on the exoplanets v2 star shaders by guinetik.
  *
- * @author guinetik
+ * Rendering layers (back to front):
+ *   1. Background      — near-black with subtle blue tint
+ *   2. Glow            — inverse-square radial falloff around the star
+ *   3. Corona          — FBM-driven flame tendrils + cyclic prominences
+ *   4. Star surface    — convection cells, plasma flow, starspots, limb darkening
+ *   5. Tone mapping    — Reinhard operator with exposure boost
+ *
+ * TECHNIQUE: Ray-sphere intersection. Unlike the planet shaders (which use
+ * analytic Pythagorean projection), the star shaders use a proper 3D camera
+ * with orbital rotation and ray-sphere intersection (quadratic formula). This
+ * allows the camera to orbit and zoom around the star.
+ *
+ * TECHNIQUE: Limb darkening. The star's edges are darkened using pow(viewAngle,
+ * 0.35), approximating the physical effect where photons escaping at shallow
+ * angles traverse more stellar atmosphere. The exponent 0.35 is tuned for a
+ * red dwarf's convective envelope (cooler stars show stronger limb darkening).
+ *
+ * TECHNIQUE: Prominence lifecycle. Corona prominences use a golden-ratio angular
+ * distribution (0.618 * i) for even spacing, modulated by sin()-based lifecycle
+ * functions so prominences grow and fade over time independently.
+ *
+ * Physics: Color palette approximates ~3000K blackbody radiation — dominant
+ * orange-red emission with occasional yellow-white flare peaks. Red dwarfs
+ * are fully convective, so the surface shows vigorous boiling granulation
+ * at higher activity levels than hotter stars.
+ *
+ * Noise: 3D simplex noise (Ashima Arts implementation) chosen for its smooth,
+ * isotropic gradients — critical for convincing stellar surface turbulence
+ * without visible grid artifacts. FBM with up to 5 octaves for plasma flow.
  */
 
-#define PI 3.14159265359
-#define TAU 6.28318530718
+#define PI 3.14159265359   // Half-circle — used for prominence angular wrapping
+#define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE
+// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
 // =============================================================================
+// Chosen for smooth, isotropic gradients essential for convincing stellar
+// surface turbulence. Simplex noise has no visible grid artifacts and is
+// computationally cheaper than classic Perlin noise in 3D.
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -65,14 +98,17 @@ float snoise(vec3 v) {
     return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
+// FBM with configurable octaves — lacunarity 2.0, gain 0.5
+// Domain offset vec3(100.0) between octaves decorrelates layers.
+// 5 octaves for plasma detail, 3-4 for corona flames.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
         v += a * snoise(p * f);
-        f *= 2.0;
-        a *= 0.5;
-        p += vec3(100.0);
+        f *= 2.0;         // Double frequency each octave
+        a *= 0.5;         // Halve amplitude each octave
+        p += vec3(100.0); // Domain shift to decorrelate
     }
     return v;
 }
@@ -81,13 +117,15 @@ float fbm(vec3 p, int octaves) {
 // STAR COLOR PALETTE — direct ramp, no normalization that kills brightness
 // =============================================================================
 
-// Red dwarf palette: dark spots → warm orange → bright yellow-white
+// Physics: ~3000K blackbody color ramp. Red dwarfs peak in infrared; visible
+// emission is dominated by red-orange. Flare peaks can briefly reach yellow-white.
+// Ramp: dark spots -> warm orange -> bright yellow-white
 vec3 starRamp(float t) {
-    const vec3 SPOT     = vec3(0.3, 0.08, 0.0);     // dark sunspot
-    const vec3 COOL     = vec3(0.8, 0.25, 0.02);     // cool surface
-    const vec3 WARM     = vec3(1.0, 0.55, 0.08);     // warm convection
-    const vec3 HOT      = vec3(1.0, 0.8, 0.3);       // hot granule center
-    const vec3 BRIGHT   = vec3(1.0, 0.95, 0.7);      // brightest flare
+    const vec3 SPOT     = vec3(0.3, 0.08, 0.0);     // Dark starspot — cooler magnetic regions
+    const vec3 COOL     = vec3(0.8, 0.25, 0.02);     // Cool surface — typical photosphere
+    const vec3 WARM     = vec3(1.0, 0.55, 0.08);     // Warm convection upwelling
+    const vec3 HOT      = vec3(1.0, 0.8, 0.3);       // Hot granule center — convective peak
+    const vec3 BRIGHT   = vec3(1.0, 0.95, 0.7);      // Brightest flare — transient energy release
 
     if (t < 0.15) return mix(SPOT, COOL, t / 0.15);
     if (t < 0.4)  return mix(COOL, WARM, (t - 0.15) / 0.25);
@@ -99,22 +137,23 @@ vec3 starRamp(float t) {
 // STAR SURFACE
 // =============================================================================
 
+// Convection granulation — three octaves at hand-tuned frequencies for
+// red dwarf's vigorous convective envelope. Higher frequencies than the
+// Sun/blue giant reflect the smaller, more turbulent convection cells.
 float convectionCells(vec3 p, float time) {
-    // Large granulation cells
-    float cells = snoise(p * 5.0 + vec3(0.0, time * 0.02, 0.0));
-    // Medium detail
-    float med = snoise(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01));
-    // Fine turbulent detail
-    float fine = snoise(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02));
+    float cells = snoise(p * 5.0 + vec3(0.0, time * 0.02, 0.0));     // Large granules — freq 5.0
+    float med = snoise(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01)); // Medium detail — freq 12.0
+    float fine = snoise(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02)); // Fine turbulence — freq 25.0
 
-    return cells * 0.5 + med * 0.3 + fine * 0.2;
+    return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend: large features dominate
 }
 
+// Starspots — magnetically active regions where convection is suppressed.
+// Red dwarfs have frequent, large starspots due to their fully convective interiors.
 float starSpots(vec3 p, float time) {
-    // Large dark spot regions
-    float spots = snoise(p * 3.0 + vec3(0.0, time * 0.005, 0.0));
-    // Only the peaks become dark spots
-    return smoothstep(0.5, 0.75, spots);
+    float spots = snoise(p * 3.0 + vec3(0.0, time * 0.005, 0.0));  // Freq 3.0 — large spot regions
+    return smoothstep(0.5, 0.75, spots);  // Only noise peaks become spots. Threshold 0.5 = ~30% coverage.
+                                           // Lower threshold = more spots. Higher = fewer, rarer spots.
 }
 
 float plasmaFlow(vec3 p, float time) {
@@ -131,42 +170,46 @@ float plasmaFlow(vec3 p, float time) {
     return n1 * 0.6 + n2 * 0.4;
 }
 
+// Surface rendering — combines all stellar surface effects into final color.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float edgeDist = 1.0 - viewAngle;
 
-    // Plasma base
+    // Plasma base — large-scale flow pattern
     float plasma = plasmaFlow(spherePos, time);
 
-    // Convection granulation
+    // Convection granulation — remapped to [0,1]
     float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
 
-    // Dark starspots
+    // Dark starspots — magnetically suppressed regions
     float spots = starSpots(spherePos, time);
 
-    // Pulsing brightness variation
-    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise(spherePos * 2.0) * 3.0);
+    // Pulsing brightness — simulates global oscillation modes
+    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise(spherePos * 2.0) * 3.0); // +/-10% variation
 
     // Combine into a single heat value [0..1]
-    float heat = plasma * 0.6 + cells * 0.4;
+    float heat = plasma * 0.6 + cells * 0.4;  // Plasma dominates, cells add texture
     heat *= pulse;
 
-    // Darken spots
+    // Darken spots — 70% darkening factor (red dwarfs have prominent spots)
     heat *= 1.0 - spots * 0.7;
 
-    // Limb darkening — edges slightly darker
+    // TECHNIQUE: Limb darkening — pow(viewAngle, 0.35) approximates the physical
+    // effect where photons escaping at shallow angles traverse more photosphere.
+    // Exponent 0.35 tuned for red dwarf's deep convective envelope.
     float limb = pow(viewAngle, 0.35);
-    heat *= 0.7 + limb * 0.3;
+    heat *= 0.7 + limb * 0.3;   // 30% intensity range from edge to center
 
-    // Edge brightening for active flares
+    // Edge brightening for active flares — visible at the limb
     float edgeFlare = pow(edgeDist, 2.0) * fbm(spherePos * 8.0 + vec3(time * 0.2), 3);
-    heat += edgeFlare * 0.3;
+    heat += edgeFlare * 0.3;    // 30% flare contribution — high for an active red dwarf
 
     heat = clamp(heat, 0.0, 1.0);
 
-    // Map to color — values above 1.0 give HDR bloom into tone mapper
+    // Map to color — multiplier (1.5 + heat*1.5) gives range [1.5, 3.0] for HDR
+    // Hot areas push above 1.0 and get compressed by tone mapping for natural bloom
     vec3 color = starRamp(heat) * (1.5 + heat * 1.5);
 
-    // Extra brightness at center of convection granules
+    // Extra brightness at center of convection granules — warm orange highlight
     color += vec3(1.0, 0.7, 0.2) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 2.0;
 
     return color;
@@ -176,51 +219,57 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
 // GLOW AND CORONA
 // =============================================================================
 
+// Radial glow — inverse-square falloff simulating scattered light in the
+// interstellar medium and instrumental diffraction.
 vec3 renderGlow(vec2 p, float starRadius) {
     float dist = length(p);
-    float r = dist / starRadius;
+    float r = dist / starRadius;   // Normalized distance from star center
 
-    // Soft inner glow
-    float glow = 1.0 / (r * r * 1.5 + 0.01);
-    glow *= smoothstep(4.0, 1.0, r);
+    // Soft inner glow — 1/r^2 with small epsilon to prevent division by zero
+    float glow = 1.0 / (r * r * 1.5 + 0.01);  // Factor 1.5 controls falloff steepness
+    glow *= smoothstep(4.0, 1.0, r);           // Fade to zero beyond 4x star radius
 
-    // Warm orange glow color
-    vec3 glowColor = vec3(1.0, 0.5, 0.1) * glow * 0.15;
+    // Warm orange glow color — matches ~3000K blackbody
+    vec3 glowColor = vec3(1.0, 0.5, 0.1) * glow * 0.15;  // 0.15 intensity — brighter = more bloom
 
-    // Wider, dimmer haze
-    float haze = 1.0 / (r * r * 5.0 + 0.1);
-    haze *= smoothstep(6.0, 1.5, r);
-    glowColor += vec3(0.6, 0.2, 0.03) * haze * 0.1;
+    // Wider, dimmer haze — secondary falloff layer
+    float haze = 1.0 / (r * r * 5.0 + 0.1);   // Steeper 1/r^2 for outer haze
+    haze *= smoothstep(6.0, 1.5, r);            // Extends to 6x radius
+    glowColor += vec3(0.6, 0.2, 0.03) * haze * 0.1;  // Deep red outer haze
 
     return glowColor;
 }
 
+// Corona — FBM-driven flame tendrils extending beyond the stellar surface.
+// Only rendered in the annular region between 1.0x and 2.0x star radius.
 vec3 renderCorona(vec2 p, float starRadius, float time) {
     float dist = length(p);
     float r = dist / starRadius;
 
-    if (r < 1.0 || r > 2.0) return vec3(0.0);
+    if (r < 1.0 || r > 2.0) return vec3(0.0);  // Skip pixels outside corona range
 
-    float rimFactor = (r - 1.0);
-    float angle = atan(p.y, p.x);
+    float rimFactor = (r - 1.0);   // 0 at surface, 1 at outer corona edge
+    float angle = atan(p.y, p.x);  // Polar angle around star
 
-    // Flame-like corona tendrils
-    float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.3), 4);
-    float flame2 = fbm(vec3(angle * 4.0 + 10.0, rimFactor * 3.0, time * 0.2), 3);
-    float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;
+    // Two-layer flame pattern at different angular frequencies for organic look
+    float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.3), 4);   // Broad flames
+    float flame2 = fbm(vec3(angle * 4.0 + 10.0, rimFactor * 3.0, time * 0.2), 3); // Fine detail
+    float flames = (flame1 * 0.6 + flame2 * 0.4) * 0.5 + 0.5;  // Remap to [0,1]
 
-    // Fade with distance from surface
-    float fade = exp(-rimFactor * 4.0);
-    float intensity = flames * fade * 0.9;
+    // Physics: Exponential decay with distance — models density falloff in stellar corona
+    float fade = exp(-rimFactor * 4.0);    // Decay rate 4.0 — higher = more concentrated near surface
+    float intensity = flames * fade * 0.9; // 0.9 base intensity — high for active red dwarf
 
-    // Prominences — localized bright arcs
-    for (int i = 0; i < 4; i++) {
+    // TECHNIQUE: Prominence lifecycle. 4 prominences distributed by golden ratio
+    // (0.618) for even angular spacing. Each has an independent sin()-based
+    // lifecycle so prominences grow and fade over time.
+    for (int i = 0; i < 4; i++) {          // 4 prominences — highest count of the three star types
         float fi = float(i);
-        float promAngle = fract(fi * 0.618 + 0.2) * TAU;
-        float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI);
-        float promMask = exp(-angleDiff * angleDiff * 8.0);
-        float lifecycle = max(sin(time * 0.25 * (1.0 + fi * 0.3) + fi * 2.0), 0.0);
-        intensity += promMask * lifecycle * fade * 1.5;
+        float promAngle = fract(fi * 0.618 + 0.2) * TAU;  // Golden-ratio spacing
+        float angleDiff = abs(mod(angle - promAngle + PI, TAU) - PI); // Wrapped angular distance
+        float promMask = exp(-angleDiff * angleDiff * 8.0);           // Gaussian angular mask — 8.0 = spread width
+        float lifecycle = max(sin(time * 0.25 * (1.0 + fi * 0.3) + fi * 2.0), 0.0); // Half-wave rectified sine
+        intensity += promMask * lifecycle * fade * 1.5;    // 1.5x prominence brightness
     }
 
     vec3 coronaColor = mix(vec3(1.0, 0.55, 0.1), vec3(1.0, 0.3, 0.02), rimFactor);
@@ -235,14 +284,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 p = (2.0 * fragCoord - iResolution.xy) / min(iResolution.x, iResolution.y);
     float time = mod(iTime, 1000.0);
 
-    float starRadius = 0.85;
-    float focalLength = 1.5;
+    float starRadius = 0.85;   // World-space star radius — red dwarfs are 0.1-0.6 solar radii
+    float focalLength = 1.5;  // Camera focal length — higher = more zoomed in
 
-    // Auto rotation camera
-    float rotX = time * 0.15;
-    float rotY = sin(time * 0.07) * 0.3;
+    // Auto rotation camera — orbits around star
+    float rotX = time * 0.15;              // Horizontal orbit speed — fastest of three star types
+    float rotY = sin(time * 0.07) * 0.3;  // Vertical bob amplitude — +/-0.3 rad
 
-    float camDist = 3.5;
+    float camDist = 3.5;                   // Camera distance from origin — affects apparent size
     vec3 camPos = vec3(
         camDist * sin(rotX) * cos(rotY),
         camDist * sin(rotY),
@@ -254,7 +303,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 camUp = cross(camDir, camRight);
     vec3 rd = normalize(p.x * camRight + p.y * camUp + focalLength * camDir);
 
-    // Apparent screen radius: project world radius to screen space
+    // TECHNIQUE: Apparent radius projection — project world-space star radius to
+    // screen space so glow/corona effects match the rendered sphere exactly
     float apparentRadius = starRadius / sqrt(camDist * camDist - starRadius * starRadius) * focalLength;
 
     // Dark background
@@ -264,7 +314,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     color += renderGlow(p, apparentRadius);
     color += renderCorona(p, apparentRadius, time);
 
-    // Ray-sphere intersection
+    // TECHNIQUE: Ray-sphere intersection using the quadratic formula.
+    // For a sphere centered at origin: |camPos + t*rd|^2 = r^2
+    // Discriminant h = b^2 - c determines hit (h > 0) or miss (h <= 0)
     vec3 oc = camPos;
     float b = dot(oc, rd);
     float c = dot(oc, oc) - starRadius * starRadius;
@@ -279,7 +331,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // Sphere position in object space
             vec3 spherePos = normal;
 
-            // Add star's own rotation
+            // Add star's own axial rotation — 0.05 rad/s
             float starRot = time * 0.05;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
@@ -295,14 +347,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
     }
 
-    // Tone mapping — Reinhard with exposure boost
+    // Tone mapping — Reinhard operator: color / (color + 1)
+    // Exposure 1.8x boosts overall brightness before compression
     color *= 1.8;
-    color = color / (color + vec3(1.0));
+    color = color / (color + vec3(1.0));  // Maps [0, inf) -> [0, 1) with soft rolloff
 
-    // Slight warm tint to blacks
+    // Slight warm tint to blacks — prevents pure black, adds ambient warmth
     color += vec3(0.01, 0.003, 0.0);
 
-    // Gamma
+    // Gamma — 0.85 exponent (brighter than standard 0.45) preserves corona detail
     color = pow(color, vec3(0.85));
 
     fragColor = vec4(color, 1.0);

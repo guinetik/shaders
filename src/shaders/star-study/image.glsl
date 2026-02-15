@@ -1,6 +1,9 @@
 /**
  * Star Study - 3D Raymarched Star with Orbiting Planet
- * =====================================================
+ *
+ * @author guinetik
+ * @date 2025-11-30
+ *
  * A procedural star system featuring a realistic boiling plasma surface,
  * corona flames, solar prominences, and an orbiting rocky planet.
  *
@@ -320,6 +323,12 @@ vec3 starSurface(vec3 pos, vec3 normal, vec3 rayDir, vec3 baseColor, float time)
 
     // ==========================================================================
     // SPHERICAL DISTORTION - THE KEY BOILING EFFECT
+    // Maps the flat XY sphere hit into curved UV space using the formula:
+    //   f = (1 - sqrt(1 - r^2)) / r^2
+    // This is the inverse stereographic-like projection that compresses
+    // UVs toward the limb, so noise patterns wrap convincingly around
+    // the sphere rather than sliding flat across it. The brightness-
+    // modulated distortStrength makes the surface "breathe" as it pulses.
     // ==========================================================================
     vec2 sp = spherePos.xy;
     float distortStrength = 2.0 - brightness;

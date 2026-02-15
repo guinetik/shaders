@@ -1,5 +1,7 @@
 /**
  * Liquid Glass
+ * @author guinetik
+ * @date 2026-01-23
  *
  * Two superellipse glass blobs drifting over an input image,
  * bouncing off screen edges like billiard balls and merging
@@ -14,76 +16,85 @@
  * - Superellipse SDF for rounded-square lens shape
  * - Smooth minimum (smin) for organic metaball merging
  *
- * @author guinetik
  * @credit PaoloCurtoni (shader inspiration), IQ (superellipse SDF)
  */
 
 // -- Glass properties --
-#define IOR                 1.5
-#define BLUR_STRENGTH       1.5
+#define IOR                 1.5   // Index of refraction — 1.5 is typical crown glass.
+                                  // Higher (1.8+) = more reflection, stronger Fresnel.
+#define BLUR_STRENGTH       1.5   // Frosted glass scatter radius — higher = more diffuse/frosted.
+                                  // 0 = perfectly clear glass. 3+ = heavily frosted.
 
 // -- Shape --
-#define RADIUS              0.22
-#define SUPERELLIPSE_N      4.0
-#define BLEND_RADIUS        0.12
+#define RADIUS              0.22  // Blob radius in NDC — larger = bigger glass blobs.
+#define SUPERELLIPSE_N      4.0   // Superellipse exponent — 2.0 = circle, 4.0 = rounded square,
+                                  // higher = sharper corners approaching a true square.
+#define BLEND_RADIUS        0.12  // Smooth-minimum blend radius for metaball merging.
+                                  // Larger = blobs merge from farther apart; 0 = no blending.
 
 // -- Lens distortion --
-#define BASE_MAGNIFICATION  0.75
-#define LENS_STRENGTH       0.4
-#define EDGE_EXPONENT       3.0
-#define DEPTH_NORMALIZER    0.8
-#define ABERRATION_AMOUNT   0.08
+#define BASE_MAGNIFICATION  0.75  // UV scale inside the lens — <1.0 zooms out (minifies),
+                                  // >1.0 zooms in (magnifies).
+#define LENS_STRENGTH       0.4   // Edge distortion intensity — how much the lens warps near edges.
+#define EDGE_EXPONENT       3.0   // Exponential distortion ramp — higher = distortion concentrated at edges.
+#define DEPTH_NORMALIZER    0.8   // Fraction of radius used as max SDF depth — controls distortion falloff shape.
+#define ABERRATION_AMOUNT   0.08  // Chromatic aberration — separation between R and B channels.
+                                  // 0 = no aberration. 0.15+ = very visible color fringing.
 
 // -- Edge highlight --
-#define EDGE_THICKNESS      0.008
-#define EDGE_DIAG_SCALE     1.5
-#define EDGE_DIAG_POWER     1.8
-#define EDGE_BRIGHTNESS     1.2
+#define EDGE_THICKNESS      0.008 // Width of the bright rim at the glass boundary.
+#define EDGE_DIAG_SCALE     1.5   // Scale for diagonal highlight pattern on the edge rim.
+#define EDGE_DIAG_POWER     1.8   // Sharpness of diagonal highlight — higher = tighter specular band.
+#define EDGE_BRIGHTNESS     1.2   // Peak brightness of the edge highlight (>1.0 = HDR white).
 
 // -- Shadow --
-#define SHADOW_OFFSET       0.02
-#define SHADOW_SPREAD       0.06
-#define SHADOW_OPACITY      0.15
+#define SHADOW_OFFSET       0.02  // Vertical offset of the drop shadow below the blob.
+#define SHADOW_SPREAD       0.06  // How far the shadow feathers outward from the blob edge.
+#define SHADOW_OPACITY      0.15  // Peak shadow darkness — 0.0 = invisible, 1.0 = fully opaque.
 
 // -- Fresnel --
-#define FRESNEL_STRENGTH    0.35
-#define FRESNEL_GRAD_EPS    0.01
-#define NORMAL_Z            0.5
+#define FRESNEL_STRENGTH    0.35  // How much Fresnel reflection tints the glass surface.
+                                  // 0.0 = no reflection. 1.0 = fully reflective at grazing angles.
+#define FRESNEL_GRAD_EPS    0.01  // Epsilon for numerical gradient of the blended SDF (normal estimation).
+#define NORMAL_Z            0.5   // Z component of the pseudo-3D normal — controls perceived curvature depth.
 
 // -- Blur kernel --
-#define BLUR_SAMPLES        16
-#define BLUR_SIGMA_FACTOR   0.25
-#define BLUR_PIXEL_SCALE    0.002
+#define BLUR_SAMPLES        16    // Gaussian blur grid side length — total taps = (SAMPLES/2)^2.
+                                  // 8 = fast/coarse. 32 = smooth but expensive.
+#define BLUR_SIGMA_FACTOR   0.25  // Gaussian sigma as fraction of sample count — controls blur bell width.
+#define BLUR_PIXEL_SCALE    0.002 // UV-space size of each blur tap offset.
 
 // -- Motion (blob A) --
-#define SPEED_AX            0.31
-#define SPEED_AY            0.23
-#define PHASE_AX            0.37
-#define PHASE_AY            0.71
+#define SPEED_AX            0.31  // Horizontal bounce speed for blob A — larger = faster drift.
+#define SPEED_AY            0.23  // Vertical bounce speed for blob A.
+#define PHASE_AX            0.37  // Horizontal phase offset — shifts starting position.
+#define PHASE_AY            0.71  // Vertical phase offset.
 
 // -- Motion (blob B) --
-#define SPEED_BX            0.43
-#define SPEED_BY            0.29
-#define PHASE_BX            2.13
-#define PHASE_BY            1.47
+#define SPEED_BX            0.43  // Horizontal bounce speed for blob B.
+#define SPEED_BY            0.29  // Vertical bounce speed for blob B.
+#define PHASE_BX            2.13  // Horizontal phase offset.
+#define PHASE_BY            1.47  // Vertical phase offset.
 
 // -- Bounds --
-#define BOUNDS_MARGIN       0.02
+#define BOUNDS_MARGIN       0.02  // Inset from screen edge for bounce limits.
 
 // -- Weighted center --
-#define CENTER_FALLOFF      8.0
+#define CENTER_FALLOFF      8.0   // Gaussian falloff for weighted center calculation.
+                                  // Higher = each blob's lens effect stays more localized.
 
 // -- Post-processing --
-#define VIGNETTE_START      0.6
-#define VIGNETTE_END        1.4
-#define VIGNETTE_MIX        0.1
-#define GAMMA               0.95
-#define GLASS_TINT          vec3(0.95, 0.98, 1.0)
-#define GLASS_LIFT          0.15
-#define FRESNEL_COLOR       vec3(1.0, 0.98, 0.95)
+#define VIGNETTE_START      0.6   // Radial distance where vignette begins (0 = center, 1 = edge).
+#define VIGNETTE_END        1.4   // Radial distance where vignette reaches full darkness.
+#define VIGNETTE_MIX        0.1   // Vignette blending strength — 0 = off, 1 = full effect.
+#define GAMMA               0.95  // Output gamma — <1.0 brightens midtones, >1.0 darkens.
+#define GLASS_TINT          vec3(0.95, 0.98, 1.0)   // Subtle cool tint applied inside the glass.
+#define GLASS_LIFT          0.15  // Additive brightness lift inside the glass — simulates internal scattering.
+#define FRESNEL_COLOR       vec3(1.0, 0.98, 0.95)   // Warm-white Fresnel reflection highlight color.
 
 // -- SDF iteration --
-#define SDF_ITERATIONS      12
+#define SDF_ITERATIONS      12    // Accuracy of superellipse SDF distance — more = tighter fit to the shape.
+                                  // 6 = fast but rough. 16+ = very accurate but expensive.
 #define PI_OVER_4           0.7853981634
 
 // =============================================================================

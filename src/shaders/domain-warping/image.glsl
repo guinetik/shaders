@@ -1,9 +1,10 @@
 /**
  * Domain Warping Study
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-01-27
+ *
+ * Multi-layer domain warping with recursive coordinate distortion.
+ * Uses Inigo Quilez's classic domain warping approach: f(p + f(p + f(p))).
  *
  * Domain Warping Techniques:
  * - Multi-layer FBM noise for base pattern
@@ -12,8 +13,13 @@
  * - Mouse-reactive warping (interactive domain distortion)
  * - Time-based warping for animation
  *
+ * Color Palette:
+ * - Terminal green base (col2-col4) for the "hacker aesthetic"
+ * - Orange/pink/purple accents (col5-col7) mapped to warp layers q, r, f2
+ *   so each color appears in different warping regimes
+ * - Black vortex centers (col1) create contrast against bright folds
+ *
  * Visual Features:
- * - Terminal green aesthetic with accent colors
  * - Dark vortex areas for contrast
  * - Cyan mouse interactions for visibility
  * - Pulsing rings from warped coordinates
@@ -139,14 +145,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float f2 = fbm(pp * 1.5 + r * 1.8 + t * 0.25);
 
     // === COLOR MAPPING ===
-    // More distinct color palette with dark contrast
-    vec3 col1 = vec3(0.0, 0.0, 0.0);        // Black
-    vec3 col2 = vec3(0.0, 0.2, 0.05);       // Very dark green
-    vec3 col3 = vec3(0.0, 0.6, 0.15);       // Medium green
-    vec3 col4 = vec3(0.0, 0.9, 0.3);        // Bright green (terminal)
-    vec3 col5 = vec3(1.0, 0.4, 0.0);        // Orange (celebration)
-    vec3 col6 = vec3(1.0, 0.0, 0.4);        // Pink (celebration)
-    vec3 col7 = vec3(0.4, 0.0, 0.9);        // Purple (celebration)
+    // Terminal green base with celebration accents; each accent is driven
+    // by a different warp layer (q, r, f2) so colors separate spatially
+    vec3 col1 = vec3(0.0, 0.0, 0.0);        // Black — vortex centers
+    vec3 col2 = vec3(0.0, 0.2, 0.05);       // Very dark green — shadow regions
+    vec3 col3 = vec3(0.0, 0.6, 0.15);       // Medium green — mid-warp zones
+    vec3 col4 = vec3(0.0, 0.9, 0.3);        // Bright green — terminal highlights
+    vec3 col5 = vec3(1.0, 0.4, 0.0);        // Orange — mapped to q.x (1st warp)
+    vec3 col6 = vec3(1.0, 0.0, 0.4);        // Pink — mapped to r.y (2nd warp)
+    vec3 col7 = vec3(0.4, 0.0, 0.9);        // Purple — mapped to f2 (recursive warp)
 
     // Color mixing - green base with celebration colors and dark areas
     vec3 color = col1;

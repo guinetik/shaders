@@ -17,6 +17,7 @@
  * Ported from Genuary 2026 Day 31 (blackhole.frag).
  *
  * @author guinetik
+ * @date 2026-01-31
  */
 
 // ── Constants ──────────────────────────────────────────────

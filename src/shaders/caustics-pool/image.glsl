@@ -1,6 +1,9 @@
 /**
  * Caustics Pool
  *
+ * @author guinetik
+ * @date 2026-02-15
+ *
  * Ray-marched 3D swimming pool — an open-top box with tiled interior
  * surfaces, a transparent water plane, and caustic light patterns
  * on all submerged surfaces.

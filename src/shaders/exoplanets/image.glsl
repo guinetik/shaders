@@ -1,22 +1,33 @@
 /**
- * Exoplanet Shader Showcase for Shadertoy
- * ========================================
- * A procedural solar system with a realistic star and three different planet types
+ * Exoplanets Study
+ * @author guinetik
+ * @date 2025-11-26
+ *
+ * A procedural solar system with a realistic star and three different planet types.
+ * All geometry is ray-sphere intersected (no raymarching), with procedural surface
+ * shading driven by simplex noise, FBM, and tiled noise for seamless flame textures.
  *
  * Scene:
  * - Central star with boiling plasma surface, corona flames, and rays
- * - Rocky planet (inner orbit) - Earth/Mars-like with terrain
- * - Gas giant (middle orbit) - Jupiter-like with bands and storms
- * - Ice giant (outer orbit) - Neptune-like with soft atmosphere
+ * - Rocky planet (inner orbit) -- Earth/Mars-like with FBM terrain, craters, and ice/lava biomes
+ * - Gas giant (middle orbit) -- Jupiter-like with latitudinal bands and storm spots
+ * - Ice giant (outer orbit) -- Neptune-like with methane atmosphere and haze
  *
  * Controls:
- * - Mouse X: Orbit camera horizontally (full 360°)
+ * - Mouse X: Orbit camera horizontally (full 360 degrees)
  * - Mouse Y: Orbit camera vertically (pitch up/down)
  * - Click anywhere: Change star temperature (cycles through spectral types)
  * - No interaction: Camera gently auto-orbits
  *
  * Star temperatures cycle through: Y-dwarf (purple) -> M (red) -> K (orange) ->
  *                                   G (yellow) -> F (white) -> A (blue-white) -> O (blue)
+ *
+ * Physical models:
+ * - Stellar surface: tiled FBM plasma + spherical distortion + limb darkening
+ * - Corona: angular noise prominences with lifecycle modulation
+ * - Star rays: outward-traveling wave pulses along angular spokes
+ * - Temperature-to-color: piecewise linear interpolation across spectral types
+ *   (Y/T/L brown dwarfs through O-type blue giants)
  *
  * Created from the Exoplanets visualization project
  * https://github.com/guinetik/exoplanets
@@ -27,31 +38,31 @@
 // =============================================================================
 
 // 3D positions - Star at center, planets orbiting
-#define STAR_CENTER vec3(0.0, 0.0, 0.0)
-#define STAR_RADIUS 1.0
-#define CORONA_RADIUS 1.5              // Corona extends to 1.5x star radius
-#define RAY_LENGTH 0.8                 // How far rays extend beyond star
+#define STAR_CENTER vec3(0.0, 0.0, 0.0)  // Star placed at world origin.
+#define STAR_RADIUS 1.0                   // Star radius — all other distances are relative to this.
+#define CORONA_RADIUS 1.5                 // Corona extends to 1.5x star radius — larger = wider flame halo.
+#define RAY_LENGTH 0.8                    // How far light rays extend beyond star surface (in star radii).
 
 // Rocky planet (closest to star - like Mercury/Venus/Earth)
-#define ROCKY_CENTER vec3(2.5, 0.0, 0.0)
-#define ROCKY_RADIUS 0.3
+#define ROCKY_CENTER vec3(2.5, 0.0, 0.0) // Orbital position — closer = more star illumination.
+#define ROCKY_RADIUS 0.3                  // Planet radius — smaller = more Earth-like scale relative to star.
 
 // Gas giant (middle distance - like Jupiter/Saturn)
-#define GAS_CENTER vec3(0.0, 0.0, 4.0)
-#define GAS_RADIUS 0.7
+#define GAS_CENTER vec3(0.0, 0.0, 4.0)   // Placed along Z axis for visual separation.
+#define GAS_RADIUS 0.7                    // Largest planet — visually dominant in the mid-field.
 
 // Ice giant (farthest - like Uranus/Neptune)
-#define ICE_CENTER vec3(-3.5, 0.5, -2.0)
-#define ICE_RADIUS 0.5
+#define ICE_CENTER vec3(-3.5, 0.5, -2.0) // Off-axis position for depth variety.
+#define ICE_RADIUS 0.5                    // Medium size — between rocky and gas giant.
 
 // Camera settings
-#define CAMERA_DISTANCE 8.0
-#define CAMERA_FOV 1.8
+#define CAMERA_DISTANCE 8.0               // Orbit radius — larger = wider view of the system.
+#define CAMERA_FOV 1.8                    // Focal length factor — higher = narrower FOV (more telephoto).
 
 // Planet base colors - vivid and distinct
-#define ROCKY_COLOR vec3(0.3, 0.5, 0.8)
-#define GAS_GIANT_COLOR vec3(0.95, 0.6, 0.3)
-#define ICE_GIANT_COLOR vec3(0.2, 0.5, 0.95)
+#define ROCKY_COLOR vec3(0.3, 0.5, 0.8)       // Blue-tinted base for rocky terrain.
+#define GAS_GIANT_COLOR vec3(0.95, 0.6, 0.3)  // Warm orange-amber for Jupiter-like bands.
+#define ICE_GIANT_COLOR vec3(0.2, 0.5, 0.95)  // Cool blue for Neptune-like atmosphere.
 
 // =============================================================================
 // SHADER CONSTANTS
@@ -61,33 +72,38 @@ const float PI = 3.14159265359;
 const float TAU = 6.28318530718;
 const float MOD_DIVISOR = 289.0;
 
-// Star surface constants (from v2 shaders)
-const float PLASMA_SCALE = 3.0;
-const float PLASMA_SPEED = 0.12;
-const float FLAME_SCALE_COARSE = 15.0;
-const float FLAME_SCALE_FINE = 45.0;
-const float FLAME_FLOW_SPEED = 0.35;
-const int FLAME_OCTAVES = 5;
+// Star surface constants
+const float PLASMA_SCALE = 3.0;          // UV scale for plasma noise — higher = finer granules.
+const float PLASMA_SPEED = 0.12;         // Time multiplier for plasma animation — higher = faster boiling.
+const float FLAME_SCALE_COARSE = 15.0;   // Tiled noise resolution for large flame structures.
+const float FLAME_SCALE_FINE = 45.0;     // Tiled noise resolution for fine flame detail.
+const float FLAME_FLOW_SPEED = 0.35;     // Outward flow speed of flame patterns along latitude.
+const int FLAME_OCTAVES = 5;             // FBM octaves for flame detail — more = finer but costlier.
 
 // Corona constants
-const float CORONA_FLAME_INTENSITY = 2.0;
-const int NUM_PROMINENCES = 5;
-const float PROMINENCE_BRIGHTNESS = 3.0;
+const float CORONA_FLAME_INTENSITY = 2.0; // Brightness multiplier for corona flames.
+const int NUM_PROMINENCES = 5;            // Number of solar prominence arcs — more = busier corona.
+const float PROMINENCE_BRIGHTNESS = 3.0;  // Peak brightness of individual prominences.
 
 // Star rays constants
-const int NUM_MAIN_RAYS = 6;
-const int NUM_SECONDARY_RAYS = 8;
-const float RAY_INTENSITY = 1.2;
-const float RAY_FADE_POWER = 3.0;
+const int NUM_MAIN_RAYS = 6;             // Primary light ray spokes around the star.
+const int NUM_SECONDARY_RAYS = 8;        // Fainter secondary rays for visual richness.
+const float RAY_INTENSITY = 1.2;         // Overall ray brightness multiplier.
+const float RAY_FADE_POWER = 3.0;        // Exponential distance falloff — higher = rays fade faster.
 
 // Planet constants
-const float BAND_FREQ_BASE = 10.0;
-const float TURBULENCE_STRENGTH = 0.15;
-const float STORM_SIZE = 0.06;
+const float BAND_FREQ_BASE = 10.0;       // Base frequency of gas giant latitude bands.
+const float TURBULENCE_STRENGTH = 0.15;  // Noise-based turbulence amplitude in the bands.
+const float STORM_SIZE = 0.06;           // Radius of storm spots (Great Red Spot analogue).
 
 // =============================================================================
 // TEMPERATURE TO COLOR - Full spectral range including brown dwarfs
 // =============================================================================
+// PHYSICS: Stellar spectral classification
+// Real star colors follow blackbody radiation (Planck's law), but brown dwarfs
+// (< ~2000K) deviate significantly due to molecular absorption (methane, water).
+// Colors below are artist-interpreted from spectral type observations,
+// interpolated piecewise-linearly between anchor temperatures.
 
 // Brown dwarfs (substellar objects) - non-blackbody due to methane absorption
 const vec3 TEMP_300K = vec3(0.35, 0.2, 0.45);      // Dark purple (Y-dwarf, ultra-cool)
@@ -152,6 +168,13 @@ vec3 temperatureToColor(float tempK) {
 // =============================================================================
 // NOISE FUNCTIONS
 // =============================================================================
+// Noise algorithm choices:
+// - 3D Simplex (snoise3D): Used for star surface, corona, and planet terrain.
+//   Simplex is preferred over Perlin for its lack of axis-aligned artifacts and
+//   lower computational cost in 3D (4 corners vs 8 for classic Perlin).
+// - 2D Simplex (snoise2D): Used for planet surface detail where 3D is unnecessary.
+// - Tiled noise (tiledNoise3D): Used for star flames — tiles seamlessly at a
+//   given resolution to prevent visible seams on the spherical surface.
 
 vec3 mod289_3(vec3 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }
 vec4 mod289_4(vec4 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }
@@ -350,6 +373,16 @@ float outwardWave(float edgeDist, float time, float frequency, float speed) {
 // =============================================================================
 // STAR SURFACE SHADER - Boiling plasma with spherical distortion
 // =============================================================================
+// TECHNIQUE: Spherical UV distortion for boiling plasma
+// The star surface is projected through a spherical lens distortion
+// (similar to a fish-eye effect) before sampling plasma noise. This creates
+// the characteristic "boiling" appearance where granules appear to emerge
+// from the center and flow toward the limb.
+//
+// PHYSICS: Limb darkening
+// Real stars appear dimmer at the edge (limb) because we see deeper into
+// hotter layers when looking at the center. Approximated here with
+// pow(dot(normal, viewDir), 0.4).
 
 vec3 renderStarSurface(vec3 spherePos, vec3 normal, vec3 rayDir, vec3 baseColor, float activityLevel, float seed) {
     float time = wrapTime(iTime);

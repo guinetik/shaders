@@ -1,9 +1,11 @@
 /**
  * Kaleidoscopic Study
- *
  * @author guinetik
- * @project Genuary 2026
- * @see https://genuary2026.guinetik.com
+ * @date 2026-02-01
+ *
+ * Mandala-like symmetric patterns through polar coordinate folding.
+ * Three kaleidoscope styles cycle over time: simple N-fold symmetry,
+ * iterative fractal folding, and spiral twist warped with radius.
  *
  * Kaleidoscope Techniques:
  * - Polar coordinate folding
@@ -30,7 +32,12 @@ mat2 rot2D(float a) {
 
 /**
  * Simple kaleidoscope - fold into N segments
- * Fixed: shift angle to avoid atan discontinuity at 9 o'clock
+ * Polar fold math:
+ *   1. Convert to polar (angle, radius)
+ *   2. mod(angle, TAU/N) maps all angles into one wedge of N segments
+ *   3. Mirror within the wedge (if angle > half-wedge, reflect it)
+ *   4. Convert back to Cartesian — produces N-fold mirror symmetry
+ * The +PI offset shifts atan's discontinuity from 9 o'clock to 3 o'clock.
  */
 vec2 kaleido(vec2 p, float segments) {
     // Add PI to shift discontinuity from -PI/+PI (9 o'clock) to 0/TAU (3 o'clock)
@@ -41,7 +48,7 @@ vec2 kaleido(vec2 p, float segments) {
     float segmentAngle = TAU / segments;
     angle = mod(angle, segmentAngle);
 
-    // Mirror within segment
+    // Mirror within segment — creates bilateral symmetry inside each wedge
     if (angle > segmentAngle * 0.5) {
         angle = segmentAngle - angle;
     }
@@ -51,10 +58,11 @@ vec2 kaleido(vec2 p, float segments) {
 
 /**
  * Iterative kaleidoscope - multiple fold passes
- * Creates more complex fractal-like patterns
+ * Each iteration: rotate -> fold into 60-degree wedge -> abs-fold -> scale down.
+ * Repeated folding creates fractal self-similarity at progressively smaller scales.
  */
 vec2 kaleidoIterative(vec2 p, float time, int iterations) {
-    float scale = PI / 3.0;  // 60 degree segments (hexagonal)
+    float scale = PI / 3.0;  // 60 degree segments (hexagonal symmetry)
 
     for (int i = 0; i < iterations; i++) {
         float fi = float(i);
