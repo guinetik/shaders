@@ -3,5 +3,6 @@
   "description": "A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",
   "date": "2025-11-27",
   "tags": ["exoplanets", "space", "3d"],
-  "links": {}
+  "links": {},
+  "commons": ["sphere", "normal-map", "lighting", "atmosphere"]
 }

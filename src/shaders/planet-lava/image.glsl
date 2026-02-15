@@ -73,10 +73,6 @@ float fbm(vec3 x, int octaves) {
 // UTILITY
 // =============================================================================
 
-vec2 Rotate(vec2 p, float a) {
-    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
-}
-
 float square(float x) { return x * x; }
 
 // =============================================================================
@@ -149,9 +145,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     const vec3 RIM_COL = vec3(1.0, 0.4, 0.05);            // Hot atmospheric rim — bright orange for thermal glow
 
     // Map window to -1..1, planet has r=1
-    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
-    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
-    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    vec2 uv = sphereUV(fragCoord, iResolution.xy, BASE_UV_SCALE);
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {
@@ -166,14 +160,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Surface normal via finite difference on crust height
         float height = crustHeight(noisePos);
-        vec3 tangent = normalize(cross(noisePos, vec3(0.0, 1.0, 0.0)));
-        vec3 binormal = cross(noisePos, tangent);
+        vec3 tangent, binormal;
+        computeTangentBasis(noisePos, tangent, binormal);
         const float DX = 0.01;              // Finite-difference step for normal computation — smaller = sharper but noisier
         const float HEIGHT_SCALE = 0.08;   // Normal perturbation amplitude — higher = bumpier crust terrain
         float he = height * HEIGHT_SCALE;
-        float tangentW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * tangent)) / DX;
-        float binormalW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * binormal)) / DX;
-        vec3 surfNormal = normalize(noisePos + tangent * tangentW + binormal * binormalW);
+        float dh_tangent = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * tangent)) / DX;
+        float dh_binormal = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * binormal)) / DX;
+        vec3 surfNormal = perturbNormal(noisePos, tangent, binormal, dh_tangent, dh_binormal);
         surfNormal.xz = Rotate(surfNormal.xz, -surfaceRot);
         normal = normalize(mix(surfNormal, pos, 0.9));
 
@@ -182,7 +176,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 surfaceColor = lavaRamp(heat);
 
         // Lighting — diffuse on crust, emission from hot areas
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);
+        vec2 light = blinnPhong(normal, LIGHT_DIR, 30.0, 0.0, 0.05);
+        float diffuse = light.x;
 
         // Dark crust is lit by the sun; hot areas emit their own light
         vec3 litCrust = surfaceColor * diffuse;
@@ -191,21 +186,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // TECHNIQUE: Rim glow simulating hot atmospheric haze at limb
         // pow(1-z, 1.5) approximates long optical path through volcanic atmosphere
-        float rim = pow(1.0 - pos.z, 1.5);     // Exponent 1.5 — steeper = thinner rim
-        fragColor.rgb += RIM_COL * rim * 0.8;
+        fragColor.rgb += rimGlow(pos.z, RIM_COL, 1.5, 0.8);
 
         // Atmosphere edge blend
         vec3 atmosCol = ATMOS_COL * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, atmosCol, smoothstep(0.993, 1.0, length(uv)));
-        fragColor.rgb += ATMOS_COL * rim * 0.4;
+        fragColor.rgb = atmosEdge(fragColor.rgb, atmosCol, uv, 1.0);
+        fragColor.rgb += rimGlow(pos.z, ATMOS_COL, 1.5, 0.4);
     }
     // Off sphere — atmospheric halo
     else {
-        float dist = length(uv);
-        vec3 dir = normalize(vec3(uv, 1.0));
-        float halo = smoothstep(1.3, 0.95, dist);
-        float lightFacing = clamp(dot(dir, LIGHT_DIR), 0.0, 1.0);
-        fragColor.rgb = ATMOS_COL * halo * lightFacing * 1.5;
+        fragColor.rgb = halo(uv, ATMOS_COL, LIGHT_DIR, 1.5);
     }
 
     // Gamma — 0.9 exponent (slightly less than standard 0.45) to preserve
