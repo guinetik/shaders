@@ -27,7 +27,8 @@
                            // More = denser visualization. Above 32: GPU-heavy per frame.
 #define STEPS 32.0         // Euler steps per particle per frame — more = longer trail segment.
                            // Below 8: sparse. Above 64: GPU cost grows (NUM_PARTICLES * STEPS).
-#define VIEW_SCALE 0.16    // 3D-to-screen scale — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.16  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
 #define SPEED 0.65         // Time-step multiplier — higher = faster traversal.
                            // Below 0.2: sluggish. Above 1.5: may overshoot sine coupling.
 #define INTENSITY 0.18     // Base brightness per segment — higher = brighter trails.
@@ -111,6 +112,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
@@ -156,8 +160,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         for (float i = 0.0; i < STEPS; i++) {
             vec3 next = integrate(pos, dt);
 
-            vec2 a = project(pos,  cy, sy, cp, sp) * VIEW_SCALE;
-            vec2 b = project(next, cy, sy, cp, sp) * VIEW_SCALE;
+            vec2 a = project(pos,  cy, sy, cp, sp) * viewScale;
+            vec2 b = project(next, cy, sy, cp, sp) * viewScale;
 
             float segD = dfLine(a, b, uv);
             if (segD < d) {

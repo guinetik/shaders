@@ -125,6 +125,9 @@ vec2 Rotate(vec2 p, float a) {
 // MAIN
 // =============================================================================
 
+#define BASE_UV_SCALE 1.1          // UV zoom — larger zooms out, showing more space around planet.
+                                   // Automatically scaled up on portrait/mobile to prevent clipping.
+
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 1.0));  // Sun direction (upper-right)
 
@@ -149,7 +152,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 atmosColor = hsv(planetHash.x, 0.3, 0.7);
 
     // Map window to -1..1, planet has r=1
-    vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
+    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
+    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {

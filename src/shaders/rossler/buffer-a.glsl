@@ -31,7 +31,8 @@
                            // variation for orbit separation. More = denser but heavier.
 #define STEPS 50.0        // Euler steps per particle per frame — more = longer trail segment.
                            // Below 30: sparse. Above 200: GPU cost grows (PARTICLES * STEPS).
-#define VIEW_SCALE 0.045   // 3D-to-screen scale — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.045  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                               // Automatically scaled down on portrait/mobile screens.
 #define SPEED 0.8          // Time-step multiplier — higher = faster traversal.
 #define INTENSITY 0.50     // Base brightness per segment — kept low since 8 particles overlap.
 #define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.
@@ -110,8 +111,8 @@ mat3 rotY(float a) {
 
 // Project a 3D attractor point to 2D screen space.
 // Subtracts the attractor center to keep the spiral visible on screen.
-vec2 project(vec3 p, mat3 viewRot) {
-    return (viewRot * (p - center3d)).xy * VIEW_SCALE;
+vec2 project(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * (p - center3d)).xy * scale;
 }
 
 // TECHNIQUE: Distance-field line segment rendering
@@ -142,6 +143,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
+
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
 
     // TECHNIQUE: Frame-persistent state via texelFetch
     // Camera rotation offsets and last mouse position are stored in a dedicated
@@ -194,7 +198,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         for (float i = 0.0; i < STEPS; i++) {
             next = integrateV(last, 0.016 * SPEED, pv);
 
-            float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);
+            float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
             if (segD < d) {
                 d = segD;
                 bestAlpha = pAlpha;

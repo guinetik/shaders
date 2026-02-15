@@ -98,6 +98,9 @@ float Heightmap(vec3 pos) {
 // MAIN
 // =============================================================================
 
+#define BASE_UV_SCALE 1.1          // UV zoom — larger zooms out, showing more space around planet.
+                                   // Automatically scaled up on portrait/mobile to prevent clipping.
+
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── Biome color palette ──
@@ -114,7 +117,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float WATER_LEVEL = 0.48;                           // FBM threshold for ocean — lower = more water, higher = more land
 
     // Map window roughly to -1..1, planet has r=1
-    vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
+    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
+    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
 
     // Derive Z pythagorean-ly; if on the sphere...
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;

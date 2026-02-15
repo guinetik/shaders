@@ -30,9 +30,10 @@
                            // More = denser trails. Above 20: GPU-heavy (NUM_PARTICLES * STEPS).
 #define STEPS 5.0          // Euler steps per particle per frame — kept low since the
                            // Halvorsen system moves fast. Above 15: trail segments get long.
-#define VIEW_SCALE 0.05    // 3D-to-screen scale — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.05  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
 #define SPEED 0.95         // Time-step multiplier — higher = faster traversal.
-#define INTENSITY 0.2      // Base brightness per segment.
+#define INTENSITY 0.5      // Base brightness per segment.
 #define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.
                            // Below 0.98: trails vanish quickly. Above 0.999: ghosting.
 #define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.
@@ -117,6 +118,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
 
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
+
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
 
@@ -162,8 +166,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         for (float i = 0.0; i < STEPS; i++) {
             vec3 next = integrate(pos, dt);
 
-            vec2 a = project(pos,  cy, sy, cp, sp) * VIEW_SCALE;
-            vec2 b = project(next, cy, sy, cp, sp) * VIEW_SCALE;
+            vec2 a = project(pos,  cy, sy, cp, sp) * viewScale;
+            vec2 b = project(next, cy, sy, cp, sp) * viewScale;
 
             float segD = dfLine(a, b, uv);
             if (segD < d) {

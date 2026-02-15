@@ -140,13 +140,18 @@ float lavaHeat(vec3 pos, float time) {
 // MAIN
 // =============================================================================
 
+#define BASE_UV_SCALE 1.1          // UV zoom — larger zooms out, showing more space around planet.
+                                   // Automatically scaled up on portrait/mobile to prevent clipping.
+
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     const vec3 LIGHT_DIR = normalize(vec3(0.5, 1.0, 0.8));  // Sun direction (upper-right-forward)
     const vec3 ATMOS_COL = vec3(0.7, 0.15, 0.02);         // Atmosphere tint — sulfurous orange-red haze
     const vec3 RIM_COL = vec3(1.0, 0.4, 0.05);            // Hot atmospheric rim — bright orange for thermal glow
 
     // Map window to -1..1, planet has r=1
-    vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
+    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
+    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {

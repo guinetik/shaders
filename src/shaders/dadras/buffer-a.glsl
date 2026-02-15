@@ -27,7 +27,8 @@
 // ── Integration & rendering ──
 #define STEPS 500.0        // Euler integration steps per frame — more = longer trail segment
                            // per frame. Below 100: short/sparse trail. Above 800: GPU-heavy.
-#define VIEW_SCALE 0.05    // 3D-to-screen scale factor — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.05  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                              // Automatically scaled down on portrait/mobile screens.
 #define SPEED 0.85         // Time-step multiplier for integration — higher = faster traversal.
                            // Below 0.3: sluggish. Above 1.5: may overshoot and diverge.
 #define INTENSITY 0.35     // Base brightness of each line segment — higher = brighter trails.
@@ -95,8 +96,8 @@ mat3 rotY(float a) {
 }
 
 // Project a 3D attractor point to 2D screen space via camera rotation + scale.
-vec2 project(vec3 p, mat3 viewRot) {
-    return (viewRot * p).xy * VIEW_SCALE;
+vec2 project(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * p).xy * scale;
 }
 
 // TECHNIQUE: Distance-field line segment rendering
@@ -133,6 +134,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
+
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
 
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
@@ -181,7 +185,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.005 * SPEED);
 
-        float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);
+        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
             // Recompute derivative at `next` to get instantaneous speed for color mapping.

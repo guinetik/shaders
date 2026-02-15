@@ -64,7 +64,9 @@ const float tau = 6.283185;  // 2*PI — full circle in radians
 #define GRS_WIDTH 0.28           // Longitudinal half-width — wider = fatter storm ellipse
 #define GRS_HEIGHT 0.14          // Latitudinal half-height — taller = more circular storm
 
-// ── Lighting & rotation ─────────────────────────────────────────────────────
+// ── UV & lighting ──────────────────────────────────────────────────────────
+#define BASE_UV_SCALE 1.1            // UV zoom — larger zooms out, showing more space around planet.
+                                     // Automatically scaled up on portrait/mobile to prevent clipping.
 #define LIGHT_DIR normalize(vec3(0.5, 1.0, 1.0))  // Sun direction (upper-right)
 #define ROTATION_SPEED -0.1      // Planet spin rate — negative = eastward. Jupiter's ~10hr
                                  // rotation is the fastest in our solar system.
@@ -176,7 +178,9 @@ vec3 bandColor(float lat, float lon) {
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Map window to -1..1, planet has r=1
-    vec2 uv = 1.1 * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
+    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
+    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {

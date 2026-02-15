@@ -25,7 +25,8 @@
 // ── Integration & rendering ──
 #define STEPS 96.0         // Euler steps per frame — more = longer trail per frame.
                            // Below 30: sparse trail. Above 200: GPU-heavy.
-#define VIEW_SCALE 0.025   // 3D-to-screen scale — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.025  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+                               // Automatically scaled down on portrait/mobile screens.
 #define SPEED 0.55         // Time-step multiplier — higher = faster traversal of attractor.
                            // Below 0.2: sluggish. Above 1.0: may overshoot.
 #define INTENSITY 0.18     // Base brightness per segment — higher = brighter trails.
@@ -94,8 +95,8 @@ mat3 rotY(float a) {
 
 // Project a 3D attractor point to 2D screen space.
 // Subtracts the attractor center to keep both lobes visible on screen.
-vec2 project(vec3 p, mat3 viewRot) {
-    return (viewRot * (p - center3d)).xy * VIEW_SCALE;
+vec2 project(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * (p - center3d)).xy * scale;
 }
 
 // TECHNIQUE: Distance-field line segment rendering
@@ -134,6 +135,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
     uv -= res / 2.0;
+
+    // Responsive scale: shrink on portrait screens to prevent horizontal clipping
+    float viewScale = BASE_VIEW_SCALE * min(1.0, iResolution.x / iResolution.y);
 
     int px = int(floor(fragCoord.x));
     int py = int(floor(fragCoord.y));
@@ -182,7 +186,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.016 * SPEED);
 
-        float segD = dfLine(project(last, viewRot), project(next, viewRot), uv);
+        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
             // Recompute derivative at `next` to get instantaneous speed for color mapping.
