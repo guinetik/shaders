@@ -23,6 +23,7 @@ import { tmpdir } from 'os';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, '..');
 const shadersDir = join(rootDir, 'src', 'shaders');
+const libDir = join(rootDir, 'src', 'lib');
 
 // Terminal colors
 const c = {
@@ -80,7 +81,7 @@ function checkValidator() {
 
 /**
  * Collect all .glsl files recursively under src/shaders/.
- * @returns {Array<{slug: string, file: string, path: string}>}
+ * @returns {Array<{slug: string, file: string, path: string, commons: string[]}>}
  */
 function findShaders() {
   const results = [];
@@ -89,12 +90,24 @@ function findShaders() {
   for (const slug of readdirSync(shadersDir, { withFileTypes: true })) {
     if (!slug.isDirectory()) continue;
     const slugDir = join(shadersDir, slug.name);
+
+    // Read meta.json for commons list
+    let commons = [];
+    const metaPath = join(slugDir, 'meta.json');
+    if (existsSync(metaPath)) {
+      try {
+        const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+        commons = meta.commons || [];
+      } catch { /* ignore parse errors — build plugin handles validation */ }
+    }
+
     for (const entry of readdirSync(slugDir)) {
       if (!entry.endsWith('.glsl')) continue;
       results.push({
         slug: slug.name,
         file: entry,
         path: join(slugDir, entry),
+        commons,
       });
     }
   }
@@ -102,15 +115,32 @@ function findShaders() {
 }
 
 /**
+ * Load and concatenate commons GLSL source files.
+ * @param {string[]} commons - Array of common names
+ * @returns {string} Concatenated GLSL source
+ */
+function loadCommonsSource(commons) {
+  if (!commons || commons.length === 0) return '';
+  const sources = [];
+  for (const name of commons) {
+    const filePath = join(libDir, `${name}.glsl`);
+    if (existsSync(filePath)) {
+      sources.push(readFileSync(filePath, 'utf8'));
+    }
+  }
+  return sources.length > 0 ? sources.join('\n') + '\n' : '';
+}
+
+/**
  * Validate a single shader file by wrapping it and running glslangValidator.
  * @param {string} filePath
+ * @param {string} commonsSource - Concatenated commons GLSL source to prepend
  * @returns {{ success: boolean, errors: string[] }}
  */
-function validateShader(filePath) {
+function validateShader(filePath, commonsSource = '') {
   const userGlsl = readFileSync(filePath, 'utf8');
-  const assembled = PREAMBLE + userGlsl + POSTAMBLE;
+  const assembled = PREAMBLE + commonsSource + userGlsl + POSTAMBLE;
 
-  // Write assembled source to a temp file (.frag so validator picks ES profile)
   const tmpFile = join(tmpdir(), `lint-shader-${Date.now()}.frag`);
   writeFileSync(tmpFile, assembled, 'utf8');
 
@@ -122,13 +152,13 @@ function validateShader(filePath) {
     return { success: true, errors: [] };
   } catch (error) {
     const raw = error.stdout?.toString() || error.stderr?.toString() || error.message;
-    // Adjust line numbers: subtract preamble lines so they match the user's file
+    const commonsLines = commonsSource ? commonsSource.split('\n').length : 0;
     const errors = raw
       .split('\n')
       .filter(l => l.trim())
       .map(line =>
         line.replace(/^(ERROR|WARNING):\s*\d+:(\d+)/g, (match, level, lineNum) => {
-          const adjusted = Math.max(1, parseInt(lineNum, 10) - PREAMBLE_LINES + 1);
+          const adjusted = Math.max(1, parseInt(lineNum, 10) - PREAMBLE_LINES - commonsLines + 1);
           return `${level}: line ${adjusted}`;
         })
       );
@@ -181,7 +211,8 @@ function main() {
       console.log(`${c.dim}${currentSlug}/${c.reset}`);
     }
 
-    const result = validateShader(shader.path);
+    const commonsSource = loadCommonsSource(shader.commons);
+    const result = validateShader(shader.path, commonsSource);
 
     if (result.success) {
       console.log(`  ${c.green}ok${c.reset}  ${shader.file}`);
