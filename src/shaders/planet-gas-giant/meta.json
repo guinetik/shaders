@@ -3,5 +3,6 @@
   "description": "Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",
   "date": "2025-11-27",
   "tags": ["exoplanets", "space", "3d"],
-  "links": {}
+  "links": {},
+  "commons": ["sphere", "noise-pcg", "lighting", "atmosphere"]
 }
