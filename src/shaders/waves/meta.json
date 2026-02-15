@@ -2,7 +2,7 @@
   "title": "Smooth Waves",
   "description": "Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",
   "date": "2026-01-29",
-  "tags": ["distortion", "procedural"],
+  "tags": ["10-days", "procedural"],
   "links": {},
   "channels": {
     "image": { "iChannel0": "textures/landscape.jpeg" }

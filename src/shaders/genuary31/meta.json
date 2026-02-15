@@ -2,11 +2,6 @@
   "title": "Genuary 2026 Day 31: GLSL Day",
   "description": "Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",
   "date": "2026-01-31",
-  "tags": [
-    "raymarching",
-    "3d",
-    "terrain",
-    "fractals"
-  ],
+  "tags": ["genuary", "raymarching", "3d"],
   "links": {}
 }

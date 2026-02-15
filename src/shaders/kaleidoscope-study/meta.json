@@ -2,7 +2,7 @@
   "title": "Kaleidoscope Interactive",
   "description": "Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",
   "date": "2026-01-28",
-  "tags": ["kaleidoscope", "symmetry", "procedural", "interactive"],
+  "tags": ["procedural", "interactive"],
   "links": {},
   "channels": {
     "image": { "iChannel0": "textures/penrose.png" }

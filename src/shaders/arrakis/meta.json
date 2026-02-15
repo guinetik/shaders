@@ -2,6 +2,6 @@
   "title": "24h in Arrakis",
   "description": "A full day/night cycle of pure raymarched desert poetry.",
   "date": "2026-02-12",
-  "tags": ["raymarching", "terrain", "noise"],
+  "tags": ["raymarching", "3d", "noise"],
   "links": {}
 }

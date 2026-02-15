@@ -2,13 +2,6 @@
   "title": "Exoplanets Study",
   "description": "A procedural solar system with a star and three different planet types",
   "date": "2025-11-26",
-  "tags": [
-    "raymarching",
-    "3d",
-    "planets",
-    "procedural",
-    "interactive",
-    "space"
-  ],
+  "tags": ["exoplanets", "raymarching", "3d", "space", "interactive"],
   "links": {}
 }

@@ -2,7 +2,7 @@
   "title": "Kaleidoscopic Study",
   "description": "Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",
   "date": "2026-02-01",
-  "tags": ["kaleidoscope", "symmetry", "fractals", "procedural", "generative"],
+  "tags": ["10-days", "procedural"],
   "links": {},
   "channels": {
     "image": { "iChannel0": "textures/landscape.jpeg" }
