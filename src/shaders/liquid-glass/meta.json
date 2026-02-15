@@ -1,0 +1,10 @@
+{
+  "title": "Liquid Glass",
+  "description": "A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",
+  "date": "2026-01-23",
+  "tags": ["genuary", "procedural"],
+  "channels": {
+    "image": { "iChannel0": "textures/landscape.jpeg" }
+  },
+  "links": {}
+}
