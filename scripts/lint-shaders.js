@@ -146,10 +146,17 @@ function printInstallInstructions() {
   console.log(`  ${c.cyan}Linux:${c.reset}            sudo apt install glslang-tools\n`);
 }
 
+/** Whether the script was invoked with --skip-missing to gracefully skip when validator is absent. */
+const skipMissing = process.argv.includes('--skip-missing');
+
 function main() {
   console.log(`\n${c.cyan}${c.bold}GLSL Shader Linter${c.reset}\n`);
 
   if (!checkValidator()) {
+    if (skipMissing) {
+      console.log(`${c.yellow}glslangValidator not found — skipping shader lint${c.reset}\n`);
+      process.exit(0);
+    }
     printInstallInstructions();
     process.exit(1);
   }

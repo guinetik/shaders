@@ -67,7 +67,9 @@ watch(activePass, (passId) => {
         {{ PASS_LABELS[passId] }}
       </button>
     </div>
-    <div class="code-panel n-corner-frame" v-html="highlightedHtml" />
+    <div class="code-panel n-corner-frame">
+      <div class="code-scroll" v-html="highlightedHtml" />
+    </div>
   </div>
 </template>
 
@@ -124,18 +126,25 @@ watch(activePass, (passId) => {
   border-radius: 8px;
   padding: 0;
   position: relative;
-  overflow: auto;
   max-height: 60vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.code-panel :deep(pre) {
+.code-scroll {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.code-scroll :deep(pre) {
   background: transparent !important;
   margin: 0;
   padding: 16px;
   overflow-x: auto;
 }
 
-.code-panel :deep(code) {
+.code-scroll :deep(code) {
   font-family: "Fira Code", monospace;
   font-size: 12px;
   line-height: 1.6;
@@ -146,7 +155,7 @@ watch(activePass, (passId) => {
     max-height: 70vh;
   }
 
-  .code-panel :deep(code) {
+  .code-scroll :deep(code) {
     font-size: 13px;
   }
 }
@@ -162,7 +171,7 @@ watch(activePass, (passId) => {
     max-height: 80vh;
   }
 
-  .code-panel :deep(code) {
+  .code-scroll :deep(code) {
     font-size: 14px;
   }
 }
