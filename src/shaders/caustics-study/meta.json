@@ -1,0 +1,10 @@
+{
+  "title": "Caustic Study #01: Simple",
+  "description": "Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",
+  "date": "2026-02-15",
+  "tags": ["caustics", "procedural", "physics"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "textures/pool.webp" }
+  }
+}

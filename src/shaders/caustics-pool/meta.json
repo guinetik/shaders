@@ -1,0 +1,11 @@
+{
+  "title": "Caustic Study #02: Pool",
+  "description": "Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",
+  "date": "2026-02-15",
+  "tags": ["caustics", "raymarching", "3d", "physics"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
+}
