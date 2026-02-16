@@ -3,6 +3,7 @@
   "description": "Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",
   "date": "2026-02-10",
   "tags": ["attractors", "simulation"],
+  "commons": ["noise-value", "color", "sdf", "projection"],
   "links": {},
   "channels": {
     "image": { "iChannel0": "buffer-a" },
