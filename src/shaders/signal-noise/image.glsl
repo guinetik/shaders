@@ -18,32 +18,7 @@
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
-// ---------------------------------------------------------------------------
-// Hash / Noise
-// ---------------------------------------------------------------------------
-
-/**
- * Pseudo-random hash — classic sin-dot construction.
- * Returns [0, 1) for any 2D input.
- */
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
-/**
- * Value noise with Hermite smoothing (smoothstep-style interpolation).
- * Chosen over simplex for its simplicity; adequate for the soft
- * nebula textures that don't need gradient continuity.
- */
-float noise(vec2 p) {
-    vec2 i = floor(p), f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
-    return mix(
-        mix(hash(i), hash(i + vec2(1, 0)), f.x),
-        mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x),
-        f.y
-    );
-}
+// Hash (hashN2) and value noise (valueNoise2D) provided by noise-value commons.
 
 /**
  * Fractal Brownian Motion — 6 octaves with domain rotation.
@@ -54,7 +29,7 @@ float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
     mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);  // ~36.87 degree rotation between octaves
     for (int i = 0; i < 6; i++) {
-        v += a * noise(p);
+        v += a * valueNoise2D(p);
         p = rot * p * 2.0;
         a *= 0.5;
     }
@@ -205,7 +180,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec2 starUV = uv * (40.0 + i * 50.0) + vec2(i * 17.3, i * 31.7);
         vec2 starId = floor(starUV);
         vec2 starF = fract(starUV) - 0.5;
-        float h = hash(starId + i * 100.0);
+        float h = hashN2(starId + i * 100.0);
         float starDist = length(starF);
 
         if (h > 0.96) {
@@ -221,7 +196,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     }
 
     vec3 starColor = mix(vec3(0.80, 0.50, 1.0), vec3(1.0, 0.55, 0.90),
-                         hash(floor(uv * 80.0)));
+                         hashN2(floor(uv * 80.0)));
     col += (stars + spikes) * starColor * 0.5;
 
     // Guide stars — a few fixed bright points with soft Gaussian halos
@@ -239,7 +214,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col *= smoothstep(-0.1, 0.6, vig);
 
     // Film grain — subtle dithering to break banding
-    col += (hash(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
+    col += (hashN2(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
     // Near-unity gamma — slight contrast lift
     col = pow(max(col, 0.0), vec3(0.95));
     col = clamp(col, 0.0, 1.0);

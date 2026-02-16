@@ -57,36 +57,13 @@
                               // 0 = no vignette. 0.5+ = strong edge darkening.
 
 // -------------------------------------------------------
-// Caustic pattern (joltz0r / David Hoskins)
+// Caustic pattern — core warp provided by caustic commons
+// (joltz0r / David Hoskins iterative domain warp)
 // -------------------------------------------------------
-
-// TECHNIQUE: Iterative domain warp caustics
-// Starting from a TAU-scaled, tiled UV, each iteration displaces the
-// coordinate using sin/cos of the running position plus time. The
-// accumulator `c` sums inverse distances: where displaced coordinates
-// nearly converge, c spikes, creating bright caustic lines.
-
 float caustic(vec2 uv, float scale, float t)
 {
     float time = t * TIME_SCALE + TIME_OFFSET;
-    vec2 p = mod(uv * scale * TAU, TAU) - 250.0;
-    vec2 i = p;
-    float c = 1.0;
-
-    for (int n = 0; n < WARP_ITERATIONS; n++)
-    {
-        float tt = time * (1.0 - (3.5 / float(n + 1)));
-        i = p + vec2(
-            cos(tt - i.x) + sin(tt + i.y),
-            sin(tt - i.y) + cos(tt + i.x)
-        );
-        c += 1.0 / length(vec2(
-            p.x / (sin(i.x + tt) / INTENSITY),
-            p.y / (cos(i.y + tt) / INTENSITY)
-        ));
-    }
-
-    c /= float(WARP_ITERATIONS);
+    float c = causticWarp(uv, scale, time, WARP_ITERATIONS, INTENSITY);
     c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
     return pow(abs(c), BRIGHT_POWER);
 }

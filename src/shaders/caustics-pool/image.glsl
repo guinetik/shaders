@@ -196,43 +196,16 @@ vec3 rippleNormal(vec2 xz, BallState ball)
     return normalize(vec3(hc - hx, e, hc - hz));
 }
 
-// -------------------------------------------------------
-// Ray-sphere intersection, returns t or -1
-// -------------------------------------------------------
-float sphereIntersect(vec3 ro, vec3 rd, vec3 center, float radius)
-{
-    vec3 oc = ro - center;
-    float b = dot(oc, rd);
-    float c = dot(oc, oc) - radius * radius;
-    float h = b * b - c;
-    if (h < 0.0) return -1.0;
-    return -b - sqrt(h);
-}
+// Ray-sphere intersection provided by sphere commons (intersectSphere).
 
 // -------------------------------------------------------
-// Caustic pattern (joltz0r / David Hoskins)
+// Caustic pattern — core warp provided by caustic commons
+// (joltz0r / David Hoskins iterative domain warp)
 // -------------------------------------------------------
 float causticPattern(vec2 uv, float t)
 {
     float time = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
-    vec2 p = mod(uv * CAUSTIC_SCALE * TAU, TAU) - 250.0;
-    vec2 i = p;
-    float c = 1.0;
-
-    for (int n = 0; n < CAUSTIC_ITERS; n++)
-    {
-        float tt = time * (1.0 - (3.5 / float(n + 1)));
-        i = p + vec2(
-            cos(tt - i.x) + sin(tt + i.y),
-            sin(tt - i.y) + cos(tt + i.x)
-        );
-        c += 1.0 / length(vec2(
-            p.x / (sin(i.x + tt) / CAUSTIC_INTEN),
-            p.y / (cos(i.y + tt) / CAUSTIC_INTEN)
-        ));
-    }
-
-    c /= float(CAUSTIC_ITERS);
+    float c = causticWarp(uv, CAUSTIC_SCALE, time, CAUSTIC_ITERS, CAUSTIC_INTEN);
     c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
     return pow(abs(c), CAUSTIC_BRIGHT);
 }
@@ -411,7 +384,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // --- Ball intersection (above water) ---
     float ballT = -1.0;
     if (ball.alpha > 0.0)
-        ballT = sphereIntersect(ro, rd, ball.pos, BALL_RADIUS);
+        ballT = intersectSphere(ro, rd, ball.pos, BALL_RADIUS);
 
     // --- Pool box ---
     vec3 boxNorm, boxHit;
