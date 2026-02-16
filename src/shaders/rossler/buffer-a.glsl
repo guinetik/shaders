@@ -77,11 +77,6 @@ vec3 center3d = vec3(0.0, -3.0, 5.0);
 #define PB 0.2             // Rossler 'b' — z-injection constant. Higher = more frequent spikes.
 #define PC 5.7             // Rossler 'c' — foldback threshold. Higher = larger spiral before spike.
 
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
 // Forward Euler integration of the Rossler system with per-particle variation.
 // `pv` is a small fractional offset (e.g. +/-5%) applied to all three parameters,
 // giving each particle a slightly different orbit to fill the attractor volume.
@@ -95,48 +90,6 @@ vec3 integrateV(vec3 cur, float dt, float pv) {
         cur.x + a * cur.y,
         b + cur.z * (cur.x - c)
     ) * dt;
-}
-
-// Rotation matrix around the X axis by angle `a` (radians).
-mat3 rotX(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(1,0,0, 0,c,-s, 0,s,c);
-}
-
-// Rotation matrix around the Y axis by angle `a` (radians).
-mat3 rotY(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(c,0,s, 0,1,0, -s,0,c);
-}
-
-// Project a 3D attractor point to 2D screen space.
-// Subtracts the attractor center to keep the spiral visible on screen.
-vec2 project(vec3 p, mat3 viewRot, float scale) {
-    return (viewRot * (p - center3d)).xy * scale;
-}
-
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point `p` to the line segment (a, b).
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0);
-    else if (h < 2.0) rgb = vec3(x, c, 0);
-    else if (h < 3.0) rgb = vec3(0, c, x);
-    else if (h < 4.0) rgb = vec3(0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0, c);
-    else              rgb = vec3(c, 0, x);
-    return rgb + m;
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
@@ -186,19 +139,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // +/-5% parameter variation per particle for orbit separation.
         // Each particle explores a slightly different dynamical regime.
-        float pv = (hash(float(p) * 7.13) - 0.5) * 0.10;
+        float pv = (hashN(float(p) * 7.13) - 0.5) * 0.10;
 
         // TECHNIQUE: Per-particle intensity modulation
         // Each particle oscillates brightness at its own frequency/phase,
         // creating a firefly-like effect where different orbits pulse independently.
-        float pFreq = 0.3 + hash(float(p) * 3.71) * 0.7;
-        float pPhase = hash(float(p) * 11.3) * 6.2832;
+        float pFreq = 0.3 + hashN(float(p) * 3.71) * 0.7;
+        float pPhase = hashN(float(p) * 11.3) * 6.2832;
         float pAlpha = 0.3 + 0.7 * max(0.0, sin(iTime * pFreq + pPhase));
 
         for (float i = 0.0; i < STEPS; i++) {
             next = integrateV(last, 0.016 * SPEED, pv);
 
-            float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
+            float segD = dfLine(projectMat(last - center3d, viewRot, viewScale), projectMat(next - center3d, viewRot, viewScale), uv);
             if (segD < d) {
                 d = segD;
                 bestAlpha = pAlpha;
@@ -222,7 +175,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // Blink: random pulses of brightness — 30% chance each tick, sine-shaped.
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.3
+    float blink = hashN(blinkSeed) < 0.3
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // Velocity-based color: fast regions map to MIN_HUE, slow to MAX_HUE.
@@ -248,9 +201,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // Rossler spiral lives mostly in the xy-plane with occasional z-spikes.
             float seed = float(px) * 37.0;
             vec3 pos = vec3(
-                (hash(seed) - 0.5) * 10.0,
-                (hash(seed * 1.31) - 0.5) * 10.0,
-                hash(seed * 2.17) * 0.2
+                (hashN(seed) - 0.5) * 10.0,
+                (hashN(seed * 1.31) - 0.5) * 10.0,
+                hashN(seed * 2.17) * 0.2
             );
             fragColor = vec4(pos, 0);
         } else {
@@ -260,13 +213,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal
             // even for well-behaved orbits. Prevents stale/stuck particles and keeps
             // the form regenerating organically without hard cycle cuts.
-            float rng = hash(float(px) * 13.7 + iTime * 60.0);
+            float rng = hashN(float(px) * 13.7 + iTime * 60.0);
             if (length(pos) > ESCAPE_RADIUS || rng < RESPAWN_CHANCE) {
                 float seed = float(px) + iTime * 60.0;
                 pos = vec3(
-                    (hash(seed) - 0.5) * 10.0,
-                    (hash(seed * 1.31) - 0.5) * 10.0,
-                    hash(seed * 2.17) * 0.2
+                    (hashN(seed) - 0.5) * 10.0,
+                    (hashN(seed * 1.31) - 0.5) * 10.0,
+                    hashN(seed * 2.17) * 0.2
                 );
             }
             fragColor = vec4(pos, 0);
