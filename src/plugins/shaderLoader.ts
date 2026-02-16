@@ -22,6 +22,7 @@ import type {
   ShaderEntry,
   ShaderPasses,
   ShaderChannels,
+  CommonsSource,
   PassId,
   ChannelBindings,
   ChannelSlot,
@@ -134,15 +135,15 @@ function assignBufferPass(
 }
 
 /**
- * Load and concatenate commons GLSL source files.
+ * Load commons GLSL source files as individual entries.
  *
  * @param libDir - Absolute path to the src/lib/ directory
  * @param commons - Array of common names (e.g. ['sphere', 'lighting'])
  * @param slug - Shader slug for error messages
- * @returns Concatenated GLSL source string to prepend
+ * @returns Array of CommonsSource entries (name + source)
  */
-function loadCommons(libDir: string, commons: string[], slug: string): string {
-  const sources: string[] = [];
+function loadCommons(libDir: string, commons: string[], slug: string): CommonsSource[] {
+  const entries: CommonsSource[] = [];
 
   for (const name of commons) {
     if (name.includes('..') || name.includes('/') || name.includes('\\')) {
@@ -156,26 +157,13 @@ function loadCommons(libDir: string, commons: string[], slug: string): string {
     }
 
     try {
-      sources.push(fs.readFileSync(filePath, 'utf-8'));
+      entries.push({ name, source: fs.readFileSync(filePath, 'utf-8') });
     } catch (err) {
       throw new Error(`[shader-loader] Failed to read commons file src/lib/${name}.glsl for shader "${slug}": ${err}`);
     }
   }
 
-  return sources.length > 0 ? sources.join('\n') + '\n' : '';
-}
-
-/**
- * Prepend commons source to all passes in a ShaderPasses object.
- */
-function prependCommons(passes: ShaderPasses, commonsSource: string): void {
-  if (!commonsSource) return;
-
-  passes.image = commonsSource + passes.image;
-  if (passes.bufferA) passes.bufferA = commonsSource + passes.bufferA;
-  if (passes.bufferB) passes.bufferB = commonsSource + passes.bufferB;
-  if (passes.bufferC) passes.bufferC = commonsSource + passes.bufferC;
-  if (passes.bufferD) passes.bufferD = commonsSource + passes.bufferD;
+  return entries;
 }
 
 /**
@@ -275,11 +263,11 @@ function scanShaders(shadersDir: string, libDir: string): ShaderEntryInternal[] 
       ? mergeChannels(defaultChannels, rawMeta.channels)
       : defaultChannels;
 
-    // Load and prepend commons if specified
-    if (rawMeta.commons && rawMeta.commons.length > 0) {
-      const commonsSource = loadCommons(libDir, rawMeta.commons, slug);
-      prependCommons(passes, commonsSource);
-    }
+    // Load commons sources if specified (renderer prepends at runtime)
+    const commonsSources: CommonsSource[] =
+      rawMeta.commons && rawMeta.commons.length > 0
+        ? loadCommons(libDir, rawMeta.commons, slug)
+        : [];
 
     // Detect screenshot in shader source folder
     const screenshotPath = path.join(dir, SCREENSHOT_FILENAME);
@@ -295,6 +283,7 @@ function scanShaders(shadersDir: string, libDir: string): ShaderEntryInternal[] 
       screenshotUrl: '',
       passes,
       channels,
+      commonsSources,
       _hasScreenshot: hasScreenshot,
     });
   }

@@ -9,7 +9,7 @@
  */
 import { ref, watch, onUnmounted } from 'vue';
 import type { Ref } from 'vue';
-import type { ShaderPasses, ShaderChannels, PassId, ChannelSlot, ChannelTarget } from '../types';
+import type { ShaderPasses, ShaderChannels, CommonsSource, PassId, ChannelSlot, ChannelTarget } from '../types';
 import { MAX_BUFFER_PASSES, FBOS_PER_BUFFER } from '../constants';
 
 /** Ordered list of buffer pass IDs for iteration */
@@ -349,7 +349,8 @@ function createFullscreenQuad(
 export function useShaderRenderer(
   canvasRef: Ref<HTMLCanvasElement | null>,
   passes: ShaderPasses,
-  channels: ShaderChannels
+  channels: ShaderChannels,
+  commonsSources: CommonsSource[] = []
 ): {
   /** Error message if shader compilation fails */
   error: Ref<string | null>;
@@ -415,6 +416,11 @@ export function useShaderRenderer(
 
   /** Loaded image textures keyed by their channel target path */
   let textureCache: Map<string, WebGLTexture> = new Map();
+
+  /** Concatenated commons source, prepended to all passes before compilation */
+  const commonsPrefix = commonsSources.length > 0
+    ? commonsSources.map(c => c.source).join('\n') + '\n'
+    : '';
 
   /**
    * Determines the ordered list of active buffer pass IDs present in the shader.
@@ -568,7 +574,7 @@ export function useShaderRenderer(
     for (const passId of activeBuffers) {
       const source = passes[passId];
       if (!source) continue;
-      const result = buildPassProgram(gl, sharedVertexShader, source);
+      const result = buildPassProgram(gl, sharedVertexShader, commonsPrefix + source);
       if (typeof result === 'string') {
         console.error(`[ShaderRenderer] ${passId} compilation failed:`, result);
         error.value = result;
@@ -590,7 +596,7 @@ export function useShaderRenderer(
     }
 
     // Build image pass program
-    const imageResult = buildPassProgram(gl, sharedVertexShader, passes.image);
+    const imageResult = buildPassProgram(gl, sharedVertexShader, commonsPrefix + passes.image);
     if (typeof imageResult === 'string') {
       console.error('[ShaderRenderer] Image pass compilation failed:', imageResult);
       error.value = imageResult;

@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useShaderRenderer } from '../composables/useShaderRenderer';
-import type { ShaderPasses, ShaderChannels } from '../types';
+import type { ShaderPasses, ShaderChannels, CommonsSource } from '../types';
 
 const props = defineProps<{
   passes: ShaderPasses;
   channels: ShaderChannels;
+  commonsSources: CommonsSource[];
 }>();
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 
-const { error, isRunning } = useShaderRenderer(canvasRef, props.passes, props.channels);
+const { error, isRunning } = useShaderRenderer(canvasRef, props.passes, props.channels, props.commonsSources);
 
 defineExpose({ error, isRunning, canvasRef });
 </script>

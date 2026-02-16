@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import type { ShaderPasses, PassId } from '../types';
+import type { ShaderPasses, PassId, CommonsSource } from '../types';
 import { useCodeHighlighter } from '../composables/useCodeHighlighter';
 
 const props = defineProps<{
   passes: ShaderPasses;
+  commonsSources: CommonsSource[];
 }>();
 
 /** Human-readable labels for each pass tab */
@@ -16,8 +17,11 @@ const PASS_LABELS: Record<PassId, string> = {
   bufferD: 'Buffer D',
 };
 
-/** Currently active pass tab */
-const activePass = ref<PassId>('image');
+/** Tab identifier — either a pass ID or a commons name prefixed with 'commons:' */
+type TabId = PassId | `commons:${string}`;
+
+/** Currently active tab */
+const activeTab = ref<TabId>('image');
 
 /** Ordered list of passes that have source code */
 const availablePasses = computed<PassId[]>(() => {
@@ -29,14 +33,25 @@ const availablePasses = computed<PassId[]>(() => {
   return ids;
 });
 
-/** Whether the shader has multiple passes (show tab bar) */
-const hasMultiplePasses = computed(() => availablePasses.value.length > 1);
+/** Whether tabs should be shown (multiple passes OR any commons) */
+const showTabs = computed(() =>
+  availablePasses.value.length > 1 || props.commonsSources.length > 0
+);
+
+/** Get the source code for the active tab */
+function getTabSource(tabId: TabId): string | undefined {
+  if (tabId.startsWith('commons:')) {
+    const name = tabId.slice('commons:'.length);
+    return props.commonsSources.find(c => c.name === name)?.source;
+  }
+  return props.passes[tabId as PassId];
+}
 
 const { highlightedHtml, highlight } = useCodeHighlighter();
 
-/** Highlight the code for the currently active pass */
+/** Highlight the code for the currently active tab */
 watch(
-  () => props.passes[activePass.value],
+  () => getTabSource(activeTab.value),
   (code) => {
     if (code) {
       highlight(code);
@@ -45,9 +60,9 @@ watch(
   { immediate: true },
 );
 
-/** Re-highlight when the active pass changes */
-watch(activePass, (passId) => {
-  const code = props.passes[passId];
+/** Re-highlight when the active tab changes */
+watch(activeTab, (tabId) => {
+  const code = getTabSource(tabId);
   if (code) {
     highlight(code);
   }
@@ -56,15 +71,24 @@ watch(activePass, (passId) => {
 
 <template>
   <div class="code-viewer">
-    <div v-if="hasMultiplePasses" class="pass-tabs">
+    <div v-if="showTabs" class="pass-tabs">
       <button
         v-for="passId in availablePasses"
         :key="passId"
         class="tab-btn"
-        :class="{ active: activePass === passId }"
-        @click="activePass = passId"
+        :class="{ active: activeTab === passId }"
+        @click="activeTab = passId"
       >
         {{ PASS_LABELS[passId] }}
+      </button>
+      <button
+        v-for="common in commonsSources"
+        :key="'commons:' + common.name"
+        class="tab-btn tab-btn--commons"
+        :class="{ active: activeTab === 'commons:' + common.name }"
+        @click="activeTab = `commons:${common.name}`"
+      >
+        {{ common.name }}.glsl
       </button>
     </div>
     <div class="code-panel n-corner-frame">
@@ -107,6 +131,11 @@ watch(activePass, (passId) => {
   flex-shrink: 0;
 }
 
+.tab-btn--commons {
+  color: var(--n-text-dim);
+  font-size: 11px;
+}
+
 @media (hover: hover) {
   .tab-btn:hover {
     border-color: var(--n-border-active);
@@ -117,6 +146,10 @@ watch(activePass, (passId) => {
   border-color: var(--n-border-active);
   background: var(--n-bg-hover);
   box-shadow: 0 0 12px var(--n-glow);
+}
+
+.tab-btn--commons.active {
+  color: var(--n-text);
 }
 
 .code-panel {

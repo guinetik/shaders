@@ -130,10 +130,12 @@ function navigateBack(event: MouseEvent): void {
           ref="rendererRef"
           :passes="shader.passes"
           :channels="shader.channels"
+          :commonsSources="shader.commonsSources"
         />
         <CodeViewer
           v-else
           :passes="shader.passes"
+          :commonsSources="shader.commonsSources"
         />
       </section>
 
