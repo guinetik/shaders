@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useShaderDetail } from '../composables/useShaderDetail';
 import { useNeutronMotion } from '../composables/useNeutronMotion';
 import { useSineWaveHover } from '../composables/useSineWaveHover';
-import { CARD_EXPAND_MS } from '../constants';
+import { CARD_EXPAND_MS, SHADER_START_DELAY_MS } from '../constants';
 import ShaderRenderer from '../components/ShaderRenderer.vue';
 import CodeViewer from '../components/CodeViewer.vue';
 import ShaderInfoDrawer from '../components/ShaderInfoDrawer.vue';
@@ -32,10 +32,16 @@ useSineWaveHover(detailRef, '.tab-button, .action-button, .link-button');
 onMounted(() => {
   if (prefersReducedMotion.value === 'reduced') {
     isEntering.value = false;
+    rendererRef.value?.startRendering();
     return;
   }
   setTimeout(() => {
     isEntering.value = false;
+    // Start shader compilation + rendering after entrance animation + buffer,
+    // so WebGL work doesn't jank the FLIP transition.
+    setTimeout(() => {
+      rendererRef.value?.startRendering();
+    }, SHADER_START_DELAY_MS);
   }, CARD_EXPAND_MS);
 });
 
@@ -131,6 +137,8 @@ function navigateBack(event: MouseEvent): void {
           :passes="shader.passes"
           :channels="shader.channels"
           :commonsSources="shader.commonsSources"
+          :screenshotUrl="shader.screenshotUrl"
+          :deferStart="true"
         />
         <CodeViewer
           v-else

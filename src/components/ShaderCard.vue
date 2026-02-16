@@ -249,8 +249,10 @@ defineExpose({ triggerEntrance, getCardEl });
   >
     <!-- SVG border trace overlay -->
     <svg class="card-trace-svg" aria-hidden="true">
+      <!-- Entrance animation rect -->
       <rect
         ref="svgRef"
+        class="entrance-trace"
         x="0.5"
         y="0.5"
         rx="8"
@@ -335,20 +337,21 @@ defineExpose({ triggerEntrance, getCardEl });
   overflow: visible;
 }
 
-.card-trace-svg rect {
+.entrance-trace {
   stroke: var(--n-text-strong);
   transition: stroke 300ms ease-out;
 }
 
-.card--filling .card-trace-svg rect,
-.card--visible .card-trace-svg rect {
+.card--filling .entrance-trace,
+.card--visible .entrance-trace {
   stroke: var(--n-accent);
 }
 
-.card--visible .card-trace-svg {
+.card--visible .entrance-trace {
   opacity: 0;
   transition: opacity 400ms ease-out 200ms;
 }
+
 
 /* -- Content wrapper -- */
 .card-content {
@@ -436,7 +439,8 @@ defineExpose({ triggerEntrance, getCardEl });
 /* -- Hover effects -- */
 @media (hover: hover) {
   .shader-card:hover {
-    border-color: var(--n-border-active);
+    border-color: rgba(255, 255, 255, 0.6);
+    border-width: 1.5px;
     box-shadow: var(--n-shadow-soft), 0 0 24px var(--n-glow);
     transform: translateY(-6px);
   }
@@ -444,6 +448,7 @@ defineExpose({ triggerEntrance, getCardEl });
   .shader-card:hover .card-image {
     filter: brightness(1.1) contrast(1.05);
   }
+
 
   /* Corner bracket expansion */
   .shader-card::before,
@@ -502,6 +507,7 @@ defineExpose({ triggerEntrance, getCardEl });
     box-shadow: var(--n-shadow-soft), 0 0 36px var(--n-glow), 0 0 12px var(--n-accent-soft);
   }
 }
+
 
 /* -- Reduced motion -- */
 @media (prefers-reduced-motion: reduce) {

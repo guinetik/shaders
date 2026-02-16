@@ -11,8 +11,10 @@ const { activeTag, allTags, filteredShaders, setTag } = useShaderGallery();
 const { triggerCardExit, prefersReducedMotion } = useNeutronMotion();
 
 const headerRef = ref<HTMLElement | null>(null);
+const gridRef = ref<HTMLElement | null>(null);
 
 useSineWaveHover(headerRef, '.profile-link, .github-link');
+useSineWaveHover(gridRef, '.shader-card', '.card-overlay', 8);
 
 /**
  * TransitionGroup @enter hook — triggers the wire-frame entrance
@@ -94,22 +96,24 @@ function onCardLeave(el: Element, done: () => void): void {
       </p>
     </header>
     <TagFilter :tags="allTags" :activeTag="activeTag" @select="setTag" />
-    <TransitionGroup
-      name="shader-card"
-      tag="div"
-      class="gallery-grid"
-      @enter="onCardEnter"
-      @leave="onCardLeave"
-      :css="false"
-    >
-      <ShaderCard
-        v-for="(shader, index) in filteredShaders"
-        :key="shader.slug"
-        :shader="shader"
-        :index="index"
-        :total="filteredShaders.length"
-      />
-    </TransitionGroup>
+    <div ref="gridRef">
+      <TransitionGroup
+        name="shader-card"
+        tag="div"
+        class="gallery-grid"
+        @enter="onCardEnter"
+        @leave="onCardLeave"
+        :css="false"
+      >
+        <ShaderCard
+          v-for="(shader, index) in filteredShaders"
+          :key="shader.slug"
+          :shader="shader"
+          :index="index"
+          :total="filteredShaders.length"
+        />
+      </TransitionGroup>
+    </div>
     <p v-if="filteredShaders.length === 0" class="gallery-empty">
       No shaders found.
     </p>

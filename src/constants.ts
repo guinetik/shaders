@@ -136,6 +136,9 @@ export const GLOW_PULSE_MS = 1500;
 /** Click-to-expand transition duration */
 export const CARD_EXPAND_MS = 500;
 
+/** Extra breathing room after expand animation before starting shader GPU work */
+export const SHADER_START_DELAY_MS = 200;
+
 /** Sibling cards fade duration during expand */
 export const SIBLING_FADEOUT_MS = 300;
 

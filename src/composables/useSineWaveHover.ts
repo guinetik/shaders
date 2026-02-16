@@ -29,10 +29,15 @@ const FADE_MS = 150;
  *
  * @param containerRef - Ref to the container element (event delegation root)
  * @param selector - CSS selector for hoverable children (e.g. '.tag-btn')
+ * @param positionSelector - Optional CSS selector for a child element within the
+ *   matched hover target to position the canvas over instead (e.g. '.card-overlay')
+ * @param offsetY - Optional vertical pixel offset for the canvas position
  */
 export function useSineWaveHover(
   containerRef: Ref<HTMLElement | null>,
   selector: string,
+  positionSelector?: string,
+  offsetY = 0,
 ): void {
   let canvas: HTMLCanvasElement | null = null;
   let ctx: CanvasRenderingContext2D | null = null;
@@ -67,7 +72,7 @@ export function useSineWaveHover(
     const style = getComputedStyle(el);
     const borderRadius = style.borderRadius || '0';
 
-    canvas.style.top = `${rect.top}px`;
+    canvas.style.top = `${rect.top + offsetY}px`;
     canvas.style.left = `${rect.left}px`;
     canvas.style.width = `${rect.width}px`;
     canvas.style.height = `${rect.height}px`;
@@ -165,8 +170,11 @@ export function useSineWaveHover(
 
     if (!canvas) createCanvas();
 
-    activeEl = target;
-    positionCanvas(target);
+    const positionEl = positionSelector
+      ? (target.querySelector(positionSelector) as HTMLElement | null) ?? target
+      : target;
+    activeEl = positionEl;
+    positionCanvas(positionEl);
     fadeDir = 'in';
 
     cancelAnimationFrame(rafId);

@@ -350,7 +350,8 @@ export function useShaderRenderer(
   canvasRef: Ref<HTMLCanvasElement | null>,
   passes: ShaderPasses,
   channels: ShaderChannels,
-  commonsSources: CommonsSource[] = []
+  commonsSources: CommonsSource[] = [],
+  deferStart = false,
 ): {
   /** Error message if shader compilation fails */
   error: Ref<string | null>;
@@ -983,8 +984,10 @@ export function useShaderRenderer(
       frameCount = 0;
       accumulatedTime = 0;
 
-      // Auto-start rendering
-      start();
+      // Auto-start rendering unless deferred (caller will invoke start() later)
+      if (!deferStart) {
+        start();
+      }
     },
     { immediate: true }
   );

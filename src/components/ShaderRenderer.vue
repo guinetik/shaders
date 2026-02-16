@@ -1,23 +1,54 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useShaderRenderer } from '../composables/useShaderRenderer';
 import type { ShaderPasses, ShaderChannels, CommonsSource } from '../types';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   passes: ShaderPasses;
   channels: ShaderChannels;
   commonsSources: CommonsSource[];
-}>();
+  /** Optional screenshot URL shown as placeholder until shader starts rendering */
+  screenshotUrl?: string;
+  /** When true, defer shader compilation until startRendering() is called */
+  deferStart?: boolean;
+}>(), {
+  screenshotUrl: '',
+  deferStart: false,
+});
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
+const showPlaceholder = ref(!!props.screenshotUrl);
 
-const { error, isRunning } = useShaderRenderer(canvasRef, props.passes, props.channels, props.commonsSources);
+const { error, isRunning, start } = useShaderRenderer(
+  canvasRef, props.passes, props.channels, props.commonsSources, props.deferStart,
+);
 
-defineExpose({ error, isRunning, canvasRef });
+/** Hide the placeholder once the shader is actually running */
+watch(isRunning, (running) => {
+  if (running) {
+    showPlaceholder.value = false;
+  }
+});
+
+/**
+ * Called by parent to begin shader compilation + rendering
+ * after the entrance animation has finished.
+ */
+function startRendering(): void {
+  start();
+}
+
+defineExpose({ error, isRunning, canvasRef, startRendering });
 </script>
 
 <template>
   <div class="renderer-container n-panel n-vignette-overlay">
+    <img
+      v-if="showPlaceholder && screenshotUrl"
+      :src="screenshotUrl"
+      alt=""
+      class="renderer-placeholder"
+    />
     <canvas ref="canvasRef" class="shader-canvas"></canvas>
     <div v-if="error" class="renderer-error">
       <span class="error-label">Shader Error</span>
@@ -41,6 +72,17 @@ defineExpose({ error, isRunning, canvasRef });
   background: #000;
   border: 1px solid var(--n-border);
   border-radius: 8px;
+}
+
+.renderer-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .renderer-container:fullscreen {
