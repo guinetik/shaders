@@ -26,6 +26,9 @@
  *                    Blue-white (A-type) -> Blue (O-type) -> Magenta (T-dwarf) ->
  *                    Red (M-type) -> back to Orange
  *
+ * Commons: sphere (intersectSphere), color (hsv2rgb/rgb2hsv), noise-simplex
+ * (snoise2D/3D, fbmSimplex2D, tiledNoise3D, plasmaNoise).
+ *
  * Based on the v2 star shaders from the Exoplanets visualization project
  * https://github.com/guinetik/exoplanets
  */
@@ -60,7 +63,7 @@ const vec3 TEMP_10000K = vec3(0.80, 0.85, 1.0);    // A-type blue-white
 const vec3 TEMP_25000K = vec3(0.65, 0.75, 1.0);    // O-type blue
 
 // =============================================================================
-// NOISE FUNCTIONS
+// LOCAL UTILITIES (unique to star-study, not in commons)
 // =============================================================================
 
 float hash(float n) { return fract(sin(n) * 43758.5453123); }
@@ -68,129 +71,6 @@ float hash3(vec3 p) {
     p = fract(p * 0.3183099 + 0.1);
     p *= 17.0;
     return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
-}
-
-float snoise3D(vec3 v) {
-    const vec2 C = vec2(1.0/6.0, 1.0/3.0);
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - 0.5;
-    i = mod(i, 289.0);
-    vec4 p = mod(((i.z + vec4(0.0, i1.z, i2.z, 1.0)) * 34.0 + 1.0) *
-                  (i.z + vec4(0.0, i1.z, i2.z, 1.0)), 289.0);
-    p = mod(((p + i.y + vec4(0.0, i1.y, i2.y, 1.0)) * 34.0 + 1.0) *
-             (p + i.y + vec4(0.0, i1.y, i2.y, 1.0)), 289.0);
-    p = mod(((p + i.x + vec4(0.0, i1.x, i2.x, 1.0)) * 34.0 + 1.0) *
-             (p + i.x + vec4(0.0, i1.x, i2.x, 1.0)), 289.0);
-    vec4 j = p - 49.0 * floor(p / 49.0);
-    vec4 x_ = floor(j / 7.0);
-    vec4 y_ = j - 7.0 * x_;
-    vec4 x = (x_ * 2.0 + 0.5) / 7.0 - 1.0;
-    vec4 y = (y_ * 2.0 + 0.5) / 7.0 - 1.0;
-    vec4 h = 1.0 - abs(x) - abs(y);
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-    vec3 g0 = vec3(a0.xy, h.x);
-    vec3 g1 = vec3(a0.zw, h.y);
-    vec3 g2 = vec3(a1.xy, h.z);
-    vec3 g3 = vec3(a1.zw, h.w);
-    vec4 norm = 1.79284291400159 - 0.85373472095314 *
-        vec4(dot(g0,g0), dot(g1,g1), dot(g2,g2), dot(g3,g3));
-    g0 *= norm.x; g1 *= norm.y; g2 *= norm.z; g3 *= norm.w;
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m*m, vec4(dot(g0,x0), dot(g1,x1), dot(g2,x2), dot(g3,x3)));
-}
-
-float tiledNoise3D(vec3 uv, float res) {
-    uv *= res;
-    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
-    vec3 uv1 = floor(mod(uv + 1.0, res)) * vec3(1.0, 100.0, 10000.0);
-    vec3 f = fract(uv);
-    f = f * f * (3.0 - 2.0 * f);
-    vec4 v = vec4(uv0.x+uv0.y+uv0.z, uv1.x+uv0.y+uv0.z, uv0.x+uv1.y+uv0.z, uv1.x+uv1.y+uv0.z);
-    vec4 r = fract(sin(v * 0.001) * 100000.0);
-    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
-    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
-    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
-    return mix(r0, r1, f.z) * 2.0 - 1.0;
-}
-
-float fbm3D(vec3 p, int octaves) {
-    float v = 0.0, a = 0.5;
-    for (int i = 0; i < 5; i++) {
-        if (i >= octaves) break;
-        v += a * snoise3D(p);
-        p *= 2.0; a *= 0.5;
-    }
-    return v;
-}
-
-// 2D Simplex Noise
-float snoise2D(vec2 v) {
-    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
-                       -0.577350269189626, 0.024390243902439);
-    vec2 i = floor(v + dot(v, C.yy));
-    vec2 x0 = v - i + dot(i, C.xx);
-    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-    vec4 x12 = x0.xyxy + C.xxzz;
-    x12.xy -= i1;
-    i = mod(i, 289.0);
-    vec3 perm1 = vec3(i.y) + vec3(0.0, i1.y, 1.0);
-    perm1 = mod(((perm1 * 34.0) + 1.0) * perm1, 289.0);
-    vec3 perm2 = perm1 + vec3(i.x) + vec3(0.0, i1.x, 1.0);
-    vec3 p = mod(((perm2 * 34.0) + 1.0) * perm2, 289.0);
-    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-    m = m * m; m = m * m;
-    vec3 x = 2.0 * fract(p * C.www) - 1.0;
-    vec3 h = abs(x) - 0.5;
-    vec3 ox = floor(x + 0.5);
-    vec3 a0 = x - ox;
-    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
-    vec3 g;
-    g.x = a0.x * x0.x + h.x * x0.y;
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 130.0 * dot(m, g);
-}
-
-float fbm2D(vec2 p) {
-    float value = 0.0, amplitude = 0.5;
-    for (int i = 0; i < 5; i++) {
-        value += amplitude * snoise2D(p);
-        p *= 2.0;
-        amplitude *= 0.5;
-    }
-    return value;
-}
-
-// =============================================================================
-// COLOR UTILITIES
-// =============================================================================
-
-vec3 hsv2rgb(vec3 c) {
-    vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
-}
-
-vec3 rgb2hsv(vec3 c) {
-    vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
-    float d = q.x - min(q.w, q.y);
-    float e = 1.0e-10;
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 
 // =============================================================================
@@ -207,23 +87,6 @@ vec3 temperatureToColor(float tempK) {
     if (tempK < 7500.0) return mix(TEMP_5778K, TEMP_7500K, (tempK - 5778.0) / 1722.0);
     if (tempK < 10000.0) return mix(TEMP_7500K, TEMP_10000K, (tempK - 7500.0) / 2500.0);
     return mix(TEMP_10000K, TEMP_25000K, (tempK - 10000.0) / 15000.0);
-}
-
-// =============================================================================
-// PLASMA NOISE (flowing distortion)
-// =============================================================================
-
-float plasmaNoise(vec3 p, float time) {
-    float v = 0.0, a = 1.0, total = 0.0;
-    for (int i = 0; i < 5; i++) {
-        vec3 offset = vec3(sin(time * 0.1 + float(i)) * 0.5,
-                          cos(time * 0.15 + float(i) * 0.7) * 0.5,
-                          time * 0.05);
-        v += a * snoise3D((p + offset) * pow(2.0, float(i)));
-        total += a;
-        a *= 0.5;
-    }
-    return v / total;
 }
 
 // =============================================================================
@@ -708,19 +571,6 @@ vec3 backgroundStars(vec3 rd) {
 }
 
 // =============================================================================
-// RAY-SPHERE INTERSECTION
-// =============================================================================
-
-float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
-    vec3 oc = ro - center;
-    float b = dot(oc, rd);
-    float c = dot(oc, oc) - radius * radius;
-    float h = b * b - c;
-    if (h < 0.0) return -1.0;
-    return -b - sqrt(h);
-}
-
-// =============================================================================
 // ROCKY PLANET SHADER
 // =============================================================================
 
@@ -735,7 +585,7 @@ vec3 renderRockyPlanet(vec2 uv, vec3 normal, vec3 baseColor, float seed) {
     vec3 variedColor = hsv2rgb(hsv);
 
     // Terrain elevation
-    float terrain = fbm2D(terrainUv * (3.0 + seed * 3.0));
+    float terrain = fbmSimplex2D(terrainUv * (3.0 + seed * 3.0));
 
     // Color zones
     vec3 lowland = variedColor * 0.6;  // Oceans/valleys

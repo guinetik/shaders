@@ -6,6 +6,6 @@
   "links": {},
   "commons": ["noise-perlin", "noise-value"],
   "channels": {
-    "image": { "iChannel0": "textures/landscape.jpeg" }
+    "image": { "iChannel0": "textures/water.avif" }
   }
 }

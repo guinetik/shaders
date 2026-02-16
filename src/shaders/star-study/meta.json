@@ -3,5 +3,6 @@
   "description": "A procedural star with boiling plasma surface and an orbiting planet",
   "date": "2025-11-30",
   "tags": ["exoplanets", "space", "3d", "raymarching"],
+  "commons": ["sphere", "color", "noise-simplex"],
   "links": {}
 }

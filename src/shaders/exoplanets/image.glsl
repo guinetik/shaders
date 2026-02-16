@@ -7,6 +7,9 @@
  * All geometry is ray-sphere intersected (no raymarching), with procedural surface
  * shading driven by simplex noise, FBM, and tiled noise for seamless flame textures.
  *
+ * Commons: sphere (intersection + UV), color (hsv2rgb/rgb2hsv), noise-simplex
+ * (snoise2D/3D, fbmSimplex2D/3D, tiledNoise3D, plasmaNoise).
+ *
  * Scene:
  * - Central star with boiling plasma surface, corona flames, and rays
  * - Rocky planet (inner orbit) -- Earth/Mars-like with FBM terrain, craters, and ice/lava biomes
@@ -28,6 +31,24 @@
  * - Star rays: outward-traveling wave pulses along angular spokes
  * - Temperature-to-color: piecewise linear interpolation across spectral types
  *   (Y/T/L brown dwarfs through O-type blue giants)
+ *
+ * TECHNIQUE: Stellar spectral mapping
+ * Star color is derived from temperature via piecewise linear interpolation
+ * across 12 anchor points spanning Y-dwarfs (300K) to O-type stars (40000K).
+ *
+ * TECHNIQUE: Layered plasma surface
+ * Star surface combines spherical distortion (fish-eye warping of UVs),
+ * plasmaNoise for boiling granules, tiledNoise3D for seamless outward-flowing
+ * flames, and convection cell noise — all modulated by limb darkening.
+ *
+ * TECHNIQUE: Solar prominences
+ * Corona arcs are placed at random angular positions with lifecycle modulation
+ * (sin-based birth/death cycle) and FBM-shaped intensity profiles.
+ *
+ * TECHNIQUE: Biome mapping (rocky planet)
+ * Temperature drives ice/lava interpolation: below 180K → ice caps,
+ * above 400K → volcanic cracks with lava glow. FBM terrain drives
+ * lowland/highland/peak color mixing.
  *
  * Created from the Exoplanets visualization project
  * https://github.com/guinetik/exoplanets
@@ -70,7 +91,6 @@
 
 const float PI = 3.14159265359;
 const float TAU = 6.28318530718;
-const float MOD_DIVISOR = 289.0;
 
 // Star surface constants
 const float PLASMA_SCALE = 3.0;          // UV scale for plasma noise — higher = finer granules.
@@ -166,199 +186,14 @@ vec3 temperatureToColor(float tempK) {
 }
 
 // =============================================================================
-// NOISE FUNCTIONS
+// LOCAL UTILITIES (unique to exoplanets, not in commons)
 // =============================================================================
-// Noise algorithm choices:
-// - 3D Simplex (snoise3D): Used for star surface, corona, and planet terrain.
-//   Simplex is preferred over Perlin for its lack of axis-aligned artifacts and
-//   lower computational cost in 3D (4 corners vs 8 for classic Perlin).
-// - 2D Simplex (snoise2D): Used for planet surface detail where 3D is unnecessary.
-// - Tiled noise (tiledNoise3D): Used for star flames — tiles seamlessly at a
-//   given resolution to prevent visible seams on the spherical surface.
-
-vec3 mod289_3(vec3 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }
-vec4 mod289_4(vec4 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }
-vec2 mod289_2(vec2 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }
-
-vec4 permute(vec4 x) { return mod289_4(((x * 34.0) + 1.0) * x); }
-vec3 permute3(vec3 x) { return mod289_3(((x * 34.0) + 1.0) * x); }
-
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-
-float hash(float n) { return fract(sin(n) * 43758.5453123); }
 
 float seedHash(float seed) {
     return fract(sin(seed * 127.1 + seed * seed * 0.013) * 43758.5453);
 }
 
 float wrapTime(float t) { return mod(t, 1000.0); }
-
-// 3D Simplex Noise
-float snoise3D(vec3 v) {
-    const vec2 C = vec2(1.0/6.0, 1.0/3.0);
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
-
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - D.yyy;
-
-    i = mod289_3(i);
-    vec4 p = permute(permute(permute(
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
-
-    float n_ = 0.142857142857;
-    vec3 ns = n_ * D.wyz - D.xzx;
-
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
-    vec4 x_ = floor(j * ns.z);
-    vec4 y_ = floor(j - 7.0 * x_);
-
-    vec4 x = x_ * ns.x + ns.yyyy;
-    vec4 y = y_ * ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-
-    vec3 p0 = vec3(a0.xy, h.x);
-    vec3 p1 = vec3(a0.zw, h.y);
-    vec3 p2 = vec3(a1.xy, h.z);
-    vec3 p3 = vec3(a1.zw, h.w);
-
-    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
-
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
-}
-
-// 2D Simplex Noise
-float snoise2D(vec2 v) {
-    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
-                       -0.577350269189626, 0.024390243902439);
-    vec2 i = floor(v + dot(v, C.yy));
-    vec2 x0 = v - i + dot(i, C.xx);
-    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-    vec4 x12 = x0.xyxy + C.xxzz;
-    x12.xy -= i1;
-    i = mod289_2(i);
-    vec3 p = permute3(permute3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
-    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-    m = m * m; m = m * m;
-    vec3 x = 2.0 * fract(p * C.www) - 1.0;
-    vec3 h = abs(x) - 0.5;
-    vec3 ox = floor(x + 0.5);
-    vec3 a0 = x - ox;
-    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
-    vec3 g;
-    g.x = a0.x * x0.x + h.x * x0.y;
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 130.0 * dot(m, g);
-}
-
-// Tiled noise for seamless flame patterns
-float tiledNoise3D(vec3 uv, float res) {
-    uv *= res;
-    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
-    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
-    vec3 f = fract(uv);
-    f = f * f * (3.0 - 2.0 * f);
-
-    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
-                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
-
-    vec4 r = fract(sin(v * 0.001) * 100000.0);
-    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
-
-    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
-    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
-
-    return mix(r0, r1, f.z) * 2.0 - 1.0;
-}
-
-// FBM variants
-float fbm3D(vec3 p, int octaves) {
-    float value = 0.0;
-    float amplitude = 0.5;
-    float frequency = 1.0;
-    for (int i = 0; i < 6; i++) {
-        if (i >= octaves) break;
-        value += amplitude * snoise3D(p * frequency);
-        amplitude *= 0.5;
-        frequency *= 2.0;
-    }
-    return value;
-}
-
-float fbm2D(vec2 p) {
-    float value = 0.0;
-    float amplitude = 0.5;
-    for (int i = 0; i < 5; i++) {
-        value += amplitude * snoise2D(p);
-        p *= 2.0;
-        amplitude *= 0.5;
-    }
-    return value;
-}
-
-// Plasma noise with flowing distortion
-float plasmaNoise(vec3 p, float time) {
-    float value = 0.0;
-    float amplitude = 1.0;
-    float frequency = 1.0;
-    float totalAmp = 0.0;
-
-    for (int i = 0; i < 5; i++) {
-        vec3 offset = vec3(
-            sin(time * 0.1 + float(i)) * 0.5,
-            cos(time * 0.15 + float(i) * 0.7) * 0.5,
-            time * 0.05
-        );
-        value += amplitude * snoise3D((p + offset) * frequency);
-        totalAmp += amplitude;
-        amplitude *= 0.5;
-        frequency *= 2.0;
-    }
-
-    return value / totalAmp;
-}
-
-// =============================================================================
-// COLOR UTILITIES
-// =============================================================================
-
-vec3 hsv2rgb(vec3 c) {
-    vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
-}
-
-vec3 rgb2hsv(vec3 c) {
-    vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
-    float d = q.x - min(q.w, q.y);
-    float e = 1.0e-10;
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
-}
 
 // =============================================================================
 // OUTWARD TRAVELING WAVE (for star rays)
@@ -538,12 +373,12 @@ vec3 renderCorona3D(vec3 rayOrigin, vec3 rayDir, vec3 starCenter, float starRadi
     // === FLAME NOISE ===
     float flameTime = time * 0.3;
     vec3 flameCoord = vec3(angle * 3.0, normalizedDist * 2.0, flameTime * 2.0);
-    float flameNoise = fbm3D(flameCoord, 3);
+    float flameNoise = fbmSimplex3D(flameCoord, 3);
     flameNoise = flameNoise * 0.5 + 0.5;
 
     // Turbulence
     vec3 turbCoord = vec3(angle * 6.0 + time * 0.5, normalizedDist * 4.0, time * 0.25);
-    float flameTurbulence = fbm3D(turbCoord, 4);
+    float flameTurbulence = fbmSimplex3D(turbCoord, 4);
 
     // Flame intensity with falloff
     float flameIntensity = flameNoise * (0.5 + flameTurbulence * 0.5);
@@ -714,7 +549,7 @@ vec3 renderRockyPlanet(vec2 uv, vec3 normal, vec3 baseColor, float seed, float t
     hsv.z = clamp(hsv.z * 1.1, 0.4, 1.0);
     vec3 variedColor = hsv2rgb(hsv);
 
-    float terrain = fbm2D(terrainUv * (3.0 + seed * 3.0));
+    float terrain = fbmSimplex2D(terrainUv * (3.0 + seed * 3.0));
 
     float iceFactor = smoothstep(250.0, 180.0, temperature);
     float volcanicFactor = smoothstep(400.0, 800.0, temperature);
@@ -866,36 +701,10 @@ vec3 renderIceGiant(vec2 uv, vec3 normal, vec3 baseColor, float seed) {
 }
 
 // =============================================================================
-// 3D RAY-SPHERE INTERSECTION
-// =============================================================================
-
-float intersectSphere3D(vec3 rayOrigin, vec3 rayDir, vec3 sphereCenter, float radius) {
-    vec3 oc = rayOrigin - sphereCenter;
-    float b = dot(oc, rayDir);
-    float c = dot(oc, oc) - radius * radius;
-    float h = b * b - c;
-
-    if (h < 0.0) return -1.0;
-
-    h = sqrt(h);
-    float t = -b - h;
-
-    if (t < 0.0) t = -b + h;
-    if (t < 0.0) return -1.0;
-
-    return t;
-}
-
-void getSphereInfo(vec3 hitPoint, vec3 sphereCenter, out vec3 normal, out vec2 sphereUv) {
-    normal = normalize(hitPoint - sphereCenter);
-    float latitude = 0.5 + asin(normal.y) / PI;
-    float longitude = 0.5 + atan(normal.x, normal.z) / (2.0 * PI);
-    sphereUv = vec2(longitude, latitude);
-}
-
-// =============================================================================
 // CAMERA UTILITIES
 // =============================================================================
+// NOTE: rotateX/rotateY here use a different sign convention from projection.glsl.
+// Exoplanets uses camera-orbit rotation (Y-up, right-handed), so these are kept inline.
 
 mat3 rotateY(float angle) {
     float c = cos(angle);
@@ -947,7 +756,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     cameraPos = rotateY(angleY) * cameraPos;
 
     mat3 cameraMat = setCamera(cameraPos, target);
-    vec3 rayDir = cameraMat * normalize(vec3(uv, CAMERA_FOV));
+
+    // TECHNIQUE: Adaptive FOV — widen on portrait to preserve scene visibility.
+    // Desktop 16:9: fov = 1.8 (unchanged). Phone portrait: fov ≈ 2.29 (wider view).
+    float aspect = iResolution.x / iResolution.y;
+    float fov = CAMERA_FOV * (1.0 + max(0.0, 1.0 - aspect) * 0.5);
+
+    vec3 rayDir = cameraMat * normalize(vec3(uv, fov));
     vec3 rayOrigin = cameraPos;
 
     // =========================================================================
@@ -1034,7 +849,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // -------------------------------------------------------------------------
     // STAR SURFACE
     // -------------------------------------------------------------------------
-    float starDist = intersectSphere3D(rayOrigin, rayDir, STAR_CENTER, STAR_RADIUS);
+    float starDist = intersectSphere(rayOrigin, rayDir, STAR_CENTER, STAR_RADIUS);
 
     if (starDist > 0.0 && starDist < closestHit) {
         closestHit = starDist;
@@ -1051,7 +866,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // -------------------------------------------------------------------------
     // ROCKY PLANET
     // -------------------------------------------------------------------------
-    float rockyDist = intersectSphere3D(rayOrigin, rayDir, ROCKY_CENTER, ROCKY_RADIUS);
+    float rockyDist = intersectSphere(rayOrigin, rayDir, ROCKY_CENTER, ROCKY_RADIUS);
 
     if (rockyDist > 0.0 && rockyDist < closestHit) {
         closestHit = rockyDist;
@@ -1069,7 +884,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);
         float diffuse = max(dot(planetNormal, lightDir), 0.0);
         float ambient = 0.12;
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
 
         hitColor = planetColor * (ambient + diffuse * 0.88 * shadow);
         hitColor += starColor * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 3.0) * 0.15;
@@ -1078,7 +893,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // -------------------------------------------------------------------------
     // GAS GIANT
     // -------------------------------------------------------------------------
-    float gasDist = intersectSphere3D(rayOrigin, rayDir, GAS_CENTER, GAS_RADIUS);
+    float gasDist = intersectSphere(rayOrigin, rayDir, GAS_CENTER, GAS_RADIUS);
 
     if (gasDist > 0.0 && gasDist < closestHit) {
         closestHit = gasDist;
@@ -1096,7 +911,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);
         float diffuse = max(dot(planetNormal, lightDir), 0.0);
         float ambient = 0.1;
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
 
         hitColor = planetColor * (ambient + diffuse * 0.9 * shadow);
         hitColor += starColor * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 3.0) * 0.2;
@@ -1105,7 +920,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // -------------------------------------------------------------------------
     // ICE GIANT
     // -------------------------------------------------------------------------
-    float iceDist = intersectSphere3D(rayOrigin, rayDir, ICE_CENTER, ICE_RADIUS);
+    float iceDist = intersectSphere(rayOrigin, rayDir, ICE_CENTER, ICE_RADIUS);
 
     if (iceDist > 0.0 && iceDist < closestHit) {
         closestHit = iceDist;
@@ -1123,7 +938,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);
         float diffuse = max(dot(planetNormal, lightDir), 0.0);
         float ambient = 0.08;
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;
 
         hitColor = planetColor * (ambient + diffuse * 0.92 * shadow);
         hitColor += ICE_GIANT_COLOR * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 2.5) * 0.25;
