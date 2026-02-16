@@ -71,10 +71,11 @@ shaders/
 │   │   ├── sphere.glsl       # Rotate(), sphereUV()
 │   │   ├── lighting.glsl     # blinnPhong()
 │   │   ├── atmosphere.glsl   # rimGlow(), atmosEdge(), halo()
-│   │   ├── noise-value.glsl  # sin-hash noise, valueNoise3D(), fbmValue()
+│   │   ├── noise-value.glsl  # sin-hash noise, valueNoise3D(), fbmValue(), fbmValue2D()
 │   │   ├── noise-pcg.glsl    # PCG hash noise, pcgFbm1(), pcgFbm3()
 │   │   ├── normal-map.glsl   # computeTangentBasis(), perturbNormal()
-│   │   ├── color.glsl        # hsl2rgb()
+│   │   ├── noise-perlin.glsl  # Perlin gradient noise, perlinNoise3D(), perlinFbm()
+│   │   ├── color.glsl        # hsl2rgb(), rgb2hsv(), hsv2rgb()
 │   │   ├── sdf.glsl          # dfLine()
 │   │   └── projection.glsl   # rotX(), rotY(), projectMat()
 │   ├── composables/          # Domain logic (controllers)
@@ -153,7 +154,7 @@ shaders/
 }
 ```
 
-Available commons: `sphere`, `lighting`, `atmosphere`, `noise-value`, `noise-pcg`, `normal-map`, `color`, `sdf`, `projection`. Order matters — files are concatenated in array order before each pass's source. See `src/lib/` for function signatures.
+Available commons: `sphere`, `lighting`, `atmosphere`, `noise-value`, `noise-pcg`, `noise-perlin`, `normal-map`, `color`, `sdf`, `projection`. Order matters — files are concatenated in array order before each pass's source. See `src/lib/` for function signatures.
 
 7. Optionally add `screenshot.webp` in the shader folder for the gallery thumbnail
 
