@@ -3,5 +3,6 @@
   "description": "A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",
   "date": "2025-11-29",
   "tags": ["exoplanets", "space", "3d", "raymarching"],
+  "commons": ["noise-simplex"],
   "links": {}
 }

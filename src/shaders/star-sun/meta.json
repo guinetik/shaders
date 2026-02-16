@@ -3,5 +3,6 @@
   "description": "Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",
   "date": "2025-11-29",
   "tags": ["exoplanets", "space", "3d", "raymarching"],
+  "commons": ["noise-simplex"],
   "links": {}
 }

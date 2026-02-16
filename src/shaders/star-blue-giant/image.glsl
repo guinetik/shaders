@@ -43,68 +43,18 @@
 #define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
+// NOISE — 3D Simplex Noise provided by noise-simplex commons (snoise3D)
 // =============================================================================
-// Same simplex noise implementation as the other star shaders. Lower base
-// frequencies are used throughout to produce the smoother, larger-scale
-// convection patterns characteristic of massive stellar envelopes.
-
-vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-
-float snoise(vec3 v) {
-    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - D.yyy;
-    i = mod289(i);
-    vec4 p = permute(permute(permute(
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
-    float n_ = 0.142857142857;
-    vec3 ns = n_ * D.wyz - D.xzx;
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
-    vec4 x_ = floor(j * ns.z);
-    vec4 y_ = floor(j - 7.0 * x_);
-    vec4 x = x_ * ns.x + ns.yyyy;
-    vec4 y = y_ * ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-    vec3 p0 = vec3(a0.xy, h.x);
-    vec3 p1 = vec3(a0.zw, h.y);
-    vec3 p2 = vec3(a1.xy, h.z);
-    vec3 p3 = vec3(a1.zw, h.w);
-    vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
-    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
-}
 
 // FBM with configurable octaves — lacunarity 2.0, gain 0.5
 // Called with fewer octaves (3-4) than the other stars to produce the
 // smoother surface characteristic of a massive blue giant.
+// NOTE: Kept inline because the domain shift differs from fbmSimplex3D.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
-        v += a * snoise(p * f);
+        v += a * snoise3D(p * f);
         f *= 2.0;         // Double frequency each octave
         a *= 0.5;         // Halve amplitude each octave
         p += vec3(100.0); // Domain shift to decorrelate
@@ -142,9 +92,9 @@ vec3 starRamp(float t) {
 // stellar envelope where convection operates on much larger spatial scales.
 
 float convectionCells(vec3 p, float time) {
-    float cells = snoise(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
-    float med = snoise(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
-    float fine = snoise(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
+    float cells = snoise3D(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
+    float med = snoise3D(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
+    float fine = snoise3D(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
     return cells * 0.55 + med * 0.3 + fine * 0.15;  // Large features dominate (0.55 vs 0.5)
 }
 
@@ -152,7 +102,7 @@ float convectionCells(vec3 p, float time) {
 // Lowest frequency (2.0) and highest threshold (0.6) = very few, faint spots.
 // Massive blue giants have weaker magnetic fields relative to their luminosity.
 float starSpots(vec3 p, float time) {
-    float spots = snoise(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
+    float spots = snoise3D(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
     return smoothstep(0.6, 0.85, spots);  // Highest threshold = fewest spots of any star type
 }
 
@@ -179,7 +129,7 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float spots = starSpots(spherePos, time);
 
     // Very subtle pulsing — +/-5% (vs +/-8% Sun, +/-10% red dwarf)
-    float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise(spherePos * 1.5) * 2.0);
+    float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise3D(spherePos * 1.5) * 2.0);
 
     float heat = plasma * 0.65 + cells * 0.35;  // Plasma dominates even more
     heat *= pulse;
@@ -278,8 +228,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float focalLength = 1.5;  // Camera focal length
 
     // Slowest rotation of all three star types — emphasizes massive scale
-    float rotX = time * 0.1;               // Horizontal orbit (slowest: 0.1 vs 0.12 vs 0.15)
-    float rotY = sin(time * 0.04) * 0.2;   // Vertical bob — gentlest (+/-0.2 vs 0.25 vs 0.3)
+    float rotX = time * 0.3;               // Horizontal orbit (slowest: 0.3 vs 0.36 vs 0.45)
+    float rotY = sin(time * 0.12) * 0.2;   // Vertical bob — gentlest (+/-0.2 vs 0.25 vs 0.3)
 
     float camDist = 3.5;  // Camera distance
     vec3 camPos = vec3(
@@ -315,7 +265,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 spherePos = normal;
 
             // Slowest axial rotation — 0.03 rad/s (vs 0.04 Sun, 0.05 red dwarf)
-            float starRot = time * 0.03;
+            float starRot = time * 0.09;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
                 spherePos.x * cs + spherePos.z * sn,

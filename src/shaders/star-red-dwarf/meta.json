@@ -3,5 +3,6 @@
   "description": "A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",
   "date": "2025-11-29",
   "tags": ["exoplanets", "space", "3d", "raymarching"],
+  "commons": ["noise-simplex"],
   "links": {}
 }

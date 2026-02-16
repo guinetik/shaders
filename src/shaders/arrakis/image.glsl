@@ -14,31 +14,14 @@
 #define TAU 6.28318530718
 
 // ── noise primitives ──────────────────────────────────────────
-
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
-float hash21(float p) {
-    return fract(sin(p * 127.1) * 43758.5453);
-}
-
-float noise(vec2 p) {
-    vec2 i = floor(p), f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
-    return mix(
-        mix(hash(i), hash(i + vec2(1, 0)), f.x),
-        mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x),
-        f.y
-    );
-}
+// Hash (hashN2) and value noise (valueNoise2D) provided by noise-value commons.
 
 float fbm(vec2 p, int octaves) {
     float v = 0.0, a = 0.5;
     mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);
     for (int i = 0; i < 8; i++) {
         if (i >= octaves) break;
-        v += a * noise(p);
+        v += a * valueNoise2D(p);
         p = rot * p * 2.0;
         a *= 0.5;
     }
@@ -85,24 +68,24 @@ float duneRidge(float x) {
 
 float duneHeight(vec2 p, float time) {
     // 1. regional mask — cheap single noise instead of fbm
-    float region = noise(p * 0.025 + time * 0.002);
+    float region = valueNoise2D(p * 0.025 + time * 0.002);
     float duneMask = smoothstep(0.30, 0.55, region);
 
     // 2. flat basin floor
-    float basin = noise(p * 0.04) * 0.3 - 0.5;
+    float basin = valueNoise2D(p * 0.04) * 0.3 - 0.5;
 
     // 3. primary mega-dunes
     float megaDune = duneRidge(p.x * 0.12 + p.y * 0.28 + time * 0.008) * 3.5
                    + duneRidge(p.x * 0.22 - p.y * 0.10 + time * 0.005) * 1.8;
     // height variation — single noise lookup instead of fbm
-    megaDune *= 0.5 + noise(p * 0.05 + vec2(3.7, 8.1));
+    megaDune *= 0.5 + valueNoise2D(p * 0.05 + vec2(3.7, 8.1));
 
     // 4. medium dunes
     float medDune = duneRidge(p.x * 0.5 + p.y * 1.5 + time * 0.015) * 0.6
                   + duneRidge(p.x * 0.8 - p.y * 0.4 + time * 0.012) * 0.35;
 
     // 5. wind ripples — single layer
-    float ripple = noise(p * vec2(8.0, 3.0) + vec2(time * 0.1, 0.0)) * 0.09;
+    float ripple = valueNoise2D(p * vec2(8.0, 3.0) + vec2(time * 0.1, 0.0)) * 0.09;
 
     float h = basin;
     h += (megaDune + medDune) * duneMask;
@@ -202,8 +185,8 @@ vec3 spiceBlow(vec2 uv, float time) {
 // heat shimmer which distorts more along the vertical axis.
 
 vec2 heatHaze(vec2 uv, float time) {
-    float distort = noise(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
-    distort += noise(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
+    float distort = valueNoise2D(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
+    distort += valueNoise2D(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
     // stronger near the horizon — where real mirages appear
     float horizonMask = smoothstep(0.1, -0.15, uv.y);
     return vec2(distort * 0.006 * horizonMask, distort * 0.003 * horizonMask);
@@ -326,7 +309,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec2 starUV = rd.xz * (60.0 + i * 80.0) / max(rd.y, 0.01);
             vec2 starId = floor(starUV);
             vec2 starF = fract(starUV) - 0.5;
-            float sh = hash(starId + i * 137.0);
+            float sh = hashN2(starId + i * 137.0);
             float starDist = length(starF);
 
             if (sh > 0.90) {
@@ -373,8 +356,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         // ── sand grain micro-detail ──────────────────────
         // two noise lookups, derive everything else from them
         float grainScale = 40.0 / (1.0 + t * 0.05);
-        float grain1 = noise(p.xz * grainScale);
-        float grain2 = noise(p.xz * grainScale + 77.7);
+        float grain1 = valueNoise2D(p.xz * grainScale);
+        float grain2 = valueNoise2D(p.xz * grainScale + 77.7);
 
         // perturb normal for rough sand surface
         vec3 nGrain = normalize(n + vec3(grain1 - 0.5, 0.0, grain2 - 0.5) * 0.15);
@@ -392,7 +375,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float spec = specRough + specSharp;
 
         // ── sand color — reuse grain noise for variation ─
-        float sandVar = noise(p.xz * 0.8) * 0.7 + grain1 * 0.3;
+        float sandVar = valueNoise2D(p.xz * 0.8) * 0.7 + grain1 * 0.3;
         vec3 sandCol = sandPalette(sandVar * 0.6 + 0.2);
         // micro variation from grain1
         sandCol *= 0.85 + 0.3 * grain1;
@@ -464,7 +447,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── dust in the wind — sparse drifting wisps ───────────
     float dust = fbm(uv * 3.0 + vec2(time * 0.12, time * 0.04), 5);
-    float dustBreak = noise(uv * 1.5 + time * 0.03); // large-scale breakup
+    float dustBreak = valueNoise2D(uv * 1.5 + time * 0.03); // large-scale breakup
     float dustMask = smoothstep(0.55, 0.72, dust) * smoothstep(0.35, 0.65, dustBreak);
     dustMask *= smoothstep(0.25, -0.15, uv.y) * 0.25 * daylight;
     vec3 dustCol = mix(vec3(0.85, 0.35, 0.15), vec3(0.85, 0.55, 0.30), smoothstep(0.0, 0.3, sunElev));
@@ -485,7 +468,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // turbulent spice particles within the storm
         float stormNoise = fbm(uv * 6.0 + vec2(time * 0.5, time * 0.2), 5);
-        float stormDetail = noise(uv * 25.0 + time * 1.5);
+        float stormDetail = valueNoise2D(uv * 25.0 + time * 1.5);
 
         // purple spice dust
         float spiceDust = waveShape * stormActive * stormNoise;
@@ -503,7 +486,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec2 moteUV = uv * (50.0 + i * 40.0) + vec2(time * (2.0 + i), i * 7.7);
             vec2 moteId = floor(moteUV);
             vec2 moteF = fract(moteUV) - 0.5;
-            float mh = hash(moteId + i * 77.0);
+            float mh = hashN2(moteId + i * 77.0);
             float moteDist = length(moteF);
             if (mh > 0.92) {
                 float flash = pow(sin(time * (5.0 + mh * 10.0) + mh * TAU) * 0.5 + 0.5, 3.0);
@@ -519,7 +502,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec2 sparkUV = uv * (80.0 + i * 60.0);
         vec2 sparkId = floor(sparkUV);
         vec2 sparkF = fract(sparkUV) - 0.5;
-        float h = hash(sparkId + i * 100.0);
+        float h = hashN2(sparkId + i * 100.0);
         float sparkDist = length(sparkF);
 
         if (h > 0.985) {
@@ -542,7 +525,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col = mix(col, col * vec3(1.0, 0.90, 0.85), 0.08);
 
     // film grain — desert grit
-    col += (hash(fragCoord + fract(time * 17.0)) - 0.5) * 0.025;
+    col += (hashN2(fragCoord + fract(time * 17.0)) - 0.5) * 0.025;
 
     // tone mapping
     col = col / (col + 0.5);

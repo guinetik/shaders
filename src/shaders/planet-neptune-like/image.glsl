@@ -83,7 +83,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Auto rotation
         vec3 noisePos = pos;
-        float surfaceRot = -0.08 * iTime;   // Rotation speed — negative = eastward spin
+        float surfaceRot = -0.8 * iTime;    // Rotation speed — negative = eastward spin (SUPER fast)
         noisePos.xz = Rotate(noisePos.xz, surfaceRot);
 
         // Use Y (screen vertical) as latitude for horizontal bands
