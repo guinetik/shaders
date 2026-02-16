@@ -55,7 +55,6 @@
 #define HIGHLIGHT_RADIUS 0.2          // Center highlight fade distance — larger = broader highlight
 #define HIGHLIGHT_STRENGTH 0.5        // Center highlight intensity multiplier — 0: off, 0.5: gentle bloom
 #define VIGNETTE_STRENGTH 0.6         // Edge darkening — 0: none, 0.6: cinematic, 1.5: tunnel vision
-#define GAMMA 0.45                    // sRGB gamma approximation — standard ~2.2 curve
 
 /**
  * Rotation matrix
@@ -242,9 +241,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // Vignette
     float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;
     color *= vig;
-
-    // Gamma correction — linear to sRGB
-    color = pow(max(color, vec3(0.0)), vec3(GAMMA));
 
     fragColor = vec4(color, 1.0);
 }

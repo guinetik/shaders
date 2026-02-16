@@ -221,9 +221,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;
     color *= vig;
 
-    // === GAMMA CORRECTION ===
-    // Convert from linear working space to sRGB for display
-    color = pow(max(color, vec3(0.0)), vec3(0.45));
-
     fragColor = vec4(color, 1.0);
 }

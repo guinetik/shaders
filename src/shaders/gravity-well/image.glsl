@@ -66,7 +66,6 @@
                                     // 0.0: no vignette. Above 0.8: heavy darkening at corners.
 #define CONTRAST_POWER 0.95         // Gamma-like contrast tweak applied before final output.
                                     // Below 1.0: slight lift in darks. Above 1.0: crushed shadows.
-#define GAMMA 0.45                  // Final sRGB gamma correction exponent (standard ~1/2.2).
 
 /**
  * Warp UV toward a gravity point.
@@ -183,9 +182,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     // Slight contrast boost
     color = pow(max(color, vec3(0.0)), vec3(CONTRAST_POWER));
-
-    // Gamma correction — linear to sRGB
-    color = pow(max(color, vec3(0.0)), vec3(GAMMA));
 
     fragColor = vec4(color, 1.0);
 }
