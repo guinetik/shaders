@@ -93,3 +93,30 @@ float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
