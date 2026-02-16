@@ -84,35 +84,6 @@ vec2 project(vec3 p, float cy, float sy, float cp, float sp) {
     return vec2(r.x, r.y * cp - r.z * sp);
 }
 
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point `p` to the line segment (a, b).
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0.0);
-    else if (h < 2.0) rgb = vec3(x, c, 0.0);
-    else if (h < 3.0) rgb = vec3(0.0, c, x);
-    else if (h < 4.0) rgb = vec3(0.0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0.0, c);
-    else              rgb = vec3(c, 0.0, x);
-    return rgb + m;
-}
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
@@ -185,7 +156,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── Blink ──
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.25
+    float blink = hashN(blinkSeed) < 0.25
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // ── Color: pink (fast) -> blue (slow), with continuous hue rotation ──
@@ -214,9 +185,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // Particles that escape beyond radius 20 are respawned, plus a small
             // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal
             // even for well-behaved orbits. Prevents stale/stuck particles.
-            float rng = hash(float(px) * 13.7 + iTime * 60.0);
+            float rng = hashN(float(px) * 13.7 + iTime * 60.0);
             if (length(pos) > 20.0 || rng < RESPAWN_CHANCE) {
-                float angle = hash(float(px) + iTime) * 6.28318;
+                float angle = hashN(float(px) + iTime) * 6.28318;
                 float r = 0.5;
                 pos = vec3(r * cos(angle), r * sin(angle), r * sin(angle * 0.7 + 1.0));
             }
