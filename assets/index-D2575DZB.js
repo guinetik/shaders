@@ -1,29 +1,29 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-DIfFCC-A.js","assets/ShaderDetailView-DneXjzD-.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-CBfO0qTh.js","assets/ShaderDetailView-BRTgEXPc.css"])))=>i.map(i=>d[i]);
 (function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function t(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(o){if(o.ep)return;o.ep=!0;const a=t(o);fetch(o.href,a)}})();/**
 * @vue/shared v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function Mr(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const ie={},Fn=[],rn=()=>{},ba=()=>!1,Gt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Hr=e=>e.startsWith("onUpdate:"),he=Object.assign,zr=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},Zi=Object.prototype.hasOwnProperty,ne=(e,n)=>Zi.call(e,n),F=Array.isArray,Gn=e=>xt(e)==="[object Map]",xa=e=>xt(e)==="[object Set]",co=e=>xt(e)==="[object Date]",V=e=>typeof e=="function",de=e=>typeof e=="string",on=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",wa=e=>(te(e)||V(e))&&V(e.then)&&V(e.catch),Sa=Object.prototype.toString,xt=e=>Sa.call(e),$i=e=>xt(e).slice(8,-1),Ea=e=>xt(e)==="[object Object]",Br=e=>de(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,rt=Mr(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),Vt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},Ji=/-\w/g,Ue=Vt(e=>e.replace(Ji,n=>n.slice(1).toUpperCase())),es=/\B([A-Z])/g,Mn=Vt(e=>e.replace(es,"-$1").toLowerCase()),Kt=Vt(e=>e.charAt(0).toUpperCase()+e.slice(1)),nr=Vt(e=>e?`on${Kt(e)}`:""),_n=(e,n)=>!Object.is(e,n),tr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Ca=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},ns=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ts=e=>{const n=de(e)?Number(e):NaN;return isNaN(n)?e:n};let fo;const Yt=()=>fo||(fo=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function Ur(e){if(F(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],o=de(r)?is(r):Ur(r);if(o)for(const a in o)n[a]=o[a]}return n}else if(de(e)||te(e))return e}const rs=/;(?![^(]*\))/g,os=/:([^]+)/,as=/\/\*[^]*?\*\//g;function is(e){const n={};return e.replace(as,"").split(rs).forEach(t=>{if(t){const r=t.split(os);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Yn(e){let n="";if(de(e))n=e;else if(F(e))for(let t=0;t<e.length;t++){const r=Yn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ss="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",ls=Mr(ss);function Ta(e){return!!e||e===""}function cs(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Fr(e[r],n[r]);return t}function Fr(e,n){if(e===n)return!0;let t=co(e),r=co(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=on(e),r=on(n),t||r)return e===n;if(t=F(e),r=F(n),t||r)return t&&r?cs(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const o=Object.keys(e).length,a=Object.keys(n).length;if(o!==a)return!1;for(const i in e){const s=e.hasOwnProperty(i),l=n.hasOwnProperty(i);if(s&&!l||!s&&l||!Fr(e[i],n[i]))return!1}}return String(e)===String(n)}const _a=e=>!!(e&&e.__v_isRef===!0),ot=e=>de(e)?e:e==null?"":F(e)||te(e)&&(e.toString===Sa||!V(e.toString))?_a(e)?ot(e.value):JSON.stringify(e,Aa,2):String(e),Aa=(e,n)=>_a(n)?Aa(e,n.value):Gn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,o],a)=>(t[rr(r,a)+" =>"]=o,t),{})}:xa(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>rr(t))}:on(n)?rr(n):te(n)&&!F(n)&&!Ea(n)?String(n):n,rr=(e,n="")=>{var t;return on(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
+**/function kr(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const se={},zn=[],rn=()=>{},xa=()=>!1,Vt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Br=e=>e.startsWith("onUpdate:"),me=Object.assign,Ur=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},Zi=Object.prototype.hasOwnProperty,ne=(e,n)=>Zi.call(e,n),z=Array.isArray,Gn=e=>xt(e)==="[object Map]",Ea=e=>xt(e)==="[object Set]",fo=e=>xt(e)==="[object Date]",W=e=>typeof e=="function",pe=e=>typeof e=="string",on=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",Sa=e=>(te(e)||W(e))&&W(e.then)&&W(e.catch),_a=Object.prototype.toString,xt=e=>_a.call(e),$i=e=>xt(e).slice(8,-1),wa=e=>xt(e)==="[object Object]",Fr=e=>pe(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,rt=kr(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),qt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},Ji=/-\w/g,Fe=qt(e=>e.replace(Ji,n=>n.slice(1).toUpperCase())),es=/\B([A-Z])/g,Hn=qt(e=>e.replace(es,"-$1").toLowerCase()),Wt=qt(e=>e.charAt(0).toUpperCase()+e.slice(1)),nr=qt(e=>e?`on${Wt(e)}`:""),Cn=(e,n)=>!Object.is(e,n),tr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Ta=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},ns=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ts=e=>{const n=pe(e)?Number(e):NaN;return isNaN(n)?e:n};let po;const Yt=()=>po||(po=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function zr(e){if(z(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],o=pe(r)?is(r):zr(r);if(o)for(const a in o)n[a]=o[a]}return n}else if(pe(e)||te(e))return e}const rs=/;(?![^(]*\))/g,os=/:([^]+)/,as=/\/\*[^]*?\*\//g;function is(e){const n={};return e.replace(as,"").split(rs).forEach(t=>{if(t){const r=t.split(os);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Wn(e){let n="";if(pe(e))n=e;else if(z(e))for(let t=0;t<e.length;t++){const r=Wn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ss="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",ls=kr(ss);function Ca(e){return!!e||e===""}function cs(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Gr(e[r],n[r]);return t}function Gr(e,n){if(e===n)return!0;let t=fo(e),r=fo(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=on(e),r=on(n),t||r)return e===n;if(t=z(e),r=z(n),t||r)return t&&r?cs(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const o=Object.keys(e).length,a=Object.keys(n).length;if(o!==a)return!1;for(const i in e){const s=e.hasOwnProperty(i),l=n.hasOwnProperty(i);if(s&&!l||!s&&l||!Gr(e[i],n[i]))return!1}}return String(e)===String(n)}const Aa=e=>!!(e&&e.__v_isRef===!0),ot=e=>pe(e)?e:e==null?"":z(e)||te(e)&&(e.toString===_a||!W(e.toString))?Aa(e)?ot(e.value):JSON.stringify(e,Ra,2):String(e),Ra=(e,n)=>Aa(n)?Ra(e,n.value):Gn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,o],a)=>(t[rr(r,a)+" =>"]=o,t),{})}:Ea(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>rr(t))}:on(n)?rr(n):te(n)&&!z(n)&&!wa(n)?String(n):n,rr=(e,n="")=>{var t;return on(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
 * @vue/reactivity v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let De;class fs{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=De,!n&&De&&(this.index=(De.scopes||(De.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=De;try{return De=this,n()}finally{De=t}}}on(){++this._on===1&&(this.prevScope=De,De=this)}off(){this._on>0&&--this._on===0&&(De=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const o=this.parent.scopes.pop();o&&o!==this&&(this.parent.scopes[this.index]=o,o.index=this.index)}this.parent=void 0}}}function ds(){return De}let ae;const or=new WeakSet;class Ra{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,De&&De.active&&De.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,or.has(this)&&(or.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Da(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,uo(this),Pa(this);const n=ae,t=Ve;ae=this,Ve=!0;try{return this.fn()}finally{Na(this),ae=n,Ve=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Kr(n);this.deps=this.depsTail=void 0,uo(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?or.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){yr(this)&&this.run()}get dirty(){return yr(this)}}let Ia=0,at,it;function Da(e,n=!1){if(e.flags|=8,n){e.next=it,it=e;return}e.next=at,at=e}function Gr(){Ia++}function Vr(){if(--Ia>0)return;if(it){let n=it;for(it=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;at;){let n=at;for(at=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Pa(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function Na(e){let n,t=e.depsTail,r=t;for(;r;){const o=r.prevDep;r.version===-1?(r===t&&(t=o),Kr(r),us(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=o}e.deps=n,e.depsTail=t}function yr(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(La(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function La(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===pt)||(e.globalVersion=pt,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!yr(e))))return;e.flags|=2;const n=e.dep,t=ae,r=Ve;ae=e,Ve=!0;try{Pa(e);const o=e.fn(e._value);(n.version===0||_n(o,e._value))&&(e.flags|=128,e._value=o,n.version++)}catch(o){throw n.version++,o}finally{ae=t,Ve=r,Na(e),e.flags&=-3}}function Kr(e,n=!1){const{dep:t,prevSub:r,nextSub:o}=e;if(r&&(r.nextSub=o,e.prevSub=void 0),o&&(o.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let a=t.computed.deps;a;a=a.nextDep)Kr(a,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function us(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let Ve=!0;const Oa=[];function pn(){Oa.push(Ve),Ve=!1}function hn(){const e=Oa.pop();Ve=e===void 0?!0:e}function uo(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ae;ae=void 0;try{n()}finally{ae=t}}}let pt=0;class ps{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Yr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ae||!Ve||ae===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ae)t=this.activeLink=new ps(ae,this),ae.deps?(t.prevDep=ae.depsTail,ae.depsTail.nextDep=t,ae.depsTail=t):ae.deps=ae.depsTail=t,ka(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ae.depsTail,t.nextDep=void 0,ae.depsTail.nextDep=t,ae.depsTail=t,ae.deps===t&&(ae.deps=r)}return t}trigger(n){this.version++,pt++,this.notify(n)}notify(n){Gr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{Vr()}}}function ka(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)ka(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const br=new WeakMap,Ln=Symbol(""),xr=Symbol(""),ht=Symbol("");function ye(e,n,t){if(Ve&&ae){let r=br.get(e);r||br.set(e,r=new Map);let o=r.get(t);o||(r.set(t,o=new Yr),o.map=r,o.key=t),o.track()}}function un(e,n,t,r,o,a){const i=br.get(e);if(!i){pt++;return}const s=l=>{l&&l.trigger()};if(Gr(),n==="clear")i.forEach(s);else{const l=F(e),f=l&&Br(t);if(l&&t==="length"){const c=Number(r);i.forEach((d,h)=>{(h==="length"||h===ht||!on(h)&&h>=c)&&s(d)})}else switch((t!==void 0||i.has(void 0))&&s(i.get(t)),f&&s(i.get(ht)),n){case"add":l?f&&s(i.get("length")):(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"delete":l||(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"set":Gn(e)&&s(i.get(Ln));break}}Vr()}function Hn(e){const n=Z(e);return n===e?n:(ye(n,"iterate",ht),ze(e)?n:n.map(Ye))}function Wt(e){return ye(e=Z(e),"iterate",ht),e}function Sn(e,n){return mn(e)?Wn(On(e)?Ye(n):n):Ye(n)}const hs={__proto__:null,[Symbol.iterator](){return ar(this,Symbol.iterator,e=>Sn(this,e))},concat(...e){return Hn(this).concat(...e.map(n=>F(n)?Hn(n):n))},entries(){return ar(this,"entries",e=>(e[1]=Sn(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>Sn(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>Sn(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>Sn(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return ir(this,"includes",e)},indexOf(...e){return ir(this,"indexOf",e)},join(e){return Hn(this).join(e)},lastIndexOf(...e){return ir(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return $n(this,"pop")},push(...e){return $n(this,"push",e)},reduce(e,...n){return po(this,"reduce",e,n)},reduceRight(e,...n){return po(this,"reduceRight",e,n)},shift(){return $n(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return $n(this,"splice",e)},toReversed(){return Hn(this).toReversed()},toSorted(e){return Hn(this).toSorted(e)},toSpliced(...e){return Hn(this).toSpliced(...e)},unshift(...e){return $n(this,"unshift",e)},values(){return ar(this,"values",e=>Sn(this,e))}};function ar(e,n,t){const r=Wt(e),o=r[n]();return r!==e&&!ze(e)&&(o._next=o.next,o.next=()=>{const a=o._next();return a.done||(a.value=t(a.value)),a}),o}const ms=Array.prototype;function ln(e,n,t,r,o,a){const i=Wt(e),s=i!==e&&!ze(e),l=i[n];if(l!==ms[n]){const d=l.apply(e,a);return s?Ye(d):d}let f=t;i!==e&&(s?f=function(d,h){return t.call(this,Sn(e,d),h,e)}:t.length>2&&(f=function(d,h){return t.call(this,d,h,e)}));const c=l.call(i,f,r);return s&&o?o(c):c}function po(e,n,t,r){const o=Wt(e);let a=t;return o!==e&&(ze(e)?t.length>3&&(a=function(i,s,l){return t.call(this,i,s,l,e)}):a=function(i,s,l){return t.call(this,i,Sn(e,s),l,e)}),o[n](a,...r)}function ir(e,n,t){const r=Z(e);ye(r,"iterate",ht);const o=r[n](...t);return(o===-1||o===!1)&&Xr(t[0])?(t[0]=Z(t[0]),r[n](...t)):o}function $n(e,n,t=[]){pn(),Gr();const r=Z(e)[n].apply(e,t);return Vr(),hn(),r}const vs=Mr("__proto__,__v_isRef,__isVue"),Ma=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(on));function gs(e){on(e)||(e=String(e));const n=Z(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Ha{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const o=this._isReadonly,a=this._isShallow;if(t==="__v_isReactive")return!o;if(t==="__v_isReadonly")return o;if(t==="__v_isShallow")return a;if(t==="__v_raw")return r===(o?a?As:Fa:a?Ua:Ba).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const i=F(n);if(!o){let l;if(i&&(l=hs[t]))return l;if(t==="hasOwnProperty")return gs}const s=Reflect.get(n,t,xe(n)?n:r);if((on(t)?Ma.has(t):vs(t))||(o||ye(n,"get",t),a))return s;if(xe(s)){const l=i&&Br(t)?s:s.value;return o&&te(l)?Sr(l):l}return te(s)?o?Sr(s):qt(s):s}}class za extends Ha{constructor(n=!1){super(!1,n)}set(n,t,r,o){let a=n[t];const i=F(n)&&Br(t);if(!this._isShallow){const f=mn(a);if(!ze(r)&&!mn(r)&&(a=Z(a),r=Z(r)),!i&&xe(a)&&!xe(r))return f||(a.value=r),!0}const s=i?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,xe(n)?n:o);return n===Z(o)&&(s?_n(r,a)&&un(n,"set",t,r):un(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const o=Reflect.deleteProperty(n,t);return o&&r&&un(n,"delete",t,void 0),o}has(n,t){const r=Reflect.has(n,t);return(!on(t)||!Ma.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",F(n)?"length":Ln),Reflect.ownKeys(n)}}class ys extends Ha{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const bs=new za,xs=new ys,ws=new za(!0);const wr=e=>e,Ct=e=>Reflect.getPrototypeOf(e);function Ss(e,n,t){return function(...r){const o=this.__v_raw,a=Z(o),i=Gn(a),s=e==="entries"||e===Symbol.iterator&&i,l=e==="keys"&&i,f=o[e](...r),c=t?wr:n?Wn:Ye;return!n&&ye(a,"iterate",l?xr:Ln),he(Object.create(f),{next(){const{value:d,done:h}=f.next();return h?{value:d,done:h}:{value:s?[c(d[0]),c(d[1])]:c(d),done:h}}})}}function Tt(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function Es(e,n){const t={get(o){const a=this.__v_raw,i=Z(a),s=Z(o);e||(_n(o,s)&&ye(i,"get",o),ye(i,"get",s));const{has:l}=Ct(i),f=n?wr:e?Wn:Ye;if(l.call(i,o))return f(a.get(o));if(l.call(i,s))return f(a.get(s));a!==i&&a.get(o)},get size(){const o=this.__v_raw;return!e&&ye(Z(o),"iterate",Ln),o.size},has(o){const a=this.__v_raw,i=Z(a),s=Z(o);return e||(_n(o,s)&&ye(i,"has",o),ye(i,"has",s)),o===s?a.has(o):a.has(o)||a.has(s)},forEach(o,a){const i=this,s=i.__v_raw,l=Z(s),f=n?wr:e?Wn:Ye;return!e&&ye(l,"iterate",Ln),s.forEach((c,d)=>o.call(a,f(c),f(d),i))}};return he(t,e?{add:Tt("add"),set:Tt("set"),delete:Tt("delete"),clear:Tt("clear")}:{add(o){!n&&!ze(o)&&!mn(o)&&(o=Z(o));const a=Z(this);return Ct(a).has.call(a,o)||(a.add(o),un(a,"add",o,o)),this},set(o,a){!n&&!ze(a)&&!mn(a)&&(a=Z(a));const i=Z(this),{has:s,get:l}=Ct(i);let f=s.call(i,o);f||(o=Z(o),f=s.call(i,o));const c=l.call(i,o);return i.set(o,a),f?_n(a,c)&&un(i,"set",o,a):un(i,"add",o,a),this},delete(o){const a=Z(this),{has:i,get:s}=Ct(a);let l=i.call(a,o);l||(o=Z(o),l=i.call(a,o)),s&&s.call(a,o);const f=a.delete(o);return l&&un(a,"delete",o,void 0),f},clear(){const o=Z(this),a=o.size!==0,i=o.clear();return a&&un(o,"clear",void 0,void 0),i}}),["keys","values","entries",Symbol.iterator].forEach(o=>{t[o]=Ss(o,e,n)}),t}function Wr(e,n){const t=Es(e,n);return(r,o,a)=>o==="__v_isReactive"?!e:o==="__v_isReadonly"?e:o==="__v_raw"?r:Reflect.get(ne(t,o)&&o in r?t:r,o,a)}const Cs={get:Wr(!1,!1)},Ts={get:Wr(!1,!0)},_s={get:Wr(!0,!1)};const Ba=new WeakMap,Ua=new WeakMap,Fa=new WeakMap,As=new WeakMap;function Rs(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Is(e){return e.__v_skip||!Object.isExtensible(e)?0:Rs($i(e))}function qt(e){return mn(e)?e:qr(e,!1,bs,Cs,Ba)}function Ga(e){return qr(e,!1,ws,Ts,Ua)}function Sr(e){return qr(e,!0,xs,_s,Fa)}function qr(e,n,t,r,o){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const a=Is(e);if(a===0)return e;const i=o.get(e);if(i)return i;const s=new Proxy(e,a===2?r:t);return o.set(e,s),s}function On(e){return mn(e)?On(e.__v_raw):!!(e&&e.__v_isReactive)}function mn(e){return!!(e&&e.__v_isReadonly)}function ze(e){return!!(e&&e.__v_isShallow)}function Xr(e){return e?!!e.__v_raw:!1}function Z(e){const n=e&&e.__v_raw;return n?Z(n):e}function Ds(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Ca(e,"__v_skip",!0),e}const Ye=e=>te(e)?qt(e):e,Wn=e=>te(e)?Sr(e):e;function xe(e){return e?e.__v_isRef===!0:!1}function Ne(e){return Va(e,!1)}function Ps(e){return Va(e,!0)}function Va(e,n){return xe(e)?e:new Ns(e,n)}class Ns{constructor(n,t){this.dep=new Yr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:Z(n),this._value=t?n:Ye(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||ze(n)||mn(n);n=r?n:Z(n),_n(n,t)&&(this._rawValue=n,this._value=r?n:Ye(n),this.dep.trigger())}}function Pe(e){return xe(e)?e.value:e}const Ls={get:(e,n,t)=>n==="__v_raw"?e:Pe(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const o=e[n];return xe(o)&&!xe(t)?(o.value=t,!0):Reflect.set(e,n,t,r)}};function Ka(e){return On(e)?e:new Proxy(e,Ls)}class Os{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Yr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=pt-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ae!==this)return Da(this,!0),!0}get value(){const n=this.dep.track();return La(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function ks(e,n,t=!1){let r,o;return V(e)?r=e:(r=e.get,o=e.set),new Os(r,o,t)}const _t={},Nt=new WeakMap;let Pn;function Ms(e,n=!1,t=Pn){if(t){let r=Nt.get(t);r||Nt.set(t,r=[]),r.push(e)}}function Hs(e,n,t=ie){const{immediate:r,deep:o,once:a,scheduler:i,augmentJob:s,call:l}=t,f=N=>o?N:ze(N)||o===!1||o===0?Tn(N,1):Tn(N);let c,d,h,v,E=!1,S=!1;if(xe(e)?(d=()=>e.value,E=ze(e)):On(e)?(d=()=>f(e),E=!0):F(e)?(S=!0,E=e.some(N=>On(N)||ze(N)),d=()=>e.map(N=>{if(xe(N))return N.value;if(On(N))return f(N);if(V(N))return l?l(N,2):N()})):V(e)?n?d=l?()=>l(e,2):e:d=()=>{if(h){pn();try{h()}finally{hn()}}const N=Pn;Pn=c;try{return l?l(e,3,[v]):e(v)}finally{Pn=N}}:d=rn,n&&o){const N=d,B=o===!0?1/0:o;d=()=>Tn(N(),B)}const T=ds(),A=()=>{c.stop(),T&&T.active&&zr(T.effects,c)};if(a&&n){const N=n;n=(...B)=>{N(...B),A()}}let C=S?new Array(e.length).fill(_t):_t;const P=N=>{if(!(!(c.flags&1)||!c.dirty&&!N))if(n){const B=c.run();if(o||E||(S?B.some((q,W)=>_n(q,C[W])):_n(B,C))){h&&h();const q=Pn;Pn=c;try{const W=[B,C===_t?void 0:S&&C[0]===_t?[]:C,v];C=B,l?l(n,3,W):n(...W)}finally{Pn=q}}}else c.run()};return s&&s(P),c=new Ra(d),c.scheduler=i?()=>i(P,!1):P,v=N=>Ms(N,!1,c),h=c.onStop=()=>{const N=Nt.get(c);if(N){if(l)l(N,4);else for(const B of N)B();Nt.delete(c)}},n?r?P(!0):C=c.run():i?i(P.bind(null,!0),!0):c.run(),A.pause=c.pause.bind(c),A.resume=c.resume.bind(c),A.stop=A,A}function Tn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,xe(e))Tn(e.value,n,t);else if(F(e))for(let r=0;r<e.length;r++)Tn(e[r],n,t);else if(xa(e)||Gn(e))e.forEach(r=>{Tn(r,n,t)});else if(Ea(e)){for(const r in e)Tn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Tn(e[r],n,t)}return e}/**
+**/let De;class fs{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=De,!n&&De&&(this.index=(De.scopes||(De.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=De;try{return De=this,n()}finally{De=t}}}on(){++this._on===1&&(this.prevScope=De,De=this)}off(){this._on>0&&--this._on===0&&(De=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const o=this.parent.scopes.pop();o&&o!==this&&(this.parent.scopes[this.index]=o,o.index=this.index)}this.parent=void 0}}}function ds(){return De}let ie;const or=new WeakSet;class Ia{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,De&&De.active&&De.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,or.has(this)&&(or.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Da(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,uo(this),Pa(this);const n=ie,t=Ve;ie=this,Ve=!0;try{return this.fn()}finally{La(this),ie=n,Ve=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Wr(n);this.deps=this.depsTail=void 0,uo(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?or.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){yr(this)&&this.run()}get dirty(){return yr(this)}}let Na=0,at,it;function Da(e,n=!1){if(e.flags|=8,n){e.next=it,it=e;return}e.next=at,at=e}function Vr(){Na++}function qr(){if(--Na>0)return;if(it){let n=it;for(it=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;at;){let n=at;for(at=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Pa(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function La(e){let n,t=e.depsTail,r=t;for(;r;){const o=r.prevDep;r.version===-1?(r===t&&(t=o),Wr(r),ps(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=o}e.deps=n,e.depsTail=t}function yr(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(Oa(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function Oa(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===ut)||(e.globalVersion=ut,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!yr(e))))return;e.flags|=2;const n=e.dep,t=ie,r=Ve;ie=e,Ve=!0;try{Pa(e);const o=e.fn(e._value);(n.version===0||Cn(o,e._value))&&(e.flags|=128,e._value=o,n.version++)}catch(o){throw n.version++,o}finally{ie=t,Ve=r,La(e),e.flags&=-3}}function Wr(e,n=!1){const{dep:t,prevSub:r,nextSub:o}=e;if(r&&(r.nextSub=o,e.prevSub=void 0),o&&(o.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let a=t.computed.deps;a;a=a.nextDep)Wr(a,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function ps(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let Ve=!0;const Ma=[];function un(){Ma.push(Ve),Ve=!1}function mn(){const e=Ma.pop();Ve=e===void 0?!0:e}function uo(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ie;ie=void 0;try{n()}finally{ie=t}}}let ut=0;class us{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Yr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ie||!Ve||ie===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ie)t=this.activeLink=new us(ie,this),ie.deps?(t.prevDep=ie.depsTail,ie.depsTail.nextDep=t,ie.depsTail=t):ie.deps=ie.depsTail=t,Ha(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ie.depsTail,t.nextDep=void 0,ie.depsTail.nextDep=t,ie.depsTail=t,ie.deps===t&&(ie.deps=r)}return t}trigger(n){this.version++,ut++,this.notify(n)}notify(n){Vr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{qr()}}}function Ha(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)Ha(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const br=new WeakMap,Ln=Symbol(""),xr=Symbol(""),mt=Symbol("");function ye(e,n,t){if(Ve&&ie){let r=br.get(e);r||br.set(e,r=new Map);let o=r.get(t);o||(r.set(t,o=new Yr),o.map=r,o.key=t),o.track()}}function pn(e,n,t,r,o,a){const i=br.get(e);if(!i){ut++;return}const s=l=>{l&&l.trigger()};if(Vr(),n==="clear")i.forEach(s);else{const l=z(e),f=l&&Fr(t);if(l&&t==="length"){const c=Number(r);i.forEach((d,m)=>{(m==="length"||m===mt||!on(m)&&m>=c)&&s(d)})}else switch((t!==void 0||i.has(void 0))&&s(i.get(t)),f&&s(i.get(mt)),n){case"add":l?f&&s(i.get("length")):(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"delete":l||(s(i.get(Ln)),Gn(e)&&s(i.get(xr)));break;case"set":Gn(e)&&s(i.get(Ln));break}}qr()}function kn(e){const n=Z(e);return n===e?n:(ye(n,"iterate",mt),Be(e)?n:n.map(We))}function Kt(e){return ye(e=Z(e),"iterate",mt),e}function Sn(e,n){return hn(e)?Yn(On(e)?We(n):n):We(n)}const ms={__proto__:null,[Symbol.iterator](){return ar(this,Symbol.iterator,e=>Sn(this,e))},concat(...e){return kn(this).concat(...e.map(n=>z(n)?kn(n):n))},entries(){return ar(this,"entries",e=>(e[1]=Sn(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>Sn(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>Sn(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>Sn(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return ir(this,"includes",e)},indexOf(...e){return ir(this,"indexOf",e)},join(e){return kn(this).join(e)},lastIndexOf(...e){return ir(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return $n(this,"pop")},push(...e){return $n(this,"push",e)},reduce(e,...n){return mo(this,"reduce",e,n)},reduceRight(e,...n){return mo(this,"reduceRight",e,n)},shift(){return $n(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return $n(this,"splice",e)},toReversed(){return kn(this).toReversed()},toSorted(e){return kn(this).toSorted(e)},toSpliced(...e){return kn(this).toSpliced(...e)},unshift(...e){return $n(this,"unshift",e)},values(){return ar(this,"values",e=>Sn(this,e))}};function ar(e,n,t){const r=Kt(e),o=r[n]();return r!==e&&!Be(e)&&(o._next=o.next,o.next=()=>{const a=o._next();return a.done||(a.value=t(a.value)),a}),o}const hs=Array.prototype;function ln(e,n,t,r,o,a){const i=Kt(e),s=i!==e&&!Be(e),l=i[n];if(l!==hs[n]){const d=l.apply(e,a);return s?We(d):d}let f=t;i!==e&&(s?f=function(d,m){return t.call(this,Sn(e,d),m,e)}:t.length>2&&(f=function(d,m){return t.call(this,d,m,e)}));const c=l.call(i,f,r);return s&&o?o(c):c}function mo(e,n,t,r){const o=Kt(e);let a=t;return o!==e&&(Be(e)?t.length>3&&(a=function(i,s,l){return t.call(this,i,s,l,e)}):a=function(i,s,l){return t.call(this,i,Sn(e,s),l,e)}),o[n](a,...r)}function ir(e,n,t){const r=Z(e);ye(r,"iterate",mt);const o=r[n](...t);return(o===-1||o===!1)&&jr(t[0])?(t[0]=Z(t[0]),r[n](...t)):o}function $n(e,n,t=[]){un(),Vr();const r=Z(e)[n].apply(e,t);return qr(),mn(),r}const vs=kr("__proto__,__v_isRef,__isVue"),ka=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(on));function gs(e){on(e)||(e=String(e));const n=Z(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Ba{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const o=this._isReadonly,a=this._isShallow;if(t==="__v_isReactive")return!o;if(t==="__v_isReadonly")return o;if(t==="__v_isShallow")return a;if(t==="__v_raw")return r===(o?a?As:Ga:a?za:Fa).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const i=z(n);if(!o){let l;if(i&&(l=ms[t]))return l;if(t==="hasOwnProperty")return gs}const s=Reflect.get(n,t,xe(n)?n:r);if((on(t)?ka.has(t):vs(t))||(o||ye(n,"get",t),a))return s;if(xe(s)){const l=i&&Fr(t)?s:s.value;return o&&te(l)?Sr(l):l}return te(s)?o?Sr(s):Xt(s):s}}class Ua extends Ba{constructor(n=!1){super(!1,n)}set(n,t,r,o){let a=n[t];const i=z(n)&&Fr(t);if(!this._isShallow){const f=hn(a);if(!Be(r)&&!hn(r)&&(a=Z(a),r=Z(r)),!i&&xe(a)&&!xe(r))return f||(a.value=r),!0}const s=i?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,xe(n)?n:o);return n===Z(o)&&(s?Cn(r,a)&&pn(n,"set",t,r):pn(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const o=Reflect.deleteProperty(n,t);return o&&r&&pn(n,"delete",t,void 0),o}has(n,t){const r=Reflect.has(n,t);return(!on(t)||!ka.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",z(n)?"length":Ln),Reflect.ownKeys(n)}}class ys extends Ba{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const bs=new Ua,xs=new ys,Es=new Ua(!0);const Er=e=>e,Tt=e=>Reflect.getPrototypeOf(e);function Ss(e,n,t){return function(...r){const o=this.__v_raw,a=Z(o),i=Gn(a),s=e==="entries"||e===Symbol.iterator&&i,l=e==="keys"&&i,f=o[e](...r),c=t?Er:n?Yn:We;return!n&&ye(a,"iterate",l?xr:Ln),me(Object.create(f),{next(){const{value:d,done:m}=f.next();return m?{value:d,done:m}:{value:s?[c(d[0]),c(d[1])]:c(d),done:m}}})}}function Ct(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function _s(e,n){const t={get(o){const a=this.__v_raw,i=Z(a),s=Z(o);e||(Cn(o,s)&&ye(i,"get",o),ye(i,"get",s));const{has:l}=Tt(i),f=n?Er:e?Yn:We;if(l.call(i,o))return f(a.get(o));if(l.call(i,s))return f(a.get(s));a!==i&&a.get(o)},get size(){const o=this.__v_raw;return!e&&ye(Z(o),"iterate",Ln),o.size},has(o){const a=this.__v_raw,i=Z(a),s=Z(o);return e||(Cn(o,s)&&ye(i,"has",o),ye(i,"has",s)),o===s?a.has(o):a.has(o)||a.has(s)},forEach(o,a){const i=this,s=i.__v_raw,l=Z(s),f=n?Er:e?Yn:We;return!e&&ye(l,"iterate",Ln),s.forEach((c,d)=>o.call(a,f(c),f(d),i))}};return me(t,e?{add:Ct("add"),set:Ct("set"),delete:Ct("delete"),clear:Ct("clear")}:{add(o){!n&&!Be(o)&&!hn(o)&&(o=Z(o));const a=Z(this);return Tt(a).has.call(a,o)||(a.add(o),pn(a,"add",o,o)),this},set(o,a){!n&&!Be(a)&&!hn(a)&&(a=Z(a));const i=Z(this),{has:s,get:l}=Tt(i);let f=s.call(i,o);f||(o=Z(o),f=s.call(i,o));const c=l.call(i,o);return i.set(o,a),f?Cn(a,c)&&pn(i,"set",o,a):pn(i,"add",o,a),this},delete(o){const a=Z(this),{has:i,get:s}=Tt(a);let l=i.call(a,o);l||(o=Z(o),l=i.call(a,o)),s&&s.call(a,o);const f=a.delete(o);return l&&pn(a,"delete",o,void 0),f},clear(){const o=Z(this),a=o.size!==0,i=o.clear();return a&&pn(o,"clear",void 0,void 0),i}}),["keys","values","entries",Symbol.iterator].forEach(o=>{t[o]=Ss(o,e,n)}),t}function Kr(e,n){const t=_s(e,n);return(r,o,a)=>o==="__v_isReactive"?!e:o==="__v_isReadonly"?e:o==="__v_raw"?r:Reflect.get(ne(t,o)&&o in r?t:r,o,a)}const ws={get:Kr(!1,!1)},Ts={get:Kr(!1,!0)},Cs={get:Kr(!0,!1)};const Fa=new WeakMap,za=new WeakMap,Ga=new WeakMap,As=new WeakMap;function Rs(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Is(e){return e.__v_skip||!Object.isExtensible(e)?0:Rs($i(e))}function Xt(e){return hn(e)?e:Xr(e,!1,bs,ws,Fa)}function Va(e){return Xr(e,!1,Es,Ts,za)}function Sr(e){return Xr(e,!0,xs,Cs,Ga)}function Xr(e,n,t,r,o){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const a=Is(e);if(a===0)return e;const i=o.get(e);if(i)return i;const s=new Proxy(e,a===2?r:t);return o.set(e,s),s}function On(e){return hn(e)?On(e.__v_raw):!!(e&&e.__v_isReactive)}function hn(e){return!!(e&&e.__v_isReadonly)}function Be(e){return!!(e&&e.__v_isShallow)}function jr(e){return e?!!e.__v_raw:!1}function Z(e){const n=e&&e.__v_raw;return n?Z(n):e}function Ns(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Ta(e,"__v_skip",!0),e}const We=e=>te(e)?Xt(e):e,Yn=e=>te(e)?Sr(e):e;function xe(e){return e?e.__v_isRef===!0:!1}function Ce(e){return qa(e,!1)}function Ds(e){return qa(e,!0)}function qa(e,n){return xe(e)?e:new Ps(e,n)}class Ps{constructor(n,t){this.dep=new Yr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:Z(n),this._value=t?n:We(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||Be(n)||hn(n);n=r?n:Z(n),Cn(n,t)&&(this._rawValue=n,this._value=r?n:We(n),this.dep.trigger())}}function Le(e){return xe(e)?e.value:e}const Ls={get:(e,n,t)=>n==="__v_raw"?e:Le(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const o=e[n];return xe(o)&&!xe(t)?(o.value=t,!0):Reflect.set(e,n,t,r)}};function Wa(e){return On(e)?e:new Proxy(e,Ls)}class Os{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Yr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=ut-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ie!==this)return Da(this,!0),!0}get value(){const n=this.dep.track();return Oa(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function Ms(e,n,t=!1){let r,o;return W(e)?r=e:(r=e.get,o=e.set),new Os(r,o,t)}const At={},Lt=new WeakMap;let Dn;function Hs(e,n=!1,t=Dn){if(t){let r=Lt.get(t);r||Lt.set(t,r=[]),r.push(e)}}function ks(e,n,t=se){const{immediate:r,deep:o,once:a,scheduler:i,augmentJob:s,call:l}=t,f=_=>o?_:Be(_)||o===!1||o===0?Tn(_,1):Tn(_);let c,d,m,v,T=!1,w=!1;if(xe(e)?(d=()=>e.value,T=Be(e)):On(e)?(d=()=>f(e),T=!0):z(e)?(w=!0,T=e.some(_=>On(_)||Be(_)),d=()=>e.map(_=>{if(xe(_))return _.value;if(On(_))return f(_);if(W(_))return l?l(_,2):_()})):W(e)?n?d=l?()=>l(e,2):e:d=()=>{if(m){un();try{m()}finally{mn()}}const _=Dn;Dn=c;try{return l?l(e,3,[v]):e(v)}finally{Dn=_}}:d=rn,n&&o){const _=d,L=o===!0?1/0:o;d=()=>Tn(_(),L)}const k=ds(),M=()=>{c.stop(),k&&k.active&&Ur(k.effects,c)};if(a&&n){const _=n;n=(...L)=>{_(...L),M()}}let S=w?new Array(e.length).fill(At):At;const A=_=>{if(!(!(c.flags&1)||!c.dirty&&!_))if(n){const L=c.run();if(o||T||(w?L.some((G,V)=>Cn(G,S[V])):Cn(L,S))){m&&m();const G=Dn;Dn=c;try{const V=[L,S===At?void 0:w&&S[0]===At?[]:S,v];S=L,l?l(n,3,V):n(...V)}finally{Dn=G}}}else c.run()};return s&&s(A),c=new Ia(d),c.scheduler=i?()=>i(A,!1):A,v=_=>Hs(_,!1,c),m=c.onStop=()=>{const _=Lt.get(c);if(_){if(l)l(_,4);else for(const L of _)L();Lt.delete(c)}},n?r?A(!0):S=c.run():i?i(A.bind(null,!0),!0):c.run(),M.pause=c.pause.bind(c),M.resume=c.resume.bind(c),M.stop=M,M}function Tn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,xe(e))Tn(e.value,n,t);else if(z(e))for(let r=0;r<e.length;r++)Tn(e[r],n,t);else if(Ea(e)||Gn(e))e.forEach(r=>{Tn(r,n,t)});else if(wa(e)){for(const r in e)Tn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Tn(e[r],n,t)}return e}/**
 * @vue/runtime-core v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function wt(e,n,t,r){try{return r?e(...r):e()}catch(o){Xt(o,n,t)}}function We(e,n,t,r){if(V(e)){const o=wt(e,n,t,r);return o&&wa(o)&&o.catch(a=>{Xt(a,n,t)}),o}if(F(e)){const o=[];for(let a=0;a<e.length;a++)o.push(We(e[a],n,t,r));return o}}function Xt(e,n,t,r=!0){const o=n?n.vnode:null,{errorHandler:a,throwUnhandledErrorInProduction:i}=n&&n.appContext.config||ie;if(n){let s=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;s;){const c=s.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}s=s.parent}if(a){pn(),wt(a,null,10,[e,l,f]),hn();return}}zs(e,t,o,r,i)}function zs(e,n,t,r=!0,o=!1){if(o)throw e;console.error(e)}const Ce=[];let nn=-1;const Vn=[];let En=null,zn=0;const Ya=Promise.resolve();let Lt=null;function Wa(e){const n=Lt||Ya;return e?n.then(this?e.bind(this):e):n}function Bs(e){let n=nn+1,t=Ce.length;for(;n<t;){const r=n+t>>>1,o=Ce[r],a=mt(o);a<e||a===e&&o.flags&2?n=r+1:t=r}return n}function jr(e){if(!(e.flags&1)){const n=mt(e),t=Ce[Ce.length-1];!t||!(e.flags&2)&&n>=mt(t)?Ce.push(e):Ce.splice(Bs(n),0,e),e.flags|=1,qa()}}function qa(){Lt||(Lt=Ya.then(ja))}function Us(e){F(e)?Vn.push(...e):En&&e.id===-1?En.splice(zn+1,0,e):e.flags&1||(Vn.push(e),e.flags|=1),qa()}function ho(e,n,t=nn+1){for(;t<Ce.length;t++){const r=Ce[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;Ce.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function Xa(e){if(Vn.length){const n=[...new Set(Vn)].sort((t,r)=>mt(t)-mt(r));if(Vn.length=0,En){En.push(...n);return}for(En=n,zn=0;zn<En.length;zn++){const t=En[zn];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}En=null,zn=0}}const mt=e=>e.id==null?e.flags&2?-1:1/0:e.id;function ja(e){try{for(nn=0;nn<Ce.length;nn++){const n=Ce[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),wt(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<Ce.length;nn++){const n=Ce[nn];n&&(n.flags&=-2)}nn=-1,Ce.length=0,Xa(),Lt=null,(Ce.length||Vn.length)&&ja()}}let Ge=null,Qa=null;function Ot(e){const n=Ge;return Ge=e,Qa=e&&e.type.__scopeId||null,n}function Qr(e,n=Ge,t){if(!n||e._n)return e;const r=(...o)=>{r._d&&Ht(-1);const a=Ot(n);let i;try{i=e(...o)}finally{Ot(a),r._d&&Ht(1)}return i};return r._n=!0,r._c=!0,r._d=!0,r}function Rn(e,n,t,r){const o=e.dirs,a=n&&n.dirs;for(let i=0;i<o.length;i++){const s=o[i];a&&(s.oldValue=a[i].value);let l=s.dir[r];l&&(pn(),We(l,t,8,[e.el,s,e,n]),hn())}}function Rt(e,n){if(be){let t=be.provides;const r=be.parent&&be.parent.provides;r===t&&(t=be.provides=Object.create(r)),t[e]=n}}function Ke(e,n,t=!1){const r=_i();if(r||Kn){let o=Kn?Kn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(o&&e in o)return o[e];if(arguments.length>1)return t&&V(n)?n.call(r&&r.proxy):n}}const Fs=Symbol.for("v-scx"),Gs=()=>Ke(Fs);function st(e,n,t){return Za(e,n,t)}function Za(e,n,t=ie){const{immediate:r,deep:o,flush:a,once:i}=t,s=he({},t),l=n&&r||!n&&a!=="post";let f;if(yt){if(a==="sync"){const v=Gs();f=v.__watcherHandles||(v.__watcherHandles=[])}else if(!l){const v=()=>{};return v.stop=rn,v.resume=rn,v.pause=rn,v}}const c=be;s.call=(v,E,S)=>We(v,c,E,S);let d=!1;a==="post"?s.scheduler=v=>{Ie(v,c&&c.suspense)}:a!=="sync"&&(d=!0,s.scheduler=(v,E)=>{E?v():jr(v)}),s.augmentJob=v=>{n&&(v.flags|=4),d&&(v.flags|=2,c&&(v.id=c.uid,v.i=c))};const h=Hs(e,n,s);return yt&&(f?f.push(h):l&&h()),h}function Vs(e,n,t){const r=this.proxy,o=de(e)?e.includes(".")?$a(r,e):()=>r[e]:e.bind(r,r);let a;V(n)?a=n:(a=n.handler,t=n);const i=St(this),s=Za(o,a.bind(r),t);return i(),s}function $a(e,n){const t=n.split(".");return()=>{let r=e;for(let o=0;o<t.length&&r;o++)r=r[t[o]];return r}}const Ks=Symbol("_vte"),Ys=e=>e.__isTeleport,xn=Symbol("_leaveCb"),Jn=Symbol("_enterCb");function Ws(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Qn(()=>{e.isMounted=!0}),oi(()=>{e.isUnmounting=!0}),e}const Me=[Function,Array],qs={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:Me,onEnter:Me,onAfterEnter:Me,onEnterCancelled:Me,onBeforeLeave:Me,onLeave:Me,onAfterLeave:Me,onLeaveCancelled:Me,onBeforeAppear:Me,onAppear:Me,onAfterAppear:Me,onAppearCancelled:Me};function Xs(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function Er(e,n,t,r,o){const{appear:a,mode:i,persisted:s=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:h,onLeave:v,onAfterLeave:E,onLeaveCancelled:S,onBeforeAppear:T,onAppear:A,onAfterAppear:C,onAppearCancelled:P}=n,N=String(e.key),B=Xs(t,e),q=(U,K)=>{U&&We(U,r,9,K)},W=(U,K)=>{const $=K[1];q(U,K),F(U)?U.every(O=>O.length<=1)&&$():U.length<=1&&$()},ue={mode:i,persisted:s,beforeEnter(U){let K=l;if(!t.isMounted)if(a)K=T||l;else return;U[xn]&&U[xn](!0);const $=B[N];$&&Bn(e,$)&&$.el[xn]&&$.el[xn](),q(K,[U])},enter(U){let K=f,$=c,O=d;if(!t.isMounted)if(a)K=A||f,$=C||c,O=P||d;else return;let Q=!1;U[Jn]=ve=>{Q||(Q=!0,ve?q(O,[U]):q($,[U]),ue.delayedLeave&&ue.delayedLeave(),U[Jn]=void 0)};const se=U[Jn].bind(null,!1);K?W(K,[U,se]):se()},leave(U,K){const $=String(e.key);if(U[Jn]&&U[Jn](!0),t.isUnmounting)return K();q(h,[U]);let O=!1;U[xn]=se=>{O||(O=!0,K(),se?q(S,[U]):q(E,[U]),U[xn]=void 0,B[$]===e&&delete B[$])};const Q=U[xn].bind(null,!1);B[$]=e,v?W(v,[U,Q]):Q()},clone(U){return Er(U,n,t,r)}};return ue}function vt(e,n){e.shapeFlag&6&&e.component?(e.transition=n,vt(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function Ja(e,n=!1,t){let r=[],o=0;for(let a=0;a<e.length;a++){let i=e[a];const s=t==null?i.key:String(t)+String(i.key!=null?i.key:a);i.type===Te?(i.patchFlag&128&&o++,r=r.concat(Ja(i.children,n,s))):(n||i.type!==vn)&&r.push(s!=null?kn(i,{key:s}):i)}if(o>1)for(let a=0;a<r.length;a++)r[a].patchFlag=-2;return r}function An(e,n){return V(e)?he({name:e.name},n,{setup:e}):e}function ei(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function mo(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const kt=new WeakMap;function lt(e,n,t,r,o=!1){if(F(e)){e.forEach((S,T)=>lt(S,n&&(F(n)?n[T]:n),t,r,o));return}if(ct(r)&&!o){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&lt(e,n,t,r.component.subTree);return}const a=r.shapeFlag&4?to(r.component):r.el,i=o?null:a,{i:s,r:l}=e,f=n&&n.r,c=s.refs===ie?s.refs={}:s.refs,d=s.setupState,h=Z(d),v=d===ie?ba:S=>mo(c,S)?!1:ne(h,S),E=(S,T)=>!(T&&mo(c,T));if(f!=null&&f!==l){if(vo(n),de(f))c[f]=null,v(f)&&(d[f]=null);else if(xe(f)){const S=n;E(f,S.k)&&(f.value=null),S.k&&(c[S.k]=null)}}if(V(l))wt(l,s,12,[i,c]);else{const S=de(l),T=xe(l);if(S||T){const A=()=>{if(e.f){const C=S?v(l)?d[l]:c[l]:E()||!e.k?l.value:c[e.k];if(o)F(C)&&zr(C,a);else if(F(C))C.includes(a)||C.push(a);else if(S)c[l]=[a],v(l)&&(d[l]=c[l]);else{const P=[a];E(l,e.k)&&(l.value=P),e.k&&(c[e.k]=P)}}else S?(c[l]=i,v(l)&&(d[l]=i)):T&&(E(l,e.k)&&(l.value=i),e.k&&(c[e.k]=i))};if(i){const C=()=>{A(),kt.delete(e)};C.id=-1,kt.set(e,C),Ie(C,t)}else vo(e),A()}}}function vo(e){const n=kt.get(e);n&&(n.flags|=8,kt.delete(e))}Yt().requestIdleCallback;Yt().cancelIdleCallback;const ct=e=>!!e.type.__asyncLoader,ni=e=>e.type.__isKeepAlive;function js(e,n){ti(e,"a",n)}function Qs(e,n){ti(e,"da",n)}function ti(e,n,t=be){const r=e.__wdc||(e.__wdc=()=>{let o=t;for(;o;){if(o.isDeactivated)return;o=o.parent}return e()});if(jt(n,r,t),t){let o=t.parent;for(;o&&o.parent;)ni(o.parent.vnode)&&Zs(r,n,t,o),o=o.parent}}function Zs(e,n,t,r){const o=jt(n,e,r,!0);Qt(()=>{zr(r[n],o)},t)}function jt(e,n,t=be,r=!1){if(t){const o=t[e]||(t[e]=[]),a=n.__weh||(n.__weh=(...i)=>{pn();const s=St(t),l=We(n,t,e,i);return s(),hn(),l});return r?o.unshift(a):o.push(a),a}}const gn=e=>(n,t=be)=>{(!yt||e==="sp")&&jt(e,(...r)=>n(...r),t)},$s=gn("bm"),Qn=gn("m"),Js=gn("bu"),ri=gn("u"),oi=gn("bum"),Qt=gn("um"),el=gn("sp"),nl=gn("rtg"),tl=gn("rtc");function rl(e,n=be){jt("ec",e,n)}const ol="components";function ai(e,n){return il(ol,e,!0,n)||e}const al=Symbol.for("v-ndc");function il(e,n,t=!0,r=!1){const o=Ge||be;if(o){const a=o.type;{const s=Wl(a,!1);if(s&&(s===n||s===Ue(n)||s===Kt(Ue(n))))return a}const i=go(o[e]||a[e],n)||go(o.appContext[e],n);return!i&&r?a:i}}function go(e,n){return e&&(e[n]||e[Ue(n)]||e[Kt(Ue(n))])}function Zr(e,n,t,r){let o;const a=t,i=F(e);if(i||de(e)){const s=i&&On(e);let l=!1,f=!1;s&&(l=!ze(e),f=mn(e),e=Wt(e)),o=new Array(e.length);for(let c=0,d=e.length;c<d;c++)o[c]=n(l?f?Wn(Ye(e[c])):Ye(e[c]):e[c],c,void 0,a)}else if(typeof e=="number"){o=new Array(e);for(let s=0;s<e;s++)o[s]=n(s+1,s,void 0,a)}else if(te(e))if(e[Symbol.iterator])o=Array.from(e,(s,l)=>n(s,l,void 0,a));else{const s=Object.keys(e);o=new Array(s.length);for(let l=0,f=s.length;l<f;l++){const c=s[l];o[l]=n(e[c],c,l,a)}}else o=[];return o}const Cr=e=>e?Ai(e)?to(e):Cr(e.parent):null,ft=he(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>Cr(e.parent),$root:e=>Cr(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>si(e),$forceUpdate:e=>e.f||(e.f=()=>{jr(e.update)}),$nextTick:e=>e.n||(e.n=Wa.bind(e.proxy)),$watch:e=>Vs.bind(e)}),sr=(e,n)=>e!==ie&&!e.__isScriptSetup&&ne(e,n),sl={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:o,props:a,accessCache:i,type:s,appContext:l}=e;if(n[0]!=="$"){const h=i[n];if(h!==void 0)switch(h){case 1:return r[n];case 2:return o[n];case 4:return t[n];case 3:return a[n]}else{if(sr(r,n))return i[n]=1,r[n];if(o!==ie&&ne(o,n))return i[n]=2,o[n];if(ne(a,n))return i[n]=3,a[n];if(t!==ie&&ne(t,n))return i[n]=4,t[n];Tr&&(i[n]=0)}}const f=ft[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=s.__cssModules)&&(c=c[n]))return c;if(t!==ie&&ne(t,n))return i[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:o,ctx:a}=e;return sr(o,n)?(o[n]=t,!0):r!==ie&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(a[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:o,props:a,type:i}},s){let l;return!!(t[s]||e!==ie&&s[0]!=="$"&&ne(e,s)||sr(n,s)||ne(a,s)||ne(r,s)||ne(ft,s)||ne(o.config.globalProperties,s)||(l=i.__cssModules)&&l[s])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function yo(e){return F(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Tr=!0;function ll(e){const n=si(e),t=e.proxy,r=e.ctx;Tr=!1,n.beforeCreate&&bo(n.beforeCreate,e,"bc");const{data:o,computed:a,methods:i,watch:s,provide:l,inject:f,created:c,beforeMount:d,mounted:h,beforeUpdate:v,updated:E,activated:S,deactivated:T,beforeDestroy:A,beforeUnmount:C,destroyed:P,unmounted:N,render:B,renderTracked:q,renderTriggered:W,errorCaptured:ue,serverPrefetch:U,expose:K,inheritAttrs:$,components:O,directives:Q,filters:se}=n;if(f&&cl(f,r,null),i)for(const J in i){const Y=i[J];V(Y)&&(r[J]=Y.bind(t))}if(o){const J=o.call(t,t);te(J)&&(e.data=qt(J))}if(Tr=!0,a)for(const J in a){const Y=a[J],Fe=V(Y)?Y.bind(t,t):V(Y.get)?Y.get.bind(t,t):rn,Xe=!V(Y)&&V(Y.set)?Y.set.bind(t):rn,fe=He({get:Fe,set:Xe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>fe.value,set:ge=>fe.value=ge})}if(s)for(const J in s)ii(s[J],r,t,J);if(l){const J=V(l)?l.call(t):l;Reflect.ownKeys(J).forEach(Y=>{Rt(Y,J[Y])})}c&&bo(c,e,"c");function le(J,Y){F(Y)?Y.forEach(Fe=>J(Fe.bind(t))):Y&&J(Y.bind(t))}if(le($s,d),le(Qn,h),le(Js,v),le(ri,E),le(js,S),le(Qs,T),le(rl,ue),le(tl,q),le(nl,W),le(oi,C),le(Qt,N),le(el,U),F(K))if(K.length){const J=e.exposed||(e.exposed={});K.forEach(Y=>{Object.defineProperty(J,Y,{get:()=>t[Y],set:Fe=>t[Y]=Fe,enumerable:!0})})}else e.exposed||(e.exposed={});B&&e.render===rn&&(e.render=B),$!=null&&(e.inheritAttrs=$),O&&(e.components=O),Q&&(e.directives=Q),U&&ei(e)}function cl(e,n,t=rn){F(e)&&(e=_r(e));for(const r in e){const o=e[r];let a;te(o)?"default"in o?a=Ke(o.from||r,o.default,!0):a=Ke(o.from||r):a=Ke(o),xe(a)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>a.value,set:i=>a.value=i}):n[r]=a}}function bo(e,n,t){We(F(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function ii(e,n,t,r){let o=r.includes(".")?$a(t,r):()=>t[r];if(de(e)){const a=n[e];V(a)&&st(o,a)}else if(V(e))st(o,e.bind(t));else if(te(e))if(F(e))e.forEach(a=>ii(a,n,t,r));else{const a=V(e.handler)?e.handler.bind(t):n[e.handler];V(a)&&st(o,a,e)}}function si(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:o,optionsCache:a,config:{optionMergeStrategies:i}}=e.appContext,s=a.get(n);let l;return s?l=s:!o.length&&!t&&!r?l=n:(l={},o.length&&o.forEach(f=>Mt(l,f,i,!0)),Mt(l,n,i)),te(n)&&a.set(n,l),l}function Mt(e,n,t,r=!1){const{mixins:o,extends:a}=n;a&&Mt(e,a,t,!0),o&&o.forEach(i=>Mt(e,i,t,!0));for(const i in n)if(!(r&&i==="expose")){const s=fl[i]||t&&t[i];e[i]=s?s(e[i],n[i]):n[i]}return e}const fl={data:xo,props:wo,emits:wo,methods:tt,computed:tt,beforeCreate:Se,created:Se,beforeMount:Se,mounted:Se,beforeUpdate:Se,updated:Se,beforeDestroy:Se,beforeUnmount:Se,destroyed:Se,unmounted:Se,activated:Se,deactivated:Se,errorCaptured:Se,serverPrefetch:Se,components:tt,directives:tt,watch:ul,provide:xo,inject:dl};function xo(e,n){return n?e?function(){return he(V(e)?e.call(this,this):e,V(n)?n.call(this,this):n)}:n:e}function dl(e,n){return tt(_r(e),_r(n))}function _r(e){if(F(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function Se(e,n){return e?[...new Set([].concat(e,n))]:n}function tt(e,n){return e?he(Object.create(null),e,n):n}function wo(e,n){return e?F(e)&&F(n)?[...new Set([...e,...n])]:he(Object.create(null),yo(e),yo(n??{})):n}function ul(e,n){if(!e)return n;if(!n)return e;const t=he(Object.create(null),e);for(const r in n)t[r]=Se(e[r],n[r]);return t}function li(){return{app:null,config:{isNativeTag:ba,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let pl=0;function hl(e,n){return function(r,o=null){V(r)||(r=he({},r)),o!=null&&!te(o)&&(o=null);const a=li(),i=new WeakSet,s=[];let l=!1;const f=a.app={_uid:pl++,_component:r,_props:o,_container:null,_context:a,_instance:null,version:Xl,get config(){return a.config},set config(c){},use(c,...d){return i.has(c)||(c&&V(c.install)?(i.add(c),c.install(f,...d)):V(c)&&(i.add(c),c(f,...d))),f},mixin(c){return a.mixins.includes(c)||a.mixins.push(c),f},component(c,d){return d?(a.components[c]=d,f):a.components[c]},directive(c,d){return d?(a.directives[c]=d,f):a.directives[c]},mount(c,d,h){if(!l){const v=f._ceVNode||pe(r,o);return v.appContext=a,h===!0?h="svg":h===!1&&(h=void 0),e(v,c,h),l=!0,f._container=c,c.__vue_app__=f,to(v.component)}},onUnmount(c){s.push(c)},unmount(){l&&(We(s,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return a.provides[c]=d,f},runWithContext(c){const d=Kn;Kn=f;try{return c()}finally{Kn=d}}};return f}}let Kn=null;const ml=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${Ue(n)}Modifiers`]||e[`${Mn(n)}Modifiers`];function vl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||ie;let o=t;const a=n.startsWith("update:"),i=a&&ml(r,n.slice(7));i&&(i.trim&&(o=t.map(c=>de(c)?c.trim():c)),i.number&&(o=t.map(ns)));let s,l=r[s=nr(n)]||r[s=nr(Ue(n))];!l&&a&&(l=r[s=nr(Mn(n))]),l&&We(l,e,6,o);const f=r[s+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[s])return;e.emitted[s]=!0,We(f,e,6,o)}}const gl=new WeakMap;function ci(e,n,t=!1){const r=t?gl:n.emitsCache,o=r.get(e);if(o!==void 0)return o;const a=e.emits;let i={},s=!1;if(!V(e)){const l=f=>{const c=ci(f,n,!0);c&&(s=!0,he(i,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!a&&!s?(te(e)&&r.set(e,null),null):(F(a)?a.forEach(l=>i[l]=null):he(i,a),te(e)&&r.set(e,i),i)}function Zt(e,n){return!e||!Gt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,Mn(n))||ne(e,n))}function So(e){const{type:n,vnode:t,proxy:r,withProxy:o,propsOptions:[a],slots:i,attrs:s,emit:l,render:f,renderCache:c,props:d,data:h,setupState:v,ctx:E,inheritAttrs:S}=e,T=Ot(e);let A,C;try{if(t.shapeFlag&4){const N=o||r,B=N;A=tn(f.call(B,N,c,d,v,h,E)),C=s}else{const N=n;A=tn(N.length>1?N(d,{attrs:s,slots:i,emit:l}):N(d,null)),C=n.props?s:yl(s)}}catch(N){dt.length=0,Xt(N,e,1),A=pe(vn)}let P=A;if(C&&S!==!1){const N=Object.keys(C),{shapeFlag:B}=P;N.length&&B&7&&(a&&N.some(Hr)&&(C=bl(C,a)),P=kn(P,C,!1,!0))}return t.dirs&&(P=kn(P,null,!1,!0),P.dirs=P.dirs?P.dirs.concat(t.dirs):t.dirs),t.transition&&vt(P,t.transition),A=P,Ot(T),A}const yl=e=>{let n;for(const t in e)(t==="class"||t==="style"||Gt(t))&&((n||(n={}))[t]=e[t]);return n},bl=(e,n)=>{const t={};for(const r in e)(!Hr(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function xl(e,n,t){const{props:r,children:o,component:a}=e,{props:i,children:s,patchFlag:l}=n,f=a.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?Eo(r,i,f):!!i;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const h=c[d];if(fi(i,r,h)&&!Zt(f,h))return!0}}}else return(o||s)&&(!s||!s.$stable)?!0:r===i?!1:r?i?Eo(r,i,f):!0:!!i;return!1}function Eo(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let o=0;o<r.length;o++){const a=r[o];if(fi(n,e,a)&&!Zt(t,a))return!0}return!1}function fi(e,n,t){const r=e[t],o=n[t];return t==="style"&&te(r)&&te(o)?!Fr(r,o):r!==o}function wl({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const di={},ui=()=>Object.create(di),pi=e=>Object.getPrototypeOf(e)===di;function Sl(e,n,t,r=!1){const o={},a=ui();e.propsDefaults=Object.create(null),hi(e,n,o,a);for(const i in e.propsOptions[0])i in o||(o[i]=void 0);t?e.props=r?o:Ga(o):e.type.props?e.props=o:e.props=a,e.attrs=a}function El(e,n,t,r){const{props:o,attrs:a,vnode:{patchFlag:i}}=e,s=Z(o),[l]=e.propsOptions;let f=!1;if((r||i>0)&&!(i&16)){if(i&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let h=c[d];if(Zt(e.emitsOptions,h))continue;const v=n[h];if(l)if(ne(a,h))v!==a[h]&&(a[h]=v,f=!0);else{const E=Ue(h);o[E]=Ar(l,s,E,v,e,!1)}else v!==a[h]&&(a[h]=v,f=!0)}}}else{hi(e,n,o,a)&&(f=!0);let c;for(const d in s)(!n||!ne(n,d)&&((c=Mn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(o[d]=Ar(l,s,d,void 0,e,!0)):delete o[d]);if(a!==s)for(const d in a)(!n||!ne(n,d))&&(delete a[d],f=!0)}f&&un(e.attrs,"set","")}function hi(e,n,t,r){const[o,a]=e.propsOptions;let i=!1,s;if(n)for(let l in n){if(rt(l))continue;const f=n[l];let c;o&&ne(o,c=Ue(l))?!a||!a.includes(c)?t[c]=f:(s||(s={}))[c]=f:Zt(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,i=!0)}if(a){const l=Z(t),f=s||ie;for(let c=0;c<a.length;c++){const d=a[c];t[d]=Ar(o,l,d,f[d],e,!ne(f,d))}}return i}function Ar(e,n,t,r,o,a){const i=e[t];if(i!=null){const s=ne(i,"default");if(s&&r===void 0){const l=i.default;if(i.type!==Function&&!i.skipFactory&&V(l)){const{propsDefaults:f}=o;if(t in f)r=f[t];else{const c=St(o);r=f[t]=l.call(null,n),c()}}else r=l;o.ce&&o.ce._setProp(t,r)}i[0]&&(a&&!s?r=!1:i[1]&&(r===""||r===Mn(t))&&(r=!0))}return r}const Cl=new WeakMap;function mi(e,n,t=!1){const r=t?Cl:n.propsCache,o=r.get(e);if(o)return o;const a=e.props,i={},s=[];let l=!1;if(!V(e)){const c=d=>{l=!0;const[h,v]=mi(d,n,!0);he(i,h),v&&s.push(...v)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!a&&!l)return te(e)&&r.set(e,Fn),Fn;if(F(a))for(let c=0;c<a.length;c++){const d=Ue(a[c]);Co(d)&&(i[d]=ie)}else if(a)for(const c in a){const d=Ue(c);if(Co(d)){const h=a[c],v=i[d]=F(h)||V(h)?{type:h}:he({},h),E=v.type;let S=!1,T=!0;if(F(E))for(let A=0;A<E.length;++A){const C=E[A],P=V(C)&&C.name;if(P==="Boolean"){S=!0;break}else P==="String"&&(T=!1)}else S=V(E)&&E.name==="Boolean";v[0]=S,v[1]=T,(S||ne(v,"default"))&&s.push(d)}}const f=[i,s];return te(e)&&r.set(e,f),f}function Co(e){return e[0]!=="$"&&!rt(e)}const $r=e=>e==="_"||e==="_ctx"||e==="$stable",Jr=e=>F(e)?e.map(tn):[tn(e)],Tl=(e,n,t)=>{if(n._n)return n;const r=Qr((...o)=>Jr(n(...o)),t);return r._c=!1,r},vi=(e,n,t)=>{const r=e._ctx;for(const o in e){if($r(o))continue;const a=e[o];if(V(a))n[o]=Tl(o,a,r);else if(a!=null){const i=Jr(a);n[o]=()=>i}}},gi=(e,n)=>{const t=Jr(n);e.slots.default=()=>t},yi=(e,n,t)=>{for(const r in n)(t||!$r(r))&&(e[r]=n[r])},_l=(e,n,t)=>{const r=e.slots=ui();if(e.vnode.shapeFlag&32){const o=n._;o?(yi(r,n,t),t&&Ca(r,"_",o,!0)):vi(n,r)}else n&&gi(e,n)},Al=(e,n,t)=>{const{vnode:r,slots:o}=e;let a=!0,i=ie;if(r.shapeFlag&32){const s=n._;s?t&&s===1?a=!1:yi(o,n,t):(a=!n.$stable,vi(n,o)),i=n}else n&&(gi(e,n),i={default:1});if(a)for(const s in o)!$r(s)&&i[s]==null&&delete o[s]},Ie=Nl;function Rl(e){return Il(e)}function Il(e,n){const t=Yt();t.__VUE__=!0;const{insert:r,remove:o,patchProp:a,createElement:i,createText:s,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:h,setScopeId:v=rn,insertStaticContent:E}=e,S=(u,p,m,g=null,x=null,b=null,I=void 0,R=null,_=!!p.dynamicChildren)=>{if(u===p)return;u&&!Bn(u,p)&&(g=y(u),ge(u,x,b,!0),u=null),p.patchFlag===-2&&(_=!1,p.dynamicChildren=null);const{type:w,ref:z,shapeFlag:L}=p;switch(w){case $t:T(u,p,m,g);break;case vn:A(u,p,m,g);break;case It:u==null&&C(p,m,g,I);break;case Te:O(u,p,m,g,x,b,I,R,_);break;default:L&1?B(u,p,m,g,x,b,I,R,_):L&6?Q(u,p,m,g,x,b,I,R,_):(L&64||L&128)&&w.process(u,p,m,g,x,b,I,R,_,M)}z!=null&&x?lt(z,u&&u.ref,b,p||u,!p):z==null&&u&&u.ref!=null&&lt(u.ref,null,b,u,!0)},T=(u,p,m,g)=>{if(u==null)r(p.el=s(p.children),m,g);else{const x=p.el=u.el;p.children!==u.children&&f(x,p.children)}},A=(u,p,m,g)=>{u==null?r(p.el=l(p.children||""),m,g):p.el=u.el},C=(u,p,m,g)=>{[u.el,u.anchor]=E(u.children,p,m,g,u.el,u.anchor)},P=({el:u,anchor:p},m,g)=>{let x;for(;u&&u!==p;)x=h(u),r(u,m,g),u=x;r(p,m,g)},N=({el:u,anchor:p})=>{let m;for(;u&&u!==p;)m=h(u),o(u),u=m;o(p)},B=(u,p,m,g,x,b,I,R,_)=>{if(p.type==="svg"?I="svg":p.type==="math"&&(I="mathml"),u==null)q(p,m,g,x,b,I,R,_);else{const w=u.el&&u.el._isVueCE?u.el:null;try{w&&w._beginPatch(),U(u,p,x,b,I,R,_)}finally{w&&w._endPatch()}}},q=(u,p,m,g,x,b,I,R)=>{let _,w;const{props:z,shapeFlag:L,transition:H,dirs:G}=u;if(_=u.el=i(u.type,b,z&&z.is,z),L&8?c(_,u.children):L&16&&ue(u.children,_,null,g,x,lr(u,b),I,R),G&&Rn(u,null,g,"created"),W(_,u,u.scopeId,I,g),z){for(const oe in z)oe!=="value"&&!rt(oe)&&a(_,oe,null,z[oe],b,g);"value"in z&&a(_,"value",null,z.value,b),(w=z.onVnodeBeforeMount)&&Je(w,g,u)}G&&Rn(u,null,g,"beforeMount");const j=Dl(x,H);j&&H.beforeEnter(_),r(_,p,m),((w=z&&z.onVnodeMounted)||j||G)&&Ie(()=>{w&&Je(w,g,u),j&&H.enter(_),G&&Rn(u,null,g,"mounted")},x)},W=(u,p,m,g,x)=>{if(m&&v(u,m),g)for(let b=0;b<g.length;b++)v(u,g[b]);if(x){let b=x.subTree;if(p===b||Si(b.type)&&(b.ssContent===p||b.ssFallback===p)){const I=x.vnode;W(u,I,I.scopeId,I.slotScopeIds,x.parent)}}},ue=(u,p,m,g,x,b,I,R,_=0)=>{for(let w=_;w<u.length;w++){const z=u[w]=R?dn(u[w]):tn(u[w]);S(null,z,p,m,g,x,b,I,R)}},U=(u,p,m,g,x,b,I)=>{const R=p.el=u.el;let{patchFlag:_,dynamicChildren:w,dirs:z}=p;_|=u.patchFlag&16;const L=u.props||ie,H=p.props||ie;let G;if(m&&In(m,!1),(G=H.onVnodeBeforeUpdate)&&Je(G,m,p,u),z&&Rn(p,u,m,"beforeUpdate"),m&&In(m,!0),(L.innerHTML&&H.innerHTML==null||L.textContent&&H.textContent==null)&&c(R,""),w?K(u.dynamicChildren,w,R,m,g,lr(p,x),b):I||Y(u,p,R,null,m,g,lr(p,x),b,!1),_>0){if(_&16)$(R,L,H,m,x);else if(_&2&&L.class!==H.class&&a(R,"class",null,H.class,x),_&4&&a(R,"style",L.style,H.style,x),_&8){const j=p.dynamicProps;for(let oe=0;oe<j.length;oe++){const re=j[oe],Ae=L[re],Re=H[re];(Re!==Ae||re==="value")&&a(R,re,Ae,Re,x,m)}}_&1&&u.children!==p.children&&c(R,p.children)}else!I&&w==null&&$(R,L,H,m,x);((G=H.onVnodeUpdated)||z)&&Ie(()=>{G&&Je(G,m,p,u),z&&Rn(p,u,m,"updated")},g)},K=(u,p,m,g,x,b,I)=>{for(let R=0;R<p.length;R++){const _=u[R],w=p[R],z=_.el&&(_.type===Te||!Bn(_,w)||_.shapeFlag&198)?d(_.el):m;S(_,w,z,null,g,x,b,I,!0)}},$=(u,p,m,g,x)=>{if(p!==m){if(p!==ie)for(const b in p)!rt(b)&&!(b in m)&&a(u,b,p[b],null,x,g);for(const b in m){if(rt(b))continue;const I=m[b],R=p[b];I!==R&&b!=="value"&&a(u,b,R,I,x,g)}"value"in m&&a(u,"value",p.value,m.value,x)}},O=(u,p,m,g,x,b,I,R,_)=>{const w=p.el=u?u.el:s(""),z=p.anchor=u?u.anchor:s("");let{patchFlag:L,dynamicChildren:H,slotScopeIds:G}=p;G&&(R=R?R.concat(G):G),u==null?(r(w,m,g),r(z,m,g),ue(p.children||[],m,z,x,b,I,R,_)):L>0&&L&64&&H&&u.dynamicChildren&&u.dynamicChildren.length===H.length?(K(u.dynamicChildren,H,m,x,b,I,R),(p.key!=null||x&&p===x.subTree)&&bi(u,p,!0)):Y(u,p,m,z,x,b,I,R,_)},Q=(u,p,m,g,x,b,I,R,_)=>{p.slotScopeIds=R,u==null?p.shapeFlag&512?x.ctx.activate(p,m,g,I,_):se(p,m,g,x,b,I,_):ve(u,p,_)},se=(u,p,m,g,x,b,I)=>{const R=u.component=Fl(u,g,x);if(ni(u)&&(R.ctx.renderer=M),Gl(R,!1,I),R.asyncDep){if(x&&x.registerDep(R,le,I),!u.el){const _=R.subTree=pe(vn);A(null,_,p,m),u.placeholder=_.el}}else le(R,u,p,m,x,b,I)},ve=(u,p,m)=>{const g=p.component=u.component;if(xl(u,p,m))if(g.asyncDep&&!g.asyncResolved){J(g,p,m);return}else g.next=p,g.update();else p.el=u.el,g.vnode=p},le=(u,p,m,g,x,b,I)=>{const R=()=>{if(u.isMounted){let{next:L,bu:H,u:G,parent:j,vnode:oe}=u;{const Ze=xi(u);if(Ze){L&&(L.el=oe.el,J(u,L,I)),Ze.asyncDep.then(()=>{Ie(()=>{u.isUnmounted||w()},x)});return}}let re=L,Ae;In(u,!1),L?(L.el=oe.el,J(u,L,I)):L=oe,H&&tr(H),(Ae=L.props&&L.props.onVnodeBeforeUpdate)&&Je(Ae,j,L,oe),In(u,!0);const Re=So(u),Qe=u.subTree;u.subTree=Re,S(Qe,Re,d(Qe.el),y(Qe),u,x,b),L.el=Re.el,re===null&&wl(u,Re.el),G&&Ie(G,x),(Ae=L.props&&L.props.onVnodeUpdated)&&Ie(()=>Je(Ae,j,L,oe),x)}else{let L;const{el:H,props:G}=p,{bm:j,m:oe,parent:re,root:Ae,type:Re}=u,Qe=ct(p);In(u,!1),j&&tr(j),!Qe&&(L=G&&G.onVnodeBeforeMount)&&Je(L,re,p),In(u,!0);{Ae.ce&&Ae.ce._hasShadowRoot()&&Ae.ce._injectChildStyle(Re);const Ze=u.subTree=So(u);S(null,Ze,m,g,u,x,b),p.el=Ze.el}if(oe&&Ie(oe,x),!Qe&&(L=G&&G.onVnodeMounted)){const Ze=p;Ie(()=>Je(L,re,Ze),x)}(p.shapeFlag&256||re&&ct(re.vnode)&&re.vnode.shapeFlag&256)&&u.a&&Ie(u.a,x),u.isMounted=!0,p=m=g=null}};u.scope.on();const _=u.effect=new Ra(R);u.scope.off();const w=u.update=_.run.bind(_),z=u.job=_.runIfDirty.bind(_);z.i=u,z.id=u.uid,_.scheduler=()=>jr(z),In(u,!0),w()},J=(u,p,m)=>{p.component=u;const g=u.vnode.props;u.vnode=p,u.next=null,El(u,p.props,g,m),Al(u,p.children,m),pn(),ho(u),hn()},Y=(u,p,m,g,x,b,I,R,_=!1)=>{const w=u&&u.children,z=u?u.shapeFlag:0,L=p.children,{patchFlag:H,shapeFlag:G}=p;if(H>0){if(H&128){Xe(w,L,m,g,x,b,I,R,_);return}else if(H&256){Fe(w,L,m,g,x,b,I,R,_);return}}G&8?(z&16&&we(w,x,b),L!==w&&c(m,L)):z&16?G&16?Xe(w,L,m,g,x,b,I,R,_):we(w,x,b,!0):(z&8&&c(m,""),G&16&&ue(L,m,g,x,b,I,R,_))},Fe=(u,p,m,g,x,b,I,R,_)=>{u=u||Fn,p=p||Fn;const w=u.length,z=p.length,L=Math.min(w,z);let H;for(H=0;H<L;H++){const G=p[H]=_?dn(p[H]):tn(p[H]);S(u[H],G,m,null,x,b,I,R,_)}w>z?we(u,x,b,!0,!1,L):ue(p,m,g,x,b,I,R,_,L)},Xe=(u,p,m,g,x,b,I,R,_)=>{let w=0;const z=p.length;let L=u.length-1,H=z-1;for(;w<=L&&w<=H;){const G=u[w],j=p[w]=_?dn(p[w]):tn(p[w]);if(Bn(G,j))S(G,j,m,null,x,b,I,R,_);else break;w++}for(;w<=L&&w<=H;){const G=u[L],j=p[H]=_?dn(p[H]):tn(p[H]);if(Bn(G,j))S(G,j,m,null,x,b,I,R,_);else break;L--,H--}if(w>L){if(w<=H){const G=H+1,j=G<z?p[G].el:g;for(;w<=H;)S(null,p[w]=_?dn(p[w]):tn(p[w]),m,j,x,b,I,R,_),w++}}else if(w>H)for(;w<=L;)ge(u[w],x,b,!0),w++;else{const G=w,j=w,oe=new Map;for(w=j;w<=H;w++){const Le=p[w]=_?dn(p[w]):tn(p[w]);Le.key!=null&&oe.set(Le.key,w)}let re,Ae=0;const Re=H-j+1;let Qe=!1,Ze=0;const Zn=new Array(Re);for(w=0;w<Re;w++)Zn[w]=0;for(w=G;w<=L;w++){const Le=u[w];if(Ae>=Re){ge(Le,x,b,!0);continue}let $e;if(Le.key!=null)$e=oe.get(Le.key);else for(re=j;re<=H;re++)if(Zn[re-j]===0&&Bn(Le,p[re])){$e=re;break}$e===void 0?ge(Le,x,b,!0):(Zn[$e-j]=w+1,$e>=Ze?Ze=$e:Qe=!0,S(Le,p[$e],m,null,x,b,I,R,_),Ae++)}const io=Qe?Pl(Zn):Fn;for(re=io.length-1,w=Re-1;w>=0;w--){const Le=j+w,$e=p[Le],so=p[Le+1],lo=Le+1<z?so.el||wi(so):g;Zn[w]===0?S(null,$e,m,lo,x,b,I,R,_):Qe&&(re<0||w!==io[re]?fe($e,m,lo,2):re--)}}},fe=(u,p,m,g,x=null)=>{const{el:b,type:I,transition:R,children:_,shapeFlag:w}=u;if(w&6){fe(u.component.subTree,p,m,g);return}if(w&128){u.suspense.move(p,m,g);return}if(w&64){I.move(u,p,m,M);return}if(I===Te){r(b,p,m);for(let L=0;L<_.length;L++)fe(_[L],p,m,g);r(u.anchor,p,m);return}if(I===It){P(u,p,m);return}if(g!==2&&w&1&&R)if(g===0)R.beforeEnter(b),r(b,p,m),Ie(()=>R.enter(b),x);else{const{leave:L,delayLeave:H,afterLeave:G}=R,j=()=>{u.ctx.isUnmounted?o(b):r(b,p,m)},oe=()=>{b._isLeaving&&b[xn](!0),L(b,()=>{j(),G&&G()})};H?H(b,j,oe):oe()}else r(b,p,m)},ge=(u,p,m,g=!1,x=!1)=>{const{type:b,props:I,ref:R,children:_,dynamicChildren:w,shapeFlag:z,patchFlag:L,dirs:H,cacheIndex:G}=u;if(L===-2&&(x=!1),R!=null&&(pn(),lt(R,null,m,u,!0),hn()),G!=null&&(p.renderCache[G]=void 0),z&256){p.ctx.deactivate(u);return}const j=z&1&&H,oe=!ct(u);let re;if(oe&&(re=I&&I.onVnodeBeforeUnmount)&&Je(re,p,u),z&6)je(u.component,m,g);else{if(z&128){u.suspense.unmount(m,g);return}j&&Rn(u,null,p,"beforeUnmount"),z&64?u.type.remove(u,p,m,M,g):w&&!w.hasOnce&&(b!==Te||L>0&&L&64)?we(w,p,m,!1,!0):(b===Te&&L&384||!x&&z&16)&&we(_,p,m),g&&an(u)}(oe&&(re=I&&I.onVnodeUnmounted)||j)&&Ie(()=>{re&&Je(re,p,u),j&&Rn(u,null,p,"unmounted")},m)},an=u=>{const{type:p,el:m,anchor:g,transition:x}=u;if(p===Te){sn(m,g);return}if(p===It){N(u);return}const b=()=>{o(m),x&&!x.persisted&&x.afterLeave&&x.afterLeave()};if(u.shapeFlag&1&&x&&!x.persisted){const{leave:I,delayLeave:R}=x,_=()=>I(m,b);R?R(u.el,b,_):_()}else b()},sn=(u,p)=>{let m;for(;u!==p;)m=h(u),o(u),u=m;o(p)},je=(u,p,m)=>{const{bum:g,scope:x,job:b,subTree:I,um:R,m:_,a:w}=u;To(_),To(w),g&&tr(g),x.stop(),b&&(b.flags|=8,ge(I,u,p,m)),R&&Ie(R,p),Ie(()=>{u.isUnmounted=!0},p)},we=(u,p,m,g=!1,x=!1,b=0)=>{for(let I=b;I<u.length;I++)ge(u[I],p,m,g,x)},y=u=>{if(u.shapeFlag&6)return y(u.component.subTree);if(u.shapeFlag&128)return u.suspense.next();const p=h(u.anchor||u.el),m=p&&p[Ks];return m?h(m):p};let k=!1;const D=(u,p,m)=>{let g;u==null?p._vnode&&(ge(p._vnode,null,null,!0),g=p._vnode.component):S(p._vnode||null,u,p,null,null,null,m),p._vnode=u,k||(k=!0,ho(g),Xa(),k=!1)},M={p:S,um:ge,m:fe,r:an,mt:se,mc:ue,pc:Y,pbc:K,n:y,o:e};return{render:D,hydrate:void 0,createApp:hl(D)}}function lr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Dl(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function bi(e,n,t=!1){const r=e.children,o=n.children;if(F(r)&&F(o))for(let a=0;a<r.length;a++){const i=r[a];let s=o[a];s.shapeFlag&1&&!s.dynamicChildren&&((s.patchFlag<=0||s.patchFlag===32)&&(s=o[a]=dn(o[a]),s.el=i.el),!t&&s.patchFlag!==-2&&bi(i,s)),s.type===$t&&(s.patchFlag===-1&&(s=o[a]=dn(s)),s.el=i.el),s.type===vn&&!s.el&&(s.el=i.el)}}function Pl(e){const n=e.slice(),t=[0];let r,o,a,i,s;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(o=t[t.length-1],e[o]<f){n[r]=o,t.push(r);continue}for(a=0,i=t.length-1;a<i;)s=a+i>>1,e[t[s]]<f?a=s+1:i=s;f<e[t[a]]&&(a>0&&(n[r]=t[a-1]),t[a]=r)}}for(a=t.length,i=t[a-1];a-- >0;)t[a]=i,i=n[i];return t}function xi(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:xi(n)}function To(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function wi(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?wi(n.subTree):null}const Si=e=>e.__isSuspense;function Nl(e,n){n&&n.pendingBranch?F(e)?n.effects.push(...e):n.effects.push(e):Us(e)}const Te=Symbol.for("v-fgt"),$t=Symbol.for("v-txt"),vn=Symbol.for("v-cmt"),It=Symbol.for("v-stc"),dt=[];let ke=null;function _e(e=!1){dt.push(ke=e?null:[])}function Ll(){dt.pop(),ke=dt[dt.length-1]||null}let gt=1;function Ht(e,n=!1){gt+=e,e<0&&ke&&n&&(ke.hasOnce=!0)}function Ei(e){return e.dynamicChildren=gt>0?ke||Fn:null,Ll(),gt>0&&ke&&ke.push(e),e}function Be(e,n,t,r,o,a){return Ei(Oe(e,n,t,r,o,a,!0))}function eo(e,n,t,r,o){return Ei(pe(e,n,t,r,o,!0))}function zt(e){return e?e.__v_isVNode===!0:!1}function Bn(e,n){return e.type===n.type&&e.key===n.key}const Ci=({key:e})=>e??null,Dt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?de(e)||xe(e)||V(e)?{i:Ge,r:e,k:n,f:!!t}:e:null);function Oe(e,n=null,t=null,r=0,o=null,a=e===Te?0:1,i=!1,s=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Ci(n),ref:n&&Dt(n),scopeId:Qa,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:a,patchFlag:r,dynamicProps:o,dynamicChildren:null,appContext:null,ctx:Ge};return s?(no(l,t),a&128&&e.normalize(l)):t&&(l.shapeFlag|=de(t)?8:16),gt>0&&!i&&ke&&(l.patchFlag>0||a&6)&&l.patchFlag!==32&&ke.push(l),l}const pe=Ol;function Ol(e,n=null,t=null,r=0,o=null,a=!1){if((!e||e===al)&&(e=vn),zt(e)){const s=kn(e,n,!0);return t&&no(s,t),gt>0&&!a&&ke&&(s.shapeFlag&6?ke[ke.indexOf(e)]=s:ke.push(s)),s.patchFlag=-2,s}if(ql(e)&&(e=e.__vccOpts),n){n=kl(n);let{class:s,style:l}=n;s&&!de(s)&&(n.class=Yn(s)),te(l)&&(Xr(l)&&!F(l)&&(l=he({},l)),n.style=Ur(l))}const i=de(e)?1:Si(e)?128:Ys(e)?64:te(e)?4:V(e)?2:0;return Oe(e,n,t,r,o,i,a,!0)}function kl(e){return e?Xr(e)||pi(e)?he({},e):e:null}function kn(e,n,t=!1,r=!1){const{props:o,ref:a,patchFlag:i,children:s,transition:l}=e,f=n?zl(o||{},n):o,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Ci(f),ref:n&&n.ref?t&&a?F(a)?a.concat(Dt(n)):[a,Dt(n)]:Dt(n):a,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:s,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Te?i===-1?16:i|16:i,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&kn(e.ssContent),ssFallback:e.ssFallback&&kn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&vt(c,l.clone(c)),c}function Ml(e=" ",n=0){return pe($t,null,e,n)}function Hl(e,n){const t=pe(It,null,e);return t.staticCount=n,t}function Ti(e="",n=!1){return n?(_e(),eo(vn,null,e)):pe(vn,null,e)}function tn(e){return e==null||typeof e=="boolean"?pe(vn):F(e)?pe(Te,null,e.slice()):zt(e)?dn(e):pe($t,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:kn(e)}function no(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(F(n))t=16;else if(typeof n=="object")if(r&65){const o=n.default;o&&(o._c&&(o._d=!1),no(e,o()),o._c&&(o._d=!0));return}else{t=32;const o=n._;!o&&!pi(n)?n._ctx=Ge:o===3&&Ge&&(Ge.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else V(n)?(n={default:n,_ctx:Ge},t=32):(n=String(n),r&64?(t=16,n=[Ml(n)]):t=8);e.children=n,e.shapeFlag|=t}function zl(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const o in r)if(o==="class")n.class!==r.class&&(n.class=Yn([n.class,r.class]));else if(o==="style")n.style=Ur([n.style,r.style]);else if(Gt(o)){const a=n[o],i=r[o];i&&a!==i&&!(F(a)&&a.includes(i))&&(n[o]=a?[].concat(a,i):i)}else o!==""&&(n[o]=r[o])}return n}function Je(e,n,t,r=null){We(e,n,7,[t,r])}const Bl=li();let Ul=0;function Fl(e,n,t){const r=e.type,o=(n?n.appContext:e.appContext)||Bl,a={uid:Ul++,vnode:e,type:r,parent:n,appContext:o,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new fs(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(o.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:mi(r,o),emitsOptions:ci(r,o),emit:null,emitted:null,propsDefaults:ie,inheritAttrs:r.inheritAttrs,ctx:ie,data:ie,props:ie,attrs:ie,slots:ie,refs:ie,setupState:ie,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return a.ctx={_:a},a.root=n?n.root:a,a.emit=vl.bind(null,a),e.ce&&e.ce(a),a}let be=null;const _i=()=>be||Ge;let Bt,Rr;{const e=Yt(),n=(t,r)=>{let o;return(o=e[t])||(o=e[t]=[]),o.push(r),a=>{o.length>1?o.forEach(i=>i(a)):o[0](a)}};Bt=n("__VUE_INSTANCE_SETTERS__",t=>be=t),Rr=n("__VUE_SSR_SETTERS__",t=>yt=t)}const St=e=>{const n=be;return Bt(e),e.scope.on(),()=>{e.scope.off(),Bt(n)}},_o=()=>{be&&be.scope.off(),Bt(null)};function Ai(e){return e.vnode.shapeFlag&4}let yt=!1;function Gl(e,n=!1,t=!1){n&&Rr(n);const{props:r,children:o}=e.vnode,a=Ai(e);Sl(e,r,a,n),_l(e,o,t||n);const i=a?Vl(e,n):void 0;return n&&Rr(!1),i}function Vl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,sl);const{setup:r}=t;if(r){pn();const o=e.setupContext=r.length>1?Yl(e):null,a=St(e),i=wt(r,e,0,[e.props,o]),s=wa(i);if(hn(),a(),(s||e.sp)&&!ct(e)&&ei(e),s){if(i.then(_o,_o),n)return i.then(l=>{Ao(e,l)}).catch(l=>{Xt(l,e,0)});e.asyncDep=i}else Ao(e,i)}else Ri(e)}function Ao(e,n,t){V(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Ka(n)),Ri(e)}function Ri(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const o=St(e);pn();try{ll(e)}finally{hn(),o()}}}const Kl={get(e,n){return ye(e,"get",""),e[n]}};function Yl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,Kl),slots:e.slots,emit:e.emit,expose:n}}function to(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Ka(Ds(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in ft)return ft[t](e)},has(n,t){return t in n||t in ft}})):e.proxy}function Wl(e,n=!0){return V(e)?e.displayName||e.name:e.name||n&&e.__name}function ql(e){return V(e)&&"__vccOpts"in e}const He=(e,n)=>ks(e,n,yt);function Ii(e,n,t){try{Ht(-1);const r=arguments.length;return r===2?te(n)&&!F(n)?zt(n)?pe(e,null,[n]):pe(e,n):pe(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&zt(t)&&(t=[t]),pe(e,n,t))}finally{Ht(1)}}const Xl="3.5.28";/**
+**/function Et(e,n,t,r){try{return r?e(...r):e()}catch(o){jt(o,n,t)}}function Ye(e,n,t,r){if(W(e)){const o=Et(e,n,t,r);return o&&Sa(o)&&o.catch(a=>{jt(a,n,t)}),o}if(z(e)){const o=[];for(let a=0;a<e.length;a++)o.push(Ye(e[a],n,t,r));return o}}function jt(e,n,t,r=!0){const o=n?n.vnode:null,{errorHandler:a,throwUnhandledErrorInProduction:i}=n&&n.appContext.config||se;if(n){let s=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;s;){const c=s.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}s=s.parent}if(a){un(),Et(a,null,10,[e,l,f]),mn();return}}Bs(e,t,o,r,i)}function Bs(e,n,t,r=!0,o=!1){if(o)throw e;console.error(e)}const we=[];let nn=-1;const Vn=[];let _n=null,Bn=0;const Ya=Promise.resolve();let Ot=null;function Ka(e){const n=Ot||Ya;return e?n.then(this?e.bind(this):e):n}function Us(e){let n=nn+1,t=we.length;for(;n<t;){const r=n+t>>>1,o=we[r],a=ht(o);a<e||a===e&&o.flags&2?n=r+1:t=r}return n}function Qr(e){if(!(e.flags&1)){const n=ht(e),t=we[we.length-1];!t||!(e.flags&2)&&n>=ht(t)?we.push(e):we.splice(Us(n),0,e),e.flags|=1,Xa()}}function Xa(){Ot||(Ot=Ya.then(Qa))}function Fs(e){z(e)?Vn.push(...e):_n&&e.id===-1?_n.splice(Bn+1,0,e):e.flags&1||(Vn.push(e),e.flags|=1),Xa()}function ho(e,n,t=nn+1){for(;t<we.length;t++){const r=we[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;we.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function ja(e){if(Vn.length){const n=[...new Set(Vn)].sort((t,r)=>ht(t)-ht(r));if(Vn.length=0,_n){_n.push(...n);return}for(_n=n,Bn=0;Bn<_n.length;Bn++){const t=_n[Bn];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}_n=null,Bn=0}}const ht=e=>e.id==null?e.flags&2?-1:1/0:e.id;function Qa(e){try{for(nn=0;nn<we.length;nn++){const n=we[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),Et(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<we.length;nn++){const n=we[nn];n&&(n.flags&=-2)}nn=-1,we.length=0,ja(),Ot=null,(we.length||Vn.length)&&Qa()}}let Ge=null,Za=null;function Mt(e){const n=Ge;return Ge=e,Za=e&&e.type.__scopeId||null,n}function Zr(e,n=Ge,t){if(!n||e._n)return e;const r=(...o)=>{r._d&&Bt(-1);const a=Mt(n);let i;try{i=e(...o)}finally{Mt(a),r._d&&Bt(1)}return i};return r._n=!0,r._c=!0,r._d=!0,r}function Rn(e,n,t,r){const o=e.dirs,a=n&&n.dirs;for(let i=0;i<o.length;i++){const s=o[i];a&&(s.oldValue=a[i].value);let l=s.dir[r];l&&(un(),Ye(l,t,8,[e.el,s,e,n]),mn())}}function It(e,n){if(be){let t=be.provides;const r=be.parent&&be.parent.provides;r===t&&(t=be.provides=Object.create(r)),t[e]=n}}function qe(e,n,t=!1){const r=Ai();if(r||qn){let o=qn?qn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(o&&e in o)return o[e];if(arguments.length>1)return t&&W(n)?n.call(r&&r.proxy):n}}const zs=Symbol.for("v-scx"),Gs=()=>qe(zs);function st(e,n,t){return $a(e,n,t)}function $a(e,n,t=se){const{immediate:r,deep:o,flush:a,once:i}=t,s=me({},t),l=n&&r||!n&&a!=="post";let f;if(yt){if(a==="sync"){const v=Gs();f=v.__watcherHandles||(v.__watcherHandles=[])}else if(!l){const v=()=>{};return v.stop=rn,v.resume=rn,v.pause=rn,v}}const c=be;s.call=(v,T,w)=>Ye(v,c,T,w);let d=!1;a==="post"?s.scheduler=v=>{Ne(v,c&&c.suspense)}:a!=="sync"&&(d=!0,s.scheduler=(v,T)=>{T?v():Qr(v)}),s.augmentJob=v=>{n&&(v.flags|=4),d&&(v.flags|=2,c&&(v.id=c.uid,v.i=c))};const m=ks(e,n,s);return yt&&(f?f.push(m):l&&m()),m}function Vs(e,n,t){const r=this.proxy,o=pe(e)?e.includes(".")?Ja(r,e):()=>r[e]:e.bind(r,r);let a;W(n)?a=n:(a=n.handler,t=n);const i=_t(this),s=$a(o,a.bind(r),t);return i(),s}function Ja(e,n){const t=n.split(".");return()=>{let r=e;for(let o=0;o<t.length&&r;o++)r=r[t[o]];return r}}const qs=Symbol("_vte"),Ws=e=>e.__isTeleport,xn=Symbol("_leaveCb"),Jn=Symbol("_enterCb");function Ys(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Qn(()=>{e.isMounted=!0}),ai(()=>{e.isUnmounting=!0}),e}const He=[Function,Array],Ks={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:He,onEnter:He,onAfterEnter:He,onEnterCancelled:He,onBeforeLeave:He,onLeave:He,onAfterLeave:He,onLeaveCancelled:He,onBeforeAppear:He,onAppear:He,onAfterAppear:He,onAppearCancelled:He};function Xs(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function _r(e,n,t,r,o){const{appear:a,mode:i,persisted:s=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:m,onLeave:v,onAfterLeave:T,onLeaveCancelled:w,onBeforeAppear:k,onAppear:M,onAfterAppear:S,onAppearCancelled:A}=n,_=String(e.key),L=Xs(t,e),G=(H,K)=>{H&&Ye(H,r,9,K)},V=(H,K)=>{const $=K[1];G(H,K),z(H)?H.every(I=>I.length<=1)&&$():H.length<=1&&$()},oe={mode:i,persisted:s,beforeEnter(H){let K=l;if(!t.isMounted)if(a)K=k||l;else return;H[xn]&&H[xn](!0);const $=L[_];$&&Un(e,$)&&$.el[xn]&&$.el[xn](),G(K,[H])},enter(H){let K=f,$=c,I=d;if(!t.isMounted)if(a)K=M||f,$=S||c,I=A||d;else return;let X=!1;H[Jn]=ve=>{X||(X=!0,ve?G(I,[H]):G($,[H]),oe.delayedLeave&&oe.delayedLeave(),H[Jn]=void 0)};const le=H[Jn].bind(null,!1);K?V(K,[H,le]):le()},leave(H,K){const $=String(e.key);if(H[Jn]&&H[Jn](!0),t.isUnmounting)return K();G(m,[H]);let I=!1;H[xn]=le=>{I||(I=!0,K(),le?G(w,[H]):G(T,[H]),H[xn]=void 0,L[$]===e&&delete L[$])};const X=H[xn].bind(null,!1);L[$]=e,v?V(v,[H,X]):X()},clone(H){return _r(H,n,t,r)}};return oe}function vt(e,n){e.shapeFlag&6&&e.component?(e.transition=n,vt(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function ei(e,n=!1,t){let r=[],o=0;for(let a=0;a<e.length;a++){let i=e[a];const s=t==null?i.key:String(t)+String(i.key!=null?i.key:a);i.type===Te?(i.patchFlag&128&&o++,r=r.concat(ei(i.children,n,s))):(n||i.type!==vn)&&r.push(s!=null?Mn(i,{key:s}):i)}if(o>1)for(let a=0;a<r.length;a++)r[a].patchFlag=-2;return r}function An(e,n){return W(e)?me({name:e.name},n,{setup:e}):e}function ni(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function vo(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const Ht=new WeakMap;function lt(e,n,t,r,o=!1){if(z(e)){e.forEach((w,k)=>lt(w,n&&(z(n)?n[k]:n),t,r,o));return}if(ct(r)&&!o){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&lt(e,n,t,r.component.subTree);return}const a=r.shapeFlag&4?ro(r.component):r.el,i=o?null:a,{i:s,r:l}=e,f=n&&n.r,c=s.refs===se?s.refs={}:s.refs,d=s.setupState,m=Z(d),v=d===se?xa:w=>vo(c,w)?!1:ne(m,w),T=(w,k)=>!(k&&vo(c,k));if(f!=null&&f!==l){if(go(n),pe(f))c[f]=null,v(f)&&(d[f]=null);else if(xe(f)){const w=n;T(f,w.k)&&(f.value=null),w.k&&(c[w.k]=null)}}if(W(l))Et(l,s,12,[i,c]);else{const w=pe(l),k=xe(l);if(w||k){const M=()=>{if(e.f){const S=w?v(l)?d[l]:c[l]:T()||!e.k?l.value:c[e.k];if(o)z(S)&&Ur(S,a);else if(z(S))S.includes(a)||S.push(a);else if(w)c[l]=[a],v(l)&&(d[l]=c[l]);else{const A=[a];T(l,e.k)&&(l.value=A),e.k&&(c[e.k]=A)}}else w?(c[l]=i,v(l)&&(d[l]=i)):k&&(T(l,e.k)&&(l.value=i),e.k&&(c[e.k]=i))};if(i){const S=()=>{M(),Ht.delete(e)};S.id=-1,Ht.set(e,S),Ne(S,t)}else go(e),M()}}}function go(e){const n=Ht.get(e);n&&(n.flags|=8,Ht.delete(e))}Yt().requestIdleCallback;Yt().cancelIdleCallback;const ct=e=>!!e.type.__asyncLoader,ti=e=>e.type.__isKeepAlive;function js(e,n){ri(e,"a",n)}function Qs(e,n){ri(e,"da",n)}function ri(e,n,t=be){const r=e.__wdc||(e.__wdc=()=>{let o=t;for(;o;){if(o.isDeactivated)return;o=o.parent}return e()});if(Qt(n,r,t),t){let o=t.parent;for(;o&&o.parent;)ti(o.parent.vnode)&&Zs(r,n,t,o),o=o.parent}}function Zs(e,n,t,r){const o=Qt(n,e,r,!0);St(()=>{Ur(r[n],o)},t)}function Qt(e,n,t=be,r=!1){if(t){const o=t[e]||(t[e]=[]),a=n.__weh||(n.__weh=(...i)=>{un();const s=_t(t),l=Ye(n,t,e,i);return s(),mn(),l});return r?o.unshift(a):o.push(a),a}}const gn=e=>(n,t=be)=>{(!yt||e==="sp")&&Qt(e,(...r)=>n(...r),t)},$s=gn("bm"),Qn=gn("m"),Js=gn("bu"),oi=gn("u"),ai=gn("bum"),St=gn("um"),el=gn("sp"),nl=gn("rtg"),tl=gn("rtc");function rl(e,n=be){Qt("ec",e,n)}const ol="components";function ii(e,n){return il(ol,e,!0,n)||e}const al=Symbol.for("v-ndc");function il(e,n,t=!0,r=!1){const o=Ge||be;if(o){const a=o.type;{const s=Yl(a,!1);if(s&&(s===n||s===Fe(n)||s===Wt(Fe(n))))return a}const i=yo(o[e]||a[e],n)||yo(o.appContext[e],n);return!i&&r?a:i}}function yo(e,n){return e&&(e[n]||e[Fe(n)]||e[Wt(Fe(n))])}function $r(e,n,t,r){let o;const a=t,i=z(e);if(i||pe(e)){const s=i&&On(e);let l=!1,f=!1;s&&(l=!Be(e),f=hn(e),e=Kt(e)),o=new Array(e.length);for(let c=0,d=e.length;c<d;c++)o[c]=n(l?f?Yn(We(e[c])):We(e[c]):e[c],c,void 0,a)}else if(typeof e=="number"){o=new Array(e);for(let s=0;s<e;s++)o[s]=n(s+1,s,void 0,a)}else if(te(e))if(e[Symbol.iterator])o=Array.from(e,(s,l)=>n(s,l,void 0,a));else{const s=Object.keys(e);o=new Array(s.length);for(let l=0,f=s.length;l<f;l++){const c=s[l];o[l]=n(e[c],c,l,a)}}else o=[];return o}const wr=e=>e?Ri(e)?ro(e):wr(e.parent):null,ft=me(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>wr(e.parent),$root:e=>wr(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>li(e),$forceUpdate:e=>e.f||(e.f=()=>{Qr(e.update)}),$nextTick:e=>e.n||(e.n=Ka.bind(e.proxy)),$watch:e=>Vs.bind(e)}),sr=(e,n)=>e!==se&&!e.__isScriptSetup&&ne(e,n),sl={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:o,props:a,accessCache:i,type:s,appContext:l}=e;if(n[0]!=="$"){const m=i[n];if(m!==void 0)switch(m){case 1:return r[n];case 2:return o[n];case 4:return t[n];case 3:return a[n]}else{if(sr(r,n))return i[n]=1,r[n];if(o!==se&&ne(o,n))return i[n]=2,o[n];if(ne(a,n))return i[n]=3,a[n];if(t!==se&&ne(t,n))return i[n]=4,t[n];Tr&&(i[n]=0)}}const f=ft[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=s.__cssModules)&&(c=c[n]))return c;if(t!==se&&ne(t,n))return i[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:o,ctx:a}=e;return sr(o,n)?(o[n]=t,!0):r!==se&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(a[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:o,props:a,type:i}},s){let l;return!!(t[s]||e!==se&&s[0]!=="$"&&ne(e,s)||sr(n,s)||ne(a,s)||ne(r,s)||ne(ft,s)||ne(o.config.globalProperties,s)||(l=i.__cssModules)&&l[s])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function bo(e){return z(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Tr=!0;function ll(e){const n=li(e),t=e.proxy,r=e.ctx;Tr=!1,n.beforeCreate&&xo(n.beforeCreate,e,"bc");const{data:o,computed:a,methods:i,watch:s,provide:l,inject:f,created:c,beforeMount:d,mounted:m,beforeUpdate:v,updated:T,activated:w,deactivated:k,beforeDestroy:M,beforeUnmount:S,destroyed:A,unmounted:_,render:L,renderTracked:G,renderTriggered:V,errorCaptured:oe,serverPrefetch:H,expose:K,inheritAttrs:$,components:I,directives:X,filters:le}=n;if(f&&cl(f,r,null),i)for(const J in i){const Y=i[J];W(Y)&&(r[J]=Y.bind(t))}if(o){const J=o.call(t,t);te(J)&&(e.data=Xt(J))}if(Tr=!0,a)for(const J in a){const Y=a[J],ze=W(Y)?Y.bind(t,t):W(Y.get)?Y.get.bind(t,t):rn,Xe=!W(Y)&&W(Y.set)?Y.set.bind(t):rn,de=ke({get:ze,set:Xe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>de.value,set:ge=>de.value=ge})}if(s)for(const J in s)si(s[J],r,t,J);if(l){const J=W(l)?l.call(t):l;Reflect.ownKeys(J).forEach(Y=>{It(Y,J[Y])})}c&&xo(c,e,"c");function ce(J,Y){z(Y)?Y.forEach(ze=>J(ze.bind(t))):Y&&J(Y.bind(t))}if(ce($s,d),ce(Qn,m),ce(Js,v),ce(oi,T),ce(js,w),ce(Qs,k),ce(rl,oe),ce(tl,G),ce(nl,V),ce(ai,S),ce(St,_),ce(el,H),z(K))if(K.length){const J=e.exposed||(e.exposed={});K.forEach(Y=>{Object.defineProperty(J,Y,{get:()=>t[Y],set:ze=>t[Y]=ze,enumerable:!0})})}else e.exposed||(e.exposed={});L&&e.render===rn&&(e.render=L),$!=null&&(e.inheritAttrs=$),I&&(e.components=I),X&&(e.directives=X),H&&ni(e)}function cl(e,n,t=rn){z(e)&&(e=Cr(e));for(const r in e){const o=e[r];let a;te(o)?"default"in o?a=qe(o.from||r,o.default,!0):a=qe(o.from||r):a=qe(o),xe(a)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>a.value,set:i=>a.value=i}):n[r]=a}}function xo(e,n,t){Ye(z(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function si(e,n,t,r){let o=r.includes(".")?Ja(t,r):()=>t[r];if(pe(e)){const a=n[e];W(a)&&st(o,a)}else if(W(e))st(o,e.bind(t));else if(te(e))if(z(e))e.forEach(a=>si(a,n,t,r));else{const a=W(e.handler)?e.handler.bind(t):n[e.handler];W(a)&&st(o,a,e)}}function li(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:o,optionsCache:a,config:{optionMergeStrategies:i}}=e.appContext,s=a.get(n);let l;return s?l=s:!o.length&&!t&&!r?l=n:(l={},o.length&&o.forEach(f=>kt(l,f,i,!0)),kt(l,n,i)),te(n)&&a.set(n,l),l}function kt(e,n,t,r=!1){const{mixins:o,extends:a}=n;a&&kt(e,a,t,!0),o&&o.forEach(i=>kt(e,i,t,!0));for(const i in n)if(!(r&&i==="expose")){const s=fl[i]||t&&t[i];e[i]=s?s(e[i],n[i]):n[i]}return e}const fl={data:Eo,props:So,emits:So,methods:tt,computed:tt,beforeCreate:Se,created:Se,beforeMount:Se,mounted:Se,beforeUpdate:Se,updated:Se,beforeDestroy:Se,beforeUnmount:Se,destroyed:Se,unmounted:Se,activated:Se,deactivated:Se,errorCaptured:Se,serverPrefetch:Se,components:tt,directives:tt,watch:pl,provide:Eo,inject:dl};function Eo(e,n){return n?e?function(){return me(W(e)?e.call(this,this):e,W(n)?n.call(this,this):n)}:n:e}function dl(e,n){return tt(Cr(e),Cr(n))}function Cr(e){if(z(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function Se(e,n){return e?[...new Set([].concat(e,n))]:n}function tt(e,n){return e?me(Object.create(null),e,n):n}function So(e,n){return e?z(e)&&z(n)?[...new Set([...e,...n])]:me(Object.create(null),bo(e),bo(n??{})):n}function pl(e,n){if(!e)return n;if(!n)return e;const t=me(Object.create(null),e);for(const r in n)t[r]=Se(e[r],n[r]);return t}function ci(){return{app:null,config:{isNativeTag:xa,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let ul=0;function ml(e,n){return function(r,o=null){W(r)||(r=me({},r)),o!=null&&!te(o)&&(o=null);const a=ci(),i=new WeakSet,s=[];let l=!1;const f=a.app={_uid:ul++,_component:r,_props:o,_container:null,_context:a,_instance:null,version:Xl,get config(){return a.config},set config(c){},use(c,...d){return i.has(c)||(c&&W(c.install)?(i.add(c),c.install(f,...d)):W(c)&&(i.add(c),c(f,...d))),f},mixin(c){return a.mixins.includes(c)||a.mixins.push(c),f},component(c,d){return d?(a.components[c]=d,f):a.components[c]},directive(c,d){return d?(a.directives[c]=d,f):a.directives[c]},mount(c,d,m){if(!l){const v=f._ceVNode||ue(r,o);return v.appContext=a,m===!0?m="svg":m===!1&&(m=void 0),e(v,c,m),l=!0,f._container=c,c.__vue_app__=f,ro(v.component)}},onUnmount(c){s.push(c)},unmount(){l&&(Ye(s,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return a.provides[c]=d,f},runWithContext(c){const d=qn;qn=f;try{return c()}finally{qn=d}}};return f}}let qn=null;const hl=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${Fe(n)}Modifiers`]||e[`${Hn(n)}Modifiers`];function vl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||se;let o=t;const a=n.startsWith("update:"),i=a&&hl(r,n.slice(7));i&&(i.trim&&(o=t.map(c=>pe(c)?c.trim():c)),i.number&&(o=t.map(ns)));let s,l=r[s=nr(n)]||r[s=nr(Fe(n))];!l&&a&&(l=r[s=nr(Hn(n))]),l&&Ye(l,e,6,o);const f=r[s+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[s])return;e.emitted[s]=!0,Ye(f,e,6,o)}}const gl=new WeakMap;function fi(e,n,t=!1){const r=t?gl:n.emitsCache,o=r.get(e);if(o!==void 0)return o;const a=e.emits;let i={},s=!1;if(!W(e)){const l=f=>{const c=fi(f,n,!0);c&&(s=!0,me(i,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!a&&!s?(te(e)&&r.set(e,null),null):(z(a)?a.forEach(l=>i[l]=null):me(i,a),te(e)&&r.set(e,i),i)}function Zt(e,n){return!e||!Vt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,Hn(n))||ne(e,n))}function _o(e){const{type:n,vnode:t,proxy:r,withProxy:o,propsOptions:[a],slots:i,attrs:s,emit:l,render:f,renderCache:c,props:d,data:m,setupState:v,ctx:T,inheritAttrs:w}=e,k=Mt(e);let M,S;try{if(t.shapeFlag&4){const _=o||r,L=_;M=tn(f.call(L,_,c,d,v,m,T)),S=s}else{const _=n;M=tn(_.length>1?_(d,{attrs:s,slots:i,emit:l}):_(d,null)),S=n.props?s:yl(s)}}catch(_){dt.length=0,jt(_,e,1),M=ue(vn)}let A=M;if(S&&w!==!1){const _=Object.keys(S),{shapeFlag:L}=A;_.length&&L&7&&(a&&_.some(Br)&&(S=bl(S,a)),A=Mn(A,S,!1,!0))}return t.dirs&&(A=Mn(A,null,!1,!0),A.dirs=A.dirs?A.dirs.concat(t.dirs):t.dirs),t.transition&&vt(A,t.transition),M=A,Mt(k),M}const yl=e=>{let n;for(const t in e)(t==="class"||t==="style"||Vt(t))&&((n||(n={}))[t]=e[t]);return n},bl=(e,n)=>{const t={};for(const r in e)(!Br(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function xl(e,n,t){const{props:r,children:o,component:a}=e,{props:i,children:s,patchFlag:l}=n,f=a.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?wo(r,i,f):!!i;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const m=c[d];if(di(i,r,m)&&!Zt(f,m))return!0}}}else return(o||s)&&(!s||!s.$stable)?!0:r===i?!1:r?i?wo(r,i,f):!0:!!i;return!1}function wo(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let o=0;o<r.length;o++){const a=r[o];if(di(n,e,a)&&!Zt(t,a))return!0}return!1}function di(e,n,t){const r=e[t],o=n[t];return t==="style"&&te(r)&&te(o)?!Gr(r,o):r!==o}function El({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const pi={},ui=()=>Object.create(pi),mi=e=>Object.getPrototypeOf(e)===pi;function Sl(e,n,t,r=!1){const o={},a=ui();e.propsDefaults=Object.create(null),hi(e,n,o,a);for(const i in e.propsOptions[0])i in o||(o[i]=void 0);t?e.props=r?o:Va(o):e.type.props?e.props=o:e.props=a,e.attrs=a}function _l(e,n,t,r){const{props:o,attrs:a,vnode:{patchFlag:i}}=e,s=Z(o),[l]=e.propsOptions;let f=!1;if((r||i>0)&&!(i&16)){if(i&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let m=c[d];if(Zt(e.emitsOptions,m))continue;const v=n[m];if(l)if(ne(a,m))v!==a[m]&&(a[m]=v,f=!0);else{const T=Fe(m);o[T]=Ar(l,s,T,v,e,!1)}else v!==a[m]&&(a[m]=v,f=!0)}}}else{hi(e,n,o,a)&&(f=!0);let c;for(const d in s)(!n||!ne(n,d)&&((c=Hn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(o[d]=Ar(l,s,d,void 0,e,!0)):delete o[d]);if(a!==s)for(const d in a)(!n||!ne(n,d))&&(delete a[d],f=!0)}f&&pn(e.attrs,"set","")}function hi(e,n,t,r){const[o,a]=e.propsOptions;let i=!1,s;if(n)for(let l in n){if(rt(l))continue;const f=n[l];let c;o&&ne(o,c=Fe(l))?!a||!a.includes(c)?t[c]=f:(s||(s={}))[c]=f:Zt(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,i=!0)}if(a){const l=Z(t),f=s||se;for(let c=0;c<a.length;c++){const d=a[c];t[d]=Ar(o,l,d,f[d],e,!ne(f,d))}}return i}function Ar(e,n,t,r,o,a){const i=e[t];if(i!=null){const s=ne(i,"default");if(s&&r===void 0){const l=i.default;if(i.type!==Function&&!i.skipFactory&&W(l)){const{propsDefaults:f}=o;if(t in f)r=f[t];else{const c=_t(o);r=f[t]=l.call(null,n),c()}}else r=l;o.ce&&o.ce._setProp(t,r)}i[0]&&(a&&!s?r=!1:i[1]&&(r===""||r===Hn(t))&&(r=!0))}return r}const wl=new WeakMap;function vi(e,n,t=!1){const r=t?wl:n.propsCache,o=r.get(e);if(o)return o;const a=e.props,i={},s=[];let l=!1;if(!W(e)){const c=d=>{l=!0;const[m,v]=vi(d,n,!0);me(i,m),v&&s.push(...v)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!a&&!l)return te(e)&&r.set(e,zn),zn;if(z(a))for(let c=0;c<a.length;c++){const d=Fe(a[c]);To(d)&&(i[d]=se)}else if(a)for(const c in a){const d=Fe(c);if(To(d)){const m=a[c],v=i[d]=z(m)||W(m)?{type:m}:me({},m),T=v.type;let w=!1,k=!0;if(z(T))for(let M=0;M<T.length;++M){const S=T[M],A=W(S)&&S.name;if(A==="Boolean"){w=!0;break}else A==="String"&&(k=!1)}else w=W(T)&&T.name==="Boolean";v[0]=w,v[1]=k,(w||ne(v,"default"))&&s.push(d)}}const f=[i,s];return te(e)&&r.set(e,f),f}function To(e){return e[0]!=="$"&&!rt(e)}const Jr=e=>e==="_"||e==="_ctx"||e==="$stable",eo=e=>z(e)?e.map(tn):[tn(e)],Tl=(e,n,t)=>{if(n._n)return n;const r=Zr((...o)=>eo(n(...o)),t);return r._c=!1,r},gi=(e,n,t)=>{const r=e._ctx;for(const o in e){if(Jr(o))continue;const a=e[o];if(W(a))n[o]=Tl(o,a,r);else if(a!=null){const i=eo(a);n[o]=()=>i}}},yi=(e,n)=>{const t=eo(n);e.slots.default=()=>t},bi=(e,n,t)=>{for(const r in n)(t||!Jr(r))&&(e[r]=n[r])},Cl=(e,n,t)=>{const r=e.slots=ui();if(e.vnode.shapeFlag&32){const o=n._;o?(bi(r,n,t),t&&Ta(r,"_",o,!0)):gi(n,r)}else n&&yi(e,n)},Al=(e,n,t)=>{const{vnode:r,slots:o}=e;let a=!0,i=se;if(r.shapeFlag&32){const s=n._;s?t&&s===1?a=!1:bi(o,n,t):(a=!n.$stable,gi(n,o)),i=n}else n&&(yi(e,n),i={default:1});if(a)for(const s in o)!Jr(s)&&i[s]==null&&delete o[s]},Ne=Pl;function Rl(e){return Il(e)}function Il(e,n){const t=Yt();t.__VUE__=!0;const{insert:r,remove:o,patchProp:a,createElement:i,createText:s,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:m,setScopeId:v=rn,insertStaticContent:T}=e,w=(p,u,h,g=null,x=null,b=null,N=void 0,R=null,C=!!u.dynamicChildren)=>{if(p===u)return;p&&!Un(p,u)&&(g=y(p),ge(p,x,b,!0),p=null),u.patchFlag===-2&&(C=!1,u.dynamicChildren=null);const{type:E,ref:F,shapeFlag:P}=u;switch(E){case $t:k(p,u,h,g);break;case vn:M(p,u,h,g);break;case Nt:p==null&&S(u,h,g,N);break;case Te:I(p,u,h,g,x,b,N,R,C);break;default:P&1?L(p,u,h,g,x,b,N,R,C):P&6?X(p,u,h,g,x,b,N,R,C):(P&64||P&128)&&E.process(p,u,h,g,x,b,N,R,C,B)}F!=null&&x?lt(F,p&&p.ref,b,u||p,!u):F==null&&p&&p.ref!=null&&lt(p.ref,null,b,p,!0)},k=(p,u,h,g)=>{if(p==null)r(u.el=s(u.children),h,g);else{const x=u.el=p.el;u.children!==p.children&&f(x,u.children)}},M=(p,u,h,g)=>{p==null?r(u.el=l(u.children||""),h,g):u.el=p.el},S=(p,u,h,g)=>{[p.el,p.anchor]=T(p.children,u,h,g,p.el,p.anchor)},A=({el:p,anchor:u},h,g)=>{let x;for(;p&&p!==u;)x=m(p),r(p,h,g),p=x;r(u,h,g)},_=({el:p,anchor:u})=>{let h;for(;p&&p!==u;)h=m(p),o(p),p=h;o(u)},L=(p,u,h,g,x,b,N,R,C)=>{if(u.type==="svg"?N="svg":u.type==="math"&&(N="mathml"),p==null)G(u,h,g,x,b,N,R,C);else{const E=p.el&&p.el._isVueCE?p.el:null;try{E&&E._beginPatch(),H(p,u,x,b,N,R,C)}finally{E&&E._endPatch()}}},G=(p,u,h,g,x,b,N,R)=>{let C,E;const{props:F,shapeFlag:P,transition:U,dirs:q}=p;if(C=p.el=i(p.type,b,F&&F.is,F),P&8?c(C,p.children):P&16&&oe(p.children,C,null,g,x,lr(p,b),N,R),q&&Rn(p,null,g,"created"),V(C,p,p.scopeId,N,g),F){for(const ae in F)ae!=="value"&&!rt(ae)&&a(C,ae,null,F[ae],b,g);"value"in F&&a(C,"value",null,F.value,b),(E=F.onVnodeBeforeMount)&&Je(E,g,p)}q&&Rn(p,null,g,"beforeMount");const Q=Nl(x,U);Q&&U.beforeEnter(C),r(C,u,h),((E=F&&F.onVnodeMounted)||Q||q)&&Ne(()=>{E&&Je(E,g,p),Q&&U.enter(C),q&&Rn(p,null,g,"mounted")},x)},V=(p,u,h,g,x)=>{if(h&&v(p,h),g)for(let b=0;b<g.length;b++)v(p,g[b]);if(x){let b=x.subTree;if(u===b||_i(b.type)&&(b.ssContent===u||b.ssFallback===u)){const N=x.vnode;V(p,N,N.scopeId,N.slotScopeIds,x.parent)}}},oe=(p,u,h,g,x,b,N,R,C=0)=>{for(let E=C;E<p.length;E++){const F=p[E]=R?dn(p[E]):tn(p[E]);w(null,F,u,h,g,x,b,N,R)}},H=(p,u,h,g,x,b,N)=>{const R=u.el=p.el;let{patchFlag:C,dynamicChildren:E,dirs:F}=u;C|=p.patchFlag&16;const P=p.props||se,U=u.props||se;let q;if(h&&In(h,!1),(q=U.onVnodeBeforeUpdate)&&Je(q,h,u,p),F&&Rn(u,p,h,"beforeUpdate"),h&&In(h,!0),(P.innerHTML&&U.innerHTML==null||P.textContent&&U.textContent==null)&&c(R,""),E?K(p.dynamicChildren,E,R,h,g,lr(u,x),b):N||Y(p,u,R,null,h,g,lr(u,x),b,!1),C>0){if(C&16)$(R,P,U,h,x);else if(C&2&&P.class!==U.class&&a(R,"class",null,U.class,x),C&4&&a(R,"style",P.style,U.style,x),C&8){const Q=u.dynamicProps;for(let ae=0;ae<Q.length;ae++){const re=Q[ae],Re=P[re],Ie=U[re];(Ie!==Re||re==="value")&&a(R,re,Re,Ie,x,h)}}C&1&&p.children!==u.children&&c(R,u.children)}else!N&&E==null&&$(R,P,U,h,x);((q=U.onVnodeUpdated)||F)&&Ne(()=>{q&&Je(q,h,u,p),F&&Rn(u,p,h,"updated")},g)},K=(p,u,h,g,x,b,N)=>{for(let R=0;R<u.length;R++){const C=p[R],E=u[R],F=C.el&&(C.type===Te||!Un(C,E)||C.shapeFlag&198)?d(C.el):h;w(C,E,F,null,g,x,b,N,!0)}},$=(p,u,h,g,x)=>{if(u!==h){if(u!==se)for(const b in u)!rt(b)&&!(b in h)&&a(p,b,u[b],null,x,g);for(const b in h){if(rt(b))continue;const N=h[b],R=u[b];N!==R&&b!=="value"&&a(p,b,R,N,x,g)}"value"in h&&a(p,"value",u.value,h.value,x)}},I=(p,u,h,g,x,b,N,R,C)=>{const E=u.el=p?p.el:s(""),F=u.anchor=p?p.anchor:s("");let{patchFlag:P,dynamicChildren:U,slotScopeIds:q}=u;q&&(R=R?R.concat(q):q),p==null?(r(E,h,g),r(F,h,g),oe(u.children||[],h,F,x,b,N,R,C)):P>0&&P&64&&U&&p.dynamicChildren&&p.dynamicChildren.length===U.length?(K(p.dynamicChildren,U,h,x,b,N,R),(u.key!=null||x&&u===x.subTree)&&xi(p,u,!0)):Y(p,u,h,F,x,b,N,R,C)},X=(p,u,h,g,x,b,N,R,C)=>{u.slotScopeIds=R,p==null?u.shapeFlag&512?x.ctx.activate(u,h,g,N,C):le(u,h,g,x,b,N,C):ve(p,u,C)},le=(p,u,h,g,x,b,N)=>{const R=p.component=zl(p,g,x);if(ti(p)&&(R.ctx.renderer=B),Gl(R,!1,N),R.asyncDep){if(x&&x.registerDep(R,ce,N),!p.el){const C=R.subTree=ue(vn);M(null,C,u,h),p.placeholder=C.el}}else ce(R,p,u,h,x,b,N)},ve=(p,u,h)=>{const g=u.component=p.component;if(xl(p,u,h))if(g.asyncDep&&!g.asyncResolved){J(g,u,h);return}else g.next=u,g.update();else u.el=p.el,g.vnode=u},ce=(p,u,h,g,x,b,N)=>{const R=()=>{if(p.isMounted){let{next:P,bu:U,u:q,parent:Q,vnode:ae}=p;{const Ze=Ei(p);if(Ze){P&&(P.el=ae.el,J(p,P,N)),Ze.asyncDep.then(()=>{Ne(()=>{p.isUnmounted||E()},x)});return}}let re=P,Re;In(p,!1),P?(P.el=ae.el,J(p,P,N)):P=ae,U&&tr(U),(Re=P.props&&P.props.onVnodeBeforeUpdate)&&Je(Re,Q,P,ae),In(p,!0);const Ie=_o(p),Qe=p.subTree;p.subTree=Ie,w(Qe,Ie,d(Qe.el),y(Qe),p,x,b),P.el=Ie.el,re===null&&El(p,Ie.el),q&&Ne(q,x),(Re=P.props&&P.props.onVnodeUpdated)&&Ne(()=>Je(Re,Q,P,ae),x)}else{let P;const{el:U,props:q}=u,{bm:Q,m:ae,parent:re,root:Re,type:Ie}=p,Qe=ct(u);In(p,!1),Q&&tr(Q),!Qe&&(P=q&&q.onVnodeBeforeMount)&&Je(P,re,u),In(p,!0);{Re.ce&&Re.ce._hasShadowRoot()&&Re.ce._injectChildStyle(Ie);const Ze=p.subTree=_o(p);w(null,Ze,h,g,p,x,b),u.el=Ze.el}if(ae&&Ne(ae,x),!Qe&&(P=q&&q.onVnodeMounted)){const Ze=u;Ne(()=>Je(P,re,Ze),x)}(u.shapeFlag&256||re&&ct(re.vnode)&&re.vnode.shapeFlag&256)&&p.a&&Ne(p.a,x),p.isMounted=!0,u=h=g=null}};p.scope.on();const C=p.effect=new Ia(R);p.scope.off();const E=p.update=C.run.bind(C),F=p.job=C.runIfDirty.bind(C);F.i=p,F.id=p.uid,C.scheduler=()=>Qr(F),In(p,!0),E()},J=(p,u,h)=>{u.component=p;const g=p.vnode.props;p.vnode=u,p.next=null,_l(p,u.props,g,h),Al(p,u.children,h),un(),ho(p),mn()},Y=(p,u,h,g,x,b,N,R,C=!1)=>{const E=p&&p.children,F=p?p.shapeFlag:0,P=u.children,{patchFlag:U,shapeFlag:q}=u;if(U>0){if(U&128){Xe(E,P,h,g,x,b,N,R,C);return}else if(U&256){ze(E,P,h,g,x,b,N,R,C);return}}q&8?(F&16&&Ee(E,x,b),P!==E&&c(h,P)):F&16?q&16?Xe(E,P,h,g,x,b,N,R,C):Ee(E,x,b,!0):(F&8&&c(h,""),q&16&&oe(P,h,g,x,b,N,R,C))},ze=(p,u,h,g,x,b,N,R,C)=>{p=p||zn,u=u||zn;const E=p.length,F=u.length,P=Math.min(E,F);let U;for(U=0;U<P;U++){const q=u[U]=C?dn(u[U]):tn(u[U]);w(p[U],q,h,null,x,b,N,R,C)}E>F?Ee(p,x,b,!0,!1,P):oe(u,h,g,x,b,N,R,C,P)},Xe=(p,u,h,g,x,b,N,R,C)=>{let E=0;const F=u.length;let P=p.length-1,U=F-1;for(;E<=P&&E<=U;){const q=p[E],Q=u[E]=C?dn(u[E]):tn(u[E]);if(Un(q,Q))w(q,Q,h,null,x,b,N,R,C);else break;E++}for(;E<=P&&E<=U;){const q=p[P],Q=u[U]=C?dn(u[U]):tn(u[U]);if(Un(q,Q))w(q,Q,h,null,x,b,N,R,C);else break;P--,U--}if(E>P){if(E<=U){const q=U+1,Q=q<F?u[q].el:g;for(;E<=U;)w(null,u[E]=C?dn(u[E]):tn(u[E]),h,Q,x,b,N,R,C),E++}}else if(E>U)for(;E<=P;)ge(p[E],x,b,!0),E++;else{const q=E,Q=E,ae=new Map;for(E=Q;E<=U;E++){const Oe=u[E]=C?dn(u[E]):tn(u[E]);Oe.key!=null&&ae.set(Oe.key,E)}let re,Re=0;const Ie=U-Q+1;let Qe=!1,Ze=0;const Zn=new Array(Ie);for(E=0;E<Ie;E++)Zn[E]=0;for(E=q;E<=P;E++){const Oe=p[E];if(Re>=Ie){ge(Oe,x,b,!0);continue}let $e;if(Oe.key!=null)$e=ae.get(Oe.key);else for(re=Q;re<=U;re++)if(Zn[re-Q]===0&&Un(Oe,u[re])){$e=re;break}$e===void 0?ge(Oe,x,b,!0):(Zn[$e-Q]=E+1,$e>=Ze?Ze=$e:Qe=!0,w(Oe,u[$e],h,null,x,b,N,R,C),Re++)}const so=Qe?Dl(Zn):zn;for(re=so.length-1,E=Ie-1;E>=0;E--){const Oe=Q+E,$e=u[Oe],lo=u[Oe+1],co=Oe+1<F?lo.el||Si(lo):g;Zn[E]===0?w(null,$e,h,co,x,b,N,R,C):Qe&&(re<0||E!==so[re]?de($e,h,co,2):re--)}}},de=(p,u,h,g,x=null)=>{const{el:b,type:N,transition:R,children:C,shapeFlag:E}=p;if(E&6){de(p.component.subTree,u,h,g);return}if(E&128){p.suspense.move(u,h,g);return}if(E&64){N.move(p,u,h,B);return}if(N===Te){r(b,u,h);for(let P=0;P<C.length;P++)de(C[P],u,h,g);r(p.anchor,u,h);return}if(N===Nt){A(p,u,h);return}if(g!==2&&E&1&&R)if(g===0)R.beforeEnter(b),r(b,u,h),Ne(()=>R.enter(b),x);else{const{leave:P,delayLeave:U,afterLeave:q}=R,Q=()=>{p.ctx.isUnmounted?o(b):r(b,u,h)},ae=()=>{b._isLeaving&&b[xn](!0),P(b,()=>{Q(),q&&q()})};U?U(b,Q,ae):ae()}else r(b,u,h)},ge=(p,u,h,g=!1,x=!1)=>{const{type:b,props:N,ref:R,children:C,dynamicChildren:E,shapeFlag:F,patchFlag:P,dirs:U,cacheIndex:q}=p;if(P===-2&&(x=!1),R!=null&&(un(),lt(R,null,h,p,!0),mn()),q!=null&&(u.renderCache[q]=void 0),F&256){u.ctx.deactivate(p);return}const Q=F&1&&U,ae=!ct(p);let re;if(ae&&(re=N&&N.onVnodeBeforeUnmount)&&Je(re,u,p),F&6)je(p.component,h,g);else{if(F&128){p.suspense.unmount(h,g);return}Q&&Rn(p,null,u,"beforeUnmount"),F&64?p.type.remove(p,u,h,B,g):E&&!E.hasOnce&&(b!==Te||P>0&&P&64)?Ee(E,u,h,!1,!0):(b===Te&&P&384||!x&&F&16)&&Ee(C,u,h),g&&an(p)}(ae&&(re=N&&N.onVnodeUnmounted)||Q)&&Ne(()=>{re&&Je(re,u,p),Q&&Rn(p,null,u,"unmounted")},h)},an=p=>{const{type:u,el:h,anchor:g,transition:x}=p;if(u===Te){sn(h,g);return}if(u===Nt){_(p);return}const b=()=>{o(h),x&&!x.persisted&&x.afterLeave&&x.afterLeave()};if(p.shapeFlag&1&&x&&!x.persisted){const{leave:N,delayLeave:R}=x,C=()=>N(h,b);R?R(p.el,b,C):C()}else b()},sn=(p,u)=>{let h;for(;p!==u;)h=m(p),o(p),p=h;o(u)},je=(p,u,h)=>{const{bum:g,scope:x,job:b,subTree:N,um:R,m:C,a:E}=p;Co(C),Co(E),g&&tr(g),x.stop(),b&&(b.flags|=8,ge(N,p,u,h)),R&&Ne(R,u),Ne(()=>{p.isUnmounted=!0},u)},Ee=(p,u,h,g=!1,x=!1,b=0)=>{for(let N=b;N<p.length;N++)ge(p[N],u,h,g,x)},y=p=>{if(p.shapeFlag&6)return y(p.component.subTree);if(p.shapeFlag&128)return p.suspense.next();const u=m(p.anchor||p.el),h=u&&u[qs];return h?m(h):u};let O=!1;const D=(p,u,h)=>{let g;p==null?u._vnode&&(ge(u._vnode,null,null,!0),g=u._vnode.component):w(u._vnode||null,p,u,null,null,null,h),u._vnode=p,O||(O=!0,ho(g),ja(),O=!1)},B={p:w,um:ge,m:de,r:an,mt:le,mc:oe,pc:Y,pbc:K,n:y,o:e};return{render:D,hydrate:void 0,createApp:ml(D)}}function lr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Nl(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function xi(e,n,t=!1){const r=e.children,o=n.children;if(z(r)&&z(o))for(let a=0;a<r.length;a++){const i=r[a];let s=o[a];s.shapeFlag&1&&!s.dynamicChildren&&((s.patchFlag<=0||s.patchFlag===32)&&(s=o[a]=dn(o[a]),s.el=i.el),!t&&s.patchFlag!==-2&&xi(i,s)),s.type===$t&&(s.patchFlag===-1&&(s=o[a]=dn(s)),s.el=i.el),s.type===vn&&!s.el&&(s.el=i.el)}}function Dl(e){const n=e.slice(),t=[0];let r,o,a,i,s;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(o=t[t.length-1],e[o]<f){n[r]=o,t.push(r);continue}for(a=0,i=t.length-1;a<i;)s=a+i>>1,e[t[s]]<f?a=s+1:i=s;f<e[t[a]]&&(a>0&&(n[r]=t[a-1]),t[a]=r)}}for(a=t.length,i=t[a-1];a-- >0;)t[a]=i,i=n[i];return t}function Ei(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:Ei(n)}function Co(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function Si(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?Si(n.subTree):null}const _i=e=>e.__isSuspense;function Pl(e,n){n&&n.pendingBranch?z(e)?n.effects.push(...e):n.effects.push(e):Fs(e)}const Te=Symbol.for("v-fgt"),$t=Symbol.for("v-txt"),vn=Symbol.for("v-cmt"),Nt=Symbol.for("v-stc"),dt=[];let Me=null;function Ae(e=!1){dt.push(Me=e?null:[])}function Ll(){dt.pop(),Me=dt[dt.length-1]||null}let gt=1;function Bt(e,n=!1){gt+=e,e<0&&Me&&n&&(Me.hasOnce=!0)}function wi(e){return e.dynamicChildren=gt>0?Me||zn:null,Ll(),gt>0&&Me&&Me.push(e),e}function Ue(e,n,t,r,o,a){return wi(Pe(e,n,t,r,o,a,!0))}function no(e,n,t,r,o){return wi(ue(e,n,t,r,o,!0))}function Ut(e){return e?e.__v_isVNode===!0:!1}function Un(e,n){return e.type===n.type&&e.key===n.key}const Ti=({key:e})=>e??null,Dt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?pe(e)||xe(e)||W(e)?{i:Ge,r:e,k:n,f:!!t}:e:null);function Pe(e,n=null,t=null,r=0,o=null,a=e===Te?0:1,i=!1,s=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Ti(n),ref:n&&Dt(n),scopeId:Za,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:a,patchFlag:r,dynamicProps:o,dynamicChildren:null,appContext:null,ctx:Ge};return s?(to(l,t),a&128&&e.normalize(l)):t&&(l.shapeFlag|=pe(t)?8:16),gt>0&&!i&&Me&&(l.patchFlag>0||a&6)&&l.patchFlag!==32&&Me.push(l),l}const ue=Ol;function Ol(e,n=null,t=null,r=0,o=null,a=!1){if((!e||e===al)&&(e=vn),Ut(e)){const s=Mn(e,n,!0);return t&&to(s,t),gt>0&&!a&&Me&&(s.shapeFlag&6?Me[Me.indexOf(e)]=s:Me.push(s)),s.patchFlag=-2,s}if(Kl(e)&&(e=e.__vccOpts),n){n=Ml(n);let{class:s,style:l}=n;s&&!pe(s)&&(n.class=Wn(s)),te(l)&&(jr(l)&&!z(l)&&(l=me({},l)),n.style=zr(l))}const i=pe(e)?1:_i(e)?128:Ws(e)?64:te(e)?4:W(e)?2:0;return Pe(e,n,t,r,o,i,a,!0)}function Ml(e){return e?jr(e)||mi(e)?me({},e):e:null}function Mn(e,n,t=!1,r=!1){const{props:o,ref:a,patchFlag:i,children:s,transition:l}=e,f=n?Bl(o||{},n):o,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Ti(f),ref:n&&n.ref?t&&a?z(a)?a.concat(Dt(n)):[a,Dt(n)]:Dt(n):a,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:s,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Te?i===-1?16:i|16:i,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&Mn(e.ssContent),ssFallback:e.ssFallback&&Mn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&vt(c,l.clone(c)),c}function Hl(e=" ",n=0){return ue($t,null,e,n)}function kl(e,n){const t=ue(Nt,null,e);return t.staticCount=n,t}function Ci(e="",n=!1){return n?(Ae(),no(vn,null,e)):ue(vn,null,e)}function tn(e){return e==null||typeof e=="boolean"?ue(vn):z(e)?ue(Te,null,e.slice()):Ut(e)?dn(e):ue($t,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:Mn(e)}function to(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(z(n))t=16;else if(typeof n=="object")if(r&65){const o=n.default;o&&(o._c&&(o._d=!1),to(e,o()),o._c&&(o._d=!0));return}else{t=32;const o=n._;!o&&!mi(n)?n._ctx=Ge:o===3&&Ge&&(Ge.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else W(n)?(n={default:n,_ctx:Ge},t=32):(n=String(n),r&64?(t=16,n=[Hl(n)]):t=8);e.children=n,e.shapeFlag|=t}function Bl(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const o in r)if(o==="class")n.class!==r.class&&(n.class=Wn([n.class,r.class]));else if(o==="style")n.style=zr([n.style,r.style]);else if(Vt(o)){const a=n[o],i=r[o];i&&a!==i&&!(z(a)&&a.includes(i))&&(n[o]=a?[].concat(a,i):i)}else o!==""&&(n[o]=r[o])}return n}function Je(e,n,t,r=null){Ye(e,n,7,[t,r])}const Ul=ci();let Fl=0;function zl(e,n,t){const r=e.type,o=(n?n.appContext:e.appContext)||Ul,a={uid:Fl++,vnode:e,type:r,parent:n,appContext:o,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new fs(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(o.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:vi(r,o),emitsOptions:fi(r,o),emit:null,emitted:null,propsDefaults:se,inheritAttrs:r.inheritAttrs,ctx:se,data:se,props:se,attrs:se,slots:se,refs:se,setupState:se,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return a.ctx={_:a},a.root=n?n.root:a,a.emit=vl.bind(null,a),e.ce&&e.ce(a),a}let be=null;const Ai=()=>be||Ge;let Ft,Rr;{const e=Yt(),n=(t,r)=>{let o;return(o=e[t])||(o=e[t]=[]),o.push(r),a=>{o.length>1?o.forEach(i=>i(a)):o[0](a)}};Ft=n("__VUE_INSTANCE_SETTERS__",t=>be=t),Rr=n("__VUE_SSR_SETTERS__",t=>yt=t)}const _t=e=>{const n=be;return Ft(e),e.scope.on(),()=>{e.scope.off(),Ft(n)}},Ao=()=>{be&&be.scope.off(),Ft(null)};function Ri(e){return e.vnode.shapeFlag&4}let yt=!1;function Gl(e,n=!1,t=!1){n&&Rr(n);const{props:r,children:o}=e.vnode,a=Ri(e);Sl(e,r,a,n),Cl(e,o,t||n);const i=a?Vl(e,n):void 0;return n&&Rr(!1),i}function Vl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,sl);const{setup:r}=t;if(r){un();const o=e.setupContext=r.length>1?Wl(e):null,a=_t(e),i=Et(r,e,0,[e.props,o]),s=Sa(i);if(mn(),a(),(s||e.sp)&&!ct(e)&&ni(e),s){if(i.then(Ao,Ao),n)return i.then(l=>{Ro(e,l)}).catch(l=>{jt(l,e,0)});e.asyncDep=i}else Ro(e,i)}else Ii(e)}function Ro(e,n,t){W(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Wa(n)),Ii(e)}function Ii(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const o=_t(e);un();try{ll(e)}finally{mn(),o()}}}const ql={get(e,n){return ye(e,"get",""),e[n]}};function Wl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,ql),slots:e.slots,emit:e.emit,expose:n}}function ro(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Wa(Ns(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in ft)return ft[t](e)},has(n,t){return t in n||t in ft}})):e.proxy}function Yl(e,n=!0){return W(e)?e.displayName||e.name:e.name||n&&e.__name}function Kl(e){return W(e)&&"__vccOpts"in e}const ke=(e,n)=>Ms(e,n,yt);function Ni(e,n,t){try{Bt(-1);const r=arguments.length;return r===2?te(n)&&!z(n)?Ut(n)?ue(e,null,[n]):ue(e,n):ue(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&Ut(t)&&(t=[t]),ue(e,n,t))}finally{Bt(1)}}const Xl="3.5.28";/**
 * @vue/runtime-dom v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let Ir;const Ro=typeof window<"u"&&window.trustedTypes;if(Ro)try{Ir=Ro.createPolicy("vue",{createHTML:e=>e})}catch{}const Di=Ir?e=>Ir.createHTML(e):e=>e,jl="http://www.w3.org/2000/svg",Ql="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,Io=fn&&fn.createElement("template"),Zl={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const o=n==="svg"?fn.createElementNS(jl,e):n==="mathml"?fn.createElementNS(Ql,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&o.setAttribute("multiple",r.multiple),o},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,o,a){const i=t?t.previousSibling:n.lastChild;if(o&&(o===a||o.nextSibling))for(;n.insertBefore(o.cloneNode(!0),t),!(o===a||!(o=o.nextSibling)););else{Io.innerHTML=Di(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const s=Io.content;if(r==="svg"||r==="mathml"){const l=s.firstChild;for(;l.firstChild;)s.appendChild(l.firstChild);s.removeChild(l)}n.insertBefore(s,t)}return[i?i.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",et="animation",qn=Symbol("_vtc"),Pi={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},$l=he({},qs,Pi),Dn=(e,n=[])=>{F(e)?e.forEach(t=>t(...n)):e&&e(...n)},Do=e=>e?F(e)?e.some(n=>n.length>1):e.length>1:!1;function Jl(e){const n={};for(const O in e)O in Pi||(n[O]=e[O]);if(e.css===!1)return n;const{name:t="v",type:r,duration:o,enterFromClass:a=`${t}-enter-from`,enterActiveClass:i=`${t}-enter-active`,enterToClass:s=`${t}-enter-to`,appearFromClass:l=a,appearActiveClass:f=i,appearToClass:c=s,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:h=`${t}-leave-active`,leaveToClass:v=`${t}-leave-to`}=e,E=ec(o),S=E&&E[0],T=E&&E[1],{onBeforeEnter:A,onEnter:C,onEnterCancelled:P,onLeave:N,onLeaveCancelled:B,onBeforeAppear:q=A,onAppear:W=C,onAppearCancelled:ue=P}=n,U=(O,Q,se,ve)=>{O._enterCancelled=ve,wn(O,Q?c:s),wn(O,Q?f:i),se&&se()},K=(O,Q)=>{O._isLeaving=!1,wn(O,d),wn(O,v),wn(O,h),Q&&Q()},$=O=>(Q,se)=>{const ve=O?W:C,le=()=>U(Q,O,se);Dn(ve,[Q,le]),Po(()=>{wn(Q,O?l:a),en(Q,O?c:s),Do(ve)||No(Q,r,S,le)})};return he(n,{onBeforeEnter(O){Dn(A,[O]),en(O,a),en(O,i)},onBeforeAppear(O){Dn(q,[O]),en(O,l),en(O,f)},onEnter:$(!1),onAppear:$(!0),onLeave(O,Q){O._isLeaving=!0;const se=()=>K(O,Q);en(O,d),O._enterCancelled?(en(O,h),Dr(O)):(Dr(O),en(O,h)),Po(()=>{O._isLeaving&&(wn(O,d),en(O,v),Do(N)||No(O,r,T,se))}),Dn(N,[O,se])},onEnterCancelled(O){U(O,!1,void 0,!0),Dn(P,[O])},onAppearCancelled(O){U(O,!0,void 0,!0),Dn(ue,[O])},onLeaveCancelled(O){K(O),Dn(B,[O])}})}function ec(e){if(e==null)return null;if(te(e))return[cr(e.enter),cr(e.leave)];{const n=cr(e);return[n,n]}}function cr(e){return ts(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[qn]||(e[qn]=new Set)).add(n)}function wn(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[qn];t&&(t.delete(n),t.size||(e[qn]=void 0))}function Po(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let nc=0;function No(e,n,t,r){const o=e._endId=++nc,a=()=>{o===e._endId&&r()};if(t!=null)return setTimeout(a,t);const{type:i,timeout:s,propCount:l}=Ni(e,n);if(!i)return r();const f=i+"end";let c=0;const d=()=>{e.removeEventListener(f,h),a()},h=v=>{v.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},s+1),e.addEventListener(f,h)}function Ni(e,n){const t=window.getComputedStyle(e),r=E=>(t[E]||"").split(", "),o=r(`${yn}Delay`),a=r(`${yn}Duration`),i=Lo(o,a),s=r(`${et}Delay`),l=r(`${et}Duration`),f=Lo(s,l);let c=null,d=0,h=0;n===yn?i>0&&(c=yn,d=i,h=a.length):n===et?f>0&&(c=et,d=f,h=l.length):(d=Math.max(i,f),c=d>0?i>f?yn:et:null,h=c?c===yn?a.length:l.length:0);const v=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:h,hasTransform:v}}function Lo(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Oo(t)+Oo(e[r])))}function Oo(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Dr(e){return(e?e.ownerDocument:document).body.offsetHeight}function tc(e,n,t){const r=e[qn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const ko=Symbol("_vod"),rc=Symbol("_vsh"),oc=Symbol(""),ac=/(?:^|;)\s*display\s*:/;function ic(e,n,t){const r=e.style,o=de(t);let a=!1;if(t&&!o){if(n)if(de(n))for(const i of n.split(";")){const s=i.slice(0,i.indexOf(":")).trim();t[s]==null&&Pt(r,s,"")}else for(const i in n)t[i]==null&&Pt(r,i,"");for(const i in t)i==="display"&&(a=!0),Pt(r,i,t[i])}else if(o){if(n!==t){const i=r[oc];i&&(t+=";"+i),r.cssText=t,a=ac.test(t)}}else n&&e.removeAttribute("style");ko in e&&(e[ko]=a?r.display:"",e[rc]&&(r.display="none"))}const Mo=/\s*!important$/;function Pt(e,n,t){if(F(t))t.forEach(r=>Pt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=sc(e,n);Mo.test(t)?e.setProperty(Mn(r),t.replace(Mo,""),"important"):e[r]=t}}const Ho=["Webkit","Moz","ms"],fr={};function sc(e,n){const t=fr[n];if(t)return t;let r=Ue(n);if(r!=="filter"&&r in e)return fr[n]=r;r=Kt(r);for(let o=0;o<Ho.length;o++){const a=Ho[o]+r;if(a in e)return fr[n]=a}return n}const zo="http://www.w3.org/1999/xlink";function Bo(e,n,t,r,o,a=ls(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(zo,n.slice(6,n.length)):e.setAttributeNS(zo,n,t):t==null||a&&!Ta(t)?e.removeAttribute(n):e.setAttribute(n,a?"":on(t)?String(t):t)}function Uo(e,n,t,r,o){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Di(t):t);return}const a=e.tagName;if(n==="value"&&a!=="PROGRESS"&&!a.includes("-")){const s=a==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(s!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let i=!1;if(t===""||t==null){const s=typeof e[n];s==="boolean"?t=Ta(t):t==null&&s==="string"?(t="",i=!0):s==="number"&&(t=0,i=!0)}try{e[n]=t}catch{}i&&e.removeAttribute(o||n)}function lc(e,n,t,r){e.addEventListener(n,t,r)}function cc(e,n,t,r){e.removeEventListener(n,t,r)}const Fo=Symbol("_vei");function fc(e,n,t,r,o=null){const a=e[Fo]||(e[Fo]={}),i=a[n];if(r&&i)i.value=r;else{const[s,l]=dc(n);if(r){const f=a[n]=hc(r,o);lc(e,s,f,l)}else i&&(cc(e,s,i,l),a[n]=void 0)}}const Go=/(?:Once|Passive|Capture)$/;function dc(e){let n;if(Go.test(e)){n={};let r;for(;r=e.match(Go);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Mn(e.slice(2)),n]}let dr=0;const uc=Promise.resolve(),pc=()=>dr||(uc.then(()=>dr=0),dr=Date.now());function hc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;We(mc(r,t.value),n,5,[r])};return t.value=e,t.attached=pc(),t}function mc(e,n){if(F(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>o=>!o._stopped&&r&&r(o))}else return n}const Vo=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,vc=(e,n,t,r,o,a)=>{const i=o==="svg";n==="class"?tc(e,r,i):n==="style"?ic(e,t,r):Gt(n)?Hr(n)||fc(e,n,t,r,a):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):gc(e,n,r,i))?(Uo(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&Bo(e,n,r,i,a,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!de(r))?Uo(e,Ue(n),r,a,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),Bo(e,n,r,i))};function gc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&Vo(n)&&V(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const o=e.tagName;if(o==="IMG"||o==="VIDEO"||o==="CANVAS"||o==="SOURCE")return!1}return Vo(n)&&de(t)?!1:n in e}const Li=new WeakMap,Oi=new WeakMap,Ut=Symbol("_moveCb"),Ko=Symbol("_enterCb"),yc=e=>(delete e.props.mode,e),bc=yc({name:"TransitionGroup",props:he({},$l,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=_i(),r=Ws();let o,a;return ri(()=>{if(!o.length)return;const i=e.moveClass||`${e.name||"v"}-move`;if(!Cc(o[0].el,t.vnode.el,i)){o=[];return}o.forEach(wc),o.forEach(Sc);const s=o.filter(Ec);Dr(t.vnode.el),s.forEach(l=>{const f=l.el,c=f.style;en(f,i),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[Ut]=h=>{h&&h.target!==f||(!h||h.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[Ut]=null,wn(f,i))};f.addEventListener("transitionend",d)}),o=[]}),()=>{const i=Z(e),s=Jl(i);let l=i.tag||Te;if(o=[],a)for(let f=0;f<a.length;f++){const c=a[f];c.el&&c.el instanceof Element&&(o.push(c),vt(c,Er(c,s,r,t)),Li.set(c,ki(c.el)))}a=n.default?Ja(n.default()):[];for(let f=0;f<a.length;f++){const c=a[f];c.key!=null&&vt(c,Er(c,s,r,t))}return pe(l,null,a)}}}),xc=bc;function wc(e){const n=e.el;n[Ut]&&n[Ut](),n[Ko]&&n[Ko]()}function Sc(e){Oi.set(e,ki(e.el))}function Ec(e){const n=Li.get(e),t=Oi.get(e),r=n.left-t.left,o=n.top-t.top;if(r||o){const a=e.el,i=a.style,s=a.getBoundingClientRect();let l=1,f=1;return a.offsetWidth&&(l=s.width/a.offsetWidth),a.offsetHeight&&(f=s.height/a.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),i.transform=i.webkitTransform=`translate(${r/l}px,${o/f}px)`,i.transitionDuration="0s",e}}function ki(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function Cc(e,n,t){const r=e.cloneNode(),o=e[qn];o&&o.forEach(s=>{s.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(s=>s&&r.classList.add(s)),r.style.display="none";const a=n.nodeType===1?n:n.parentNode;a.appendChild(r);const{hasTransform:i}=Ni(r);return a.removeChild(r),i}const Tc=he({patchProp:vc},Zl);let Yo;function _c(){return Yo||(Yo=Rl(Tc))}const Ac=((...e)=>{const n=_c().createApp(...e),{mount:t}=n;return n.mount=r=>{const o=Ic(r);if(!o)return;const a=n._component;!V(a)&&!a.render&&!a.template&&(a.template=o.innerHTML),o.nodeType===1&&(o.textContent="");const i=t(o,!1,Rc(o));return o instanceof Element&&(o.removeAttribute("v-cloak"),o.setAttribute("data-v-app","")),i},n});function Rc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Ic(e){return de(e)?document.querySelector(e):e}const pd=4,hd=2,Wo=400,qo=300,Xo=50,Dc=800,jo=500,Pc=300,Nc=250,ur=8,Lc=8,Oc=18,kc=2.5,Mc=1.2,Hc=1.5,zc=10,Bc=4,Uc=2,Fc=2,Gc=1.5,Vc=8,Qo=Ne(null),Ft=Ne("full");let Zo=!1,pr=null;function Kc(){Zo||(Zo=!0,pr=window.matchMedia("(prefers-reduced-motion: reduce)"),Ft.value=pr.matches?"reduced":"full",pr.addEventListener("change",e=>{Ft.value=e.matches?"reduced":"full"}))}function ro(){Qn(()=>{Kc()});const e=Ft;function n(o,a){if(a<=1)return 0;const i=Dc-Xo,s=Math.min(Xo,i/(a-1));return Math.round(o*s)}function t(o){Qo.value=o}function r(o){return Ft.value==="reduced"?Promise.resolve():o.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Nc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Qo,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Yc=["src"],Wc=An({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=ro(),o=Ne(null),a=Ne(null),i=Ne(!1);return st(n,s=>{!s||r.value==="reduced"||(i.value=!0,requestAnimationFrame(()=>{const l=a.value,f=o.value;if(!l||!f){i.value=!1,t(null);return}const{top:c,left:d,width:h,height:v}=s.rect;f.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),l.animate([{top:`${c}px`,left:`${d}px`,width:`${h}px`,height:`${v}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:jo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{f&&f.animate([{opacity:1},{opacity:0}],{duration:200,fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})},100)})}))}),(s,l)=>i.value&&Pe(n)?(_e(),Be("div",{key:0,ref_key:"overlayRef",ref:o,class:"transition-overlay"},[Oe("img",{ref_key:"imgRef",ref:a,src:Pe(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Yc)],512)):Ti("",!0)}}),Et=(e,n)=>{const t=e.__vccOpts||e;for(const[r,o]of n)t[r]=o;return t},qc=Et(Wc,[["__scopeId","data-v-f5768e1f"]]),Xc=An({__name:"App",setup(e){return(n,t)=>{const r=ai("router-view");return _e(),Be(Te,null,[pe(r),pe(qc)],64)}}}),jc="modulepreload",Qc=function(e){return"/"+e},$o={},Zc=function(n,t,r){let o=Promise.resolve();if(t&&t.length>0){let i=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=(s==null?void 0:s.nonce)||(s==null?void 0:s.getAttribute("nonce"));o=i(t.map(f=>{if(f=Qc(f),f in $o)return;$o[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const h=document.createElement("link");if(h.rel=c?"stylesheet":jc,c||(h.as="script"),h.crossOrigin="",h.href=f,l&&h.setAttribute("nonce",l),document.head.appendChild(h),c)return new Promise((v,E)=>{h.addEventListener("load",v),h.addEventListener("error",()=>E(new Error(`Unable to preload CSS for ${f}`)))})}))}function a(i){const s=new Event("vite:preloadError",{cancelable:!0});if(s.payload=i,window.dispatchEvent(s),!s.defaultPrevented)throw i}return o.then(i=>{for(const s of i||[])s.status==="rejected"&&a(s.reason);return n().catch(a)})};/*!
+**/let Ir;const Io=typeof window<"u"&&window.trustedTypes;if(Io)try{Ir=Io.createPolicy("vue",{createHTML:e=>e})}catch{}const Di=Ir?e=>Ir.createHTML(e):e=>e,jl="http://www.w3.org/2000/svg",Ql="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,No=fn&&fn.createElement("template"),Zl={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const o=n==="svg"?fn.createElementNS(jl,e):n==="mathml"?fn.createElementNS(Ql,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&o.setAttribute("multiple",r.multiple),o},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,o,a){const i=t?t.previousSibling:n.lastChild;if(o&&(o===a||o.nextSibling))for(;n.insertBefore(o.cloneNode(!0),t),!(o===a||!(o=o.nextSibling)););else{No.innerHTML=Di(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const s=No.content;if(r==="svg"||r==="mathml"){const l=s.firstChild;for(;l.firstChild;)s.appendChild(l.firstChild);s.removeChild(l)}n.insertBefore(s,t)}return[i?i.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",et="animation",Kn=Symbol("_vtc"),Pi={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},$l=me({},Ks,Pi),Nn=(e,n=[])=>{z(e)?e.forEach(t=>t(...n)):e&&e(...n)},Do=e=>e?z(e)?e.some(n=>n.length>1):e.length>1:!1;function Jl(e){const n={};for(const I in e)I in Pi||(n[I]=e[I]);if(e.css===!1)return n;const{name:t="v",type:r,duration:o,enterFromClass:a=`${t}-enter-from`,enterActiveClass:i=`${t}-enter-active`,enterToClass:s=`${t}-enter-to`,appearFromClass:l=a,appearActiveClass:f=i,appearToClass:c=s,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:m=`${t}-leave-active`,leaveToClass:v=`${t}-leave-to`}=e,T=ec(o),w=T&&T[0],k=T&&T[1],{onBeforeEnter:M,onEnter:S,onEnterCancelled:A,onLeave:_,onLeaveCancelled:L,onBeforeAppear:G=M,onAppear:V=S,onAppearCancelled:oe=A}=n,H=(I,X,le,ve)=>{I._enterCancelled=ve,En(I,X?c:s),En(I,X?f:i),le&&le()},K=(I,X)=>{I._isLeaving=!1,En(I,d),En(I,v),En(I,m),X&&X()},$=I=>(X,le)=>{const ve=I?V:S,ce=()=>H(X,I,le);Nn(ve,[X,ce]),Po(()=>{En(X,I?l:a),en(X,I?c:s),Do(ve)||Lo(X,r,w,ce)})};return me(n,{onBeforeEnter(I){Nn(M,[I]),en(I,a),en(I,i)},onBeforeAppear(I){Nn(G,[I]),en(I,l),en(I,f)},onEnter:$(!1),onAppear:$(!0),onLeave(I,X){I._isLeaving=!0;const le=()=>K(I,X);en(I,d),I._enterCancelled?(en(I,m),Nr(I)):(Nr(I),en(I,m)),Po(()=>{I._isLeaving&&(En(I,d),en(I,v),Do(_)||Lo(I,r,k,le))}),Nn(_,[I,le])},onEnterCancelled(I){H(I,!1,void 0,!0),Nn(A,[I])},onAppearCancelled(I){H(I,!0,void 0,!0),Nn(oe,[I])},onLeaveCancelled(I){K(I),Nn(L,[I])}})}function ec(e){if(e==null)return null;if(te(e))return[cr(e.enter),cr(e.leave)];{const n=cr(e);return[n,n]}}function cr(e){return ts(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[Kn]||(e[Kn]=new Set)).add(n)}function En(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[Kn];t&&(t.delete(n),t.size||(e[Kn]=void 0))}function Po(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let nc=0;function Lo(e,n,t,r){const o=e._endId=++nc,a=()=>{o===e._endId&&r()};if(t!=null)return setTimeout(a,t);const{type:i,timeout:s,propCount:l}=Li(e,n);if(!i)return r();const f=i+"end";let c=0;const d=()=>{e.removeEventListener(f,m),a()},m=v=>{v.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},s+1),e.addEventListener(f,m)}function Li(e,n){const t=window.getComputedStyle(e),r=T=>(t[T]||"").split(", "),o=r(`${yn}Delay`),a=r(`${yn}Duration`),i=Oo(o,a),s=r(`${et}Delay`),l=r(`${et}Duration`),f=Oo(s,l);let c=null,d=0,m=0;n===yn?i>0&&(c=yn,d=i,m=a.length):n===et?f>0&&(c=et,d=f,m=l.length):(d=Math.max(i,f),c=d>0?i>f?yn:et:null,m=c?c===yn?a.length:l.length:0);const v=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:m,hasTransform:v}}function Oo(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Mo(t)+Mo(e[r])))}function Mo(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Nr(e){return(e?e.ownerDocument:document).body.offsetHeight}function tc(e,n,t){const r=e[Kn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const Ho=Symbol("_vod"),rc=Symbol("_vsh"),oc=Symbol(""),ac=/(?:^|;)\s*display\s*:/;function ic(e,n,t){const r=e.style,o=pe(t);let a=!1;if(t&&!o){if(n)if(pe(n))for(const i of n.split(";")){const s=i.slice(0,i.indexOf(":")).trim();t[s]==null&&Pt(r,s,"")}else for(const i in n)t[i]==null&&Pt(r,i,"");for(const i in t)i==="display"&&(a=!0),Pt(r,i,t[i])}else if(o){if(n!==t){const i=r[oc];i&&(t+=";"+i),r.cssText=t,a=ac.test(t)}}else n&&e.removeAttribute("style");Ho in e&&(e[Ho]=a?r.display:"",e[rc]&&(r.display="none"))}const ko=/\s*!important$/;function Pt(e,n,t){if(z(t))t.forEach(r=>Pt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=sc(e,n);ko.test(t)?e.setProperty(Hn(r),t.replace(ko,""),"important"):e[r]=t}}const Bo=["Webkit","Moz","ms"],fr={};function sc(e,n){const t=fr[n];if(t)return t;let r=Fe(n);if(r!=="filter"&&r in e)return fr[n]=r;r=Wt(r);for(let o=0;o<Bo.length;o++){const a=Bo[o]+r;if(a in e)return fr[n]=a}return n}const Uo="http://www.w3.org/1999/xlink";function Fo(e,n,t,r,o,a=ls(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(Uo,n.slice(6,n.length)):e.setAttributeNS(Uo,n,t):t==null||a&&!Ca(t)?e.removeAttribute(n):e.setAttribute(n,a?"":on(t)?String(t):t)}function zo(e,n,t,r,o){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Di(t):t);return}const a=e.tagName;if(n==="value"&&a!=="PROGRESS"&&!a.includes("-")){const s=a==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(s!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let i=!1;if(t===""||t==null){const s=typeof e[n];s==="boolean"?t=Ca(t):t==null&&s==="string"?(t="",i=!0):s==="number"&&(t=0,i=!0)}try{e[n]=t}catch{}i&&e.removeAttribute(o||n)}function lc(e,n,t,r){e.addEventListener(n,t,r)}function cc(e,n,t,r){e.removeEventListener(n,t,r)}const Go=Symbol("_vei");function fc(e,n,t,r,o=null){const a=e[Go]||(e[Go]={}),i=a[n];if(r&&i)i.value=r;else{const[s,l]=dc(n);if(r){const f=a[n]=mc(r,o);lc(e,s,f,l)}else i&&(cc(e,s,i,l),a[n]=void 0)}}const Vo=/(?:Once|Passive|Capture)$/;function dc(e){let n;if(Vo.test(e)){n={};let r;for(;r=e.match(Vo);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Hn(e.slice(2)),n]}let dr=0;const pc=Promise.resolve(),uc=()=>dr||(pc.then(()=>dr=0),dr=Date.now());function mc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;Ye(hc(r,t.value),n,5,[r])};return t.value=e,t.attached=uc(),t}function hc(e,n){if(z(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>o=>!o._stopped&&r&&r(o))}else return n}const qo=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,vc=(e,n,t,r,o,a)=>{const i=o==="svg";n==="class"?tc(e,r,i):n==="style"?ic(e,t,r):Vt(n)?Br(n)||fc(e,n,t,r,a):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):gc(e,n,r,i))?(zo(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&Fo(e,n,r,i,a,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!pe(r))?zo(e,Fe(n),r,a,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),Fo(e,n,r,i))};function gc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&qo(n)&&W(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const o=e.tagName;if(o==="IMG"||o==="VIDEO"||o==="CANVAS"||o==="SOURCE")return!1}return qo(n)&&pe(t)?!1:n in e}const Oi=new WeakMap,Mi=new WeakMap,zt=Symbol("_moveCb"),Wo=Symbol("_enterCb"),yc=e=>(delete e.props.mode,e),bc=yc({name:"TransitionGroup",props:me({},$l,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=Ai(),r=Ys();let o,a;return oi(()=>{if(!o.length)return;const i=e.moveClass||`${e.name||"v"}-move`;if(!wc(o[0].el,t.vnode.el,i)){o=[];return}o.forEach(Ec),o.forEach(Sc);const s=o.filter(_c);Nr(t.vnode.el),s.forEach(l=>{const f=l.el,c=f.style;en(f,i),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[zt]=m=>{m&&m.target!==f||(!m||m.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[zt]=null,En(f,i))};f.addEventListener("transitionend",d)}),o=[]}),()=>{const i=Z(e),s=Jl(i);let l=i.tag||Te;if(o=[],a)for(let f=0;f<a.length;f++){const c=a[f];c.el&&c.el instanceof Element&&(o.push(c),vt(c,_r(c,s,r,t)),Oi.set(c,Hi(c.el)))}a=n.default?ei(n.default()):[];for(let f=0;f<a.length;f++){const c=a[f];c.key!=null&&vt(c,_r(c,s,r,t))}return ue(l,null,a)}}}),xc=bc;function Ec(e){const n=e.el;n[zt]&&n[zt](),n[Wo]&&n[Wo]()}function Sc(e){Mi.set(e,Hi(e.el))}function _c(e){const n=Oi.get(e),t=Mi.get(e),r=n.left-t.left,o=n.top-t.top;if(r||o){const a=e.el,i=a.style,s=a.getBoundingClientRect();let l=1,f=1;return a.offsetWidth&&(l=s.width/a.offsetWidth),a.offsetHeight&&(f=s.height/a.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),i.transform=i.webkitTransform=`translate(${r/l}px,${o/f}px)`,i.transitionDuration="0s",e}}function Hi(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function wc(e,n,t){const r=e.cloneNode(),o=e[Kn];o&&o.forEach(s=>{s.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(s=>s&&r.classList.add(s)),r.style.display="none";const a=n.nodeType===1?n:n.parentNode;a.appendChild(r);const{hasTransform:i}=Li(r);return a.removeChild(r),i}const Tc=me({patchProp:vc},Zl);let Yo;function Cc(){return Yo||(Yo=Rl(Tc))}const Ac=((...e)=>{const n=Cc().createApp(...e),{mount:t}=n;return n.mount=r=>{const o=Ic(r);if(!o)return;const a=n._component;!W(a)&&!a.render&&!a.template&&(a.template=o.innerHTML),o.nodeType===1&&(o.textContent="");const i=t(o,!1,Rc(o));return o instanceof Element&&(o.removeAttribute("v-cloak"),o.setAttribute("data-v-app","")),i},n});function Rc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Ic(e){return pe(e)?document.querySelector(e):e}const ud=4,md=2,Ko=400,Xo=300,jo=50,Nc=800,Qo=500,hd=200,Dc=300,Pc=250,pr=8,Lc=8,Oc=18,Mc=2.5,Hc=1.2,kc=1.5,Bc=10,Uc=4,Fc=2,zc=2,Gc=1.5,Vc=8,Zo=Ce(null),Gt=Ce("full");let $o=!1,ur=null;function qc(){$o||($o=!0,ur=window.matchMedia("(prefers-reduced-motion: reduce)"),Gt.value=ur.matches?"reduced":"full",ur.addEventListener("change",e=>{Gt.value=e.matches?"reduced":"full"}))}function oo(){Qn(()=>{qc()});const e=Gt;function n(o,a){if(a<=1)return 0;const i=Nc-jo,s=Math.min(jo,i/(a-1));return Math.round(o*s)}function t(o){Zo.value=o}function r(o){return Gt.value==="reduced"?Promise.resolve():o.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Pc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Zo,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Wc=["src"],Yc=An({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=oo(),o=Ce(null),a=Ce(null),i=Ce(!1);return st(n,s=>{!s||r.value==="reduced"||(i.value=!0,requestAnimationFrame(()=>{const l=a.value,f=o.value;if(!l||!f){i.value=!1,t(null);return}const{top:c,left:d,width:m,height:v}=s.rect;f.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:Qo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),l.animate([{top:`${c}px`,left:`${d}px`,width:`${m}px`,height:`${v}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:Qo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{f&&f.animate([{opacity:1},{opacity:0}],{duration:200,fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})},100)})}))}),(s,l)=>i.value&&Le(n)?(Ae(),Ue("div",{key:0,ref_key:"overlayRef",ref:o,class:"transition-overlay"},[Pe("img",{ref_key:"imgRef",ref:a,src:Le(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Wc)],512)):Ci("",!0)}}),wt=(e,n)=>{const t=e.__vccOpts||e;for(const[r,o]of n)t[r]=o;return t},Kc=wt(Yc,[["__scopeId","data-v-f5768e1f"]]),Xc=An({__name:"App",setup(e){return(n,t)=>{const r=ii("router-view");return Ae(),Ue(Te,null,[ue(r),ue(Kc)],64)}}}),jc="modulepreload",Qc=function(e){return"/"+e},Jo={},Zc=function(n,t,r){let o=Promise.resolve();if(t&&t.length>0){let i=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=(s==null?void 0:s.nonce)||(s==null?void 0:s.getAttribute("nonce"));o=i(t.map(f=>{if(f=Qc(f),f in Jo)return;Jo[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const m=document.createElement("link");if(m.rel=c?"stylesheet":jc,c||(m.as="script"),m.crossOrigin="",m.href=f,l&&m.setAttribute("nonce",l),document.head.appendChild(m),c)return new Promise((v,T)=>{m.addEventListener("load",v),m.addEventListener("error",()=>T(new Error(`Unable to preload CSS for ${f}`)))})}))}function a(i){const s=new Event("vite:preloadError",{cancelable:!0});if(s.payload=i,window.dispatchEvent(s),!s.defaultPrevented)throw i}return o.then(i=>{for(const s of i||[])s.status==="rejected"&&a(s.reason);return n().catch(a)})};/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */const Un=typeof document<"u";function Mi(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function $c(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&Mi(e.default)}const ee=Object.assign;function hr(e,n){const t={};for(const r in n){const o=n[r];t[r]=qe(o)?o.map(e):e(o)}return t}const ut=()=>{},qe=Array.isArray;function Jo(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Hi=/#/g,Jc=/&/g,e0=/\//g,n0=/=/g,t0=/\?/g,zi=/\+/g,r0=/%5B/g,o0=/%5D/g,Bi=/%5E/g,a0=/%60/g,Ui=/%7B/g,i0=/%7C/g,Fi=/%7D/g,s0=/%20/g;function oo(e){return e==null?"":encodeURI(""+e).replace(i0,"|").replace(r0,"[").replace(o0,"]")}function l0(e){return oo(e).replace(Ui,"{").replace(Fi,"}").replace(Bi,"^")}function Pr(e){return oo(e).replace(zi,"%2B").replace(s0,"+").replace(Hi,"%23").replace(Jc,"%26").replace(a0,"`").replace(Ui,"{").replace(Fi,"}").replace(Bi,"^")}function c0(e){return Pr(e).replace(n0,"%3D")}function f0(e){return oo(e).replace(Hi,"%23").replace(t0,"%3F")}function d0(e){return f0(e).replace(e0,"%2F")}function bt(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const u0=/\/$/,p0=e=>e.replace(u0,"");function mr(e,n,t="/"){let r,o={},a="",i="";const s=n.indexOf("#");let l=n.indexOf("?");return l=s>=0&&l>s?-1:l,l>=0&&(r=n.slice(0,l),a=n.slice(l,s>0?s:n.length),o=e(a.slice(1))),s>=0&&(r=r||n.slice(0,s),i=n.slice(s,n.length)),r=g0(r??n,t),{fullPath:r+a+i,path:r,query:o,hash:bt(i)}}function h0(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function ea(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function m0(e,n,t){const r=n.matched.length-1,o=t.matched.length-1;return r>-1&&r===o&&Xn(n.matched[r],t.matched[o])&&Gi(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function Xn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Gi(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!v0(e[t],n[t]))return!1;return!0}function v0(e,n){return qe(e)?na(e,n):qe(n)?na(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function na(e,n){return qe(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function g0(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),o=r[r.length-1];(o===".."||o===".")&&r.push("");let a=t.length-1,i,s;for(i=0;i<r.length;i++)if(s=r[i],s!==".")if(s==="..")a>1&&a--;else break;return t.slice(0,a).join("/")+"/"+r.slice(i).join("/")}const bn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Nr=(function(e){return e.pop="pop",e.push="push",e})({}),vr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function y0(e){if(!e)if(Un){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),p0(e)}const b0=/^[^#]+#/;function x0(e,n){return e.replace(b0,"#")+n}function w0(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const Jt=()=>({left:window.scrollX,top:window.scrollY});function S0(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),o=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!o)return;n=w0(o,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function ta(e,n){return(history.state?history.state.position-n:-1)+e}const Lr=new Map;function E0(e,n){Lr.set(e,n)}function C0(e){const n=Lr.get(e);return Lr.delete(e),n}function T0(e){return typeof e=="string"||e&&typeof e=="object"}function Vi(e){return typeof e=="string"||typeof e=="symbol"}let ce=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const Ki=Symbol("");ce.MATCHER_NOT_FOUND+"",ce.NAVIGATION_GUARD_REDIRECT+"",ce.NAVIGATION_ABORTED+"",ce.NAVIGATION_CANCELLED+"",ce.NAVIGATION_DUPLICATED+"";function jn(e,n){return ee(new Error,{type:e,[Ki]:!0},n)}function cn(e,n){return e instanceof Error&&Ki in e&&(n==null||!!(e.type&n))}const _0=["params","query","hash"];function A0(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of _0)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function R0(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const o=t[r].replace(zi," "),a=o.indexOf("="),i=bt(a<0?o:o.slice(0,a)),s=a<0?null:bt(o.slice(a+1));if(i in n){let l=n[i];qe(l)||(l=n[i]=[l]),l.push(s)}else n[i]=s}return n}function ra(e){let n="";for(let t in e){const r=e[t];if(t=c0(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(qe(r)?r.map(o=>o&&Pr(o)):[r&&Pr(r)]).forEach(o=>{o!==void 0&&(n+=(n.length?"&":"")+t,o!=null&&(n+="="+o))})}return n}function I0(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=qe(r)?r.map(o=>o==null?null:""+o):r==null?r:""+r)}return n}const D0=Symbol(""),oa=Symbol(""),er=Symbol(""),ao=Symbol(""),Or=Symbol("");function nt(){let e=[];function n(r){return e.push(r),()=>{const o=e.indexOf(r);o>-1&&e.splice(o,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function Cn(e,n,t,r,o,a=i=>i()){const i=r&&(r.enterCallbacks[o]=r.enterCallbacks[o]||[]);return()=>new Promise((s,l)=>{const f=h=>{h===!1?l(jn(ce.NAVIGATION_ABORTED,{from:t,to:n})):h instanceof Error?l(h):T0(h)?l(jn(ce.NAVIGATION_GUARD_REDIRECT,{from:n,to:h})):(i&&r.enterCallbacks[o]===i&&typeof h=="function"&&i.push(h),s())},c=a(()=>e.call(r&&r.instances[o],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(h=>l(h))})}function gr(e,n,t,r,o=a=>a()){const a=[];for(const i of e)for(const s in i.components){let l=i.components[s];if(!(n!=="beforeRouteEnter"&&!i.instances[s]))if(Mi(l)){const f=(l.__vccOpts||l)[n];f&&a.push(Cn(f,t,r,i,s,o))}else{let f=l();a.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${s}" at "${i.path}"`);const d=$c(c)?c.default:c;i.mods[s]=c,i.components[s]=d;const h=(d.__vccOpts||d)[n];return h&&Cn(h,t,r,i,s,o)()}))}}return a}function P0(e,n){const t=[],r=[],o=[],a=Math.max(n.matched.length,e.matched.length);for(let i=0;i<a;i++){const s=n.matched[i];s&&(e.matched.find(f=>Xn(f,s))?r.push(s):t.push(s));const l=e.matched[i];l&&(n.matched.find(f=>Xn(f,l))||o.push(l))}return[t,r,o]}/*!
+ */const Fn=typeof document<"u";function ki(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function $c(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&ki(e.default)}const ee=Object.assign;function mr(e,n){const t={};for(const r in n){const o=n[r];t[r]=Ke(o)?o.map(e):e(o)}return t}const pt=()=>{},Ke=Array.isArray;function ea(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Bi=/#/g,Jc=/&/g,e0=/\//g,n0=/=/g,t0=/\?/g,Ui=/\+/g,r0=/%5B/g,o0=/%5D/g,Fi=/%5E/g,a0=/%60/g,zi=/%7B/g,i0=/%7C/g,Gi=/%7D/g,s0=/%20/g;function ao(e){return e==null?"":encodeURI(""+e).replace(i0,"|").replace(r0,"[").replace(o0,"]")}function l0(e){return ao(e).replace(zi,"{").replace(Gi,"}").replace(Fi,"^")}function Dr(e){return ao(e).replace(Ui,"%2B").replace(s0,"+").replace(Bi,"%23").replace(Jc,"%26").replace(a0,"`").replace(zi,"{").replace(Gi,"}").replace(Fi,"^")}function c0(e){return Dr(e).replace(n0,"%3D")}function f0(e){return ao(e).replace(Bi,"%23").replace(t0,"%3F")}function d0(e){return f0(e).replace(e0,"%2F")}function bt(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const p0=/\/$/,u0=e=>e.replace(p0,"");function hr(e,n,t="/"){let r,o={},a="",i="";const s=n.indexOf("#");let l=n.indexOf("?");return l=s>=0&&l>s?-1:l,l>=0&&(r=n.slice(0,l),a=n.slice(l,s>0?s:n.length),o=e(a.slice(1))),s>=0&&(r=r||n.slice(0,s),i=n.slice(s,n.length)),r=g0(r??n,t),{fullPath:r+a+i,path:r,query:o,hash:bt(i)}}function m0(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function na(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function h0(e,n,t){const r=n.matched.length-1,o=t.matched.length-1;return r>-1&&r===o&&Xn(n.matched[r],t.matched[o])&&Vi(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function Xn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Vi(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!v0(e[t],n[t]))return!1;return!0}function v0(e,n){return Ke(e)?ta(e,n):Ke(n)?ta(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function ta(e,n){return Ke(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function g0(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),o=r[r.length-1];(o===".."||o===".")&&r.push("");let a=t.length-1,i,s;for(i=0;i<r.length;i++)if(s=r[i],s!==".")if(s==="..")a>1&&a--;else break;return t.slice(0,a).join("/")+"/"+r.slice(i).join("/")}const bn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Pr=(function(e){return e.pop="pop",e.push="push",e})({}),vr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function y0(e){if(!e)if(Fn){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),u0(e)}const b0=/^[^#]+#/;function x0(e,n){return e.replace(b0,"#")+n}function E0(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const Jt=()=>({left:window.scrollX,top:window.scrollY});function S0(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),o=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!o)return;n=E0(o,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function ra(e,n){return(history.state?history.state.position-n:-1)+e}const Lr=new Map;function _0(e,n){Lr.set(e,n)}function w0(e){const n=Lr.get(e);return Lr.delete(e),n}function T0(e){return typeof e=="string"||e&&typeof e=="object"}function qi(e){return typeof e=="string"||typeof e=="symbol"}let fe=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const Wi=Symbol("");fe.MATCHER_NOT_FOUND+"",fe.NAVIGATION_GUARD_REDIRECT+"",fe.NAVIGATION_ABORTED+"",fe.NAVIGATION_CANCELLED+"",fe.NAVIGATION_DUPLICATED+"";function jn(e,n){return ee(new Error,{type:e,[Wi]:!0},n)}function cn(e,n){return e instanceof Error&&Wi in e&&(n==null||!!(e.type&n))}const C0=["params","query","hash"];function A0(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of C0)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function R0(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const o=t[r].replace(Ui," "),a=o.indexOf("="),i=bt(a<0?o:o.slice(0,a)),s=a<0?null:bt(o.slice(a+1));if(i in n){let l=n[i];Ke(l)||(l=n[i]=[l]),l.push(s)}else n[i]=s}return n}function oa(e){let n="";for(let t in e){const r=e[t];if(t=c0(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(Ke(r)?r.map(o=>o&&Dr(o)):[r&&Dr(r)]).forEach(o=>{o!==void 0&&(n+=(n.length?"&":"")+t,o!=null&&(n+="="+o))})}return n}function I0(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=Ke(r)?r.map(o=>o==null?null:""+o):r==null?r:""+r)}return n}const N0=Symbol(""),aa=Symbol(""),er=Symbol(""),io=Symbol(""),Or=Symbol("");function nt(){let e=[];function n(r){return e.push(r),()=>{const o=e.indexOf(r);o>-1&&e.splice(o,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function wn(e,n,t,r,o,a=i=>i()){const i=r&&(r.enterCallbacks[o]=r.enterCallbacks[o]||[]);return()=>new Promise((s,l)=>{const f=m=>{m===!1?l(jn(fe.NAVIGATION_ABORTED,{from:t,to:n})):m instanceof Error?l(m):T0(m)?l(jn(fe.NAVIGATION_GUARD_REDIRECT,{from:n,to:m})):(i&&r.enterCallbacks[o]===i&&typeof m=="function"&&i.push(m),s())},c=a(()=>e.call(r&&r.instances[o],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(m=>l(m))})}function gr(e,n,t,r,o=a=>a()){const a=[];for(const i of e)for(const s in i.components){let l=i.components[s];if(!(n!=="beforeRouteEnter"&&!i.instances[s]))if(ki(l)){const f=(l.__vccOpts||l)[n];f&&a.push(wn(f,t,r,i,s,o))}else{let f=l();a.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${s}" at "${i.path}"`);const d=$c(c)?c.default:c;i.mods[s]=c,i.components[s]=d;const m=(d.__vccOpts||d)[n];return m&&wn(m,t,r,i,s,o)()}))}}return a}function D0(e,n){const t=[],r=[],o=[],a=Math.max(n.matched.length,e.matched.length);for(let i=0;i<a;i++){const s=n.matched[i];s&&(e.matched.find(f=>Xn(f,s))?r.push(s):t.push(s));const l=e.matched[i];l&&(n.matched.find(f=>Xn(f,l))||o.push(l))}return[t,r,o]}/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */let N0=()=>location.protocol+"//"+location.host;function Yi(e,n){const{pathname:t,search:r,hash:o}=n,a=e.indexOf("#");if(a>-1){let i=o.includes(e.slice(a))?e.slice(a).length:1,s=o.slice(i);return s[0]!=="/"&&(s="/"+s),ea(s,"")}return ea(t,e)+r+o}function L0(e,n,t,r){let o=[],a=[],i=null;const s=({state:h})=>{const v=Yi(e,location),E=t.value,S=n.value;let T=0;if(h){if(t.value=v,n.value=h,i&&i===E){i=null;return}T=S?h.position-S.position:0}else r(v);o.forEach(A=>{A(t.value,E,{delta:T,type:Nr.pop,direction:T?T>0?vr.forward:vr.back:vr.unknown})})};function l(){i=t.value}function f(h){o.push(h);const v=()=>{const E=o.indexOf(h);E>-1&&o.splice(E,1)};return a.push(v),v}function c(){if(document.visibilityState==="hidden"){const{history:h}=window;if(!h.state)return;h.replaceState(ee({},h.state,{scroll:Jt()}),"")}}function d(){for(const h of a)h();a=[],window.removeEventListener("popstate",s),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",s),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function aa(e,n,t,r=!1,o=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:o?Jt():null}}function O0(e){const{history:n,location:t}=window,r={value:Yi(e,t)},o={value:n.state};o.value||a(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function a(l,f,c){const d=e.indexOf("#"),h=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:N0()+e+l;try{n[c?"replaceState":"pushState"](f,"",h),o.value=f}catch(v){console.error(v),t[c?"replace":"assign"](h)}}function i(l,f){a(l,ee({},n.state,aa(o.value.back,l,o.value.forward,!0),f,{position:o.value.position}),!0),r.value=l}function s(l,f){const c=ee({},o.value,n.state,{forward:l,scroll:Jt()});a(c.current,c,!0),a(l,ee({},aa(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:o,push:s,replace:i}}function k0(e){e=y0(e);const n=O0(e),t=L0(e,n.state,n.location,n.replace);function r(a,i=!0){i||t.pauseListeners(),history.go(a)}const o=ee({location:"",base:e,go:r,createHref:x0.bind(null,e)},n,t);return Object.defineProperty(o,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(o,"state",{enumerable:!0,get:()=>n.state.value}),o}function M0(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),k0(e)}let Nn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var me=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(me||{});const H0={type:Nn.Static,value:""},z0=/[a-zA-Z0-9_]/;function B0(e){if(!e)return[[]];if(e==="/")return[[H0]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(v){throw new Error(`ERR (${t})/"${f}": ${v}`)}let t=me.Static,r=t;const o=[];let a;function i(){a&&o.push(a),a=[]}let s=0,l,f="",c="";function d(){f&&(t===me.Static?a.push({type:Nn.Static,value:f}):t===me.Param||t===me.ParamRegExp||t===me.ParamRegExpEnd?(a.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),a.push({type:Nn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function h(){f+=l}for(;s<e.length;){if(l=e[s++],l==="\\"&&t!==me.ParamRegExp){r=t,t=me.EscapeNext;continue}switch(t){case me.Static:l==="/"?(f&&d(),i()):l===":"?(d(),t=me.Param):h();break;case me.EscapeNext:h(),t=r;break;case me.Param:l==="("?t=me.ParamRegExp:z0.test(l)?h():(d(),t=me.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--);break;case me.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=me.ParamRegExpEnd:c+=l;break;case me.ParamRegExpEnd:d(),t=me.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--,c="";break;default:n("Unknown state");break}}return t===me.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),i(),o}const ia="[^/]+?",U0={sensitive:!1,strict:!1,start:!0,end:!0};var Ee=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(Ee||{});const F0=/[.+*?^${}()[\]/\\]/g;function G0(e,n){const t=ee({},U0,n),r=[];let o=t.start?"^":"";const a=[];for(const f of e){const c=f.length?[]:[Ee.Root];t.strict&&!f.length&&(o+="/");for(let d=0;d<f.length;d++){const h=f[d];let v=Ee.Segment+(t.sensitive?Ee.BonusCaseSensitive:0);if(h.type===Nn.Static)d||(o+="/"),o+=h.value.replace(F0,"\\$&"),v+=Ee.Static;else if(h.type===Nn.Param){const{value:E,repeatable:S,optional:T,regexp:A}=h;a.push({name:E,repeatable:S,optional:T});const C=A||ia;if(C!==ia){v+=Ee.BonusCustomRegExp;try{`${C}`}catch(N){throw new Error(`Invalid custom RegExp for param "${E}" (${C}): `+N.message)}}let P=S?`((?:${C})(?:/(?:${C}))*)`:`(${C})`;d||(P=T&&f.length<2?`(?:/${P})`:"/"+P),T&&(P+="?"),o+=P,v+=Ee.Dynamic,T&&(v+=Ee.BonusOptional),S&&(v+=Ee.BonusRepeatable),C===".*"&&(v+=Ee.BonusWildcard)}c.push(v)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=Ee.BonusStrict}t.strict||(o+="/?"),t.end?o+="$":t.strict&&!o.endsWith("/")&&(o+="(?:/|$)");const i=new RegExp(o,t.sensitive?"":"i");function s(f){const c=f.match(i),d={};if(!c)return null;for(let h=1;h<c.length;h++){const v=c[h]||"",E=a[h-1];d[E.name]=v&&E.repeatable?v.split("/"):v}return d}function l(f){let c="",d=!1;for(const h of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const v of h)if(v.type===Nn.Static)c+=v.value;else if(v.type===Nn.Param){const{value:E,repeatable:S,optional:T}=v,A=E in f?f[E]:"";if(qe(A)&&!S)throw new Error(`Provided param "${E}" is an array but it is not repeatable (* or + modifiers)`);const C=qe(A)?A.join("/"):A;if(!C)if(T)h.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${E}"`);c+=C}}return c||"/"}return{re:i,score:r,keys:a,parse:s,stringify:l}}function V0(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===Ee.Static+Ee.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===Ee.Static+Ee.Segment?1:-1:0}function Wi(e,n){let t=0;const r=e.score,o=n.score;for(;t<r.length&&t<o.length;){const a=V0(r[t],o[t]);if(a)return a;t++}if(Math.abs(o.length-r.length)===1){if(sa(r))return 1;if(sa(o))return-1}return o.length-r.length}function sa(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const K0={strict:!1,end:!0,sensitive:!1};function Y0(e,n,t){const r=G0(B0(e.path),t),o=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!o.record.aliasOf==!n.record.aliasOf&&n.children.push(o),o}function W0(e,n){const t=[],r=new Map;n=Jo(K0,n);function o(d){return r.get(d)}function a(d,h,v){const E=!v,S=ca(d);S.aliasOf=v&&v.record;const T=Jo(n,d),A=[S];if("alias"in d){const N=typeof d.alias=="string"?[d.alias]:d.alias;for(const B of N)A.push(ca(ee({},S,{components:v?v.record.components:S.components,path:B,aliasOf:v?v.record:S})))}let C,P;for(const N of A){const{path:B}=N;if(h&&B[0]!=="/"){const q=h.record.path,W=q[q.length-1]==="/"?"":"/";N.path=h.record.path+(B&&W+B)}if(C=Y0(N,h,T),v?v.alias.push(C):(P=P||C,P!==C&&P.alias.push(C),E&&d.name&&!fa(C)&&i(d.name)),qi(C)&&l(C),S.children){const q=S.children;for(let W=0;W<q.length;W++)a(q[W],C,v&&v.children[W])}v=v||C}return P?()=>{i(P)}:ut}function i(d){if(Vi(d)){const h=r.get(d);h&&(r.delete(d),t.splice(t.indexOf(h),1),h.children.forEach(i),h.alias.forEach(i))}else{const h=t.indexOf(d);h>-1&&(t.splice(h,1),d.record.name&&r.delete(d.record.name),d.children.forEach(i),d.alias.forEach(i))}}function s(){return t}function l(d){const h=j0(d,t);t.splice(h,0,d),d.record.name&&!fa(d)&&r.set(d.record.name,d)}function f(d,h){let v,E={},S,T;if("name"in d&&d.name){if(v=r.get(d.name),!v)throw jn(ce.MATCHER_NOT_FOUND,{location:d});T=v.record.name,E=ee(la(h.params,v.keys.filter(P=>!P.optional).concat(v.parent?v.parent.keys.filter(P=>P.optional):[]).map(P=>P.name)),d.params&&la(d.params,v.keys.map(P=>P.name))),S=v.stringify(E)}else if(d.path!=null)S=d.path,v=t.find(P=>P.re.test(S)),v&&(E=v.parse(S),T=v.record.name);else{if(v=h.name?r.get(h.name):t.find(P=>P.re.test(h.path)),!v)throw jn(ce.MATCHER_NOT_FOUND,{location:d,currentLocation:h});T=v.record.name,E=ee({},h.params,d.params),S=v.stringify(E)}const A=[];let C=v;for(;C;)A.unshift(C.record),C=C.parent;return{name:T,path:S,params:E,matched:A,meta:X0(A)}}e.forEach(d=>a(d));function c(){t.length=0,r.clear()}return{addRoute:a,resolve:f,removeRoute:i,clearRoutes:c,getRoutes:s,getRecordMatcher:o}}function la(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function ca(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:q0(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function q0(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function fa(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function X0(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function j0(e,n){let t=0,r=n.length;for(;t!==r;){const a=t+r>>1;Wi(e,n[a])<0?r=a:t=a+1}const o=Q0(e);return o&&(r=n.lastIndexOf(o,r-1)),r}function Q0(e){let n=e;for(;n=n.parent;)if(qi(n)&&Wi(e,n)===0)return n}function qi({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function da(e){const n=Ke(er),t=Ke(ao),r=He(()=>{const l=Pe(e.to);return n.resolve(l)}),o=He(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const h=d.findIndex(Xn.bind(null,c));if(h>-1)return h;const v=ua(l[f-2]);return f>1&&ua(c)===v&&d[d.length-1].path!==v?d.findIndex(Xn.bind(null,l[f-2])):h}),a=He(()=>o.value>-1&&nf(t.params,r.value.params)),i=He(()=>o.value>-1&&o.value===t.matched.length-1&&Gi(t.params,r.value.params));function s(l={}){if(ef(l)){const f=n[Pe(e.replace)?"replace":"push"](Pe(e.to)).catch(ut);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:He(()=>r.value.href),isActive:a,isExactActive:i,navigate:s}}function Z0(e){return e.length===1?e[0]:e}const $0=An({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:da,setup(e,{slots:n}){const t=qt(da(e)),{options:r}=Ke(er),o=He(()=>({[pa(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[pa(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const a=n.default&&Z0(n.default(t));return e.custom?a:Ii("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:o.value},a)}}}),J0=$0;function ef(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function nf(e,n){for(const t in n){const r=n[t],o=e[t];if(typeof r=="string"){if(r!==o)return!1}else if(!qe(o)||o.length!==r.length||r.some((a,i)=>a.valueOf()!==o[i].valueOf()))return!1}return!0}function ua(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const pa=(e,n,t)=>e??n??t,tf=An({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=Ke(Or),o=He(()=>e.route||r.value),a=Ke(oa,0),i=He(()=>{let f=Pe(a);const{matched:c}=o.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),s=He(()=>o.value.matched[i.value]);Rt(oa,He(()=>i.value+1)),Rt(D0,s),Rt(Or,o);const l=Ne();return st(()=>[l.value,s.value,e.name],([f,c,d],[h,v,E])=>{c&&(c.instances[d]=f,v&&v!==c&&f&&f===h&&(c.leaveGuards.size||(c.leaveGuards=v.leaveGuards),c.updateGuards.size||(c.updateGuards=v.updateGuards))),f&&c&&(!v||!Xn(c,v)||!h)&&(c.enterCallbacks[d]||[]).forEach(S=>S(f))},{flush:"post"}),()=>{const f=o.value,c=e.name,d=s.value,h=d&&d.components[c];if(!h)return ha(t.default,{Component:h,route:f});const v=d.props[c],E=v?v===!0?f.params:typeof v=="function"?v(f):v:null,T=Ii(h,ee({},E,n,{onVnodeUnmounted:A=>{A.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ha(t.default,{Component:T,route:f})||T}}});function ha(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const rf=tf;function of(e){const n=W0(e.routes,e),t=e.parseQuery||R0,r=e.stringifyQuery||ra,o=e.history,a=nt(),i=nt(),s=nt(),l=Ps(bn);let f=bn;Un&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=hr.bind(null,y=>""+y),d=hr.bind(null,d0),h=hr.bind(null,bt);function v(y,k){let D,M;return Vi(y)?(D=n.getRecordMatcher(y),M=k):M=y,n.addRoute(M,D)}function E(y){const k=n.getRecordMatcher(y);k&&n.removeRoute(k)}function S(){return n.getRoutes().map(y=>y.record)}function T(y){return!!n.getRecordMatcher(y)}function A(y,k){if(k=ee({},k||l.value),typeof y=="string"){const m=mr(t,y,k.path),g=n.resolve({path:m.path},k),x=o.createHref(m.fullPath);return ee(m,g,{params:h(g.params),hash:bt(m.hash),redirectedFrom:void 0,href:x})}let D;if(y.path!=null)D=ee({},y,{path:mr(t,y.path,k.path).path});else{const m=ee({},y.params);for(const g in m)m[g]==null&&delete m[g];D=ee({},y,{params:d(m)}),k.params=d(k.params)}const M=n.resolve(D,k),X=y.hash||"";M.params=c(h(M.params));const u=h0(r,ee({},y,{hash:l0(X),path:M.path})),p=o.createHref(u);return ee({fullPath:u,hash:X,query:r===ra?I0(y.query):y.query||{}},M,{redirectedFrom:void 0,href:p})}function C(y){return typeof y=="string"?mr(t,y,l.value.path):ee({},y)}function P(y,k){if(f!==y)return jn(ce.NAVIGATION_CANCELLED,{from:k,to:y})}function N(y){return W(y)}function B(y){return N(ee(C(y),{replace:!0}))}function q(y,k){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:M}=D;let X=typeof M=="function"?M(y,k):M;return typeof X=="string"&&(X=X.includes("?")||X.includes("#")?X=C(X):{path:X},X.params={}),ee({query:y.query,hash:y.hash,params:X.path!=null?{}:y.params},X)}}function W(y,k){const D=f=A(y),M=l.value,X=y.state,u=y.force,p=y.replace===!0,m=q(D,M);if(m)return W(ee(C(m),{state:typeof m=="object"?ee({},X,m.state):X,force:u,replace:p}),k||D);const g=D;g.redirectedFrom=k;let x;return!u&&m0(r,M,D)&&(x=jn(ce.NAVIGATION_DUPLICATED,{to:g,from:M}),fe(M,M,!0,!1)),(x?Promise.resolve(x):K(g,M)).catch(b=>cn(b)?cn(b,ce.NAVIGATION_GUARD_REDIRECT)?b:Xe(b):Y(b,g,M)).then(b=>{if(b){if(cn(b,ce.NAVIGATION_GUARD_REDIRECT))return W(ee({replace:p},C(b.to),{state:typeof b.to=="object"?ee({},X,b.to.state):X,force:u}),k||g)}else b=O(g,M,!0,p,X);return $(g,M,b),b})}function ue(y,k){const D=P(y,k);return D?Promise.reject(D):Promise.resolve()}function U(y){const k=sn.values().next().value;return k&&typeof k.runWithContext=="function"?k.runWithContext(y):y()}function K(y,k){let D;const[M,X,u]=P0(y,k);D=gr(M.reverse(),"beforeRouteLeave",y,k);for(const m of M)m.leaveGuards.forEach(g=>{D.push(Cn(g,y,k))});const p=ue.bind(null,y,k);return D.push(p),we(D).then(()=>{D=[];for(const m of a.list())D.push(Cn(m,y,k));return D.push(p),we(D)}).then(()=>{D=gr(X,"beforeRouteUpdate",y,k);for(const m of X)m.updateGuards.forEach(g=>{D.push(Cn(g,y,k))});return D.push(p),we(D)}).then(()=>{D=[];for(const m of u)if(m.beforeEnter)if(qe(m.beforeEnter))for(const g of m.beforeEnter)D.push(Cn(g,y,k));else D.push(Cn(m.beforeEnter,y,k));return D.push(p),we(D)}).then(()=>(y.matched.forEach(m=>m.enterCallbacks={}),D=gr(u,"beforeRouteEnter",y,k,U),D.push(p),we(D))).then(()=>{D=[];for(const m of i.list())D.push(Cn(m,y,k));return D.push(p),we(D)}).catch(m=>cn(m,ce.NAVIGATION_CANCELLED)?m:Promise.reject(m))}function $(y,k,D){s.list().forEach(M=>U(()=>M(y,k,D)))}function O(y,k,D,M,X){const u=P(y,k);if(u)return u;const p=k===bn,m=Un?history.state:{};D&&(M||p?o.replace(y.fullPath,ee({scroll:p&&m&&m.scroll},X)):o.push(y.fullPath,X)),l.value=y,fe(y,k,D,p),Xe()}let Q;function se(){Q||(Q=o.listen((y,k,D)=>{if(!je.listening)return;const M=A(y),X=q(M,je.currentRoute.value);if(X){W(ee(X,{replace:!0,force:!0}),M).catch(ut);return}f=M;const u=l.value;Un&&E0(ta(u.fullPath,D.delta),Jt()),K(M,u).catch(p=>cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_CANCELLED)?p:cn(p,ce.NAVIGATION_GUARD_REDIRECT)?(W(ee(C(p.to),{force:!0}),M).then(m=>{cn(m,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Nr.pop&&o.go(-1,!1)}).catch(ut),Promise.reject()):(D.delta&&o.go(-D.delta,!1),Y(p,M,u))).then(p=>{p=p||O(M,u,!1),p&&(D.delta&&!cn(p,ce.NAVIGATION_CANCELLED)?o.go(-D.delta,!1):D.type===Nr.pop&&cn(p,ce.NAVIGATION_ABORTED|ce.NAVIGATION_DUPLICATED)&&o.go(-1,!1)),$(M,u,p)}).catch(ut)}))}let ve=nt(),le=nt(),J;function Y(y,k,D){Xe(y);const M=le.list();return M.length?M.forEach(X=>X(y,k,D)):console.error(y),Promise.reject(y)}function Fe(){return J&&l.value!==bn?Promise.resolve():new Promise((y,k)=>{ve.add([y,k])})}function Xe(y){return J||(J=!y,se(),ve.list().forEach(([k,D])=>y?D(y):k()),ve.reset()),y}function fe(y,k,D,M){const{scrollBehavior:X}=e;if(!Un||!X)return Promise.resolve();const u=!D&&C0(ta(y.fullPath,0))||(M||!D)&&history.state&&history.state.scroll||null;return Wa().then(()=>X(y,k,u)).then(p=>p&&S0(p)).catch(p=>Y(p,y,k))}const ge=y=>o.go(y);let an;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:v,removeRoute:E,clearRoutes:n.clearRoutes,hasRoute:T,getRoutes:S,resolve:A,options:e,push:N,replace:B,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:a.add,beforeResolve:i.add,afterEach:s.add,onError:le.add,isReady:Fe,install(y){y.component("RouterLink",J0),y.component("RouterView",rf),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Pe(l)}),Un&&!an&&l.value===bn&&(an=!0,N(o.location).catch(M=>{}));const k={};for(const M in bn)Object.defineProperty(k,M,{get:()=>l.value[M],enumerable:!0});y.provide(er,je),y.provide(ao,Ga(k)),y.provide(Or,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=bn,Q&&Q(),Q=null,l.value=bn,an=!1,J=!1),D()}}};function we(y){return y.reduce((k,D)=>k.then(()=>U(D)),Promise.resolve())}return je}function af(){return Ke(er)}function md(e){return Ke(ao)}const sf="/assets/screenshot-BGlXLzxn.webp",lf="/assets/screenshot-BU-MfndP.webp",cf="/assets/screenshot-BbBk66JL.webp",ff="/assets/screenshot-DJ8DWsNe.webp",df="/assets/screenshot-Bgnvpmle.webp",uf="/assets/screenshot-DI4mxV0q.webp",pf="/assets/screenshot-Cr4gcPub.webp",hf="/assets/screenshot-Bftu4Vm4.webp",mf="/assets/screenshot-D69-qLJd.webp",vf="/assets/screenshot-BHPmctOt.webp",gf="/assets/screenshot-uj0WCOUe.webp",yf="/assets/screenshot-CbvnZ5gw.webp",bf="/assets/screenshot-D2kvp1Pc.webp",xf="/assets/screenshot-FespJOdi.webp",wf="/assets/screenshot-BYNpPvRq.webp",Sf="/assets/screenshot-TbFZaVjZ.webp",Ef="/assets/screenshot-eXevvs9S.webp",Cf="/assets/screenshot-BXUdMyeo.webp",Tf="/assets/screenshot-CLKNMPWT.webp",_f="/assets/screenshot-Dge5FRDF.webp",Af="/assets/screenshot-DtcnOqgw.webp",Rf="/assets/screenshot-o465L8pw.webp",If="/assets/screenshot-BeLUHnME.webp",Df="/assets/screenshot-dnSW_Jt8.webp",Pf="/assets/screenshot-Zy4Ap0si.webp",Nf="/assets/screenshot-GJoazymJ.webp",Lf="/assets/screenshot-Dj7Yx2aa.webp",Of="/assets/screenshot-CHzCcHjz.webp",kf="/assets/screenshot-UCJWYxEG.webp",Mf="/assets/screenshot-DXkgzLB7.webp",Xi=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:sf,passes:{image:`/**
+ */let P0=()=>location.protocol+"//"+location.host;function Yi(e,n){const{pathname:t,search:r,hash:o}=n,a=e.indexOf("#");if(a>-1){let i=o.includes(e.slice(a))?e.slice(a).length:1,s=o.slice(i);return s[0]!=="/"&&(s="/"+s),na(s,"")}return na(t,e)+r+o}function L0(e,n,t,r){let o=[],a=[],i=null;const s=({state:m})=>{const v=Yi(e,location),T=t.value,w=n.value;let k=0;if(m){if(t.value=v,n.value=m,i&&i===T){i=null;return}k=w?m.position-w.position:0}else r(v);o.forEach(M=>{M(t.value,T,{delta:k,type:Pr.pop,direction:k?k>0?vr.forward:vr.back:vr.unknown})})};function l(){i=t.value}function f(m){o.push(m);const v=()=>{const T=o.indexOf(m);T>-1&&o.splice(T,1)};return a.push(v),v}function c(){if(document.visibilityState==="hidden"){const{history:m}=window;if(!m.state)return;m.replaceState(ee({},m.state,{scroll:Jt()}),"")}}function d(){for(const m of a)m();a=[],window.removeEventListener("popstate",s),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",s),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function ia(e,n,t,r=!1,o=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:o?Jt():null}}function O0(e){const{history:n,location:t}=window,r={value:Yi(e,t)},o={value:n.state};o.value||a(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function a(l,f,c){const d=e.indexOf("#"),m=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:P0()+e+l;try{n[c?"replaceState":"pushState"](f,"",m),o.value=f}catch(v){console.error(v),t[c?"replace":"assign"](m)}}function i(l,f){a(l,ee({},n.state,ia(o.value.back,l,o.value.forward,!0),f,{position:o.value.position}),!0),r.value=l}function s(l,f){const c=ee({},o.value,n.state,{forward:l,scroll:Jt()});a(c.current,c,!0),a(l,ee({},ia(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:o,push:s,replace:i}}function M0(e){e=y0(e);const n=O0(e),t=L0(e,n.state,n.location,n.replace);function r(a,i=!0){i||t.pauseListeners(),history.go(a)}const o=ee({location:"",base:e,go:r,createHref:x0.bind(null,e)},n,t);return Object.defineProperty(o,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(o,"state",{enumerable:!0,get:()=>n.state.value}),o}function H0(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),M0(e)}let Pn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var he=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(he||{});const k0={type:Pn.Static,value:""},B0=/[a-zA-Z0-9_]/;function U0(e){if(!e)return[[]];if(e==="/")return[[k0]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(v){throw new Error(`ERR (${t})/"${f}": ${v}`)}let t=he.Static,r=t;const o=[];let a;function i(){a&&o.push(a),a=[]}let s=0,l,f="",c="";function d(){f&&(t===he.Static?a.push({type:Pn.Static,value:f}):t===he.Param||t===he.ParamRegExp||t===he.ParamRegExpEnd?(a.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),a.push({type:Pn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function m(){f+=l}for(;s<e.length;){if(l=e[s++],l==="\\"&&t!==he.ParamRegExp){r=t,t=he.EscapeNext;continue}switch(t){case he.Static:l==="/"?(f&&d(),i()):l===":"?(d(),t=he.Param):m();break;case he.EscapeNext:m(),t=r;break;case he.Param:l==="("?t=he.ParamRegExp:B0.test(l)?m():(d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--);break;case he.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=he.ParamRegExpEnd:c+=l;break;case he.ParamRegExpEnd:d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--,c="";break;default:n("Unknown state");break}}return t===he.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),i(),o}const sa="[^/]+?",F0={sensitive:!1,strict:!1,start:!0,end:!0};var _e=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(_e||{});const z0=/[.+*?^${}()[\]/\\]/g;function G0(e,n){const t=ee({},F0,n),r=[];let o=t.start?"^":"";const a=[];for(const f of e){const c=f.length?[]:[_e.Root];t.strict&&!f.length&&(o+="/");for(let d=0;d<f.length;d++){const m=f[d];let v=_e.Segment+(t.sensitive?_e.BonusCaseSensitive:0);if(m.type===Pn.Static)d||(o+="/"),o+=m.value.replace(z0,"\\$&"),v+=_e.Static;else if(m.type===Pn.Param){const{value:T,repeatable:w,optional:k,regexp:M}=m;a.push({name:T,repeatable:w,optional:k});const S=M||sa;if(S!==sa){v+=_e.BonusCustomRegExp;try{`${S}`}catch(_){throw new Error(`Invalid custom RegExp for param "${T}" (${S}): `+_.message)}}let A=w?`((?:${S})(?:/(?:${S}))*)`:`(${S})`;d||(A=k&&f.length<2?`(?:/${A})`:"/"+A),k&&(A+="?"),o+=A,v+=_e.Dynamic,k&&(v+=_e.BonusOptional),w&&(v+=_e.BonusRepeatable),S===".*"&&(v+=_e.BonusWildcard)}c.push(v)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=_e.BonusStrict}t.strict||(o+="/?"),t.end?o+="$":t.strict&&!o.endsWith("/")&&(o+="(?:/|$)");const i=new RegExp(o,t.sensitive?"":"i");function s(f){const c=f.match(i),d={};if(!c)return null;for(let m=1;m<c.length;m++){const v=c[m]||"",T=a[m-1];d[T.name]=v&&T.repeatable?v.split("/"):v}return d}function l(f){let c="",d=!1;for(const m of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const v of m)if(v.type===Pn.Static)c+=v.value;else if(v.type===Pn.Param){const{value:T,repeatable:w,optional:k}=v,M=T in f?f[T]:"";if(Ke(M)&&!w)throw new Error(`Provided param "${T}" is an array but it is not repeatable (* or + modifiers)`);const S=Ke(M)?M.join("/"):M;if(!S)if(k)m.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${T}"`);c+=S}}return c||"/"}return{re:i,score:r,keys:a,parse:s,stringify:l}}function V0(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===_e.Static+_e.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===_e.Static+_e.Segment?1:-1:0}function Ki(e,n){let t=0;const r=e.score,o=n.score;for(;t<r.length&&t<o.length;){const a=V0(r[t],o[t]);if(a)return a;t++}if(Math.abs(o.length-r.length)===1){if(la(r))return 1;if(la(o))return-1}return o.length-r.length}function la(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const q0={strict:!1,end:!0,sensitive:!1};function W0(e,n,t){const r=G0(U0(e.path),t),o=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!o.record.aliasOf==!n.record.aliasOf&&n.children.push(o),o}function Y0(e,n){const t=[],r=new Map;n=ea(q0,n);function o(d){return r.get(d)}function a(d,m,v){const T=!v,w=fa(d);w.aliasOf=v&&v.record;const k=ea(n,d),M=[w];if("alias"in d){const _=typeof d.alias=="string"?[d.alias]:d.alias;for(const L of _)M.push(fa(ee({},w,{components:v?v.record.components:w.components,path:L,aliasOf:v?v.record:w})))}let S,A;for(const _ of M){const{path:L}=_;if(m&&L[0]!=="/"){const G=m.record.path,V=G[G.length-1]==="/"?"":"/";_.path=m.record.path+(L&&V+L)}if(S=W0(_,m,k),v?v.alias.push(S):(A=A||S,A!==S&&A.alias.push(S),T&&d.name&&!da(S)&&i(d.name)),Xi(S)&&l(S),w.children){const G=w.children;for(let V=0;V<G.length;V++)a(G[V],S,v&&v.children[V])}v=v||S}return A?()=>{i(A)}:pt}function i(d){if(qi(d)){const m=r.get(d);m&&(r.delete(d),t.splice(t.indexOf(m),1),m.children.forEach(i),m.alias.forEach(i))}else{const m=t.indexOf(d);m>-1&&(t.splice(m,1),d.record.name&&r.delete(d.record.name),d.children.forEach(i),d.alias.forEach(i))}}function s(){return t}function l(d){const m=j0(d,t);t.splice(m,0,d),d.record.name&&!da(d)&&r.set(d.record.name,d)}function f(d,m){let v,T={},w,k;if("name"in d&&d.name){if(v=r.get(d.name),!v)throw jn(fe.MATCHER_NOT_FOUND,{location:d});k=v.record.name,T=ee(ca(m.params,v.keys.filter(A=>!A.optional).concat(v.parent?v.parent.keys.filter(A=>A.optional):[]).map(A=>A.name)),d.params&&ca(d.params,v.keys.map(A=>A.name))),w=v.stringify(T)}else if(d.path!=null)w=d.path,v=t.find(A=>A.re.test(w)),v&&(T=v.parse(w),k=v.record.name);else{if(v=m.name?r.get(m.name):t.find(A=>A.re.test(m.path)),!v)throw jn(fe.MATCHER_NOT_FOUND,{location:d,currentLocation:m});k=v.record.name,T=ee({},m.params,d.params),w=v.stringify(T)}const M=[];let S=v;for(;S;)M.unshift(S.record),S=S.parent;return{name:k,path:w,params:T,matched:M,meta:X0(M)}}e.forEach(d=>a(d));function c(){t.length=0,r.clear()}return{addRoute:a,resolve:f,removeRoute:i,clearRoutes:c,getRoutes:s,getRecordMatcher:o}}function ca(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function fa(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:K0(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function K0(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function da(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function X0(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function j0(e,n){let t=0,r=n.length;for(;t!==r;){const a=t+r>>1;Ki(e,n[a])<0?r=a:t=a+1}const o=Q0(e);return o&&(r=n.lastIndexOf(o,r-1)),r}function Q0(e){let n=e;for(;n=n.parent;)if(Xi(n)&&Ki(e,n)===0)return n}function Xi({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function pa(e){const n=qe(er),t=qe(io),r=ke(()=>{const l=Le(e.to);return n.resolve(l)}),o=ke(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const m=d.findIndex(Xn.bind(null,c));if(m>-1)return m;const v=ua(l[f-2]);return f>1&&ua(c)===v&&d[d.length-1].path!==v?d.findIndex(Xn.bind(null,l[f-2])):m}),a=ke(()=>o.value>-1&&nf(t.params,r.value.params)),i=ke(()=>o.value>-1&&o.value===t.matched.length-1&&Vi(t.params,r.value.params));function s(l={}){if(ef(l)){const f=n[Le(e.replace)?"replace":"push"](Le(e.to)).catch(pt);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:ke(()=>r.value.href),isActive:a,isExactActive:i,navigate:s}}function Z0(e){return e.length===1?e[0]:e}const $0=An({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:pa,setup(e,{slots:n}){const t=Xt(pa(e)),{options:r}=qe(er),o=ke(()=>({[ma(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[ma(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const a=n.default&&Z0(n.default(t));return e.custom?a:Ni("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:o.value},a)}}}),J0=$0;function ef(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function nf(e,n){for(const t in n){const r=n[t],o=e[t];if(typeof r=="string"){if(r!==o)return!1}else if(!Ke(o)||o.length!==r.length||r.some((a,i)=>a.valueOf()!==o[i].valueOf()))return!1}return!0}function ua(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const ma=(e,n,t)=>e??n??t,tf=An({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=qe(Or),o=ke(()=>e.route||r.value),a=qe(aa,0),i=ke(()=>{let f=Le(a);const{matched:c}=o.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),s=ke(()=>o.value.matched[i.value]);It(aa,ke(()=>i.value+1)),It(N0,s),It(Or,o);const l=Ce();return st(()=>[l.value,s.value,e.name],([f,c,d],[m,v,T])=>{c&&(c.instances[d]=f,v&&v!==c&&f&&f===m&&(c.leaveGuards.size||(c.leaveGuards=v.leaveGuards),c.updateGuards.size||(c.updateGuards=v.updateGuards))),f&&c&&(!v||!Xn(c,v)||!m)&&(c.enterCallbacks[d]||[]).forEach(w=>w(f))},{flush:"post"}),()=>{const f=o.value,c=e.name,d=s.value,m=d&&d.components[c];if(!m)return ha(t.default,{Component:m,route:f});const v=d.props[c],T=v?v===!0?f.params:typeof v=="function"?v(f):v:null,k=Ni(m,ee({},T,n,{onVnodeUnmounted:M=>{M.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ha(t.default,{Component:k,route:f})||k}}});function ha(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const rf=tf;function of(e){const n=Y0(e.routes,e),t=e.parseQuery||R0,r=e.stringifyQuery||oa,o=e.history,a=nt(),i=nt(),s=nt(),l=Ds(bn);let f=bn;Fn&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=mr.bind(null,y=>""+y),d=mr.bind(null,d0),m=mr.bind(null,bt);function v(y,O){let D,B;return qi(y)?(D=n.getRecordMatcher(y),B=O):B=y,n.addRoute(B,D)}function T(y){const O=n.getRecordMatcher(y);O&&n.removeRoute(O)}function w(){return n.getRoutes().map(y=>y.record)}function k(y){return!!n.getRecordMatcher(y)}function M(y,O){if(O=ee({},O||l.value),typeof y=="string"){const h=hr(t,y,O.path),g=n.resolve({path:h.path},O),x=o.createHref(h.fullPath);return ee(h,g,{params:m(g.params),hash:bt(h.hash),redirectedFrom:void 0,href:x})}let D;if(y.path!=null)D=ee({},y,{path:hr(t,y.path,O.path).path});else{const h=ee({},y.params);for(const g in h)h[g]==null&&delete h[g];D=ee({},y,{params:d(h)}),O.params=d(O.params)}const B=n.resolve(D,O),j=y.hash||"";B.params=c(m(B.params));const p=m0(r,ee({},y,{hash:l0(j),path:B.path})),u=o.createHref(p);return ee({fullPath:p,hash:j,query:r===oa?I0(y.query):y.query||{}},B,{redirectedFrom:void 0,href:u})}function S(y){return typeof y=="string"?hr(t,y,l.value.path):ee({},y)}function A(y,O){if(f!==y)return jn(fe.NAVIGATION_CANCELLED,{from:O,to:y})}function _(y){return V(y)}function L(y){return _(ee(S(y),{replace:!0}))}function G(y,O){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:B}=D;let j=typeof B=="function"?B(y,O):B;return typeof j=="string"&&(j=j.includes("?")||j.includes("#")?j=S(j):{path:j},j.params={}),ee({query:y.query,hash:y.hash,params:j.path!=null?{}:y.params},j)}}function V(y,O){const D=f=M(y),B=l.value,j=y.state,p=y.force,u=y.replace===!0,h=G(D,B);if(h)return V(ee(S(h),{state:typeof h=="object"?ee({},j,h.state):j,force:p,replace:u}),O||D);const g=D;g.redirectedFrom=O;let x;return!p&&h0(r,B,D)&&(x=jn(fe.NAVIGATION_DUPLICATED,{to:g,from:B}),de(B,B,!0,!1)),(x?Promise.resolve(x):K(g,B)).catch(b=>cn(b)?cn(b,fe.NAVIGATION_GUARD_REDIRECT)?b:Xe(b):Y(b,g,B)).then(b=>{if(b){if(cn(b,fe.NAVIGATION_GUARD_REDIRECT))return V(ee({replace:u},S(b.to),{state:typeof b.to=="object"?ee({},j,b.to.state):j,force:p}),O||g)}else b=I(g,B,!0,u,j);return $(g,B,b),b})}function oe(y,O){const D=A(y,O);return D?Promise.reject(D):Promise.resolve()}function H(y){const O=sn.values().next().value;return O&&typeof O.runWithContext=="function"?O.runWithContext(y):y()}function K(y,O){let D;const[B,j,p]=D0(y,O);D=gr(B.reverse(),"beforeRouteLeave",y,O);for(const h of B)h.leaveGuards.forEach(g=>{D.push(wn(g,y,O))});const u=oe.bind(null,y,O);return D.push(u),Ee(D).then(()=>{D=[];for(const h of a.list())D.push(wn(h,y,O));return D.push(u),Ee(D)}).then(()=>{D=gr(j,"beforeRouteUpdate",y,O);for(const h of j)h.updateGuards.forEach(g=>{D.push(wn(g,y,O))});return D.push(u),Ee(D)}).then(()=>{D=[];for(const h of p)if(h.beforeEnter)if(Ke(h.beforeEnter))for(const g of h.beforeEnter)D.push(wn(g,y,O));else D.push(wn(h.beforeEnter,y,O));return D.push(u),Ee(D)}).then(()=>(y.matched.forEach(h=>h.enterCallbacks={}),D=gr(p,"beforeRouteEnter",y,O,H),D.push(u),Ee(D))).then(()=>{D=[];for(const h of i.list())D.push(wn(h,y,O));return D.push(u),Ee(D)}).catch(h=>cn(h,fe.NAVIGATION_CANCELLED)?h:Promise.reject(h))}function $(y,O,D){s.list().forEach(B=>H(()=>B(y,O,D)))}function I(y,O,D,B,j){const p=A(y,O);if(p)return p;const u=O===bn,h=Fn?history.state:{};D&&(B||u?o.replace(y.fullPath,ee({scroll:u&&h&&h.scroll},j)):o.push(y.fullPath,j)),l.value=y,de(y,O,D,u),Xe()}let X;function le(){X||(X=o.listen((y,O,D)=>{if(!je.listening)return;const B=M(y),j=G(B,je.currentRoute.value);if(j){V(ee(j,{replace:!0,force:!0}),B).catch(pt);return}f=B;const p=l.value;Fn&&_0(ra(p.fullPath,D.delta),Jt()),K(B,p).catch(u=>cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_CANCELLED)?u:cn(u,fe.NAVIGATION_GUARD_REDIRECT)?(V(ee(S(u.to),{force:!0}),B).then(h=>{cn(h,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Pr.pop&&o.go(-1,!1)}).catch(pt),Promise.reject()):(D.delta&&o.go(-D.delta,!1),Y(u,B,p))).then(u=>{u=u||I(B,p,!1),u&&(D.delta&&!cn(u,fe.NAVIGATION_CANCELLED)?o.go(-D.delta,!1):D.type===Pr.pop&&cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&o.go(-1,!1)),$(B,p,u)}).catch(pt)}))}let ve=nt(),ce=nt(),J;function Y(y,O,D){Xe(y);const B=ce.list();return B.length?B.forEach(j=>j(y,O,D)):console.error(y),Promise.reject(y)}function ze(){return J&&l.value!==bn?Promise.resolve():new Promise((y,O)=>{ve.add([y,O])})}function Xe(y){return J||(J=!y,le(),ve.list().forEach(([O,D])=>y?D(y):O()),ve.reset()),y}function de(y,O,D,B){const{scrollBehavior:j}=e;if(!Fn||!j)return Promise.resolve();const p=!D&&w0(ra(y.fullPath,0))||(B||!D)&&history.state&&history.state.scroll||null;return Ka().then(()=>j(y,O,p)).then(u=>u&&S0(u)).catch(u=>Y(u,y,O))}const ge=y=>o.go(y);let an;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:v,removeRoute:T,clearRoutes:n.clearRoutes,hasRoute:k,getRoutes:w,resolve:M,options:e,push:_,replace:L,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:a.add,beforeResolve:i.add,afterEach:s.add,onError:ce.add,isReady:ze,install(y){y.component("RouterLink",J0),y.component("RouterView",rf),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Le(l)}),Fn&&!an&&l.value===bn&&(an=!0,_(o.location).catch(B=>{}));const O={};for(const B in bn)Object.defineProperty(O,B,{get:()=>l.value[B],enumerable:!0});y.provide(er,je),y.provide(io,Va(O)),y.provide(Or,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=bn,X&&X(),X=null,l.value=bn,an=!1,J=!1),D()}}};function Ee(y){return y.reduce((O,D)=>O.then(()=>H(D)),Promise.resolve())}return je}function af(){return qe(er)}function vd(e){return qe(io)}const sf="/assets/screenshot-BGlXLzxn.webp",lf="/assets/screenshot-BU-MfndP.webp",cf="/assets/screenshot-BbBk66JL.webp",ff="/assets/screenshot-DJ8DWsNe.webp",df="/assets/screenshot-Bgnvpmle.webp",pf="/assets/screenshot-DI4mxV0q.webp",uf="/assets/screenshot-Cr4gcPub.webp",mf="/assets/screenshot-Bftu4Vm4.webp",hf="/assets/screenshot-D69-qLJd.webp",vf="/assets/screenshot-BHPmctOt.webp",gf="/assets/screenshot-uj0WCOUe.webp",yf="/assets/screenshot-CbvnZ5gw.webp",bf="/assets/screenshot-D2kvp1Pc.webp",xf="/assets/screenshot-FespJOdi.webp",Ef="/assets/screenshot-BYNpPvRq.webp",Sf="/assets/screenshot-TbFZaVjZ.webp",_f="/assets/screenshot-eXevvs9S.webp",wf="/assets/screenshot-BXUdMyeo.webp",Tf="/assets/screenshot-CLKNMPWT.webp",Cf="/assets/screenshot-Dge5FRDF.webp",Af="/assets/screenshot-BT7IpjX0.webp",Rf="/assets/screenshot-o465L8pw.webp",If="/assets/screenshot-BeLUHnME.webp",Nf="/assets/screenshot-dnSW_Jt8.webp",Df="/assets/screenshot-Zy4Ap0si.webp",Pf="/assets/screenshot-GJoazymJ.webp",Lf="/assets/screenshot-Dj7Yx2aa.webp",Of="/assets/screenshot-C1Jepfpl.webp",Mf="/assets/screenshot-UCJWYxEG.webp",Hf="/assets/screenshot-COHhF7ff.webp",ji=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:sf,passes:{image:`/**
  * 24h in Arrakis
  * @author guinetik
  * @date 2026-02-12
@@ -39,31 +39,14 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailVie
 #define TAU 6.28318530718
 
 // ── noise primitives ──────────────────────────────────────────
-
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
-float hash21(float p) {
-    return fract(sin(p * 127.1) * 43758.5453);
-}
-
-float noise(vec2 p) {
-    vec2 i = floor(p), f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
-    return mix(
-        mix(hash(i), hash(i + vec2(1, 0)), f.x),
-        mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x),
-        f.y
-    );
-}
+// Hash (hashN2) and value noise (valueNoise2D) provided by noise-value commons.
 
 float fbm(vec2 p, int octaves) {
     float v = 0.0, a = 0.5;
     mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);
     for (int i = 0; i < 8; i++) {
         if (i >= octaves) break;
-        v += a * noise(p);
+        v += a * valueNoise2D(p);
         p = rot * p * 2.0;
         a *= 0.5;
     }
@@ -110,24 +93,24 @@ float duneRidge(float x) {
 
 float duneHeight(vec2 p, float time) {
     // 1. regional mask — cheap single noise instead of fbm
-    float region = noise(p * 0.025 + time * 0.002);
+    float region = valueNoise2D(p * 0.025 + time * 0.002);
     float duneMask = smoothstep(0.30, 0.55, region);
 
     // 2. flat basin floor
-    float basin = noise(p * 0.04) * 0.3 - 0.5;
+    float basin = valueNoise2D(p * 0.04) * 0.3 - 0.5;
 
     // 3. primary mega-dunes
     float megaDune = duneRidge(p.x * 0.12 + p.y * 0.28 + time * 0.008) * 3.5
                    + duneRidge(p.x * 0.22 - p.y * 0.10 + time * 0.005) * 1.8;
     // height variation — single noise lookup instead of fbm
-    megaDune *= 0.5 + noise(p * 0.05 + vec2(3.7, 8.1));
+    megaDune *= 0.5 + valueNoise2D(p * 0.05 + vec2(3.7, 8.1));
 
     // 4. medium dunes
     float medDune = duneRidge(p.x * 0.5 + p.y * 1.5 + time * 0.015) * 0.6
                   + duneRidge(p.x * 0.8 - p.y * 0.4 + time * 0.012) * 0.35;
 
     // 5. wind ripples — single layer
-    float ripple = noise(p * vec2(8.0, 3.0) + vec2(time * 0.1, 0.0)) * 0.09;
+    float ripple = valueNoise2D(p * vec2(8.0, 3.0) + vec2(time * 0.1, 0.0)) * 0.09;
 
     float h = basin;
     h += (megaDune + medDune) * duneMask;
@@ -227,8 +210,8 @@ vec3 spiceBlow(vec2 uv, float time) {
 // heat shimmer which distorts more along the vertical axis.
 
 vec2 heatHaze(vec2 uv, float time) {
-    float distort = noise(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
-    distort += noise(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
+    float distort = valueNoise2D(uv * vec2(3.0, 20.0) + vec2(0.0, time * 0.8)) * 2.0 - 1.0;
+    distort += valueNoise2D(uv * vec2(5.0, 35.0) + vec2(time * 0.3, time * 1.2)) * 0.5;
     // stronger near the horizon — where real mirages appear
     float horizonMask = smoothstep(0.1, -0.15, uv.y);
     return vec2(distort * 0.006 * horizonMask, distort * 0.003 * horizonMask);
@@ -351,7 +334,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec2 starUV = rd.xz * (60.0 + i * 80.0) / max(rd.y, 0.01);
             vec2 starId = floor(starUV);
             vec2 starF = fract(starUV) - 0.5;
-            float sh = hash(starId + i * 137.0);
+            float sh = hashN2(starId + i * 137.0);
             float starDist = length(starF);
 
             if (sh > 0.90) {
@@ -398,8 +381,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         // ── sand grain micro-detail ──────────────────────
         // two noise lookups, derive everything else from them
         float grainScale = 40.0 / (1.0 + t * 0.05);
-        float grain1 = noise(p.xz * grainScale);
-        float grain2 = noise(p.xz * grainScale + 77.7);
+        float grain1 = valueNoise2D(p.xz * grainScale);
+        float grain2 = valueNoise2D(p.xz * grainScale + 77.7);
 
         // perturb normal for rough sand surface
         vec3 nGrain = normalize(n + vec3(grain1 - 0.5, 0.0, grain2 - 0.5) * 0.15);
@@ -417,7 +400,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float spec = specRough + specSharp;
 
         // ── sand color — reuse grain noise for variation ─
-        float sandVar = noise(p.xz * 0.8) * 0.7 + grain1 * 0.3;
+        float sandVar = valueNoise2D(p.xz * 0.8) * 0.7 + grain1 * 0.3;
         vec3 sandCol = sandPalette(sandVar * 0.6 + 0.2);
         // micro variation from grain1
         sandCol *= 0.85 + 0.3 * grain1;
@@ -489,7 +472,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── dust in the wind — sparse drifting wisps ───────────
     float dust = fbm(uv * 3.0 + vec2(time * 0.12, time * 0.04), 5);
-    float dustBreak = noise(uv * 1.5 + time * 0.03); // large-scale breakup
+    float dustBreak = valueNoise2D(uv * 1.5 + time * 0.03); // large-scale breakup
     float dustMask = smoothstep(0.55, 0.72, dust) * smoothstep(0.35, 0.65, dustBreak);
     dustMask *= smoothstep(0.25, -0.15, uv.y) * 0.25 * daylight;
     vec3 dustCol = mix(vec3(0.85, 0.35, 0.15), vec3(0.85, 0.55, 0.30), smoothstep(0.0, 0.3, sunElev));
@@ -510,7 +493,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // turbulent spice particles within the storm
         float stormNoise = fbm(uv * 6.0 + vec2(time * 0.5, time * 0.2), 5);
-        float stormDetail = noise(uv * 25.0 + time * 1.5);
+        float stormDetail = valueNoise2D(uv * 25.0 + time * 1.5);
 
         // purple spice dust
         float spiceDust = waveShape * stormActive * stormNoise;
@@ -528,7 +511,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec2 moteUV = uv * (50.0 + i * 40.0) + vec2(time * (2.0 + i), i * 7.7);
             vec2 moteId = floor(moteUV);
             vec2 moteF = fract(moteUV) - 0.5;
-            float mh = hash(moteId + i * 77.0);
+            float mh = hashN2(moteId + i * 77.0);
             float moteDist = length(moteF);
             if (mh > 0.92) {
                 float flash = pow(sin(time * (5.0 + mh * 10.0) + mh * TAU) * 0.5 + 0.5, 3.0);
@@ -544,7 +527,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec2 sparkUV = uv * (80.0 + i * 60.0);
         vec2 sparkId = floor(sparkUV);
         vec2 sparkF = fract(sparkUV) - 0.5;
-        float h = hash(sparkId + i * 100.0);
+        float h = hashN2(sparkId + i * 100.0);
         float sparkDist = length(sparkF);
 
         if (h > 0.985) {
@@ -567,7 +550,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col = mix(col, col * vec3(1.0, 0.90, 0.85), 0.08);
 
     // film grain — desert grit
-    col += (hash(fragCoord + fract(time * 17.0)) - 0.5) * 0.025;
+    col += (hashN2(fragCoord + fract(time * 17.0)) - 0.5) * 0.025;
 
     // tone mapping
     col = col / (col + 0.5);
@@ -577,7 +560,129 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col = clamp(col, 0.0, 1.0);
     fragColor = vec4(col, 1.0);
 }
-`},channels:{}},{slug:"black-hole",title:"Black Hole",description:"Raytraced black hole with Newtonian gravitational lensing, a procedural accretion disk, and a starfield background that visibly bends around the event horizon. Based on Genuary 2026 Day 31.",date:"2026-01-31",tags:["genuary","space","3d","physics"],links:{},screenshotUrl:lf,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`}]},{slug:"black-hole",title:"Black Hole",description:"Raytraced black hole with Newtonian gravitational lensing, a procedural accretion disk, and a starfield background that visibly bends around the event horizon. Based on Genuary 2026 Day 31.",date:"2026-01-31",tags:["genuary","space","3d","physics"],links:{},screenshotUrl:lf,passes:{image:`/**
  * Black Hole Raytracer
  *
  * Raytraced black hole with Newtonian gravitational lensing,
@@ -853,7 +958,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(finalColor, 1.0);
 }
-`},channels:{}},{slug:"caustics-pool",title:"Caustic Study #02: Pool",description:"Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",date:"2026-02-15",tags:["caustics","raymarching","3d","physics"],links:{},screenshotUrl:cf,passes:{image:`/**
+`},channels:{},commonsSources:[]},{slug:"caustics-pool",title:"Caustic Study #02: Pool",description:"Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",date:"2026-02-15",tags:["caustics","raymarching","3d","physics"],links:{},screenshotUrl:cf,passes:{image:`/**
  * Caustics Pool
  *
  * @author guinetik
@@ -1051,43 +1156,16 @@ vec3 rippleNormal(vec2 xz, BallState ball)
     return normalize(vec3(hc - hx, e, hc - hz));
 }
 
-// -------------------------------------------------------
-// Ray-sphere intersection, returns t or -1
-// -------------------------------------------------------
-float sphereIntersect(vec3 ro, vec3 rd, vec3 center, float radius)
-{
-    vec3 oc = ro - center;
-    float b = dot(oc, rd);
-    float c = dot(oc, oc) - radius * radius;
-    float h = b * b - c;
-    if (h < 0.0) return -1.0;
-    return -b - sqrt(h);
-}
+// Ray-sphere intersection provided by sphere commons (intersectSphere).
 
 // -------------------------------------------------------
-// Caustic pattern (joltz0r / David Hoskins)
+// Caustic pattern — core warp provided by caustic commons
+// (joltz0r / David Hoskins iterative domain warp)
 // -------------------------------------------------------
 float causticPattern(vec2 uv, float t)
 {
     float time = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
-    vec2 p = mod(uv * CAUSTIC_SCALE * TAU, TAU) - 250.0;
-    vec2 i = p;
-    float c = 1.0;
-
-    for (int n = 0; n < CAUSTIC_ITERS; n++)
-    {
-        float tt = time * (1.0 - (3.5 / float(n + 1)));
-        i = p + vec2(
-            cos(tt - i.x) + sin(tt + i.y),
-            sin(tt - i.y) + cos(tt + i.x)
-        );
-        c += 1.0 / length(vec2(
-            p.x / (sin(i.x + tt) / CAUSTIC_INTEN),
-            p.y / (cos(i.y + tt) / CAUSTIC_INTEN)
-        ));
-    }
-
-    c /= float(CAUSTIC_ITERS);
+    float c = causticWarp(uv, CAUSTIC_SCALE, time, CAUSTIC_ITERS, CAUSTIC_INTEN);
     c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
     return pow(abs(c), CAUSTIC_BRIGHT);
 }
@@ -1266,7 +1344,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // --- Ball intersection (above water) ---
     float ballT = -1.0;
     if (ball.alpha > 0.0)
-        ballT = sphereIntersect(ro, rd, ball.pos, BALL_RADIUS);
+        ballT = intersectSphere(ro, rd, ball.pos, BALL_RADIUS);
 
     // --- Pool box ---
     vec3 boxNorm, boxHit;
@@ -1478,7 +1556,167 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         fragColor = vec4(mouseX, mouseY, 0.0, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"caustics-study",title:"Caustic Study #01: Simple",description:"Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",date:"2026-02-15",tags:["caustics","procedural","physics"],links:{},screenshotUrl:ff,passes:{image:`/**
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"caustic",source:`/**
+ * Caustic Pattern (joltz0r / David Hoskins)
+ * @author joltz0r, David Hoskins (adapted by guinetik)
+ * @date 2026-02-16
+ *
+ * Iterative domain warp for underwater caustic patterns.
+ * Each iteration displaces UV coordinates with sin/cos feedback,
+ * accumulating inverse distance to create bright convergence lines
+ * mimicking refracted light on a pool floor.
+ *
+ * Two layers at different scales are recommended for depth complexity.
+ */
+
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Compute raw caustic convergence via iterative domain warp.
+ *
+ * Returns normalized accumulation value -- higher where displaced UV
+ * coordinates converge, producing bright caustic lines. Apply
+ * post-processing for final brightness curve:
+ *   c = base - pow(c, power);   // typical: 1.17 - pow(c, 1.4)
+ *   c = pow(abs(c), bright);    // typical: pow(abs(c), 8.0)
+ *
+ * @param uv        2D sample position
+ * @param scale     UV scaling (larger = finer pattern, typical 0.5-3.0)
+ * @param time      Animation time (pre-scaled by caller)
+ * @param iters     Warp iterations: 3=soft blobs, 5=crisp, 8+=very sharp
+ * @param intensity Inverse-distance sensitivity (smaller = tighter lines, typical 0.005)
+ * @return Normalized convergence value
+ */
+float causticWarp(vec2 uv, float scale, float time, int iters, float intensity) {
+    vec2 p = mod(uv * scale * M_TAU, M_TAU) - 250.0;
+    vec2 i = p;
+    float c = 1.0;
+    for (int n = 0; n < 8; n++) {
+        if (n >= iters) break;
+        float tt = time * (1.0 - (3.5 / float(n + 1)));
+        i = p + vec2(
+            cos(tt - i.x) + sin(tt + i.y),
+            sin(tt - i.y) + cos(tt + i.x)
+        );
+        c += 1.0 / length(vec2(
+            p.x / (sin(i.x + tt) / intensity),
+            p.y / (cos(i.y + tt) / intensity)
+        ));
+    }
+    return c / float(iters);
+}
+`}]},{slug:"caustics-study",title:"Caustic Study #01: Simple",description:"Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",date:"2026-02-15",tags:["caustics","procedural","physics"],links:{},screenshotUrl:ff,passes:{image:`/**
  * Caustic Study #01: Simple
  * @author guinetik
  * @date 2026-02-15
@@ -1537,36 +1775,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
                               // 0 = no vignette. 0.5+ = strong edge darkening.
 
 // -------------------------------------------------------
-// Caustic pattern (joltz0r / David Hoskins)
+// Caustic pattern — core warp provided by caustic commons
+// (joltz0r / David Hoskins iterative domain warp)
 // -------------------------------------------------------
-
-// TECHNIQUE: Iterative domain warp caustics
-// Starting from a TAU-scaled, tiled UV, each iteration displaces the
-// coordinate using sin/cos of the running position plus time. The
-// accumulator \`c\` sums inverse distances: where displaced coordinates
-// nearly converge, c spikes, creating bright caustic lines.
-
 float caustic(vec2 uv, float scale, float t)
 {
     float time = t * TIME_SCALE + TIME_OFFSET;
-    vec2 p = mod(uv * scale * TAU, TAU) - 250.0;
-    vec2 i = p;
-    float c = 1.0;
-
-    for (int n = 0; n < WARP_ITERATIONS; n++)
-    {
-        float tt = time * (1.0 - (3.5 / float(n + 1)));
-        i = p + vec2(
-            cos(tt - i.x) + sin(tt + i.y),
-            sin(tt - i.y) + cos(tt + i.x)
-        );
-        c += 1.0 / length(vec2(
-            p.x / (sin(i.x + tt) / INTENSITY),
-            p.y / (cos(i.y + tt) / INTENSITY)
-        ));
-    }
-
-    c /= float(WARP_ITERATIONS);
+    float c = causticWarp(uv, scale, time, WARP_ITERATIONS, INTENSITY);
     c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
     return pow(abs(c), BRIGHT_POWER);
 }
@@ -1633,7 +1848,58 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     fragColor = vec4(col, 1.0);
 }
-`},channels:{image:{iChannel0:"textures/pool.webp"}}},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","simulation","3d"],links:{},screenshotUrl:df,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"textures/pool.webp"}},commonsSources:[{name:"caustic",source:`/**
+ * Caustic Pattern (joltz0r / David Hoskins)
+ * @author joltz0r, David Hoskins (adapted by guinetik)
+ * @date 2026-02-16
+ *
+ * Iterative domain warp for underwater caustic patterns.
+ * Each iteration displaces UV coordinates with sin/cos feedback,
+ * accumulating inverse distance to create bright convergence lines
+ * mimicking refracted light on a pool floor.
+ *
+ * Two layers at different scales are recommended for depth complexity.
+ */
+
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Compute raw caustic convergence via iterative domain warp.
+ *
+ * Returns normalized accumulation value -- higher where displaced UV
+ * coordinates converge, producing bright caustic lines. Apply
+ * post-processing for final brightness curve:
+ *   c = base - pow(c, power);   // typical: 1.17 - pow(c, 1.4)
+ *   c = pow(abs(c), bright);    // typical: pow(abs(c), 8.0)
+ *
+ * @param uv        2D sample position
+ * @param scale     UV scaling (larger = finer pattern, typical 0.5-3.0)
+ * @param time      Animation time (pre-scaled by caller)
+ * @param iters     Warp iterations: 3=soft blobs, 5=crisp, 8+=very sharp
+ * @param intensity Inverse-distance sensitivity (smaller = tighter lines, typical 0.005)
+ * @return Normalized convergence value
+ */
+float causticWarp(vec2 uv, float scale, float time, int iters, float intensity) {
+    vec2 p = mod(uv * scale * M_TAU, M_TAU) - 250.0;
+    vec2 i = p;
+    float c = 1.0;
+    for (int n = 0; n < 8; n++) {
+        if (n >= iters) break;
+        float tt = time * (1.0 - (3.5 / float(n + 1)));
+        i = p + vec2(
+            cos(tt - i.x) + sin(tt + i.y),
+            sin(tt - i.y) + cos(tt + i.x)
+        );
+        c += 1.0 / length(vec2(
+            p.x / (sin(i.x + tt) / intensity),
+            p.y / (cos(i.y + tt) / intensity)
+        ));
+    }
+    return c / float(iters);
+}
+`}]},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","simulation","3d"],links:{},screenshotUrl:df,passes:{image:`/**\r
  * Attractor Study #01: Dadras — Image Pass\r
  * @author guinetik\r
  * @date 2026-02-10\r
@@ -1742,53 +2008,6 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
-// Rotation matrix around the X axis by angle \`a\` (radians).
-mat3 rotX(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(1,0,0, 0,c,-s, 0,s,c);
-}
-
-// Rotation matrix around the Y axis by angle \`a\` (radians).
-mat3 rotY(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(c,0,s, 0,1,0, -s,0,c);
-}
-
-// Project a 3D attractor point to 2D screen space via camera rotation + scale.
-vec2 project(vec3 p, mat3 viewRot, float scale) {
-    return (viewRot * p).xy * scale;
-}
-
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point \`p\` to the line segment (a, b).
-// Used to evaluate per-pixel intensity of each trail segment.
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0);
-    else if (h < 2.0) rgb = vec3(x, c, 0);
-    else if (h < 3.0) rgb = vec3(0, c, x);
-    else if (h < 4.0) rgb = vec3(0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0, c);
-    else              rgb = vec3(c, 0, x);
-    return rgb + m;
-}
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
@@ -1844,7 +2063,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.005 * SPEED);
 
-        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
+        float segD = dfLine(projectMat(last, viewRot, viewScale), projectMat(next, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
             // Recompute derivative at \`next\` to get instantaneous speed for color mapping.
@@ -1864,7 +2083,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // Blink: random pulses of brightness
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.3
+    float blink = hashN(blinkSeed) < 0.3
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // Velocity-based color with hue shift + blink boost
@@ -1892,7 +2111,268 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor = vec4(lineColor * c + prev * fade, 0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"domain-warping",title:"06. Domain Warping Study",description:"Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",date:"2026-01-27",tags:["10-days","procedural","interactive"],links:{},screenshotUrl:uf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`},{name:"projection",source:`/**
+ * 3D Projection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless 3D-to-2D projection helpers for attractor rendering.
+ * Provides rotation matrices and projection functions.
+ */
+
+// === ROTATION MATRICES ===
+
+/**
+ * Rotation matrix around the X axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotX(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(1,0,0, 0,c,-s, 0,s,c);
+}
+
+/**
+ * Rotation matrix around the Y axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotY(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(c,0,s, 0,1,0, -s,0,c);
+}
+
+// === PROJECTION ===
+
+/**
+ * Project a 3D point to 2D screen space via rotation matrix.
+ *
+ * Applies the view rotation and scales the result. The Z component
+ * is discarded (orthographic projection along the view axis).
+ *
+ * @param p        3D point to project
+ * @param viewRot  Combined view rotation matrix (typically rotY * rotX)
+ * @param scale    Screen scale factor (pixels per unit)
+ * @return 2D screen-space position
+ */
+vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * p).xy * scale;
+}
+`}]},{slug:"domain-warping",title:"06. Domain Warping Study",description:"Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",date:"2026-01-27",tags:["10-days","procedural","interactive"],links:{},screenshotUrl:pf,passes:{image:`/**\r
  * Domain Warping Study\r
  * @author guinetik\r
  * @date 2026-01-27\r
@@ -1917,38 +2397,72 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * - Dark vortex areas for contrast\r
  * - Cyan mouse interactions for visibility\r
  * - Pulsing rings from warped coordinates\r
+ *\r
+ * Noise: Uses noise-value.glsl commons (sin-hash family, fbmValue2D).\r
  */\r
 \r
-// Hash function\r
-float hash(vec2 p) {\r
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);\r
-}\r
+// --- FBM Warp Parameters ---\r
+#define FBM_OCTAVES 6           // Noise detail — more octaves = finer detail, higher cost.\r
+                                // 4: fast/smooth. 6: good detail. 8: expensive/sharp.\r
+#define FBM_LACUNARITY 2.0      // Frequency multiplier per octave — 2.0 is standard doubling.\r
+#define FBM_GAIN 0.5            // Amplitude decay per octave — 0.5 = each octave half as strong.\r
+#define WARP_FREQ 2.0           // Base frequency for FBM warp sampling — higher = tighter patterns.\r
+#define WARP_Q_SCALE 2.5        // How strongly layer-1 warp (q) feeds into layer-2 (r).\r
+                                // Below 1.0: subtle. Above 3.0: chaotic folding.\r
+#define WARP_R_SCALE 1.2        // How strongly recursive warp (r) feeds into final pattern.\r
+#define WARP_F2_FREQ 1.5        // Frequency for secondary pattern (f2) — offset from main for variety.\r
+#define WARP_F2_R_SCALE 1.8     // How strongly r feeds into f2 — higher = more recursion visible.\r
 \r
-// 2D Noise\r
-float noise(vec2 p) {\r
-    vec2 i = floor(p);\r
-    vec2 f = fract(p);\r
-    f = f * f * (3.0 - 2.0 * f);\r
+// --- Time Multipliers ---\r
+#define TIME_SCALE 0.3          // Global time scale — controls overall animation speed.\r
+#define TIME_Q_X 0.3            // Time offset speed for q.x FBM sampling.\r
+#define TIME_Q_Y 0.35           // Time offset speed for q.y FBM sampling.\r
+#define TIME_R_X 0.4            // Time offset speed for r.x FBM sampling.\r
+#define TIME_R_Y 0.38           // Time offset speed for r.y FBM sampling.\r
+#define TIME_F2 0.25            // Time offset speed for f2 pattern.\r
+#define TIME_ROTATE 0.1         // Rotation speed — full revolution ~63 seconds at 0.1.\r
 \r
-    float a = hash(i);\r
-    float b = hash(i + vec2(1.0, 0.0));\r
-    float c = hash(i + vec2(0.0, 1.0));\r
-    float d = hash(i + vec2(1.0, 1.0));\r
+// --- FBM Offset Vectors ---\r
+// TECHNIQUE: Spatial offsets decorrelate FBM channels\r
+// Without offsets, q.x and q.y would sample the same noise field,\r
+// producing identical warping in both axes (boring). These magic offsets\r
+// come from Inigo Quilez's original domain warping article.\r
+#define Q_Y_OFFSET vec2(5.2, 1.3)   // Offset for q.y — separates it from q.x.\r
+#define R_X_OFFSET vec2(1.7, 9.2)   // Offset for r.x — decorrelates from q.\r
+#define R_Y_OFFSET vec2(8.3, 2.8)   // Offset for r.y — decorrelates from r.x.\r
 \r
-    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\r
-}\r
+// --- Mouse Interaction ---\r
+#define MOUSE_RADIUS 1.2        // Influence falloff radius — larger = wider effect area.\r
+                                // Below 0.5: very localized. Above 2.0: covers most of screen.\r
+#define MOUSE_WARP_DOMAIN 0.4   // Domain distortion strength from mouse proximity.\r
+#define MOUSE_WARP_R 2.5        // How strongly mouse warps the r layer.\r
+#define MOUSE_WARP_RIPPLE 0.4   // Amplitude of mouse ripple sinusoidal distortion.\r
+#define MOUSE_GLOW_STRENGTH 1.8 // Brightness of the cyan mouse glow halo.\r
 \r
-// FBM (Fractal Brownian Motion)\r
-float fbm(vec2 p) {\r
-    float v = 0.0;\r
-    float a = 0.5;\r
-    for (int i = 0; i < 6; i++) {\r
-        v += a * noise(p);\r
-        p *= 2.0;\r
-        a *= 0.5;\r
-    }\r
-    return v;\r
-}\r
+// --- Ring Effect ---\r
+#define RING1_FREQ 8.0          // Spatial frequency of inner ring pattern.\r
+#define RING1_SPEED 4.0         // Animation speed of inner rings.\r
+#define RING2_FREQ 12.0         // Spatial frequency of outer ring pattern — higher = tighter.\r
+#define RING2_SPEED 6.0         // Animation speed of outer rings.\r
+#define RING_FADE_OUTER 0.8     // Rings fade beyond this radius from center.\r
+#define RING_FADE_INNER 0.3     // Rings fade within this radius (prevents center blob).\r
+\r
+// --- Pulse & Warp Boost ---\r
+#define PULSE_SPEED 2.0         // Pulsing oscillation rate — higher = faster throb.\r
+#define PULSE_WARP_SCALE 10.0   // How much warpIntensity modulates pulse phase.\r
+#define WARP_BOOST_FREQ 3.0     // Sinusoidal warp boost frequency.\r
+#define WARP_BOOST_SPATIAL 5.0  // Spatial modulation of warp boost by distance from center.\r
+#define WARP_BOOST_AMP 0.3      // Amplitude of time-based warp boost.\r
+\r
+// --- Mouse Ripple ---\r
+#define RIPPLE_SPATIAL_FREQ 20.0  // Spatial frequency of mouse ripple rings — higher = tighter.\r
+#define RIPPLE_SPEED 10.0         // Animation speed of ripple expansion.\r
+#define RIPPLE_BRIGHTNESS 0.9     // Brightness of cyan ripple rings.\r
+#define RIPPLE_DARK_GAP 0.2       // Darkness of gaps between ripple rings.\r
+\r
+// --- Vignette ---\r
+#define VIGNETTE_STRENGTH 0.4   // Edge darkening intensity — 0.0 = none, 1.0 = heavy.\r
+                                // 0.4 gives subtle framing without crushing edges.\r
 \r
 // Rotate 2D\r
 vec2 rotate(vec2 p, float angle) {\r
@@ -1966,7 +2480,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
     vec2 p = (uv - 0.5) * 2.0;\r
     p.x *= aspect;\r
 \r
-    float t = iTime * 0.3;\r
+    float t = iTime * TIME_SCALE;\r
 \r
     // Mouse influence (Shadertoy uses iMouse.xy / iResolution.xy)\r
     // In Shadertoy: fragCoord.y=0 at top, iMouse.y=0 at top\r
@@ -1978,18 +2492,18 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
 \r
     float mouseDist = length(p - mouse);\r
     float mouseActive = (iMouse.z > 0.0) ? 1.0 : 0.0;\r
-    float mouseInf = smoothstep(1.2, 0.0, mouseDist) * mouseActive;\r
+    float mouseInf = smoothstep(MOUSE_RADIUS, 0.0, mouseDist) * mouseActive;\r
 \r
     // Warping intensity (can animate or set to 1.0)\r
     float warpIntensity = 1.0;\r
 \r
     // Pulsing effect from warped coordinates - creates expanding rings\r
-    float pulse = sin(t * 2.0 + warpIntensity * 10.0) * 0.5 + 0.5;\r
+    float pulse = sin(t * PULSE_SPEED + warpIntensity * PULSE_WARP_SCALE) * 0.5 + 0.5;\r
     float centerDist = length(p);\r
-    float ring1 = sin(centerDist * 8.0 - t * 4.0) * 0.5 + 0.5;\r
-    float ring2 = sin(centerDist * 12.0 - t * 6.0 + 1.0) * 0.5 + 0.5;\r
+    float ring1 = sin(centerDist * RING1_FREQ - t * RING1_SPEED) * 0.5 + 0.5;\r
+    float ring2 = sin(centerDist * RING2_FREQ - t * RING2_SPEED + 1.0) * 0.5 + 0.5;\r
     float rings = (ring1 + ring2) * 0.5;\r
-    rings *= smoothstep(0.8, 0.0, centerDist) * smoothstep(0.0, 0.3, centerDist);\r
+    rings *= smoothstep(RING_FADE_OUTER, 0.0, centerDist) * smoothstep(0.0, RING_FADE_INNER, centerDist);\r
 \r
     // === DOMAIN WARPING LAYERS ===\r
     // Start with base coordinates\r
@@ -1997,46 +2511,48 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
 \r
     // Layer 0: Mouse-reactive domain distortion\r
     // Warp coordinates based on mouse position for interactive effect\r
-    pp -= mouse * mouseInf * 0.4;\r
+    pp -= mouse * mouseInf * MOUSE_WARP_DOMAIN;\r
 \r
     // Layer 1: Rotating domain warp\r
     // Rotate the coordinate space for dynamic motion\r
-    pp = rotate(pp, t * 0.1);\r
+    pp = rotate(pp, t * TIME_ROTATE);\r
 \r
     // Layer 2: First FBM warp layer\r
     // Sample FBM noise at different offsets to create warping vectors\r
+    // TECHNIQUE: Domain warping via Inigo Quilez's f(p + f(p + f(p)))\r
+    // Each layer samples FBM at offset coordinates, producing organic folding.\r
     vec2 q = vec2(\r
-        fbm(pp * 2.0 + t * 0.3),\r
-        fbm(pp * 2.0 + vec2(5.2, 1.3) + t * 0.35)\r
+        fbmValue2D(pp * WARP_FREQ + t * TIME_Q_X, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN),\r
+        fbmValue2D(pp * WARP_FREQ + Q_Y_OFFSET + t * TIME_Q_Y, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN)\r
     );\r
 \r
     // Layer 3: Recursive domain warping\r
     // Warp the already-warped coordinates (q) for complex patterns\r
     vec2 r = vec2(\r
-        fbm(pp + q * 2.5 + vec2(1.7, 9.2) + t * 0.4),\r
-        fbm(pp + q * 2.5 + vec2(8.3, 2.8) + t * 0.38)\r
+        fbmValue2D(pp + q * WARP_Q_SCALE + R_X_OFFSET + t * TIME_R_X, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN),\r
+        fbmValue2D(pp + q * WARP_Q_SCALE + R_Y_OFFSET + t * TIME_R_Y, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN)\r
     );\r
 \r
     // Additional warping: Time-based sinusoidal distortion\r
     // Adds pulsing energy to the warp pattern\r
     float warpBoost = pulse * warpIntensity;\r
     r += warpBoost * vec2(\r
-        sin(t * 3.0 + centerDist * 5.0),\r
-        cos(t * 3.0 + centerDist * 5.0)\r
-    ) * 0.3;\r
+        sin(t * WARP_BOOST_FREQ + centerDist * WARP_BOOST_SPATIAL),\r
+        cos(t * WARP_BOOST_FREQ + centerDist * WARP_BOOST_SPATIAL)\r
+    ) * WARP_BOOST_AMP;\r
 \r
     // Additional warping: Mouse-reactive distortion\r
     // Interactive domain warping based on mouse proximity\r
-    float mouseWarp = mouseInf * 2.5;\r
+    float mouseWarp = mouseInf * MOUSE_WARP_R;\r
     r += mouseWarp * vec2(\r
-        sin(t * 6.0 + mouseDist * 10.0),\r
-        cos(t * 6.0 + mouseDist * 10.0)\r
-    ) * 0.4;\r
+        sin(t * 6.0 + mouseDist * RIPPLE_SPATIAL_FREQ * 0.5),\r
+        cos(t * 6.0 + mouseDist * RIPPLE_SPATIAL_FREQ * 0.5)\r
+    ) * MOUSE_WARP_RIPPLE;\r
 \r
     // Final pattern: Sample FBM using the heavily warped coordinates\r
     // The multiple layers of warping create complex, organic patterns\r
-    float f = fbm(pp + q + r * 1.2);\r
-    float f2 = fbm(pp * 1.5 + r * 1.8 + t * 0.25);\r
+    float f = fbmValue2D(pp + q + r * WARP_R_SCALE, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN);\r
+    float f2 = fbmValue2D(pp * WARP_F2_FREQ + r * WARP_F2_R_SCALE + t * TIME_F2, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN);\r
 \r
     // === COLOR MAPPING ===\r
     // Terminal green base with celebration accents; each accent is driven\r
@@ -2080,33 +2596,152 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
 \r
     // Mouse glow - CYAN with dark core for contrast\r
     vec3 glowCol = vec3(0.0, 0.85, 1.0);  // Bright cyan\r
-    float glowIntensity = mouseInf * 1.8;\r
+    float glowIntensity = mouseInf * MOUSE_GLOW_STRENGTH;\r
     // Add dark core in center of mouse glow\r
     float darkCore = smoothstep(0.15, 0.0, mouseDist) * mouseInf;\r
     color = mix(color, col1, darkCore * 0.3);\r
     color += glowCol * glowIntensity;\r
 \r
     // Mouse ripple rings - cyan with dark gaps\r
-    float ripple = sin(mouseDist * 20.0 - t * 10.0) * 0.5 + 0.5;\r
+    float ripple = sin(mouseDist * RIPPLE_SPATIAL_FREQ - t * RIPPLE_SPEED) * 0.5 + 0.5;\r
     ripple *= mouseInf * smoothstep(0.0, 1.0, mouseDist);\r
     // Add dark gaps between ripples\r
-    float darkRipple = smoothstep(0.05, 0.0, abs(sin(mouseDist * 20.0 - t * 10.0))) * mouseInf;\r
-    color = mix(color, col1, darkRipple * 0.2);\r
-    color += vec3(0.0, 0.7, 1.0) * ripple * 0.9;\r
+    float darkRipple = smoothstep(0.05, 0.0, abs(sin(mouseDist * RIPPLE_SPATIAL_FREQ - t * RIPPLE_SPEED))) * mouseInf;\r
+    color = mix(color, col1, darkRipple * RIPPLE_DARK_GAP);\r
+    color += vec3(0.0, 0.7, 1.0) * ripple * RIPPLE_BRIGHTNESS;\r
 \r
     // Overall brightness - modulated by warp intensity\r
     color *= 1.0 + warpBoost * 0.5;\r
 \r
     // Vignette\r
-    float vig = 1.0 - length(uv - 0.5) * 0.4;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
-\r
-    // Clamp\r
-    color = clamp(color, 0.0, 1.0);\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{}},{slug:"exoplanets",title:"Exoplanets Study",description:"A procedural solar system with a star and three different planet types",date:"2025-11-26",tags:["exoplanets","raymarching","3d","space","interactive"],links:{},screenshotUrl:pf,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`}]},{slug:"exoplanets",title:"Exoplanets Study",description:"A procedural solar system with a star and three different planet types",date:"2025-11-26",tags:["exoplanets","raymarching","3d","space","interactive"],links:{},screenshotUrl:uf,passes:{image:`/**\r
  * Exoplanets Study\r
  * @author guinetik\r
  * @date 2025-11-26\r
@@ -2114,6 +2749,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
  * A procedural solar system with a realistic star and three different planet types.\r
  * All geometry is ray-sphere intersected (no raymarching), with procedural surface\r
  * shading driven by simplex noise, FBM, and tiled noise for seamless flame textures.\r
+ *\r
+ * Commons: sphere (intersection + UV), color (hsv2rgb/rgb2hsv), noise-simplex\r
+ * (snoise2D/3D, fbmSimplex2D/3D, tiledNoise3D, plasmaNoise).\r
  *\r
  * Scene:\r
  * - Central star with boiling plasma surface, corona flames, and rays\r
@@ -2136,6 +2774,24 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
  * - Star rays: outward-traveling wave pulses along angular spokes\r
  * - Temperature-to-color: piecewise linear interpolation across spectral types\r
  *   (Y/T/L brown dwarfs through O-type blue giants)\r
+ *\r
+ * TECHNIQUE: Stellar spectral mapping\r
+ * Star color is derived from temperature via piecewise linear interpolation\r
+ * across 12 anchor points spanning Y-dwarfs (300K) to O-type stars (40000K).\r
+ *\r
+ * TECHNIQUE: Layered plasma surface\r
+ * Star surface combines spherical distortion (fish-eye warping of UVs),\r
+ * plasmaNoise for boiling granules, tiledNoise3D for seamless outward-flowing\r
+ * flames, and convection cell noise — all modulated by limb darkening.\r
+ *\r
+ * TECHNIQUE: Solar prominences\r
+ * Corona arcs are placed at random angular positions with lifecycle modulation\r
+ * (sin-based birth/death cycle) and FBM-shaped intensity profiles.\r
+ *\r
+ * TECHNIQUE: Biome mapping (rocky planet)\r
+ * Temperature drives ice/lava interpolation: below 180K → ice caps,\r
+ * above 400K → volcanic cracks with lava glow. FBM terrain drives\r
+ * lowland/highland/peak color mixing.\r
  *\r
  * Created from the Exoplanets visualization project\r
  * https://github.com/guinetik/exoplanets\r
@@ -2178,7 +2834,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )\r
 \r
 const float PI = 3.14159265359;\r
 const float TAU = 6.28318530718;\r
-const float MOD_DIVISOR = 289.0;\r
 \r
 // Star surface constants\r
 const float PLASMA_SCALE = 3.0;          // UV scale for plasma noise — higher = finer granules.\r
@@ -2274,199 +2929,14 @@ vec3 temperatureToColor(float tempK) {\r
 }\r
 \r
 // =============================================================================\r
-// NOISE FUNCTIONS\r
+// LOCAL UTILITIES (unique to exoplanets, not in commons)\r
 // =============================================================================\r
-// Noise algorithm choices:\r
-// - 3D Simplex (snoise3D): Used for star surface, corona, and planet terrain.\r
-//   Simplex is preferred over Perlin for its lack of axis-aligned artifacts and\r
-//   lower computational cost in 3D (4 corners vs 8 for classic Perlin).\r
-// - 2D Simplex (snoise2D): Used for planet surface detail where 3D is unnecessary.\r
-// - Tiled noise (tiledNoise3D): Used for star flames — tiles seamlessly at a\r
-//   given resolution to prevent visible seams on the spherical surface.\r
-\r
-vec3 mod289_3(vec3 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }\r
-vec4 mod289_4(vec4 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }\r
-vec2 mod289_2(vec2 x) { return x - floor(x * (1.0 / MOD_DIVISOR)) * MOD_DIVISOR; }\r
-\r
-vec4 permute(vec4 x) { return mod289_4(((x * 34.0) + 1.0) * x); }\r
-vec3 permute3(vec3 x) { return mod289_3(((x * 34.0) + 1.0) * x); }\r
-\r
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }\r
-\r
-float hash(float n) { return fract(sin(n) * 43758.5453123); }\r
 \r
 float seedHash(float seed) {\r
     return fract(sin(seed * 127.1 + seed * seed * 0.013) * 43758.5453);\r
 }\r
 \r
 float wrapTime(float t) { return mod(t, 1000.0); }\r
-\r
-// 3D Simplex Noise\r
-float snoise3D(vec3 v) {\r
-    const vec2 C = vec2(1.0/6.0, 1.0/3.0);\r
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);\r
-\r
-    vec3 i = floor(v + dot(v, C.yyy));\r
-    vec3 x0 = v - i + dot(i, C.xxx);\r
-\r
-    vec3 g = step(x0.yzx, x0.xyz);\r
-    vec3 l = 1.0 - g;\r
-    vec3 i1 = min(g.xyz, l.zxy);\r
-    vec3 i2 = max(g.xyz, l.zxy);\r
-\r
-    vec3 x1 = x0 - i1 + C.xxx;\r
-    vec3 x2 = x0 - i2 + C.yyy;\r
-    vec3 x3 = x0 - D.yyy;\r
-\r
-    i = mod289_3(i);\r
-    vec4 p = permute(permute(permute(\r
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))\r
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))\r
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));\r
-\r
-    float n_ = 0.142857142857;\r
-    vec3 ns = n_ * D.wyz - D.xzx;\r
-\r
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);\r
-    vec4 x_ = floor(j * ns.z);\r
-    vec4 y_ = floor(j - 7.0 * x_);\r
-\r
-    vec4 x = x_ * ns.x + ns.yyyy;\r
-    vec4 y = y_ * ns.x + ns.yyyy;\r
-    vec4 h = 1.0 - abs(x) - abs(y);\r
-\r
-    vec4 b0 = vec4(x.xy, y.xy);\r
-    vec4 b1 = vec4(x.zw, y.zw);\r
-\r
-    vec4 s0 = floor(b0) * 2.0 + 1.0;\r
-    vec4 s1 = floor(b1) * 2.0 + 1.0;\r
-    vec4 sh = -step(h, vec4(0.0));\r
-\r
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;\r
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;\r
-\r
-    vec3 p0 = vec3(a0.xy, h.x);\r
-    vec3 p1 = vec3(a0.zw, h.y);\r
-    vec3 p2 = vec3(a1.xy, h.z);\r
-    vec3 p3 = vec3(a1.zw, h.w);\r
-\r
-    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));\r
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;\r
-\r
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\r
-    m = m * m;\r
-    return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));\r
-}\r
-\r
-// 2D Simplex Noise\r
-float snoise2D(vec2 v) {\r
-    const vec4 C = vec4(0.211324865405187, 0.366025403784439,\r
-                       -0.577350269189626, 0.024390243902439);\r
-    vec2 i = floor(v + dot(v, C.yy));\r
-    vec2 x0 = v - i + dot(i, C.xx);\r
-    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\r
-    vec4 x12 = x0.xyxy + C.xxzz;\r
-    x12.xy -= i1;\r
-    i = mod289_2(i);\r
-    vec3 p = permute3(permute3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));\r
-    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);\r
-    m = m * m; m = m * m;\r
-    vec3 x = 2.0 * fract(p * C.www) - 1.0;\r
-    vec3 h = abs(x) - 0.5;\r
-    vec3 ox = floor(x + 0.5);\r
-    vec3 a0 = x - ox;\r
-    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);\r
-    vec3 g;\r
-    g.x = a0.x * x0.x + h.x * x0.y;\r
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;\r
-    return 130.0 * dot(m, g);\r
-}\r
-\r
-// Tiled noise for seamless flame patterns\r
-float tiledNoise3D(vec3 uv, float res) {\r
-    uv *= res;\r
-    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);\r
-    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);\r
-    vec3 f = fract(uv);\r
-    f = f * f * (3.0 - 2.0 * f);\r
-\r
-    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,\r
-                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);\r
-\r
-    vec4 r = fract(sin(v * 0.001) * 100000.0);\r
-    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);\r
-\r
-    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);\r
-    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);\r
-\r
-    return mix(r0, r1, f.z) * 2.0 - 1.0;\r
-}\r
-\r
-// FBM variants\r
-float fbm3D(vec3 p, int octaves) {\r
-    float value = 0.0;\r
-    float amplitude = 0.5;\r
-    float frequency = 1.0;\r
-    for (int i = 0; i < 6; i++) {\r
-        if (i >= octaves) break;\r
-        value += amplitude * snoise3D(p * frequency);\r
-        amplitude *= 0.5;\r
-        frequency *= 2.0;\r
-    }\r
-    return value;\r
-}\r
-\r
-float fbm2D(vec2 p) {\r
-    float value = 0.0;\r
-    float amplitude = 0.5;\r
-    for (int i = 0; i < 5; i++) {\r
-        value += amplitude * snoise2D(p);\r
-        p *= 2.0;\r
-        amplitude *= 0.5;\r
-    }\r
-    return value;\r
-}\r
-\r
-// Plasma noise with flowing distortion\r
-float plasmaNoise(vec3 p, float time) {\r
-    float value = 0.0;\r
-    float amplitude = 1.0;\r
-    float frequency = 1.0;\r
-    float totalAmp = 0.0;\r
-\r
-    for (int i = 0; i < 5; i++) {\r
-        vec3 offset = vec3(\r
-            sin(time * 0.1 + float(i)) * 0.5,\r
-            cos(time * 0.15 + float(i) * 0.7) * 0.5,\r
-            time * 0.05\r
-        );\r
-        value += amplitude * snoise3D((p + offset) * frequency);\r
-        totalAmp += amplitude;\r
-        amplitude *= 0.5;\r
-        frequency *= 2.0;\r
-    }\r
-\r
-    return value / totalAmp;\r
-}\r
-\r
-// =============================================================================\r
-// COLOR UTILITIES\r
-// =============================================================================\r
-\r
-vec3 hsv2rgb(vec3 c) {\r
-    vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);\r
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);\r
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);\r
-}\r
-\r
-vec3 rgb2hsv(vec3 c) {\r
-    vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);\r
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));\r
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));\r
-    float d = q.x - min(q.w, q.y);\r
-    float e = 1.0e-10;\r
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);\r
-}\r
 \r
 // =============================================================================\r
 // OUTWARD TRAVELING WAVE (for star rays)\r
@@ -2646,12 +3116,12 @@ vec3 renderCorona3D(vec3 rayOrigin, vec3 rayDir, vec3 starCenter, float starRadi
     // === FLAME NOISE ===\r
     float flameTime = time * 0.3;\r
     vec3 flameCoord = vec3(angle * 3.0, normalizedDist * 2.0, flameTime * 2.0);\r
-    float flameNoise = fbm3D(flameCoord, 3);\r
+    float flameNoise = fbmSimplex3D(flameCoord, 3);\r
     flameNoise = flameNoise * 0.5 + 0.5;\r
 \r
     // Turbulence\r
     vec3 turbCoord = vec3(angle * 6.0 + time * 0.5, normalizedDist * 4.0, time * 0.25);\r
-    float flameTurbulence = fbm3D(turbCoord, 4);\r
+    float flameTurbulence = fbmSimplex3D(turbCoord, 4);\r
 \r
     // Flame intensity with falloff\r
     float flameIntensity = flameNoise * (0.5 + flameTurbulence * 0.5);\r
@@ -2822,7 +3292,7 @@ vec3 renderRockyPlanet(vec2 uv, vec3 normal, vec3 baseColor, float seed, float t
     hsv.z = clamp(hsv.z * 1.1, 0.4, 1.0);\r
     vec3 variedColor = hsv2rgb(hsv);\r
 \r
-    float terrain = fbm2D(terrainUv * (3.0 + seed * 3.0));\r
+    float terrain = fbmSimplex2D(terrainUv * (3.0 + seed * 3.0));\r
 \r
     float iceFactor = smoothstep(250.0, 180.0, temperature);\r
     float volcanicFactor = smoothstep(400.0, 800.0, temperature);\r
@@ -2974,36 +3444,10 @@ vec3 renderIceGiant(vec2 uv, vec3 normal, vec3 baseColor, float seed) {\r
 }\r
 \r
 // =============================================================================\r
-// 3D RAY-SPHERE INTERSECTION\r
-// =============================================================================\r
-\r
-float intersectSphere3D(vec3 rayOrigin, vec3 rayDir, vec3 sphereCenter, float radius) {\r
-    vec3 oc = rayOrigin - sphereCenter;\r
-    float b = dot(oc, rayDir);\r
-    float c = dot(oc, oc) - radius * radius;\r
-    float h = b * b - c;\r
-\r
-    if (h < 0.0) return -1.0;\r
-\r
-    h = sqrt(h);\r
-    float t = -b - h;\r
-\r
-    if (t < 0.0) t = -b + h;\r
-    if (t < 0.0) return -1.0;\r
-\r
-    return t;\r
-}\r
-\r
-void getSphereInfo(vec3 hitPoint, vec3 sphereCenter, out vec3 normal, out vec2 sphereUv) {\r
-    normal = normalize(hitPoint - sphereCenter);\r
-    float latitude = 0.5 + asin(normal.y) / PI;\r
-    float longitude = 0.5 + atan(normal.x, normal.z) / (2.0 * PI);\r
-    sphereUv = vec2(longitude, latitude);\r
-}\r
-\r
-// =============================================================================\r
 // CAMERA UTILITIES\r
 // =============================================================================\r
+// NOTE: rotateX/rotateY here use a different sign convention from projection.glsl.\r
+// Exoplanets uses camera-orbit rotation (Y-up, right-handed), so these are kept inline.\r
 \r
 mat3 rotateY(float angle) {\r
     float c = cos(angle);\r
@@ -3055,7 +3499,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     cameraPos = rotateY(angleY) * cameraPos;\r
 \r
     mat3 cameraMat = setCamera(cameraPos, target);\r
-    vec3 rayDir = cameraMat * normalize(vec3(uv, CAMERA_FOV));\r
+\r
+    // TECHNIQUE: Adaptive FOV — widen on portrait to preserve scene visibility.\r
+    // Desktop 16:9: fov = 1.8 (unchanged). Phone portrait: fov ≈ 2.29 (wider view).\r
+    float aspect = iResolution.x / iResolution.y;\r
+    float fov = CAMERA_FOV * (1.0 + max(0.0, 1.0 - aspect) * 0.5);\r
+\r
+    vec3 rayDir = cameraMat * normalize(vec3(uv, fov));\r
     vec3 rayOrigin = cameraPos;\r
 \r
     // =========================================================================\r
@@ -3142,7 +3592,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     // -------------------------------------------------------------------------\r
     // STAR SURFACE\r
     // -------------------------------------------------------------------------\r
-    float starDist = intersectSphere3D(rayOrigin, rayDir, STAR_CENTER, STAR_RADIUS);\r
+    float starDist = intersectSphere(rayOrigin, rayDir, STAR_CENTER, STAR_RADIUS);\r
 \r
     if (starDist > 0.0 && starDist < closestHit) {\r
         closestHit = starDist;\r
@@ -3159,7 +3609,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     // -------------------------------------------------------------------------\r
     // ROCKY PLANET\r
     // -------------------------------------------------------------------------\r
-    float rockyDist = intersectSphere3D(rayOrigin, rayDir, ROCKY_CENTER, ROCKY_RADIUS);\r
+    float rockyDist = intersectSphere(rayOrigin, rayDir, ROCKY_CENTER, ROCKY_RADIUS);\r
 \r
     if (rockyDist > 0.0 && rockyDist < closestHit) {\r
         closestHit = rockyDist;\r
@@ -3177,7 +3627,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);\r
         float diffuse = max(dot(planetNormal, lightDir), 0.0);\r
         float ambient = 0.12;\r
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
 \r
         hitColor = planetColor * (ambient + diffuse * 0.88 * shadow);\r
         hitColor += starColor * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 3.0) * 0.15;\r
@@ -3186,7 +3636,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     // -------------------------------------------------------------------------\r
     // GAS GIANT\r
     // -------------------------------------------------------------------------\r
-    float gasDist = intersectSphere3D(rayOrigin, rayDir, GAS_CENTER, GAS_RADIUS);\r
+    float gasDist = intersectSphere(rayOrigin, rayDir, GAS_CENTER, GAS_RADIUS);\r
 \r
     if (gasDist > 0.0 && gasDist < closestHit) {\r
         closestHit = gasDist;\r
@@ -3204,7 +3654,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);\r
         float diffuse = max(dot(planetNormal, lightDir), 0.0);\r
         float ambient = 0.1;\r
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
 \r
         hitColor = planetColor * (ambient + diffuse * 0.9 * shadow);\r
         hitColor += starColor * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 3.0) * 0.2;\r
@@ -3213,7 +3663,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
     // -------------------------------------------------------------------------\r
     // ICE GIANT\r
     // -------------------------------------------------------------------------\r
-    float iceDist = intersectSphere3D(rayOrigin, rayDir, ICE_CENTER, ICE_RADIUS);\r
+    float iceDist = intersectSphere(rayOrigin, rayDir, ICE_CENTER, ICE_RADIUS);\r
 \r
     if (iceDist > 0.0 && iceDist < closestHit) {\r
         closestHit = iceDist;\r
@@ -3231,7 +3681,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         vec3 lightDir = normalize(STAR_CENTER - hitPoint);\r
         float diffuse = max(dot(planetNormal, lightDir), 0.0);\r
         float ambient = 0.08;\r
-        float shadow = (intersectSphere3D(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
+        float shadow = (intersectSphere(hitPoint + planetNormal * 0.01, lightDir, STAR_CENTER, STAR_RADIUS) > 0.0) ? 1.0 : 0.0;\r
 \r
         hitColor = planetColor * (ambient + diffuse * 0.92 * shadow);\r
         hitColor += ICE_GIANT_COLOR * pow(1.0 - max(dot(viewNormal, vec3(0.0, 0.0, 1.0)), 0.0), 2.5) * 0.25;\r
@@ -3258,7 +3708,415 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{}},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:hf,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"noise-simplex",source:`/**
+ * Simplex Noise (Ashima Arts implementation)
+ * @author guinetik
+ * @date 2026-02-16
+ *
+ * 2D and 3D simplex noise plus FBM and specialty variants.
+ * Simplex noise is preferred over classic Perlin for 3D work because it
+ * evaluates 4 simplex corners instead of 8 cube corners, and has no
+ * axis-aligned artifacts. Range is approximately [-1, 1].
+ *
+ * Noise: Chosen for star surfaces, corona flames, and planet terrain where
+ * isotropic noise without grid bias is important. Costlier than value noise
+ * but cheaper than 3D Perlin in practice due to fewer gradient evaluations.
+ *
+ * Based on: "Simplex noise demystified" by Stefan Gustavson (2005),
+ * GLSL implementation by Ashima Arts / Ian McEwan.
+ */
+
+// === INTERNAL HELPERS ===
+// These mod289/permute functions form the hash core of simplex noise.
+// 289 = 17*17 — chosen so that permute(permute(x)) covers [0,289) uniformly.
+
+vec2 mod289_s2(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 mod289_s3(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289_s4(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+
+vec3 permute_s3(vec3 x) { return mod289_s3(((x * 34.0) + 1.0) * x); }
+vec4 permute_s4(vec4 x) { return mod289_s4(((x * 34.0) + 1.0) * x); }
+
+vec4 taylorInvSqrt_s(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+// === 3D SIMPLEX NOISE ===
+
+/**
+ * 3D simplex noise.
+ *
+ * Evaluates gradient noise on a simplex (tetrahedron) lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  3D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise3D(vec3 v) {
+    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+
+    i = mod289_s3(i);
+    vec4 p = permute_s4(permute_s4(permute_s4(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+
+    vec4 s0 = floor(b0) * 2.0 + 1.0;
+    vec4 s1 = floor(b1) * 2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+
+    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+
+    vec4 norm = taylorInvSqrt_s(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+}
+
+// === 2D SIMPLEX NOISE ===
+
+/**
+ * 2D simplex noise.
+ *
+ * Evaluates gradient noise on a triangular simplex lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  2D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise2D(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                       -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289_s2(i);
+    vec3 p = permute_s3(permute_s3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m; m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+// === FBM VARIANTS ===
+
+/**
+ * 2D FBM using simplex noise, 5 fixed octaves.
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p  2D sample position
+ * @return   FBM value, centered near 0
+ */
+float fbmSimplex2D(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    for (int i = 0; i < 5; i++) {
+        value += amplitude * snoise2D(p);
+        p *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+/**
+ * 3D FBM using simplex noise, configurable octaves (1–6).
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p        3D sample position
+ * @param octaves  Number of octaves (clamped to 1–6)
+ * @return         FBM value, centered near 0
+ */
+float fbmSimplex3D(vec3 p, int octaves) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    for (int i = 0; i < 6; i++) {
+        if (i >= octaves) break;
+        value += amplitude * snoise3D(p * frequency);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+// === SPECIALTY NOISE ===
+
+/**
+ * Seamless tiling noise for sphere textures.
+ *
+ * Uses lattice hashing with modular wrap to tile seamlessly at resolution \`res\`.
+ * Output range is [-1, 1]. Ideal for star flame patterns where seam-free
+ * spherical coverage is needed.
+ *
+ * @param uv   3D coordinate (typically angular coords + time)
+ * @param res  Tiling resolution — higher = finer detail
+ * @return     Tiled noise in [-1, 1]
+ */
+float tiledNoise3D(vec3 uv, float res) {
+    uv *= res;
+    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 f = fract(uv);
+    f = f * f * (3.0 - 2.0 * f);
+
+    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
+                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
+
+    vec4 r = fract(sin(v * 0.001) * 100000.0);
+    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
+    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    return mix(r0, r1, f.z) * 2.0 - 1.0;
+}
+
+/**
+ * Animated flowing plasma noise.
+ *
+ * Multi-octave simplex noise with per-octave time-varying offsets that
+ * create a "boiling" or flowing effect. Normalized to [0, 1].
+ * Used for star surface plasma, lava flows, and other animated surfaces.
+ *
+ * @param p     3D sample position
+ * @param time  Animation time (typically iTime or wrapped iTime)
+ * @return      Plasma value in [0, 1]
+ */
+float plasmaNoise(vec3 p, float time) {
+    float value = 0.0;
+    float amplitude = 1.0;
+    float frequency = 1.0;
+    float totalAmp = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        vec3 offset = vec3(
+            sin(time * 0.1 + float(i)) * 0.5,
+            cos(time * 0.15 + float(i) * 0.7) * 0.5,
+            time * 0.05
+        );
+        value += amplitude * snoise3D((p + offset) * frequency);
+        totalAmp += amplitude;
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+
+    return value / totalAmp;
+}
+`}]},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:mf,passes:{image:`/**\r
  * Genuary 2026 Day 31: GLSL Day\r
  * @author guinetik\r
  * @date 2026-01-31\r
@@ -4010,7 +4868,7 @@ vec3 renderMatrix(vec2 fragCoord, vec2 resolution, float time) {\r
 \r
     return col;\r
 }\r
-`},channels:{}},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:mf,passes:{image:`/**\r
+`},channels:{},commonsSources:[]},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:hf,passes:{image:`/**\r
  * Gravity Well Study\r
  *\r
  * @author guinetik\r
@@ -4031,11 +4889,64 @@ vec3 renderMatrix(vec2 fragCoord, vec2 resolution, float time) {\r
 #define PI 3.14159265359\r
 #define TAU 6.28318530718\r
 \r
+// --- Well parameters ---\r
+#define WELL_COUNT 4                // Number of orbiting wells around the central well.\r
+#define CENTER_OSCILLATION 0.15     // Amplitude of central well's wander — higher sends the center further from origin.\r
+                                    // Below 0.05: nearly stationary. Above 0.3: center drifts off-screen.\r
+#define CENTER_MASS_BASE 0.06       // Baseline pull strength of the central well.\r
+                                    // Below 0.03: barely visible warp. Above 0.12: extreme singularity.\r
+#define CENTER_MASS_AMP 0.02        // How much the central mass pulses over time.\r
+                                    // 0.0: steady pull. Above 0.04: dramatic breathing effect.\r
+#define CENTER_SOFTNESS 0.01        // Singularity softening for center — prevents division-by-zero warp.\r
+                                    // Lower (0.001): sharper, more singular. Higher (0.05): broad gentle lens.\r
+\r
+// --- Orbit parameters ---\r
+#define ORBIT_RADIUS_BASE 0.35      // Mean orbital distance of the 4 wells from center.\r
+                                    // Below 0.2: clustered tightly. Above 0.5: near screen edges.\r
+#define ORBIT_RADIUS_AMP 0.1        // Radial oscillation per orbiting well — adds elliptical variation.\r
+                                    // 0.0: perfect circles. Above 0.2: highly eccentric orbits.\r
+#define ORBIT_MASS_BASE 0.025       // Baseline pull strength of each orbiting well.\r
+                                    // Below 0.01: subtle ripple. Above 0.05: strong secondary lensing.\r
+#define ORBIT_SOFTNESS 0.015        // Singularity softening for orbiters — slightly gentler than center.\r
+                                    // Lower: tighter warp rings. Higher: diffuse lensing.\r
+\r
+// --- Glow parameters ---\r
+#define GLOW_RADIUS_CENTER 0.25     // Smoothstep outer edge for center glow halo.\r
+                                    // Smaller: tighter hotspot. Larger: wide diffuse aura.\r
+#define GLOW_RADIUS_ORBIT 0.15      // Smoothstep outer edge for orbiter glow halos.\r
+                                    // Smaller: pinpoint gleam. Larger: broad haze.\r
+#define GLOW_BRIGHTNESS_MULT 1.5    // Color multiplier for sampled glow tint — boosts the texture color.\r
+                                    // 1.0: natural. Above 2.0: blown-out neon.\r
+#define GLOW_BRIGHTNESS_ADD 0.3     // Additive floor ensuring glow is visible even on dark textures.\r
+                                    // 0.0: dark areas stay dark. Above 0.5: washed-out whites.\r
+#define GLOW_BLEND 0.6              // How strongly the accumulated glow mixes into the final image.\r
+                                    // 0.0: no glow. 1.0: intense halation.\r
+\r
+// --- Core parameters (event horizon) ---\r
+#define CORE_OUTER_CENTER 0.06      // Outer smoothstep edge for center's dark core.\r
+                                    // Larger: wider dark zone. Smaller: pinpoint black hole.\r
+#define CORE_INNER_CENTER 0.02      // Inner smoothstep edge — fully dark inside this radius.\r
+#define CORE_ALPHA_CENTER 0.9       // Opacity of center core darkening (0–1). 1.0 = pure black.\r
+#define CORE_OUTER_ORBIT 0.04       // Outer smoothstep edge for orbiter dark cores.\r
+#define CORE_INNER_ORBIT 0.015      // Inner smoothstep edge for orbiter dark cores.\r
+#define CORE_ALPHA_ORBIT 0.85       // Opacity of orbiter core darkening.\r
+\r
+// --- Post-processing ---\r
+#define VIGNETTE_STRENGTH 0.5       // How aggressively edges darken — higher = stronger vignette.\r
+                                    // 0.0: no vignette. Above 0.8: heavy darkening at corners.\r
+#define CONTRAST_POWER 0.95         // Gamma-like contrast tweak applied before final output.\r
+                                    // Below 1.0: slight lift in darks. Above 1.0: crushed shadows.\r
+\r
 /**\r
  * Warp UV toward a gravity point.\r
- * The softness parameter prevents the singularity at dist=0 by adding\r
- * a floor to the denominator: pull = mass / (dist^2 + softness).\r
- * Lower softness = sharper warp near the center; higher = gentler falloff.\r
+ *\r
+ * // TECHNIQUE: Inverse-square gravitational lensing\r
+ * // Models Newtonian gravity: pull = mass / (dist^2 + softness).\r
+ * // The UV is displaced toward \`center\` by an amount proportional to\r
+ * // 1/r^2, mimicking how light bends around a massive body.\r
+ * // The \`softness\` parameter acts as a regularization term that prevents\r
+ * // the singularity at dist=0 by adding a floor to the denominator.\r
+ * // Lower softness = sharper warp near the center; higher = gentler falloff.\r
  */\r
 vec2 gravityWarp(vec2 uv, vec2 center, float mass, float softness) {\r
     vec2 delta = uv - center;\r
@@ -4059,22 +4970,22 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // Central pulsing well\r
     vec2 center = vec2(\r
-        sin(time * 0.7) * 0.15,\r
-        cos(time * 0.5) * 0.15\r
+        sin(time * 0.7) * CENTER_OSCILLATION,\r
+        cos(time * 0.5) * CENTER_OSCILLATION\r
     );\r
-    float centerMass = 0.06 + sin(time * 2.0) * 0.02;\r
-    warped = gravityWarp(warped, center, centerMass, 0.01);\r
+    float centerMass = CENTER_MASS_BASE + sin(time * 2.0) * CENTER_MASS_AMP;\r
+    warped = gravityWarp(warped, center, centerMass, CENTER_SOFTNESS);\r
 \r
     // Orbiting wells\r
-    vec2 wellPositions[4];\r
-    for (int i = 0; i < 4; i++) {\r
+    vec2 wellPositions[WELL_COUNT];\r
+    for (int i = 0; i < WELL_COUNT; i++) {\r
         float fi = float(i);\r
         float angle = time * (0.4 + fi * 0.15) + fi * TAU / 4.0;\r
-        float radius = 0.35 + sin(time * 0.3 + fi) * 0.1;\r
+        float radius = ORBIT_RADIUS_BASE + sin(time * 0.3 + fi) * ORBIT_RADIUS_AMP;\r
         wellPositions[i] = vec2(cos(angle), sin(angle)) * radius;\r
 \r
-        float mass = 0.025 * (1.0 + sin(time * 1.5 + fi * 2.0) * 0.5);\r
-        warped = gravityWarp(warped, wellPositions[i], mass, 0.015);\r
+        float mass = ORBIT_MASS_BASE * (1.0 + sin(time * 1.5 + fi * 2.0) * 0.5);\r
+        warped = gravityWarp(warped, wellPositions[i], mass, ORBIT_SOFTNESS);\r
     }\r
 \r
     // Convert warped coords back to UV space\r
@@ -4099,52 +5010,52 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // Center well glow\r
     float centerDist = length(p - center);\r
-    float centerGlow = smoothstep(0.25, 0.0, centerDist);\r
+    float centerGlow = smoothstep(GLOW_RADIUS_CENTER, 0.0, centerDist);\r
     vec2 centerSampleUV = center / vec2(aspect, 1.0) + 0.5;\r
     vec3 centerColor = texture(iChannel0, clamp(centerSampleUV, 0.0, 1.0)).rgb;\r
     // Boost brightness for glow\r
-    centerColor = centerColor * 1.5 + 0.3;\r
+    centerColor = centerColor * GLOW_BRIGHTNESS_MULT + GLOW_BRIGHTNESS_ADD;\r
     glowColor += centerColor * centerGlow;\r
     totalGlow += centerGlow;\r
 \r
     // Orbiting well glows\r
-    for (int i = 0; i < 4; i++) {\r
+    for (int i = 0; i < WELL_COUNT; i++) {\r
         float dist = length(p - wellPositions[i]);\r
-        float glow = smoothstep(0.15, 0.0, dist);\r
+        float glow = smoothstep(GLOW_RADIUS_ORBIT, 0.0, dist);\r
 \r
         // Sample texture color at well position\r
         vec2 sampleUV = wellPositions[i] / vec2(aspect, 1.0) + 0.5;\r
         vec3 wellColor = texture(iChannel0, clamp(sampleUV, 0.0, 1.0)).rgb;\r
-        wellColor = wellColor * 1.5 + 0.3;\r
+        wellColor = wellColor * GLOW_BRIGHTNESS_MULT + GLOW_BRIGHTNESS_ADD;\r
 \r
         glowColor += wellColor * glow;\r
         totalGlow += glow;\r
     }\r
 \r
     // Apply glow\r
-    color += glowColor * 0.6;\r
+    color += glowColor * GLOW_BLEND;\r
 \r
     // === DARK CORES ===\r
-    float core = smoothstep(0.06, 0.02, length(p - center));\r
-    color *= 1.0 - core * 0.9;\r
+    float core = smoothstep(CORE_OUTER_CENTER, CORE_INNER_CENTER, length(p - center));\r
+    color *= 1.0 - core * CORE_ALPHA_CENTER;\r
 \r
-    for (int i = 0; i < 4; i++) {\r
+    for (int i = 0; i < WELL_COUNT; i++) {\r
         float coreDist = length(p - wellPositions[i]);\r
-        float coreAlpha = smoothstep(0.04, 0.015, coreDist);\r
-        color *= 1.0 - coreAlpha * 0.85;\r
+        float coreAlpha = smoothstep(CORE_OUTER_ORBIT, CORE_INNER_ORBIT, coreDist);\r
+        color *= 1.0 - coreAlpha * CORE_ALPHA_ORBIT;\r
     }\r
 \r
     // === POST ===\r
     // Vignette\r
-    float vig = 1.0 - length(uv - 0.5) * 0.5;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     // Slight contrast boost\r
-    color = pow(color, vec3(0.95));\r
+    color = pow(max(color, vec3(0.0)), vec3(CONTRAST_POWER));\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/space.jpg"}}},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","simulation","3d"],links:{},screenshotUrl:vf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/space.jpg"}},commonsSources:[]},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","simulation","3d"],links:{},screenshotUrl:vf,passes:{image:`/**
  * Attractor Study #05: Halvorsen — Image Pass
  * @author guinetik
  * @date 2026-02-15
@@ -4255,35 +5166,6 @@ vec2 project(vec3 p, float cy, float sy, float cp, float sp) {
     return vec2(r.x, r.y * cp - r.z * sp);
 }
 
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point \`p\` to the line segment (a, b).
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0.0);
-    else if (h < 2.0) rgb = vec3(x, c, 0.0);
-    else if (h < 3.0) rgb = vec3(0.0, c, x);
-    else if (h < 4.0) rgb = vec3(0.0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0.0, c);
-    else              rgb = vec3(c, 0.0, x);
-    return rgb + m;
-}
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
@@ -4356,7 +5238,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── Blink ──
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.25
+    float blink = hashN(blinkSeed) < 0.25
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // ── Color: pink (fast) -> blue (slow), with continuous hue rotation ──
@@ -4385,9 +5267,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             // Particles that escape beyond radius 20 are respawned, plus a small
             // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal
             // even for well-behaved orbits. Prevents stale/stuck particles.
-            float rng = hash(float(px) * 13.7 + iTime * 60.0);
+            float rng = hashN(float(px) * 13.7 + iTime * 60.0);
             if (length(pos) > 20.0 || rng < RESPAWN_CHANCE) {
-                float angle = hash(float(px) + iTime) * 6.28318;
+                float angle = hashN(float(px) + iTime) * 6.28318;
                 float r = 0.5;
                 pos = vec3(r * cos(angle), r * sin(angle), r * sin(angle * 0.7 + 1.0));
             }
@@ -4406,7 +5288,219 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"kaleidoscope-study",title:"Kaleidoscope Interactive",description:"Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",date:"2026-01-28",tags:["procedural","interactive"],links:{},screenshotUrl:gf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`}]},{slug:"kaleidoscope-study",title:"Kaleidoscope Interactive",description:"Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",date:"2026-01-28",tags:["procedural","interactive"],links:{},screenshotUrl:gf,passes:{image:`/**\r
  * Kaleidoscope Interactive\r
  * @author guinetik\r
  * @date 2026-01-28\r
@@ -4506,7 +5600,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/penrose.png"}}},{slug:"kaleidoscopic",title:"Kaleidoscopic Study",description:"Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",date:"2026-02-01",tags:["10-days","procedural"],links:{},screenshotUrl:yf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"textures/penrose.png"}},commonsSources:[]},{slug:"kaleidoscopic",title:"Kaleidoscopic Study",description:"Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",date:"2026-02-01",tags:["10-days","procedural"],links:{},screenshotUrl:yf,passes:{image:`/**\r
  * Kaleidoscopic Study\r
  * @author guinetik\r
  * @date 2026-02-01\r
@@ -4529,6 +5623,41 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 #define PI 3.14159265359\r
 #define TAU 6.28318530718\r
 \r
+// --- Kaleidoscope Geometry ---\r
+#define SIMPLE_SEGMENTS 6.0           // N-fold symmetry count — 4 = square, 6 = hex, 8+ = near-circular\r
+#define HEX_FOLD_ANGLE (PI / 3.0)    // 60-degree wedge for iterative hex folding — PI/4 gives octagonal\r
+#define ITERATIVE_PASSES 8            // Fractal fold depth — 4: coarse, 8: detailed, 12+: diminishing returns\r
+#define SPIRAL_TWIST_CENTER 3.0       // Base twist amount — higher values wind the spiral tighter\r
+#define SPIRAL_TWIST_RANGE 2.0        // Twist oscillation amplitude — 0: static, 2.0: moderate breathing\r
+#define SPIRAL_SEGMENTS_CENTER 6.0    // Base segment count for spiral mode — same tuning as SIMPLE_SEGMENTS\r
+#define SPIRAL_SEGMENTS_RANGE 2.0     // Segment oscillation amplitude — 0: fixed, 2.0: varies from 4 to 8\r
+\r
+// --- Animation ---\r
+#define BREATHE_AMPLITUDE 0.3         // Zoom oscillation depth — 0: static, 0.3: gentle pulse, 0.8: dramatic\r
+#define BREATHE_SPEED 0.8             // Zoom oscillation rate (rad/s) — higher = faster pulsing\r
+#define CYCLE_SPEED 0.08              // Speed of cycling between kaleido modes — 0.08: ~38s full cycle\r
+#define SIMPLE_ROTATION_SPEED 0.2     // Rotation speed for simple mode (rad/s) — keep < 1.0 to avoid nausea\r
+#define ITER_ROT_BASE_SPEED 0.1       // Per-iteration rotation base speed — sets the slowest layer\r
+#define ITER_ROT_INCREMENT 0.02       // Extra rotation per deeper iteration — creates speed gradient across layers\r
+#define SPIRAL_ANGLE_SPEED 0.3        // Spiral rotation rate (rad/s) — adds swirl animation on top of twist\r
+#define TRANSLATE_AMPLITUDE 0.05      // Per-iteration translation jitter — 0: rigid, 0.05: organic wobble\r
+#define TRANSLATE_SPEED_X 0.5         // Horizontal translation oscillation rate\r
+#define TRANSLATE_SPEED_Y 0.6         // Vertical translation oscillation rate — differs from X to avoid lissajous loops\r
+#define ITER_SCALE_FACTOR 0.8         // Scale reduction per iteration — 0.5: rapid zoom, 0.8: gradual, 1.0: none\r
+\r
+// --- Fallback Pattern ---\r
+#define RING_FREQUENCY 20.0           // Concentric ring density — higher = thinner rings\r
+#define RING_SPEED 2.0                // Ring animation speed — scrolls rings inward/outward\r
+#define SPOKE_COUNT 12.0              // Number of radial spokes — more = finer angular detail\r
+#define CENTER_GLOW_RADIUS 0.3        // Fallback center glow fade distance — larger = wider glow\r
+\r
+// --- Post-Processing ---\r
+#define EDGE_GLOW_WIDTH 0.02          // Fold-boundary glow thickness — smaller = sharper lines\r
+#define EDGE_GLOW_BRIGHTNESS 0.3      // Fold-boundary glow intensity — 0: off, 0.3: subtle, 1.0: harsh\r
+#define HIGHLIGHT_RADIUS 0.2          // Center highlight fade distance — larger = broader highlight\r
+#define HIGHLIGHT_STRENGTH 0.5        // Center highlight intensity multiplier — 0: off, 0.5: gentle bloom\r
+#define VIGNETTE_STRENGTH 0.6         // Edge darkening — 0: none, 0.6: cinematic, 1.5: tunnel vision\r
+\r
 /**\r
  * Rotation matrix\r
  */\r
@@ -4540,12 +5669,12 @@ mat2 rot2D(float a) {\r
 \r
 /**\r
  * Simple kaleidoscope - fold into N segments\r
- * Polar fold math:\r
- *   1. Convert to polar (angle, radius)\r
- *   2. mod(angle, TAU/N) maps all angles into one wedge of N segments\r
- *   3. Mirror within the wedge (if angle > half-wedge, reflect it)\r
- *   4. Convert back to Cartesian — produces N-fold mirror symmetry\r
- * The +PI offset shifts atan's discontinuity from 9 o'clock to 3 o'clock.\r
+ *\r
+ * TECHNIQUE: Polar coordinate folding\r
+ * Converts to polar (angle, radius), uses mod() to map all angles into one\r
+ * wedge of N segments, then mirrors within the wedge for bilateral symmetry.\r
+ * The +PI offset shifts atan's discontinuity from 9 o'clock to 3 o'clock,\r
+ * preventing visible seam artifacts in the final image.\r
  */\r
 vec2 kaleido(vec2 p, float segments) {\r
     // Add PI to shift discontinuity from -PI/+PI (9 o'clock) to 0/TAU (3 o'clock)\r
@@ -4566,33 +5695,35 @@ vec2 kaleido(vec2 p, float segments) {\r
 \r
 /**\r
  * Iterative kaleidoscope - multiple fold passes\r
+ *\r
+ * TECHNIQUE: Iterative fractal folding\r
  * Each iteration: rotate -> fold into 60-degree wedge -> abs-fold -> scale down.\r
  * Repeated folding creates fractal self-similarity at progressively smaller scales.\r
+ * The abs(fract(p + 0.5) * 2.0 - 1.0) pattern creates a triangle-wave fold that\r
+ * mirrors the domain without discontinuities, feeding each layer into the next.\r
  */\r
 vec2 kaleidoIterative(vec2 p, float time, int iterations) {\r
-    float scale = PI / 3.0;  // 60 degree segments (hexagonal symmetry)\r
-\r
     for (int i = 0; i < iterations; i++) {\r
         float fi = float(i);\r
 \r
-        // Rotate each iteration\r
-        float rotSpeed = 0.1 + fi * 0.02;\r
+        // Rotate each iteration — deeper layers spin faster\r
+        float rotSpeed = ITER_ROT_BASE_SPEED + fi * ITER_ROT_INCREMENT;\r
         p *= rot2D(time * rotSpeed);\r
 \r
-        // Fold into segment\r
+        // Fold into hex wedge\r
         float theta = atan(p.y, p.x) + PI;\r
-        theta = (floor(theta / scale) + 0.5) * scale;\r
+        theta = (floor(theta / HEX_FOLD_ANGLE) + 0.5) * HEX_FOLD_ANGLE;\r
 \r
         vec2 dir = vec2(cos(theta), sin(theta));\r
         vec2 codir = vec2(-dir.y, dir.x);\r
         p = vec2(dot(dir, p), dot(codir, p));\r
 \r
-        // Translate and fold\r
-        p += vec2(sin(time * 0.5 + fi), cos(time * 0.6 + fi)) * 0.05;\r
+        // Translate and fold — triangle-wave domain mirroring\r
+        p += vec2(sin(time * TRANSLATE_SPEED_X + fi), cos(time * TRANSLATE_SPEED_Y + fi)) * TRANSLATE_AMPLITUDE;\r
         p = abs(fract(p + 0.5) * 2.0 - 1.0);\r
 \r
-        // Scale down\r
-        p *= 0.8;\r
+        // Scale down for next iteration\r
+        p *= ITER_SCALE_FACTOR;\r
     }\r
 \r
     return p;\r
@@ -4600,16 +5731,20 @@ vec2 kaleidoIterative(vec2 p, float time, int iterations) {\r
 \r
 /**\r
  * Spiral kaleidoscope - adds spiral twist\r
- * Fixed: shift angle to avoid atan discontinuity at 9 o'clock\r
+ *\r
+ * TECHNIQUE: Spiral twist via radius-dependent angle offset\r
+ * Before folding, the polar angle is offset by (radius * twist), creating an\r
+ * Archimedean spiral distortion. Points farther from center rotate more,\r
+ * producing the characteristic spiral arm pattern. The time-animated angle\r
+ * addition makes the spiral appear to rotate continuously.\r
  */\r
 vec2 kaleidoSpiral(vec2 p, float segments, float twist, float time) {\r
     // Shift angle by PI to move discontinuity from 9 o'clock to 3 o'clock\r
-    // Then add PI back so the visual result is the same\r
     float angle = atan(p.y, p.x) + PI;\r
     float radius = length(p);\r
 \r
     // Add spiral twist based on radius\r
-    angle += radius * twist + time * 0.3;\r
+    angle += radius * twist + time * SPIRAL_ANGLE_SPEED;\r
 \r
     // Fold into segment (using TAU to keep in 0-TAU range)\r
     float segmentAngle = TAU / segments;\r
@@ -4624,10 +5759,10 @@ vec2 kaleidoSpiral(vec2 p, float segments, float twist, float time) {\r
 }\r
 \r
 /**\r
- * Breathing zoom effect\r
+ * Breathing zoom effect — sinusoidal scale oscillation\r
  */\r
 float breathe(float time) {\r
-    return 1.0 + sin(time * 0.8) * 0.3;\r
+    return 1.0 + sin(time * BREATHE_SPEED) * BREATHE_AMPLITUDE;\r
 }\r
 \r
 void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
@@ -4644,20 +5779,20 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     p *= zoom;\r
 \r
     // === CHOOSE KALEIDOSCOPE STYLE ===\r
-    float cycleTime = mod(time * 0.08, 3.0);\r
+    float cycleTime = mod(time * CYCLE_SPEED, 3.0);\r
     vec2 kp;\r
 \r
     if (cycleTime < 1.0) {\r
-        // Simple 6-fold symmetry\r
-        kp = kaleido(p, 6.0);\r
-        kp *= rot2D(time * 0.2);\r
+        // Simple N-fold symmetry\r
+        kp = kaleido(p, SIMPLE_SEGMENTS);\r
+        kp *= rot2D(time * SIMPLE_ROTATION_SPEED);\r
     } else if (cycleTime < 2.0) {\r
         // Iterative fractal kaleidoscope\r
-        kp = kaleidoIterative(p, time, 8);\r
+        kp = kaleidoIterative(p, time, ITERATIVE_PASSES);\r
     } else {\r
-        // Spiral kaleidoscope\r
-        float segments = 6.0 + sin(time * 0.3) * 2.0;\r
-        float twist = 3.0 + sin(time * 0.2) * 2.0;\r
+        // Spiral kaleidoscope with oscillating params\r
+        float segments = SPIRAL_SEGMENTS_CENTER + sin(time * SPIRAL_ANGLE_SPEED) * SPIRAL_SEGMENTS_RANGE;\r
+        float twist = SPIRAL_TWIST_CENTER + sin(time * SIMPLE_ROTATION_SPEED) * SPIRAL_TWIST_RANGE;\r
         kp = kaleidoSpiral(p, segments, twist, time);\r
     }\r
 \r
@@ -4672,15 +5807,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // === FALLBACK PATTERN ===\r
     if (length(texture(iChannel0, vec2(0.5)).rgb) < 0.01) {\r
-        // Colorful geometric pattern\r
+        // Colorful geometric pattern when no texture is bound\r
         float dist = length(kp);\r
         float angle = atan(kp.y, kp.x);\r
 \r
         // Concentric rings\r
-        float rings = sin(dist * 20.0 - time * 2.0) * 0.5 + 0.5;\r
+        float rings = sin(dist * RING_FREQUENCY - time * RING_SPEED) * 0.5 + 0.5;\r
 \r
         // Radial spokes\r
-        float spokes = sin(angle * 12.0 + time) * 0.5 + 0.5;\r
+        float spokes = sin(angle * SPOKE_COUNT + time) * 0.5 + 0.5;\r
 \r
         // Combine\r
         float pattern = rings * 0.5 + spokes * 0.5;\r
@@ -4689,7 +5824,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
         vec3 col = 0.5 + 0.5 * cos(TAU * (pattern + time * 0.1 + vec3(0.0, 0.33, 0.67)));\r
 \r
         // Center glow\r
-        col += vec3(1.0, 0.8, 0.5) * smoothstep(0.3, 0.0, dist);\r
+        col += vec3(1.0, 0.8, 0.5) * smoothstep(CENTER_GLOW_RADIUS, 0.0, dist);\r
 \r
         color = col;\r
     }\r
@@ -4697,21 +5832,21 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     // === EDGE GLOW ===\r
     // Add glow at fold boundaries\r
     float edgeDist = min(abs(kp.x), abs(kp.y));\r
-    float edge = smoothstep(0.02, 0.0, edgeDist);\r
-    color += vec3(0.5, 0.7, 1.0) * edge * 0.3;\r
+    float edge = smoothstep(EDGE_GLOW_WIDTH, 0.0, edgeDist);\r
+    color += vec3(0.5, 0.7, 1.0) * edge * EDGE_GLOW_BRIGHTNESS;\r
 \r
     // === CENTER HIGHLIGHT ===\r
-    float centerGlow = smoothstep(0.2, 0.0, length(p / zoom));\r
-    color += color * centerGlow * 0.5;\r
+    float centerGlow = smoothstep(HIGHLIGHT_RADIUS, 0.0, length(p / zoom));\r
+    color += color * centerGlow * HIGHLIGHT_STRENGTH;\r
 \r
     // === POST ===\r
     // Vignette\r
-    float vig = 1.0 - length(uv - 0.5) * 0.6;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:bf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:bf,passes:{image:`/**
  * Liquid Glass
  * @author guinetik
  * @date 2026-01-23
@@ -5067,7 +6202,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(clamp(finalColor, 0.0, 1.0), 1.0);
 }
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:xf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:xf,passes:{image:`/**
  * Attractor Study #02: Lorenz — Image Pass
  * @author guinetik
  * @date 2026-02-10
@@ -5174,56 +6309,6 @@ vec3 integrate(vec3 cur, float dt) {
     ) * dt;
 }
 
-// Rotation matrix around the X axis by angle \`a\` (radians).
-mat3 rotX(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(1,0,0, 0,c,-s, 0,s,c);
-}
-
-// Rotation matrix around the Y axis by angle \`a\` (radians).
-mat3 rotY(float a) {
-    float c = cos(a), s = sin(a);
-    return mat3(c,0,s, 0,1,0, -s,0,c);
-}
-
-// Project a 3D attractor point to 2D screen space.
-// Subtracts the attractor center to keep both lobes visible on screen.
-vec2 project(vec3 p, mat3 viewRot, float scale) {
-    return (viewRot * (p - center3d)).xy * scale;
-}
-
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point \`p\` to the line segment (a, b).
-// Guards against degenerate zero-length segments.
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float denom = dot(ab, ab);
-    if (denom < 1e-10) return distance(a, p);
-    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0.0);
-    else if (h < 2.0) rgb = vec3(x, c, 0.0);
-    else if (h < 3.0) rgb = vec3(0.0, c, x);
-    else if (h < 4.0) rgb = vec3(0.0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0.0, c);
-    else              rgb = vec3(c, 0.0, x);
-    return rgb + m;
-}
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
@@ -5279,7 +6364,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     for (float i = 0.0; i < STEPS; i++) {
         next = integrate(last, 0.016 * SPEED);
 
-        float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);
+        float segD = dfLine(projectMat(last - center3d, viewRot, viewScale), projectMat(next - center3d, viewRot, viewScale), uv);
         if (segD < d) {
             d = segD;
             // Recompute derivative at \`next\` to get instantaneous speed for color mapping.
@@ -5299,7 +6384,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // Blink: random pulses of brightness — 30% chance each tick, sine-shaped.
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.3
+    float blink = hashN(blinkSeed) < 0.3
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // Velocity-based color: fast regions map to MIN_HUE, slow to MAX_HUE.
@@ -5326,7 +6411,268 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space","interactive"],links:{},screenshotUrl:wf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`},{name:"projection",source:`/**
+ * 3D Projection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless 3D-to-2D projection helpers for attractor rendering.
+ * Provides rotation matrices and projection functions.
+ */
+
+// === ROTATION MATRICES ===
+
+/**
+ * Rotation matrix around the X axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotX(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(1,0,0, 0,c,-s, 0,s,c);
+}
+
+/**
+ * Rotation matrix around the Y axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotY(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(c,0,s, 0,1,0, -s,0,c);
+}
+
+// === PROJECTION ===
+
+/**
+ * Project a 3D point to 2D screen space via rotation matrix.
+ *
+ * Applies the view rotation and scales the result. The Z component
+ * is discarded (orthographic projection along the view axis).
+ *
+ * @param p        3D point to project
+ * @param viewRot  Combined view rotation matrix (typically rotY * rotX)
+ * @param scale    Screen scale factor (pixels per unit)
+ * @return 2D screen-space position
+ */
+vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * p).xy * scale;
+}
+`}]},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space","interactive"],links:{},screenshotUrl:Ef,passes:{image:`/**\r
  * Nebula Background Shadertoy Study\r
  *\r
  * @author guinetik\r
@@ -6324,7 +7670,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(finalColor, 1.0);\r
 }\r
-`},channels:{}},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Sf,passes:{image:`/**
+`},channels:{},commonsSources:[]},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Sf,passes:{image:`/**
  * Earth-like Planet
  * @author guinetik
  * @date 2025-11-27
@@ -6356,68 +7702,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
  * simplicity. Produces smooth, non-directional terrain suitable for planetary
  * surfaces. 6-octave FBM provides multi-scale detail from continental shapes
  * down to small terrain features.
+ *
+ * Commons: sphere, noise-value, normal-map, lighting, atmosphere
  */
 
-// =============================================================================
-// INLINE NOISE (replaces iChannel0 texture lookups)
-// =============================================================================
-// Noise: Hash-based value noise using the fract(sin(x)*43758.5453) family.
-// Fast and simple, produces smooth non-directional noise suitable for terrain.
-
-float hashN(float n) { return fract(sin(n) * 43758.5453123); }
-
-float hashN2(vec2 p) {
-    float h = dot(p, vec2(127.1, 311.7));
-    return fract(sin(h) * 43758.5453123);
-}
-
-// 2D value noise — Hermite smoothstep interpolation (3t^2 - 2t^3) for C1 continuity
-float valueNoise2D(vec2 p) {
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    vec2 u = f * f * (3.0 - 2.0 * f);
-    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
-               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
-}
-
-// 3D value noise (replaces the texture-based ValueNoise)
-float ValueNoise(vec3 pos) {
-    vec3 i = floor(pos);
-    vec3 f = fract(pos);
-    vec3 u = f * f * (3.0 - 2.0 * f);
-
-    float n = dot(i, vec3(1.0, 157.0, 113.0));
-    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
-                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
-               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
-                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
-}
-
-// =============================================================================
-// UTILITY
-// =============================================================================
-
-vec2 Rotate(vec2 p, float a) {
-    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
-}
-
-// FBM for terrain height & clouds — 6 octaves, lacunarity ~2.77, gain ~1/2.1
-// Higher octave count = more fine detail on terrain. The pos offset (0.23, 0.77, 0.57)
-// and rotation (0.6 rad) between octaves decorrelate layers to avoid grid artifacts.
+// FBM for terrain height & clouds — wraps the commons fbmValue with
+// Earth-specific parameters: 6 octaves, lacunarity 2.77, gain ~1/2.1
+// Base frequency 1.5 controls continent size — higher = smaller continents
 float Heightmap(vec3 pos) {
-    float height = 0.0;
-    float scale = 0.5;
-    float total = 0.0;
-    pos *= 1.5;                     // Base frequency — higher = smaller continents
-    for (int i = 0; i < 6; i++) {
-        height += scale * ValueNoise(pos);
-        total += scale;
-        pos += vec3(0.23, 0.77, 0.57);
-        pos *= 2.77;
-        scale /= 2.1;
-        pos.xy = Rotate(pos.xy, 0.6);
-    }
-    return height / total;
+    return fbmValue(pos * 1.5, 6, 2.77, 1.0 / 2.1);
 }
 
 // =============================================================================
@@ -6444,8 +7737,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // Map window roughly to -1..1, planet has r=1
     // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
-    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
-    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    vec2 uv = sphereUV(fragCoord, iResolution.xy, BASE_UV_SCALE);
 
     // Derive Z pythagorean-ly; if on the sphere...
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
@@ -6463,7 +7755,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float height = Heightmap(noisePos);
 
         // Tropics amount
-        vec3 tropicsCol = mix(WATER_COL, TROPICS_COL, ValueNoise(3.0 * noisePos));
+        vec3 tropicsCol = mix(WATER_COL, TROPICS_COL, valueNoise3D(3.0 * noisePos));
 
         // If water...
         vec3 surfaceColor;
@@ -6472,32 +7764,28 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             surfaceColor = mix(WATER_COL, tropicsCol, pow(height / WATER_LEVEL, 16.0));
             vec3 wavesPos = pos;
             wavesPos.xz = Rotate(wavesPos.xz, 1.4);
-            normal = normalize(normal + 0.08 * ValueNoise(256.0 * (wavesPos + 0.04 * vec3(iTime))));
+            normal = normalize(normal + 0.08 * valueNoise3D(256.0 * (wavesPos + 0.04 * vec3(iTime))));
             specAmount = 0.55;
         }
         // Otherwise if land...
         else {
 
             // Find a tangent and binormal basis to use
-            vec3 tangent = cross(noiseNormal, vec3(0.0, 1.0, 0.0));
-            vec3 binormal = cross(noiseNormal, tangent);
+            vec3 tangent, binormal;
+            computeTangentBasis(noiseNormal, tangent, binormal);
 
             // Get surface normal via finite difference, rotate back into view space
             const float DX = 0.01;
             float scaledHeight = height * HEIGHT_SCALE;
-            float tangentWeight = (scaledHeight - HEIGHT_SCALE * Heightmap(noisePos + DX * tangent)) / DX;
-            float binormalWeight = (scaledHeight - HEIGHT_SCALE * Heightmap(noisePos + DX * binormal)) / DX;
-            vec3 landNormal = normalize(
-                noiseNormal +
-                tangent * tangentWeight +
-                binormal * binormalWeight
-            );
+            float dh_tangent = (scaledHeight - HEIGHT_SCALE * Heightmap(noisePos + DX * tangent)) / DX;
+            float dh_binormal = (scaledHeight - HEIGHT_SCALE * Heightmap(noisePos + DX * binormal)) / DX;
+            vec3 landNormal = perturbNormal(noiseNormal, tangent, binormal, dh_tangent, dh_binormal);
             landNormal.xz = Rotate(landNormal.xz, -surfaceRot);
             normal = landNormal;
 
             // Choose color
             vec3 landColor = mix(DESERT_COL, FOREST_COL,
-                clamp(2.0 * ValueNoise(2.0 * noisePos) - 0.8, 0.0, 1.0));
+                clamp(2.0 * valueNoise3D(2.0 * noisePos) - 0.8, 0.0, 1.0));
             landColor = mix(landColor, ICE_COL, smoothstep(0.7, 1.0, abs(pos.y)));
             float waterBlend = smoothstep(0.0, 0.01, height - WATER_LEVEL);
             specAmount = 0.55 * (1.0 - waterBlend);
@@ -6507,10 +7795,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         }
 
         // Surface lighting — Blinn-Phong model with warm-tinted specular
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);  // 0.05 ambient floor
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0)); // Half-vector (view is +Z)
-        float specular = specAmount * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 15.0); // Exponent 15 = moderate gloss
-        fragColor.rgb = diffuse * surfaceColor + vec3(1.0, 0.92, 0.81) * specular; // Warm sun-tinted highlight
+        vec2 light = blinnPhong(normal, LIGHT_DIR, 15.0, specAmount, 0.05);
+        fragColor.rgb = light.x * surfaceColor + vec3(1.0, 0.92, 0.81) * light.y; // Warm sun-tinted highlight
 
         // Clouds — separate noise layer with independent drift
         vec3 cloudPos = vec3(2.0, 6.0, 2.0) * noisePos + 0.07 * iTime;  // Anisotropic scale stretches clouds latitudinally
@@ -6518,14 +7804,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         cloudPos.xy = Rotate(cloudPos.xy, 0.3);                          // Tilt cloud patterns off-axis
         float cloudMin = 0.35;                                            // FBM threshold for cloud formation
         float cloudAmt = 0.75 * smoothstep(cloudMin, 0.7, Heightmap(cloudPos)); // Max 75% opacity
-        fragColor.rgb = mix(fragColor.rgb, vec3(pow(diffuse, 0.9)), cloudAmt);  // Clouds lit by diffuse, slight gamma lift
+        fragColor.rgb = mix(fragColor.rgb, vec3(pow(light.x, 0.9)), cloudAmt);  // Clouds lit by diffuse, slight gamma lift
 
         // TECHNIQUE: Fresnel-like atmospheric rim glow simulating Rayleigh scattering
         // Atmosphere blue intensifies at the limb where the optical path through
         // the atmosphere is longest, approximated by pow(1 - z, 1.2).
-        vec3 atmosCol = ATMOS_COL * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv))); // Edge antialias
-        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol;  // Rim glow — exponent 1.2 controls falloff width
+        vec3 atmosCol = ATMOS_COL * clamp(0.7 * light.x + 0.05, 0.0, 1.0);
+        fragColor.rgb = atmosEdge(fragColor.rgb, atmosCol, uv, 0.6);          // Edge antialias
+        fragColor.rgb += rimGlow(pos.z, atmosCol, 1.2, 1.0);                  // Rim glow — exponent 1.2 controls falloff width
     }
     // If off the sphere...
     else {
@@ -6539,7 +7825,378 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"planet-gas-giant",title:"Gas Giant",description:"Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Ef,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"normal-map",source:`/**
+ * Normal Mapping Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for finite-difference normal perturbation on
+ * analytic sphere surfaces. Provides tangent/binormal basis computation.
+ *
+ * TECHNIQUE: Finite-difference normal mapping. The caller samples their
+ * height function at offset positions along the tangent and binormal,
+ * then uses perturbNormal() to reconstruct the perturbed surface normal.
+ *
+ * Usage pattern in shader:
+ *   vec3 tangent, binormal;
+ *   computeTangentBasis(surfaceNormal, tangent, binormal);
+ *   float dh_dt = (centerHeight - heightFunc(pos + DX * tangent)) / DX;
+ *   float dh_db = (centerHeight - heightFunc(pos + DX * binormal)) / DX;
+ *   vec3 normal = perturbNormal(surfaceNormal, tangent, binormal, dh_dt, dh_db);
+ */
+
+/**
+ * Compute a tangent/binormal basis from a sphere surface normal.
+ *
+ * Uses cross products with the Y-axis to derive orthogonal tangent
+ * and binormal vectors lying in the sphere's tangent plane.
+ *
+ * @param normal    Unit sphere surface normal (= position for unit sphere)
+ * @param tangent   Output tangent vector (set by this function)
+ * @param binormal  Output binormal vector (set by this function)
+ */
+void computeTangentBasis(vec3 normal, out vec3 tangent, out vec3 binormal) {
+    tangent = normalize(cross(normal, vec3(0.0, 1.0, 0.0)));
+    binormal = cross(normal, tangent);
+}
+
+/**
+ * Reconstruct a perturbed normal from finite-difference height gradients.
+ *
+ * @param normal     Original surface normal
+ * @param tangent    Tangent vector from computeTangentBasis
+ * @param binormal   Binormal vector from computeTangentBasis
+ * @param dh_tangent Height gradient along tangent direction (scaled height delta / DX)
+ * @param dh_binorm  Height gradient along binormal direction (scaled height delta / DX)
+ * @return Perturbed and normalized surface normal
+ */
+vec3 perturbNormal(vec3 normal, vec3 tangent, vec3 binormal, float dh_tangent, float dh_binorm) {
+    return normalize(normal + tangent * dh_tangent + binormal * dh_binorm);
+}
+`},{name:"lighting",source:`/**
+ * Lighting Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless Blinn-Phong lighting functions for surface rendering.
+ * View direction is assumed to be +Z (screen-facing sphere).
+ */
+
+// === BLINN-PHONG ===
+
+/**
+ * Compute Blinn-Phong diffuse + specular lighting.
+ *
+ * Uses a fixed view direction of +Z (appropriate for screen-facing
+ * analytic sphere rendering). Includes a small ambient floor.
+ *
+ * @param normal     Surface normal (normalized)
+ * @param lightDir   Light direction (normalized, pointing toward the light)
+ * @param shininess  Specular exponent — higher = tighter highlight (15–60 typical)
+ * @param specAmount Specular intensity multiplier (0.0–1.0)
+ * @param ambient    Ambient light floor (typically 0.05)
+ * @return vec2(diffuse, specular) — combine as: diffuse * color + specular * lightColor
+ */
+vec2 blinnPhong(vec3 normal, vec3 lightDir, float shininess, float specAmount, float ambient) {
+    float diffuse = ambient + clamp(dot(normal, lightDir), 0.0, 1.0);
+    vec3 halfVec = normalize(lightDir + vec3(0.0, 0.0, 1.0));
+    float specular = specAmount * pow(clamp(dot(normal, halfVec), 0.0, 1.0), shininess);
+    return vec2(diffuse, specular);
+}
+`},{name:"atmosphere",source:`/**
+ * Atmospheric Effects
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for planetary atmosphere rendering:
+ * Fresnel-like rim glow and off-sphere halo.
+ */
+
+// === RIM GLOW ===
+
+/**
+ * Compute Fresnel-like atmospheric rim glow at the sphere limb.
+ *
+ * Simulates the increased optical path through a thin atmosphere at
+ * grazing angles. The glow intensifies as the surface normal tilts
+ * away from the viewer (posZ approaches 0).
+ *
+ * @param posZ       Z component of the unit-sphere position (0 at limb, 1 at center)
+ * @param atmosColor Atmosphere tint color
+ * @param exponent   Falloff exponent — higher = thinner rim (1.0–2.0 typical)
+ * @param intensity  Overall glow strength multiplier
+ * @return RGB rim glow contribution to add to the surface color
+ */
+vec3 rimGlow(float posZ, vec3 atmosColor, float exponent, float intensity) {
+    return pow(1.0 - posZ, exponent) * atmosColor * intensity;
+}
+
+/**
+ * Blend atmosphere color at the sphere edge for anti-aliased limb transition.
+ *
+ * @param color      Current surface color
+ * @param atmosColor Atmosphere tint (pre-multiplied by diffuse)
+ * @param uv         Current UV coordinates
+ * @param blendScale Scale factor for the atmosphere blend (typically 0.5–0.6)
+ * @return Blended color with smooth atmosphere edge
+ */
+vec3 atmosEdge(vec3 color, vec3 atmosColor, vec2 uv, float blendScale) {
+    return mix(color, blendScale * atmosColor, smoothstep(0.993, 1.0, length(uv)));
+}
+
+// === HALO ===
+
+/**
+ * Compute off-sphere atmospheric halo glow.
+ *
+ * Renders the faint atmospheric glow visible in the space surrounding
+ * the planet, strongest on the sun-facing side.
+ *
+ * @param uv         Current UV coordinates (off-sphere, length > 1.0)
+ * @param atmosColor Atmosphere tint color
+ * @param lightDir   Light direction (normalized)
+ * @param intensity  Overall halo brightness multiplier
+ * @return RGB halo color for off-sphere pixels
+ */
+vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
+    float dist = length(uv);
+    vec3 dir = normalize(vec3(uv, 1.0));
+    float falloff = smoothstep(1.3, 0.95, dist);
+    float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
+    return atmosColor * falloff * lightFacing * intensity;
+}
+`}]},{slug:"planet-gas-giant",title:"Gas Giant",description:"Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:_f,passes:{image:`/**
  * Gas Giant (Jupiter)
  * @author guinetik
  * @date 2025-11-27
@@ -6572,9 +8229,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * to polar angle + spiral offset. This creates the characteristic anti-cyclonic
  * vortex appearance.
  *
- * Noise: Hash-based 3D noise with a decorrelation matrix between FBM octaves,
- * identical to the Neptune-like shader. 5-octave 3D FBM for atmospheric bands
- * and 5-octave 1D FBM for storm features.
+ * Noise: PCG-style hash noise from commons/noise-pcg.glsl. 5-octave 3D FBM for
+ * atmospheric bands and 5-octave 1D FBM for storm features.
+ *
+ * Commons: sphere.glsl, noise-pcg.glsl, lighting.glsl, atmosphere.glsl
  */
 
 const float tau = 6.283185;  // 2*PI — full circle in radians
@@ -6613,79 +8271,6 @@ const float tau = 6.283185;  // 2*PI — full circle in radians
                                  // rotation is the fastest in our solar system.
 
 // =============================================================================
-// HASH & NOISE
-// =============================================================================
-// Same hash-based value noise as the Neptune-like shader. PCG-style polynomial
-// hashing avoids sin-based precision issues on some mobile GPUs.
-
-float hash1(float p) {
-    p = fract(p * 0.1031);
-    p *= p + 33.33;
-    p *= p + p;
-    return fract(p);
-}
-
-vec3 hash3(vec3 p3) {
-    p3 = fract(p3 * vec3(0.1031, 0.1030, 0.0973));
-    p3 += dot(p3, p3.yxz + 33.33);
-    return fract((p3.xxy + p3.yxx) * p3.zyx);
-}
-
-float noise1(float p) {
-    float i = floor(p);
-    float f = fract(p);
-    float u = f * f * (3.0 - 2.0 * f);
-    return 1.0 - 2.0 * mix(hash1(i), hash1(i + 1.0), u);
-}
-
-vec3 noise3(vec3 p) {
-    vec3 i = floor(p);
-    vec3 f = fract(p);
-    vec3 u = f * f * (3.0 - 2.0 * f);
-    return 1.0 - 2.0 * mix(
-        mix(mix(hash3(i + vec3(0.0, 0.0, 0.0)),
-                hash3(i + vec3(1.0, 0.0, 0.0)), u.x),
-            mix(hash3(i + vec3(0.0, 1.0, 0.0)),
-                hash3(i + vec3(1.0, 1.0, 0.0)), u.x), u.y),
-        mix(mix(hash3(i + vec3(0.0, 0.0, 1.0)),
-                hash3(i + vec3(1.0, 0.0, 1.0)), u.x),
-            mix(hash3(i + vec3(0.0, 1.0, 1.0)),
-                hash3(i + vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z);
-}
-
-float fbm1(float p) {
-    float f = noise1(p); p = 2.0 * p;
-    f += 0.5 * noise1(p); p = 2.0 * p;
-    f += 0.25 * noise1(p); p = 2.0 * p;
-    f += 0.125 * noise1(p); p = 2.0 * p;
-    f += 0.0625 * noise1(p);
-    return f / 1.9375;
-}
-
-// Decorrelation matrix for 3D FBM — same as Neptune-like shader.
-// Rotates domain between octaves to prevent axis-aligned grid artifacts.
-const mat3 m = mat3(0.51162, -1.54702, 1.15972,
-                    -1.70666, -0.92510, -0.48114,
-                     0.90858, -0.86654, -1.55678);
-
-vec3 fbm3(vec3 p) {
-    vec3 f = noise3(p); p = m * p;
-    f += 0.5 * noise3(p); p = m * p;
-    f += 0.25 * noise3(p); p = m * p;
-    f += 0.125 * noise3(p); p = m * p;
-    f += 0.0625 * noise3(p);
-    return f / 1.9375;
-}
-
-// =============================================================================
-// UTILITY
-// =============================================================================
-
-vec2 Rotate(vec2 p, float a) {
-    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
-}
-
-// =============================================================================
 // JUPITER BANDS
 // =============================================================================
 
@@ -6719,9 +8304,7 @@ vec3 bandColor(float lat, float lon) {
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Map window to -1..1, planet has r=1
-    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
-    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
-    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    vec2 uv = sphereUV(fragCoord, iResolution.xy, BASE_UV_SCALE);
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {
@@ -6740,7 +8323,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Turbulence displaces latitude for wavy band edges
         vec3 p = noisePos;
-        vec3 turb = fbm3(12.0 * p);                            // 3-channel FBM for independent X/Y/Z turbulence
+        vec3 turb = pcgFbm3(12.0 * p);                            // 3-channel FBM for independent X/Y/Z turbulence
         float latDisplaced = lat + turb.x * BAND_TURBULENCE;   // Baseline latitude wobble
 
         // TECHNIQUE: Band-edge turbulence amplification — cos() derivative peaks
@@ -6755,7 +8338,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 color = bandColor(latDisplaced, lon);
 
         // Small-scale color variation from noise
-        vec3 detail = fbm3(25.0 * vec3(0.3, 1.0, 0.3) * p);
+        vec3 detail = pcgFbm3(25.0 * vec3(0.3, 1.0, 0.3) * p);
         color += detail * 0.06;
 
         // ── Great Red Spot ──────────────────────────────────
@@ -6776,28 +8359,22 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         color = mix(color, grsCol, grsMask);
 
         // ── Storm features ──────────────────────────────────
-        float stormNoise = fbm1(10.0 * lat + 5.0);
+        float stormNoise = pcgFbm1(10.0 * lat + 5.0);
         float storm = smoothstep(0.65, 0.85, stormNoise) * 0.15;
         color = mix(color, color * 1.3 + vec3(0.05, 0.03, 0.0), storm);
 
         // ── Lighting — Blinn-Phong with atmosphere-tinted specular ─────────
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);   // 0.05 ambient floor
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0));  // Half-vector (view is +Z)
-        float specular = 0.1 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 30.0); // Exponent 30 = moderately tight highlight
-        fragColor.rgb = diffuse * color * 2.0 + ATMOS_COLOR * specular;   // 2x boost for HDR vibrancy
+        vec2 light = blinnPhong(normal, LIGHT_DIR, 30.0, 0.1, 0.05);
+        fragColor.rgb = light.x * color * 2.0 + ATMOS_COLOR * light.y;
 
         // Atmosphere limb
-        vec3 atmosCol = ATMOS_COLOR * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, 0.5 * atmosCol, smoothstep(0.993, 1.0, length(uv)));
-        fragColor.rgb += pow(1.0 - pos.z, 1.5) * atmosCol * 0.5;
+        vec3 atmosCol = ATMOS_COLOR * clamp(0.7 * light.x + 0.05, 0.0, 1.0);
+        fragColor.rgb = atmosEdge(fragColor.rgb, atmosCol, uv, 0.5);
+        fragColor.rgb += rimGlow(pos.z, atmosCol, 1.5, 0.5);
     }
     // Off sphere — atmospheric halo
     else {
-        float dist = length(uv);
-        vec3 dir = normalize(vec3(uv, 1.0));
-        float halo = smoothstep(1.3, 0.95, dist);
-        float lightFacing = clamp(dot(dir, LIGHT_DIR), 0.0, 1.0);
-        fragColor.rgb = ATMOS_COLOR * halo * lightFacing * 0.3;
+        fragColor.rgb = halo(uv, ATMOS_COLOR, LIGHT_DIR, 0.3);
     }
 
     // Gamma correction — standard sRGB approximation (1/2.2 ~ 0.45)
@@ -6805,7 +8382,335 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     fragColor.rgb = pow(max(fragColor.rgb, vec3(0.0)), vec3(0.45));
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Cf,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"noise-pcg",source:`/**
+ * PCG-Style Hash Noise
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using PCG-style polynomial hashing.
+ * Avoids sin-based precision issues on some mobile GPUs.
+ * Includes 1D, 3D, and 4D hash variants plus FBM with a
+ * decorrelation matrix to eliminate axis-aligned artifacts.
+ *
+ * Noise: Preferred over sin-hash for mobile/WebGL targets.
+ * The decorrelation matrix between FBM octaves prevents visible
+ * grid lines in banded atmospheric patterns.
+ */
+
+// === CONSTANTS ===
+
+/**
+ * Decorrelation matrix for 3D FBM.
+ * Rotates and scales domain between octaves to eliminate axis-aligned
+ * artifacts. The non-orthogonal entries create a pseudo-random rotation
+ * that prevents visible grid lines in banded patterns.
+ */
+const mat3 PCG_FBM_MATRIX = mat3(
+    0.51162, -1.54702, 1.15972,
+   -1.70666, -0.92510, -0.48114,
+    0.90858, -0.86654, -1.55678
+);
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D PCG-style hash — maps a float to pseudo-random [0, 1).
+ */
+float pcgHash1(float p) {
+    p = fract(p * 0.1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+
+/**
+ * 3D PCG-style hash — maps vec3 to pseudo-random vec3 in [0, 1).
+ */
+vec3 pcgHash3(vec3 p3) {
+    p3 = fract(p3 * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yxz + 33.33);
+    return fract((p3.xxy + p3.yxx) * p3.zyx);
+}
+
+/**
+ * 4D PCG-style hash — maps a float to pseudo-random vec4 in [0, 1).
+ * Useful for seed-based parameter generation.
+ */
+vec4 pcgHash4(float p) {
+    vec4 p4 = fract(vec4(p) * vec4(0.1031, 0.1030, 0.0973, 0.1099));
+    p4 += dot(p4, p4.wzxy + 33.33);
+    return fract((p4.xxyz + p4.yzzw) * p4.zywx);
+}
+
+// === NOISE FUNCTIONS ===
+
+/**
+ * 1D value noise from PCG hash with Hermite interpolation.
+ * @return Noise value in [-1, 1]
+ */
+float pcgNoise1(float p) {
+    float i = floor(p);
+    float f = fract(p);
+    float u = f * f * (3.0 - 2.0 * f);
+    return 1.0 - 2.0 * mix(pcgHash1(i), pcgHash1(i + 1.0), u);
+}
+
+/**
+ * 3D value noise from PCG hash with Hermite interpolation.
+ * @return Noise vec3 in [-1, 1] per component
+ */
+vec3 pcgNoise3(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+    return 1.0 - 2.0 * mix(
+        mix(mix(pcgHash3(i + vec3(0.0, 0.0, 0.0)),
+                pcgHash3(i + vec3(1.0, 0.0, 0.0)), u.x),
+            mix(pcgHash3(i + vec3(0.0, 1.0, 0.0)),
+                pcgHash3(i + vec3(1.0, 1.0, 0.0)), u.x), u.y),
+        mix(mix(pcgHash3(i + vec3(0.0, 0.0, 1.0)),
+                pcgHash3(i + vec3(1.0, 0.0, 1.0)), u.x),
+            mix(pcgHash3(i + vec3(0.0, 1.0, 1.0)),
+                pcgHash3(i + vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * 1D Fractional Brownian Motion using PCG noise.
+ *
+ * 5 octaves, lacunarity 2.0, gain 0.5.
+ * @param p  1D sample position
+ * @return Normalized FBM value in approximately [-1, 1]
+ */
+float pcgFbm1(float p) {
+    float f = pcgNoise1(p); p = 2.0 * p;
+    f += 0.5 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.25 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.125 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.0625 * pcgNoise1(p);
+    return f / 1.9375;
+}
+
+/**
+ * 3D Fractional Brownian Motion using PCG noise with decorrelation matrix.
+ *
+ * 5 octaves with PCG_FBM_MATRIX applied between octaves to prevent
+ * axis-aligned grid artifacts in banded patterns.
+ *
+ * @param p  3D sample position
+ * @return Normalized FBM vec3 in approximately [-1, 1] per component
+ */
+vec3 pcgFbm3(vec3 p) {
+    vec3 f = pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.5 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.25 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.125 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.0625 * pcgNoise3(p);
+    return f / 1.9375;
+}
+`},{name:"lighting",source:`/**
+ * Lighting Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless Blinn-Phong lighting functions for surface rendering.
+ * View direction is assumed to be +Z (screen-facing sphere).
+ */
+
+// === BLINN-PHONG ===
+
+/**
+ * Compute Blinn-Phong diffuse + specular lighting.
+ *
+ * Uses a fixed view direction of +Z (appropriate for screen-facing
+ * analytic sphere rendering). Includes a small ambient floor.
+ *
+ * @param normal     Surface normal (normalized)
+ * @param lightDir   Light direction (normalized, pointing toward the light)
+ * @param shininess  Specular exponent — higher = tighter highlight (15–60 typical)
+ * @param specAmount Specular intensity multiplier (0.0–1.0)
+ * @param ambient    Ambient light floor (typically 0.05)
+ * @return vec2(diffuse, specular) — combine as: diffuse * color + specular * lightColor
+ */
+vec2 blinnPhong(vec3 normal, vec3 lightDir, float shininess, float specAmount, float ambient) {
+    float diffuse = ambient + clamp(dot(normal, lightDir), 0.0, 1.0);
+    vec3 halfVec = normalize(lightDir + vec3(0.0, 0.0, 1.0));
+    float specular = specAmount * pow(clamp(dot(normal, halfVec), 0.0, 1.0), shininess);
+    return vec2(diffuse, specular);
+}
+`},{name:"atmosphere",source:`/**
+ * Atmospheric Effects
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for planetary atmosphere rendering:
+ * Fresnel-like rim glow and off-sphere halo.
+ */
+
+// === RIM GLOW ===
+
+/**
+ * Compute Fresnel-like atmospheric rim glow at the sphere limb.
+ *
+ * Simulates the increased optical path through a thin atmosphere at
+ * grazing angles. The glow intensifies as the surface normal tilts
+ * away from the viewer (posZ approaches 0).
+ *
+ * @param posZ       Z component of the unit-sphere position (0 at limb, 1 at center)
+ * @param atmosColor Atmosphere tint color
+ * @param exponent   Falloff exponent — higher = thinner rim (1.0–2.0 typical)
+ * @param intensity  Overall glow strength multiplier
+ * @return RGB rim glow contribution to add to the surface color
+ */
+vec3 rimGlow(float posZ, vec3 atmosColor, float exponent, float intensity) {
+    return pow(1.0 - posZ, exponent) * atmosColor * intensity;
+}
+
+/**
+ * Blend atmosphere color at the sphere edge for anti-aliased limb transition.
+ *
+ * @param color      Current surface color
+ * @param atmosColor Atmosphere tint (pre-multiplied by diffuse)
+ * @param uv         Current UV coordinates
+ * @param blendScale Scale factor for the atmosphere blend (typically 0.5–0.6)
+ * @return Blended color with smooth atmosphere edge
+ */
+vec3 atmosEdge(vec3 color, vec3 atmosColor, vec2 uv, float blendScale) {
+    return mix(color, blendScale * atmosColor, smoothstep(0.993, 1.0, length(uv)));
+}
+
+// === HALO ===
+
+/**
+ * Compute off-sphere atmospheric halo glow.
+ *
+ * Renders the faint atmospheric glow visible in the space surrounding
+ * the planet, strongest on the sun-facing side.
+ *
+ * @param uv         Current UV coordinates (off-sphere, length > 1.0)
+ * @param atmosColor Atmosphere tint color
+ * @param lightDir   Light direction (normalized)
+ * @param intensity  Overall halo brightness multiplier
+ * @return RGB halo color for off-sphere pixels
+ */
+vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
+    float dist = length(uv);
+    vec3 dir = normalize(vec3(uv, 1.0));
+    float falloff = smoothstep(1.3, 0.95, dist);
+    float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
+    return atmosColor * falloff * lightFacing * intensity;
+}
+`}]},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:wf,passes:{image:`/**
  * Lava World
  * @author guinetik
  * @date 2025-11-27
@@ -6880,10 +8785,6 @@ float fbm(vec3 x, int octaves) {
 // UTILITY
 // =============================================================================
 
-vec2 Rotate(vec2 p, float a) {
-    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
-}
-
 float square(float x) { return x * x; }
 
 // =============================================================================
@@ -6956,9 +8857,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     const vec3 RIM_COL = vec3(1.0, 0.4, 0.05);            // Hot atmospheric rim — bright orange for thermal glow
 
     // Map window to -1..1, planet has r=1
-    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
-    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
-    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    vec2 uv = sphereUV(fragCoord, iResolution.xy, BASE_UV_SCALE);
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {
@@ -6973,14 +8872,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Surface normal via finite difference on crust height
         float height = crustHeight(noisePos);
-        vec3 tangent = normalize(cross(noisePos, vec3(0.0, 1.0, 0.0)));
-        vec3 binormal = cross(noisePos, tangent);
+        vec3 tangent, binormal;
+        computeTangentBasis(noisePos, tangent, binormal);
         const float DX = 0.01;              // Finite-difference step for normal computation — smaller = sharper but noisier
         const float HEIGHT_SCALE = 0.08;   // Normal perturbation amplitude — higher = bumpier crust terrain
         float he = height * HEIGHT_SCALE;
-        float tangentW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * tangent)) / DX;
-        float binormalW = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * binormal)) / DX;
-        vec3 surfNormal = normalize(noisePos + tangent * tangentW + binormal * binormalW);
+        float dh_tangent = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * tangent)) / DX;
+        float dh_binormal = (he - HEIGHT_SCALE * crustHeight(noisePos + DX * binormal)) / DX;
+        vec3 surfNormal = perturbNormal(noisePos, tangent, binormal, dh_tangent, dh_binormal);
         surfNormal.xz = Rotate(surfNormal.xz, -surfaceRot);
         normal = normalize(mix(surfNormal, pos, 0.9));
 
@@ -6989,7 +8888,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec3 surfaceColor = lavaRamp(heat);
 
         // Lighting — diffuse on crust, emission from hot areas
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);
+        vec2 light = blinnPhong(normal, LIGHT_DIR, 30.0, 0.0, 0.05);
+        float diffuse = light.x;
 
         // Dark crust is lit by the sun; hot areas emit their own light
         vec3 litCrust = surfaceColor * diffuse;
@@ -6998,21 +8898,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // TECHNIQUE: Rim glow simulating hot atmospheric haze at limb
         // pow(1-z, 1.5) approximates long optical path through volcanic atmosphere
-        float rim = pow(1.0 - pos.z, 1.5);     // Exponent 1.5 — steeper = thinner rim
-        fragColor.rgb += RIM_COL * rim * 0.8;
+        fragColor.rgb += rimGlow(pos.z, RIM_COL, 1.5, 0.8);
 
         // Atmosphere edge blend
         vec3 atmosCol = ATMOS_COL * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, atmosCol, smoothstep(0.993, 1.0, length(uv)));
-        fragColor.rgb += ATMOS_COL * rim * 0.4;
+        fragColor.rgb = atmosEdge(fragColor.rgb, atmosCol, uv, 1.0);
+        fragColor.rgb += rimGlow(pos.z, ATMOS_COL, 1.5, 0.4);
     }
     // Off sphere — atmospheric halo
     else {
-        float dist = length(uv);
-        vec3 dir = normalize(vec3(uv, 1.0));
-        float halo = smoothstep(1.3, 0.95, dist);
-        float lightFacing = clamp(dot(dir, LIGHT_DIR), 0.0, 1.0);
-        fragColor.rgb = ATMOS_COL * halo * lightFacing * 1.5;
+        fragColor.rgb = halo(uv, ATMOS_COL, LIGHT_DIR, 1.5);
     }
 
     // Gamma — 0.9 exponent (slightly less than standard 0.45) to preserve
@@ -7020,7 +8915,256 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     fragColor.rgb = pow(fragColor.rgb, vec3(0.9));
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"planet-neptune-like",title:"Neptune-like",description:"A Neptune-like ice giant with colorful banded atmosphere, turbulent storms, and dramatic lighting. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Tf,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"normal-map",source:`/**
+ * Normal Mapping Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for finite-difference normal perturbation on
+ * analytic sphere surfaces. Provides tangent/binormal basis computation.
+ *
+ * TECHNIQUE: Finite-difference normal mapping. The caller samples their
+ * height function at offset positions along the tangent and binormal,
+ * then uses perturbNormal() to reconstruct the perturbed surface normal.
+ *
+ * Usage pattern in shader:
+ *   vec3 tangent, binormal;
+ *   computeTangentBasis(surfaceNormal, tangent, binormal);
+ *   float dh_dt = (centerHeight - heightFunc(pos + DX * tangent)) / DX;
+ *   float dh_db = (centerHeight - heightFunc(pos + DX * binormal)) / DX;
+ *   vec3 normal = perturbNormal(surfaceNormal, tangent, binormal, dh_dt, dh_db);
+ */
+
+/**
+ * Compute a tangent/binormal basis from a sphere surface normal.
+ *
+ * Uses cross products with the Y-axis to derive orthogonal tangent
+ * and binormal vectors lying in the sphere's tangent plane.
+ *
+ * @param normal    Unit sphere surface normal (= position for unit sphere)
+ * @param tangent   Output tangent vector (set by this function)
+ * @param binormal  Output binormal vector (set by this function)
+ */
+void computeTangentBasis(vec3 normal, out vec3 tangent, out vec3 binormal) {
+    tangent = normalize(cross(normal, vec3(0.0, 1.0, 0.0)));
+    binormal = cross(normal, tangent);
+}
+
+/**
+ * Reconstruct a perturbed normal from finite-difference height gradients.
+ *
+ * @param normal     Original surface normal
+ * @param tangent    Tangent vector from computeTangentBasis
+ * @param binormal   Binormal vector from computeTangentBasis
+ * @param dh_tangent Height gradient along tangent direction (scaled height delta / DX)
+ * @param dh_binorm  Height gradient along binormal direction (scaled height delta / DX)
+ * @return Perturbed and normalized surface normal
+ */
+vec3 perturbNormal(vec3 normal, vec3 tangent, vec3 binormal, float dh_tangent, float dh_binorm) {
+    return normalize(normal + tangent * dh_tangent + binormal * dh_binorm);
+}
+`},{name:"lighting",source:`/**
+ * Lighting Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless Blinn-Phong lighting functions for surface rendering.
+ * View direction is assumed to be +Z (screen-facing sphere).
+ */
+
+// === BLINN-PHONG ===
+
+/**
+ * Compute Blinn-Phong diffuse + specular lighting.
+ *
+ * Uses a fixed view direction of +Z (appropriate for screen-facing
+ * analytic sphere rendering). Includes a small ambient floor.
+ *
+ * @param normal     Surface normal (normalized)
+ * @param lightDir   Light direction (normalized, pointing toward the light)
+ * @param shininess  Specular exponent — higher = tighter highlight (15–60 typical)
+ * @param specAmount Specular intensity multiplier (0.0–1.0)
+ * @param ambient    Ambient light floor (typically 0.05)
+ * @return vec2(diffuse, specular) — combine as: diffuse * color + specular * lightColor
+ */
+vec2 blinnPhong(vec3 normal, vec3 lightDir, float shininess, float specAmount, float ambient) {
+    float diffuse = ambient + clamp(dot(normal, lightDir), 0.0, 1.0);
+    vec3 halfVec = normalize(lightDir + vec3(0.0, 0.0, 1.0));
+    float specular = specAmount * pow(clamp(dot(normal, halfVec), 0.0, 1.0), shininess);
+    return vec2(diffuse, specular);
+}
+`},{name:"atmosphere",source:`/**
+ * Atmospheric Effects
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for planetary atmosphere rendering:
+ * Fresnel-like rim glow and off-sphere halo.
+ */
+
+// === RIM GLOW ===
+
+/**
+ * Compute Fresnel-like atmospheric rim glow at the sphere limb.
+ *
+ * Simulates the increased optical path through a thin atmosphere at
+ * grazing angles. The glow intensifies as the surface normal tilts
+ * away from the viewer (posZ approaches 0).
+ *
+ * @param posZ       Z component of the unit-sphere position (0 at limb, 1 at center)
+ * @param atmosColor Atmosphere tint color
+ * @param exponent   Falloff exponent — higher = thinner rim (1.0–2.0 typical)
+ * @param intensity  Overall glow strength multiplier
+ * @return RGB rim glow contribution to add to the surface color
+ */
+vec3 rimGlow(float posZ, vec3 atmosColor, float exponent, float intensity) {
+    return pow(1.0 - posZ, exponent) * atmosColor * intensity;
+}
+
+/**
+ * Blend atmosphere color at the sphere edge for anti-aliased limb transition.
+ *
+ * @param color      Current surface color
+ * @param atmosColor Atmosphere tint (pre-multiplied by diffuse)
+ * @param uv         Current UV coordinates
+ * @param blendScale Scale factor for the atmosphere blend (typically 0.5–0.6)
+ * @return Blended color with smooth atmosphere edge
+ */
+vec3 atmosEdge(vec3 color, vec3 atmosColor, vec2 uv, float blendScale) {
+    return mix(color, blendScale * atmosColor, smoothstep(0.993, 1.0, length(uv)));
+}
+
+// === HALO ===
+
+/**
+ * Compute off-sphere atmospheric halo glow.
+ *
+ * Renders the faint atmospheric glow visible in the space surrounding
+ * the planet, strongest on the sun-facing side.
+ *
+ * @param uv         Current UV coordinates (off-sphere, length > 1.0)
+ * @param atmosColor Atmosphere tint color
+ * @param lightDir   Light direction (normalized)
+ * @param intensity  Overall halo brightness multiplier
+ * @return RGB halo color for off-sphere pixels
+ */
+vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
+    float dist = length(uv);
+    vec3 dir = normalize(vec3(uv, 1.0));
+    float falloff = smoothstep(1.3, 0.95, dist);
+    float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
+    return atmosColor * falloff * lightFacing * intensity;
+}
+`}]},{slug:"planet-neptune-like",title:"Neptune-like",description:"A Neptune-like ice giant with colorful banded atmosphere, turbulent storms, and dramatic lighting. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Tf,passes:{image:`/**
  * Neptune-like Ice Giant
  * @author guinetik
  * @date 2025-11-27
@@ -7049,98 +9193,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * bands while preserving vertical (latitudinal) variation. Small turbulence
  * displacement (bandTurbulence) breaks up perfect stripes.
  *
- * Noise: Hash-based 3D noise with a decorrelation matrix (const mat3 m) applied
- * between FBM octaves. The matrix rotates and scales the domain to eliminate
- * axis-aligned artifacts that would otherwise create visible grid lines on
- * the planetary bands. 5-octave FBM provides detail from broad belt structure
- * down to fine turbulent wisps.
+ * Noise: PCG-style hash noise from commons/noise-pcg.glsl with a decorrelation
+ * matrix (PCG_FBM_MATRIX) applied between FBM octaves. The matrix rotates and
+ * scales the domain to eliminate axis-aligned artifacts that would otherwise
+ * create visible grid lines on the planetary bands. 5-octave FBM provides
+ * detail from broad belt structure down to fine turbulent wisps.
+ *
+ * Commons: sphere.glsl, noise-pcg.glsl, lighting.glsl, atmosphere.glsl
  */
 
 const float tau = 6.283185;  // 2*PI — full circle in radians
 
-// =============================================================================
-// HASH & NOISE
-// =============================================================================
-// Noise: Hash-based value noise using PCG-style integer hashing (fract of
-// polynomial). Produces uniform distribution without the precision issues of
-// sin-based hashing on some GPUs.
-
-float hash1(float p) {
-    p = fract(p * 0.1031);
-    p *= p + 33.33;
-    p *= p + p;
-    return fract(p);
-}
-
-vec3 hash3(vec3 p3) {
-    p3 = fract(p3 * vec3(0.1031, 0.1030, 0.0973));
-    p3 += dot(p3, p3.yxz + 33.33);
-    return fract((p3.xxy + p3.yxx) * p3.zyx);
-}
-
-vec4 hash4(float p) {
-    vec4 p4 = fract(vec4(p) * vec4(0.1031, 0.1030, 0.0973, 0.1099));
-    p4 += dot(p4, p4.wzxy + 33.33);
-    return fract((p4.xxyz + p4.yzzw) * p4.zywx);
-}
-
-float noise1(float p) {
-    float i = floor(p);
-    float f = fract(p);
-    float u = f * f * (3.0 - 2.0 * f);
-    return 1.0 - 2.0 * mix(hash1(i), hash1(i + 1.0), u);
-}
-
-vec3 noise3(vec3 p) {
-    vec3 i = floor(p);
-    vec3 f = fract(p);
-    vec3 u = f * f * (3.0 - 2.0 * f);
-    return 1.0 - 2.0 * mix(
-        mix(mix(hash3(i + vec3(0.0, 0.0, 0.0)),
-                hash3(i + vec3(1.0, 0.0, 0.0)), u.x),
-            mix(hash3(i + vec3(0.0, 1.0, 0.0)),
-                hash3(i + vec3(1.0, 1.0, 0.0)), u.x), u.y),
-        mix(mix(hash3(i + vec3(0.0, 0.0, 1.0)),
-                hash3(i + vec3(1.0, 0.0, 1.0)), u.x),
-            mix(hash3(i + vec3(0.0, 1.0, 1.0)),
-                hash3(i + vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z);
-}
-
-float fbm1(float p) {
-    float f = noise1(p); p = 2.0 * p;
-    f += 0.5 * noise1(p); p = 2.0 * p;
-    f += 0.25 * noise1(p); p = 2.0 * p;
-    f += 0.125 * noise1(p); p = 2.0 * p;
-    f += 0.0625 * noise1(p);
-    return f / 1.9375;
-}
-
-// Decorrelation matrix for 3D FBM — rotates and scales domain between octaves
-// to eliminate axis-aligned artifacts. The non-orthogonal entries create
-// a pseudo-random rotation that prevents visible grid lines in the bands.
-const mat3 m = mat3(0.51162, -1.54702, 1.15972,
-                    -1.70666, -0.92510, -0.48114,
-                     0.90858, -0.86654, -1.55678);
-
-vec3 fbm3(vec3 p) {
-    vec3 f = noise3(p); p = m * p;
-    f += 0.5 * noise3(p); p = m * p;
-    f += 0.25 * noise3(p); p = m * p;
-    f += 0.125 * noise3(p); p = m * p;
-    f += 0.0625 * noise3(p);
-    return f / 1.9375;
-}
-
 vec3 hsv(float hue, float sat, float val) {
     return val * (vec3(1.0 - sat) + sat * (0.5 + 0.5 * cos(6.2831853 * (vec3(hue) + vec3(0.0, 0.33, 0.67)))));
-}
-
-// =============================================================================
-// UTILITY
-// =============================================================================
-
-vec2 Rotate(vec2 p, float a) {
-    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
 }
 
 // =============================================================================
@@ -7164,7 +9229,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // TECHNIQUE: Seed-based HSV palette generation. The seed is hashed to derive
     // a base hue, then minor color axes are offset in hue/sat/val to create
     // coherent but varied color bands when mixed by the 3-channel FBM.
-    vec4 planetHash = hash4(seed + 0.3);
+    vec4 planetHash = pcgHash4(seed + 0.3);
     vec3 planetColor = hsv(planetHash.x, 0.5, 0.5 + 0.2 * planetHash.y);          // Base band color
     vec3 planetMinorX = hsv(planetHash.x, 0.3, 0.5 + 0.2 * planetHash.y + 0.3 * planetHash.w) - planetColor;  // Band variation axis X
     vec3 planetMinorY = hsv(planetHash.x + 0.4 * planetHash.z, 0.5, 0.5 + 0.2 * planetHash.y) - planetColor;  // Band variation axis Y
@@ -7174,9 +9239,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 atmosColor = hsv(planetHash.x, 0.3, 0.7);
 
     // Map window to -1..1, planet has r=1
-    // Responsive UV scale: zoom out on portrait screens to keep planet fully visible
-    float uvScale = BASE_UV_SCALE / min(1.0, iResolution.x / iResolution.y);
-    vec2 uv = uvScale * (2.0 * fragCoord.xy - iResolution.xy) / iResolution.y;
+    vec2 uv = sphereUV(fragCoord, iResolution.xy, BASE_UV_SCALE);
 
     float z2 = 1.0 - uv.x * uv.x - uv.y * uv.y;
     if (z2 >= 0.0) {
@@ -7186,52 +9249,374 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         // Auto rotation
         vec3 noisePos = pos;
-        float surfaceRot = -0.08 * iTime;   // Rotation speed — negative = eastward spin
+        float surfaceRot = -0.8 * iTime;    // Rotation speed — negative = eastward spin (SUPER fast)
         noisePos.xz = Rotate(noisePos.xz, surfaceRot);
 
         // Use Y (screen vertical) as latitude for horizontal bands
         // Add slight turbulence to break up perfect stripes
         vec3 p = noisePos;
-        p += bandTurbulence * fbm3(10.0 * p);  // Turbulence displacement — breaks geometric perfection
+        p += bandTurbulence * pcgFbm3(10.0 * p);  // Turbulence displacement — breaks geometric perfection
 
         // TECHNIQUE: Anisotropic band scaling — vec3(0.05, 1.0, 0.05) compresses
         // X and Z by 20x, stretching features into horizontal bands while keeping
         // latitudinal variation at full resolution
-        vec3 bands = fbm3(bandScale * vec3(0.05, 1.0, 0.05) * p + seed);
+        vec3 bands = pcgFbm3(bandScale * vec3(0.05, 1.0, 0.05) * p + seed);
         vec3 color = planetColor;
         color += planetMinorX * bands.x;
         color += planetMinorY * bands.y;
         color += planetMinorZ * bands.z;
 
         // Storm features — large oval spots at certain latitudes
-        float stormNoise = fbm1(8.0 * p.y + seed);
+        float stormNoise = pcgFbm1(8.0 * p.y + seed);
         float storm = smoothstep(0.6, 0.8, stormNoise) * 0.3;
         color = mix(color, color * 1.5 + vec3(0.1), storm);
 
         // Lighting — Blinn-Phong with atmosphere-tinted specular
-        float diffuse = 0.05 + clamp(dot(normal, LIGHT_DIR), 0.0, 1.0);  // 0.05 ambient floor
-        vec3 lightViewHalf = normalize(LIGHT_DIR + vec3(0.0, 0.0, 1.0)); // Half-vector (view is +Z)
-        float specular = 0.15 * pow(clamp(dot(normal, lightViewHalf), 0.0, 1.0), 20.0); // Exponent 20 = mild gloss
-        fragColor.rgb = diffuse * color * 2.0 + atmosColor * specular;   // 2x color boost for HDR vibrancy
+        vec2 light = blinnPhong(normal, LIGHT_DIR, 20.0, 0.15, 0.05);
+        fragColor.rgb = light.x * color * 2.0 + atmosColor * light.y;
 
         // TECHNIQUE: Fresnel-like atmospheric rim — intensifies at limb where
         // optical path through the atmosphere is longest
-        vec3 atmosCol = atmosColor * clamp(0.7 * diffuse + 0.05, 0.0, 1.0);
-        fragColor.rgb = mix(fragColor.rgb, 0.6 * atmosCol, smoothstep(0.993, 1.0, length(uv))); // Edge antialias
-        fragColor.rgb += pow(1.0 - pos.z, 1.2) * atmosCol * 0.8;  // Rim glow — exponent 1.2, 80% intensity
+        vec3 atmosCol = atmosColor * clamp(0.7 * light.x + 0.05, 0.0, 1.0);
+        fragColor.rgb = atmosEdge(fragColor.rgb, atmosCol, uv, 0.6);
+        fragColor.rgb += rimGlow(pos.z, atmosCol, 1.2, 0.8);
     }
     // Off sphere — atmospheric halo
     else {
-        float dist = length(uv);
-        vec3 dir = normalize(vec3(uv, 1.0));
-        float halo = smoothstep(1.3, 0.95, dist);
-        float lightFacing = clamp(dot(dir, LIGHT_DIR), 0.0, 1.0);
-        fragColor.rgb = atmosColor * halo * lightFacing * 0.5;
+        fragColor.rgb = halo(uv, atmosColor, LIGHT_DIR, 0.5);
     }
 
     fragColor.a = 1.0;
 }
-`},channels:{}},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:_f,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"noise-pcg",source:`/**
+ * PCG-Style Hash Noise
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using PCG-style polynomial hashing.
+ * Avoids sin-based precision issues on some mobile GPUs.
+ * Includes 1D, 3D, and 4D hash variants plus FBM with a
+ * decorrelation matrix to eliminate axis-aligned artifacts.
+ *
+ * Noise: Preferred over sin-hash for mobile/WebGL targets.
+ * The decorrelation matrix between FBM octaves prevents visible
+ * grid lines in banded atmospheric patterns.
+ */
+
+// === CONSTANTS ===
+
+/**
+ * Decorrelation matrix for 3D FBM.
+ * Rotates and scales domain between octaves to eliminate axis-aligned
+ * artifacts. The non-orthogonal entries create a pseudo-random rotation
+ * that prevents visible grid lines in banded patterns.
+ */
+const mat3 PCG_FBM_MATRIX = mat3(
+    0.51162, -1.54702, 1.15972,
+   -1.70666, -0.92510, -0.48114,
+    0.90858, -0.86654, -1.55678
+);
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D PCG-style hash — maps a float to pseudo-random [0, 1).
+ */
+float pcgHash1(float p) {
+    p = fract(p * 0.1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+
+/**
+ * 3D PCG-style hash — maps vec3 to pseudo-random vec3 in [0, 1).
+ */
+vec3 pcgHash3(vec3 p3) {
+    p3 = fract(p3 * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yxz + 33.33);
+    return fract((p3.xxy + p3.yxx) * p3.zyx);
+}
+
+/**
+ * 4D PCG-style hash — maps a float to pseudo-random vec4 in [0, 1).
+ * Useful for seed-based parameter generation.
+ */
+vec4 pcgHash4(float p) {
+    vec4 p4 = fract(vec4(p) * vec4(0.1031, 0.1030, 0.0973, 0.1099));
+    p4 += dot(p4, p4.wzxy + 33.33);
+    return fract((p4.xxyz + p4.yzzw) * p4.zywx);
+}
+
+// === NOISE FUNCTIONS ===
+
+/**
+ * 1D value noise from PCG hash with Hermite interpolation.
+ * @return Noise value in [-1, 1]
+ */
+float pcgNoise1(float p) {
+    float i = floor(p);
+    float f = fract(p);
+    float u = f * f * (3.0 - 2.0 * f);
+    return 1.0 - 2.0 * mix(pcgHash1(i), pcgHash1(i + 1.0), u);
+}
+
+/**
+ * 3D value noise from PCG hash with Hermite interpolation.
+ * @return Noise vec3 in [-1, 1] per component
+ */
+vec3 pcgNoise3(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+    return 1.0 - 2.0 * mix(
+        mix(mix(pcgHash3(i + vec3(0.0, 0.0, 0.0)),
+                pcgHash3(i + vec3(1.0, 0.0, 0.0)), u.x),
+            mix(pcgHash3(i + vec3(0.0, 1.0, 0.0)),
+                pcgHash3(i + vec3(1.0, 1.0, 0.0)), u.x), u.y),
+        mix(mix(pcgHash3(i + vec3(0.0, 0.0, 1.0)),
+                pcgHash3(i + vec3(1.0, 0.0, 1.0)), u.x),
+            mix(pcgHash3(i + vec3(0.0, 1.0, 1.0)),
+                pcgHash3(i + vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * 1D Fractional Brownian Motion using PCG noise.
+ *
+ * 5 octaves, lacunarity 2.0, gain 0.5.
+ * @param p  1D sample position
+ * @return Normalized FBM value in approximately [-1, 1]
+ */
+float pcgFbm1(float p) {
+    float f = pcgNoise1(p); p = 2.0 * p;
+    f += 0.5 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.25 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.125 * pcgNoise1(p); p = 2.0 * p;
+    f += 0.0625 * pcgNoise1(p);
+    return f / 1.9375;
+}
+
+/**
+ * 3D Fractional Brownian Motion using PCG noise with decorrelation matrix.
+ *
+ * 5 octaves with PCG_FBM_MATRIX applied between octaves to prevent
+ * axis-aligned grid artifacts in banded patterns.
+ *
+ * @param p  3D sample position
+ * @return Normalized FBM vec3 in approximately [-1, 1] per component
+ */
+vec3 pcgFbm3(vec3 p) {
+    vec3 f = pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.5 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.25 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.125 * pcgNoise3(p); p = PCG_FBM_MATRIX * p;
+    f += 0.0625 * pcgNoise3(p);
+    return f / 1.9375;
+}
+`},{name:"lighting",source:`/**
+ * Lighting Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless Blinn-Phong lighting functions for surface rendering.
+ * View direction is assumed to be +Z (screen-facing sphere).
+ */
+
+// === BLINN-PHONG ===
+
+/**
+ * Compute Blinn-Phong diffuse + specular lighting.
+ *
+ * Uses a fixed view direction of +Z (appropriate for screen-facing
+ * analytic sphere rendering). Includes a small ambient floor.
+ *
+ * @param normal     Surface normal (normalized)
+ * @param lightDir   Light direction (normalized, pointing toward the light)
+ * @param shininess  Specular exponent — higher = tighter highlight (15–60 typical)
+ * @param specAmount Specular intensity multiplier (0.0–1.0)
+ * @param ambient    Ambient light floor (typically 0.05)
+ * @return vec2(diffuse, specular) — combine as: diffuse * color + specular * lightColor
+ */
+vec2 blinnPhong(vec3 normal, vec3 lightDir, float shininess, float specAmount, float ambient) {
+    float diffuse = ambient + clamp(dot(normal, lightDir), 0.0, 1.0);
+    vec3 halfVec = normalize(lightDir + vec3(0.0, 0.0, 1.0));
+    float specular = specAmount * pow(clamp(dot(normal, halfVec), 0.0, 1.0), shininess);
+    return vec2(diffuse, specular);
+}
+`},{name:"atmosphere",source:`/**
+ * Atmospheric Effects
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for planetary atmosphere rendering:
+ * Fresnel-like rim glow and off-sphere halo.
+ */
+
+// === RIM GLOW ===
+
+/**
+ * Compute Fresnel-like atmospheric rim glow at the sphere limb.
+ *
+ * Simulates the increased optical path through a thin atmosphere at
+ * grazing angles. The glow intensifies as the surface normal tilts
+ * away from the viewer (posZ approaches 0).
+ *
+ * @param posZ       Z component of the unit-sphere position (0 at limb, 1 at center)
+ * @param atmosColor Atmosphere tint color
+ * @param exponent   Falloff exponent — higher = thinner rim (1.0–2.0 typical)
+ * @param intensity  Overall glow strength multiplier
+ * @return RGB rim glow contribution to add to the surface color
+ */
+vec3 rimGlow(float posZ, vec3 atmosColor, float exponent, float intensity) {
+    return pow(1.0 - posZ, exponent) * atmosColor * intensity;
+}
+
+/**
+ * Blend atmosphere color at the sphere edge for anti-aliased limb transition.
+ *
+ * @param color      Current surface color
+ * @param atmosColor Atmosphere tint (pre-multiplied by diffuse)
+ * @param uv         Current UV coordinates
+ * @param blendScale Scale factor for the atmosphere blend (typically 0.5–0.6)
+ * @return Blended color with smooth atmosphere edge
+ */
+vec3 atmosEdge(vec3 color, vec3 atmosColor, vec2 uv, float blendScale) {
+    return mix(color, blendScale * atmosColor, smoothstep(0.993, 1.0, length(uv)));
+}
+
+// === HALO ===
+
+/**
+ * Compute off-sphere atmospheric halo glow.
+ *
+ * Renders the faint atmospheric glow visible in the space surrounding
+ * the planet, strongest on the sun-facing side.
+ *
+ * @param uv         Current UV coordinates (off-sphere, length > 1.0)
+ * @param atmosColor Atmosphere tint color
+ * @param lightDir   Light direction (normalized)
+ * @param intensity  Overall halo brightness multiplier
+ * @return RGB halo color for off-sphere pixels
+ */
+vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
+    float dist = length(uv);
+    vec3 dir = normalize(vec3(uv, 1.0));
+    float falloff = smoothstep(1.3, 0.95, dist);
+    float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
+    return atmosColor * falloff * lightFacing * intensity;
+}
+`}]},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Cf,passes:{image:`/**\r
  * Perlin Plasma Study\r
  * @author guinetik\r
  * @date 2026-01-30\r
@@ -7240,8 +9625,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * for organic turbulence. Multiple sine wave interference patterns\r
  * warped through FBM noise create flowing psychedelic color fields.\r
  *\r
+ * Noise: Uses noise-perlin.glsl commons (Perlin gradient noise with\r
+ * quintic C2 interpolation). FBM with 5 octaves, lacunarity 2.0,\r
+ * gain 0.5 for natural 1/f turbulence.\r
+ *\r
+ * Commons: noise-perlin.glsl\r
+ *\r
  * Plasma Techniques:\r
- * - True 3D Perlin gradient noise\r
+ * - True 3D Perlin gradient noise (via commons)\r
  * - Classic demoscene sine plasma\r
  * - Noise-warped interference patterns\r
  *\r
@@ -7254,62 +9645,62 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 #define PI 3.14159265359\r
 #define TAU 6.28318530718\r
 \r
-/**\r
- * 3D Hash for gradient vectors\r
- */\r
-vec3 hash3(vec3 p) {\r
-    p = vec3(\r
-        dot(p, vec3(127.1, 311.7, 213.6)),\r
-        dot(p, vec3(327.1, 211.7, 113.6)),\r
-        dot(p, vec3(269.5, 183.3, 351.1))\r
-    );\r
-    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);\r
-}\r
+// --- Plasma sine wave frequencies ---\r
+// Control the spatial frequency of each sine layer.\r
+// Higher values = tighter wave patterns; lower = broader undulations.\r
+#define PLASMA_FREQ_X 3.0        // Horizontal sine frequency\r
+#define PLASMA_FREQ_Y 2.7        // Vertical sine frequency\r
+#define PLASMA_FREQ_DIAG 2.5     // Diagonal (x+y) sine frequency\r
+#define PLASMA_FREQ_RADIAL 4.0   // Radial distance sine frequency\r
+#define PLASMA_FREQ_RIPPLE 5.0   // Moving center ripple frequency\r
 \r
-/**\r
- * True 3D Perlin Gradient Noise\r
- * Interpolates gradient dot products for smoother results\r
- */\r
-float perlin3D(vec3 p) {\r
-    vec3 i = floor(p);\r
-    vec3 f = fract(p);\r
+// --- Plasma time multipliers ---\r
+// Control how fast each sine layer animates.\r
+// Higher = faster movement; mismatched values prevent repetition.\r
+#define PLASMA_TIME_X 1.0        // Horizontal layer time speed\r
+#define PLASMA_TIME_Y 1.3        // Vertical layer time speed\r
+#define PLASMA_TIME_DIAG 0.7     // Diagonal layer time speed\r
+#define PLASMA_TIME_RADIAL 1.5   // Radial layer time speed (subtracted)\r
+#define PLASMA_TIME_CENTER 0.5   // Center orbit X speed\r
+#define PLASMA_TIME_CENTER_Y 0.7 // Center orbit Y speed\r
 \r
-    // Quintic interpolation for C2 continuity (smoother than cubic)\r
-    vec3 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);\r
+// --- Perlin noise scales and time speeds ---\r
+// Control the spatial scale and animation speed of noise layers.\r
+// Larger scale = zoomed out (broader features); faster time = more motion.\r
+#define NOISE_SCALE_PRIMARY 1.5    // Spatial scale for primary Perlin layer\r
+#define NOISE_TIME_PRIMARY 0.4     // Time speed for primary Perlin layer\r
+#define NOISE_SCALE_FBM 0.8        // Spatial scale for FBM turbulence layer\r
+#define NOISE_TIME_FBM 0.3         // Time speed for FBM turbulence layer\r
+#define NOISE_SCALE_WARP 2.0       // Spatial scale for coordinate warp noise\r
+#define NOISE_TIME_WARP 0.25       // Time speed for coordinate warp noise\r
+#define NOISE_SCALE_DETAIL 4.0     // Spatial scale for high-frequency detail layer\r
+#define NOISE_TIME_DETAIL 0.6      // Time speed for detail layer\r
 \r
-    return mix(\r
-        mix(\r
-            mix(dot(hash3(i + vec3(0, 0, 0)), f - vec3(0, 0, 0)),\r
-                dot(hash3(i + vec3(1, 0, 0)), f - vec3(1, 0, 0)), u.x),\r
-            mix(dot(hash3(i + vec3(0, 1, 0)), f - vec3(0, 1, 0)),\r
-                dot(hash3(i + vec3(1, 1, 0)), f - vec3(1, 1, 0)), u.x),\r
-            u.y),\r
-        mix(\r
-            mix(dot(hash3(i + vec3(0, 0, 1)), f - vec3(0, 0, 1)),\r
-                dot(hash3(i + vec3(1, 0, 1)), f - vec3(1, 0, 1)), u.x),\r
-            mix(dot(hash3(i + vec3(0, 1, 1)), f - vec3(0, 1, 1)),\r
-                dot(hash3(i + vec3(1, 1, 1)), f - vec3(1, 1, 1)), u.x),\r
-            u.y),\r
-        u.z);\r
-}\r
+// --- Warp intensity ---\r
+// How strongly Perlin noise distorts the plasma coordinates.\r
+// 0.0 = no warp; 0.3 = moderate organic distortion; above 0.5 = chaotic.\r
+#define WARP_INTENSITY 0.3\r
 \r
-/**\r
- * Perlin FBM - layered gradient noise\r
- * 5 octaves with standard lacunarity 2.0 and gain 0.5:\r
- *   - Each octave doubles spatial frequency (p *= 2.0)\r
- *   - Each octave halves amplitude (a *= 0.5)\r
- *   - This 1/f weighting produces natural-looking turbulence\r
- */\r
-float perlinFBM(vec3 p) {\r
-    float v = 0.0;\r
-    float a = 0.5;\r
-    for (int i = 0; i < 5; i++) {\r
-        v += a * perlin3D(p);\r
-        p *= 2.0;  // lacunarity: double frequency each octave\r
-        a *= 0.5;  // gain: halve amplitude each octave\r
-    }\r
-    return v;\r
-}\r
+// --- Scanlines ---\r
+// CRT-style horizontal scanline overlay.\r
+// Higher frequency = thinner lines; higher strength = more visible.\r
+#define SCANLINE_FREQUENCY 400.0  // Lines per screen height — 400 gives subtle CRT feel\r
+#define SCANLINE_STRENGTH 0.03    // Brightness reduction per line — keep under 0.05 to stay subtle\r
+\r
+// --- Palette cycle speed ---\r
+// How fast the shader cycles between the three color palettes.\r
+// Lower = longer time per palette; 0.1 gives ~10s per palette.\r
+#define PALETTE_CYCLE_SPEED 0.1\r
+\r
+// --- Texture overlay blend ---\r
+// Blend factor for the overlay blending with iChannel0 texture.\r
+// 0.0 = pure texture; 1.0 = pure overlay; 0.6 = balanced plasma tint.\r
+#define TEXTURE_BLEND 0.6\r
+\r
+// --- Vignette ---\r
+// Darkening at screen edges. Controls the radius-to-darkening multiplier.\r
+// 0.0 = no vignette; 0.5 = moderate; 1.0 = strong tunnel effect.\r
+#define VIGNETTE_STRENGTH 0.5\r
 \r
 /**\r
  * Classic plasma + Perlin turbulence\r
@@ -7318,21 +9709,21 @@ float plasma(vec2 p, float time) {\r
     float v = 0.0;\r
 \r
     // Classic sine waves\r
-    v += sin(p.x * 3.0 + time);\r
-    v += sin(p.y * 2.7 + time * 1.3);\r
-    v += sin((p.x + p.y) * 2.5 + time * 0.7);\r
-    v += sin(length(p) * 4.0 - time * 1.5);\r
+    v += sin(p.x * PLASMA_FREQ_X + time * PLASMA_TIME_X);\r
+    v += sin(p.y * PLASMA_FREQ_Y + time * PLASMA_TIME_Y);\r
+    v += sin((p.x + p.y) * PLASMA_FREQ_DIAG + time * PLASMA_TIME_DIAG);\r
+    v += sin(length(p) * PLASMA_FREQ_RADIAL - time * PLASMA_TIME_RADIAL);\r
 \r
     // Moving center ripple\r
-    vec2 center = vec2(sin(time * 0.5), cos(time * 0.7)) * 0.5;\r
-    v += sin(length(p - center) * 5.0 + time);\r
+    vec2 center = vec2(sin(time * PLASMA_TIME_CENTER), cos(time * PLASMA_TIME_CENTER_Y)) * 0.5;\r
+    v += sin(length(p - center) * PLASMA_FREQ_RIPPLE + time);\r
 \r
     // ADD PERLIN: 3D noise traveling through time\r
-    vec3 noiseCoord = vec3(p * 1.5, time * 0.4);\r
-    v += perlin3D(noiseCoord) * 2.0;\r
+    vec3 noiseCoord = vec3(p * NOISE_SCALE_PRIMARY, time * NOISE_TIME_PRIMARY);\r
+    v += perlinNoise3D(noiseCoord) * 2.0;\r
 \r
     // ADD PERLIN: Turbulent FBM layer\r
-    v += perlinFBM(vec3(p * 0.8, time * 0.3)) * 1.5;\r
+    v += perlinFbm(vec3(p * NOISE_SCALE_FBM, time * NOISE_TIME_FBM), 5, 2.0, 0.5) * 1.5;\r
 \r
     return v / 7.0;\r
 }\r
@@ -7342,12 +9733,12 @@ float plasma(vec2 p, float time) {\r
  * Distorts the plasma field organically\r
  */\r
 vec2 perlinWarp(vec2 p, float time) {\r
-    vec3 np = vec3(p * 2.0, time * 0.25);\r
+    vec3 np = vec3(p * NOISE_SCALE_WARP, time * NOISE_TIME_WARP);\r
 \r
     return p + vec2(\r
-        perlin3D(np),\r
-        perlin3D(np + vec3(5.2, 1.3, 2.7))\r
-    ) * 0.3;\r
+        perlinNoise3D(np),\r
+        perlinNoise3D(np + vec3(5.2, 1.3, 2.7))\r
+    ) * WARP_INTENSITY;\r
 }\r
 \r
 /**\r
@@ -7409,11 +9800,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // === EXTRA PERLIN DETAIL ===\r
     // High-frequency Perlin adds fine organic texture\r
-    float detail = perlin3D(vec3(warped * 4.0, time * 0.6)) * 0.15;\r
+    float detail = perlinNoise3D(vec3(warped * NOISE_SCALE_DETAIL, time * NOISE_TIME_DETAIL)) * 0.15;\r
     combined += detail;\r
 \r
     // === COLOR ===\r
-    float paletteTime = mod(time * 0.1, 3.0);\r
+    float paletteTime = mod(time * PALETTE_CYCLE_SPEED, 3.0);\r
     vec3 plasmaCol;\r
 \r
     if (paletteTime < 1.0) {\r
@@ -7434,23 +9825,124 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
             1.0 - 2.0 * (1.0 - texColor) * (1.0 - plasmaCol),\r
             step(0.5, texColor)\r
         );\r
-        color = mix(texColor, overlay, 0.6);\r
+        color = mix(texColor, overlay, TEXTURE_BLEND);\r
     } else {\r
         color = plasmaCol;\r
     }\r
 \r
     // === SCANLINES ===\r
-    float scanline = sin(uv.y * 400.0) * 0.03;\r
+    float scanline = sin(uv.y * SCANLINE_FREQUENCY) * SCANLINE_STRENGTH;\r
     color -= scanline;\r
 \r
     // === POST ===\r
     color += plasmaCol * 0.1;\r
-    float vig = 1.0 - length(uv - 0.5) * 0.5;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{}},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Af,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"noise-perlin",source:`/**
+ * Perlin Gradient Noise
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * True 3D gradient noise with quintic interpolation for C2 continuity.
+ * Smoother than value noise (noise-value.glsl) — gradient dot products
+ * produce directional variation that eliminates the blocky artifacts of
+ * lattice-aligned value noise.
+ *
+ * Noise: Chosen over value noise when smooth, organic turbulence is needed
+ * (plasma fields, liquid surfaces). Costlier per sample due to 8 gradient
+ * dot products vs 8 scalar lookups, but the quality difference is visible
+ * at low octave counts.
+ */
+
+// === GRADIENT HASH ===
+
+/**
+ * 3D gradient vector hash.
+ * Maps a lattice point to a pseudo-random unit-ish vector in [-1, 1]^3.
+ * Uses dot-product projection + sin for decorrelation across axes.
+ *
+ * @param p  Integer lattice coordinate
+ * @return   Gradient vector in [-1, 1] per component
+ */
+vec3 perlinGrad3(vec3 p) {
+    p = vec3(
+        dot(p, vec3(127.1, 311.7, 213.6)),
+        dot(p, vec3(327.1, 211.7, 113.6)),
+        dot(p, vec3(269.5, 183.3, 351.1))
+    );
+    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+}
+
+// === PERLIN NOISE ===
+
+/**
+ * 3D Perlin gradient noise with quintic interpolation.
+ *
+ * At each of the 8 cube corners, a pseudo-random gradient vector is
+ * dot-producted with the offset from that corner. Trilinear interpolation
+ * blends the 8 results using quintic smoothstep (6t^5 - 15t^4 + 10t^3)
+ * for C2 continuity — no visible grid-line artifacts.
+ *
+ * @param p  3D sample position
+ * @return   Noise value in approximately [-0.5, 0.5]
+ */
+float perlinNoise3D(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+
+    // Quintic interpolation: 6t^5 - 15t^4 + 10t^3
+    // C2 continuous — second derivative is zero at lattice boundaries,
+    // eliminating the subtle grid-aligned ridges that cubic produces.
+    vec3 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+
+    return mix(
+        mix(
+            mix(dot(perlinGrad3(i + vec3(0, 0, 0)), f - vec3(0, 0, 0)),
+                dot(perlinGrad3(i + vec3(1, 0, 0)), f - vec3(1, 0, 0)), u.x),
+            mix(dot(perlinGrad3(i + vec3(0, 1, 0)), f - vec3(0, 1, 0)),
+                dot(perlinGrad3(i + vec3(1, 1, 0)), f - vec3(1, 1, 0)), u.x),
+            u.y),
+        mix(
+            mix(dot(perlinGrad3(i + vec3(0, 0, 1)), f - vec3(0, 0, 1)),
+                dot(perlinGrad3(i + vec3(1, 0, 1)), f - vec3(1, 0, 1)), u.x),
+            mix(dot(perlinGrad3(i + vec3(0, 1, 1)), f - vec3(0, 1, 1)),
+                dot(perlinGrad3(i + vec3(1, 1, 1)), f - vec3(1, 1, 1)), u.x),
+            u.y),
+        u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D Perlin noise.
+ *
+ * Sums multiple octaves of perlinNoise3D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return           FBM value (centered near 0, range depends on octaves)
+ */
+float perlinFbm(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * perlinNoise3D(pos);
+        total += scale;
+        pos += vec3(0.31, 0.83, 0.47);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`}]},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Af,passes:{image:`/**\r
  * Perlin Ripples Study\r
  * @author guinetik\r
  * @date 2026-01-30\r
@@ -7468,52 +9960,46 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
  * - Unpredictable liquid surface\r
  * - Wandering ripple sources\r
  * - Colors sampled from displaced texture\r
+ *\r
+ * Commons: noise-perlin (perlinNoise3D, perlinGrad3), noise-value (hashN)\r
  */\r
 \r
 #define PI 3.14159265359\r
 \r
-/**\r
- * 3D Hash for gradient noise\r
- */\r
-vec3 hash3(vec3 p) {\r
-    p = vec3(\r
-        dot(p, vec3(127.1, 311.7, 213.6)),\r
-        dot(p, vec3(327.1, 211.7, 113.6)),\r
-        dot(p, vec3(269.5, 183.3, 351.1))\r
-    );\r
-    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);\r
-}\r
+// --- Source geometry ---\r
+#define SOURCE_COUNT 6           // Number of wandering ripple emitters\r
+#define WANDER_SPEED_X 0.3       // Horizontal noise-space traversal speed — higher = faster drift\r
+#define WANDER_SPEED_Y 0.25      // Vertical noise-space traversal speed — slightly slower gives organic asymmetry\r
+#define WANDER_AMPLITUDE 0.8     // Spatial extent of source wander — 0.5: centered, 1.0: fills screen\r
 \r
-/**\r
- * Simple hash for randomness\r
- */\r
-float hash(float n) {\r
-    return fract(sin(n) * 43758.5453);\r
-}\r
+// --- Ripple parameters ---\r
+#define RIPPLE_BASE_FREQ 15.0    // Minimum ripple spatial frequency (Hz) — lower = broader rings\r
+#define RIPPLE_FREQ_RANGE 20.0   // Random frequency added per source (15-35 Hz total range)\r
+#define RIPPLE_BASE_SPEED 2.0    // Minimum outward propagation speed — lower = slower wave travel\r
+#define RIPPLE_SPEED_RANGE 3.0   // Random speed added per source (2-5 total range)\r
+#define RIPPLE_DISPLACE 0.015    // Displacement amplitude per ripple source — higher = more UV distortion\r
 \r
-/**\r
- * 3D Gradient Noise (Perlin-style)\r
- */\r
-float noise3D(vec3 p) {\r
-    vec3 i = floor(p);\r
-    vec3 f = fract(p);\r
-    vec3 u = f * f * (3.0 - 2.0 * f);\r
+// --- Turbulence ---\r
+#define TURB_SPATIAL_SCALE 4.0   // Spatial frequency of turbulent noise layer — higher = finer detail\r
+#define TURB_TIME_SPEED 0.4      // Animation rate of turbulence — 0.2: slow churn, 1.0: rapid boil\r
+#define TURB_STRENGTH 0.03       // UV displacement from turbulence — above 0.05 looks jittery\r
 \r
-    return mix(\r
-        mix(\r
-            mix(dot(hash3(i + vec3(0, 0, 0)), f - vec3(0, 0, 0)),\r
-                dot(hash3(i + vec3(1, 0, 0)), f - vec3(1, 0, 0)), u.x),\r
-            mix(dot(hash3(i + vec3(0, 1, 0)), f - vec3(0, 1, 0)),\r
-                dot(hash3(i + vec3(1, 1, 0)), f - vec3(1, 1, 0)), u.x),\r
-            u.y),\r
-        mix(\r
-            mix(dot(hash3(i + vec3(0, 0, 1)), f - vec3(0, 0, 1)),\r
-                dot(hash3(i + vec3(1, 0, 1)), f - vec3(1, 0, 1)), u.x),\r
-            mix(dot(hash3(i + vec3(0, 1, 1)), f - vec3(0, 1, 1)),\r
-                dot(hash3(i + vec3(1, 1, 1)), f - vec3(1, 1, 1)), u.x),\r
-            u.y),\r
-        u.z);\r
-}\r
+// --- Burst events ---\r
+#define BURST_EVENT_FREQ 0.5     // Bursts per second — higher = more frequent eruptions\r
+#define BURST_RIPPLE_FREQ 25.0   // Spatial frequency of burst wavefront — higher = tighter rings\r
+#define BURST_SPEED 15.0         // Outward propagation speed of burst ripple — fast for explosive feel\r
+#define BURST_DISPLACE 0.025     // UV displacement strength of burst — stronger than ambient ripples\r
+#define BURST_FADE_TIME 0.5      // Temporal fade threshold — burst decays from 1.0 to 0.0 over this fraction\r
+#define BURST_FADE_RADIUS 0.6    // Spatial fade radius — burst invisible beyond this distance from origin\r
+\r
+// --- Refraction & specular ---\r
+#define REFRACT_HIGHLIGHT_SCALE 20.0  // Multiplier on displacement length for brightness — higher = brighter caustics\r
+#define REFRACT_STRENGTH 0.5          // How much refraction modulates brightness — 0.0: none, 1.0: doubles\r
+#define SPECULAR_POWER 6.0            // Exponent for specular flash sharpness — higher = tighter highlights\r
+#define SPECULAR_STRENGTH 0.4         // Additive specular intensity — above 0.6 blows out whites\r
+\r
+// --- Post-processing ---\r
+#define VIGNETTE_STRENGTH 0.4    // Edge darkening factor — 0.0: no vignette, 1.0: fully dark corners\r
 \r
 void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 {\r
@@ -7529,7 +10015,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     float totalRipple = 0.0;\r
     vec2 totalDisplace = vec2(0.0);\r
 \r
-    for (int i = 0; i < 6; i++) {\r
+    for (int i = 0; i < SOURCE_COUNT; i++) {\r
         float fi = float(i);\r
         // Seed offset per source — 73.156 is an arbitrary irrational-ish\r
         // constant that spaces sources far apart in noise space, avoiding\r
@@ -7538,9 +10024,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
         // Each source wanders unpredictably using noise\r
         vec2 sourcePos = vec2(\r
-            noise3D(vec3(time * 0.3 + seed, fi * 1.7, 0.0)),\r
-            noise3D(vec3(fi * 2.3, time * 0.25 + seed, 1.0))\r
-        ) * 0.8;\r
+            perlinNoise3D(vec3(time * WANDER_SPEED_X + seed, fi * 1.7, 0.0)),\r
+            perlinNoise3D(vec3(fi * 2.3, time * WANDER_SPEED_Y + seed, 1.0))\r
+        ) * WANDER_AMPLITUDE;\r
 \r
         // Distance to this source\r
         float dist = length(p - sourcePos);\r
@@ -7548,45 +10034,45 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
         // Ripple with unique frequency, speed, and phase\r
         // Hash seeds (5.1, 7.3, 11.7) are coprime-ish multipliers that\r
         // ensure each source gets decorrelated freq/speed/phase values\r
-        float freq = 15.0 + hash(fi * 5.1) * 20.0;   // 15-35 Hz range\r
-        float speed = 2.0 + hash(fi * 7.3) * 3.0;     // 2-5 propagation speed\r
-        float phase = hash(fi * 11.7) * 6.28;          // random initial phase\r
+        float freq = RIPPLE_BASE_FREQ + hashN(fi * 5.1) * RIPPLE_FREQ_RANGE;   // 15-35 Hz range\r
+        float speed = RIPPLE_BASE_SPEED + hashN(fi * 7.3) * RIPPLE_SPEED_RANGE; // 2-5 propagation speed\r
+        float phase = hashN(fi * 11.7) * 6.28;          // random initial phase\r
 \r
         float ripple = sin(dist * freq - time * speed + phase);\r
 \r
         // Irregular decay - not smooth falloff\r
-        float decay = 1.0 / (1.0 + dist * (3.0 + hash(fi * 3.3) * 4.0));\r
-        decay *= 0.5 + 0.5 * sin(time * (0.5 + hash(fi * 9.1)) + fi);\r
+        float decay = 1.0 / (1.0 + dist * (3.0 + hashN(fi * 3.3) * 4.0));\r
+        decay *= 0.5 + 0.5 * sin(time * (0.5 + hashN(fi * 9.1)) + fi);\r
 \r
         ripple *= decay;\r
         totalRipple += ripple;\r
 \r
         // Displacement toward/away from source\r
         vec2 dir = normalize(p - sourcePos + 0.001);\r
-        totalDisplace += dir * ripple * 0.015;\r
+        totalDisplace += dir * ripple * RIPPLE_DISPLACE;\r
     }\r
 \r
     // === TURBULENT NOISE LAYER ===\r
     // Add chaotic 3D noise displacement\r
-    vec3 noisePos = vec3(p * 4.0, time * 0.4);\r
-    float turb1 = noise3D(noisePos);\r
-    float turb2 = noise3D(noisePos * 2.3 + 100.0);\r
+    vec3 noisePos = vec3(p * TURB_SPATIAL_SCALE, time * TURB_TIME_SPEED);\r
+    float turb1 = perlinNoise3D(noisePos);\r
+    float turb2 = perlinNoise3D(noisePos * 2.3 + 100.0);\r
 \r
-    totalDisplace += vec2(turb1, turb2) * 0.03;\r
+    totalDisplace += vec2(turb1, turb2) * TURB_STRENGTH;\r
 \r
     // === SUDDEN BURSTS ===\r
     // Occasional random strong ripples\r
-    float burstPhase = floor(time * 0.5);\r
-    float burstT = fract(time * 0.5);\r
+    float burstPhase = floor(time * BURST_EVENT_FREQ);\r
+    float burstT = fract(time * BURST_EVENT_FREQ);\r
     vec2 burstPos = vec2(\r
-        hash(burstPhase * 17.1) - 0.5,\r
-        hash(burstPhase * 23.7) - 0.5\r
-    ) * 0.6;\r
+        hashN(burstPhase * 17.1) - 0.5,\r
+        hashN(burstPhase * 23.7) - 0.5\r
+    ) * BURST_FADE_RADIUS;\r
     float burstDist = length(p - burstPos);\r
-    float burst = sin(burstDist * 25.0 - burstT * 15.0);\r
-    burst *= smoothstep(0.5, 0.0, burstT);\r
-    burst *= smoothstep(0.6, 0.0, burstDist);\r
-    totalDisplace += normalize(p - burstPos + 0.001) * burst * 0.025;\r
+    float burst = sin(burstDist * BURST_RIPPLE_FREQ - burstT * BURST_SPEED);\r
+    burst *= smoothstep(BURST_FADE_TIME, 0.0, burstT);\r
+    burst *= smoothstep(BURST_FADE_RADIUS, 0.0, burstDist);\r
+    totalDisplace += normalize(p - burstPos + 0.001) * burst * BURST_DISPLACE;\r
 \r
     // === SAMPLE TEXTURE ===\r
     vec2 displacedUV = uv + totalDisplace;\r
@@ -7614,20 +10100,243 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     }\r
 \r
     // === REFRACTION BRIGHTNESS ===\r
-    float refract = length(totalDisplace) * 20.0;\r
-    color *= 1.0 + refract * 0.5;\r
+    float refract = length(totalDisplace) * REFRACT_HIGHLIGHT_SCALE;\r
+    color *= 1.0 + refract * REFRACT_STRENGTH;\r
 \r
     // === SPECULAR FLASHES ===\r
-    float spec = pow(max(0.0, totalRipple), 6.0) * 0.4;\r
+    float spec = pow(max(0.0, totalRipple), SPECULAR_POWER) * SPECULAR_STRENGTH;\r
     color += vec3(1.0) * spec;\r
 \r
     // === POST ===\r
-    float vig = 1.0 - length(uv - 0.5) * 0.4;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","simulation","3d","interactive"],links:{},screenshotUrl:Rf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"textures/water.avif"}},commonsSources:[{name:"noise-perlin",source:`/**
+ * Perlin Gradient Noise
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * True 3D gradient noise with quintic interpolation for C2 continuity.
+ * Smoother than value noise (noise-value.glsl) — gradient dot products
+ * produce directional variation that eliminates the blocky artifacts of
+ * lattice-aligned value noise.
+ *
+ * Noise: Chosen over value noise when smooth, organic turbulence is needed
+ * (plasma fields, liquid surfaces). Costlier per sample due to 8 gradient
+ * dot products vs 8 scalar lookups, but the quality difference is visible
+ * at low octave counts.
+ */
+
+// === GRADIENT HASH ===
+
+/**
+ * 3D gradient vector hash.
+ * Maps a lattice point to a pseudo-random unit-ish vector in [-1, 1]^3.
+ * Uses dot-product projection + sin for decorrelation across axes.
+ *
+ * @param p  Integer lattice coordinate
+ * @return   Gradient vector in [-1, 1] per component
+ */
+vec3 perlinGrad3(vec3 p) {
+    p = vec3(
+        dot(p, vec3(127.1, 311.7, 213.6)),
+        dot(p, vec3(327.1, 211.7, 113.6)),
+        dot(p, vec3(269.5, 183.3, 351.1))
+    );
+    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+}
+
+// === PERLIN NOISE ===
+
+/**
+ * 3D Perlin gradient noise with quintic interpolation.
+ *
+ * At each of the 8 cube corners, a pseudo-random gradient vector is
+ * dot-producted with the offset from that corner. Trilinear interpolation
+ * blends the 8 results using quintic smoothstep (6t^5 - 15t^4 + 10t^3)
+ * for C2 continuity — no visible grid-line artifacts.
+ *
+ * @param p  3D sample position
+ * @return   Noise value in approximately [-0.5, 0.5]
+ */
+float perlinNoise3D(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+
+    // Quintic interpolation: 6t^5 - 15t^4 + 10t^3
+    // C2 continuous — second derivative is zero at lattice boundaries,
+    // eliminating the subtle grid-aligned ridges that cubic produces.
+    vec3 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+
+    return mix(
+        mix(
+            mix(dot(perlinGrad3(i + vec3(0, 0, 0)), f - vec3(0, 0, 0)),
+                dot(perlinGrad3(i + vec3(1, 0, 0)), f - vec3(1, 0, 0)), u.x),
+            mix(dot(perlinGrad3(i + vec3(0, 1, 0)), f - vec3(0, 1, 0)),
+                dot(perlinGrad3(i + vec3(1, 1, 0)), f - vec3(1, 1, 0)), u.x),
+            u.y),
+        mix(
+            mix(dot(perlinGrad3(i + vec3(0, 0, 1)), f - vec3(0, 0, 1)),
+                dot(perlinGrad3(i + vec3(1, 0, 1)), f - vec3(1, 0, 1)), u.x),
+            mix(dot(perlinGrad3(i + vec3(0, 1, 1)), f - vec3(0, 1, 1)),
+                dot(perlinGrad3(i + vec3(1, 1, 1)), f - vec3(1, 1, 1)), u.x),
+            u.y),
+        u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D Perlin noise.
+ *
+ * Sums multiple octaves of perlinNoise3D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return           FBM value (centered near 0, range depends on octaves)
+ */
+float perlinFbm(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * perlinNoise3D(pos);
+        total += scale;
+        pos += vec3(0.31, 0.83, 0.47);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`}]},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","simulation","3d","interactive"],links:{},screenshotUrl:Rf,passes:{image:`/**\r
  * Attractor Study #03: Rossler — Image Pass\r
  * @author guinetik\r
  * @date 2026-02-11\r
@@ -7730,11 +10439,6 @@ vec3 center3d = vec3(0.0, -3.0, 5.0);\r
 #define PB 0.2             // Rossler 'b' — z-injection constant. Higher = more frequent spikes.\r
 #define PC 5.7             // Rossler 'c' — foldback threshold. Higher = larger spiral before spike.\r
 \r
-// Pseudo-random hash — maps a float seed to [0, 1).\r
-float hash(float n) {\r
-    return fract(sin(n) * 43758.5453);\r
-}\r
-\r
 // Forward Euler integration of the Rossler system with per-particle variation.\r
 // \`pv\` is a small fractional offset (e.g. +/-5%) applied to all three parameters,\r
 // giving each particle a slightly different orbit to fill the attractor volume.\r
@@ -7748,48 +10452,6 @@ vec3 integrateV(vec3 cur, float dt, float pv) {\r
         cur.x + a * cur.y,\r
         b + cur.z * (cur.x - c)\r
     ) * dt;\r
-}\r
-\r
-// Rotation matrix around the X axis by angle \`a\` (radians).\r
-mat3 rotX(float a) {\r
-    float c = cos(a), s = sin(a);\r
-    return mat3(1,0,0, 0,c,-s, 0,s,c);\r
-}\r
-\r
-// Rotation matrix around the Y axis by angle \`a\` (radians).\r
-mat3 rotY(float a) {\r
-    float c = cos(a), s = sin(a);\r
-    return mat3(c,0,s, 0,1,0, -s,0,c);\r
-}\r
-\r
-// Project a 3D attractor point to 2D screen space.\r
-// Subtracts the attractor center to keep the spiral visible on screen.\r
-vec2 project(vec3 p, mat3 viewRot, float scale) {\r
-    return (viewRot * (p - center3d)).xy * scale;\r
-}\r
-\r
-// TECHNIQUE: Distance-field line segment rendering\r
-// Computes the minimum distance from point \`p\` to the line segment (a, b).\r
-float dfLine(vec2 a, vec2 b, vec2 p) {\r
-    vec2 ab = b - a;\r
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);\r
-    return distance(a + ab * t, p);\r
-}\r
-\r
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.\r
-vec3 hsl2rgb(float h, float s, float l) {\r
-    h = mod(h, 360.0) / 60.0;\r
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;\r
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));\r
-    float m = l - c * 0.5;\r
-    vec3 rgb;\r
-    if      (h < 1.0) rgb = vec3(c, x, 0);\r
-    else if (h < 2.0) rgb = vec3(x, c, 0);\r
-    else if (h < 3.0) rgb = vec3(0, c, x);\r
-    else if (h < 4.0) rgb = vec3(0, x, c);\r
-    else if (h < 5.0) rgb = vec3(x, 0, c);\r
-    else              rgb = vec3(c, 0, x);\r
-    return rgb + m;\r
 }\r
 \r
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
@@ -7839,19 +10501,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
         // +/-5% parameter variation per particle for orbit separation.\r
         // Each particle explores a slightly different dynamical regime.\r
-        float pv = (hash(float(p) * 7.13) - 0.5) * 0.10;\r
+        float pv = (hashN(float(p) * 7.13) - 0.5) * 0.10;\r
 \r
         // TECHNIQUE: Per-particle intensity modulation\r
         // Each particle oscillates brightness at its own frequency/phase,\r
         // creating a firefly-like effect where different orbits pulse independently.\r
-        float pFreq = 0.3 + hash(float(p) * 3.71) * 0.7;\r
-        float pPhase = hash(float(p) * 11.3) * 6.2832;\r
+        float pFreq = 0.3 + hashN(float(p) * 3.71) * 0.7;\r
+        float pPhase = hashN(float(p) * 11.3) * 6.2832;\r
         float pAlpha = 0.3 + 0.7 * max(0.0, sin(iTime * pFreq + pPhase));\r
 \r
         for (float i = 0.0; i < STEPS; i++) {\r
             next = integrateV(last, 0.016 * SPEED, pv);\r
 \r
-            float segD = dfLine(project(last, viewRot, viewScale), project(next, viewRot, viewScale), uv);\r
+            float segD = dfLine(projectMat(last - center3d, viewRot, viewScale), projectMat(next - center3d, viewRot, viewScale), uv);\r
             if (segD < d) {\r
                 d = segD;\r
                 bestAlpha = pAlpha;\r
@@ -7875,7 +10537,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     // Blink: random pulses of brightness — 30% chance each tick, sine-shaped.\r
     float blinkSeed = floor(iTime * BLINK_FREQ);\r
-    float blink = hash(blinkSeed) < 0.3\r
+    float blink = hashN(blinkSeed) < 0.3\r
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;\r
 \r
     // Velocity-based color: fast regions map to MIN_HUE, slow to MAX_HUE.\r
@@ -7901,9 +10563,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
             // Rossler spiral lives mostly in the xy-plane with occasional z-spikes.\r
             float seed = float(px) * 37.0;\r
             vec3 pos = vec3(\r
-                (hash(seed) - 0.5) * 10.0,\r
-                (hash(seed * 1.31) - 0.5) * 10.0,\r
-                hash(seed * 2.17) * 0.2\r
+                (hashN(seed) - 0.5) * 10.0,\r
+                (hashN(seed * 1.31) - 0.5) * 10.0,\r
+                hashN(seed * 2.17) * 0.2\r
             );\r
             fragColor = vec4(pos, 0);\r
         } else {\r
@@ -7913,13 +10575,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
             // random chance (RESPAWN_CHANCE) per frame ensures continuous renewal\r
             // even for well-behaved orbits. Prevents stale/stuck particles and keeps\r
             // the form regenerating organically without hard cycle cuts.\r
-            float rng = hash(float(px) * 13.7 + iTime * 60.0);\r
+            float rng = hashN(float(px) * 13.7 + iTime * 60.0);\r
             if (length(pos) > ESCAPE_RADIUS || rng < RESPAWN_CHANCE) {\r
                 float seed = float(px) + iTime * 60.0;\r
                 pos = vec3(\r
-                    (hash(seed) - 0.5) * 10.0,\r
-                    (hash(seed * 1.31) - 0.5) * 10.0,\r
-                    hash(seed * 2.17) * 0.2\r
+                    (hashN(seed) - 0.5) * 10.0,\r
+                    (hashN(seed * 1.31) - 0.5) * 10.0,\r
+                    hashN(seed * 2.17) * 0.2\r
                 );\r
             }\r
             fragColor = vec4(pos, 0);\r
@@ -7934,7 +10596,268 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
         fragColor = vec4(min(newCol, 1.5), 0);  // Cap at 1.5 to prevent white blowout in HDR buffer.\r
     }\r
 }\r
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","simulation","space"],links:{},screenshotUrl:If,passes:{image:`/**
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`},{name:"projection",source:`/**
+ * 3D Projection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless 3D-to-2D projection helpers for attractor rendering.
+ * Provides rotation matrices and projection functions.
+ */
+
+// === ROTATION MATRICES ===
+
+/**
+ * Rotation matrix around the X axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotX(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(1,0,0, 0,c,-s, 0,s,c);
+}
+
+/**
+ * Rotation matrix around the Y axis.
+ *
+ * @param a  Angle in radians
+ * @return 3x3 rotation matrix
+ */
+mat3 rotY(float a) {
+    float c = cos(a), s = sin(a);
+    return mat3(c,0,s, 0,1,0, -s,0,c);
+}
+
+// === PROJECTION ===
+
+/**
+ * Project a 3D point to 2D screen space via rotation matrix.
+ *
+ * Applies the view rotation and scales the result. The Z component
+ * is discarded (orthographic projection along the view axis).
+ *
+ * @param p        3D point to project
+ * @param viewRot  Combined view rotation matrix (typically rotY * rotX)
+ * @param scale    Screen scale factor (pixels per unit)
+ * @return 2D screen-space position
+ */
+vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
+    return (viewRot * p).xy * scale;
+}
+`}]},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","simulation","space"],links:{},screenshotUrl:If,passes:{image:`/**
  * Signal / Noise
  * @author guinetik
  * @date 2026-02-11
@@ -7954,32 +10877,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
-// ---------------------------------------------------------------------------
-// Hash / Noise
-// ---------------------------------------------------------------------------
-
-/**
- * Pseudo-random hash — classic sin-dot construction.
- * Returns [0, 1) for any 2D input.
- */
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
-/**
- * Value noise with Hermite smoothing (smoothstep-style interpolation).
- * Chosen over simplex for its simplicity; adequate for the soft
- * nebula textures that don't need gradient continuity.
- */
-float noise(vec2 p) {
-    vec2 i = floor(p), f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
-    return mix(
-        mix(hash(i), hash(i + vec2(1, 0)), f.x),
-        mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x),
-        f.y
-    );
-}
+// Hash (hashN2) and value noise (valueNoise2D) provided by noise-value commons.
 
 /**
  * Fractal Brownian Motion — 6 octaves with domain rotation.
@@ -7990,7 +10888,7 @@ float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
     mat2 rot = mat2(0.8, 0.6, -0.6, 0.8);  // ~36.87 degree rotation between octaves
     for (int i = 0; i < 6; i++) {
-        v += a * noise(p);
+        v += a * valueNoise2D(p);
         p = rot * p * 2.0;
         a *= 0.5;
     }
@@ -8141,7 +11039,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         vec2 starUV = uv * (40.0 + i * 50.0) + vec2(i * 17.3, i * 31.7);
         vec2 starId = floor(starUV);
         vec2 starF = fract(starUV) - 0.5;
-        float h = hash(starId + i * 100.0);
+        float h = hashN2(starId + i * 100.0);
         float starDist = length(starF);
 
         if (h > 0.96) {
@@ -8157,7 +11055,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     }
 
     vec3 starColor = mix(vec3(0.80, 0.50, 1.0), vec3(1.0, 0.55, 0.90),
-                         hash(floor(uv * 80.0)));
+                         hashN2(floor(uv * 80.0)));
     col += (stars + spikes) * starColor * 0.5;
 
     // Guide stars — a few fixed bright points with soft Gaussian halos
@@ -8175,14 +11073,136 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     col *= smoothstep(-0.1, 0.6, vig);
 
     // Film grain — subtle dithering to break banding
-    col += (hash(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
+    col += (hashN2(uv * iResolution.xy + fract(time)) - 0.5) * 0.015;
     // Near-unity gamma — slight contrast lift
     col = pow(max(col, 0.0), vec3(0.95));
     col = clamp(col, 0.0, 1.0);
 
     fragColor = vec4(col, 1.0);
 }
-`},channels:{}},{slug:"star-blue-giant",title:"Blue Giant",description:"A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Df,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`}]},{slug:"star-blue-giant",title:"Blue Giant",description:"A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Nf,passes:{image:`/**
  * Blue Giant Star
  * @author guinetik
  * @date 2025-11-29
@@ -8227,68 +11247,18 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 #define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
+// NOISE — 3D Simplex Noise provided by noise-simplex commons (snoise3D)
 // =============================================================================
-// Same simplex noise implementation as the other star shaders. Lower base
-// frequencies are used throughout to produce the smoother, larger-scale
-// convection patterns characteristic of massive stellar envelopes.
-
-vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-
-float snoise(vec3 v) {
-    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - D.yyy;
-    i = mod289(i);
-    vec4 p = permute(permute(permute(
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
-    float n_ = 0.142857142857;
-    vec3 ns = n_ * D.wyz - D.xzx;
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
-    vec4 x_ = floor(j * ns.z);
-    vec4 y_ = floor(j - 7.0 * x_);
-    vec4 x = x_ * ns.x + ns.yyyy;
-    vec4 y = y_ * ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-    vec3 p0 = vec3(a0.xy, h.x);
-    vec3 p1 = vec3(a0.zw, h.y);
-    vec3 p2 = vec3(a1.xy, h.z);
-    vec3 p3 = vec3(a1.zw, h.w);
-    vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
-    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
-}
 
 // FBM with configurable octaves — lacunarity 2.0, gain 0.5
 // Called with fewer octaves (3-4) than the other stars to produce the
 // smoother surface characteristic of a massive blue giant.
+// NOTE: Kept inline because the domain shift differs from fbmSimplex3D.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
-        v += a * snoise(p * f);
+        v += a * snoise3D(p * f);
         f *= 2.0;         // Double frequency each octave
         a *= 0.5;         // Halve amplitude each octave
         p += vec3(100.0); // Domain shift to decorrelate
@@ -8326,9 +11296,9 @@ vec3 starRamp(float t) {
 // stellar envelope where convection operates on much larger spatial scales.
 
 float convectionCells(vec3 p, float time) {
-    float cells = snoise(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
-    float med = snoise(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
-    float fine = snoise(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
+    float cells = snoise3D(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
+    float med = snoise3D(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
+    float fine = snoise3D(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
     return cells * 0.55 + med * 0.3 + fine * 0.15;  // Large features dominate (0.55 vs 0.5)
 }
 
@@ -8336,7 +11306,7 @@ float convectionCells(vec3 p, float time) {
 // Lowest frequency (2.0) and highest threshold (0.6) = very few, faint spots.
 // Massive blue giants have weaker magnetic fields relative to their luminosity.
 float starSpots(vec3 p, float time) {
-    float spots = snoise(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
+    float spots = snoise3D(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
     return smoothstep(0.6, 0.85, spots);  // Highest threshold = fewest spots of any star type
 }
 
@@ -8363,7 +11333,7 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float spots = starSpots(spherePos, time);
 
     // Very subtle pulsing — +/-5% (vs +/-8% Sun, +/-10% red dwarf)
-    float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise(spherePos * 1.5) * 2.0);
+    float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise3D(spherePos * 1.5) * 2.0);
 
     float heat = plasma * 0.65 + cells * 0.35;  // Plasma dominates even more
     heat *= pulse;
@@ -8462,8 +11432,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float focalLength = 1.5;  // Camera focal length
 
     // Slowest rotation of all three star types — emphasizes massive scale
-    float rotX = time * 0.1;               // Horizontal orbit (slowest: 0.1 vs 0.12 vs 0.15)
-    float rotY = sin(time * 0.04) * 0.2;   // Vertical bob — gentlest (+/-0.2 vs 0.25 vs 0.3)
+    float rotX = time * 0.3;               // Horizontal orbit (slowest: 0.3 vs 0.36 vs 0.45)
+    float rotY = sin(time * 0.12) * 0.2;   // Vertical bob — gentlest (+/-0.2 vs 0.25 vs 0.3)
 
     float camDist = 3.5;  // Camera distance
     vec3 camPos = vec3(
@@ -8499,7 +11469,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 spherePos = normal;
 
             // Slowest axial rotation — 0.03 rad/s (vs 0.04 Sun, 0.05 red dwarf)
-            float starRot = time * 0.03;
+            float starRot = time * 0.09;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
                 spherePos.x * cs + spherePos.z * sn,
@@ -8525,7 +11495,245 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(color, 1.0);
 }
-`},channels:{}},{slug:"star-red-dwarf",title:"Red Dwarf",description:"A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Pf,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"noise-simplex",source:`/**
+ * Simplex Noise (Ashima Arts implementation)
+ * @author guinetik
+ * @date 2026-02-16
+ *
+ * 2D and 3D simplex noise plus FBM and specialty variants.
+ * Simplex noise is preferred over classic Perlin for 3D work because it
+ * evaluates 4 simplex corners instead of 8 cube corners, and has no
+ * axis-aligned artifacts. Range is approximately [-1, 1].
+ *
+ * Noise: Chosen for star surfaces, corona flames, and planet terrain where
+ * isotropic noise without grid bias is important. Costlier than value noise
+ * but cheaper than 3D Perlin in practice due to fewer gradient evaluations.
+ *
+ * Based on: "Simplex noise demystified" by Stefan Gustavson (2005),
+ * GLSL implementation by Ashima Arts / Ian McEwan.
+ */
+
+// === INTERNAL HELPERS ===
+// These mod289/permute functions form the hash core of simplex noise.
+// 289 = 17*17 — chosen so that permute(permute(x)) covers [0,289) uniformly.
+
+vec2 mod289_s2(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 mod289_s3(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289_s4(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+
+vec3 permute_s3(vec3 x) { return mod289_s3(((x * 34.0) + 1.0) * x); }
+vec4 permute_s4(vec4 x) { return mod289_s4(((x * 34.0) + 1.0) * x); }
+
+vec4 taylorInvSqrt_s(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+// === 3D SIMPLEX NOISE ===
+
+/**
+ * 3D simplex noise.
+ *
+ * Evaluates gradient noise on a simplex (tetrahedron) lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  3D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise3D(vec3 v) {
+    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+
+    i = mod289_s3(i);
+    vec4 p = permute_s4(permute_s4(permute_s4(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+
+    vec4 s0 = floor(b0) * 2.0 + 1.0;
+    vec4 s1 = floor(b1) * 2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+
+    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+
+    vec4 norm = taylorInvSqrt_s(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+}
+
+// === 2D SIMPLEX NOISE ===
+
+/**
+ * 2D simplex noise.
+ *
+ * Evaluates gradient noise on a triangular simplex lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  2D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise2D(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                       -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289_s2(i);
+    vec3 p = permute_s3(permute_s3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m; m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+// === FBM VARIANTS ===
+
+/**
+ * 2D FBM using simplex noise, 5 fixed octaves.
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p  2D sample position
+ * @return   FBM value, centered near 0
+ */
+float fbmSimplex2D(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    for (int i = 0; i < 5; i++) {
+        value += amplitude * snoise2D(p);
+        p *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+/**
+ * 3D FBM using simplex noise, configurable octaves (1–6).
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p        3D sample position
+ * @param octaves  Number of octaves (clamped to 1–6)
+ * @return         FBM value, centered near 0
+ */
+float fbmSimplex3D(vec3 p, int octaves) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    for (int i = 0; i < 6; i++) {
+        if (i >= octaves) break;
+        value += amplitude * snoise3D(p * frequency);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+// === SPECIALTY NOISE ===
+
+/**
+ * Seamless tiling noise for sphere textures.
+ *
+ * Uses lattice hashing with modular wrap to tile seamlessly at resolution \`res\`.
+ * Output range is [-1, 1]. Ideal for star flame patterns where seam-free
+ * spherical coverage is needed.
+ *
+ * @param uv   3D coordinate (typically angular coords + time)
+ * @param res  Tiling resolution — higher = finer detail
+ * @return     Tiled noise in [-1, 1]
+ */
+float tiledNoise3D(vec3 uv, float res) {
+    uv *= res;
+    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 f = fract(uv);
+    f = f * f * (3.0 - 2.0 * f);
+
+    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
+                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
+
+    vec4 r = fract(sin(v * 0.001) * 100000.0);
+    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
+    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    return mix(r0, r1, f.z) * 2.0 - 1.0;
+}
+
+/**
+ * Animated flowing plasma noise.
+ *
+ * Multi-octave simplex noise with per-octave time-varying offsets that
+ * create a "boiling" or flowing effect. Normalized to [0, 1].
+ * Used for star surface plasma, lava flows, and other animated surfaces.
+ *
+ * @param p     3D sample position
+ * @param time  Animation time (typically iTime or wrapped iTime)
+ * @return      Plasma value in [0, 1]
+ */
+float plasmaNoise(vec3 p, float time) {
+    float value = 0.0;
+    float amplitude = 1.0;
+    float frequency = 1.0;
+    float totalAmp = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        vec3 offset = vec3(
+            sin(time * 0.1 + float(i)) * 0.5,
+            cos(time * 0.15 + float(i) * 0.7) * 0.5,
+            time * 0.05
+        );
+        value += amplitude * snoise3D((p + offset) * frequency);
+        totalAmp += amplitude;
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+
+    return value / totalAmp;
+}
+`}]},{slug:"star-red-dwarf",title:"Red Dwarf",description:"A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Df,passes:{image:`/**
  * Red Dwarf Star
  * @author guinetik
  * @date 2025-11-29
@@ -8571,68 +11779,18 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 #define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
+// NOISE — 3D Simplex Noise provided by noise-simplex commons (snoise3D)
 // =============================================================================
-// Chosen for smooth, isotropic gradients essential for convincing stellar
-// surface turbulence. Simplex noise has no visible grid artifacts and is
-// computationally cheaper than classic Perlin noise in 3D.
-
-vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-
-float snoise(vec3 v) {
-    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - D.yyy;
-    i = mod289(i);
-    vec4 p = permute(permute(permute(
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
-    float n_ = 0.142857142857;
-    vec3 ns = n_ * D.wyz - D.xzx;
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
-    vec4 x_ = floor(j * ns.z);
-    vec4 y_ = floor(j - 7.0 * x_);
-    vec4 x = x_ * ns.x + ns.yyyy;
-    vec4 y = y_ * ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-    vec3 p0 = vec3(a0.xy, h.x);
-    vec3 p1 = vec3(a0.zw, h.y);
-    vec3 p2 = vec3(a1.xy, h.z);
-    vec3 p3 = vec3(a1.zw, h.w);
-    vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
-    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
-}
 
 // FBM with configurable octaves — lacunarity 2.0, gain 0.5
 // Domain offset vec3(100.0) between octaves decorrelates layers.
 // 5 octaves for plasma detail, 3-4 for corona flames.
+// NOTE: Kept inline because the domain shift differs from fbmSimplex3D.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
-        v += a * snoise(p * f);
+        v += a * snoise3D(p * f);
         f *= 2.0;         // Double frequency each octave
         a *= 0.5;         // Halve amplitude each octave
         p += vec3(100.0); // Domain shift to decorrelate
@@ -8668,9 +11826,9 @@ vec3 starRamp(float t) {
 // red dwarf's vigorous convective envelope. Higher frequencies than the
 // Sun/blue giant reflect the smaller, more turbulent convection cells.
 float convectionCells(vec3 p, float time) {
-    float cells = snoise(p * 5.0 + vec3(0.0, time * 0.02, 0.0));     // Large granules — freq 5.0
-    float med = snoise(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01)); // Medium detail — freq 12.0
-    float fine = snoise(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02)); // Fine turbulence — freq 25.0
+    float cells = snoise3D(p * 5.0 + vec3(0.0, time * 0.02, 0.0));     // Large granules — freq 5.0
+    float med = snoise3D(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01)); // Medium detail — freq 12.0
+    float fine = snoise3D(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02)); // Fine turbulence — freq 25.0
 
     return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend: large features dominate
 }
@@ -8678,7 +11836,7 @@ float convectionCells(vec3 p, float time) {
 // Starspots — magnetically active regions where convection is suppressed.
 // Red dwarfs have frequent, large starspots due to their fully convective interiors.
 float starSpots(vec3 p, float time) {
-    float spots = snoise(p * 3.0 + vec3(0.0, time * 0.005, 0.0));  // Freq 3.0 — large spot regions
+    float spots = snoise3D(p * 3.0 + vec3(0.0, time * 0.005, 0.0));  // Freq 3.0 — large spot regions
     return smoothstep(0.5, 0.75, spots);  // Only noise peaks become spots. Threshold 0.5 = ~30% coverage.
                                            // Lower threshold = more spots. Higher = fewer, rarer spots.
 }
@@ -8711,7 +11869,7 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float spots = starSpots(spherePos, time);
 
     // Pulsing brightness — simulates global oscillation modes
-    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise(spherePos * 2.0) * 3.0); // +/-10% variation
+    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise3D(spherePos * 2.0) * 3.0); // +/-10% variation
 
     // Combine into a single heat value [0..1]
     float heat = plasma * 0.6 + cells * 0.4;  // Plasma dominates, cells add texture
@@ -8815,8 +11973,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float focalLength = 1.5;  // Camera focal length — higher = more zoomed in
 
     // Auto rotation camera — orbits around star
-    float rotX = time * 0.15;              // Horizontal orbit speed — fastest of three star types
-    float rotY = sin(time * 0.07) * 0.3;  // Vertical bob amplitude — +/-0.3 rad
+    float rotX = time * 0.45;              // Horizontal orbit speed — fastest of three star types
+    float rotY = sin(time * 0.21) * 0.3;  // Vertical bob amplitude — +/-0.3 rad
 
     float camDist = 3.5;                   // Camera distance from origin — affects apparent size
     vec3 camPos = vec3(
@@ -8859,7 +12017,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 spherePos = normal;
 
             // Add star's own axial rotation — 0.05 rad/s
-            float starRot = time * 0.05;
+            float starRot = time * 0.15;
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
                 spherePos.x * cs + spherePos.z * sn,
@@ -8887,7 +12045,245 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(color, 1.0);
 }
-`},channels:{}},{slug:"star-study",title:"Star Study",description:"A procedural star with boiling plasma surface and an orbiting planet",date:"2025-11-30",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Nf,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"noise-simplex",source:`/**
+ * Simplex Noise (Ashima Arts implementation)
+ * @author guinetik
+ * @date 2026-02-16
+ *
+ * 2D and 3D simplex noise plus FBM and specialty variants.
+ * Simplex noise is preferred over classic Perlin for 3D work because it
+ * evaluates 4 simplex corners instead of 8 cube corners, and has no
+ * axis-aligned artifacts. Range is approximately [-1, 1].
+ *
+ * Noise: Chosen for star surfaces, corona flames, and planet terrain where
+ * isotropic noise without grid bias is important. Costlier than value noise
+ * but cheaper than 3D Perlin in practice due to fewer gradient evaluations.
+ *
+ * Based on: "Simplex noise demystified" by Stefan Gustavson (2005),
+ * GLSL implementation by Ashima Arts / Ian McEwan.
+ */
+
+// === INTERNAL HELPERS ===
+// These mod289/permute functions form the hash core of simplex noise.
+// 289 = 17*17 — chosen so that permute(permute(x)) covers [0,289) uniformly.
+
+vec2 mod289_s2(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 mod289_s3(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289_s4(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+
+vec3 permute_s3(vec3 x) { return mod289_s3(((x * 34.0) + 1.0) * x); }
+vec4 permute_s4(vec4 x) { return mod289_s4(((x * 34.0) + 1.0) * x); }
+
+vec4 taylorInvSqrt_s(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+// === 3D SIMPLEX NOISE ===
+
+/**
+ * 3D simplex noise.
+ *
+ * Evaluates gradient noise on a simplex (tetrahedron) lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  3D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise3D(vec3 v) {
+    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+
+    i = mod289_s3(i);
+    vec4 p = permute_s4(permute_s4(permute_s4(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+
+    vec4 s0 = floor(b0) * 2.0 + 1.0;
+    vec4 s1 = floor(b1) * 2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+
+    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+
+    vec4 norm = taylorInvSqrt_s(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+}
+
+// === 2D SIMPLEX NOISE ===
+
+/**
+ * 2D simplex noise.
+ *
+ * Evaluates gradient noise on a triangular simplex lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  2D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise2D(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                       -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289_s2(i);
+    vec3 p = permute_s3(permute_s3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m; m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+// === FBM VARIANTS ===
+
+/**
+ * 2D FBM using simplex noise, 5 fixed octaves.
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p  2D sample position
+ * @return   FBM value, centered near 0
+ */
+float fbmSimplex2D(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    for (int i = 0; i < 5; i++) {
+        value += amplitude * snoise2D(p);
+        p *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+/**
+ * 3D FBM using simplex noise, configurable octaves (1–6).
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p        3D sample position
+ * @param octaves  Number of octaves (clamped to 1–6)
+ * @return         FBM value, centered near 0
+ */
+float fbmSimplex3D(vec3 p, int octaves) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    for (int i = 0; i < 6; i++) {
+        if (i >= octaves) break;
+        value += amplitude * snoise3D(p * frequency);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+// === SPECIALTY NOISE ===
+
+/**
+ * Seamless tiling noise for sphere textures.
+ *
+ * Uses lattice hashing with modular wrap to tile seamlessly at resolution \`res\`.
+ * Output range is [-1, 1]. Ideal for star flame patterns where seam-free
+ * spherical coverage is needed.
+ *
+ * @param uv   3D coordinate (typically angular coords + time)
+ * @param res  Tiling resolution — higher = finer detail
+ * @return     Tiled noise in [-1, 1]
+ */
+float tiledNoise3D(vec3 uv, float res) {
+    uv *= res;
+    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 f = fract(uv);
+    f = f * f * (3.0 - 2.0 * f);
+
+    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
+                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
+
+    vec4 r = fract(sin(v * 0.001) * 100000.0);
+    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
+    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    return mix(r0, r1, f.z) * 2.0 - 1.0;
+}
+
+/**
+ * Animated flowing plasma noise.
+ *
+ * Multi-octave simplex noise with per-octave time-varying offsets that
+ * create a "boiling" or flowing effect. Normalized to [0, 1].
+ * Used for star surface plasma, lava flows, and other animated surfaces.
+ *
+ * @param p     3D sample position
+ * @param time  Animation time (typically iTime or wrapped iTime)
+ * @return      Plasma value in [0, 1]
+ */
+float plasmaNoise(vec3 p, float time) {
+    float value = 0.0;
+    float amplitude = 1.0;
+    float frequency = 1.0;
+    float totalAmp = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        vec3 offset = vec3(
+            sin(time * 0.1 + float(i)) * 0.5,
+            cos(time * 0.15 + float(i) * 0.7) * 0.5,
+            time * 0.05
+        );
+        value += amplitude * snoise3D((p + offset) * frequency);
+        totalAmp += amplitude;
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+
+    return value / totalAmp;
+}
+`}]},{slug:"star-study",title:"Star Study",description:"A procedural star with boiling plasma surface and an orbiting planet",date:"2025-11-30",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Pf,passes:{image:`/**\r
  * Star Study - 3D Raymarched Star with Orbiting Planet\r
  *\r
  * @author guinetik\r
@@ -8914,6 +12310,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * Temperature cycle: Orange (K-type) -> Yellow (G-type) -> White (F-type) ->\r
  *                    Blue-white (A-type) -> Blue (O-type) -> Magenta (T-dwarf) ->\r
  *                    Red (M-type) -> back to Orange\r
+ *\r
+ * Commons: sphere (intersectSphere), color (hsv2rgb/rgb2hsv), noise-simplex\r
+ * (snoise2D/3D, fbmSimplex2D, tiledNoise3D, plasmaNoise).\r
  *\r
  * Based on the v2 star shaders from the Exoplanets visualization project\r
  * https://github.com/guinetik/exoplanets\r
@@ -8949,7 +12348,7 @@ const vec3 TEMP_10000K = vec3(0.80, 0.85, 1.0);    // A-type blue-white\r
 const vec3 TEMP_25000K = vec3(0.65, 0.75, 1.0);    // O-type blue\r
 \r
 // =============================================================================\r
-// NOISE FUNCTIONS\r
+// LOCAL UTILITIES (unique to star-study, not in commons)\r
 // =============================================================================\r
 \r
 float hash(float n) { return fract(sin(n) * 43758.5453123); }\r
@@ -8957,129 +12356,6 @@ float hash3(vec3 p) {\r
     p = fract(p * 0.3183099 + 0.1);\r
     p *= 17.0;\r
     return fract(p.x * p.y * p.z * (p.x + p.y + p.z));\r
-}\r
-\r
-float snoise3D(vec3 v) {\r
-    const vec2 C = vec2(1.0/6.0, 1.0/3.0);\r
-    vec3 i = floor(v + dot(v, C.yyy));\r
-    vec3 x0 = v - i + dot(i, C.xxx);\r
-    vec3 g = step(x0.yzx, x0.xyz);\r
-    vec3 l = 1.0 - g;\r
-    vec3 i1 = min(g.xyz, l.zxy);\r
-    vec3 i2 = max(g.xyz, l.zxy);\r
-    vec3 x1 = x0 - i1 + C.xxx;\r
-    vec3 x2 = x0 - i2 + C.yyy;\r
-    vec3 x3 = x0 - 0.5;\r
-    i = mod(i, 289.0);\r
-    vec4 p = mod(((i.z + vec4(0.0, i1.z, i2.z, 1.0)) * 34.0 + 1.0) *\r
-                  (i.z + vec4(0.0, i1.z, i2.z, 1.0)), 289.0);\r
-    p = mod(((p + i.y + vec4(0.0, i1.y, i2.y, 1.0)) * 34.0 + 1.0) *\r
-             (p + i.y + vec4(0.0, i1.y, i2.y, 1.0)), 289.0);\r
-    p = mod(((p + i.x + vec4(0.0, i1.x, i2.x, 1.0)) * 34.0 + 1.0) *\r
-             (p + i.x + vec4(0.0, i1.x, i2.x, 1.0)), 289.0);\r
-    vec4 j = p - 49.0 * floor(p / 49.0);\r
-    vec4 x_ = floor(j / 7.0);\r
-    vec4 y_ = j - 7.0 * x_;\r
-    vec4 x = (x_ * 2.0 + 0.5) / 7.0 - 1.0;\r
-    vec4 y = (y_ * 2.0 + 0.5) / 7.0 - 1.0;\r
-    vec4 h = 1.0 - abs(x) - abs(y);\r
-    vec4 b0 = vec4(x.xy, y.xy);\r
-    vec4 b1 = vec4(x.zw, y.zw);\r
-    vec4 s0 = floor(b0) * 2.0 + 1.0;\r
-    vec4 s1 = floor(b1) * 2.0 + 1.0;\r
-    vec4 sh = -step(h, vec4(0.0));\r
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;\r
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;\r
-    vec3 g0 = vec3(a0.xy, h.x);\r
-    vec3 g1 = vec3(a0.zw, h.y);\r
-    vec3 g2 = vec3(a1.xy, h.z);\r
-    vec3 g3 = vec3(a1.zw, h.w);\r
-    vec4 norm = 1.79284291400159 - 0.85373472095314 *\r
-        vec4(dot(g0,g0), dot(g1,g1), dot(g2,g2), dot(g3,g3));\r
-    g0 *= norm.x; g1 *= norm.y; g2 *= norm.z; g3 *= norm.w;\r
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\r
-    m = m * m;\r
-    return 42.0 * dot(m*m, vec4(dot(g0,x0), dot(g1,x1), dot(g2,x2), dot(g3,x3)));\r
-}\r
-\r
-float tiledNoise3D(vec3 uv, float res) {\r
-    uv *= res;\r
-    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);\r
-    vec3 uv1 = floor(mod(uv + 1.0, res)) * vec3(1.0, 100.0, 10000.0);\r
-    vec3 f = fract(uv);\r
-    f = f * f * (3.0 - 2.0 * f);\r
-    vec4 v = vec4(uv0.x+uv0.y+uv0.z, uv1.x+uv0.y+uv0.z, uv0.x+uv1.y+uv0.z, uv1.x+uv1.y+uv0.z);\r
-    vec4 r = fract(sin(v * 0.001) * 100000.0);\r
-    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);\r
-    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);\r
-    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);\r
-    return mix(r0, r1, f.z) * 2.0 - 1.0;\r
-}\r
-\r
-float fbm3D(vec3 p, int octaves) {\r
-    float v = 0.0, a = 0.5;\r
-    for (int i = 0; i < 5; i++) {\r
-        if (i >= octaves) break;\r
-        v += a * snoise3D(p);\r
-        p *= 2.0; a *= 0.5;\r
-    }\r
-    return v;\r
-}\r
-\r
-// 2D Simplex Noise\r
-float snoise2D(vec2 v) {\r
-    const vec4 C = vec4(0.211324865405187, 0.366025403784439,\r
-                       -0.577350269189626, 0.024390243902439);\r
-    vec2 i = floor(v + dot(v, C.yy));\r
-    vec2 x0 = v - i + dot(i, C.xx);\r
-    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\r
-    vec4 x12 = x0.xyxy + C.xxzz;\r
-    x12.xy -= i1;\r
-    i = mod(i, 289.0);\r
-    vec3 perm1 = vec3(i.y) + vec3(0.0, i1.y, 1.0);\r
-    perm1 = mod(((perm1 * 34.0) + 1.0) * perm1, 289.0);\r
-    vec3 perm2 = perm1 + vec3(i.x) + vec3(0.0, i1.x, 1.0);\r
-    vec3 p = mod(((perm2 * 34.0) + 1.0) * perm2, 289.0);\r
-    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);\r
-    m = m * m; m = m * m;\r
-    vec3 x = 2.0 * fract(p * C.www) - 1.0;\r
-    vec3 h = abs(x) - 0.5;\r
-    vec3 ox = floor(x + 0.5);\r
-    vec3 a0 = x - ox;\r
-    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);\r
-    vec3 g;\r
-    g.x = a0.x * x0.x + h.x * x0.y;\r
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;\r
-    return 130.0 * dot(m, g);\r
-}\r
-\r
-float fbm2D(vec2 p) {\r
-    float value = 0.0, amplitude = 0.5;\r
-    for (int i = 0; i < 5; i++) {\r
-        value += amplitude * snoise2D(p);\r
-        p *= 2.0;\r
-        amplitude *= 0.5;\r
-    }\r
-    return value;\r
-}\r
-\r
-// =============================================================================\r
-// COLOR UTILITIES\r
-// =============================================================================\r
-\r
-vec3 hsv2rgb(vec3 c) {\r
-    vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);\r
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);\r
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);\r
-}\r
-\r
-vec3 rgb2hsv(vec3 c) {\r
-    vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);\r
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));\r
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));\r
-    float d = q.x - min(q.w, q.y);\r
-    float e = 1.0e-10;\r
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);\r
 }\r
 \r
 // =============================================================================\r
@@ -9096,23 +12372,6 @@ vec3 temperatureToColor(float tempK) {\r
     if (tempK < 7500.0) return mix(TEMP_5778K, TEMP_7500K, (tempK - 5778.0) / 1722.0);\r
     if (tempK < 10000.0) return mix(TEMP_7500K, TEMP_10000K, (tempK - 7500.0) / 2500.0);\r
     return mix(TEMP_10000K, TEMP_25000K, (tempK - 10000.0) / 15000.0);\r
-}\r
-\r
-// =============================================================================\r
-// PLASMA NOISE (flowing distortion)\r
-// =============================================================================\r
-\r
-float plasmaNoise(vec3 p, float time) {\r
-    float v = 0.0, a = 1.0, total = 0.0;\r
-    for (int i = 0; i < 5; i++) {\r
-        vec3 offset = vec3(sin(time * 0.1 + float(i)) * 0.5,\r
-                          cos(time * 0.15 + float(i) * 0.7) * 0.5,\r
-                          time * 0.05);\r
-        v += a * snoise3D((p + offset) * pow(2.0, float(i)));\r
-        total += a;\r
-        a *= 0.5;\r
-    }\r
-    return v / total;\r
 }\r
 \r
 // =============================================================================\r
@@ -9597,19 +12856,6 @@ vec3 backgroundStars(vec3 rd) {\r
 }\r
 \r
 // =============================================================================\r
-// RAY-SPHERE INTERSECTION\r
-// =============================================================================\r
-\r
-float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {\r
-    vec3 oc = ro - center;\r
-    float b = dot(oc, rd);\r
-    float c = dot(oc, oc) - radius * radius;\r
-    float h = b * b - c;\r
-    if (h < 0.0) return -1.0;\r
-    return -b - sqrt(h);\r
-}\r
-\r
-// =============================================================================\r
 // ROCKY PLANET SHADER\r
 // =============================================================================\r
 \r
@@ -9624,7 +12870,7 @@ vec3 renderRockyPlanet(vec2 uv, vec3 normal, vec3 baseColor, float seed) {\r
     vec3 variedColor = hsv2rgb(hsv);\r
 \r
     // Terrain elevation\r
-    float terrain = fbm2D(terrainUv * (3.0 + seed * 3.0));\r
+    float terrain = fbmSimplex2D(terrainUv * (3.0 + seed * 3.0));\r
 \r
     // Color zones\r
     vec3 lowland = variedColor * 0.6;  // Oceans/valleys\r
@@ -9861,7 +13107,415 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(col, 1.0);\r
 }\r
-`},channels:{}},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Lf,passes:{image:`/**
+`},channels:{},commonsSources:[{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"noise-simplex",source:`/**
+ * Simplex Noise (Ashima Arts implementation)
+ * @author guinetik
+ * @date 2026-02-16
+ *
+ * 2D and 3D simplex noise plus FBM and specialty variants.
+ * Simplex noise is preferred over classic Perlin for 3D work because it
+ * evaluates 4 simplex corners instead of 8 cube corners, and has no
+ * axis-aligned artifacts. Range is approximately [-1, 1].
+ *
+ * Noise: Chosen for star surfaces, corona flames, and planet terrain where
+ * isotropic noise without grid bias is important. Costlier than value noise
+ * but cheaper than 3D Perlin in practice due to fewer gradient evaluations.
+ *
+ * Based on: "Simplex noise demystified" by Stefan Gustavson (2005),
+ * GLSL implementation by Ashima Arts / Ian McEwan.
+ */
+
+// === INTERNAL HELPERS ===
+// These mod289/permute functions form the hash core of simplex noise.
+// 289 = 17*17 — chosen so that permute(permute(x)) covers [0,289) uniformly.
+
+vec2 mod289_s2(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 mod289_s3(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289_s4(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+
+vec3 permute_s3(vec3 x) { return mod289_s3(((x * 34.0) + 1.0) * x); }
+vec4 permute_s4(vec4 x) { return mod289_s4(((x * 34.0) + 1.0) * x); }
+
+vec4 taylorInvSqrt_s(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+// === 3D SIMPLEX NOISE ===
+
+/**
+ * 3D simplex noise.
+ *
+ * Evaluates gradient noise on a simplex (tetrahedron) lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  3D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise3D(vec3 v) {
+    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+
+    i = mod289_s3(i);
+    vec4 p = permute_s4(permute_s4(permute_s4(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+
+    vec4 s0 = floor(b0) * 2.0 + 1.0;
+    vec4 s1 = floor(b1) * 2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+
+    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+
+    vec4 norm = taylorInvSqrt_s(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+}
+
+// === 2D SIMPLEX NOISE ===
+
+/**
+ * 2D simplex noise.
+ *
+ * Evaluates gradient noise on a triangular simplex lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  2D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise2D(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                       -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289_s2(i);
+    vec3 p = permute_s3(permute_s3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m; m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+// === FBM VARIANTS ===
+
+/**
+ * 2D FBM using simplex noise, 5 fixed octaves.
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p  2D sample position
+ * @return   FBM value, centered near 0
+ */
+float fbmSimplex2D(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    for (int i = 0; i < 5; i++) {
+        value += amplitude * snoise2D(p);
+        p *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+/**
+ * 3D FBM using simplex noise, configurable octaves (1–6).
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p        3D sample position
+ * @param octaves  Number of octaves (clamped to 1–6)
+ * @return         FBM value, centered near 0
+ */
+float fbmSimplex3D(vec3 p, int octaves) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    for (int i = 0; i < 6; i++) {
+        if (i >= octaves) break;
+        value += amplitude * snoise3D(p * frequency);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+// === SPECIALTY NOISE ===
+
+/**
+ * Seamless tiling noise for sphere textures.
+ *
+ * Uses lattice hashing with modular wrap to tile seamlessly at resolution \`res\`.
+ * Output range is [-1, 1]. Ideal for star flame patterns where seam-free
+ * spherical coverage is needed.
+ *
+ * @param uv   3D coordinate (typically angular coords + time)
+ * @param res  Tiling resolution — higher = finer detail
+ * @return     Tiled noise in [-1, 1]
+ */
+float tiledNoise3D(vec3 uv, float res) {
+    uv *= res;
+    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 f = fract(uv);
+    f = f * f * (3.0 - 2.0 * f);
+
+    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
+                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
+
+    vec4 r = fract(sin(v * 0.001) * 100000.0);
+    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
+    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    return mix(r0, r1, f.z) * 2.0 - 1.0;
+}
+
+/**
+ * Animated flowing plasma noise.
+ *
+ * Multi-octave simplex noise with per-octave time-varying offsets that
+ * create a "boiling" or flowing effect. Normalized to [0, 1].
+ * Used for star surface plasma, lava flows, and other animated surfaces.
+ *
+ * @param p     3D sample position
+ * @param time  Animation time (typically iTime or wrapped iTime)
+ * @return      Plasma value in [0, 1]
+ */
+float plasmaNoise(vec3 p, float time) {
+    float value = 0.0;
+    float amplitude = 1.0;
+    float frequency = 1.0;
+    float totalAmp = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        vec3 offset = vec3(
+            sin(time * 0.1 + float(i)) * 0.5,
+            cos(time * 0.15 + float(i) * 0.7) * 0.5,
+            time * 0.05
+        );
+        value += amplitude * snoise3D((p + offset) * frequency);
+        totalAmp += amplitude;
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+
+    return value / totalAmp;
+}
+`}]},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Lf,passes:{image:`/**
  * Solar Star
  * @author guinetik
  * @date 2025-11-29
@@ -9904,67 +13558,18 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 #define TAU 6.28318530718  // Full circle — used for prominence distribution
 
 // =============================================================================
-// NOISE — 3D Simplex Noise (Ashima Arts / Stefan Gustavson)
+// NOISE — 3D Simplex Noise provided by noise-simplex commons (snoise3D)
 // =============================================================================
-// Same simplex noise implementation as the red dwarf shader. Smooth, isotropic
-// gradients produce convincing stellar surface turbulence.
-
-vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
-
-float snoise(vec3 v) {
-    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
-    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
-    vec3 i = floor(v + dot(v, C.yyy));
-    vec3 x0 = v - i + dot(i, C.xxx);
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min(g.xyz, l.zxy);
-    vec3 i2 = max(g.xyz, l.zxy);
-    vec3 x1 = x0 - i1 + C.xxx;
-    vec3 x2 = x0 - i2 + C.yyy;
-    vec3 x3 = x0 - D.yyy;
-    i = mod289(i);
-    vec4 p = permute(permute(permute(
-        i.z + vec4(0.0, i1.z, i2.z, 1.0))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
-    float n_ = 0.142857142857;
-    vec3 ns = n_ * D.wyz - D.xzx;
-    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
-    vec4 x_ = floor(j * ns.z);
-    vec4 y_ = floor(j - 7.0 * x_);
-    vec4 x = x_ * ns.x + ns.yyyy;
-    vec4 y = y_ * ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-    vec4 b0 = vec4(x.xy, y.xy);
-    vec4 b1 = vec4(x.zw, y.zw);
-    vec4 s0 = floor(b0) * 2.0 + 1.0;
-    vec4 s1 = floor(b1) * 2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
-    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
-    vec3 p0 = vec3(a0.xy, h.x);
-    vec3 p1 = vec3(a0.zw, h.y);
-    vec3 p2 = vec3(a1.xy, h.z);
-    vec3 p3 = vec3(a1.zw, h.w);
-    vec4 norm = taylorInvSqrt(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
-    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
-    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
-}
 
 // FBM with configurable octaves — lacunarity 2.0, gain 0.5
-// Same structure as red dwarf but called with lower base frequencies
-// to produce the Sun's larger, smoother convection features.
+// Called with lower base frequencies than red dwarf to produce the
+// Sun's larger, smoother convection features.
+// NOTE: Kept inline because the domain shift differs from fbmSimplex3D.
 float fbm(vec3 p, int octaves) {
     float v = 0.0, a = 0.5, f = 1.0;
     for (int i = 0; i < 6; i++) {
         if (i >= octaves) break;
-        v += a * snoise(p * f);
+        v += a * snoise3D(p * f);
         f *= 2.0;         // Double frequency each octave
         a *= 0.5;         // Halve amplitude each octave
         p += vec3(100.0); // Domain shift to decorrelate
@@ -10000,9 +13605,9 @@ vec3 starRamp(float t) {
 // consistent with the Sun's ~1000km granule size.
 
 float convectionCells(vec3 p, float time) {
-    float cells = snoise(p * 4.5 + vec3(0.0, time * 0.015, 0.0));    // Large granules — freq 4.5
-    float med = snoise(p * 10.0 + vec3(time * 0.01, 0.0, time * 0.008)); // Medium detail — freq 10.0
-    float fine = snoise(p * 20.0 + vec3(0.0, time * 0.02, time * 0.015)); // Fine texture — freq 20.0
+    float cells = snoise3D(p * 4.5 + vec3(0.0, time * 0.015, 0.0));    // Large granules — freq 4.5
+    float med = snoise3D(p * 10.0 + vec3(time * 0.01, 0.0, time * 0.008)); // Medium detail — freq 10.0
+    float fine = snoise3D(p * 20.0 + vec3(0.0, time * 0.02, time * 0.015)); // Fine texture — freq 20.0
     return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend
 }
 
@@ -10010,7 +13615,7 @@ float convectionCells(vec3 p, float time) {
 // threshold (0.55) than red dwarf = fewer, larger spots. The Sun's ~11-year
 // cycle produces 0-200 spots; this approximates moderate activity.
 float starSpots(vec3 p, float time) {
-    float spots = snoise(p * 2.5 + vec3(0.0, time * 0.004, 0.0));  // Freq 2.5 — large spot groups
+    float spots = snoise3D(p * 2.5 + vec3(0.0, time * 0.004, 0.0));  // Freq 2.5 — large spot groups
     return smoothstep(0.55, 0.8, spots);  // Higher threshold = fewer spots than red dwarf (0.5)
 }
 
@@ -10035,7 +13640,7 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
     float spots = starSpots(spherePos, time);
 
     // Gentler pulse than red dwarf — +/-8% vs +/-10%
-    float pulse = 0.92 + 0.08 * sin(time * 0.4 + snoise(spherePos * 2.0) * 3.0);
+    float pulse = 0.92 + 0.08 * sin(time * 0.4 + snoise3D(spherePos * 2.0) * 3.0);
 
     float heat = plasma * 0.6 + cells * 0.4;
     heat *= pulse;
@@ -10129,8 +13734,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float focalLength = 1.5;  // Camera focal length
 
     // Slightly slower orbit than red dwarf (0.12 vs 0.15)
-    float rotX = time * 0.12;              // Horizontal orbit speed
-    float rotY = sin(time * 0.06) * 0.25;  // Vertical bob — gentler than red dwarf (+/-0.25 vs 0.3)
+    float rotX = time * 0.36;              // Horizontal orbit speed
+    float rotY = sin(time * 0.18) * 0.25;  // Vertical bob — gentler than red dwarf (+/-0.25 vs 0.3)
 
     float camDist = 3.5;  // Camera distance
     vec3 camPos = vec3(
@@ -10165,7 +13770,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
             vec3 normal = normalize(hitPos);
             vec3 spherePos = normal;
 
-            float starRot = time * 0.04;  // Axial rotation — slower than red dwarf (0.04 vs 0.05)
+            float starRot = time * 0.12;  // Axial rotation — slower than red dwarf
             float cs = cos(starRot), sn = sin(starRot);
             spherePos = vec3(
                 spherePos.x * cs + spherePos.z * sn,
@@ -10186,7 +13791,245 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(color, 1.0);
 }
-`},channels:{}},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:Of,passes:{image:`/**\r
+`},channels:{},commonsSources:[{name:"noise-simplex",source:`/**
+ * Simplex Noise (Ashima Arts implementation)
+ * @author guinetik
+ * @date 2026-02-16
+ *
+ * 2D and 3D simplex noise plus FBM and specialty variants.
+ * Simplex noise is preferred over classic Perlin for 3D work because it
+ * evaluates 4 simplex corners instead of 8 cube corners, and has no
+ * axis-aligned artifacts. Range is approximately [-1, 1].
+ *
+ * Noise: Chosen for star surfaces, corona flames, and planet terrain where
+ * isotropic noise without grid bias is important. Costlier than value noise
+ * but cheaper than 3D Perlin in practice due to fewer gradient evaluations.
+ *
+ * Based on: "Simplex noise demystified" by Stefan Gustavson (2005),
+ * GLSL implementation by Ashima Arts / Ian McEwan.
+ */
+
+// === INTERNAL HELPERS ===
+// These mod289/permute functions form the hash core of simplex noise.
+// 289 = 17*17 — chosen so that permute(permute(x)) covers [0,289) uniformly.
+
+vec2 mod289_s2(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 mod289_s3(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289_s4(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+
+vec3 permute_s3(vec3 x) { return mod289_s3(((x * 34.0) + 1.0) * x); }
+vec4 permute_s4(vec4 x) { return mod289_s4(((x * 34.0) + 1.0) * x); }
+
+vec4 taylorInvSqrt_s(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+
+// === 3D SIMPLEX NOISE ===
+
+/**
+ * 3D simplex noise.
+ *
+ * Evaluates gradient noise on a simplex (tetrahedron) lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  3D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise3D(vec3 v) {
+    const vec2 C = vec2(1.0 / 6.0, 1.0 / 3.0);
+    const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+
+    vec3 i = floor(v + dot(v, C.yyy));
+    vec3 x0 = v - i + dot(i, C.xxx);
+
+    vec3 g = step(x0.yzx, x0.xyz);
+    vec3 l = 1.0 - g;
+    vec3 i1 = min(g.xyz, l.zxy);
+    vec3 i2 = max(g.xyz, l.zxy);
+
+    vec3 x1 = x0 - i1 + C.xxx;
+    vec3 x2 = x0 - i2 + C.yyy;
+    vec3 x3 = x0 - D.yyy;
+
+    i = mod289_s3(i);
+    vec4 p = permute_s4(permute_s4(permute_s4(
+        i.z + vec4(0.0, i1.z, i2.z, 1.0))
+        + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+        + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+
+    float n_ = 0.142857142857;
+    vec3 ns = n_ * D.wyz - D.xzx;
+
+    vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+    vec4 x_ = floor(j * ns.z);
+    vec4 y_ = floor(j - 7.0 * x_);
+
+    vec4 x = x_ * ns.x + ns.yyyy;
+    vec4 y = y_ * ns.x + ns.yyyy;
+    vec4 h = 1.0 - abs(x) - abs(y);
+
+    vec4 b0 = vec4(x.xy, y.xy);
+    vec4 b1 = vec4(x.zw, y.zw);
+
+    vec4 s0 = floor(b0) * 2.0 + 1.0;
+    vec4 s1 = floor(b1) * 2.0 + 1.0;
+    vec4 sh = -step(h, vec4(0.0));
+
+    vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+    vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+
+    vec3 p0 = vec3(a0.xy, h.x);
+    vec3 p1 = vec3(a0.zw, h.y);
+    vec3 p2 = vec3(a1.xy, h.z);
+    vec3 p3 = vec3(a1.zw, h.w);
+
+    vec4 norm = taylorInvSqrt_s(vec4(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+    p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+
+    vec4 m = max(0.6 - vec4(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), 0.0);
+    m = m * m;
+    return 42.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+}
+
+// === 2D SIMPLEX NOISE ===
+
+/**
+ * 2D simplex noise.
+ *
+ * Evaluates gradient noise on a triangular simplex lattice.
+ * Output range is approximately [-1, 1].
+ *
+ * @param v  2D sample position
+ * @return   Noise value in ~[-1, 1]
+ */
+float snoise2D(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                       -0.577350269189626, 0.024390243902439);
+    vec2 i = floor(v + dot(v, C.yy));
+    vec2 x0 = v - i + dot(i, C.xx);
+    vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289_s2(i);
+    vec3 p = permute_s3(permute_s3(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+    m = m * m; m = m * m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+    vec3 g;
+    g.x = a0.x * x0.x + h.x * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+// === FBM VARIANTS ===
+
+/**
+ * 2D FBM using simplex noise, 5 fixed octaves.
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p  2D sample position
+ * @return   FBM value, centered near 0
+ */
+float fbmSimplex2D(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    for (int i = 0; i < 5; i++) {
+        value += amplitude * snoise2D(p);
+        p *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+/**
+ * 3D FBM using simplex noise, configurable octaves (1–6).
+ *
+ * Standard lacunarity 2.0, gain 0.5 (pink noise spectrum).
+ *
+ * @param p        3D sample position
+ * @param octaves  Number of octaves (clamped to 1–6)
+ * @return         FBM value, centered near 0
+ */
+float fbmSimplex3D(vec3 p, int octaves) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    for (int i = 0; i < 6; i++) {
+        if (i >= octaves) break;
+        value += amplitude * snoise3D(p * frequency);
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+    return value;
+}
+
+// === SPECIALTY NOISE ===
+
+/**
+ * Seamless tiling noise for sphere textures.
+ *
+ * Uses lattice hashing with modular wrap to tile seamlessly at resolution \`res\`.
+ * Output range is [-1, 1]. Ideal for star flame patterns where seam-free
+ * spherical coverage is needed.
+ *
+ * @param uv   3D coordinate (typically angular coords + time)
+ * @param res  Tiling resolution — higher = finer detail
+ * @return     Tiled noise in [-1, 1]
+ */
+float tiledNoise3D(vec3 uv, float res) {
+    uv *= res;
+    vec3 uv0 = floor(mod(uv, res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 uv1 = floor(mod(uv + vec3(1.0), res)) * vec3(1.0, 100.0, 10000.0);
+    vec3 f = fract(uv);
+    f = f * f * (3.0 - 2.0 * f);
+
+    vec4 v = vec4(uv0.x + uv0.y + uv0.z, uv1.x + uv0.y + uv0.z,
+                  uv0.x + uv1.y + uv0.z, uv1.x + uv1.y + uv0.z);
+
+    vec4 r = fract(sin(v * 0.001) * 100000.0);
+    float r0 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    r = fract(sin((v + uv1.z - uv0.z) * 0.001) * 100000.0);
+    float r1 = mix(mix(r.x, r.y, f.x), mix(r.z, r.w, f.x), f.y);
+
+    return mix(r0, r1, f.z) * 2.0 - 1.0;
+}
+
+/**
+ * Animated flowing plasma noise.
+ *
+ * Multi-octave simplex noise with per-octave time-varying offsets that
+ * create a "boiling" or flowing effect. Normalized to [0, 1].
+ * Used for star surface plasma, lava flows, and other animated surfaces.
+ *
+ * @param p     3D sample position
+ * @param time  Animation time (typically iTime or wrapped iTime)
+ * @return      Plasma value in [0, 1]
+ */
+float plasmaNoise(vec3 p, float time) {
+    float value = 0.0;
+    float amplitude = 1.0;
+    float frequency = 1.0;
+    float totalAmp = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        vec3 offset = vec3(
+            sin(time * 0.1 + float(i)) * 0.5,
+            cos(time * 0.15 + float(i) * 0.7) * 0.5,
+            time * 0.05
+        );
+        value += amplitude * snoise3D((p + offset) * frequency);
+        totalAmp += amplitude;
+        amplitude *= 0.5;
+        frequency *= 2.0;
+    }
+
+    return value / totalAmp;
+}
+`}]},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:Of,passes:{image:`/**\r
  * Stargate Study\r
  * @author guinetik\r
  * @date 2026-02-02\r
@@ -10200,7 +14043,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
  * - Input texture mapped to walls with noise-warped UVs\r
  * - HSV hue cycling over time and depth for psychedelic color\r
  * - Screen blend compositing (additive light model)\r
- * - Alternating horizontal/vertical tunnel orientation every 4 seconds\r
+ * - Alternating horizontal/vertical tunnel orientation every few seconds\r
+ *\r
+ * Commons: noise-value (valueNoise2D), color (rgb2hsv, hsv2rgb)\r
  *\r
  * @project Genuary 2026\r
  * @see https://genuary2026.guinetik.com\r
@@ -10208,52 +14053,56 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 \r
 #define PI 3.14159265359\r
 \r
+// --- Camera ---\r
+#define FOV_ZOOM 0.4               // Field-of-view width — smaller = wider FOV, larger = more telephoto.\r
+#define CAM_OSCILLATION_BASE 0.1   // Camera drift amplitude — subtle organic sway. Above 0.3: very shaky.\r
+#define CAM_OSCILLATION_FREQ1 1.137 // Primary drift frequency — irrational to avoid looping.\r
+#define CAM_OSCILLATION_FREQ2 0.37  // Secondary drift modulation frequency.\r
+#define CAM_OSCILLATION_FREQ3 17.39 // High-frequency vertical jitter — simulates handheld camera.\r
+#define CAM_ROT_THRESHOLD_FREQ 0.1  // Smoothstep rotation toggle rate — how often the camera snaps 90 degrees.\r
+#define CAM_ROT_OFFSET 4.0         // Phase offset for rotation smoothstep — shifts when the snap occurs.\r
+#define CAM_FORWARD_MIX 0.6        // How much the camera looks forward vs. back at origin. 1.0 = pure forward.\r
+\r
+// --- Raymarching ---\r
+#define MAX_MARCH_STEPS 250        // Maximum ray steps — higher = deeper corridors rendered, more GPU cost.\r
+#define WALL_HIT_THRESHOLD 0.001   // Distance at which a ray is considered hitting the wall surface.\r
+\r
+// --- Wall UVs ---\r
+#define WALL_UV_TIME_SCROLL 7.0    // Speed of horizontal UV scrolling on walls — creates the rushing-forward effect.\r
+#define WALL_UV_VERT_SCROLL 0.097  // Speed of vertical UV offset — slow vertical drift.\r
+#define NOISE_WARP_SCALE 2.2       // Frequency of noise used to distort wall UVs. Higher = more chaotic detail.\r
+#define NOISE_WARP_AMOUNT 0.1      // Strength of UV distortion from noise. Above 0.3: very warped.\r
+\r
+// --- Color grading ---\r
+#define HUE_SHIFT_TIME_SPEED 0.15  // Rate of hue rotation over time. 0.0 = static, 1.0 = full cycle per second.\r
+#define HUE_SHIFT_DEPTH_FACTOR 0.1 // How much ray depth contributes to hue shift — distant walls shift more.\r
+#define SATURATION_BOOST 1.3       // Multiplier on saturation in HSV space. 1.0 = unchanged, 2.0 = vivid.\r
+\r
+// --- Mix / blend ---\r
+#define MIX_BASE 0.6               // Base mix factor for wall color blending. Higher = more noise texture.\r
+#define MIX_AMPLITUDE 0.35         // Amplitude of sinusoidal mix variation over time.\r
+#define MIX_FREQUENCY 0.253        // Frequency of mix oscillation — irrational to avoid repetitive patterns.\r
+\r
+// --- Glow / fade ---\r
+#define TUNNEL_CENTER_GLOW_FALLOFF 2.0  // Exponential falloff for tunnel center glow. Higher = tighter glow.\r
+#define MAIN_CENTER_GLOW_FALLOFF 4.0    // Exponential falloff for final center white glow. Higher = tighter.\r
+#define PERSPECTIVE_FADE_MULT 7.0       // Multiplier on wall perspective fade — higher = sharper edge fade.\r
+#define TUNNEL_BLEND_AMOUNT 0.9         // How much tunnel color contributes to final output. 1.0 = full tunnel.\r
+#define WHITE_GLOW_STRENGTH 0.8         // Intensity of center white glow mixed into final color.\r
+\r
+// --- Orientation ---\r
+#define ORIENT_SWITCH_INTERVAL 4.0 // Seconds between horizontal/vertical tunnel orientation switches.\r
+\r
+// --- Post-processing ---\r
+#define VIGNETTE_STRENGTH 0.3      // Vignette darkening factor — 0.0 = none, 1.0 = heavy edge darkening.\r
+\r
 // ---------------------------------------------------------------------------\r
-// Noise utilities\r
-// ---------------------------------------------------------------------------\r
-\r
-/** Pseudo-random hash — returns [-1, 1] range for signed noise. */\r
-float hash(vec2 p) {\r
-    p = 50.0 * fract(p * 0.3183099 + vec2(0.71, 0.113));\r
-    return -1.0 + 2.0 * fract(p.x * p.y * (p.x + p.y));\r
-}\r
-\r
-/** 2D value noise with Hermite smoothing — returns [-1, 1]. */\r
-float noise(vec2 p) {\r
-    vec2 i = floor(p);\r
-    vec2 f = fract(p);\r
-    vec2 u = f * f * (3.0 - 2.0 * f);\r
-\r
-    return mix(\r
-        mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),\r
-        mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),\r
-        u.y);\r
-}\r
-\r
-// ---------------------------------------------------------------------------\r
-// Blend modes and color space\r
+// Blend modes\r
 // ---------------------------------------------------------------------------\r
 \r
 /** Screen blend mode — 1-(1-a)*(1-b). Adds light without blowing out to white. */\r
 vec3 blendScreen(vec3 base, vec3 blend) {\r
     return 1.0 - (1.0 - base) * (1.0 - blend);\r
-}\r
-\r
-/** RGB to HSV conversion — used for hue-shifting wall textures. */\r
-vec3 rgb2hsv(vec3 c) {\r
-    vec4 K = vec4(0.0, -1.0/3.0, 2.0/3.0, -1.0);\r
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));\r
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));\r
-    float d = q.x - min(q.w, q.y);\r
-    float e = 1.0e-10;\r
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);\r
-}\r
-\r
-/** HSV to RGB conversion. */\r
-vec3 hsv2rgb(vec3 c) {\r
-    vec4 K = vec4(1.0, 2.0/3.0, 1.0/3.0, 3.0);\r
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);\r
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);\r
 }\r
 \r
 // ---------------------------------------------------------------------------\r
@@ -10271,19 +14120,18 @@ vec3 hsv2rgb(vec3 c) {\r
  * @param isVertical 0.0 = horizontal walls, 1.0 = vertical walls\r
  */\r
 vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {\r
-    const float FOV_ZOOM = 0.4;  // Controls field-of-view width — smaller = wider FOV\r
-\r
     // Camera oscillation — subtle drift for organic camera movement\r
-    float oscillation = 0.1 * sin(time * 1.137) * (1.0 + 0.1 * cos(time * 0.37));\r
+    float oscillation = CAM_OSCILLATION_BASE * sin(time * CAM_OSCILLATION_FREQ1)\r
+                        * (1.0 + CAM_OSCILLATION_BASE * cos(time * CAM_OSCILLATION_FREQ2));\r
 \r
     // Camera rotation — snaps between 0 and 90 degrees using smoothstep threshold\r
-    float rot = smoothstep(-0.005, 0.005, sin(0.1 * time + 4.0)) * PI * 0.5;\r
+    float rot = smoothstep(-0.005, 0.005, sin(CAM_ROT_THRESHOLD_FREQ * time + CAM_ROT_OFFSET)) * PI * 0.5;\r
     float c = cos(rot), s = sin(rot);\r
     uv = uv * mat2(c, -s, s, c);\r
 \r
     // Camera setup — slightly off-center, looking mostly down the corridor\r
-    vec3 camPos = vec3(oscillation, sin(time * 17.39) * oscillation * oscillation, -1.0);\r
-    vec3 forward = normalize(mix(-camPos, vec3(0.0, 0.0, 1.0), 0.6));\r
+    vec3 camPos = vec3(oscillation, sin(time * CAM_OSCILLATION_FREQ3) * oscillation * oscillation, -1.0);\r
+    vec3 forward = normalize(mix(-camPos, vec3(0.0, 0.0, 1.0), CAM_FORWARD_MIX));\r
     vec3 up = vec3(0.0, 1.0, 0.0);\r
     vec3 right = cross(forward, up);\r
 \r
@@ -10291,12 +14139,12 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
     vec3 screenPoint = camPos + forward * FOV_ZOOM + uv.x * right + uv.y * up;\r
     vec3 rayDir = normalize(screenPoint - camPos);\r
 \r
-    // Raymarch through the corridor (250 max steps)\r
+    // Raymarch through the corridor\r
     vec3 rayPos;\r
     float rayLength = 0.0;\r
     float stepDist = 0.0;\r
 \r
-    for (int i = 0; i < 250; i++) {\r
+    for (int i = 0; i < MAX_MARCH_STEPS; i++) {\r
         rayPos = camPos + rayDir * rayLength;\r
 \r
         // Distance to walls\r
@@ -10304,48 +14152,48 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
         float horizStep = min(abs(rayPos.x - 1.0), abs(rayPos.x + 1.0));\r
         stepDist = mix(horizStep, vertStep, isVertical);\r
 \r
-        if (stepDist < 0.001) break;\r
+        if (stepDist < WALL_HIT_THRESHOLD) break;\r
         rayLength += stepDist;\r
     }\r
 \r
     // Base color - bright white center that feathers out\r
     float centerDist = length(uv);\r
-    float centerGlow = exp(-centerDist * 2.0);  // Exponential falloff from center\r
+    float centerGlow = exp(-centerDist * TUNNEL_CENTER_GLOW_FALLOFF);\r
     vec3 col = vec3(1.0) * centerGlow + vec3(0.1) * (1.0 - centerGlow);\r
 \r
     // If hit wall, sample video texture\r
-    if (stepDist < 0.001) {\r
+    if (stepDist < WALL_HIT_THRESHOLD) {\r
         // Compute wall UVs\r
-        vec2 wallUV_horiz = vec2(rayPos.z, rayPos.y + step(rayPos.x, 0.0) * 33.1 + time * 0.097);\r
-        vec2 wallUV_vert = vec2(rayPos.z, rayPos.x + step(rayPos.y, 0.0) * 33.1 + time * 0.097);\r
+        vec2 wallUV_horiz = vec2(rayPos.z, rayPos.y + step(rayPos.x, 0.0) * 33.1 + time * WALL_UV_VERT_SCROLL);\r
+        vec2 wallUV_vert = vec2(rayPos.z, rayPos.x + step(rayPos.y, 0.0) * 33.1 + time * WALL_UV_VERT_SCROLL);\r
         vec2 wallUV = mix(wallUV_horiz, wallUV_vert, isVertical);\r
-        wallUV.x += time * 7.0;\r
+        wallUV.x += time * WALL_UV_TIME_SCROLL;\r
 \r
         // Sample video texture\r
         vec2 sampleUV = clamp(fract(wallUV * 0.1) * 0.5 + 0.25, 0.001, 0.999);\r
         vec3 wallColor = texture(videoTex, sampleUV).rgb;\r
 \r
-        // Noise variation\r
-        float noiseVal = noise(wallUV * 2.2);\r
-        vec3 noiseColor = texture(videoTex, clamp(fract(sampleUV + noiseVal * 0.1), 0.001, 0.999)).rgb;\r
+        // Noise variation — signed range needed for bidirectional UV warp\r
+        float noiseVal = valueNoise2D(wallUV * NOISE_WARP_SCALE) * 2.0 - 1.0;\r
+        vec3 noiseColor = texture(videoTex, clamp(fract(sampleUV + noiseVal * NOISE_WARP_AMOUNT), 0.001, 0.999)).rgb;\r
 \r
         // Animated mix\r
-        float mixFactor = 0.6 + 0.35 * sin(0.253 * time);\r
+        float mixFactor = MIX_BASE + MIX_AMPLITUDE * sin(MIX_FREQUENCY * time);\r
         wallColor = mix(noiseColor, wallColor, mixFactor);\r
 \r
         // TECHNIQUE: HSV hue cycling (2001 Stargate homage)\r
         // Hue rotates with time and ray depth so distant walls shift color\r
         // faster, creating the characteristic psychedelic corridor effect.\r
         vec3 hsv = rgb2hsv(wallColor);\r
-        float hueShift = time * 0.15 + rayLength * 0.1;  // Time + depth based\r
+        float hueShift = time * HUE_SHIFT_TIME_SPEED + rayLength * HUE_SHIFT_DEPTH_FACTOR;\r
         hsv.x = fract(hsv.x + hueShift);\r
-        hsv.y = min(hsv.y * 1.3, 1.0);  // Boost saturation\r
+        hsv.y = min(hsv.y * SATURATION_BOOST, 1.0);\r
         wallColor = hsv2rgb(hsv);\r
 \r
         // Perspective fade\r
         float fade = mix(\r
-            min(7.0 * abs(uv.x), 1.0),\r
-            min(7.0 * abs(uv.y), 1.0),\r
+            min(PERSPECTIVE_FADE_MULT * abs(uv.x), 1.0),\r
+            min(PERSPECTIVE_FADE_MULT * abs(uv.y), 1.0),\r
             isVertical\r
         );\r
         wallColor *= fade;\r
@@ -10372,8 +14220,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     }\r
 \r
     // === TUNNEL ===\r
-    // Alternate orientation every 4 seconds\r
-    float tunnelOrientation = mod(floor(time / 4.0), 2.0);\r
+    // Alternate orientation every ORIENT_SWITCH_INTERVAL seconds\r
+    float tunnelOrientation = mod(floor(time / ORIENT_SWITCH_INTERVAL), 2.0);\r
 \r
     // Centered coords for tunnel\r
     vec2 tunnelUV = (uv - 0.5) * 2.0;\r
@@ -10384,26 +14232,208 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // === SCREEN BLEND ===\r
     // Tunnel adds light on top of video\r
-    vec3 blended = blendScreen(baseColor, tunnelColor * 0.8);\r
+    vec3 blended = blendScreen(baseColor, tunnelColor * WHITE_GLOW_STRENGTH);\r
 \r
     // Mix amount\r
-    float tunnelMix = 0.9;\r
-    vec3 color = mix(baseColor, blended, tunnelMix);\r
+    vec3 color = mix(baseColor, blended, TUNNEL_BLEND_AMOUNT);\r
 \r
     // === CENTER WHITE GLOW ===\r
     // Add extra bright white feathered glow at center\r
     float centerDist = length(uv - 0.5);\r
-    float whiteGlow = exp(-centerDist * 4.0);  // Tight exponential falloff\r
-    color = mix(color, vec3(1.0), whiteGlow * 0.8);\r
+    float whiteGlow = exp(-centerDist * MAIN_CENTER_GLOW_FALLOFF);\r
+    color = mix(color, vec3(1.0), whiteGlow * WHITE_GLOW_STRENGTH);\r
 \r
     // === POST ===\r
     // Vignette (softer to preserve center brightness)\r
-    float vig = 1.0 - length(uv - 0.5) * 0.3;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","simulation","3d"],links:{},screenshotUrl:kf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/mario.gif"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`}]},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","simulation","3d"],links:{},screenshotUrl:Mf,passes:{image:`/**
  * Attractor Study #04: Thomas — Image Pass
  * @author guinetik
  * @date 2026-02-13
@@ -10508,35 +14538,6 @@ vec2 project(vec3 p, float cy, float sy, float cp, float sp) {
     return vec2(r.x, r.y * cp - r.z * sp);
 }
 
-// TECHNIQUE: Distance-field line segment rendering
-// Computes the minimum distance from point \`p\` to the line segment (a, b).
-float dfLine(vec2 a, vec2 b, vec2 p) {
-    vec2 ab = b - a;
-    float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-    return distance(a + ab * t, p);
-}
-
-// Pseudo-random hash — maps a float seed to [0, 1).
-float hash(float n) {
-    return fract(sin(n) * 43758.5453);
-}
-
-// Convert HSL (hue in degrees, saturation, lightness) to RGB.
-vec3 hsl2rgb(float h, float s, float l) {
-    h = mod(h, 360.0) / 60.0;
-    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
-    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
-    float m = l - c * 0.5;
-    vec3 rgb;
-    if      (h < 1.0) rgb = vec3(c, x, 0.0);
-    else if (h < 2.0) rgb = vec3(x, c, 0.0);
-    else if (h < 3.0) rgb = vec3(0, c, x);
-    else if (h < 4.0) rgb = vec3(0, x, c);
-    else if (h < 5.0) rgb = vec3(x, 0, c);
-    else              rgb = vec3(c, 0, x);
-    return rgb + m;
-}
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 res = iResolution.xy / iResolution.y;
     vec2 uv = fragCoord / iResolution.y;
@@ -10609,7 +14610,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // ── Blink ──
     float blinkSeed = floor(iTime * BLINK_FREQ);
-    float blink = hash(blinkSeed) < 0.25
+    float blink = hashN(blinkSeed) < 0.25
         ? sin(fract(iTime * BLINK_FREQ) * 3.14159) : 0.0;
 
     // ── Color: green (fast) -> cyan-blue (slow), with continuous hue rotation ──
@@ -10649,13 +14650,229 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         fragColor = vec4(lineColor * c + prev * fade, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}}},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:Mf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"noise-value",source:`/**
+ * Value Noise (sin-hash family)
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Hash-based value noise using the fract(sin(x)*43758) family.
+ * Fast and simple, produces smooth non-directional noise suitable for terrain.
+ * C1 continuous via Hermite smoothstep interpolation (3t^2 - 2t^3).
+ *
+ * Noise: Chosen for speed on desktop GPUs. For mobile or precision-sensitive
+ * use cases, prefer noise-pcg.glsl which avoids sin-based hashing.
+ */
+
+// === HASH FUNCTIONS ===
+
+/**
+ * 1D hash — maps a float to a pseudo-random float in [0, 1).
+ */
+float hashN(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+/**
+ * 2D hash — maps a vec2 to a pseudo-random float in [0, 1).
+ */
+float hashN2(vec2 p) {
+    float h = dot(p, vec2(127.1, 311.7));
+    return fract(sin(h) * 43758.5453123);
+}
+
+// === VALUE NOISE ===
+
+/**
+ * 2D value noise with Hermite interpolation.
+ *
+ * @param p  2D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise2D(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hashN2(i + vec2(0.0, 0.0)), hashN2(i + vec2(1.0, 0.0)), u.x),
+               mix(hashN2(i + vec2(0.0, 1.0)), hashN2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/**
+ * 3D value noise with Hermite interpolation.
+ *
+ * Uses dot-product lattice hashing with step (1, 157, 113) for
+ * decorrelated cell values.
+ *
+ * @param pos  3D position to sample
+ * @return Noise value in [0, 1)
+ */
+float valueNoise3D(vec3 pos) {
+    vec3 i = floor(pos);
+    vec3 f = fract(pos);
+    vec3 u = f * f * (3.0 - 2.0 * f);
+
+    float n = dot(i, vec3(1.0, 157.0, 113.0));
+    return mix(mix(mix(hashN(n + 0.0),   hashN(n + 1.0), u.x),
+                   mix(hashN(n + 157.0), hashN(n + 158.0), u.x), u.y),
+               mix(mix(hashN(n + 113.0), hashN(n + 114.0), u.x),
+                   mix(hashN(n + 270.0), hashN(n + 271.0), u.x), u.y), u.z);
+}
+
+// === FBM ===
+
+/**
+ * Fractional Brownian Motion using 3D value noise.
+ *
+ * Sums multiple octaves of valueNoise3D with decreasing amplitude.
+ * Domain is offset and rotated between octaves to decorrelate layers.
+ *
+ * @param pos        3D sample position
+ * @param octaves    Number of noise octaves (1–8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0–3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4–0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue(vec3 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise3D(pos);
+        total += scale;
+        pos += vec3(0.23, 0.77, 0.57);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+
+/**
+ * Fractional Brownian Motion using 2D value noise.
+ *
+ * Sums multiple octaves of valueNoise2D with decreasing amplitude.
+ * Domain is offset between octaves to decorrelate layers.
+ *
+ * @param pos        2D sample position
+ * @param octaves    Number of noise octaves (1-8)
+ * @param lacunarity Frequency multiplier per octave (typically 2.0-3.0)
+ * @param gain       Amplitude multiplier per octave (typically 0.4-0.5)
+ * @return Normalized FBM value in approximately [0, 1)
+ */
+float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
+    float height = 0.0;
+    float scale = 0.5;
+    float total = 0.0;
+    for (int i = 0; i < 8; i++) {
+        if (i >= octaves) break;
+        height += scale * valueNoise2D(pos);
+        total += scale;
+        pos += vec2(0.23, 0.77);
+        pos *= lacunarity;
+        scale *= gain;
+    }
+    return height / total;
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`}]},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:Hf,passes:{image:`/**\r
  * Smooth Waves Study\r
  * @author guinetik\r
  * @date 2026-01-29\r
  *\r
  * Dali-inspired liquid surface with layered sine waves, center ripple\r
  * source, corner-based interference patterns, and heat shimmer.\r
+ * The three wave layers approximate a real ocean wave spectrum: long swell,\r
+ * medium chop, and fine surface ripples. Concentric ripples radiate from a\r
+ * drifting center point while four corner sources create an interference grid.\r
+ * A horizontal heat-shimmer pass adds convection-like jitter.\r
  *\r
  * Wave Distortion Techniques:\r
  * - Layered sine waves (Dali-inspired liquid)\r
@@ -10671,6 +14888,62 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 #define PI 3.14159265359\r
 #define TAU 6.28318530718\r
 \r
+// --- Wave Layer 1: large swell (longest wavelength, biggest amplitude) ---\r
+#define SWELL_FREQ_X 4.0       // Primary Y-axis frequency — lower = wider swells\r
+#define SWELL_FREQ_Y 2.0       // Cross-term X frequency for diagonal tilt\r
+#define SWELL_CROSS_FREQ_X 3.0 // Primary X-axis frequency for vertical offset\r
+#define SWELL_CROSS_FREQ_Y 2.0 // Cross-term Y frequency for diagonal tilt\r
+#define SWELL_AMPLITUDE 0.03   // Peak displacement — above 0.05 tears the image apart\r
+#define SWELL_SPEED_X 1.2      // Horizontal phase speed — keep close to 1.0 for gentle rolling\r
+#define SWELL_SPEED_Y 1.0      // Vertical phase speed\r
+\r
+// --- Wave Layer 2: medium chop ---\r
+#define CHOP_FREQ_X 8.0        // Y-axis frequency — ~2x swell for visible mid-band detail\r
+#define CHOP_FREQ_Y 6.0        // X-axis frequency\r
+#define CHOP_AMPLITUDE_X 0.015 // Horizontal displacement — half of swell amplitude\r
+#define CHOP_AMPLITUDE_Y 0.02  // Vertical displacement — slightly stronger for asymmetry\r
+#define CHOP_SPEED_X 1.8       // Faster than swell to differentiate motion bands\r
+#define CHOP_SPEED_Y 1.5       // Slightly slower vertical phase\r
+\r
+// --- Wave Layer 3: surface ripples (highest frequency, lowest amplitude) ---\r
+#define RIPPLE_FREQ_X 15.0     // Y-axis frequency — ~4x swell; fine texture detail\r
+#define RIPPLE_CROSS_X 10.0    // Cross-term X frequency\r
+#define RIPPLE_FREQ_Y 12.0     // X-axis frequency\r
+#define RIPPLE_CROSS_Y 8.0     // Cross-term Y frequency\r
+#define RIPPLE_AMPLITUDE 0.008 // Very small — just enough to add sparkle. Above 0.015 looks noisy\r
+#define RIPPLE_SPEED_X 3.0     // Fast phase speed — gives quick shimmering motion\r
+#define RIPPLE_SPEED_Y 2.5     // Slightly slower to avoid uniform crawl\r
+\r
+// --- Ripple source (concentric rings from drifting center) ---\r
+#define RIPPLE_SRC_FREQ 30.0   // Radial ring frequency — higher = tighter rings. Above 50 aliases\r
+#define RIPPLE_SRC_SPEED 4.0   // Outward propagation speed — higher = faster expansion\r
+#define RIPPLE_SRC_AMP 0.02    // Ring displacement strength — above 0.04 causes visible tearing\r
+#define RIPPLE_SRC_DECAY 0.8   // Fade-out radius — rings vanish beyond this distance from center\r
+#define RIPPLE_SRC_DRIFT_X 0.3 // Center horizontal drift frequency — keeps the source moving\r
+#define RIPPLE_SRC_DRIFT_AMP_X 0.1 // Horizontal drift amplitude (fraction of screen)\r
+#define RIPPLE_SRC_DRIFT_Y 0.4 // Center vertical drift frequency\r
+#define RIPPLE_SRC_DRIFT_AMP_Y 0.1 // Vertical drift amplitude\r
+\r
+// --- Interference pattern (four corner wave sources) ---\r
+#define INTERF_FREQ 20.0       // Radial frequency per source — higher = denser grid. Above 30 aliases\r
+#define INTERF_SPEED 3.0       // Phase speed — higher = faster pattern crawl\r
+#define INTERF_AMPLITUDE 0.01  // Per-source displacement — keep small; 4 sources accumulate\r
+\r
+// --- Shimmer (horizontal heat-haze jitter) ---\r
+#define SHIMMER_FREQ_A 40.0    // Primary vertical frequency — sets shimmer band width\r
+#define SHIMMER_FREQ_B 80.0    // Secondary frequency (2x) — adds fine-grain jitter\r
+#define SHIMMER_AMP_A 0.003    // Primary amplitude — visible wobble. Above 0.005 looks glitchy\r
+#define SHIMMER_AMP_B 0.001    // Secondary amplitude — subtle detail layer\r
+#define SHIMMER_SPEED_A 5.0    // Primary phase speed — fast for heat-convection look\r
+#define SHIMMER_SPEED_B 8.0    // Secondary speed — faster to decorrelate from primary\r
+#define SHIMMER_MASK_LO 0.3    // Lower fade-in (screen Y fraction) — shimmer fades near bottom\r
+#define SHIMMER_MASK_HI 0.7    // Upper fade-out (screen Y fraction) — shimmer fades near top\r
+\r
+// --- Post-processing ---\r
+#define DISP_HIGHLIGHT_SCALE 20.0 // Displacement-to-brightness multiplier — higher = brighter edges\r
+#define DISP_HIGHLIGHT_MIX 0.3    // Brightness boost strength — above 0.5 washes out darks\r
+#define VIGNETTE_STRENGTH 0.4     // Edge darkening — higher = darker corners. 0.0 disables\r
+\r
 /**\r
  * Layered wave distortion\r
  * Three frequency bands mimic real water wave spectra:\r
@@ -10683,38 +14956,42 @@ vec2 waveDistort(vec2 uv, float time, float intensity) {\r
     vec2 offset = vec2(0.0);\r
 \r
     // Layer 1: Large slow diagonal waves (longest wavelength, biggest amplitude)\r
-    offset.x += sin(uv.y * 4.0 + uv.x * 2.0 + time * 1.2) * 0.03;\r
-    offset.y += cos(uv.x * 3.0 + uv.y * 2.0 + time * 1.0) * 0.03;\r
+    offset.x += sin(uv.y * SWELL_FREQ_X + uv.x * SWELL_FREQ_Y + time * SWELL_SPEED_X) * SWELL_AMPLITUDE;\r
+    offset.y += cos(uv.x * SWELL_CROSS_FREQ_X + uv.y * SWELL_CROSS_FREQ_Y + time * SWELL_SPEED_Y) * SWELL_AMPLITUDE;\r
 \r
     // Layer 2: Medium flowing waves (2x frequency, ~half amplitude)\r
-    offset.x += sin(uv.y * 8.0 + time * 1.8) * 0.015;\r
-    offset.y += cos(uv.x * 6.0 + time * 1.5) * 0.02;\r
+    offset.x += sin(uv.y * CHOP_FREQ_X + time * CHOP_SPEED_X) * CHOP_AMPLITUDE_X;\r
+    offset.y += cos(uv.x * CHOP_FREQ_Y + time * CHOP_SPEED_Y) * CHOP_AMPLITUDE_Y;\r
 \r
     // Layer 3: Small fast ripples (~4x frequency, ~quarter amplitude)\r
-    offset.x += sin(uv.y * 15.0 + uv.x * 10.0 + time * 3.0) * 0.008;\r
-    offset.y += sin(uv.x * 12.0 + uv.y * 8.0 + time * 2.5) * 0.008;\r
+    offset.x += sin(uv.y * RIPPLE_FREQ_X + uv.x * RIPPLE_CROSS_X + time * RIPPLE_SPEED_X) * RIPPLE_AMPLITUDE;\r
+    offset.y += sin(uv.x * RIPPLE_FREQ_Y + uv.y * RIPPLE_CROSS_Y + time * RIPPLE_SPEED_Y) * RIPPLE_AMPLITUDE;\r
 \r
     return uv + offset * intensity;\r
 }\r
 \r
 /**\r
  * Concentric ripple from center\r
+ * Radial sine waves propagate outward from a given center point,\r
+ * fading with distance via smoothstep decay.\r
  */\r
 vec2 rippleDistort(vec2 uv, vec2 center, float time, float intensity) {\r
     vec2 delta = uv - center;\r
     float dist = length(delta);\r
 \r
     // Outward propagating ripples\r
-    float ripple = sin(dist * 30.0 - time * 4.0) * 0.02;\r
+    float ripple = sin(dist * RIPPLE_SRC_FREQ - time * RIPPLE_SRC_SPEED) * RIPPLE_SRC_AMP;\r
 \r
     // Fade with distance\r
-    ripple *= smoothstep(0.8, 0.0, dist);\r
+    ripple *= smoothstep(RIPPLE_SRC_DECAY, 0.0, dist);\r
 \r
     return uv + normalize(delta + 0.001) * ripple * intensity;\r
 }\r
 \r
 /**\r
  * Interference pattern from multiple wave sources\r
+ * Four corner sources each emit concentric waves; their superposition\r
+ * creates a grid-like interference pattern across the surface.\r
  */\r
 vec2 interferenceDistort(vec2 uv, float time, float intensity) {\r
     vec2 offset = vec2(0.0);\r
@@ -10729,8 +15006,8 @@ vec2 interferenceDistort(vec2 uv, float time, float intensity) {\r
     for (int i = 0; i < 4; i++) {\r
         vec2 delta = uv - sources[i];\r
         float dist = length(delta);\r
-        float wave = sin(dist * 20.0 - time * 3.0 + float(i) * 1.5);\r
-        offset += normalize(delta + 0.001) * wave * 0.01;\r
+        float wave = sin(dist * INTERF_FREQ - time * INTERF_SPEED + float(i) * 1.5);\r
+        offset += normalize(delta + 0.001) * wave * INTERF_AMPLITUDE;\r
     }\r
 \r
     return uv + offset * intensity;\r
@@ -10740,13 +15017,14 @@ vec2 interferenceDistort(vec2 uv, float time, float intensity) {\r
  * Horizontal heat shimmer effect\r
  * Two high-frequency sine layers (40 Hz, 80 Hz) create the jittery\r
  * horizontal displacement characteristic of heat convection.\r
+ * A vertical mask confines the effect to the middle band of the screen.\r
  */\r
 vec2 shimmerDistort(vec2 uv, float time, float intensity) {\r
-    float shimmer = sin(uv.y * 40.0 + time * 5.0) * 0.003;  // primary shimmer\r
-    shimmer += sin(uv.y * 80.0 + time * 8.0) * 0.001;        // fine detail at 2x freq\r
+    float shimmer = sin(uv.y * SHIMMER_FREQ_A + time * SHIMMER_SPEED_A) * SHIMMER_AMP_A;  // primary shimmer\r
+    shimmer += sin(uv.y * SHIMMER_FREQ_B + time * SHIMMER_SPEED_B) * SHIMMER_AMP_B;        // fine detail at 2x freq\r
 \r
     // Stronger in middle, fade at edges\r
-    float mask = smoothstep(0.0, 0.3, uv.y) * smoothstep(1.0, 0.7, uv.y);\r
+    float mask = smoothstep(0.0, SHIMMER_MASK_LO, uv.y) * smoothstep(1.0, SHIMMER_MASK_HI, uv.y);\r
 \r
     return uv + vec2(shimmer * mask * intensity, 0.0);\r
 }\r
@@ -10762,8 +15040,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
     // Main layered waves\r
     warped = waveDistort(warped, time, 1.0);\r
 \r
-    // Center ripple\r
-    vec2 center = vec2(0.5 + sin(time * 0.3) * 0.1, 0.5 + cos(time * 0.4) * 0.1);\r
+    // Center ripple with drifting source point\r
+    vec2 center = vec2(\r
+        0.5 + sin(time * RIPPLE_SRC_DRIFT_X) * RIPPLE_SRC_DRIFT_AMP_X,\r
+        0.5 + cos(time * RIPPLE_SRC_DRIFT_Y) * RIPPLE_SRC_DRIFT_AMP_Y\r
+    );\r
     warped = rippleDistort(warped, center, time, 0.6);\r
 \r
     // Interference pattern\r
@@ -10795,14 +15076,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     // === SUBTLE EDGE HIGHLIGHT ===\r
     // Show wave displacement as subtle brightness variation\r
-    float displacement = length(warped - uv) * 20.0;\r
-    color *= 1.0 + displacement * 0.3;\r
+    float displacement = length(warped - uv) * DISP_HIGHLIGHT_SCALE;\r
+    color *= 1.0 + displacement * DISP_HIGHLIGHT_MIX;\r
 \r
     // === POST ===\r
     // Soft vignette\r
-    float vig = 1.0 - length(uv - 0.5) * 0.4;\r
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;\r
     color *= vig;\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}}}],kr=[...Xi].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),Hf=[...new Set(Xi.flatMap(e=>e.tags))].sort();function vd(e){return kr.find(n=>n.slug===e)}function zf(){const e=Ne(null),n=He(()=>e.value===null?kr:kr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:Hf,filteredShaders:n,setTag:t}}const Bf=Math.PI*.5,ma=150;function ji(e,n){let t=null,r=null,o=0,a=null,i=0,s="none",l=0;function f(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function c(){return window.matchMedia("(hover: hover)").matches}function d(){t=document.createElement("canvas"),t.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",t.setAttribute("aria-hidden","true"),document.body.appendChild(t),r=t.getContext("2d")}function h(T){if(!t)return;const A=T.getBoundingClientRect(),P=getComputedStyle(T).borderRadius||"0";t.style.top=`${A.top}px`,t.style.left=`${A.left}px`,t.style.width=`${A.width}px`,t.style.height=`${A.height}px`,t.style.borderRadius=P,t.style.overflow="hidden";const N=window.devicePixelRatio||1,B=Math.round(A.width*N),q=Math.round(A.height*N);(t.width!==B||t.height!==q)&&(t.width=B,t.height=q)}function v(T){if((!t||!r||!a)&&s==="none"&&i<=0)return;const A=l?T-l:16;if(l=T,s==="in")i=Math.min(1,i+A/ma),i>=1&&(s="none");else if(s==="out"&&(i=Math.max(0,i-A/ma),i<=0)){s="none",t&&(t.style.opacity="0");return}if(t&&(t.style.opacity=String(i)),!t||!r)return;a&&h(a);const C=window.devicePixelRatio||1,P=t.width/C,N=t.height/C;r.setTransform(C,0,0,C,0,0),r.clearRect(0,0,P,N);const B=T*.001*Fc,q=N*.5;for(let W=0;W<2;W++){const ue=W===0?0:Bf,U=W===0?.5:.25;r.beginPath(),r.strokeStyle=`rgba(17, 220, 255, ${U})`,r.lineWidth=Gc,r.shadowColor=`rgba(17, 220, 255, ${U*.5})`,r.shadowBlur=Vc;for(let K=0;K<=P;K+=2){const $=q+Math.sin(K/P*Math.PI*2*Uc+B+ue)*Bc;K===0?r.moveTo(K,$):r.lineTo(K,$)}r.stroke(),r.shadowBlur=0}o=requestAnimationFrame(v)}function E(T){if(f()||!c())return;const A=T.target.closest(n);A&&(t||d(),a=A,h(A),s="in",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(v))}function S(T){if(!T.target.closest(n))return;const C=T.relatedTarget;C&&C.closest(n)||(a=null,s="out",cancelAnimationFrame(o),l=0,o=requestAnimationFrame(v))}Qn(()=>{const T=e.value;T&&(T.addEventListener("mouseenter",E,!0),T.addEventListener("mouseleave",S,!0))}),Qt(()=>{cancelAnimationFrame(o);const T=e.value;T&&(T.removeEventListener("mouseenter",E,!0),T.removeEventListener("mouseleave",S,!0)),t&&t.parentNode&&t.parentNode.removeChild(t),t=null,r=null,a=null})}const Uf=["onClick"],Ff=An({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=Ne(null);return ji(r,".tag-btn"),(o,a)=>(_e(),Be("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Oe("button",{class:Yn(["tag-btn",{active:e.activeTag===null}]),onClick:a[0]||(a[0]=i=>t("select",null))}," All ",2),(_e(!0),Be(Te,null,Zr(e.tags,i=>(_e(),Be("button",{key:i,class:Yn(["tag-btn",{active:e.activeTag===i}]),onClick:s=>t("select",i)},ot(i),11,Uf))),128))],512))}}),Gf=Et(Ff,[["__scopeId","data-v-f002c231"]]),Vf={class:"card-trace-svg","aria-hidden":"true"},Kf=["stroke-dasharray","stroke-dashoffset"],Yf={class:"card-content"},Wf=["src","alt"],qf={class:"card-overlay"},Xf={class:"card-kicker"},jf={class:"card-title"},Qf={class:"card-tags"},Zf=An({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=af(),{prefersReducedMotion:o,getStaggerDelay:a,setTransitionSnapshot:i}=ro(),s=Ne(null),l=Ne(null),f=Ne("hidden"),c=Ne(0);function d(){const E=s.value;if(!E)return null;const S=E.$el;return S instanceof HTMLElement?S:null}Qn(()=>{if(o.value==="reduced"){f.value="visible";return}const E=d(),S=l.value;if(!E||!S){f.value="visible";return}const T=E.getBoundingClientRect();c.value=(T.width+T.height)*2;const A=a(t.index,t.total);setTimeout(()=>{f.value="tracing",S.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},qo)})},A)});function h(){if(o.value==="reduced"){f.value="visible";return}const E=l.value;if(!E||!c.value){f.value="visible";return}f.value="tracing",E.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Wo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},qo)})}function v(E){if(o.value==="reduced")return;E.preventDefault();const S=d();if(!S)return;const T=S.getBoundingClientRect();i({slug:t.shader.slug,rect:{top:T.top,left:T.left,width:T.width,height:T.height},screenshotUrl:t.shader.screenshotUrl});const A=S.parentElement;A&&Array.from(A.children).filter(P=>P!==S).forEach(P=>{P.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Pc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:h,getCardEl:d}),(E,S)=>{const T=ai("router-link");return _e(),eo(T,{ref_key:"cardRef",ref:s,to:"/shader/"+e.shader.slug,class:Yn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:v},{default:Qr(()=>[(_e(),Be("svg",Vf,[Oe("rect",{ref_key:"svgRef",ref:l,x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,Kf)])),Oe("div",Yf,[Oe("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Wf),S[0]||(S[0]=Oe("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Oe("div",qf,[Oe("span",Xf,ot(e.shader.date),1),Oe("span",jf,ot(e.shader.title),1)]),Oe("div",Qf,[(_e(!0),Be(Te,null,Zr(e.shader.tags,A=>(_e(),Be("span",{key:A,class:"card-tag"},ot(A),1))),128))])])]),_:1},8,["to","class"])}}}),$f=Et(Zf,[["__scopeId","data-v-f240d199"]]),At=200,va=40,Jf=280,ed=12,ga=85,nd=55,ya=.45,td=.12,rd=.25,od=15;function ad(e){let n=0,t=-1,r=-1,o=!0;function a(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function i(){t=-1,r=-1}function s(){o=!document.hidden,o&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!o)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const h=window.devicePixelRatio||1,v=c.clientWidth,E=c.clientHeight;if(v===0||E===0){n=requestAnimationFrame(l);return}const S=Math.round(v*h),T=Math.round(E*h);(c.width!==S||c.height!==T)&&(c.width=S,c.height=T),d.setTransform(h,0,0,h,0,0),d.clearRect(0,0,v,E);const A=f*.001,C=A*Mc,P=A*ed,N=2;for(let B=0;B<ur;B++){const q=B/(ur-1),W=E*(.08+q*.84),ue=B*Math.PI*.6,U=kc+B%3*.3,K=1+(B%2===0?.15:-.1)*(B/ur),O=(va+q*(Jf-va)+P)%360,Q=Math.abs(q-.5)*2;let se=ya-(ya-td)*Q,ve=nd;const le=.4+B%4*.15,J=Math.sin(A*le+B*1.7)*.5+.5;se*=.7+J*.3;let Y=0;if(t>=0&&r>=0){const fe=Math.abs(W-r);fe<At&&(Y=1-fe/At,Y*=Y,se=Math.min(1,se+rd*Y),ve=ve+od*Y)}const Fe=`hsla(${O}, ${ga}%, ${ve}%, ${se})`,Xe=`hsla(${O}, ${ga}%, ${ve}%, ${se*.5})`;d.beginPath(),d.strokeStyle=Fe,d.lineWidth=Hc+Y*.5,d.shadowColor=Xe,d.shadowBlur=zc+Y*6;for(let fe=0;fe<=v;fe+=N){let ge=Lc;if(t>=0&&r>=0){const sn=fe-t,je=W-r,we=Math.sqrt(sn*sn+je*je);if(we<At){const y=1-we/At;ge+=Oc*y*y}}const an=W+Math.sin(fe/v*Math.PI*2*U+C*K+ue)*ge;fe===0?d.moveTo(fe,an):d.lineTo(fe,an)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Qn(()=>{const f=e.value;f&&(f.addEventListener("mousemove",a),f.addEventListener("mouseleave",i),document.addEventListener("visibilitychange",s),n=requestAnimationFrame(l))}),Qt(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",a),f.removeEventListener("mouseleave",i)),document.removeEventListener("visibilitychange",s)})}const id=An({__name:"SineWaveDivider",setup(e){const n=Ne(null);return ad(n),(t,r)=>(_e(),Be("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),sd=Et(id,[["__scopeId","data-v-05c59859"]]),ld={class:"gallery-view n-layout-shell"},cd={key:0,class:"gallery-empty"},fd=An({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:o}=zf(),{triggerCardExit:a,prefersReducedMotion:i}=ro(),s=Ne(null);ji(s,".profile-link, .github-link");function l(c,d){if(i.value==="reduced"){d();return}setTimeout(d,800)}function f(c,d){if(i.value==="reduced"){d();return}a(c).then(d)}return(c,d)=>(_e(),Be("div",ld,[Oe("header",{ref_key:"headerRef",ref:s,class:"gallery-header n-panel"},[pe(sd),d[0]||(d[0]=Hl('<div class="gallery-brand" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-cd37ac52><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-cd37ac52><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-cd37ac52></path></svg></a><h1 class="gallery-title" data-v-cd37ac52>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-cd37ac52><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Website</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>@guinetik</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-cd37ac52>Shadertoy</a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-cd37ac52><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-cd37ac52><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-cd37ac52></path></svg></a></nav><p class="gallery-subtitle" data-v-cd37ac52> Interactive GPU programming experiments using WebGL. </p>',3))],512),pe(Gf,{tags:Pe(t),activeTag:Pe(n),onSelect:Pe(o)},null,8,["tags","activeTag","onSelect"]),pe(xc,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:l,onLeave:f,css:!1},{default:Qr(()=>[(_e(!0),Be(Te,null,Zr(Pe(r),(h,v)=>(_e(),eo($f,{key:h.slug,shader:h,index:v,total:Pe(r).length},null,8,["shader","index","total"]))),128))]),_:1}),Pe(r).length===0?(_e(),Be("p",cd," No shaders found. ")):Ti("",!0)]))}}),dd=Et(fd,[["__scopeId","data-v-cd37ac52"]]),ud=[{path:"/",name:"gallery",component:dd},{path:"/shader/:slug",name:"shader-detail",component:()=>Zc(()=>import("./ShaderDetailView-DIfFCC-A.js"),__vite__mapDeps([0,1]))}],Qi=of({history:M0(),routes:ud});Qi.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Ac(Xc).use(Qi).mount("#app");export{jo as C,hd as F,pd as M,Et as _,Be as a,Oe as b,He as c,An as d,Ti as e,vd as f,_e as g,Zc as h,Te as i,Zr as j,ro as k,ji as l,Qn as m,Yn as n,Qt as o,pe as p,Qr as q,Ne as r,eo as s,ot as t,Pe as u,Ml as v,st as w,md as x,ai as y,af as z};
+`},channels:{image:{iChannel0:"textures/sea.jpg"}},commonsSources:[]}],Mr=[...ji].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),kf=[...new Set(ji.flatMap(e=>e.tags))].sort();function gd(e){return Mr.find(n=>n.slug===e)}function Bf(){const e=Ce(null),n=ke(()=>e.value===null?Mr:Mr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:kf,filteredShaders:n,setTag:t}}const Uf=Math.PI*.5,va=150;function Hr(e,n,t,r=0){let o=null,a=null,i=0,s=null,l=0,f="none",c=0;function d(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function m(){return window.matchMedia("(hover: hover)").matches}function v(){o=document.createElement("canvas"),o.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",o.setAttribute("aria-hidden","true"),document.body.appendChild(o),a=o.getContext("2d")}function T(S){if(!o)return;const A=S.getBoundingClientRect(),L=getComputedStyle(S).borderRadius||"0";o.style.top=`${A.top+r}px`,o.style.left=`${A.left}px`,o.style.width=`${A.width}px`,o.style.height=`${A.height}px`,o.style.borderRadius=L,o.style.overflow="hidden";const G=window.devicePixelRatio||1,V=Math.round(A.width*G),oe=Math.round(A.height*G);(o.width!==V||o.height!==oe)&&(o.width=V,o.height=oe)}function w(S){if((!o||!a||!s)&&f==="none"&&l<=0)return;const A=c?S-c:16;if(c=S,f==="in")l=Math.min(1,l+A/va),l>=1&&(f="none");else if(f==="out"&&(l=Math.max(0,l-A/va),l<=0)){f="none",o&&(o.style.opacity="0");return}if(o&&(o.style.opacity=String(l)),!o||!a)return;s&&T(s);const _=window.devicePixelRatio||1,L=o.width/_,G=o.height/_;a.setTransform(_,0,0,_,0,0),a.clearRect(0,0,L,G);const V=S*.001*zc,oe=G*.5;for(let H=0;H<2;H++){const K=H===0?0:Uf,$=H===0?.5:.25;a.beginPath(),a.strokeStyle=`rgba(17, 220, 255, ${$})`,a.lineWidth=Gc,a.shadowColor=`rgba(17, 220, 255, ${$*.5})`,a.shadowBlur=Vc;for(let I=0;I<=L;I+=2){const X=oe+Math.sin(I/L*Math.PI*2*Fc+V+K)*Uc;I===0?a.moveTo(I,X):a.lineTo(I,X)}a.stroke(),a.shadowBlur=0}i=requestAnimationFrame(w)}function k(S){if(d()||!m())return;const A=S.target.closest(n);if(!A)return;o||v();const _=t?A.querySelector(t)??A:A;s=_,T(_),f="in",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w)}function M(S){if(!S.target.closest(n))return;const _=S.relatedTarget;_&&_.closest(n)||(s=null,f="out",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w))}Qn(()=>{const S=e.value;S&&(S.addEventListener("mouseenter",k,!0),S.addEventListener("mouseleave",M,!0))}),St(()=>{cancelAnimationFrame(i);const S=e.value;S&&(S.removeEventListener("mouseenter",k,!0),S.removeEventListener("mouseleave",M,!0)),o&&o.parentNode&&o.parentNode.removeChild(o),o=null,a=null,s=null})}const Ff=["onClick"],zf=An({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=Ce(null);return Hr(r,".tag-btn"),(o,a)=>(Ae(),Ue("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Pe("button",{class:Wn(["tag-btn",{active:e.activeTag===null}]),onClick:a[0]||(a[0]=i=>t("select",null))}," All ",2),(Ae(!0),Ue(Te,null,$r(e.tags,i=>(Ae(),Ue("button",{key:i,class:Wn(["tag-btn",{active:e.activeTag===i}]),onClick:s=>t("select",i)},ot(i),11,Ff))),128))],512))}}),Gf=wt(zf,[["__scopeId","data-v-f002c231"]]),Vf={class:"card-trace-svg","aria-hidden":"true"},qf=["stroke-dasharray","stroke-dashoffset"],Wf={class:"card-content"},Yf=["src","alt"],Kf={class:"card-overlay"},Xf={class:"card-kicker"},jf={class:"card-title"},Qf={class:"card-tags"},Zf=An({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=af(),{prefersReducedMotion:o,getStaggerDelay:a,setTransitionSnapshot:i}=oo(),s=Ce(null),l=Ce(null),f=Ce("hidden"),c=Ce(0);let d=null,m=0,v=!1,T=0;function w(){const _=s.value;if(!_)return null;const L=_.$el;return L instanceof HTMLElement?L:null}function k(_){const L=l.value;if(!L||!c.value){f.value="visible";return}T=window.setTimeout(()=>{f.value="tracing",L.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Ko,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xo)})},_)}function M(){clearTimeout(T),f.value="hidden";const _=l.value;_&&_.getAnimations().forEach(L=>L.cancel())}Qn(()=>{if(o.value==="reduced"){f.value="visible";return}const _=w(),L=l.value;if(!_||!L){f.value="visible";return}const G=_.getBoundingClientRect();c.value=(G.width+G.height)*2,m=performance.now(),d=new IntersectionObserver(V=>{const oe=V[0];if(oe)if(oe.isIntersecting){const H=!v&&performance.now()-m<100;H&&(v=!0);const K=H?a(t.index,t.total):0;k(K)}else(v||performance.now()-m>100)&&M()},{rootMargin:"0px 0px 75px 0px"}),d.observe(_)}),St(()=>{d==null||d.disconnect(),d=null,clearTimeout(T)});function S(){if(o.value==="reduced"){f.value="visible";return}const _=l.value;if(!_||!c.value){f.value="visible";return}f.value="tracing",_.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Ko,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xo)})}function A(_){if(o.value==="reduced")return;_.preventDefault();const L=w();if(!L)return;const G=L.getBoundingClientRect();i({slug:t.shader.slug,rect:{top:G.top,left:G.left,width:G.width,height:G.height},screenshotUrl:t.shader.screenshotUrl});const V=L.parentElement;V&&Array.from(V.children).filter(H=>H!==L).forEach(H=>{H.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Dc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:S,getCardEl:w}),(_,L)=>{const G=ii("router-link");return Ae(),no(G,{ref_key:"cardRef",ref:s,to:"/shader/"+e.shader.slug,class:Wn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:A},{default:Zr(()=>[(Ae(),Ue("svg",Vf,[Pe("rect",{ref_key:"svgRef",ref:l,class:"entrance-trace",x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,qf)])),Pe("div",Wf,[Pe("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Yf),L[0]||(L[0]=Pe("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Pe("div",Kf,[Pe("span",Xf,ot(e.shader.date),1),Pe("span",jf,ot(e.shader.title),1)]),Pe("div",Qf,[(Ae(!0),Ue(Te,null,$r(e.shader.tags,V=>(Ae(),Ue("span",{key:V,class:"card-tag"},ot(V),1))),128))])])]),_:1},8,["to","class"])}}}),$f=wt(Zf,[["__scopeId","data-v-7a7f8a11"]]),Rt=200,ga=40,Jf=280,ed=12,ya=85,nd=55,ba=.45,td=.12,rd=.25,od=15;function ad(e){let n=0,t=-1,r=-1,o=!0;function a(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function i(){t=-1,r=-1}function s(){o=!document.hidden,o&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!o)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const m=window.devicePixelRatio||1,v=c.clientWidth,T=c.clientHeight;if(v===0||T===0){n=requestAnimationFrame(l);return}const w=Math.round(v*m),k=Math.round(T*m);(c.width!==w||c.height!==k)&&(c.width=w,c.height=k),d.setTransform(m,0,0,m,0,0),d.clearRect(0,0,v,T);const M=f*.001,S=M*Hc,A=M*ed,_=2;for(let L=0;L<pr;L++){const G=L/(pr-1),V=T*(.08+G*.84),oe=L*Math.PI*.6,H=Mc+L%3*.3,K=1+(L%2===0?.15:-.1)*(L/pr),I=(ga+G*(Jf-ga)+A)%360,X=Math.abs(G-.5)*2;let le=ba-(ba-td)*X,ve=nd;const ce=.4+L%4*.15,J=Math.sin(M*ce+L*1.7)*.5+.5;le*=.7+J*.3;let Y=0;if(t>=0&&r>=0){const de=Math.abs(V-r);de<Rt&&(Y=1-de/Rt,Y*=Y,le=Math.min(1,le+rd*Y),ve=ve+od*Y)}const ze=`hsla(${I}, ${ya}%, ${ve}%, ${le})`,Xe=`hsla(${I}, ${ya}%, ${ve}%, ${le*.5})`;d.beginPath(),d.strokeStyle=ze,d.lineWidth=kc+Y*.5,d.shadowColor=Xe,d.shadowBlur=Bc+Y*6;for(let de=0;de<=v;de+=_){let ge=Lc;if(t>=0&&r>=0){const sn=de-t,je=V-r,Ee=Math.sqrt(sn*sn+je*je);if(Ee<Rt){const y=1-Ee/Rt;ge+=Oc*y*y}}const an=V+Math.sin(de/v*Math.PI*2*H+S*K+oe)*ge;de===0?d.moveTo(de,an):d.lineTo(de,an)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Qn(()=>{const f=e.value;f&&(f.addEventListener("mousemove",a),f.addEventListener("mouseleave",i),document.addEventListener("visibilitychange",s),n=requestAnimationFrame(l))}),St(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",a),f.removeEventListener("mouseleave",i)),document.removeEventListener("visibilitychange",s)})}const id=An({__name:"SineWaveDivider",setup(e){const n=Ce(null);return ad(n),(t,r)=>(Ae(),Ue("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),sd=wt(id,[["__scopeId","data-v-05c59859"]]),ld={class:"gallery-view n-layout-shell"},cd={key:0,class:"gallery-empty"},fd=An({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:o}=Bf(),{triggerCardExit:a,prefersReducedMotion:i}=oo(),s=Ce(null),l=Ce(null);Hr(s,".profile-link, .github-link"),Hr(l,".shader-card",".card-overlay",8);function f(d,m){if(i.value==="reduced"){m();return}setTimeout(m,800)}function c(d,m){if(i.value==="reduced"){m();return}a(d).then(m)}return(d,m)=>(Ae(),Ue("div",ld,[Pe("header",{ref_key:"headerRef",ref:s,class:"gallery-header n-panel"},[ue(sd),m[0]||(m[0]=kl('<div class="gallery-brand" data-v-80cb8cf0><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-80cb8cf0><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-80cb8cf0><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-80cb8cf0></path></svg></a><h1 class="gallery-title" data-v-80cb8cf0>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-80cb8cf0><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-80cb8cf0>Website</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-80cb8cf0>Shadertoy</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on X" title="X (Twitter)" data-v-80cb8cf0><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-80cb8cf0><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" data-v-80cb8cf0></path></svg></a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-80cb8cf0><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-80cb8cf0><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-80cb8cf0></path></svg></a></nav><p class="gallery-subtitle" data-v-80cb8cf0> Interactive GPU programming experiments using WebGL. </p>',3))],512),ue(Gf,{tags:Le(t),activeTag:Le(n),onSelect:Le(o)},null,8,["tags","activeTag","onSelect"]),Pe("div",{ref_key:"gridRef",ref:l},[ue(xc,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:f,onLeave:c,css:!1},{default:Zr(()=>[(Ae(!0),Ue(Te,null,$r(Le(r),(v,T)=>(Ae(),no($f,{key:v.slug,shader:v,index:T,total:Le(r).length},null,8,["shader","index","total"]))),128))]),_:1})],512),Le(r).length===0?(Ae(),Ue("p",cd," No shaders found. ")):Ci("",!0)]))}}),dd=wt(fd,[["__scopeId","data-v-80cb8cf0"]]),pd=[{path:"/",name:"gallery",component:dd},{path:"/shader/:slug",name:"shader-detail",component:()=>Zc(()=>import("./ShaderDetailView-CBfO0qTh.js"),__vite__mapDeps([0,1]))}],Qi=of({history:H0(),routes:pd});Qi.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Ac(Xc).use(Qi).mount("#app");export{Qo as C,md as F,ud as M,hd as S,wt as _,Ue as a,Ci as b,ke as c,An as d,Pe as e,gd as f,Ae as g,Zc as h,Te as i,$r as j,oo as k,Hr as l,Qn as m,Wn as n,St as o,ue as p,Zr as q,Ce as r,no as s,ot as t,Le as u,Hl as v,st as w,vd as x,ii as y,af as z};
