@@ -117,6 +117,10 @@ export const CARD_STAGGER_MS = 50;
 /** Maximum total time for grid entrance reveal */
 export const GRID_ENTRANCE_MAX_MS = 800;
 
+/** Replay card entrance animation every time a card scrolls into view.
+ *  When false, cards animate once and stay visible. */
+export const CARD_SCROLL_REPLAY = true;
+
 /** Hover translate distance in pixels */
 export const CARD_HOVER_LIFT_PX = 6;
 

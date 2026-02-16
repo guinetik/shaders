@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import type { ShaderEntry, CardAnimationState } from '../types';
 import { useNeutronMotion } from '../composables/useNeutronMotion';
@@ -7,6 +7,7 @@ import {
   WIRE_FRAME_TRACE_MS,
   WIRE_FRAME_FADE_MS,
   SIBLING_FADEOUT_MS,
+  CARD_SCROLL_REPLAY,
 } from '../constants';
 
 const props = defineProps<{
@@ -23,6 +24,18 @@ const svgRef = ref<SVGRectElement | null>(null);
 const animState = ref<CardAnimationState>('hidden');
 const perimeter = ref(0);
 
+/** IntersectionObserver for scroll-triggered entrance */
+let observer: IntersectionObserver | null = null;
+
+/** Timestamp when the observer was created (to detect initial-load vs scroll) */
+let observerCreatedAt = 0;
+
+/** Whether the initial-load stagger has already been applied */
+let initialLoadDone = false;
+
+/** Active entrance timeout so we can cancel mid-animation on scroll-out */
+let entranceTimer = 0;
+
 /** Resolve cardRef (component instance) to its root DOM element. */
 function getCardEl(): HTMLElement | null {
   const raw = cardRef.value;
@@ -30,6 +43,53 @@ function getCardEl(): HTMLElement | null {
   // router-link exposes $el on the component instance
   const el = (raw as unknown as { $el: HTMLElement }).$el;
   return el instanceof HTMLElement ? el : null;
+}
+
+/**
+ * Run the wire-frame entrance animation.
+ * @param delay - Stagger delay in ms before animation starts
+ */
+function playEntrance(delay: number): void {
+  const rect = svgRef.value;
+  if (!rect || !perimeter.value) {
+    animState.value = 'visible';
+    return;
+  }
+
+  entranceTimer = window.setTimeout(() => {
+    animState.value = 'tracing';
+
+    rect.animate(
+      [
+        { strokeDashoffset: perimeter.value },
+        { strokeDashoffset: 0 },
+      ],
+      {
+        duration: WIRE_FRAME_TRACE_MS,
+        easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        fill: 'forwards',
+      },
+    ).finished.then(() => {
+      animState.value = 'filling';
+      setTimeout(() => {
+        animState.value = 'visible';
+      }, WIRE_FRAME_FADE_MS);
+    });
+  }, delay);
+}
+
+/**
+ * Reset card to hidden state so the entrance can replay.
+ */
+function resetToHidden(): void {
+  clearTimeout(entranceTimer);
+  animState.value = 'hidden';
+
+  // Reset the SVG stroke so the trace can replay
+  const rect = svgRef.value;
+  if (rect) {
+    rect.getAnimations().forEach((a) => a.cancel());
+  }
 }
 
 onMounted(() => {
@@ -48,30 +108,46 @@ onMounted(() => {
   const box = card.getBoundingClientRect();
   perimeter.value = (box.width + box.height) * 2;
 
-  const delay = getStaggerDelay(props.index, props.total);
+  observerCreatedAt = performance.now();
 
-  // Phase 1: trace the border
-  setTimeout(() => {
-    animState.value = 'tracing';
+  observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry) return;
 
-    rect.animate(
-      [
-        { strokeDashoffset: perimeter.value },
-        { strokeDashoffset: 0 },
-      ],
-      {
-        duration: WIRE_FRAME_TRACE_MS,
-        easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-        fill: 'forwards',
-      },
-    ).finished.then(() => {
-      // Phase 2: fill in content
-      animState.value = 'filling';
-      setTimeout(() => {
-        animState.value = 'visible';
-      }, WIRE_FRAME_FADE_MS);
-    });
-  }, delay);
+      if (entry.isIntersecting) {
+        // First callback within 100ms = card was in viewport on page load.
+        const isInitialLoad = !initialLoadDone &&
+          performance.now() - observerCreatedAt < 100;
+        if (isInitialLoad) initialLoadDone = true;
+
+        const delay = isInitialLoad
+          ? getStaggerDelay(props.index, props.total)
+          : 0;
+        playEntrance(delay);
+
+        // One-shot mode: disconnect after first entrance
+        if (!CARD_SCROLL_REPLAY) {
+          observer?.disconnect();
+          observer = null;
+        }
+      } else if (CARD_SCROLL_REPLAY) {
+        // Card left the viewport — reset so it re-animates on next scroll-in.
+        // Skip reset during the initial stagger window so cards don't flicker.
+        if (initialLoadDone || performance.now() - observerCreatedAt > 100) {
+          resetToHidden();
+        }
+      }
+    },
+    { rootMargin: '0px 0px 75px 0px' },
+  );
+  observer.observe(card);
+});
+
+onUnmounted(() => {
+  observer?.disconnect();
+  observer = null;
+  clearTimeout(entranceTimer);
 });
 
 /**
