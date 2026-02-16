@@ -4,6 +4,7 @@
   "date": "2026-02-02",
   "tags": ["10-days", "raymarching", "3d"],
   "links": {},
+  "commons": ["noise-value", "color"],
   "channels": {
     "image": { "iChannel0": "textures/landscape.jpeg" }
   }

@@ -3,5 +3,6 @@
   "description": "Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",
   "date": "2026-01-30",
   "tags": ["10-days", "procedural", "noise"],
+  "commons": ["noise-perlin"],
   "links": {}
 }

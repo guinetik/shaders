@@ -3,5 +3,6 @@
   "description": "Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",
   "date": "2026-01-27",
   "tags": ["10-days", "procedural", "interactive"],
+  "commons": ["noise-value"],
   "links": {}
 }

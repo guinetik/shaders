@@ -4,6 +4,7 @@
   "date": "2026-01-30",
   "tags": ["10-days", "procedural", "noise"],
   "links": {},
+  "commons": ["noise-perlin", "noise-value"],
   "channels": {
     "image": { "iChannel0": "textures/landscape.jpeg" }
   }

@@ -23,38 +23,72 @@
  * - Dark vortex areas for contrast
  * - Cyan mouse interactions for visibility
  * - Pulsing rings from warped coordinates
+ *
+ * Noise: Uses noise-value.glsl commons (sin-hash family, fbmValue2D).
  */
 
-// Hash function
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
+// --- FBM Warp Parameters ---
+#define FBM_OCTAVES 6           // Noise detail — more octaves = finer detail, higher cost.
+                                // 4: fast/smooth. 6: good detail. 8: expensive/sharp.
+#define FBM_LACUNARITY 2.0      // Frequency multiplier per octave — 2.0 is standard doubling.
+#define FBM_GAIN 0.5            // Amplitude decay per octave — 0.5 = each octave half as strong.
+#define WARP_FREQ 2.0           // Base frequency for FBM warp sampling — higher = tighter patterns.
+#define WARP_Q_SCALE 2.5        // How strongly layer-1 warp (q) feeds into layer-2 (r).
+                                // Below 1.0: subtle. Above 3.0: chaotic folding.
+#define WARP_R_SCALE 1.2        // How strongly recursive warp (r) feeds into final pattern.
+#define WARP_F2_FREQ 1.5        // Frequency for secondary pattern (f2) — offset from main for variety.
+#define WARP_F2_R_SCALE 1.8     // How strongly r feeds into f2 — higher = more recursion visible.
 
-// 2D Noise
-float noise(vec2 p) {
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    f = f * f * (3.0 - 2.0 * f);
+// --- Time Multipliers ---
+#define TIME_SCALE 0.3          // Global time scale — controls overall animation speed.
+#define TIME_Q_X 0.3            // Time offset speed for q.x FBM sampling.
+#define TIME_Q_Y 0.35           // Time offset speed for q.y FBM sampling.
+#define TIME_R_X 0.4            // Time offset speed for r.x FBM sampling.
+#define TIME_R_Y 0.38           // Time offset speed for r.y FBM sampling.
+#define TIME_F2 0.25            // Time offset speed for f2 pattern.
+#define TIME_ROTATE 0.1         // Rotation speed — full revolution ~63 seconds at 0.1.
 
-    float a = hash(i);
-    float b = hash(i + vec2(1.0, 0.0));
-    float c = hash(i + vec2(0.0, 1.0));
-    float d = hash(i + vec2(1.0, 1.0));
+// --- FBM Offset Vectors ---
+// TECHNIQUE: Spatial offsets decorrelate FBM channels
+// Without offsets, q.x and q.y would sample the same noise field,
+// producing identical warping in both axes (boring). These magic offsets
+// come from Inigo Quilez's original domain warping article.
+#define Q_Y_OFFSET vec2(5.2, 1.3)   // Offset for q.y — separates it from q.x.
+#define R_X_OFFSET vec2(1.7, 9.2)   // Offset for r.x — decorrelates from q.
+#define R_Y_OFFSET vec2(8.3, 2.8)   // Offset for r.y — decorrelates from r.x.
 
-    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
-}
+// --- Mouse Interaction ---
+#define MOUSE_RADIUS 1.2        // Influence falloff radius — larger = wider effect area.
+                                // Below 0.5: very localized. Above 2.0: covers most of screen.
+#define MOUSE_WARP_DOMAIN 0.4   // Domain distortion strength from mouse proximity.
+#define MOUSE_WARP_R 2.5        // How strongly mouse warps the r layer.
+#define MOUSE_WARP_RIPPLE 0.4   // Amplitude of mouse ripple sinusoidal distortion.
+#define MOUSE_GLOW_STRENGTH 1.8 // Brightness of the cyan mouse glow halo.
 
-// FBM (Fractal Brownian Motion)
-float fbm(vec2 p) {
-    float v = 0.0;
-    float a = 0.5;
-    for (int i = 0; i < 6; i++) {
-        v += a * noise(p);
-        p *= 2.0;
-        a *= 0.5;
-    }
-    return v;
-}
+// --- Ring Effect ---
+#define RING1_FREQ 8.0          // Spatial frequency of inner ring pattern.
+#define RING1_SPEED 4.0         // Animation speed of inner rings.
+#define RING2_FREQ 12.0         // Spatial frequency of outer ring pattern — higher = tighter.
+#define RING2_SPEED 6.0         // Animation speed of outer rings.
+#define RING_FADE_OUTER 0.8     // Rings fade beyond this radius from center.
+#define RING_FADE_INNER 0.3     // Rings fade within this radius (prevents center blob).
+
+// --- Pulse & Warp Boost ---
+#define PULSE_SPEED 2.0         // Pulsing oscillation rate — higher = faster throb.
+#define PULSE_WARP_SCALE 10.0   // How much warpIntensity modulates pulse phase.
+#define WARP_BOOST_FREQ 3.0     // Sinusoidal warp boost frequency.
+#define WARP_BOOST_SPATIAL 5.0  // Spatial modulation of warp boost by distance from center.
+#define WARP_BOOST_AMP 0.3      // Amplitude of time-based warp boost.
+
+// --- Mouse Ripple ---
+#define RIPPLE_SPATIAL_FREQ 20.0  // Spatial frequency of mouse ripple rings — higher = tighter.
+#define RIPPLE_SPEED 10.0         // Animation speed of ripple expansion.
+#define RIPPLE_BRIGHTNESS 0.9     // Brightness of cyan ripple rings.
+#define RIPPLE_DARK_GAP 0.2       // Darkness of gaps between ripple rings.
+
+// --- Vignette ---
+#define VIGNETTE_STRENGTH 0.4   // Edge darkening intensity — 0.0 = none, 1.0 = heavy.
+                                // 0.4 gives subtle framing without crushing edges.
 
 // Rotate 2D
 vec2 rotate(vec2 p, float angle) {
@@ -72,7 +106,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec2 p = (uv - 0.5) * 2.0;
     p.x *= aspect;
 
-    float t = iTime * 0.3;
+    float t = iTime * TIME_SCALE;
 
     // Mouse influence (Shadertoy uses iMouse.xy / iResolution.xy)
     // In Shadertoy: fragCoord.y=0 at top, iMouse.y=0 at top
@@ -84,18 +118,18 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     float mouseDist = length(p - mouse);
     float mouseActive = (iMouse.z > 0.0) ? 1.0 : 0.0;
-    float mouseInf = smoothstep(1.2, 0.0, mouseDist) * mouseActive;
+    float mouseInf = smoothstep(MOUSE_RADIUS, 0.0, mouseDist) * mouseActive;
 
     // Warping intensity (can animate or set to 1.0)
     float warpIntensity = 1.0;
 
     // Pulsing effect from warped coordinates - creates expanding rings
-    float pulse = sin(t * 2.0 + warpIntensity * 10.0) * 0.5 + 0.5;
+    float pulse = sin(t * PULSE_SPEED + warpIntensity * PULSE_WARP_SCALE) * 0.5 + 0.5;
     float centerDist = length(p);
-    float ring1 = sin(centerDist * 8.0 - t * 4.0) * 0.5 + 0.5;
-    float ring2 = sin(centerDist * 12.0 - t * 6.0 + 1.0) * 0.5 + 0.5;
+    float ring1 = sin(centerDist * RING1_FREQ - t * RING1_SPEED) * 0.5 + 0.5;
+    float ring2 = sin(centerDist * RING2_FREQ - t * RING2_SPEED + 1.0) * 0.5 + 0.5;
     float rings = (ring1 + ring2) * 0.5;
-    rings *= smoothstep(0.8, 0.0, centerDist) * smoothstep(0.0, 0.3, centerDist);
+    rings *= smoothstep(RING_FADE_OUTER, 0.0, centerDist) * smoothstep(0.0, RING_FADE_INNER, centerDist);
 
     // === DOMAIN WARPING LAYERS ===
     // Start with base coordinates
@@ -103,46 +137,48 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     // Layer 0: Mouse-reactive domain distortion
     // Warp coordinates based on mouse position for interactive effect
-    pp -= mouse * mouseInf * 0.4;
+    pp -= mouse * mouseInf * MOUSE_WARP_DOMAIN;
 
     // Layer 1: Rotating domain warp
     // Rotate the coordinate space for dynamic motion
-    pp = rotate(pp, t * 0.1);
+    pp = rotate(pp, t * TIME_ROTATE);
 
     // Layer 2: First FBM warp layer
     // Sample FBM noise at different offsets to create warping vectors
+    // TECHNIQUE: Domain warping via Inigo Quilez's f(p + f(p + f(p)))
+    // Each layer samples FBM at offset coordinates, producing organic folding.
     vec2 q = vec2(
-        fbm(pp * 2.0 + t * 0.3),
-        fbm(pp * 2.0 + vec2(5.2, 1.3) + t * 0.35)
+        fbmValue2D(pp * WARP_FREQ + t * TIME_Q_X, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN),
+        fbmValue2D(pp * WARP_FREQ + Q_Y_OFFSET + t * TIME_Q_Y, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN)
     );
 
     // Layer 3: Recursive domain warping
     // Warp the already-warped coordinates (q) for complex patterns
     vec2 r = vec2(
-        fbm(pp + q * 2.5 + vec2(1.7, 9.2) + t * 0.4),
-        fbm(pp + q * 2.5 + vec2(8.3, 2.8) + t * 0.38)
+        fbmValue2D(pp + q * WARP_Q_SCALE + R_X_OFFSET + t * TIME_R_X, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN),
+        fbmValue2D(pp + q * WARP_Q_SCALE + R_Y_OFFSET + t * TIME_R_Y, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN)
     );
 
     // Additional warping: Time-based sinusoidal distortion
     // Adds pulsing energy to the warp pattern
     float warpBoost = pulse * warpIntensity;
     r += warpBoost * vec2(
-        sin(t * 3.0 + centerDist * 5.0),
-        cos(t * 3.0 + centerDist * 5.0)
-    ) * 0.3;
+        sin(t * WARP_BOOST_FREQ + centerDist * WARP_BOOST_SPATIAL),
+        cos(t * WARP_BOOST_FREQ + centerDist * WARP_BOOST_SPATIAL)
+    ) * WARP_BOOST_AMP;
 
     // Additional warping: Mouse-reactive distortion
     // Interactive domain warping based on mouse proximity
-    float mouseWarp = mouseInf * 2.5;
+    float mouseWarp = mouseInf * MOUSE_WARP_R;
     r += mouseWarp * vec2(
-        sin(t * 6.0 + mouseDist * 10.0),
-        cos(t * 6.0 + mouseDist * 10.0)
-    ) * 0.4;
+        sin(t * 6.0 + mouseDist * RIPPLE_SPATIAL_FREQ * 0.5),
+        cos(t * 6.0 + mouseDist * RIPPLE_SPATIAL_FREQ * 0.5)
+    ) * MOUSE_WARP_RIPPLE;
 
     // Final pattern: Sample FBM using the heavily warped coordinates
     // The multiple layers of warping create complex, organic patterns
-    float f = fbm(pp + q + r * 1.2);
-    float f2 = fbm(pp * 1.5 + r * 1.8 + t * 0.25);
+    float f = fbmValue2D(pp + q + r * WARP_R_SCALE, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN);
+    float f2 = fbmValue2D(pp * WARP_F2_FREQ + r * WARP_F2_R_SCALE + t * TIME_F2, FBM_OCTAVES, FBM_LACUNARITY, FBM_GAIN);
 
     // === COLOR MAPPING ===
     // Terminal green base with celebration accents; each accent is driven
@@ -186,29 +222,29 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     // Mouse glow - CYAN with dark core for contrast
     vec3 glowCol = vec3(0.0, 0.85, 1.0);  // Bright cyan
-    float glowIntensity = mouseInf * 1.8;
+    float glowIntensity = mouseInf * MOUSE_GLOW_STRENGTH;
     // Add dark core in center of mouse glow
     float darkCore = smoothstep(0.15, 0.0, mouseDist) * mouseInf;
     color = mix(color, col1, darkCore * 0.3);
     color += glowCol * glowIntensity;
 
     // Mouse ripple rings - cyan with dark gaps
-    float ripple = sin(mouseDist * 20.0 - t * 10.0) * 0.5 + 0.5;
+    float ripple = sin(mouseDist * RIPPLE_SPATIAL_FREQ - t * RIPPLE_SPEED) * 0.5 + 0.5;
     ripple *= mouseInf * smoothstep(0.0, 1.0, mouseDist);
     // Add dark gaps between ripples
-    float darkRipple = smoothstep(0.05, 0.0, abs(sin(mouseDist * 20.0 - t * 10.0))) * mouseInf;
-    color = mix(color, col1, darkRipple * 0.2);
-    color += vec3(0.0, 0.7, 1.0) * ripple * 0.9;
+    float darkRipple = smoothstep(0.05, 0.0, abs(sin(mouseDist * RIPPLE_SPATIAL_FREQ - t * RIPPLE_SPEED))) * mouseInf;
+    color = mix(color, col1, darkRipple * RIPPLE_DARK_GAP);
+    color += vec3(0.0, 0.7, 1.0) * ripple * RIPPLE_BRIGHTNESS;
 
     // Overall brightness - modulated by warp intensity
     color *= 1.0 + warpBoost * 0.5;
 
     // Vignette
-    float vig = 1.0 - length(uv - 0.5) * 0.4;
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;
     color *= vig;
 
-    // Clamp
-    color = clamp(color, 0.0, 1.0);
+    // Gamma correction — linear to sRGB
+    color = pow(max(color, vec3(0.0)), vec3(0.45));
 
     fragColor = vec4(color, 1.0);
 }

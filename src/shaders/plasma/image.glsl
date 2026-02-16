@@ -7,8 +7,14 @@
  * for organic turbulence. Multiple sine wave interference patterns
  * warped through FBM noise create flowing psychedelic color fields.
  *
+ * Noise: Uses noise-perlin.glsl commons (Perlin gradient noise with
+ * quintic C2 interpolation). FBM with 5 octaves, lacunarity 2.0,
+ * gain 0.5 for natural 1/f turbulence.
+ *
+ * Commons: noise-perlin.glsl
+ *
  * Plasma Techniques:
- * - True 3D Perlin gradient noise
+ * - True 3D Perlin gradient noise (via commons)
  * - Classic demoscene sine plasma
  * - Noise-warped interference patterns
  *
@@ -21,62 +27,62 @@
 #define PI 3.14159265359
 #define TAU 6.28318530718
 
-/**
- * 3D Hash for gradient vectors
- */
-vec3 hash3(vec3 p) {
-    p = vec3(
-        dot(p, vec3(127.1, 311.7, 213.6)),
-        dot(p, vec3(327.1, 211.7, 113.6)),
-        dot(p, vec3(269.5, 183.3, 351.1))
-    );
-    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
-}
+// --- Plasma sine wave frequencies ---
+// Control the spatial frequency of each sine layer.
+// Higher values = tighter wave patterns; lower = broader undulations.
+#define PLASMA_FREQ_X 3.0        // Horizontal sine frequency
+#define PLASMA_FREQ_Y 2.7        // Vertical sine frequency
+#define PLASMA_FREQ_DIAG 2.5     // Diagonal (x+y) sine frequency
+#define PLASMA_FREQ_RADIAL 4.0   // Radial distance sine frequency
+#define PLASMA_FREQ_RIPPLE 5.0   // Moving center ripple frequency
 
-/**
- * True 3D Perlin Gradient Noise
- * Interpolates gradient dot products for smoother results
- */
-float perlin3D(vec3 p) {
-    vec3 i = floor(p);
-    vec3 f = fract(p);
+// --- Plasma time multipliers ---
+// Control how fast each sine layer animates.
+// Higher = faster movement; mismatched values prevent repetition.
+#define PLASMA_TIME_X 1.0        // Horizontal layer time speed
+#define PLASMA_TIME_Y 1.3        // Vertical layer time speed
+#define PLASMA_TIME_DIAG 0.7     // Diagonal layer time speed
+#define PLASMA_TIME_RADIAL 1.5   // Radial layer time speed (subtracted)
+#define PLASMA_TIME_CENTER 0.5   // Center orbit X speed
+#define PLASMA_TIME_CENTER_Y 0.7 // Center orbit Y speed
 
-    // Quintic interpolation for C2 continuity (smoother than cubic)
-    vec3 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+// --- Perlin noise scales and time speeds ---
+// Control the spatial scale and animation speed of noise layers.
+// Larger scale = zoomed out (broader features); faster time = more motion.
+#define NOISE_SCALE_PRIMARY 1.5    // Spatial scale for primary Perlin layer
+#define NOISE_TIME_PRIMARY 0.4     // Time speed for primary Perlin layer
+#define NOISE_SCALE_FBM 0.8        // Spatial scale for FBM turbulence layer
+#define NOISE_TIME_FBM 0.3         // Time speed for FBM turbulence layer
+#define NOISE_SCALE_WARP 2.0       // Spatial scale for coordinate warp noise
+#define NOISE_TIME_WARP 0.25       // Time speed for coordinate warp noise
+#define NOISE_SCALE_DETAIL 4.0     // Spatial scale for high-frequency detail layer
+#define NOISE_TIME_DETAIL 0.6      // Time speed for detail layer
 
-    return mix(
-        mix(
-            mix(dot(hash3(i + vec3(0, 0, 0)), f - vec3(0, 0, 0)),
-                dot(hash3(i + vec3(1, 0, 0)), f - vec3(1, 0, 0)), u.x),
-            mix(dot(hash3(i + vec3(0, 1, 0)), f - vec3(0, 1, 0)),
-                dot(hash3(i + vec3(1, 1, 0)), f - vec3(1, 1, 0)), u.x),
-            u.y),
-        mix(
-            mix(dot(hash3(i + vec3(0, 0, 1)), f - vec3(0, 0, 1)),
-                dot(hash3(i + vec3(1, 0, 1)), f - vec3(1, 0, 1)), u.x),
-            mix(dot(hash3(i + vec3(0, 1, 1)), f - vec3(0, 1, 1)),
-                dot(hash3(i + vec3(1, 1, 1)), f - vec3(1, 1, 1)), u.x),
-            u.y),
-        u.z);
-}
+// --- Warp intensity ---
+// How strongly Perlin noise distorts the plasma coordinates.
+// 0.0 = no warp; 0.3 = moderate organic distortion; above 0.5 = chaotic.
+#define WARP_INTENSITY 0.3
 
-/**
- * Perlin FBM - layered gradient noise
- * 5 octaves with standard lacunarity 2.0 and gain 0.5:
- *   - Each octave doubles spatial frequency (p *= 2.0)
- *   - Each octave halves amplitude (a *= 0.5)
- *   - This 1/f weighting produces natural-looking turbulence
- */
-float perlinFBM(vec3 p) {
-    float v = 0.0;
-    float a = 0.5;
-    for (int i = 0; i < 5; i++) {
-        v += a * perlin3D(p);
-        p *= 2.0;  // lacunarity: double frequency each octave
-        a *= 0.5;  // gain: halve amplitude each octave
-    }
-    return v;
-}
+// --- Scanlines ---
+// CRT-style horizontal scanline overlay.
+// Higher frequency = thinner lines; higher strength = more visible.
+#define SCANLINE_FREQUENCY 400.0  // Lines per screen height — 400 gives subtle CRT feel
+#define SCANLINE_STRENGTH 0.03    // Brightness reduction per line — keep under 0.05 to stay subtle
+
+// --- Palette cycle speed ---
+// How fast the shader cycles between the three color palettes.
+// Lower = longer time per palette; 0.1 gives ~10s per palette.
+#define PALETTE_CYCLE_SPEED 0.1
+
+// --- Texture overlay blend ---
+// Blend factor for the overlay blending with iChannel0 texture.
+// 0.0 = pure texture; 1.0 = pure overlay; 0.6 = balanced plasma tint.
+#define TEXTURE_BLEND 0.6
+
+// --- Vignette ---
+// Darkening at screen edges. Controls the radius-to-darkening multiplier.
+// 0.0 = no vignette; 0.5 = moderate; 1.0 = strong tunnel effect.
+#define VIGNETTE_STRENGTH 0.5
 
 /**
  * Classic plasma + Perlin turbulence
@@ -85,21 +91,21 @@ float plasma(vec2 p, float time) {
     float v = 0.0;
 
     // Classic sine waves
-    v += sin(p.x * 3.0 + time);
-    v += sin(p.y * 2.7 + time * 1.3);
-    v += sin((p.x + p.y) * 2.5 + time * 0.7);
-    v += sin(length(p) * 4.0 - time * 1.5);
+    v += sin(p.x * PLASMA_FREQ_X + time * PLASMA_TIME_X);
+    v += sin(p.y * PLASMA_FREQ_Y + time * PLASMA_TIME_Y);
+    v += sin((p.x + p.y) * PLASMA_FREQ_DIAG + time * PLASMA_TIME_DIAG);
+    v += sin(length(p) * PLASMA_FREQ_RADIAL - time * PLASMA_TIME_RADIAL);
 
     // Moving center ripple
-    vec2 center = vec2(sin(time * 0.5), cos(time * 0.7)) * 0.5;
-    v += sin(length(p - center) * 5.0 + time);
+    vec2 center = vec2(sin(time * PLASMA_TIME_CENTER), cos(time * PLASMA_TIME_CENTER_Y)) * 0.5;
+    v += sin(length(p - center) * PLASMA_FREQ_RIPPLE + time);
 
     // ADD PERLIN: 3D noise traveling through time
-    vec3 noiseCoord = vec3(p * 1.5, time * 0.4);
-    v += perlin3D(noiseCoord) * 2.0;
+    vec3 noiseCoord = vec3(p * NOISE_SCALE_PRIMARY, time * NOISE_TIME_PRIMARY);
+    v += perlinNoise3D(noiseCoord) * 2.0;
 
     // ADD PERLIN: Turbulent FBM layer
-    v += perlinFBM(vec3(p * 0.8, time * 0.3)) * 1.5;
+    v += perlinFbm(vec3(p * NOISE_SCALE_FBM, time * NOISE_TIME_FBM), 5, 2.0, 0.5) * 1.5;
 
     return v / 7.0;
 }
@@ -109,12 +115,12 @@ float plasma(vec2 p, float time) {
  * Distorts the plasma field organically
  */
 vec2 perlinWarp(vec2 p, float time) {
-    vec3 np = vec3(p * 2.0, time * 0.25);
+    vec3 np = vec3(p * NOISE_SCALE_WARP, time * NOISE_TIME_WARP);
 
     return p + vec2(
-        perlin3D(np),
-        perlin3D(np + vec3(5.2, 1.3, 2.7))
-    ) * 0.3;
+        perlinNoise3D(np),
+        perlinNoise3D(np + vec3(5.2, 1.3, 2.7))
+    ) * WARP_INTENSITY;
 }
 
 /**
@@ -176,11 +182,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     // === EXTRA PERLIN DETAIL ===
     // High-frequency Perlin adds fine organic texture
-    float detail = perlin3D(vec3(warped * 4.0, time * 0.6)) * 0.15;
+    float detail = perlinNoise3D(vec3(warped * NOISE_SCALE_DETAIL, time * NOISE_TIME_DETAIL)) * 0.15;
     combined += detail;
 
     // === COLOR ===
-    float paletteTime = mod(time * 0.1, 3.0);
+    float paletteTime = mod(time * PALETTE_CYCLE_SPEED, 3.0);
     vec3 plasmaCol;
 
     if (paletteTime < 1.0) {
@@ -201,19 +207,23 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             1.0 - 2.0 * (1.0 - texColor) * (1.0 - plasmaCol),
             step(0.5, texColor)
         );
-        color = mix(texColor, overlay, 0.6);
+        color = mix(texColor, overlay, TEXTURE_BLEND);
     } else {
         color = plasmaCol;
     }
 
     // === SCANLINES ===
-    float scanline = sin(uv.y * 400.0) * 0.03;
+    float scanline = sin(uv.y * SCANLINE_FREQUENCY) * SCANLINE_STRENGTH;
     color -= scanline;
 
     // === POST ===
     color += plasmaCol * 0.1;
-    float vig = 1.0 - length(uv - 0.5) * 0.5;
+    float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;
     color *= vig;
+
+    // === GAMMA CORRECTION ===
+    // Convert from linear working space to sRGB for display
+    color = pow(max(color, vec3(0.0)), vec3(0.45));
 
     fragColor = vec4(color, 1.0);
 }
