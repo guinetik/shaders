@@ -12,17 +12,29 @@
  * Rendering layers (back to front):
  *   1. Background      — near-black with cool blue tint
  *   2. Glow            — inverse-square radial falloff, wider reach than Sun
- *   3. Corona          — FBM flame tendrils + only 2 subtle prominences
- *   4. Star surface    — large smooth convection cells, minimal starspots
+ *   3. Corona          — FBM flame tendrils + 2 subtle prominences, rotating with star
+ *   4. Star surface    — self-emissive granulation (1-abs pattern), cycling spots
  *   5. Tone mapping    — Reinhard at 2.0x exposure (highest of the three stars)
  *
  * TECHNIQUE: Ray-sphere intersection with orbiting camera. Same architecture as
  * the red dwarf and sun shaders but with the slowest orbital and self-rotation
  * speeds, emphasizing the massive scale of a blue giant.
  *
- * TECHNIQUE: Limb darkening with pow(viewAngle, 0.5). The highest exponent of
- * the three star types, producing the strongest center-to-edge contrast. Hot
- * blue giants have steep temperature gradients in their photospheres.
+ * TECHNIQUE: Granulation via 1-abs(noise) creates cell-like patterns — bright
+ * broad centers with thin dark boundaries, mimicking convection. Blue giant uses
+ * the lowest frequencies (3/7/14) for the smoothest, largest-scale cells.
+ *
+ * TECHNIQUE: Pure self-emission rendering — no directional lighting. All visual
+ * detail comes from heat-to-color mapping through the hand-tuned starRamp palette.
+ * Contrast curve (smoothstep 0.2-0.85) is gentler than sun/red dwarf for a
+ * smoother, more uniform appearance.
+ *
+ * TECHNIQUE: Dual-layer cycling starspots — two noise layers at different speeds
+ * create spots that form, dissolve, and reappear as layers phase in/out of
+ * alignment. Blue giant has the fewest, most subtle spots of all star types.
+ *
+ * TECHNIQUE: Corona rotation — screen-space angle offset by star's axial rotation
+ * so corona tendrils rotate with the surface, maintaining visual coherence.
  *
  * TECHNIQUE: Wider corona (extends to r=2.5 vs r=2.0 for other stars) with
  * slower exponential decay (exp(-rimFactor * 3.0) vs 4.0-4.5), reflecting the
@@ -30,9 +42,8 @@
  *
  * Physics: Color palette approximates ~20000K blackbody radiation — dominated
  * by blue-white emission. Wien's displacement law places peak emission in the
- * UV, so visible light appears strongly blue-shifted. The high base brightness
- * multiplier (2.0 + heat * 1.5) models the extreme luminosity — blue giants
- * can be 10,000-100,000x more luminous than the Sun.
+ * UV, so visible light appears strongly blue-shifted. Planck's law can't produce
+ * blue colors at any temperature, so the palette is hand-tuned (starRamp).
  *
  * Noise: 3D simplex noise (Ashima Arts implementation). Lower frequency
  * multipliers and fewer FBM octaves than cooler stars produce the smoother,
@@ -86,24 +97,34 @@ vec3 starRamp(float t) {
 // =============================================================================
 // STAR SURFACE — low activity, smooth large-scale features
 // =============================================================================
+// TECHNIQUE: Granulation via 1-abs(noise) creates cell-like shapes — bright
+// convective cell centers with thin dark intergranular lanes.
 // All frequencies are the lowest of the three star types (3/7/14 vs Sun's
-// 4.5/10/20 vs red dwarf's 5/12/25). The large cells weigh more (0.55) and
+// 5/10/20 vs red dwarf's 6/14/28). The large cells weigh more (0.55) and
 // fine detail weighs less (0.15), producing the smooth appearance of a massive
 // stellar envelope where convection operates on much larger spatial scales.
 
-float convectionCells(vec3 p, float time) {
-    float cells = snoise3D(p * 3.0 + vec3(0.0, time * 0.01, 0.0));     // Large granules — freq 3.0 (lowest)
-    float med = snoise3D(p * 7.0 + vec3(time * 0.008, 0.0, time * 0.006)); // Medium detail — freq 7.0
-    float fine = snoise3D(p * 14.0 + vec3(0.0, time * 0.015, time * 0.01)); // Fine texture — freq 14.0
-    return cells * 0.55 + med * 0.3 + fine * 0.15;  // Large features dominate (0.55 vs 0.5)
+float granulation(vec3 p, float time) {
+    // Large cells — primary granulation (lowest frequency of all star types)
+    float g1 = 1.0 - abs(snoise3D(p * 3.0 + vec3(0.0, time * 0.05, 0.0)));
+    // Medium cells — supergranulation
+    float g2 = 1.0 - abs(snoise3D(p * 7.0 + vec3(time * 0.04, 0.0, time * 0.03)));
+    // Fine turbulence — surface detail
+    float g3 = snoise3D(p * 14.0 + vec3(0.0, time * 0.06, time * 0.05)) * 0.5 + 0.5;
+    return g1 * 0.55 + g2 * 0.3 + g3 * 0.15;
 }
 
-// Starspots — rarest and most subtle of the three star types.
-// Lowest frequency (2.0) and highest threshold (0.6) = very few, faint spots.
-// Massive blue giants have weaker magnetic fields relative to their luminosity.
+// Starspots — dual-layer cycling. Two noise layers at different speeds create
+// spots that form, dissolve, and reappear as layers phase in/out of alignment.
+// Blue giant has the fewest, most subtle spots: lowest frequency (2.0/3.0),
+// highest threshold (0.55), and slowest drift of all star types.
 float starSpots(vec3 p, float time) {
-    float spots = snoise3D(p * 2.0 + vec3(0.0, time * 0.003, 0.0));  // Freq 2.0 — largest spot scale
-    return smoothstep(0.6, 0.85, spots);  // Highest threshold = fewest spots of any star type
+    // Primary spots — slow drift
+    float spots1 = snoise3D(p * 2.0 + vec3(0.0, time * 0.03, time * 0.02));
+    // Secondary cycle — different frequency creates interference pattern
+    float spots2 = snoise3D(p * 3.0 + vec3(time * 0.04, 0.0, time * 0.02) + vec3(30.0));
+    float spots = spots1 * 0.6 + spots2 * 0.4;
+    return smoothstep(0.55, 0.85, spots);
 }
 
 // Plasma flow — lowest frequencies and fewest FBM octaves of any star type.
@@ -120,38 +141,43 @@ float plasmaFlow(vec3 p, float time) {
     return n1 * 0.6 + n2 * 0.4;
 }
 
-// Surface rendering — the most stable and luminous of the three star types.
+// Surface rendering — pure self-emission, no directional lighting.
+// The most stable and luminous of the three star types.
+// All visual detail comes from heat-to-color mapping through starRamp.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
-    float edgeDist = 1.0 - viewAngle;
-
     float plasma = plasmaFlow(spherePos, time);
-    float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
+    float cells = granulation(spherePos, time);
     float spots = starSpots(spherePos, time);
 
-    // Very subtle pulsing — +/-5% (vs +/-8% Sun, +/-10% red dwarf)
+    // Very subtle pulsing — +/-5% (vs +/-10% Sun, +/-15% red dwarf)
     float pulse = 0.95 + 0.05 * sin(time * 0.3 + snoise3D(spherePos * 1.5) * 2.0);
 
-    float heat = plasma * 0.65 + cells * 0.35;  // Plasma dominates even more
+    // Heat map — equal blend for smooth look
+    float heat = cells * 0.5 + plasma * 0.5;
     heat *= pulse;
-    heat *= 1.0 - spots * 0.5;   // 50% spot darkening — mildest of all (vs 65% Sun, 70% red dwarf)
+    heat *= 1.0 - spots * 0.35;   // 35% spot darkening — mildest of all
+
+    // Contrast curve — gentler than sun/red dwarf for smoother look
+    heat = smoothstep(0.2, 0.85, heat);
 
     // TECHNIQUE: Limb darkening — pow(viewAngle, 0.5), strongest of the three
     // star types. Hot blue giants have steep photospheric temperature gradients.
     float limb = pow(viewAngle, 0.5);
-    heat *= 0.65 + limb * 0.35;   // 35% range — strongest center-to-edge contrast
+    heat *= 0.6 + limb * 0.4;
 
     // Minimal edge flares — blue giants are more stable due to their
     // radiation-dominated envelopes (less convective turbulence at surface)
+    float edgeDist = 1.0 - viewAngle;
     float edgeFlare = pow(edgeDist, 3.0) * fbm(spherePos * 6.0 + vec3(time * 0.1), 3);
     heat += edgeFlare * 0.12;     // Lowest flare contribution (vs 0.2 Sun, 0.3 red dwarf)
 
     heat = clamp(heat, 0.0, 1.0);
 
-    // Highest base brightness multiplier: (2.0 + heat*1.5) gives range [2.0, 3.5]
-    // vs [1.5, 3.0] for other stars. Models 10,000-100,000x solar luminosity.
-    vec3 color = starRamp(heat) * (2.0 + heat * 1.5);
-    // Blue-white granule highlights
-    color += vec3(0.7, 0.8, 1.0) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 1.2;
+    // Uses starRamp (not firePalette) — Planck's law can't produce blue colors
+    // at any temperature, so the palette is hand-tuned for ~20000K appearance.
+    vec3 color = starRamp(heat) * (1.5 + heat * 2.0);
+    // Quadratic emissive boost — hottest regions blaze white-blue
+    color += starRamp(1.0) * heat * heat * 0.8;
 
     return color;
 }
@@ -189,7 +215,9 @@ vec3 renderCorona(vec2 p, float starRadius, float time) {
     if (r < 1.0 || r > 2.5) return vec3(0.0);  // Widest corona range — 2.5x (vs 2.0x)
 
     float rimFactor = (r - 1.0);
-    float angle = atan(p.y, p.x);
+    // Offset screen-space angle by star's axial rotation so corona rotates with surface
+    float starRot = time * 0.09;
+    float angle = atan(p.y, p.x) - starRot;
 
     // Smoother corona — lower angular frequencies (1.5/3.0 vs 2.0/4.0) and
     // only 3 FBM octaves per layer (vs 4/3 for red dwarf)

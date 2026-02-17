@@ -3,37 +3,47 @@
  * @author guinetik
  * @date 2025-11-29
  *
- * A small, turbulent red dwarf star with orange-red plasma, boiling convection
- * cells, dark starspots, and a warm glowing corona. Temperature locked at ~3000K
- * with high stellar activity.
+ * A small, turbulent red dwarf star with deep red-orange plasma, cell-like
+ * granulation, cycling starspots, and a warm glowing corona. Temperature
+ * locked at ~3000K with high stellar activity — the most active of the three
+ * star types.
  *
  * Based on the exoplanets v2 star shaders by guinetik.
+ * Fire palette based on "Combustible Voronoi" by Shane.
  *
  * Rendering layers (back to front):
  *   1. Background      — near-black with subtle blue tint
- *   2. Glow            — inverse-square radial falloff around the star
- *   3. Corona          — FBM-driven flame tendrils + cyclic prominences
- *   4. Star surface    — convection cells, plasma flow, starspots, limb darkening
+ *   2. Glow            — inverse-square radial falloff, deep red-orange
+ *   3. Corona          — FBM flame tendrils + 4 cyclic prominences
+ *   4. Star surface    — granulation cells, plasma flow, dual-layer spots,
+ *                        self-emission via Planck blackbody palette
  *   5. Tone mapping    — Reinhard operator with exposure boost
  *
- * TECHNIQUE: Ray-sphere intersection. Unlike the planet shaders (which use
- * analytic Pythagorean projection), the star shaders use a proper 3D camera
- * with orbital rotation and ray-sphere intersection (quadratic formula). This
- * allows the camera to orbit and zoom around the star.
+ * TECHNIQUE: Ray-sphere intersection with orbiting camera.
  *
- * TECHNIQUE: Limb darkening. The star's edges are darkened using pow(viewAngle,
- * 0.35), approximating the physical effect where photons escaping at shallow
- * angles traverse more stellar atmosphere. The exponent 0.35 is tuned for a
- * red dwarf's convective envelope (cooler stars show stronger limb darkening).
+ * TECHNIQUE: Planck's law fire palette (1200-2400K range) for physically-motivated
+ * deep red through orange fire colors — cooler than the Sun, matching M-dwarf
+ * photosphere temperatures.
+ *
+ * TECHNIQUE: Self-emission rendering — no directional lighting. All visual detail
+ * comes from heat-to-color mapping through the fire palette. Contrast curve
+ * (smoothstep) sharpens granule boundaries.
+ *
+ * TECHNIQUE: Granulation using 1-abs(noise) for cell-like patterns with bright
+ * convective centers and thin dark intergranular lanes. Highest frequencies of
+ * the three star types, reflecting the most turbulent convection cells.
+ *
+ * TECHNIQUE: Limb darkening with pow(viewAngle, 0.35) — stronger than the Sun,
+ * approximating the deeper convective envelope of a red dwarf.
  *
  * TECHNIQUE: Prominence lifecycle. Corona prominences use a golden-ratio angular
  * distribution (0.618 * i) for even spacing, modulated by sin()-based lifecycle
  * functions so prominences grow and fade over time independently.
  *
  * Physics: Color palette approximates ~3000K blackbody radiation — dominant
- * orange-red emission with occasional yellow-white flare peaks. Red dwarfs
- * are fully convective, so the surface shows vigorous boiling granulation
- * at higher activity levels than hotter stars.
+ * deep red emission with occasional orange flare peaks. Red dwarfs are fully
+ * convective, so the surface shows vigorous boiling granulation at higher
+ * activity levels than hotter stars.
  *
  * Noise: 3D simplex noise (Ashima Arts implementation) chosen for its smooth,
  * isotropic gradients — critical for convincing stellar surface turbulence
@@ -64,46 +74,51 @@ float fbm(vec3 p, int octaves) {
 }
 
 // =============================================================================
-// STAR COLOR PALETTE — direct ramp, no normalization that kills brightness
+// FIRE PALETTE — Planck's law blackbody radiation
 // =============================================================================
+// Physics: Maps a 0-1 heat value to blackbody color via Planck spectral radiance.
+// Temperature range chosen for deep red M-dwarf colors:
+//   i=0 → 1200K (deep red/dark)  i=0.5 → 1800K (warm red-orange)  i=1 → 2400K (orange)
+// Based on "Combustible Voronoi" by Shane (https://www.shadertoy.com/view/4tlSzl).
 
-// Physics: ~3000K blackbody color ramp. Red dwarfs peak in infrared; visible
-// emission is dominated by red-orange. Flare peaks can briefly reach yellow-white.
-// Ramp: dark spots -> warm orange -> bright yellow-white
-vec3 starRamp(float t) {
-    const vec3 SPOT     = vec3(0.3, 0.08, 0.0);     // Dark starspot — cooler magnetic regions
-    const vec3 COOL     = vec3(0.8, 0.25, 0.02);     // Cool surface — typical photosphere
-    const vec3 WARM     = vec3(1.0, 0.55, 0.08);     // Warm convection upwelling
-    const vec3 HOT      = vec3(1.0, 0.8, 0.3);       // Hot granule center — convective peak
-    const vec3 BRIGHT   = vec3(1.0, 0.95, 0.7);      // Brightest flare — transient energy release
+#define TEMP_MIN 1200.0   // Coolest — deep red, starspot
+#define TEMP_RANGE 1200.0  // Range — 1200K to 2400K, deep red through orange
 
-    if (t < 0.15) return mix(SPOT, COOL, t / 0.15);
-    if (t < 0.4)  return mix(COOL, WARM, (t - 0.15) / 0.25);
-    if (t < 0.7)  return mix(WARM, HOT, (t - 0.4) / 0.3);
-    return mix(HOT, BRIGHT, (t - 0.7) / 0.3);
+vec3 firePalette(float i) {
+    float T = TEMP_MIN + TEMP_RANGE * i;
+    vec3 L = vec3(7.4, 5.6, 4.4);   // RGB wavelengths in 100s of nm
+    L = pow(L, vec3(5.0)) * (exp(1.43876719683e5 / (T * L)) - 1.0);
+    return 1.0 - exp(-5e8 / L);
 }
 
 // =============================================================================
 // STAR SURFACE
 // =============================================================================
 
-// Convection granulation — three octaves at hand-tuned frequencies for
-// red dwarf's vigorous convective envelope. Higher frequencies than the
-// Sun/blue giant reflect the smaller, more turbulent convection cells.
-float convectionCells(vec3 p, float time) {
-    float cells = snoise3D(p * 5.0 + vec3(0.0, time * 0.02, 0.0));     // Large granules — freq 5.0
-    float med = snoise3D(p * 12.0 + vec3(time * 0.015, 0.0, time * 0.01)); // Medium detail — freq 12.0
-    float fine = snoise3D(p * 25.0 + vec3(0.0, time * 0.03, time * 0.02)); // Fine turbulence — freq 25.0
-
-    return cells * 0.5 + med * 0.3 + fine * 0.2;  // Weighted blend: large features dominate
+// Granulation — cell-like pattern using 1-abs(noise).
+// This creates bright convective cells with thin dark intergranular lanes.
+// Highest frequencies of the three star types — red dwarfs are the most turbulent.
+float granulation(vec3 p, float time) {
+    // Large cells — primary granulation scale
+    float g1 = 1.0 - abs(snoise3D(p * 6.0 + vec3(0.0, time * 0.1, 0.0)));
+    // Medium cells — supergranulation
+    float g2 = 1.0 - abs(snoise3D(p * 12.0 + vec3(time * 0.08, 0.0, time * 0.07)));
+    // Fine turbulence — surface detail
+    float g3 = snoise3D(p * 25.0 + vec3(0.0, time * 0.12, time * 0.1)) * 0.5 + 0.5;
+    return g1 * 0.5 + g2 * 0.3 + g3 * 0.2;
 }
 
-// Starspots — magnetically active regions where convection is suppressed.
-// Red dwarfs have frequent, large starspots due to their fully convective interiors.
+// Starspots — dual-layer cycling spots. Red dwarfs have the most active spots
+// due to their fully convective interiors and strong magnetic fields.
+// Two noise layers at different speeds create spots that cycle in and out.
 float starSpots(vec3 p, float time) {
-    float spots = snoise3D(p * 3.0 + vec3(0.0, time * 0.005, 0.0));  // Freq 3.0 — large spot regions
-    return smoothstep(0.5, 0.75, spots);  // Only noise peaks become spots. Threshold 0.5 = ~30% coverage.
-                                           // Lower threshold = more spots. Higher = fewer, rarer spots.
+    // Primary spots — moderate speed so they visibly drift and fade
+    float spots1 = snoise3D(p * 3.0 + vec3(0.0, time * 0.05, time * 0.04));
+    // Secondary cycle — different frequency creates interference pattern
+    // so spots appear/vanish as the two layers phase in and out of alignment
+    float spots2 = snoise3D(p * 4.0 + vec3(time * 0.06, 0.0, time * 0.03) + vec3(30.0));
+    float spots = spots1 * 0.6 + spots2 * 0.4;
+    return smoothstep(0.4, 0.75, spots);
 }
 
 float plasmaFlow(vec3 p, float time) {
@@ -120,47 +135,42 @@ float plasmaFlow(vec3 p, float time) {
     return n1 * 0.6 + n2 * 0.4;
 }
 
-// Surface rendering — combines all stellar surface effects into final color.
+// Surface rendering — pure self-luminous plasma, no directional lighting.
+// All visual detail comes from heat-to-color mapping through the fire palette.
+// Red dwarf is the most active star type — strongest spots and edge flares.
 vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
-    float edgeDist = 1.0 - viewAngle;
-
-    // Plasma base — large-scale flow pattern
     float plasma = plasmaFlow(spherePos, time);
-
-    // Convection granulation — remapped to [0,1]
-    float cells = convectionCells(spherePos, time) * 0.5 + 0.5;
-
-    // Dark starspots — magnetically suppressed regions
+    float cells = granulation(spherePos, time);
     float spots = starSpots(spherePos, time);
 
-    // Pulsing brightness — simulates global oscillation modes
-    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise3D(spherePos * 2.0) * 3.0); // +/-10% variation
+    // Pulsing modulation — convective churning
+    float pulse = 0.9 + 0.1 * sin(time * 0.5 + snoise3D(spherePos * 2.0) * 3.0);
 
-    // Combine into a single heat value [0..1]
-    float heat = plasma * 0.6 + cells * 0.4;  // Plasma dominates, cells add texture
+    // Heat map — equal blend of cells and plasma
+    float heat = cells * 0.5 + plasma * 0.5;
     heat *= pulse;
+    heat *= 1.0 - spots * 0.5;
 
-    // Darken spots — 70% darkening factor (red dwarfs have prominent spots)
-    heat *= 1.0 - spots * 0.7;
+    // Contrast curve — sharpens granule boundaries.
+    // Pushes bright areas brighter and dark lanes darker.
+    heat = smoothstep(0.15, 0.85, heat);
 
-    // TECHNIQUE: Limb darkening — pow(viewAngle, 0.35) approximates the physical
-    // effect where photons escaping at shallow angles traverse more photosphere.
-    // Exponent 0.35 tuned for red dwarf's deep convective envelope.
+    // Limb darkening — purely emissive, just reduces heat at edges
     float limb = pow(viewAngle, 0.35);
-    heat *= 0.7 + limb * 0.3;   // 30% intensity range from edge to center
+    heat *= 0.55 + limb * 0.45;
 
-    // Edge brightening for active flares — visible at the limb
+    // Edge flares — bright turbulence at the limb
+    float edgeDist = 1.0 - viewAngle;
     float edgeFlare = pow(edgeDist, 2.0) * fbm(spherePos * 8.0 + vec3(time * 0.2), 3);
-    heat += edgeFlare * 0.3;    // 30% flare contribution — high for an active red dwarf
+    heat += edgeFlare * 0.25;
 
     heat = clamp(heat, 0.0, 1.0);
 
-    // Map to color — multiplier (1.5 + heat*1.5) gives range [1.5, 3.0] for HDR
-    // Hot areas push above 1.0 and get compressed by tone mapping for natural bloom
-    vec3 color = starRamp(heat) * (1.5 + heat * 1.5);
+    // Fire palette — all color from self-emission, no shading
+    vec3 color = firePalette(heat) * (1.0 + heat * 2.0);
 
-    // Extra brightness at center of convection granules — warm orange highlight
-    color += vec3(1.0, 0.7, 0.2) * pow(max(cells - 0.3, 0.0), 2.0) * limb * 2.0;
+    // Quadratic emissive boost — hottest granule centers blaze
+    color += firePalette(1.0) * heat * heat * 1.0;
 
     return color;
 }
@@ -169,8 +179,7 @@ vec3 renderSurface(vec3 spherePos, float viewAngle, float time) {
 // GLOW AND CORONA
 // =============================================================================
 
-// Radial glow — inverse-square falloff simulating scattered light in the
-// interstellar medium and instrumental diffraction.
+// Radial glow — inverse-square falloff, deep red-orange from fire palette.
 vec3 renderGlow(vec2 p, float starRadius) {
     float dist = length(p);
     float r = dist / starRadius;   // Normalized distance from star center
@@ -178,14 +187,12 @@ vec3 renderGlow(vec2 p, float starRadius) {
     // Soft inner glow — 1/r^2 with small epsilon to prevent division by zero
     float glow = 1.0 / (r * r * 1.5 + 0.01);  // Factor 1.5 controls falloff steepness
     glow *= smoothstep(4.0, 1.0, r);           // Fade to zero beyond 4x star radius
-
-    // Warm orange glow color — matches ~3000K blackbody
-    vec3 glowColor = vec3(1.0, 0.5, 0.1) * glow * 0.15;  // 0.15 intensity — brighter = more bloom
+    vec3 glowColor = firePalette(0.6) * glow * 0.15;  // 0.15 intensity — brighter = more bloom
 
     // Wider, dimmer haze — secondary falloff layer
     float haze = 1.0 / (r * r * 5.0 + 0.1);   // Steeper 1/r^2 for outer haze
     haze *= smoothstep(6.0, 1.5, r);            // Extends to 6x radius
-    glowColor += vec3(0.6, 0.2, 0.03) * haze * 0.1;  // Deep red outer haze
+    glowColor += firePalette(0.3) * haze * 0.1;  // Deep red outer haze
 
     return glowColor;
 }
@@ -199,7 +206,9 @@ vec3 renderCorona(vec2 p, float starRadius, float time) {
     if (r < 1.0 || r > 2.0) return vec3(0.0);  // Skip pixels outside corona range
 
     float rimFactor = (r - 1.0);   // 0 at surface, 1 at outer corona edge
-    float angle = atan(p.y, p.x);  // Polar angle around star
+    // Offset screen-space angle by star's axial rotation so corona rotates with surface
+    float starRot = time * 0.15;
+    float angle = atan(p.y, p.x) - starRot;
 
     // Two-layer flame pattern at different angular frequencies for organic look
     float flame1 = fbm(vec3(angle * 2.0, rimFactor * 5.0, time * 0.3), 4);   // Broad flames
@@ -222,7 +231,7 @@ vec3 renderCorona(vec2 p, float starRadius, float time) {
         intensity += promMask * lifecycle * fade * 1.5;    // 1.5x prominence brightness
     }
 
-    vec3 coronaColor = mix(vec3(1.0, 0.55, 0.1), vec3(1.0, 0.3, 0.02), rimFactor);
+    vec3 coronaColor = mix(firePalette(0.8), firePalette(0.4), rimFactor);
     return coronaColor * intensity;
 }
 
