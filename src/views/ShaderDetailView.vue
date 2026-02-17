@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useShaderDetail } from '../composables/useShaderDetail';
 import { useNeutronMotion } from '../composables/useNeutronMotion';
@@ -29,9 +29,13 @@ const detailRef = ref<HTMLElement | null>(null);
 
 useSineWaveHover(detailRef, '.tab-button, .action-button, .link-button');
 
+/** Whether the initial entrance animation has completed */
+const hasEntered = ref(false);
+
 onMounted(() => {
   if (prefersReducedMotion.value === 'reduced') {
     isEntering.value = false;
+    hasEntered.value = true;
     rendererRef.value?.startRendering();
     return;
   }
@@ -40,9 +44,20 @@ onMounted(() => {
     // Start shader compilation + rendering after entrance animation + buffer,
     // so WebGL work doesn't jank the FLIP transition.
     setTimeout(() => {
+      hasEntered.value = true;
       rendererRef.value?.startRendering();
     }, SHADER_START_DELAY_MS);
   }, CARD_EXPAND_MS);
+});
+
+// When switching back to the render tab, the v-if recreates ShaderRenderer.
+// Wait for the new component to mount, then start it.
+watch(activeTab, (tab) => {
+  if (tab === 'render' && hasEntered.value) {
+    nextTick(() => {
+      rendererRef.value?.startRendering();
+    });
+  }
 });
 
 /**

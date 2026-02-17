@@ -30,14 +30,14 @@
                            // More = denser trails. Above 20: GPU-heavy (NUM_PARTICLES * STEPS).
 #define STEPS 5.0          // Euler steps per particle per frame — kept low since the
                            // Halvorsen system moves fast. Above 15: trail segments get long.
-#define BASE_VIEW_SCALE 0.05  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
+#define BASE_VIEW_SCALE 0.045  // Base 3D-to-screen scale — smaller zooms out, larger zooms in.
                               // Automatically scaled down on portrait/mobile screens.
-#define SPEED 0.95         // Time-step multiplier — higher = faster traversal.
-#define INTENSITY 0.5      // Base brightness per segment.
-#define FADE 0.990         // Trail persistence per frame — closer to 1.0 = longer trails.
+#define SPEED 1.95         // Time-step multiplier — higher = faster traversal.
+#define INTENSITY 0.3      // Base brightness per segment.
+#define FADE 0.992         // Trail persistence per frame — closer to 1.0 = longer trails.
                            // Below 0.98: trails vanish quickly. Above 0.999: ghosting.
 #define FOCUS 2.0          // Distance-field softness (pixels) — smaller = thinner lines.
-#define RESPAWN_CHANCE 0.025  // Per-particle per-frame probability of random respawn.
+#define RESPAWN_CHANCE 0.01  // Per-particle per-frame probability of random respawn.
                               // Higher = more frequent refreshes. 0.0 = only respawn on escape.
 
 // ── Halvorsen parameter ──

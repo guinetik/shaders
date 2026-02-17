@@ -1,0 +1,12 @@
+{
+  "title": "Attractor Study #06: Chua",
+  "description": "Chua's double-scroll circuit attractor — the first physical electronic circuit proven to exhibit chaos (1983). 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",
+  "date": "2026-02-16",
+  "tags": ["attractors", "simulation", "3d"],
+  "commons": ["noise-value", "color", "sdf"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
+}
