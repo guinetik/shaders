@@ -34,6 +34,20 @@ const CHANNEL_SLOTS: readonly ChannelSlot[] = [
 /** Number of channel slots available per pass */
 const NUM_CHANNELS = 4;
 
+/** File extensions treated as video textures (uploaded per-frame) */
+const VIDEO_EXTENSIONS: ReadonlySet<string> = new Set(['.mp4', '.webm']);
+
+/**
+ * Checks whether a channel target path points to a video file.
+ *
+ * @param target - The channel target string (e.g. "textures/mario.mp4")
+ * @returns true if the target has a video extension
+ */
+function isVideoTexture(target: string): boolean {
+  const dot = target.lastIndexOf('.');
+  return dot !== -1 && VIDEO_EXTENSIONS.has(target.substring(dot).toLowerCase());
+}
+
 /** Number of vertices in the fullscreen quad (two triangles) */
 const FULLSCREEN_QUAD_VERTICES = 6;
 
@@ -418,6 +432,9 @@ export function useShaderRenderer(
   /** Loaded image textures keyed by their channel target path */
   let textureCache: Map<string, WebGLTexture> = new Map();
 
+  /** Video elements for per-frame texture upload, keyed by channel target path */
+  let videoElements: Map<string, HTMLVideoElement> = new Map();
+
   /** Concatenated commons source, prepended to all passes before compilation */
   const commonsPrefix = commonsSources.length > 0
     ? commonsSources.map(c => c.source).join('\n') + '\n'
@@ -629,28 +646,47 @@ export function useShaderRenderer(
       );
       textureCache.set(target, tex);
 
-      // Load the actual image asynchronously
       const url = import.meta.env.BASE_URL + target;
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        if (!gl) return;
-        gl.bindTexture(gl.TEXTURE_2D, tex);
-        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+
+      if (isVideoTexture(target)) {
+        // Video textures: LINEAR filter, CLAMP_TO_EDGE, per-frame upload
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
-        gl.generateMipmap(gl.TEXTURE_2D);
-        gl.bindTexture(gl.TEXTURE_2D, null);
-        console.log(`[ShaderRenderer] Texture loaded: ${target}`);
-      };
-      img.onerror = () => {
-        console.warn(`[ShaderRenderer] Failed to load texture: ${url}`);
-      };
-      img.src = url;
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+        const video = document.createElement('video');
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = 'auto';
+        video.crossOrigin = 'anonymous';
+        video.src = url;
+        videoElements.set(target, video);
+        console.log(`[ShaderRenderer] Video texture registered: ${target}`);
+      } else {
+        // Static image textures: mipmap + repeat wrap
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          if (!gl) return;
+          gl.bindTexture(gl.TEXTURE_2D, tex);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+          gl.generateMipmap(gl.TEXTURE_2D);
+          gl.bindTexture(gl.TEXTURE_2D, null);
+          console.log(`[ShaderRenderer] Texture loaded: ${target}`);
+        };
+        img.onerror = () => {
+          console.warn(`[ShaderRenderer] Failed to load texture: ${url}`);
+        };
+        img.src = url;
+      }
     }
 
     if (textureTargets.size > 0) {
@@ -663,11 +699,31 @@ export function useShaderRenderer(
   }
 
   /**
+   * Uploads the current video frame to its corresponding WebGL texture
+   * for every active video element that has data available.
+   */
+  function updateVideoTextures(): void {
+    if (!gl || videoElements.size === 0) return;
+    for (const [target, video] of videoElements) {
+      if (video.readyState < video.HAVE_CURRENT_DATA) continue;
+      const tex = textureCache.get(target);
+      if (!tex) continue;
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
+    }
+    gl.bindTexture(gl.TEXTURE_2D, null);
+  }
+
+  /**
    * The main render loop callback invoked each animation frame.
    * Renders all buffer passes in order, then the image pass to screen.
    */
   function renderFrame(): void {
     if (!gl || !quadVAO) return;
+
+    updateVideoTextures();
 
     const canvas = gl.canvas as HTMLCanvasElement;
     const width = canvas.width;
@@ -734,6 +790,9 @@ export function useShaderRenderer(
     if (isRunning.value) return;
     isRunning.value = true;
     resumeTimestamp = performance.now();
+    for (const video of videoElements.values()) {
+      video.play().catch(() => { /* autoplay may be blocked */ });
+    }
     rafHandle = requestAnimationFrame(renderFrame);
   }
 
@@ -744,6 +803,9 @@ export function useShaderRenderer(
     if (!isRunning.value) return;
     isRunning.value = false;
     accumulatedTime += (performance.now() - resumeTimestamp) / MS_PER_SECOND;
+    for (const video of videoElements.values()) {
+      video.pause();
+    }
     if (rafHandle) {
       cancelAnimationFrame(rafHandle);
       rafHandle = 0;
@@ -916,6 +978,14 @@ export function useShaderRenderer(
       }
       bufferFBOs = new Map();
       cachedActiveBufferPasses = [];
+
+      // Release video elements
+      for (const video of videoElements.values()) {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      }
+      videoElements = new Map();
 
       // Delete loaded image textures
       for (const tex of textureCache.values()) {
