@@ -2,7 +2,7 @@
   "title": "Attractor Study #05: Halvorsen",
   "description": "Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",
   "date": "2026-02-15",
-  "tags": ["attractors", "simulation", "3d"],
+  "tags": ["attractors", "3d"],
   "commons": ["noise-value", "color", "sdf"],
   "links": {},
   "channels": {

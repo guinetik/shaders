@@ -2,7 +2,7 @@
   "title": "Attractor Study #04: Thomas",
   "description": "Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",
   "date": "2026-02-13",
-  "tags": ["attractors", "simulation", "3d"],
+  "tags": ["attractors", "3d"],
   "commons": ["noise-value", "color", "sdf"],
   "links": {},
   "channels": {
