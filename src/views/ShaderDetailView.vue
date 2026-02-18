@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, watch, nextTick } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { ref, onMounted, onUnmounted, watch, nextTick } from "vue";
+import { useRoute, useRouter, onBeforeRouteLeave } from "vue-router";
 import { useShaderDetail } from "../composables/useShaderDetail";
 import { useNeutronMotion } from "../composables/useNeutronMotion";
 import { useSineWaveHover } from "../composables/useSineWaveHover";
-import { CARD_EXPAND_MS, SHADER_START_DELAY_MS } from "../constants";
+import { OVERLAY_COMPLETE_MS, SHADER_START_DELAY_MS } from "../constants";
 import ShaderRenderer from "../components/ShaderRenderer.vue";
 import CodeViewer from "../components/CodeViewer.vue";
 import ShaderInfoDrawer from "../components/ShaderInfoDrawer.vue";
@@ -21,11 +21,12 @@ const {
     closeInfoDrawer,
 } = useShaderDetail(slug);
 
-const { prefersReducedMotion } = useNeutronMotion();
+const { prefersReducedMotion, transitionSnapshot, setTransitionSnapshot } = useNeutronMotion();
 
 const rendererRef = ref<InstanceType<typeof ShaderRenderer> | null>(null);
 const isEntering = ref(true);
 const detailRef = ref<HTMLElement | null>(null);
+let renderStartTimer = 0;
 
 useSineWaveHover(detailRef, ".tab-button, .action-button, .link-button");
 
@@ -39,16 +40,94 @@ onMounted(() => {
         rendererRef.value?.startRendering();
         return;
     }
-    setTimeout(() => {
-        isEntering.value = false;
-        // Start shader compilation + rendering after entrance animation + buffer,
-        // so WebGL work doesn't jank the FLIP transition.
-        setTimeout(() => {
-            hasEntered.value = true;
-            rendererRef.value?.startRendering();
-        }, SHADER_START_DELAY_MS);
-    }, CARD_EXPAND_MS);
+
+    const isFromCardTransition =
+        transitionSnapshot.value?.direction === "to-detail";
+
+    if (!isFromCardTransition) {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                isEntering.value = false;
+            });
+        });
+    }
+    /* When from card: isEntering stays true until overlay clears (see watcher) */
+
+    renderStartTimer = window.setTimeout(() => {
+        hasEntered.value = true;
+        rendererRef.value?.startRendering();
+    }, (isFromCardTransition ? OVERLAY_COMPLETE_MS : 0) + SHADER_START_DELAY_MS);
 });
+
+/**
+ * When overlay clears after card→detail transition, start shader page animations.
+ * Keeps detail hidden until thumbnail is fully expanded and gone.
+ */
+watch(
+    () => transitionSnapshot.value,
+    (snapshot, prev) => {
+        if (prefersReducedMotion.value === "reduced") return;
+        if (prev?.direction !== "to-detail") return;
+        if (snapshot !== null) return;
+        isEntering.value = false;
+    },
+    { flush: "sync" }
+);
+
+onUnmounted(() => {
+    clearTimeout(renderStartTimer);
+});
+
+/**
+ * Builds the reverse FLIP snapshot for detail -> gallery navigation.
+ *
+ * @returns Transition snapshot payload, or null if shader data is unavailable
+ */
+function buildReverseTransitionSnapshot() {
+    if (!shader.value) return null;
+
+    return {
+        direction: "to-gallery" as const,
+        slug: shader.value.slug,
+        rect: {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+        },
+        screenshotUrl: shader.value.screenshotUrl,
+    };
+}
+
+onBeforeRouteLeave((to) => {
+    const isGoingToGallery = to.name === "gallery" || to.path === "/";
+    if (!isGoingToGallery || prefersReducedMotion.value === "reduced") {
+        return;
+    }
+
+    if (transitionSnapshot.value?.direction === "to-gallery") {
+        return;
+    }
+
+    const reverseSnapshot = buildReverseTransitionSnapshot();
+    if (reverseSnapshot) {
+        setTransitionSnapshot(reverseSnapshot);
+    }
+});
+
+/**
+ * Starts animated navigation back to the gallery.
+ */
+function navigateBack(event: MouseEvent): void {
+    event.preventDefault();
+
+    if (window.history.length > 1) {
+        router.back();
+        return;
+    }
+
+    router.push("/");
+}
 
 // When switching back to the render tab, the v-if recreates ShaderRenderer.
 // Wait for the new component to mount, then start it.
@@ -97,34 +176,17 @@ function showCodeFromDrawer(): void {
     closeInfoDrawer();
 }
 
-/**
- * Navigates back with a fade-out transition.
- */
-function navigateBack(event: MouseEvent): void {
-    if (prefersReducedMotion.value === "reduced") return;
-
-    event.preventDefault();
-    const view = (event.target as HTMLElement).closest(".detail-view");
-    if (view) {
-        (view as HTMLElement)
-            .animate([{ opacity: 1 }, { opacity: 0 }], {
-                duration: 200,
-                fill: "forwards",
-            })
-            .finished.then(() => {
-                router.push("/");
-            });
-    } else {
-        router.push("/");
-    }
-}
 </script>
 
 <template>
     <div
         ref="detailRef"
         class="detail-view n-layout-shell"
-        :class="{ 'detail--entering': isEntering }"
+        :class="{
+            'detail--entering': isEntering,
+            'detail--overlay-active':
+                transitionSnapshot?.direction === 'to-detail',
+        }"
     >
         <!-- Not found state -->
         <div v-if="notFound" class="not-found">
@@ -157,29 +219,31 @@ function navigateBack(event: MouseEvent): void {
                 <h1 class="brand-title">Guinetik's Shaders</h1>
             </header>
 
-            <nav class="detail-nav n-panel detail-stagger-2">
-                <router-link to="/" class="back-link" @click="navigateBack"
-                    >&larr; Back</router-link
-                >
-                <div class="tab-bar">
-                    <button
-                        class="tab-button"
-                        :class="{ active: activeTab === 'render' }"
-                        @click="activeTab = 'render'"
+            <div class="nav-expand-wrap detail-stagger-2">
+                <nav class="detail-nav n-panel">
+                    <router-link to="/" class="back-link" @click="navigateBack"
+                        >&larr; Back</router-link
                     >
-                        Render
-                    </button>
-                    <button
-                        class="tab-button"
-                        :class="{ active: activeTab === 'code' }"
-                        @click="activeTab = 'code'"
-                    >
-                        Code
-                    </button>
-                </div>
-            </nav>
+                    <div class="tab-bar">
+                        <button
+                            class="tab-button"
+                            :class="{ active: activeTab === 'render' }"
+                            @click="activeTab = 'render'"
+                        >
+                            Render
+                        </button>
+                        <button
+                            class="tab-button"
+                            :class="{ active: activeTab === 'code' }"
+                            @click="activeTab = 'code'"
+                        >
+                            Code
+                        </button>
+                    </div>
+                </nav>
+            </div>
 
-            <section class="tab-content detail-stagger-3">
+            <section class="tab-content detail-stagger-0">
                 <ShaderRenderer
                     v-if="activeTab === 'render'"
                     ref="rendererRef"
@@ -196,25 +260,28 @@ function navigateBack(event: MouseEvent): void {
                 />
             </section>
 
-            <div v-if="activeTab === 'render'" class="action-bar">
-                <button class="action-button" @click="toggleFullscreen">
-                    <span class="action-icon">[ ]</span> Fullscreen
-                </button>
-                <button class="action-button" @click="takeScreenshot">
-                    <span class="action-icon">[*]</span> Screenshot
-                </button>
-                <a
-                    v-if="shader.links.shadertoy"
-                    :href="shader.links.shadertoy"
-                    target="_blank"
-                    rel="noopener"
-                    class="action-button"
-                >
-                    <span class="action-icon">&gt;_</span> Shadertoy
-                </a>
+            <div v-if="activeTab === 'render'" class="action-expand-wrap detail-stagger-3">
+                <div class="action-bar">
+                    <button class="action-button" @click="toggleFullscreen">
+                        <span class="action-icon">[ ]</span> Fullscreen
+                    </button>
+                    <button class="action-button" @click="takeScreenshot">
+                        <span class="action-icon">[*]</span> Screenshot
+                    </button>
+                    <a
+                        v-if="shader.links.shadertoy"
+                        :href="shader.links.shadertoy"
+                        target="_blank"
+                        rel="noopener"
+                        class="action-button"
+                    >
+                        <span class="action-icon">&gt;_</span> Shadertoy
+                    </a>
+                </div>
             </div>
 
-            <section class="metadata n-panel detail-stagger-4">
+            <div class="metadata-expand-wrap detail-stagger-4">
+                <section class="metadata n-panel">
                 <h1 class="shader-title">{{ shader.title }}</h1>
                 <p class="shader-description">{{ shader.description }}</p>
                 <div class="shader-meta-row">
@@ -250,18 +317,20 @@ function navigateBack(event: MouseEvent): void {
                     >
                 </div>
             </section>
+            </div>
 
             <!-- Mobile overlay controls (render mode only) -->
             <div v-if="activeTab === 'render'" class="mobile-overlay-controls">
                 <router-link
                     to="/"
-                    class="mobile-overlay-btn"
+                    class="mobile-overlay-btn mobile-stagger-1"
                     aria-label="Back to gallery"
+                    @click="navigateBack"
                 >
                     &larr;
                 </router-link>
                 <button
-                    class="mobile-overlay-btn"
+                    class="mobile-overlay-btn mobile-stagger-2"
                     type="button"
                     aria-label="Open shader info"
                     @click="openInfoDrawer"
@@ -274,13 +343,14 @@ function navigateBack(event: MouseEvent): void {
             <div v-if="activeTab === 'code'" class="mobile-code-controls">
                 <router-link
                     to="/"
-                    class="mobile-overlay-btn"
+                    class="mobile-overlay-btn mobile-stagger-1"
                     aria-label="Back to gallery"
+                    @click="navigateBack"
                 >
                     &larr;
                 </router-link>
                 <button
-                    class="mobile-overlay-btn"
+                    class="mobile-overlay-btn mobile-stagger-2"
                     type="button"
                     aria-label="Back to render view"
                     @click="activeTab = 'render'"
@@ -305,6 +375,13 @@ function navigateBack(event: MouseEvent): void {
 .detail-view {
     position: relative;
     max-width: 1500px;
+}
+
+/* Hide entire detail view while overlay/thumbnail is visible */
+.detail--overlay-active {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease-out;
 }
 
 /* -- Brand header -- */
@@ -352,6 +429,7 @@ function navigateBack(event: MouseEvent): void {
 }
 
 /* -- Entrance stagger animation -- */
+.detail-stagger-0,
 .detail-stagger-1,
 .detail-stagger-2,
 .detail-stagger-3,
@@ -361,31 +439,38 @@ function navigateBack(event: MouseEvent): void {
         transform 400ms ease-out;
 }
 
+.detail--entering .detail-stagger-0 {
+    opacity: 0;
+    transform: translateY(8px);
+    transition-delay: 0ms;
+}
+
 .detail--entering .detail-stagger-1 {
     opacity: 0;
     transform: translateY(12px);
-    transition-delay: 150ms;
+    transition-delay: 120ms;
 }
 
 .detail--entering .detail-stagger-2 {
     opacity: 0;
     transform: translateY(12px);
-    transition-delay: 250ms;
+    transition-delay: 240ms;
 }
 
 .detail--entering .detail-stagger-3 {
     opacity: 0;
     transform: translateY(12px);
-    transition-delay: 350ms;
+    transition-delay: 360ms;
 }
 
 .detail--entering .detail-stagger-4 {
     opacity: 0;
     transform: translateY(12px);
-    transition-delay: 450ms;
+    transition-delay: 480ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .detail-stagger-0,
     .detail-stagger-1,
     .detail-stagger-2,
     .detail-stagger-3,
@@ -393,6 +478,7 @@ function navigateBack(event: MouseEvent): void {
         transition: none;
     }
 
+    .detail--entering .detail-stagger-0,
     .detail--entering .detail-stagger-1,
     .detail--entering .detail-stagger-2,
     .detail--entering .detail-stagger-3,
@@ -430,8 +516,12 @@ function navigateBack(event: MouseEvent): void {
     }
 }
 
-.detail-nav {
+/* -- Nav bar (simple fade) -- */
+.nav-expand-wrap {
     margin-bottom: 12px;
+}
+
+.detail-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -472,10 +562,14 @@ function navigateBack(event: MouseEvent): void {
     position: relative;
 }
 
+/* -- Action bar (simple fade) -- */
+.action-expand-wrap {
+    margin-top: 12px;
+}
+
 .action-bar {
     display: flex;
     gap: 8px;
-    margin-top: 12px;
 }
 
 .action-button {
@@ -508,10 +602,15 @@ function navigateBack(event: MouseEvent): void {
     }
 }
 
-.metadata {
+/* -- Metadata (simple fade) -- */
+.metadata-expand-wrap {
     margin-top: 16px;
+}
+
+.metadata {
     padding: 16px;
     border-radius: 8px;
+    margin-top: 0;
 }
 
 .shader-title {
@@ -636,8 +735,9 @@ function navigateBack(event: MouseEvent): void {
 
     .brand-header,
     .detail-nav,
-    .action-bar,
-    .metadata {
+    .nav-expand-wrap,
+    .action-expand-wrap,
+    .metadata-expand-wrap {
         display: none;
     }
 
@@ -680,6 +780,30 @@ function navigateBack(event: MouseEvent): void {
         z-index: 65;
         display: flex;
         justify-content: space-between;
+    }
+
+    .mobile-overlay-btn {
+        transition: opacity 350ms ease-out, transform 350ms ease-out;
+    }
+
+    .detail--entering .mobile-stagger-1 {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition-delay: 150ms;
+    }
+
+    .detail--entering .mobile-stagger-2 {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition-delay: 280ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .detail--entering .mobile-stagger-1,
+        .detail--entering .mobile-stagger-2 {
+            opacity: 1;
+            transform: none;
+        }
     }
 }
 </style>

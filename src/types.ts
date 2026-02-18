@@ -107,6 +107,8 @@ export type MotionPreference = 'full' | 'reduced';
 
 /** Shared state for FLIP page transitions between gallery and detail */
 export interface TransitionSnapshot {
+  /** Transition direction for the FLIP overlay */
+  direction: 'to-detail' | 'to-gallery';
   /** Shader slug for routing */
   slug: string;
   /** Card bounding rect at time of click */

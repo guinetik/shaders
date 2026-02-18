@@ -136,7 +136,15 @@ export const GLOW_PULSE_MS = 1500;
 /** Click-to-expand transition duration */
 export const CARD_EXPAND_MS = 500;
 
-/** Extra breathing room after expand animation before starting shader GPU work */
+/** Overlay fade delay after expand + fade duration (100ms + 200ms) */
+export const OVERLAY_FADE_DELAY_MS = 100;
+export const OVERLAY_FADE_MS = 200;
+
+/** When overlay is fully gone; shader page animations start after this */
+export const OVERLAY_COMPLETE_MS =
+    CARD_EXPAND_MS + OVERLAY_FADE_DELAY_MS + OVERLAY_FADE_MS;
+
+/** Extra breathing room after overlay gone before starting shader GPU work */
 export const SHADER_START_DELAY_MS = 200;
 
 /** Sibling cards fade duration during expand */

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useShaderGallery } from '../composables/useShaderGallery';
 import { useNeutronMotion } from '../composables/useNeutronMotion';
 import { useSineWaveHover } from '../composables/useSineWaveHover';
@@ -12,9 +12,23 @@ const { triggerCardExit, prefersReducedMotion } = useNeutronMotion();
 
 const headerRef = ref<HTMLElement | null>(null);
 const gridRef = ref<HTMLElement | null>(null);
+const isEntering = ref(true);
 
 useSineWaveHover(headerRef, '.profile-link, .github-link');
 useSineWaveHover(gridRef, '.shader-card', '.card-overlay', 8);
+
+onMounted(() => {
+  if (prefersReducedMotion.value === 'reduced') {
+    isEntering.value = false;
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      isEntering.value = false;
+    });
+  });
+});
 
 /**
  * TransitionGroup @enter hook — triggers the wire-frame entrance
@@ -45,8 +59,8 @@ function onCardLeave(el: Element, done: () => void): void {
 </script>
 
 <template>
-  <div class="gallery-view n-layout-shell">
-    <header ref="headerRef" class="gallery-header n-panel">
+  <div class="gallery-view n-layout-shell" :class="{ 'gallery--entering': isEntering }">
+    <header ref="headerRef" class="gallery-header n-panel gallery-seq-1">
       <SineWaveDivider />
       <div class="gallery-brand">
         <a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website">
@@ -95,8 +109,10 @@ function onCardLeave(el: Element, done: () => void): void {
         Interactive GPU programming experiments using WebGL.
       </p>
     </header>
-    <TagFilter :tags="allTags" :activeTag="activeTag" @select="setTag" />
-    <div ref="gridRef">
+    <div class="gallery-filter gallery-seq-2">
+      <TagFilter :tags="allTags" :activeTag="activeTag" @select="setTag" />
+    </div>
+    <div ref="gridRef" class="gallery-seq-3">
       <TransitionGroup
         name="shader-card"
         tag="div"
@@ -123,6 +139,32 @@ function onCardLeave(el: Element, done: () => void): void {
 <style scoped>
 .gallery-view {
   position: relative;
+}
+
+.gallery-seq-1,
+.gallery-seq-2,
+.gallery-seq-3 {
+  transition:
+    opacity 420ms ease-out,
+    transform 420ms ease-out;
+}
+
+.gallery--entering .gallery-seq-1 {
+  opacity: 0;
+  transform: translateY(18px);
+  transition-delay: 0ms;
+}
+
+.gallery--entering .gallery-seq-2 {
+  opacity: 0;
+  transform: translateY(14px);
+  transition-delay: 120ms;
+}
+
+.gallery--entering .gallery-seq-3 {
+  opacity: 0;
+  transform: translateY(10px);
+  transition-delay: 200ms;
 }
 
 .gallery-header {
@@ -234,6 +276,21 @@ function onCardLeave(el: Element, done: () => void): void {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-seq-1,
+  .gallery-seq-2,
+  .gallery-seq-3 {
+    transition: none;
+  }
+
+  .gallery--entering .gallery-seq-1,
+  .gallery--entering .gallery-seq-2,
+  .gallery--entering .gallery-seq-3 {
+    opacity: 1;
+    transform: none;
   }
 }
 

@@ -201,6 +201,7 @@ function handleClick(event: MouseEvent): void {
   // Capture card position for FLIP
   const rect = el.getBoundingClientRect();
   setTransitionSnapshot({
+    direction: 'to-detail',
     slug: props.shader.slug,
     rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height },
     screenshotUrl: props.shader.screenshotUrl,
@@ -238,6 +239,7 @@ defineExpose({ triggerEntrance, getCardEl });
   <router-link
     ref="cardRef"
     :to="'/shader/' + shader.slug"
+    :data-shader-slug="shader.slug"
     class="shader-card n-panel n-corner-frame"
     :class="{
       'card--hidden': animState === 'hidden',
