@@ -1,0 +1,12 @@
+{
+  "title": "Caustic Study #03: Crystal",
+  "description": "Ray-marched faceted crystal with prismatic caustics from chromatic dispersion. Light refracts through the gemstone's facets, projecting rainbow patterns on the ground plane below.",
+  "date": "2026-02-18",
+  "tags": ["caustics", "raymarching", "3d", "physics", "refraction"],
+  "commons": ["sphere", "color", "sdf", "caustic"],
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  },
+  "links": {}
+}
