@@ -79,6 +79,14 @@
 
 // === BACKGROUND ===
 #define SKY_COL         vec3(0.02, 0.02, 0.04) // Dark ambient sky
+#define REFL_SKY_TINT   vec3(0.05, 0.08, 0.15) // Sky tint added to reflections based on up-facing angle
+#define EXIT_SKY_TINT   vec3(0.02, 0.04, 0.08) // Sky tint for refracted exit rays
+#define SHIMMER_TINT    vec3(0.3, 0.5, 0.6)    // Cool blue tint for ambient shimmer highlights
+#define GROUND_SPEC_COL vec3(0.15)              // Ground specular highlight color
+#define STEP_OFFSET     3.0                     // Surface offset multiplier for entering/exiting crystal body
+#define TIR_FLASH       0.3                     // Internal flash brightness on total internal reflection
+#define DIFFUSE_WRAP    0.05                     // Subtle body diffuse wrap strength on crystal
+#define INV_SQRT3       0.57735027              // 1/sqrt(3) — octahedron normalization factor
 
 // -------------------------------------------------------
 // Crystal SDF — octahedron stretched into diamond shape
@@ -91,7 +99,7 @@
 float sdOctahedron(vec3 p, float s)
 {
     p = abs(p);
-    return (p.x + p.y + p.z - s) * 0.57735027;
+    return (p.x + p.y + p.z - s) * INV_SQRT3;
 }
 
 float sdCrystal(vec3 p)
@@ -332,7 +340,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
             // Reflection
             vec3 reflDir = reflect(rd, n);
-            vec3 reflCol = SKY_COL + vec3(0.05, 0.08, 0.15) * max(reflDir.y, 0.0);
+            vec3 reflCol = SKY_COL + REFL_SKY_TINT * max(reflDir.y, 0.0);
 
             // Specular highlight from directional light
             vec3 halfVec = normalize(LIGHT_DIR - rd);
@@ -346,7 +354,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             if (length(refrDir) > 0.001)
             {
                 // March through the crystal interior — step inside slightly
-                vec3 innerRo = hitPos - n * SURF_EPSILON * 3.0;
+                vec3 innerRo = hitPos - n * SURF_EPSILON * STEP_OFFSET;
                 float innerT = march(innerRo, refrDir, rotAngle);
 
                 if (innerT > 0.0)
@@ -361,7 +369,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
                     if (length(exitDir) > 0.001)
                     {
                         // March from exit to see what's behind
-                        vec3 exitRo = exitPos + exitN * SURF_EPSILON * 3.0;
+                        vec3 exitRo = exitPos + exitN * SURF_EPSILON * STEP_OFFSET;
                         float behindT = march(exitRo, exitDir, rotAngle);
 
                         if (behindT > 0.0)
@@ -380,19 +388,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
                                 refrCol += crystalCaustic(behindPos, rotAngle);
 
                                 // Add shimmer
-                                refrCol += ambientShimmer(behindPos.xz, t) * vec3(0.3, 0.5, 0.6);
+                                refrCol += ambientShimmer(behindPos.xz, t) * SHIMMER_TINT;
                             }
                         }
                         else
                         {
                             // Exit ray hits sky
-                            refrCol = SKY_COL + vec3(0.02, 0.04, 0.08) * max(exitDir.y, 0.0);
+                            refrCol = SKY_COL + EXIT_SKY_TINT * max(exitDir.y, 0.0);
                         }
                     }
                     else
                     {
                         // Total internal reflection at exit — bright internal flash
-                        refrCol = ABSORB_TINT * 0.3;
+                        refrCol = ABSORB_TINT * TIR_FLASH;
                     }
 
                     refrCol *= absorption;
@@ -404,7 +412,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
             // Diffuse wrap for subtle body lighting
             float diff = max(dot(n, LIGHT_DIR), 0.0);
-            col += ABSORB_TINT * diff * 0.05;
+            col += ABSORB_TINT * diff * DIFFUSE_WRAP;
         }
         else
         {
@@ -415,7 +423,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             // Specular highlight on ground
             vec3 halfVec = normalize(LIGHT_DIR - rd);
             float spec = pow(max(dot(n, halfVec), 0.0), GROUND_SPEC);
-            col += vec3(0.15) * spec;
+            col += GROUND_SPEC_COL * spec;
 
             // Prismatic caustics from crystal refraction
             vec3 caustic = crystalCaustic(hitPos, rotAngle);
@@ -423,7 +431,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
             // Ambient shimmer from causticWarp commons
             float shimmer = ambientShimmer(hitPos.xz, t);
-            col += shimmer * vec3(0.3, 0.5, 0.6);
+            col += shimmer * SHIMMER_TINT;
         }
     }
 
