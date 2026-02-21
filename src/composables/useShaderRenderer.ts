@@ -191,9 +191,13 @@ function linkProgram(
 function buildPassProgram(
   gl: WebGL2RenderingContext,
   vertexShader: WebGLShader,
-  userGlsl: string
+  userGlsl: string,
+  passLabel = 'unknown',
 ): PassProgram | string {
   const fragSource = buildFragmentSource(userGlsl);
+  console.groupCollapsed(`[ShaderRenderer] Assembled fragment source: ${passLabel}`);
+  console.log(fragSource);
+  console.groupEnd();
   const fragShader = compileShader(gl, gl.FRAGMENT_SHADER, fragSource);
   if (typeof fragShader === 'string') {
     return fragShader;
@@ -592,7 +596,7 @@ export function useShaderRenderer(
     for (const passId of activeBuffers) {
       const source = passes[passId];
       if (!source) continue;
-      const result = buildPassProgram(gl, sharedVertexShader, commonsPrefix + source);
+      const result = buildPassProgram(gl, sharedVertexShader, commonsPrefix + source, passId);
       if (typeof result === 'string') {
         console.error(`[ShaderRenderer] ${passId} compilation failed:`, result);
         error.value = result;
@@ -614,7 +618,7 @@ export function useShaderRenderer(
     }
 
     // Build image pass program
-    const imageResult = buildPassProgram(gl, sharedVertexShader, commonsPrefix + passes.image);
+    const imageResult = buildPassProgram(gl, sharedVertexShader, commonsPrefix + passes.image, 'image');
     if (typeof imageResult === 'string') {
       console.error('[ShaderRenderer] Image pass compilation failed:', imageResult);
       error.value = imageResult;
