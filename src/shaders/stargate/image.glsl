@@ -3,16 +3,17 @@
  * @author guinetik
  * @date 2026-02-02
  *
- * A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey
- * Stargate sequence. Sphere-traces through a box corridor, mapping the input
- * image onto walls with noise-based distortion and cycling hue shifts.
+ * A corridor effect inspired by the 2001: A Space Odyssey Stargate sequence,
+ * recreating Kubrick/Trumbull's slit-scan false-color aesthetic.
  *
  * Techniques:
- * - Raymarched box corridor with wall-distance SDF
- * - Input texture mapped to walls with noise-warped UVs
- * - HSV hue cycling over time and depth for psychedelic color
- * - Screen blend compositing (additive light model)
- * - Alternating horizontal/vertical tunnel orientation every few seconds
+ * - Analytical ray-plane corridor intersection — walls are flat planes at
+ *   x=±1 or y=±1, solved with a single division per wall (no raymarching).
+ * - Kubrick false-color grading: per-channel contrast stretch → HSV remap
+ *   with cycling hue and forced saturation. Emulates slit-scan photography
+ *   of aerial footage through rotating color gels on high-contrast film.
+ * - Alternating horizontal/vertical slit-scan orientation every few seconds.
+ * - Feathered black seam along the corridor center hides wall convergence.
  *
  * Commons: noise-value (valueNoise2D), color (rgb2hsv, hsv2rgb)
  *
@@ -20,83 +21,103 @@
  * @see https://genuary2026.guinetik.com
  */
 
-#define PI 3.14159265359
-
 // --- Camera ---
 #define FOV_ZOOM 0.4               // Field-of-view width — smaller = wider FOV, larger = more telephoto.
 #define CAM_OSCILLATION_BASE 0.1   // Camera drift amplitude — subtle organic sway. Above 0.3: very shaky.
 #define CAM_OSCILLATION_FREQ1 1.137 // Primary drift frequency — irrational to avoid looping.
 #define CAM_OSCILLATION_FREQ2 0.37  // Secondary drift modulation frequency.
 #define CAM_OSCILLATION_FREQ3 17.39 // High-frequency vertical jitter — simulates handheld camera.
-#define CAM_ROT_THRESHOLD_FREQ 0.1  // Smoothstep rotation toggle rate — how often the camera snaps 90 degrees.
-#define CAM_ROT_OFFSET 4.0         // Phase offset for rotation smoothstep — shifts when the snap occurs.
 #define CAM_FORWARD_MIX 0.6        // How much the camera looks forward vs. back at origin. 1.0 = pure forward.
 
-// --- Raymarching ---
-#define MAX_MARCH_STEPS 250        // Maximum ray steps — higher = deeper corridors rendered, more GPU cost.
-#define WALL_HIT_THRESHOLD 0.001   // Distance at which a ray is considered hitting the wall surface.
+// --- Ray-plane intersection ---
+// No raymarching needed — corridor walls are flat planes, solved analytically.
 
 // --- Wall UVs ---
-#define WALL_UV_TIME_SCROLL 7.0    // Speed of horizontal UV scrolling on walls — creates the rushing-forward effect.
-#define WALL_UV_VERT_SCROLL 0.097  // Speed of vertical UV offset — slow vertical drift.
-#define NOISE_WARP_SCALE 2.2       // Frequency of noise used to distort wall UVs. Higher = more chaotic detail.
-#define NOISE_WARP_AMOUNT 0.1      // Strength of UV distortion from noise. Above 0.3: very warped.
+#define WALL_UV_TILE_SCALE  0.35   // How much of the texture each wall tile shows — higher = smaller tiles, lower = more recognizable.
+#define WALL_UV_TIME_SCROLL 2.0    // Speed of horizontal UV scrolling on walls — creates the rushing-forward effect.
+#define WALL_UV_VERT_SCROLL 0.05   // Speed of vertical UV offset — slow vertical drift.
+#define NOISE_WARP_SCALE 1.5       // Frequency of noise used to distort wall UVs. Higher = more chaotic detail.
+#define NOISE_WARP_AMOUNT 0.06     // Strength of UV distortion from noise. Above 0.3: very warped.
 
-// --- Color grading ---
-#define HUE_SHIFT_TIME_SPEED 0.15  // Rate of hue rotation over time. 0.0 = static, 1.0 = full cycle per second.
-#define HUE_SHIFT_DEPTH_FACTOR 0.1 // How much ray depth contributes to hue shift — distant walls shift more.
-#define SATURATION_BOOST 1.3       // Multiplier on saturation in HSV space. 1.0 = unchanged, 2.0 = vivid.
-
+// --- Kubrick false-color grading ---
+// TECHNIQUE: Per-channel contrast + HSV remap (slit-scan emulation)
+// Kubrick/Trumbull's slit-scan shot aerial footage through rotating color gels
+// on high-contrast film. We emulate this by:
+//   (1) Per-channel contrast stretch — normalize R, G, B independently
+//   (2) Convert to HSV, rotate hue over time, force full saturation
+//   (3) Boost brightness while preserving texture detail
+#define CONTRAST_BOOST 1.8         // Power curve on luminance. Higher = more separation between darks and lights. 1.0 = linear.
+#define GRADIENT_SPEED 0.06        // How fast the gradient palette rotates over time. 0.0 = static.
 // --- Mix / blend ---
 #define MIX_BASE 0.6               // Base mix factor for wall color blending. Higher = more noise texture.
 #define MIX_AMPLITUDE 0.35         // Amplitude of sinusoidal mix variation over time.
 #define MIX_FREQUENCY 0.253        // Frequency of mix oscillation — irrational to avoid repetitive patterns.
 
-// --- Glow / fade ---
-#define TUNNEL_CENTER_GLOW_FALLOFF 2.0  // Exponential falloff for tunnel center glow. Higher = tighter glow.
-#define MAIN_CENTER_GLOW_FALLOFF 4.0    // Exponential falloff for final center white glow. Higher = tighter.
-#define PERSPECTIVE_FADE_MULT 7.0       // Multiplier on wall perspective fade — higher = sharper edge fade.
-#define TUNNEL_BLEND_AMOUNT 0.9         // How much tunnel color contributes to final output. 1.0 = full tunnel.
-#define WHITE_GLOW_STRENGTH 0.8         // Intensity of center white glow mixed into final color.
-
 // --- Orientation ---
 #define ORIENT_SWITCH_INTERVAL 4.0 // Seconds between horizontal/vertical tunnel orientation switches.
 
 // --- Post-processing ---
-#define VIGNETTE_STRENGTH 0.3      // Vignette darkening factor — 0.0 = none, 1.0 = heavy edge darkening.
+#define VIGNETTE_STRENGTH 0.4      // Vignette darkening factor — 0.0 = none, 1.0 = heavy edge darkening.
 
 // ---------------------------------------------------------------------------
-// Blend modes
+// Kubrick false-color grading
 // ---------------------------------------------------------------------------
 
-/** Screen blend mode — 1-(1-a)*(1-b). Adds light without blowing out to white. */
-vec3 blendScreen(vec3 base, vec3 blend) {
-    return 1.0 - (1.0 - base) * (1.0 - blend);
+// TECHNIQUE: Duotone gradient map (slit-scan emulation)
+// The original 2001 Stargate was shot by Douglas Trumbull using slit-scan
+// photography of aerial landscape footage through rotating color gels on
+// high-contrast film. The result: fully detailed landscapes with luminance
+// remapped through a bold 2-3 color gradient — deep saturated shadows,
+// vivid midtones, bright contrasting highlights. All original texture
+// and edge detail is preserved; only the color mapping changes.
+
+/** Apply Kubrick-style false-color grading to a video sample. */
+vec3 kubrickGrade(vec3 texColor, float time) {
+    // TECHNIQUE: Per-channel contrast + HSV remap
+    // Luminance-only grading fails on dark/uniform footage because all pixels
+    // land in one brightness zone. Instead we boost per-channel contrast first
+    // (so R, G, B separate even in dark scenes), then convert to HSV and
+    // rotate/saturate. This preserves the original texture edges while
+    // remapping to bold cycling colors — the Kubrick slit-scan look.
+
+    // Per-channel contrast stretch — normalize each channel independently
+    // so even dark footage uses the full 0-1 range
+    vec3 stretched = clamp((texColor - 0.05) / 0.55, 0.0, 1.0);
+    stretched = pow(stretched, vec3(CONTRAST_BOOST));
+
+    // Convert to HSV — the hue now comes from the actual video color differences
+    vec3 hsv = rgb2hsv(stretched);
+
+    // Rotate hue over time — cycling psychedelic palette
+    hsv.x = fract(hsv.x + time * GRADIENT_SPEED);
+
+    // Force full saturation — even near-gray pixels become vivid
+    hsv.y = 1.0;
+
+    // Boost brightness — keep texture detail but lift everything
+    hsv.z = 0.4 + 0.6 * hsv.z;
+
+    return hsv2rgb(hsv);
 }
 
 // ---------------------------------------------------------------------------
-// Raymarch tunnel
+// Tunnel tracer
 // ---------------------------------------------------------------------------
 
-// TECHNIQUE: Raymarched box corridor
-// The SDF is simply the minimum distance to the four walls (two horizontal
-// or two vertical depending on orientation). The ray marches forward until
-// it hits a wall, then the wall is textured with the input image and
-// noise-warped UVs for a psychedelic Stargate look.
+// TECHNIQUE: Analytical ray-plane corridor intersection
+// The corridor walls are flat planes at x=±1 or y=±1. Instead of
+// raymarching (250 steps!) to find the hit, we compute the exact
+// intersection with a single division per wall. This is faster,
+// more accurate at the horizon, and eliminates step-count artifacts.
 
 /**
- * Raymarch an infinite corridor and sample the input texture on the walls.
- * @param isVertical 0.0 = horizontal walls, 1.0 = vertical walls
+ * Trace an infinite corridor and sample the false-color-graded texture on walls.
+ * @param isVertical 0.0 = horizontal walls (x=±1), 1.0 = vertical walls (y=±1)
  */
-vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
+vec3 traceTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
     // Camera oscillation — subtle drift for organic camera movement
     float oscillation = CAM_OSCILLATION_BASE * sin(time * CAM_OSCILLATION_FREQ1)
                         * (1.0 + CAM_OSCILLATION_BASE * cos(time * CAM_OSCILLATION_FREQ2));
-
-    // Camera rotation — snaps between 0 and 90 degrees using smoothstep threshold
-    float rot = smoothstep(-0.005, 0.005, sin(CAM_ROT_THRESHOLD_FREQ * time + CAM_ROT_OFFSET)) * PI * 0.5;
-    float c = cos(rot), s = sin(rot);
-    uv = uv * mat2(c, -s, s, c);
 
     // Camera setup — slightly off-center, looking mostly down the corridor
     vec3 camPos = vec3(oscillation, sin(time * CAM_OSCILLATION_FREQ3) * oscillation * oscillation, -1.0);
@@ -108,30 +129,24 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
     vec3 screenPoint = camPos + forward * FOV_ZOOM + uv.x * right + uv.y * up;
     vec3 rayDir = normalize(screenPoint - camPos);
 
-    // Raymarch through the corridor
-    vec3 rayPos;
-    float rayLength = 0.0;
-    float stepDist = 0.0;
+    // Analytical ray-plane intersection for corridor walls
+    float rd = mix(rayDir.x, rayDir.y, isVertical);
+    float ro = mix(camPos.x, camPos.y, isVertical);
 
-    for (int i = 0; i < MAX_MARCH_STEPS; i++) {
-        rayPos = camPos + rayDir * rayLength;
+    float t1 = ( 1.0 - ro) / rd;  // +1 wall
+    float t2 = (-1.0 - ro) / rd;  // -1 wall
 
-        // Distance to walls
-        float vertStep = min(abs(rayPos.y - 1.0), abs(rayPos.y + 1.0));
-        float horizStep = min(abs(rayPos.x - 1.0), abs(rayPos.x + 1.0));
-        stepDist = mix(horizStep, vertStep, isVertical);
+    float rayLength = (t1 > 0.0 && t2 > 0.0) ? min(t1, t2)
+                    : max(t1, t2);
 
-        if (stepDist < WALL_HIT_THRESHOLD) break;
-        rayLength += stepDist;
-    }
+    vec3 rayPos = camPos + rayDir * max(rayLength, 0.0);
+    bool hitWall = rayLength > 0.0;
 
-    // Base color - bright white center that feathers out
-    float centerDist = length(uv);
-    float centerGlow = exp(-centerDist * TUNNEL_CENTER_GLOW_FALLOFF);
-    vec3 col = vec3(1.0) * centerGlow + vec3(0.1) * (1.0 - centerGlow);
+    // Start with graded video — visible through the corridor center
+    vec2 fillUV = uv * 0.25 + 0.5;  // Map centered coords back to [0,1] range
+    vec3 col = kubrickGrade(texture(videoTex, fract(fillUV + time * 0.03)).rgb, time);
 
-    // If hit wall, sample video texture
-    if (stepDist < WALL_HIT_THRESHOLD) {
+    if (hitWall) {
         // Compute wall UVs
         vec2 wallUV_horiz = vec2(rayPos.z, rayPos.y + step(rayPos.x, 0.0) * 33.1 + time * WALL_UV_VERT_SCROLL);
         vec2 wallUV_vert = vec2(rayPos.z, rayPos.x + step(rayPos.y, 0.0) * 33.1 + time * WALL_UV_VERT_SCROLL);
@@ -139,35 +154,21 @@ vec3 raymarchTunnel(vec2 uv, float time, sampler2D videoTex, float isVertical) {
         wallUV.x += time * WALL_UV_TIME_SCROLL;
 
         // Sample video texture
-        vec2 sampleUV = clamp(fract(wallUV * 0.1) * 0.5 + 0.25, 0.001, 0.999);
+        vec2 sampleUV = fract(wallUV * WALL_UV_TILE_SCALE);
         vec3 wallColor = texture(videoTex, sampleUV).rgb;
 
-        // Noise variation — signed range needed for bidirectional UV warp
+        // Noise variation for organic distortion
         float noiseVal = valueNoise2D(wallUV * NOISE_WARP_SCALE) * 2.0 - 1.0;
-        vec3 noiseColor = texture(videoTex, clamp(fract(sampleUV + noiseVal * NOISE_WARP_AMOUNT), 0.001, 0.999)).rgb;
+        vec3 noiseColor = texture(videoTex, fract(sampleUV + noiseVal * NOISE_WARP_AMOUNT)).rgb;
 
-        // Animated mix
+        // Animated mix between clean and noise-warped sample
         float mixFactor = MIX_BASE + MIX_AMPLITUDE * sin(MIX_FREQUENCY * time);
         wallColor = mix(noiseColor, wallColor, mixFactor);
 
-        // TECHNIQUE: HSV hue cycling (2001 Stargate homage)
-        // Hue rotates with time and ray depth so distant walls shift color
-        // faster, creating the characteristic psychedelic corridor effect.
-        vec3 hsv = rgb2hsv(wallColor);
-        float hueShift = time * HUE_SHIFT_TIME_SPEED + rayLength * HUE_SHIFT_DEPTH_FACTOR;
-        hsv.x = fract(hsv.x + hueShift);
-        hsv.y = min(hsv.y * SATURATION_BOOST, 1.0);
-        wallColor = hsv2rgb(hsv);
+        // Apply Kubrick false-color grading — this IS the color, no further hue shift needed
+        wallColor = kubrickGrade(wallColor, time);
 
-        // Perspective fade
-        float fade = mix(
-            min(PERSPECTIVE_FADE_MULT * abs(uv.x), 1.0),
-            min(PERSPECTIVE_FADE_MULT * abs(uv.y), 1.0),
-            isVertical
-        );
-        wallColor *= fade;
-
-        col = mix(col, wallColor, fade);
+        col = wallColor;
     }
 
     return col;
@@ -179,7 +180,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     float aspect = iResolution.x / iResolution.y;
     float time = iTime;
 
-    // === BASE VIDEO ===
+    // === KUBRICK-GRADED BASE VIDEO ===
     vec3 baseColor = texture(iChannel0, uv).rgb;
 
     // Fallback gradient if no texture
@@ -188,34 +189,51 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         baseColor += vec3(0.05, 0.1, 0.15) * (1.0 - length(uv - 0.5));
     }
 
+    // Apply false-color to the base video too — full-screen Kubrick look
+    vec3 gradedBase = kubrickGrade(baseColor, time);
+
     // === TUNNEL ===
-    // Alternate orientation every ORIENT_SWITCH_INTERVAL seconds
     float tunnelOrientation = mod(floor(time / ORIENT_SWITCH_INTERVAL), 2.0);
 
-    // Centered coords for tunnel
     vec2 tunnelUV = (uv - 0.5) * 2.0;
     tunnelUV.x *= aspect;
 
-    // Raymarch the tunnel
-    vec3 tunnelColor = raymarchTunnel(tunnelUV, time, iChannel0, tunnelOrientation);
+    // Trace tunnel — walls already use kubrickGrade internally
+    vec3 tunnelColor = traceTunnel(tunnelUV, time, iChannel0, tunnelOrientation);
 
-    // === SCREEN BLEND ===
-    // Tunnel adds light on top of video
-    vec3 blended = blendScreen(baseColor, tunnelColor * WHITE_GLOW_STRENGTH);
+    // === COMPOSITING ===
+    vec3 color = tunnelColor;
 
-    // Mix amount
-    vec3 color = mix(baseColor, blended, TUNNEL_BLEND_AMOUNT);
-
-    // === CENTER WHITE GLOW ===
-    // Add extra bright white feathered glow at center
-    float centerDist = length(uv - 0.5);
-    float whiteGlow = exp(-centerDist * MAIN_CENTER_GLOW_FALLOFF);
-    color = mix(color, vec3(1.0), whiteGlow * WHITE_GLOW_STRENGTH);
+    // === SEAM FADE ===
+    // Feathered black stripe along the corridor center where walls converge.
+    // isVertical=0 (walls at x=±1): seam is vertical (fade on x distance)
+    // isVertical=1 (walls at y=±1): seam is horizontal (fade on y distance)
+    float seamDist = mix(abs(uv.x - 0.5), abs(uv.y - 0.5), tunnelOrientation);
+    float seamFade = smoothstep(0.0, 0.12, seamDist);  // Fades from black at seam to full color ~12% out
+    color *= seamFade;
 
     // === POST ===
-    // Vignette (softer to preserve center brightness)
     float vig = 1.0 - length(uv - 0.5) * VIGNETTE_STRENGTH;
     color *= vig;
+
+    // === DEBUG: PiP video monitor (bottom-right corner) ===
+    vec2 pipSize = vec2(0.25, 0.25);  // 25% of screen
+    vec2 pipOrigin = vec2(1.0 - pipSize.x, 0.0);  // bottom-right
+    if (uv.x > pipOrigin.x && uv.y < pipSize.y) {
+        vec2 pipUV = (uv - pipOrigin) / pipSize;
+        vec3 raw = texture(iChannel0, pipUV).rgb;
+        // Left half: raw video, Right half: graded
+        if (pipUV.x < 0.5) {
+            color = raw;
+        } else {
+            color = kubrickGrade(raw, time);
+        }
+        // Border
+        if (abs(uv.x - pipOrigin.x) < 0.002 || abs(uv.y - pipSize.y) < 0.002 ||
+            abs(pipUV.x - 0.5) < 0.005) {
+            color = vec3(1.0);
+        }
+    }
 
     fragColor = vec4(color, 1.0);
 }

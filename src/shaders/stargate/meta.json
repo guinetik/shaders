@@ -1,11 +1,11 @@
 {
   "title": "Stargate Study",
-  "description": "A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",
+  "description": "Infinite corridor inspired by the 2001 Stargate sequence. Analytical ray-plane intersection on flat walls with Kubrick/Trumbull slit-scan false-color grading.",
   "date": "2026-02-02",
-  "tags": ["10-days", "raymarching", "3d"],
+  "tags": ["10-days", "analytical", "3d"],
   "links": {},
   "commons": ["noise-value", "color"],
   "channels": {
-    "image": { "iChannel0": "textures/mario.mp4" }
+    "image": { "iChannel0": "textures/stargate.mp4" }
   }
 }
