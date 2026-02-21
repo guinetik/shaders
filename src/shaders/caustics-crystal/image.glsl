@@ -5,97 +5,96 @@
  *
  * Ray-marched faceted crystal (octahedron-based diamond SDF) hovering above
  * a dark ground plane. Light refracts through the gemstone's facets with
- * chromatic dispersion (separate IOR per R/G/B channel), projecting prismatic
- * caustic rainbows on the ground.
+ * chromatic dispersion (separate UV offset per R/G/B channel), projecting
+ * prismatic rainbow caustics on the ground.
  *
- * Key techniques:
- * - Modified octahedron SDF with Y-stretch + table-facet clipping for gem shape
- * - Single-bounce Fresnel reflection/refraction with absorption tint
- * - Per-channel refraction at different IOR values for chromatic dispersion
- * - intersectSphere() bounding test for efficient caustic ray filtering
- * - causticWarp() ambient shimmer ties visually to other caustic studies
+ * TECHNIQUE: Modified octahedron SDF
+ * The octahedron's L1-norm distance gives natural faceted edges.
+ * Y-stretch elongates into a diamond profile; max() with a plane
+ * clips a flat table facet on top, mimicking a brilliant cut.
+ *
+ * TECHNIQUE: Prismatic caustics via chromatic causticWarp
+ * Instead of expensive per-pixel ray tracing, we sample the causticWarp()
+ * pattern at three chromatically offset UV positions (one per R/G/B channel).
+ * The UV offsets rotate with the crystal, creating shifting rainbow patterns.
+ * Brightness is modulated by the crystal's projected shadow footprint.
+ *
+ * TECHNIQUE: Refract-through via analytical ground intersection
+ * Instead of unreliable interior SDF marching, refract the view ray
+ * at the crystal entry surface and intersect the ground plane
+ * analytically. This always works regardless of view angle or
+ * crystal shape complexity.
  */
 
 // === CRYSTAL GEOMETRY ===
-#define CRYSTAL_POS     vec3(0.0, 0.6, 0.0)  // Hover height above ground — raise to increase caustic spread
-#define CRYSTAL_SIZE    0.55                   // Octahedron half-extent — base gem radius
-#define CRYSTAL_STRETCH 1.4                    // Y-axis stretch — >1 makes taller diamond, <1 pancake
-#define TABLE_CUT       0.35                   // Height above center to clip flat table facet (0=half, size=none)
-#define ROTATE_SPEED    0.3                    // Auto-rotation radians/sec — 0 disables
-
-// === CRYSTAL BOUNDING ===
-#define CRYSTAL_BOUND_R 0.9                    // Bounding sphere radius for caustic ray test — must enclose gem
+#define CRYSTAL_POS     vec3(0.0, 0.5, 0.0)   // Hover center — raise to widen caustic spread on ground
+#define CRYSTAL_SIZE    0.5                     // Octahedron half-extent — controls gem width
+#define CRYSTAL_STRETCH 1.6                     // Y-axis stretch — >1 = taller diamond, <1 = pancake
+#define TABLE_CUT       0.28                    // Y-height for flat table facet — lower = larger flat top
+#define ROTATE_SPEED    0.25                    // Auto-rotation rad/s around Y — 0 disables
 
 // === RAY MARCHING ===
-#define MAX_STEPS       128                    // March iterations — higher = more detail, more cost
-#define SURF_EPSILON    0.001                  // Surface hit threshold — smaller = sharper edges
-#define MAX_DIST        50.0                   // Maximum ray travel — beyond this is background
-#define NORMAL_EPS      0.001                  // Central-difference offset for normal estimation
+#define MAX_STEPS       100                     // March iterations — 100 sufficient for simple scene
+#define SURF_EPSILON    0.0005                  // Surface hit threshold — tight for sharp facet edges
+#define MAX_DIST        30.0                    // Maximum ray travel distance
+#define NORMAL_EPS      0.0005                  // Central-difference offset for normals
+#define STEP_BIAS       0.01                    // Offset to step past surface when entering/exiting crystal
 
 // === GROUND PLANE ===
-#define GROUND_Y        -0.5                   // Ground plane Y position
-#define GROUND_COL      vec3(0.04, 0.035, 0.05) // Dark stone base — subtle purple undertone
-#define GROUND_SPEC     32.0                   // Specular exponent for ground highlights
+#define GROUND_Y       -0.6                     // Ground plane Y — distance below crystal affects caustic scale
+#define GROUND_COL     vec3(0.12, 0.11, 0.13)   // Medium-dark stone — visible but doesn't compete with caustics
+#define GROUND_SPEC    24.0                     // Specular exponent for ground highlights
+#define GROUND_SPEC_COL vec3(0.12)              // Specular highlight color
 
 // === LIGHTING ===
-#define LIGHT_DIR       normalize(vec3(0.6, 0.9, 0.4))  // Directional light — elevation affects caustic angle
-#define AMBIENT         0.08                   // Minimum ambient illumination
-#define DIFFUSE_STR     0.5                    // Diffuse lighting strength on ground
+#define LIGHT_DIR       normalize(vec3(0.5, 1.0, 0.3))  // Directional light from above-right
+#define LIGHT_COL       vec3(1.0, 0.97, 0.92)            // Warm white light color
+#define AMBIENT         0.2                               // Ambient illumination — enough to see the ground
 
 // === CRYSTAL MATERIAL ===
-#define IOR_BASE        1.52                   // Base index of refraction (glass-like, diamond=2.42)
-#define FRESNEL_POWER   5.0                    // Schlick Fresnel exponent — higher = more reflection at grazing
-#define FRESNEL_MIN     0.04                   // Fresnel reflectance at normal incidence
-#define FRESNEL_MAX     1.0                    // Fresnel reflectance at grazing angle
-#define ABSORB_TINT     vec3(0.7, 0.5, 0.85)  // Internal absorption color — amethyst purple
-#define ABSORB_DENSITY  1.2                    // Absorption strength — higher = more colored
-#define SPEC_POWER      64.0                   // Crystal specular exponent — high = tight highlights
-#define SPEC_BRIGHT     1.5                    // Crystal specular brightness multiplier
+#define IOR_BASE        1.54                    // Index of refraction — quartz = 1.54
+#define FRESNEL_POWER   5.0                     // Schlick exponent — higher = more edge reflection
+#define FRESNEL_MIN     0.04                    // Reflectance at normal incidence (clear quartz is low)
+#define FRESNEL_MAX     0.85                    // Reflectance at grazing angle
+#define ABSORB_TINT     vec3(0.98, 0.98, 1.0)  // Near-white — clear quartz, very slight cool tint
+#define ABSORB_DENSITY  0.1                     // Very low absorption — nearly transparent
+#define SPEC_POWER      80.0                    // Specular exponent — high = tiny bright highlights
+#define SPEC_BRIGHT     2.5                     // Specular intensity multiplier
 
 // === PRISMATIC CAUSTICS ===
-#define IOR_R           1.50                   // Red channel IOR — lower IOR = less bend
-#define IOR_G           1.52                   // Green channel IOR — middle
-#define IOR_B           1.56                   // Blue channel IOR — higher IOR = more bend (chromatic spread)
-#define CAUSTIC_RADIUS  3.0                    // Max ground distance from crystal to compute caustics — early exit beyond
-#define CAUSTIC_BRIGHT  2.5                    // Prismatic caustic brightness multiplier
-#define CAUSTIC_FOCUS   4.0                    // Convergence sharpness — higher = tighter bright spots
+#define CAUSTIC_FOOTPRINT 0.8                   // Radius of caustic pattern — tight focus under crystal
+#define CAUSTIC_BRIGHT  1.5                     // Caustic brightness — visible against brighter ground
+#define CAUSTIC_SCALE_A 1.8                     // UV scale for primary caustic layer — lower = larger pattern
+#define CAUSTIC_SCALE_B 1.2                     // UV scale for secondary caustic layer (parallax)
+#define CAUSTIC_SPEED   0.4                     // Time multiplier for caustic animation
+#define CAUSTIC_OFFSET  23.0                    // Time offset — decorrelates from t=0 boring state
+#define CAUSTIC_ITERS   5                       // Warp iterations — 5 = crisp convergence lines
+#define CAUSTIC_INTEN   0.005                   // Inverse-distance sensitivity
+#define CAUSTIC_BASE    1.17                    // Brightness curve offset
+#define CAUSTIC_POWER   1.4                     // Brightness curve exponent
+#define CAUSTIC_SHARP   8.0                     // Final power — higher = thinner brighter lines
+#define CHROMA_SPREAD   0.25                    // Chromatic UV offset between R/G/B — higher = wider rainbow
+#define CAUSTIC_MIX_B   0.35                    // Blend weight of secondary caustic layer
 
-// === AMBIENT SHIMMER (causticWarp from commons) ===
-#define SHIMMER_SCALE   1.2                    // UV scale for ambient shimmer pattern
-#define SHIMMER_SPEED   0.3                    // Animation speed multiplier
-#define SHIMMER_OFFSET  17.0                   // Time offset to decorrelate from main caustics
-#define SHIMMER_ITERS   4                      // Warp iterations (3=soft, 5=crisp)
-#define SHIMMER_INTEN   0.005                  // Inverse-distance sensitivity
-#define SHIMMER_BASE    1.17                   // Brightness curve base
-#define SHIMMER_POWER   1.4                    // Brightness curve exponent
-#define SHIMMER_BRIGHT  6.0                    // Final power curve
-#define SHIMMER_STR     0.06                   // Overall shimmer strength — subtle complement to prismatic caustics
+// === AMBIENT SHIMMER ===
+#define SHIMMER_SCALE   1.0                     // UV scale for background shimmer
+#define SHIMMER_SPEED   0.25                    // Shimmer animation speed
+#define SHIMMER_OFFSET  11.0                    // Decorrelation offset from main caustics
+#define SHIMMER_STR     0.02                    // Very subtle background life — too high = noisy ground
 
 // === CAMERA ===
-#define CAM_DIST        4.0                    // Orbital distance from target
-#define CAM_HEIGHT      2.5                    // Base camera height
-#define CAM_TARGET      vec3(0.0, 0.0, 0.0)   // Look-at target
-#define CAM_FOV         1.8                    // Field of view (focal length inverse)
+#define CAM_DIST        3.0                     // Orbital distance — closer for more detail
+#define CAM_HEIGHT      1.9                     // Base camera height
+#define CAM_TARGET      vec3(0.0, 0.1, 0.0)    // Look slightly above ground center
+#define CAM_FOV         1.8                     // Focal length inverse — lower = more telephoto
 
 // === BACKGROUND ===
-#define SKY_COL         vec3(0.02, 0.02, 0.04) // Dark ambient sky
-#define REFL_SKY_TINT   vec3(0.05, 0.08, 0.15) // Sky tint added to reflections based on up-facing angle
-#define EXIT_SKY_TINT   vec3(0.02, 0.04, 0.08) // Sky tint for refracted exit rays
-#define SHIMMER_TINT    vec3(0.3, 0.5, 0.6)    // Cool blue tint for ambient shimmer highlights
-#define GROUND_SPEC_COL vec3(0.15)              // Ground specular highlight color
-#define STEP_OFFSET     3.0                     // Surface offset multiplier for entering/exiting crystal body
-#define TIR_FLASH       0.3                     // Internal flash brightness on total internal reflection
-#define DIFFUSE_WRAP    0.05                     // Subtle body diffuse wrap strength on crystal
-#define INV_SQRT3       0.57735027              // 1/sqrt(3) — octahedron normalization factor
+#define SKY_COL         vec3(0.05, 0.05, 0.08)  // Dark blue-gray sky — visible but moody
+#define INV_SQRT3       0.57735027               // 1/sqrt(3) — octahedron normalization
 
 // -------------------------------------------------------
-// Crystal SDF — octahedron stretched into diamond shape
+// Crystal SDF — octahedron stretched into diamond
 // -------------------------------------------------------
-
-// TECHNIQUE: Octahedron SDF with axis stretch + table clipping
-// The octahedron's L1-norm distance gives natural faceted edges.
-// Y-stretch elongates into a diamond profile; max() with a plane
-// clips a flat table facet on top, mimicking a brilliant cut.
 float sdOctahedron(vec3 p, float s)
 {
     p = abs(p);
@@ -104,72 +103,55 @@ float sdOctahedron(vec3 p, float s)
 
 float sdCrystal(vec3 p)
 {
-    // Stretch Y for taller diamond proportions
     vec3 q = p;
     q.y /= CRYSTAL_STRETCH;
-
     float d = sdOctahedron(q, CRYSTAL_SIZE);
-
-    // Clip flat table facet at top
-    float tablePlane = p.y - TABLE_CUT;
-    d = max(d, tablePlane);
-
+    // Flat table facet on top
+    d = max(d, p.y - TABLE_CUT);
     return d;
 }
 
 // -------------------------------------------------------
-// Y-axis rotation matrix
+// Rotation
 // -------------------------------------------------------
 mat3 rotateY(float a)
 {
     float c = cos(a);
     float s = sin(a);
-    return mat3(c, 0.0, s,
-                0.0, 1.0, 0.0,
-               -s, 0.0, c);
+    return mat3(c, 0.0, s,  0.0, 1.0, 0.0,  -s, 0.0, c);
 }
 
 // -------------------------------------------------------
-// Scene map — ground plane + crystal
+// Crystal in world space (used by both full scene and crystal-only maps)
+// -------------------------------------------------------
+float crystalWorld(vec3 p, float rotAngle)
+{
+    vec3 cp = p - CRYSTAL_POS;
+    cp = rotateY(-rotAngle) * cp;
+    return sdCrystal(cp);
+}
+
+// -------------------------------------------------------
+// Full scene map — crystal + ground
 // -------------------------------------------------------
 float map(vec3 p, float rotAngle)
 {
-    // Ground plane
     float dGround = p.y - GROUND_Y;
-
-    // Crystal: translate to position, apply rotation
-    vec3 cp = p - CRYSTAL_POS;
-    cp = rotateY(-rotAngle) * cp;
-    float dCrystal = sdCrystal(cp);
-
+    float dCrystal = crystalWorld(p, rotAngle);
     return min(dGround, dCrystal);
 }
 
-// -------------------------------------------------------
-// Scene map with material ID
-// -------------------------------------------------------
+// Scene map with material ID (0=ground, 1=crystal)
 float mapID(vec3 p, float rotAngle, out int matID)
 {
     float dGround = p.y - GROUND_Y;
-
-    vec3 cp = p - CRYSTAL_POS;
-    cp = rotateY(-rotAngle) * cp;
-    float dCrystal = sdCrystal(cp);
-
-    if (dCrystal < dGround)
-    {
-        matID = 1;
-        return dCrystal;
-    }
-    else
-    {
-        matID = 0;
-        return dGround;
-    }
+    float dCrystal = crystalWorld(p, rotAngle);
+    if (dCrystal < dGround) { matID = 1; return dCrystal; }
+    else                    { matID = 0; return dGround; }
 }
 
 // -------------------------------------------------------
-// Surface normal via central differences
+// Normals
 // -------------------------------------------------------
 vec3 calcNormal(vec3 p, float rotAngle)
 {
@@ -182,15 +164,14 @@ vec3 calcNormal(vec3 p, float rotAngle)
 }
 
 // -------------------------------------------------------
-// Ray march
+// Ray march — full scene
 // -------------------------------------------------------
 float march(vec3 ro, vec3 rd, float rotAngle)
 {
     float t = 0.0;
     for (int i = 0; i < MAX_STEPS; i++)
     {
-        vec3 p = ro + rd * t;
-        float d = map(p, rotAngle);
+        float d = map(ro + rd * t, rotAngle);
         if (d < SURF_EPSILON) return t;
         if (t > MAX_DIST) break;
         t += d;
@@ -199,7 +180,7 @@ float march(vec3 ro, vec3 rd, float rotAngle)
 }
 
 // -------------------------------------------------------
-// Schlick Fresnel
+// Fresnel (Schlick)
 // -------------------------------------------------------
 float fresnelSchlick(vec3 rd, vec3 n)
 {
@@ -209,85 +190,92 @@ float fresnelSchlick(vec3 rd, vec3 n)
 }
 
 // -------------------------------------------------------
-// Prismatic caustics on ground
+// Single caustic layer with chromatic offsets
+//
+// TECHNIQUE: Chromatic causticWarp sampling
+// Sample causticWarp at 3 UV positions offset in the direction
+// determined by crystal rotation. The UV shift per channel
+// simulates how different wavelengths refract at different
+// angles through the crystal, creating rainbow separation.
 // -------------------------------------------------------
-
-// TECHNIQUE: Per-channel refraction for chromatic dispersion
-// Trace a shadow ray from the ground point toward the light.
-// If it hits the crystal's bounding sphere, compute the surface
-// normal at entry and refract for R, G, B at three different IOR
-// values. The angular spread between refracted rays creates the
-// prismatic rainbow pattern.
-vec3 crystalCaustic(vec3 groundPos, float rotAngle)
+float causticLayer(vec2 uv, float scale, float t)
 {
-    // Early exit: only compute within radius of crystal projection
-    vec2 offset = groundPos.xz - CRYSTAL_POS.xz;
-    float dist2 = dot(offset, offset);
-    if (dist2 > CAUSTIC_RADIUS * CAUSTIC_RADIUS) return vec3(0.0);
+    float time = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
+    float c = causticWarp(uv, scale, time, CAUSTIC_ITERS, CAUSTIC_INTEN);
+    c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
+    return pow(abs(c), CAUSTIC_SHARP);
+}
 
-    // Trace ray from ground point toward light source
-    vec3 ro = groundPos;
-    vec3 rd = LIGHT_DIR;
+vec3 prismaticCaustic(vec3 groundPos, float rotAngle, float t)
+{
+    // Project crystal position onto ground — caustic center
+    vec2 center = CRYSTAL_POS.xz;
+    vec2 gxz = groundPos.xz;
 
-    // Check if this ray hits the crystal bounding sphere
-    float tSphere = intersectSphere(ro, rd, CRYSTAL_POS, CRYSTAL_BOUND_R);
-    if (tSphere < 0.0) return vec3(0.0);
+    // Soft circular footprint — fades at edges
+    float dist = length(gxz - center);
+    float footprint = 1.0 - smoothstep(0.0, CAUSTIC_FOOTPRINT, dist);
+    if (footprint < 0.01) return vec3(0.0);
 
-    // Get hit point on bounding sphere, then refine with SDF normal
-    vec3 hitPoint = ro + rd * tSphere;
-    vec3 cp = hitPoint - CRYSTAL_POS;
-    cp = rotateY(-rotAngle) * cp;
+    // Chromatic UV offset direction rotates with crystal
+    vec2 chromaDir = vec2(cos(rotAngle), sin(rotAngle));
+    vec2 baseUV = gxz;
 
-    // Compute crystal surface normal at this point
-    vec3 n = calcNormal(hitPoint, rotAngle);
+    // Sample caustic pattern at chromatically offset UVs
+    // Red refracts least, blue refracts most
+    vec2 uvR = baseUV - chromaDir * CHROMA_SPREAD;
+    vec2 uvG = baseUV;
+    vec2 uvB = baseUV + chromaDir * CHROMA_SPREAD;
 
-    // Refract for each color channel at different IOR
-    vec3 refR = refract(-rd, n, 1.0 / IOR_R);
-    vec3 refG = refract(-rd, n, 1.0 / IOR_G);
-    vec3 refB = refract(-rd, n, 1.0 / IOR_B);
+    // Primary layer
+    float cR = causticLayer(uvR, CAUSTIC_SCALE_A, t);
+    float cG = causticLayer(uvG, CAUSTIC_SCALE_A, t);
+    float cB = causticLayer(uvB, CAUSTIC_SCALE_A, t);
 
-    // Total internal reflection check — refract returns vec3(0) on TIR
-    float validR = step(0.001, length(refR));
-    float validG = step(0.001, length(refG));
-    float validB = step(0.001, length(refB));
+    // Secondary layer at different scale for depth
+    float cR2 = causticLayer(uvR, CAUSTIC_SCALE_B, t + 5.0);
+    float cG2 = causticLayer(uvG, CAUSTIC_SCALE_B, t + 5.0);
+    float cB2 = causticLayer(uvB, CAUSTIC_SCALE_B, t + 5.0);
 
-    // Measure angular convergence — how much the refracted rays
-    // converge toward this ground point. Use dot product between
-    // refracted direction and the vector from hit to ground.
-    vec3 toGround = normalize(groundPos - hitPoint);
+    vec3 c1 = vec3(cR, cG, cB);
+    vec3 c2 = vec3(cR2, cG2, cB2);
+    vec3 caustic = c1 + c2 * CAUSTIC_MIX_B;
 
-    float convergenceR = pow(max(dot(refR, toGround), 0.0), CAUSTIC_FOCUS) * validR;
-    float convergenceG = pow(max(dot(refG, toGround), 0.0), CAUSTIC_FOCUS) * validG;
-    float convergenceB = pow(max(dot(refB, toGround), 0.0), CAUSTIC_FOCUS) * validB;
+    // Brighten toward center, fade at edges
+    float centerBright = smoothstep(CAUSTIC_FOOTPRINT, 0.0, dist * 0.8);
 
-    // Distance falloff from crystal center
-    float distFade = 1.0 - smoothstep(0.0, CAUSTIC_RADIUS, sqrt(dist2));
-
-    return vec3(convergenceR, convergenceG, convergenceB) * CAUSTIC_BRIGHT * distFade;
+    return caustic * footprint * centerBright * CAUSTIC_BRIGHT;
 }
 
 // -------------------------------------------------------
-// Ambient shimmer — causticWarp from commons
-// Adds subtle animated caustic texture to the ground,
-// tying this shader visually to the other caustic studies.
+// Ambient shimmer — very subtle background caustic wash
 // -------------------------------------------------------
 float ambientShimmer(vec2 uv, float t)
 {
     float time = t * SHIMMER_SPEED + SHIMMER_OFFSET;
-    float c = causticWarp(uv, SHIMMER_SCALE, time, SHIMMER_ITERS, SHIMMER_INTEN);
-    c = SHIMMER_BASE - pow(max(c, 0.0), SHIMMER_POWER);
-    return pow(abs(c), SHIMMER_BRIGHT) * SHIMMER_STR;
+    float c = causticWarp(uv, SHIMMER_SCALE, time, 3, CAUSTIC_INTEN);
+    c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
+    return pow(abs(c), CAUSTIC_SHARP) * SHIMMER_STR;
 }
 
 // -------------------------------------------------------
-// Camera
+// Soft shadow — approximate crystal shadow on ground
+// March from ground point toward light, check if crystal blocks
 // -------------------------------------------------------
-mat3 lookAt(vec3 ro, vec3 ta)
+float softShadow(vec3 p, float rotAngle)
 {
-    vec3 fwd = normalize(ta - ro);
-    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
-    vec3 up = cross(right, fwd);
-    return mat3(right, up, fwd);
+    vec3 rd = LIGHT_DIR;
+    float shade = 1.0;
+    float t = STEP_BIAS;
+    for (int i = 0; i < 32; i++)
+    {
+        float d = crystalWorld(p + rd * t, rotAngle);
+        if (d < SURF_EPSILON) return 0.15;
+        shade = min(shade, 8.0 * d / t);
+        t += clamp(d, 0.01, 0.2);
+        if (t > 3.0) break;
+    }
+    return clamp(shade, 0.15, 1.0);
 }
 
 // -------------------------------------------------------
@@ -295,33 +283,20 @@ mat3 lookAt(vec3 ro, vec3 ta)
 // -------------------------------------------------------
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
-    vec2 uv = (fragCoord * 2.0 - iResolution.xy) / min(iResolution.x, iResolution.y);
     float t = iTime;
 
-    // Camera angles from buffer-a (pixel 0,0) — has inertia/friction
-    vec4 camState = texelFetch(iChannel0, ivec2(0, 0), 0);
-    float yaw   = camState.x;
-    float pitch = camState.y;
-
-    // Spherical camera: pitch tilts elevation around the base height
-    float baseElev = atan(CAM_HEIGHT, CAM_DIST);
-    float elev     = baseElev + pitch;
-    float camR     = length(vec2(CAM_DIST, CAM_HEIGHT));
-
-    vec3 ro = vec3(
-        cos(elev) * cos(yaw) * camR,
-        sin(elev) * camR,
-        cos(elev) * sin(yaw) * camR
+    // Orbit camera from buffer-a state
+    OrbitCameraRay cam = orbitCameraRay(
+        iChannel0, fragCoord, iResolution.xy,
+        CAM_DIST, CAM_HEIGHT, CAM_TARGET, CAM_FOV
     );
-    mat3 cam = lookAt(ro, CAM_TARGET);
-    vec3 rd = cam * normalize(vec3(uv, CAM_FOV));
+    vec3 ro = cam.ro;
+    vec3 rd = cam.rd;
 
-    // Crystal auto-rotation
     float rotAngle = t * ROTATE_SPEED;
 
     vec3 col = SKY_COL;
 
-    // Ray march the scene
     float hitT = march(ro, rd, rotAngle);
 
     if (hitT > 0.0)
@@ -333,109 +308,76 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
         if (matID == 1)
         {
-            // === CRYSTAL MATERIAL ===
+            // === CRYSTAL (clear quartz) ===
+            // TECHNIQUE: Refract-through via analytical ground intersection
+            // Instead of unreliable interior SDF marching, refract the view
+            // ray at entry and intersect the ground plane analytically.
+            // This always works regardless of crystal shape or view angle.
 
-            // Fresnel blend
             float fres = fresnelSchlick(rd, n);
 
-            // Reflection
+            // --- Reflection ---
             vec3 reflDir = reflect(rd, n);
-            vec3 reflCol = SKY_COL + REFL_SKY_TINT * max(reflDir.y, 0.0);
+            vec3 reflCol = SKY_COL + LIGHT_COL * max(reflDir.y, 0.0) * 0.2;
 
-            // Specular highlight from directional light
+            // Specular highlight — bright point light on facets
             vec3 halfVec = normalize(LIGHT_DIR - rd);
             float spec = pow(max(dot(n, halfVec), 0.0), SPEC_POWER);
-            reflCol += vec3(1.0) * spec * SPEC_BRIGHT;
+            reflCol += LIGHT_COL * spec * SPEC_BRIGHT;
 
-            // Refraction: single bounce through crystal body
+            // --- Refraction (see-through) ---
+            // TECHNIQUE: Project-down with refraction offset
+            // Project the crystal hit point straight down to the ground plane,
+            // then offset by the refraction displacement. This always works
+            // regardless of camera angle — top, front, side, any pitch.
             vec3 refrDir = refract(rd, n, 1.0 / IOR_BASE);
-            vec3 refrCol = SKY_COL;
+            if (length(refrDir) < 0.001) refrDir = rd; // TIR fallback
 
-            if (length(refrDir) > 0.001)
-            {
-                // March through the crystal interior — step inside slightly
-                vec3 innerRo = hitPos - n * SURF_EPSILON * STEP_OFFSET;
-                float innerT = march(innerRo, refrDir, rotAngle);
+            // Project hit point down to ground, offset by refraction
+            vec2 groundUV = hitPos.xz + (refrDir.xz - rd.xz) * (hitPos.y - GROUND_Y);
+            vec3 groundHit = vec3(groundUV.x, GROUND_Y, groundUV.y);
 
-                if (innerT > 0.0)
-                {
-                    // Apply absorption based on path length through crystal
-                    vec3 absorption = exp(-ABSORB_DENSITY * innerT * (1.0 - ABSORB_TINT));
-                    vec3 exitPos = innerRo + refrDir * innerT;
-                    vec3 exitN = -calcNormal(exitPos, rotAngle);
+            float diff = max(dot(vec3(0.0, 1.0, 0.0), LIGHT_DIR), 0.0);
+            vec3 refrCol = GROUND_COL * (AMBIENT + diff * 0.5);
+            refrCol += prismaticCaustic(groundHit, rotAngle, t);
+            refrCol += ambientShimmer(groundHit.xz, t) * 0.3;
 
-                    // Second refraction at exit surface
-                    vec3 exitDir = refract(refrDir, exitN, IOR_BASE);
-                    if (length(exitDir) > 0.001)
-                    {
-                        // March from exit to see what's behind
-                        vec3 exitRo = exitPos + exitN * SURF_EPSILON * STEP_OFFSET;
-                        float behindT = march(exitRo, exitDir, rotAngle);
+            // Subtle tint based on view angle (thicker path = more tint)
+            float NdotV = abs(dot(n, -rd));
+            vec3 absorption = mix(ABSORB_TINT, vec3(1.0), NdotV);
+            refrCol *= absorption;
 
-                        if (behindT > 0.0)
-                        {
-                            vec3 behindPos = exitRo + exitDir * behindT;
-                            int behindMat;
-                            mapID(behindPos, rotAngle, behindMat);
-
-                            if (behindMat == 0)
-                            {
-                                // Seeing the ground through the crystal
-                                float diff = max(dot(vec3(0.0, 1.0, 0.0), LIGHT_DIR), 0.0);
-                                refrCol = GROUND_COL * (AMBIENT + DIFFUSE_STR * diff);
-
-                                // Add prismatic caustics visible through crystal
-                                refrCol += crystalCaustic(behindPos, rotAngle);
-
-                                // Add shimmer
-                                refrCol += ambientShimmer(behindPos.xz, t) * SHIMMER_TINT;
-                            }
-                        }
-                        else
-                        {
-                            // Exit ray hits sky
-                            refrCol = SKY_COL + EXIT_SKY_TINT * max(exitDir.y, 0.0);
-                        }
-                    }
-                    else
-                    {
-                        // Total internal reflection at exit — bright internal flash
-                        refrCol = ABSORB_TINT * TIR_FLASH;
-                    }
-
-                    refrCol *= absorption;
-                }
-            }
-
-            // Fresnel blend reflection + refraction
             col = mix(refrCol, reflCol, fres);
 
-            // Diffuse wrap for subtle body lighting
-            float diff = max(dot(n, LIGHT_DIR), 0.0);
-            col += ABSORB_TINT * diff * DIFFUSE_WRAP;
+            // Rim light — subtle white edge glow on silhouette
+            float rim = 1.0 - NdotV;
+            col += LIGHT_COL * pow(max(rim, 0.0), 3.0) * 0.1;
+
+            // Facet edge highlight — makes edges sparkle
+            float edgeCatch = pow(max(dot(n, LIGHT_DIR), 0.0), 2.0);
+            col += LIGHT_COL * edgeCatch * 0.15;
         }
         else
         {
-            // === GROUND PLANE ===
+            // === GROUND ===
             float diff = max(dot(n, LIGHT_DIR), 0.0);
-            col = GROUND_COL * (AMBIENT + DIFFUSE_STR * diff);
+            float shadow = softShadow(hitPos, rotAngle);
+            col = GROUND_COL * (AMBIENT + diff * 0.4 * shadow);
 
-            // Specular highlight on ground
+            // Specular
             vec3 halfVec = normalize(LIGHT_DIR - rd);
             float spec = pow(max(dot(n, halfVec), 0.0), GROUND_SPEC);
-            col += GROUND_SPEC_COL * spec;
+            col += GROUND_SPEC_COL * spec * shadow;
 
-            // Prismatic caustics from crystal refraction
-            vec3 caustic = crystalCaustic(hitPos, rotAngle);
-            col += caustic;
+            // Prismatic caustics
+            col += prismaticCaustic(hitPos, rotAngle, t);
 
-            // Ambient shimmer from causticWarp commons
-            float shimmer = ambientShimmer(hitPos.xz, t);
-            col += shimmer * SHIMMER_TINT;
+            // Very subtle ambient shimmer
+            col += ambientShimmer(hitPos.xz, t) * 0.5;
         }
     }
 
-    // Gamma correction — final step, linear → sRGB
+    // Gamma correction
     col = pow(max(col, 0.0), vec3(0.45));
 
     fragColor = vec4(col, 1.0);
