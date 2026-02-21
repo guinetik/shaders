@@ -1,29 +1,29 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-BI5Y-hX4.js","assets/ShaderDetailView-CFnL-AET.css"])))=>i.map(i=>d[i]);
-(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function t(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(o){if(o.ep)return;o.ep=!0;const a=t(o);fetch(o.href,a)}})();/**
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ShaderDetailView-Cp1iKztE.js","assets/ShaderDetailView-CFnL-AET.css"])))=>i.map(i=>d[i]);
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))r(a);new MutationObserver(a=>{for(const o of a)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function t(a){const o={};return a.integrity&&(o.integrity=a.integrity),a.referrerPolicy&&(o.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?o.credentials="include":a.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(a){if(a.ep)return;a.ep=!0;const o=t(a);fetch(a.href,o)}})();/**
 * @vue/shared v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function Br(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const se={},Vn=[],rn=()=>{},xa=()=>!1,qt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Fr=e=>e.startsWith("onUpdate:"),me=Object.assign,Ur=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},ts=Object.prototype.hasOwnProperty,ne=(e,n)=>ts.call(e,n),z=Array.isArray,qn=e=>St(e)==="[object Map]",Ea=e=>St(e)==="[object Set]",po=e=>St(e)==="[object Date]",W=e=>typeof e=="function",pe=e=>typeof e=="string",on=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",Sa=e=>(te(e)||W(e))&&W(e.then)&&W(e.catch),_a=Object.prototype.toString,St=e=>_a.call(e),rs=e=>St(e).slice(8,-1),wa=e=>St(e)==="[object Object]",zr=e=>pe(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,at=Br(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),Wt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},os=/-\w/g,ze=Wt(e=>e.replace(os,n=>n.slice(1).toUpperCase())),as=/\B([A-Z])/g,kn=Wt(e=>e.replace(as,"-$1").toLowerCase()),Kt=Wt(e=>e.charAt(0).toUpperCase()+e.slice(1)),tr=Wt(e=>e?`on${Kt(e)}`:""),Cn=(e,n)=>!Object.is(e,n),rr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Ta=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},is=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ss=e=>{const n=pe(e)?Number(e):NaN;return isNaN(n)?e:n};let uo;const Yt=()=>uo||(uo=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function Gr(e){if(z(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],o=pe(r)?ds(r):Gr(r);if(o)for(const a in o)n[a]=o[a]}return n}else if(pe(e)||te(e))return e}const ls=/;(?![^(]*\))/g,cs=/:([^]+)/,fs=/\/\*[^]*?\*\//g;function ds(e){const n={};return e.replace(fs,"").split(ls).forEach(t=>{if(t){const r=t.split(cs);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Mn(e){let n="";if(pe(e))n=e;else if(z(e))for(let t=0;t<e.length;t++){const r=Mn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ps="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",us=Br(ps);function Ca(e){return!!e||e===""}function ms(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Vr(e[r],n[r]);return t}function Vr(e,n){if(e===n)return!0;let t=po(e),r=po(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=on(e),r=on(n),t||r)return e===n;if(t=z(e),r=z(n),t||r)return t&&r?ms(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const o=Object.keys(e).length,a=Object.keys(n).length;if(o!==a)return!1;for(const i in e){const s=e.hasOwnProperty(i),l=n.hasOwnProperty(i);if(s&&!l||!s&&l||!Vr(e[i],n[i]))return!1}}return String(e)===String(n)}const Aa=e=>!!(e&&e.__v_isRef===!0),it=e=>pe(e)?e:e==null?"":z(e)||te(e)&&(e.toString===_a||!W(e.toString))?Aa(e)?it(e.value):JSON.stringify(e,Ra,2):String(e),Ra=(e,n)=>Aa(n)?Ra(e,n.value):qn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,o],a)=>(t[or(r,a)+" =>"]=o,t),{})}:Ea(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>or(t))}:on(n)?or(n):te(n)&&!z(n)&&!wa(n)?String(n):n,or=(e,n="")=>{var t;return on(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
+**/function Ur(e){const n=Object.create(null);for(const t of e.split(","))n[t]=1;return t=>t in n}const se={},Vn=[],rn=()=>{},xo=()=>!1,qt=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&(e.charCodeAt(2)>122||e.charCodeAt(2)<97),Br=e=>e.startsWith("onUpdate:"),me=Object.assign,Fr=(e,n)=>{const t=e.indexOf(n);t>-1&&e.splice(t,1)},ts=Object.prototype.hasOwnProperty,ne=(e,n)=>ts.call(e,n),z=Array.isArray,qn=e=>Et(e)==="[object Map]",So=e=>Et(e)==="[object Set]",da=e=>Et(e)==="[object Date]",W=e=>typeof e=="function",pe=e=>typeof e=="string",an=e=>typeof e=="symbol",te=e=>e!==null&&typeof e=="object",Eo=e=>(te(e)||W(e))&&W(e.then)&&W(e.catch),_o=Object.prototype.toString,Et=e=>_o.call(e),rs=e=>Et(e).slice(8,-1),wo=e=>Et(e)==="[object Object]",zr=e=>pe(e)&&e!=="NaN"&&e[0]!=="-"&&""+parseInt(e,10)===e,ot=Ur(",key,ref,ref_for,ref_key,onVnodeBeforeMount,onVnodeMounted,onVnodeBeforeUpdate,onVnodeUpdated,onVnodeBeforeUnmount,onVnodeUnmounted"),Wt=e=>{const n=Object.create(null);return(t=>n[t]||(n[t]=e(t)))},as=/-\w/g,ze=Wt(e=>e.replace(as,n=>n.slice(1).toUpperCase())),os=/\B([A-Z])/g,Hn=Wt(e=>e.replace(os,"-$1").toLowerCase()),Yt=Wt(e=>e.charAt(0).toUpperCase()+e.slice(1)),tr=Wt(e=>e?`on${Yt(e)}`:""),Tn=(e,n)=>!Object.is(e,n),rr=(e,...n)=>{for(let t=0;t<e.length;t++)e[t](...n)},Co=(e,n,t,r=!1)=>{Object.defineProperty(e,n,{configurable:!0,enumerable:!1,writable:r,value:t})},is=e=>{const n=parseFloat(e);return isNaN(n)?e:n},ss=e=>{const n=pe(e)?Number(e):NaN;return isNaN(n)?e:n};let pa;const Kt=()=>pa||(pa=typeof globalThis<"u"?globalThis:typeof self<"u"?self:typeof window<"u"?window:typeof global<"u"?global:{});function Gr(e){if(z(e)){const n={};for(let t=0;t<e.length;t++){const r=e[t],a=pe(r)?ds(r):Gr(r);if(a)for(const o in a)n[o]=a[o]}return n}else if(pe(e)||te(e))return e}const ls=/;(?![^(]*\))/g,cs=/:([^]+)/,fs=/\/\*[^]*?\*\//g;function ds(e){const n={};return e.replace(fs,"").split(ls).forEach(t=>{if(t){const r=t.split(cs);r.length>1&&(n[r[0].trim()]=r[1].trim())}}),n}function Mn(e){let n="";if(pe(e))n=e;else if(z(e))for(let t=0;t<e.length;t++){const r=Mn(e[t]);r&&(n+=r+" ")}else if(te(e))for(const t in e)e[t]&&(n+=t+" ");return n.trim()}const ps="itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly",us=Ur(ps);function To(e){return!!e||e===""}function ms(e,n){if(e.length!==n.length)return!1;let t=!0;for(let r=0;t&&r<e.length;r++)t=Vr(e[r],n[r]);return t}function Vr(e,n){if(e===n)return!0;let t=da(e),r=da(n);if(t||r)return t&&r?e.getTime()===n.getTime():!1;if(t=an(e),r=an(n),t||r)return e===n;if(t=z(e),r=z(n),t||r)return t&&r?ms(e,n):!1;if(t=te(e),r=te(n),t||r){if(!t||!r)return!1;const a=Object.keys(e).length,o=Object.keys(n).length;if(a!==o)return!1;for(const i in e){const s=e.hasOwnProperty(i),l=n.hasOwnProperty(i);if(s&&!l||!s&&l||!Vr(e[i],n[i]))return!1}}return String(e)===String(n)}const Ao=e=>!!(e&&e.__v_isRef===!0),it=e=>pe(e)?e:e==null?"":z(e)||te(e)&&(e.toString===_o||!W(e.toString))?Ao(e)?it(e.value):JSON.stringify(e,Ro,2):String(e),Ro=(e,n)=>Ao(n)?Ro(e,n.value):qn(n)?{[`Map(${n.size})`]:[...n.entries()].reduce((t,[r,a],o)=>(t[ar(r,o)+" =>"]=a,t),{})}:So(n)?{[`Set(${n.size})`]:[...n.values()].map(t=>ar(t))}:an(n)?ar(n):te(n)&&!z(n)&&!wo(n)?String(n):n,ar=(e,n="")=>{var t;return an(e)?`Symbol(${(t=e.description)!=null?t:n})`:e};/**
 * @vue/reactivity v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let Pe;class hs{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=Pe,!n&&Pe&&(this.index=(Pe.scopes||(Pe.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=Pe;try{return Pe=this,n()}finally{Pe=t}}}on(){++this._on===1&&(this.prevScope=Pe,Pe=this)}off(){this._on>0&&--this._on===0&&(Pe=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const o=this.parent.scopes.pop();o&&o!==this&&(this.parent.scopes[this.index]=o,o.index=this.index)}this.parent=void 0}}}function vs(){return Pe}let ie;const ar=new WeakSet;class Ia{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,Pe&&Pe.active&&Pe.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,ar.has(this)&&(ar.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Da(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,mo(this),Pa(this);const n=ie,t=qe;ie=this,qe=!0;try{return this.fn()}finally{La(this),ie=n,qe=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Kr(n);this.deps=this.depsTail=void 0,mo(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?ar.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){br(this)&&this.run()}get dirty(){return br(this)}}let Na=0,st,lt;function Da(e,n=!1){if(e.flags|=8,n){e.next=lt,lt=e;return}e.next=st,st=e}function qr(){Na++}function Wr(){if(--Na>0)return;if(lt){let n=lt;for(lt=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;st;){let n=st;for(st=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Pa(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function La(e){let n,t=e.depsTail,r=t;for(;r;){const o=r.prevDep;r.version===-1?(r===t&&(t=o),Kr(r),gs(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=o}e.deps=n,e.depsTail=t}function br(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(Oa(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function Oa(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===ht)||(e.globalVersion=ht,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!br(e))))return;e.flags|=2;const n=e.dep,t=ie,r=qe;ie=e,qe=!0;try{Pa(e);const o=e.fn(e._value);(n.version===0||Cn(o,e._value))&&(e.flags|=128,e._value=o,n.version++)}catch(o){throw n.version++,o}finally{ie=t,qe=r,La(e),e.flags&=-3}}function Kr(e,n=!1){const{dep:t,prevSub:r,nextSub:o}=e;if(r&&(r.nextSub=o,e.prevSub=void 0),o&&(o.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let a=t.computed.deps;a;a=a.nextDep)Kr(a,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function gs(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let qe=!0;const Ma=[];function un(){Ma.push(qe),qe=!1}function mn(){const e=Ma.pop();qe=e===void 0?!0:e}function mo(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ie;ie=void 0;try{n()}finally{ie=t}}}let ht=0;class ys{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Yr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ie||!qe||ie===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ie)t=this.activeLink=new ys(ie,this),ie.deps?(t.prevDep=ie.depsTail,ie.depsTail.nextDep=t,ie.depsTail=t):ie.deps=ie.depsTail=t,Ha(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ie.depsTail,t.nextDep=void 0,ie.depsTail.nextDep=t,ie.depsTail=t,ie.deps===t&&(ie.deps=r)}return t}trigger(n){this.version++,ht++,this.notify(n)}notify(n){qr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{Wr()}}}function Ha(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)Ha(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const xr=new WeakMap,Ln=Symbol(""),Er=Symbol(""),vt=Symbol("");function ye(e,n,t){if(qe&&ie){let r=xr.get(e);r||xr.set(e,r=new Map);let o=r.get(t);o||(r.set(t,o=new Yr),o.map=r,o.key=t),o.track()}}function pn(e,n,t,r,o,a){const i=xr.get(e);if(!i){ht++;return}const s=l=>{l&&l.trigger()};if(qr(),n==="clear")i.forEach(s);else{const l=z(e),f=l&&zr(t);if(l&&t==="length"){const c=Number(r);i.forEach((d,m)=>{(m==="length"||m===vt||!on(m)&&m>=c)&&s(d)})}else switch((t!==void 0||i.has(void 0))&&s(i.get(t)),f&&s(i.get(vt)),n){case"add":l?f&&s(i.get("length")):(s(i.get(Ln)),qn(e)&&s(i.get(Er)));break;case"delete":l||(s(i.get(Ln)),qn(e)&&s(i.get(Er)));break;case"set":qn(e)&&s(i.get(Ln));break}}Wr()}function Fn(e){const n=Z(e);return n===e?n:(ye(n,"iterate",vt),Be(e)?n:n.map(We))}function Xt(e){return ye(e=Z(e),"iterate",vt),e}function Sn(e,n){return hn(e)?Yn(On(e)?We(n):n):We(n)}const bs={__proto__:null,[Symbol.iterator](){return ir(this,Symbol.iterator,e=>Sn(this,e))},concat(...e){return Fn(this).concat(...e.map(n=>z(n)?Fn(n):n))},entries(){return ir(this,"entries",e=>(e[1]=Sn(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>Sn(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>Sn(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>Sn(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return sr(this,"includes",e)},indexOf(...e){return sr(this,"indexOf",e)},join(e){return Fn(this).join(e)},lastIndexOf(...e){return sr(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return Jn(this,"pop")},push(...e){return Jn(this,"push",e)},reduce(e,...n){return ho(this,"reduce",e,n)},reduceRight(e,...n){return ho(this,"reduceRight",e,n)},shift(){return Jn(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return Jn(this,"splice",e)},toReversed(){return Fn(this).toReversed()},toSorted(e){return Fn(this).toSorted(e)},toSpliced(...e){return Fn(this).toSpliced(...e)},unshift(...e){return Jn(this,"unshift",e)},values(){return ir(this,"values",e=>Sn(this,e))}};function ir(e,n,t){const r=Xt(e),o=r[n]();return r!==e&&!Be(e)&&(o._next=o.next,o.next=()=>{const a=o._next();return a.done||(a.value=t(a.value)),a}),o}const xs=Array.prototype;function ln(e,n,t,r,o,a){const i=Xt(e),s=i!==e&&!Be(e),l=i[n];if(l!==xs[n]){const d=l.apply(e,a);return s?We(d):d}let f=t;i!==e&&(s?f=function(d,m){return t.call(this,Sn(e,d),m,e)}:t.length>2&&(f=function(d,m){return t.call(this,d,m,e)}));const c=l.call(i,f,r);return s&&o?o(c):c}function ho(e,n,t,r){const o=Xt(e);let a=t;return o!==e&&(Be(e)?t.length>3&&(a=function(i,s,l){return t.call(this,i,s,l,e)}):a=function(i,s,l){return t.call(this,i,Sn(e,s),l,e)}),o[n](a,...r)}function sr(e,n,t){const r=Z(e);ye(r,"iterate",vt);const o=r[n](...t);return(o===-1||o===!1)&&Qr(t[0])?(t[0]=Z(t[0]),r[n](...t)):o}function Jn(e,n,t=[]){un(),qr();const r=Z(e)[n].apply(e,t);return Wr(),mn(),r}const Es=Br("__proto__,__v_isRef,__isVue"),ka=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(on));function Ss(e){on(e)||(e=String(e));const n=Z(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Ba{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const o=this._isReadonly,a=this._isShallow;if(t==="__v_isReactive")return!o;if(t==="__v_isReadonly")return o;if(t==="__v_isShallow")return a;if(t==="__v_raw")return r===(o?a?Ps:Ga:a?za:Ua).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const i=z(n);if(!o){let l;if(i&&(l=bs[t]))return l;if(t==="hasOwnProperty")return Ss}const s=Reflect.get(n,t,Ee(n)?n:r);if((on(t)?ka.has(t):Es(t))||(o||ye(n,"get",t),a))return s;if(Ee(s)){const l=i&&zr(t)?s:s.value;return o&&te(l)?_r(l):l}return te(s)?o?_r(s):jt(s):s}}class Fa extends Ba{constructor(n=!1){super(!1,n)}set(n,t,r,o){let a=n[t];const i=z(n)&&zr(t);if(!this._isShallow){const f=hn(a);if(!Be(r)&&!hn(r)&&(a=Z(a),r=Z(r)),!i&&Ee(a)&&!Ee(r))return f||(a.value=r),!0}const s=i?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,Ee(n)?n:o);return n===Z(o)&&(s?Cn(r,a)&&pn(n,"set",t,r):pn(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const o=Reflect.deleteProperty(n,t);return o&&r&&pn(n,"delete",t,void 0),o}has(n,t){const r=Reflect.has(n,t);return(!on(t)||!ka.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",z(n)?"length":Ln),Reflect.ownKeys(n)}}class _s extends Ba{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const ws=new Fa,Ts=new _s,Cs=new Fa(!0);const Sr=e=>e,Ct=e=>Reflect.getPrototypeOf(e);function As(e,n,t){return function(...r){const o=this.__v_raw,a=Z(o),i=qn(a),s=e==="entries"||e===Symbol.iterator&&i,l=e==="keys"&&i,f=o[e](...r),c=t?Sr:n?Yn:We;return!n&&ye(a,"iterate",l?Er:Ln),me(Object.create(f),{next(){const{value:d,done:m}=f.next();return m?{value:d,done:m}:{value:s?[c(d[0]),c(d[1])]:c(d),done:m}}})}}function At(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function Rs(e,n){const t={get(o){const a=this.__v_raw,i=Z(a),s=Z(o);e||(Cn(o,s)&&ye(i,"get",o),ye(i,"get",s));const{has:l}=Ct(i),f=n?Sr:e?Yn:We;if(l.call(i,o))return f(a.get(o));if(l.call(i,s))return f(a.get(s));a!==i&&a.get(o)},get size(){const o=this.__v_raw;return!e&&ye(Z(o),"iterate",Ln),o.size},has(o){const a=this.__v_raw,i=Z(a),s=Z(o);return e||(Cn(o,s)&&ye(i,"has",o),ye(i,"has",s)),o===s?a.has(o):a.has(o)||a.has(s)},forEach(o,a){const i=this,s=i.__v_raw,l=Z(s),f=n?Sr:e?Yn:We;return!e&&ye(l,"iterate",Ln),s.forEach((c,d)=>o.call(a,f(c),f(d),i))}};return me(t,e?{add:At("add"),set:At("set"),delete:At("delete"),clear:At("clear")}:{add(o){!n&&!Be(o)&&!hn(o)&&(o=Z(o));const a=Z(this);return Ct(a).has.call(a,o)||(a.add(o),pn(a,"add",o,o)),this},set(o,a){!n&&!Be(a)&&!hn(a)&&(a=Z(a));const i=Z(this),{has:s,get:l}=Ct(i);let f=s.call(i,o);f||(o=Z(o),f=s.call(i,o));const c=l.call(i,o);return i.set(o,a),f?Cn(a,c)&&pn(i,"set",o,a):pn(i,"add",o,a),this},delete(o){const a=Z(this),{has:i,get:s}=Ct(a);let l=i.call(a,o);l||(o=Z(o),l=i.call(a,o)),s&&s.call(a,o);const f=a.delete(o);return l&&pn(a,"delete",o,void 0),f},clear(){const o=Z(this),a=o.size!==0,i=o.clear();return a&&pn(o,"clear",void 0,void 0),i}}),["keys","values","entries",Symbol.iterator].forEach(o=>{t[o]=As(o,e,n)}),t}function Xr(e,n){const t=Rs(e,n);return(r,o,a)=>o==="__v_isReactive"?!e:o==="__v_isReadonly"?e:o==="__v_raw"?r:Reflect.get(ne(t,o)&&o in r?t:r,o,a)}const Is={get:Xr(!1,!1)},Ns={get:Xr(!1,!0)},Ds={get:Xr(!0,!1)};const Ua=new WeakMap,za=new WeakMap,Ga=new WeakMap,Ps=new WeakMap;function Ls(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Os(e){return e.__v_skip||!Object.isExtensible(e)?0:Ls(rs(e))}function jt(e){return hn(e)?e:jr(e,!1,ws,Is,Ua)}function Va(e){return jr(e,!1,Cs,Ns,za)}function _r(e){return jr(e,!0,Ts,Ds,Ga)}function jr(e,n,t,r,o){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const a=Os(e);if(a===0)return e;const i=o.get(e);if(i)return i;const s=new Proxy(e,a===2?r:t);return o.set(e,s),s}function On(e){return hn(e)?On(e.__v_raw):!!(e&&e.__v_isReactive)}function hn(e){return!!(e&&e.__v_isReadonly)}function Be(e){return!!(e&&e.__v_isShallow)}function Qr(e){return e?!!e.__v_raw:!1}function Z(e){const n=e&&e.__v_raw;return n?Z(n):e}function Ms(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Ta(e,"__v_skip",!0),e}const We=e=>te(e)?jt(e):e,Yn=e=>te(e)?_r(e):e;function Ee(e){return e?e.__v_isRef===!0:!1}function xe(e){return qa(e,!1)}function Hs(e){return qa(e,!0)}function qa(e,n){return Ee(e)?e:new ks(e,n)}class ks{constructor(n,t){this.dep=new Yr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:Z(n),this._value=t?n:We(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||Be(n)||hn(n);n=r?n:Z(n),Cn(n,t)&&(this._rawValue=n,this._value=r?n:We(n),this.dep.trigger())}}function Le(e){return Ee(e)?e.value:e}const Bs={get:(e,n,t)=>n==="__v_raw"?e:Le(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const o=e[n];return Ee(o)&&!Ee(t)?(o.value=t,!0):Reflect.set(e,n,t,r)}};function Wa(e){return On(e)?e:new Proxy(e,Bs)}class Fs{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Yr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=ht-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ie!==this)return Da(this,!0),!0}get value(){const n=this.dep.track();return Oa(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function Us(e,n,t=!1){let r,o;return W(e)?r=e:(r=e.get,o=e.set),new Fs(r,o,t)}const Rt={},Ot=new WeakMap;let Dn;function zs(e,n=!1,t=Dn){if(t){let r=Ot.get(t);r||Ot.set(t,r=[]),r.push(e)}}function Gs(e,n,t=se){const{immediate:r,deep:o,once:a,scheduler:i,augmentJob:s,call:l}=t,f=_=>o?_:Be(_)||o===!1||o===0?Tn(_,1):Tn(_);let c,d,m,h,T=!1,w=!1;if(Ee(e)?(d=()=>e.value,T=Be(e)):On(e)?(d=()=>f(e),T=!0):z(e)?(w=!0,T=e.some(_=>On(_)||Be(_)),d=()=>e.map(_=>{if(Ee(_))return _.value;if(On(_))return f(_);if(W(_))return l?l(_,2):_()})):W(e)?n?d=l?()=>l(e,2):e:d=()=>{if(m){un();try{m()}finally{mn()}}const _=Dn;Dn=c;try{return l?l(e,3,[h]):e(h)}finally{Dn=_}}:d=rn,n&&o){const _=d,L=o===!0?1/0:o;d=()=>Tn(_(),L)}const H=vs(),O=()=>{c.stop(),H&&H.active&&Ur(H.effects,c)};if(a&&n){const _=n;n=(...L)=>{_(...L),O()}}let S=w?new Array(e.length).fill(Rt):Rt;const A=_=>{if(!(!(c.flags&1)||!c.dirty&&!_))if(n){const L=c.run();if(o||T||(w?L.some((G,V)=>Cn(G,S[V])):Cn(L,S))){m&&m();const G=Dn;Dn=c;try{const V=[L,S===Rt?void 0:w&&S[0]===Rt?[]:S,h];S=L,l?l(n,3,V):n(...V)}finally{Dn=G}}}else c.run()};return s&&s(A),c=new Ia(d),c.scheduler=i?()=>i(A,!1):A,h=_=>zs(_,!1,c),m=c.onStop=()=>{const _=Ot.get(c);if(_){if(l)l(_,4);else for(const L of _)L();Ot.delete(c)}},n?r?A(!0):S=c.run():i?i(A.bind(null,!0),!0):c.run(),O.pause=c.pause.bind(c),O.resume=c.resume.bind(c),O.stop=O,O}function Tn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,Ee(e))Tn(e.value,n,t);else if(z(e))for(let r=0;r<e.length;r++)Tn(e[r],n,t);else if(Ea(e)||qn(e))e.forEach(r=>{Tn(r,n,t)});else if(wa(e)){for(const r in e)Tn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Tn(e[r],n,t)}return e}/**
+**/let Pe;class hs{constructor(n=!1){this.detached=n,this._active=!0,this._on=0,this.effects=[],this.cleanups=[],this._isPaused=!1,this.__v_skip=!0,this.parent=Pe,!n&&Pe&&(this.index=(Pe.scopes||(Pe.scopes=[])).push(this)-1)}get active(){return this._active}pause(){if(this._active){this._isPaused=!0;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].pause();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].pause()}}resume(){if(this._active&&this._isPaused){this._isPaused=!1;let n,t;if(this.scopes)for(n=0,t=this.scopes.length;n<t;n++)this.scopes[n].resume();for(n=0,t=this.effects.length;n<t;n++)this.effects[n].resume()}}run(n){if(this._active){const t=Pe;try{return Pe=this,n()}finally{Pe=t}}}on(){++this._on===1&&(this.prevScope=Pe,Pe=this)}off(){this._on>0&&--this._on===0&&(Pe=this.prevScope,this.prevScope=void 0)}stop(n){if(this._active){this._active=!1;let t,r;for(t=0,r=this.effects.length;t<r;t++)this.effects[t].stop();for(this.effects.length=0,t=0,r=this.cleanups.length;t<r;t++)this.cleanups[t]();if(this.cleanups.length=0,this.scopes){for(t=0,r=this.scopes.length;t<r;t++)this.scopes[t].stop(!0);this.scopes.length=0}if(!this.detached&&this.parent&&!n){const a=this.parent.scopes.pop();a&&a!==this&&(this.parent.scopes[this.index]=a,a.index=this.index)}this.parent=void 0}}}function vs(){return Pe}let ie;const or=new WeakSet;class Io{constructor(n){this.fn=n,this.deps=void 0,this.depsTail=void 0,this.flags=5,this.next=void 0,this.cleanup=void 0,this.scheduler=void 0,Pe&&Pe.active&&Pe.effects.push(this)}pause(){this.flags|=64}resume(){this.flags&64&&(this.flags&=-65,or.has(this)&&(or.delete(this),this.trigger()))}notify(){this.flags&2&&!(this.flags&32)||this.flags&8||Do(this)}run(){if(!(this.flags&1))return this.fn();this.flags|=2,ua(this),Po(this);const n=ie,t=qe;ie=this,qe=!0;try{return this.fn()}finally{Lo(this),ie=n,qe=t,this.flags&=-3}}stop(){if(this.flags&1){for(let n=this.deps;n;n=n.nextDep)Yr(n);this.deps=this.depsTail=void 0,ua(this),this.onStop&&this.onStop(),this.flags&=-2}}trigger(){this.flags&64?or.add(this):this.scheduler?this.scheduler():this.runIfDirty()}runIfDirty(){br(this)&&this.run()}get dirty(){return br(this)}}let No=0,st,lt;function Do(e,n=!1){if(e.flags|=8,n){e.next=lt,lt=e;return}e.next=st,st=e}function qr(){No++}function Wr(){if(--No>0)return;if(lt){let n=lt;for(lt=void 0;n;){const t=n.next;n.next=void 0,n.flags&=-9,n=t}}let e;for(;st;){let n=st;for(st=void 0;n;){const t=n.next;if(n.next=void 0,n.flags&=-9,n.flags&1)try{n.trigger()}catch(r){e||(e=r)}n=t}}if(e)throw e}function Po(e){for(let n=e.deps;n;n=n.nextDep)n.version=-1,n.prevActiveLink=n.dep.activeLink,n.dep.activeLink=n}function Lo(e){let n,t=e.depsTail,r=t;for(;r;){const a=r.prevDep;r.version===-1?(r===t&&(t=a),Yr(r),gs(r)):n=r,r.dep.activeLink=r.prevActiveLink,r.prevActiveLink=void 0,r=a}e.deps=n,e.depsTail=t}function br(e){for(let n=e.deps;n;n=n.nextDep)if(n.dep.version!==n.version||n.dep.computed&&(Oo(n.dep.computed)||n.dep.version!==n.version))return!0;return!!e._dirty}function Oo(e){if(e.flags&4&&!(e.flags&16)||(e.flags&=-17,e.globalVersion===ht)||(e.globalVersion=ht,!e.isSSR&&e.flags&128&&(!e.deps&&!e._dirty||!br(e))))return;e.flags|=2;const n=e.dep,t=ie,r=qe;ie=e,qe=!0;try{Po(e);const a=e.fn(e._value);(n.version===0||Tn(a,e._value))&&(e.flags|=128,e._value=a,n.version++)}catch(a){throw n.version++,a}finally{ie=t,qe=r,Lo(e),e.flags&=-3}}function Yr(e,n=!1){const{dep:t,prevSub:r,nextSub:a}=e;if(r&&(r.nextSub=a,e.prevSub=void 0),a&&(a.prevSub=r,e.nextSub=void 0),t.subs===e&&(t.subs=r,!r&&t.computed)){t.computed.flags&=-5;for(let o=t.computed.deps;o;o=o.nextDep)Yr(o,!0)}!n&&!--t.sc&&t.map&&t.map.delete(t.key)}function gs(e){const{prevDep:n,nextDep:t}=e;n&&(n.nextDep=t,e.prevDep=void 0),t&&(t.prevDep=n,e.nextDep=void 0)}let qe=!0;const Mo=[];function un(){Mo.push(qe),qe=!1}function mn(){const e=Mo.pop();qe=e===void 0?!0:e}function ua(e){const{cleanup:n}=e;if(e.cleanup=void 0,n){const t=ie;ie=void 0;try{n()}finally{ie=t}}}let ht=0;class ys{constructor(n,t){this.sub=n,this.dep=t,this.version=t.version,this.nextDep=this.prevDep=this.nextSub=this.prevSub=this.prevActiveLink=void 0}}class Kr{constructor(n){this.computed=n,this.version=0,this.activeLink=void 0,this.subs=void 0,this.map=void 0,this.key=void 0,this.sc=0,this.__v_skip=!0}track(n){if(!ie||!qe||ie===this.computed)return;let t=this.activeLink;if(t===void 0||t.sub!==ie)t=this.activeLink=new ys(ie,this),ie.deps?(t.prevDep=ie.depsTail,ie.depsTail.nextDep=t,ie.depsTail=t):ie.deps=ie.depsTail=t,ko(t);else if(t.version===-1&&(t.version=this.version,t.nextDep)){const r=t.nextDep;r.prevDep=t.prevDep,t.prevDep&&(t.prevDep.nextDep=r),t.prevDep=ie.depsTail,t.nextDep=void 0,ie.depsTail.nextDep=t,ie.depsTail=t,ie.deps===t&&(ie.deps=r)}return t}trigger(n){this.version++,ht++,this.notify(n)}notify(n){qr();try{for(let t=this.subs;t;t=t.prevSub)t.sub.notify()&&t.sub.dep.notify()}finally{Wr()}}}function ko(e){if(e.dep.sc++,e.sub.flags&4){const n=e.dep.computed;if(n&&!e.dep.subs){n.flags|=20;for(let r=n.deps;r;r=r.nextDep)ko(r)}const t=e.dep.subs;t!==e&&(e.prevSub=t,t&&(t.nextSub=e)),e.dep.subs=e}}const xr=new WeakMap,Ln=Symbol(""),Sr=Symbol(""),vt=Symbol("");function ye(e,n,t){if(qe&&ie){let r=xr.get(e);r||xr.set(e,r=new Map);let a=r.get(t);a||(r.set(t,a=new Kr),a.map=r,a.key=t),a.track()}}function pn(e,n,t,r,a,o){const i=xr.get(e);if(!i){ht++;return}const s=l=>{l&&l.trigger()};if(qr(),n==="clear")i.forEach(s);else{const l=z(e),f=l&&zr(t);if(l&&t==="length"){const c=Number(r);i.forEach((d,m)=>{(m==="length"||m===vt||!an(m)&&m>=c)&&s(d)})}else switch((t!==void 0||i.has(void 0))&&s(i.get(t)),f&&s(i.get(vt)),n){case"add":l?f&&s(i.get("length")):(s(i.get(Ln)),qn(e)&&s(i.get(Sr)));break;case"delete":l||(s(i.get(Ln)),qn(e)&&s(i.get(Sr)));break;case"set":qn(e)&&s(i.get(Ln));break}}Wr()}function Bn(e){const n=Z(e);return n===e?n:(ye(n,"iterate",vt),Ue(e)?n:n.map(We))}function Xt(e){return ye(e=Z(e),"iterate",vt),e}function En(e,n){return hn(e)?Kn(On(e)?We(n):n):We(n)}const bs={__proto__:null,[Symbol.iterator](){return ir(this,Symbol.iterator,e=>En(this,e))},concat(...e){return Bn(this).concat(...e.map(n=>z(n)?Bn(n):n))},entries(){return ir(this,"entries",e=>(e[1]=En(this,e[1]),e))},every(e,n){return ln(this,"every",e,n,void 0,arguments)},filter(e,n){return ln(this,"filter",e,n,t=>t.map(r=>En(this,r)),arguments)},find(e,n){return ln(this,"find",e,n,t=>En(this,t),arguments)},findIndex(e,n){return ln(this,"findIndex",e,n,void 0,arguments)},findLast(e,n){return ln(this,"findLast",e,n,t=>En(this,t),arguments)},findLastIndex(e,n){return ln(this,"findLastIndex",e,n,void 0,arguments)},forEach(e,n){return ln(this,"forEach",e,n,void 0,arguments)},includes(...e){return sr(this,"includes",e)},indexOf(...e){return sr(this,"indexOf",e)},join(e){return Bn(this).join(e)},lastIndexOf(...e){return sr(this,"lastIndexOf",e)},map(e,n){return ln(this,"map",e,n,void 0,arguments)},pop(){return Jn(this,"pop")},push(...e){return Jn(this,"push",e)},reduce(e,...n){return ma(this,"reduce",e,n)},reduceRight(e,...n){return ma(this,"reduceRight",e,n)},shift(){return Jn(this,"shift")},some(e,n){return ln(this,"some",e,n,void 0,arguments)},splice(...e){return Jn(this,"splice",e)},toReversed(){return Bn(this).toReversed()},toSorted(e){return Bn(this).toSorted(e)},toSpliced(...e){return Bn(this).toSpliced(...e)},unshift(...e){return Jn(this,"unshift",e)},values(){return ir(this,"values",e=>En(this,e))}};function ir(e,n,t){const r=Xt(e),a=r[n]();return r!==e&&!Ue(e)&&(a._next=a.next,a.next=()=>{const o=a._next();return o.done||(o.value=t(o.value)),o}),a}const xs=Array.prototype;function ln(e,n,t,r,a,o){const i=Xt(e),s=i!==e&&!Ue(e),l=i[n];if(l!==xs[n]){const d=l.apply(e,o);return s?We(d):d}let f=t;i!==e&&(s?f=function(d,m){return t.call(this,En(e,d),m,e)}:t.length>2&&(f=function(d,m){return t.call(this,d,m,e)}));const c=l.call(i,f,r);return s&&a?a(c):c}function ma(e,n,t,r){const a=Xt(e);let o=t;return a!==e&&(Ue(e)?t.length>3&&(o=function(i,s,l){return t.call(this,i,s,l,e)}):o=function(i,s,l){return t.call(this,i,En(e,s),l,e)}),a[n](o,...r)}function sr(e,n,t){const r=Z(e);ye(r,"iterate",vt);const a=r[n](...t);return(a===-1||a===!1)&&Qr(t[0])?(t[0]=Z(t[0]),r[n](...t)):a}function Jn(e,n,t=[]){un(),qr();const r=Z(e)[n].apply(e,t);return Wr(),mn(),r}const Ss=Ur("__proto__,__v_isRef,__isVue"),Ho=new Set(Object.getOwnPropertyNames(Symbol).filter(e=>e!=="arguments"&&e!=="caller").map(e=>Symbol[e]).filter(an));function Es(e){an(e)||(e=String(e));const n=Z(this);return ye(n,"has",e),n.hasOwnProperty(e)}class Uo{constructor(n=!1,t=!1){this._isReadonly=n,this._isShallow=t}get(n,t,r){if(t==="__v_skip")return n.__v_skip;const a=this._isReadonly,o=this._isShallow;if(t==="__v_isReactive")return!a;if(t==="__v_isReadonly")return a;if(t==="__v_isShallow")return o;if(t==="__v_raw")return r===(a?o?Ps:Go:o?zo:Fo).get(n)||Object.getPrototypeOf(n)===Object.getPrototypeOf(r)?n:void 0;const i=z(n);if(!a){let l;if(i&&(l=bs[t]))return l;if(t==="hasOwnProperty")return Es}const s=Reflect.get(n,t,Se(n)?n:r);if((an(t)?Ho.has(t):Ss(t))||(a||ye(n,"get",t),o))return s;if(Se(s)){const l=i&&zr(t)?s:s.value;return a&&te(l)?_r(l):l}return te(s)?a?_r(s):jt(s):s}}class Bo extends Uo{constructor(n=!1){super(!1,n)}set(n,t,r,a){let o=n[t];const i=z(n)&&zr(t);if(!this._isShallow){const f=hn(o);if(!Ue(r)&&!hn(r)&&(o=Z(o),r=Z(r)),!i&&Se(o)&&!Se(r))return f||(o.value=r),!0}const s=i?Number(t)<n.length:ne(n,t),l=Reflect.set(n,t,r,Se(n)?n:a);return n===Z(a)&&(s?Tn(r,o)&&pn(n,"set",t,r):pn(n,"add",t,r)),l}deleteProperty(n,t){const r=ne(n,t);n[t];const a=Reflect.deleteProperty(n,t);return a&&r&&pn(n,"delete",t,void 0),a}has(n,t){const r=Reflect.has(n,t);return(!an(t)||!Ho.has(t))&&ye(n,"has",t),r}ownKeys(n){return ye(n,"iterate",z(n)?"length":Ln),Reflect.ownKeys(n)}}class _s extends Uo{constructor(n=!1){super(!0,n)}set(n,t){return!0}deleteProperty(n,t){return!0}}const ws=new Bo,Cs=new _s,Ts=new Bo(!0);const Er=e=>e,Tt=e=>Reflect.getPrototypeOf(e);function As(e,n,t){return function(...r){const a=this.__v_raw,o=Z(a),i=qn(o),s=e==="entries"||e===Symbol.iterator&&i,l=e==="keys"&&i,f=a[e](...r),c=t?Er:n?Kn:We;return!n&&ye(o,"iterate",l?Sr:Ln),me(Object.create(f),{next(){const{value:d,done:m}=f.next();return m?{value:d,done:m}:{value:s?[c(d[0]),c(d[1])]:c(d),done:m}}})}}function At(e){return function(...n){return e==="delete"?!1:e==="clear"?void 0:this}}function Rs(e,n){const t={get(a){const o=this.__v_raw,i=Z(o),s=Z(a);e||(Tn(a,s)&&ye(i,"get",a),ye(i,"get",s));const{has:l}=Tt(i),f=n?Er:e?Kn:We;if(l.call(i,a))return f(o.get(a));if(l.call(i,s))return f(o.get(s));o!==i&&o.get(a)},get size(){const a=this.__v_raw;return!e&&ye(Z(a),"iterate",Ln),a.size},has(a){const o=this.__v_raw,i=Z(o),s=Z(a);return e||(Tn(a,s)&&ye(i,"has",a),ye(i,"has",s)),a===s?o.has(a):o.has(a)||o.has(s)},forEach(a,o){const i=this,s=i.__v_raw,l=Z(s),f=n?Er:e?Kn:We;return!e&&ye(l,"iterate",Ln),s.forEach((c,d)=>a.call(o,f(c),f(d),i))}};return me(t,e?{add:At("add"),set:At("set"),delete:At("delete"),clear:At("clear")}:{add(a){!n&&!Ue(a)&&!hn(a)&&(a=Z(a));const o=Z(this);return Tt(o).has.call(o,a)||(o.add(a),pn(o,"add",a,a)),this},set(a,o){!n&&!Ue(o)&&!hn(o)&&(o=Z(o));const i=Z(this),{has:s,get:l}=Tt(i);let f=s.call(i,a);f||(a=Z(a),f=s.call(i,a));const c=l.call(i,a);return i.set(a,o),f?Tn(o,c)&&pn(i,"set",a,o):pn(i,"add",a,o),this},delete(a){const o=Z(this),{has:i,get:s}=Tt(o);let l=i.call(o,a);l||(a=Z(a),l=i.call(o,a)),s&&s.call(o,a);const f=o.delete(a);return l&&pn(o,"delete",a,void 0),f},clear(){const a=Z(this),o=a.size!==0,i=a.clear();return o&&pn(a,"clear",void 0,void 0),i}}),["keys","values","entries",Symbol.iterator].forEach(a=>{t[a]=As(a,e,n)}),t}function Xr(e,n){const t=Rs(e,n);return(r,a,o)=>a==="__v_isReactive"?!e:a==="__v_isReadonly"?e:a==="__v_raw"?r:Reflect.get(ne(t,a)&&a in r?t:r,a,o)}const Is={get:Xr(!1,!1)},Ns={get:Xr(!1,!0)},Ds={get:Xr(!0,!1)};const Fo=new WeakMap,zo=new WeakMap,Go=new WeakMap,Ps=new WeakMap;function Ls(e){switch(e){case"Object":case"Array":return 1;case"Map":case"Set":case"WeakMap":case"WeakSet":return 2;default:return 0}}function Os(e){return e.__v_skip||!Object.isExtensible(e)?0:Ls(rs(e))}function jt(e){return hn(e)?e:jr(e,!1,ws,Is,Fo)}function Vo(e){return jr(e,!1,Ts,Ns,zo)}function _r(e){return jr(e,!0,Cs,Ds,Go)}function jr(e,n,t,r,a){if(!te(e)||e.__v_raw&&!(n&&e.__v_isReactive))return e;const o=Os(e);if(o===0)return e;const i=a.get(e);if(i)return i;const s=new Proxy(e,o===2?r:t);return a.set(e,s),s}function On(e){return hn(e)?On(e.__v_raw):!!(e&&e.__v_isReactive)}function hn(e){return!!(e&&e.__v_isReadonly)}function Ue(e){return!!(e&&e.__v_isShallow)}function Qr(e){return e?!!e.__v_raw:!1}function Z(e){const n=e&&e.__v_raw;return n?Z(n):e}function Ms(e){return!ne(e,"__v_skip")&&Object.isExtensible(e)&&Co(e,"__v_skip",!0),e}const We=e=>te(e)?jt(e):e,Kn=e=>te(e)?_r(e):e;function Se(e){return e?e.__v_isRef===!0:!1}function xe(e){return qo(e,!1)}function ks(e){return qo(e,!0)}function qo(e,n){return Se(e)?e:new Hs(e,n)}class Hs{constructor(n,t){this.dep=new Kr,this.__v_isRef=!0,this.__v_isShallow=!1,this._rawValue=t?n:Z(n),this._value=t?n:We(n),this.__v_isShallow=t}get value(){return this.dep.track(),this._value}set value(n){const t=this._rawValue,r=this.__v_isShallow||Ue(n)||hn(n);n=r?n:Z(n),Tn(n,t)&&(this._rawValue=n,this._value=r?n:We(n),this.dep.trigger())}}function Le(e){return Se(e)?e.value:e}const Us={get:(e,n,t)=>n==="__v_raw"?e:Le(Reflect.get(e,n,t)),set:(e,n,t,r)=>{const a=e[n];return Se(a)&&!Se(t)?(a.value=t,!0):Reflect.set(e,n,t,r)}};function Wo(e){return On(e)?e:new Proxy(e,Us)}class Bs{constructor(n,t,r){this.fn=n,this.setter=t,this._value=void 0,this.dep=new Kr(this),this.__v_isRef=!0,this.deps=void 0,this.depsTail=void 0,this.flags=16,this.globalVersion=ht-1,this.next=void 0,this.effect=this,this.__v_isReadonly=!t,this.isSSR=r}notify(){if(this.flags|=16,!(this.flags&8)&&ie!==this)return Do(this,!0),!0}get value(){const n=this.dep.track();return Oo(this),n&&(n.version=this.dep.version),this._value}set value(n){this.setter&&this.setter(n)}}function Fs(e,n,t=!1){let r,a;return W(e)?r=e:(r=e.get,a=e.set),new Bs(r,a,t)}const Rt={},Ot=new WeakMap;let Dn;function zs(e,n=!1,t=Dn){if(t){let r=Ot.get(t);r||Ot.set(t,r=[]),r.push(e)}}function Gs(e,n,t=se){const{immediate:r,deep:a,once:o,scheduler:i,augmentJob:s,call:l}=t,f=_=>a?_:Ue(_)||a===!1||a===0?Cn(_,1):Cn(_);let c,d,m,h,C=!1,w=!1;if(Se(e)?(d=()=>e.value,C=Ue(e)):On(e)?(d=()=>f(e),C=!0):z(e)?(w=!0,C=e.some(_=>On(_)||Ue(_)),d=()=>e.map(_=>{if(Se(_))return _.value;if(On(_))return f(_);if(W(_))return l?l(_,2):_()})):W(e)?n?d=l?()=>l(e,2):e:d=()=>{if(m){un();try{m()}finally{mn()}}const _=Dn;Dn=c;try{return l?l(e,3,[h]):e(h)}finally{Dn=_}}:d=rn,n&&a){const _=d,L=a===!0?1/0:a;d=()=>Cn(_(),L)}const k=vs(),O=()=>{c.stop(),k&&k.active&&Fr(k.effects,c)};if(o&&n){const _=n;n=(...L)=>{_(...L),O()}}let E=w?new Array(e.length).fill(Rt):Rt;const A=_=>{if(!(!(c.flags&1)||!c.dirty&&!_))if(n){const L=c.run();if(a||C||(w?L.some((G,V)=>Tn(G,E[V])):Tn(L,E))){m&&m();const G=Dn;Dn=c;try{const V=[L,E===Rt?void 0:w&&E[0]===Rt?[]:E,h];E=L,l?l(n,3,V):n(...V)}finally{Dn=G}}}else c.run()};return s&&s(A),c=new Io(d),c.scheduler=i?()=>i(A,!1):A,h=_=>zs(_,!1,c),m=c.onStop=()=>{const _=Ot.get(c);if(_){if(l)l(_,4);else for(const L of _)L();Ot.delete(c)}},n?r?A(!0):E=c.run():i?i(A.bind(null,!0),!0):c.run(),O.pause=c.pause.bind(c),O.resume=c.resume.bind(c),O.stop=O,O}function Cn(e,n=1/0,t){if(n<=0||!te(e)||e.__v_skip||(t=t||new Map,(t.get(e)||0)>=n))return e;if(t.set(e,n),n--,Se(e))Cn(e.value,n,t);else if(z(e))for(let r=0;r<e.length;r++)Cn(e[r],n,t);else if(So(e)||qn(e))e.forEach(r=>{Cn(r,n,t)});else if(wo(e)){for(const r in e)Cn(e[r],n,t);for(const r of Object.getOwnPropertySymbols(e))Object.prototype.propertyIsEnumerable.call(e,r)&&Cn(e[r],n,t)}return e}/**
 * @vue/runtime-core v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/function _t(e,n,t,r){try{return r?e(...r):e()}catch(o){Qt(o,n,t)}}function Ke(e,n,t,r){if(W(e)){const o=_t(e,n,t,r);return o&&Sa(o)&&o.catch(a=>{Qt(a,n,t)}),o}if(z(e)){const o=[];for(let a=0;a<e.length;a++)o.push(Ke(e[a],n,t,r));return o}}function Qt(e,n,t,r=!0){const o=n?n.vnode:null,{errorHandler:a,throwUnhandledErrorInProduction:i}=n&&n.appContext.config||se;if(n){let s=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;s;){const c=s.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}s=s.parent}if(a){un(),_t(a,null,10,[e,l,f]),mn();return}}Vs(e,t,o,r,i)}function Vs(e,n,t,r=!0,o=!1){if(o)throw e;console.error(e)}const Ce=[];let nn=-1;const Wn=[];let _n=null,Un=0;const Ka=Promise.resolve();let Mt=null;function Ya(e){const n=Mt||Ka;return e?n.then(this?e.bind(this):e):n}function qs(e){let n=nn+1,t=Ce.length;for(;n<t;){const r=n+t>>>1,o=Ce[r],a=gt(o);a<e||a===e&&o.flags&2?n=r+1:t=r}return n}function Zr(e){if(!(e.flags&1)){const n=gt(e),t=Ce[Ce.length-1];!t||!(e.flags&2)&&n>=gt(t)?Ce.push(e):Ce.splice(qs(n),0,e),e.flags|=1,Xa()}}function Xa(){Mt||(Mt=Ka.then(Qa))}function Ws(e){z(e)?Wn.push(...e):_n&&e.id===-1?_n.splice(Un+1,0,e):e.flags&1||(Wn.push(e),e.flags|=1),Xa()}function vo(e,n,t=nn+1){for(;t<Ce.length;t++){const r=Ce[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;Ce.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function ja(e){if(Wn.length){const n=[...new Set(Wn)].sort((t,r)=>gt(t)-gt(r));if(Wn.length=0,_n){_n.push(...n);return}for(_n=n,Un=0;Un<_n.length;Un++){const t=_n[Un];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}_n=null,Un=0}}const gt=e=>e.id==null?e.flags&2?-1:1/0:e.id;function Qa(e){try{for(nn=0;nn<Ce.length;nn++){const n=Ce[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),_t(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<Ce.length;nn++){const n=Ce[nn];n&&(n.flags&=-2)}nn=-1,Ce.length=0,ja(),Mt=null,(Ce.length||Wn.length)&&Qa()}}let Ve=null,Za=null;function Ht(e){const n=Ve;return Ve=e,Za=e&&e.type.__scopeId||null,n}function $r(e,n=Ve,t){if(!n||e._n)return e;const r=(...o)=>{r._d&&Ft(-1);const a=Ht(n);let i;try{i=e(...o)}finally{Ht(a),r._d&&Ft(1)}return i};return r._n=!0,r._c=!0,r._d=!0,r}function Rn(e,n,t,r){const o=e.dirs,a=n&&n.dirs;for(let i=0;i<o.length;i++){const s=o[i];a&&(s.oldValue=a[i].value);let l=s.dir[r];l&&(un(),Ke(l,t,8,[e.el,s,e,n]),mn())}}function Nt(e,n){if(be){let t=be.provides;const r=be.parent&&be.parent.provides;r===t&&(t=be.provides=Object.create(r)),t[e]=n}}function Fe(e,n,t=!1){const r=Ii();if(r||Kn){let o=Kn?Kn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(o&&e in o)return o[e];if(arguments.length>1)return t&&W(n)?n.call(r&&r.proxy):n}}const Ks=Symbol.for("v-scx"),Ys=()=>Fe(Ks);function ct(e,n,t){return $a(e,n,t)}function $a(e,n,t=se){const{immediate:r,deep:o,flush:a,once:i}=t,s=me({},t),l=n&&r||!n&&a!=="post";let f;if(xt){if(a==="sync"){const h=Ys();f=h.__watcherHandles||(h.__watcherHandles=[])}else if(!l){const h=()=>{};return h.stop=rn,h.resume=rn,h.pause=rn,h}}const c=be;s.call=(h,T,w)=>Ke(h,c,T,w);let d=!1;a==="post"?s.scheduler=h=>{De(h,c&&c.suspense)}:a!=="sync"&&(d=!0,s.scheduler=(h,T)=>{T?h():Zr(h)}),s.augmentJob=h=>{n&&(h.flags|=4),d&&(h.flags|=2,c&&(h.id=c.uid,h.i=c))};const m=Gs(e,n,s);return xt&&(f?f.push(m):l&&m()),m}function Xs(e,n,t){const r=this.proxy,o=pe(e)?e.includes(".")?Ja(r,e):()=>r[e]:e.bind(r,r);let a;W(n)?a=n:(a=n.handler,t=n);const i=wt(this),s=$a(o,a.bind(r),t);return i(),s}function Ja(e,n){const t=n.split(".");return()=>{let r=e;for(let o=0;o<t.length&&r;o++)r=r[t[o]];return r}}const js=Symbol("_vte"),Qs=e=>e.__isTeleport,xn=Symbol("_leaveCb"),et=Symbol("_enterCb");function Zs(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Bn(()=>{e.isMounted=!0}),si(()=>{e.isUnmounting=!0}),e}const He=[Function,Array],$s={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:He,onEnter:He,onAfterEnter:He,onEnterCancelled:He,onBeforeLeave:He,onLeave:He,onAfterLeave:He,onLeaveCancelled:He,onBeforeAppear:He,onAppear:He,onAfterAppear:He,onAppearCancelled:He};function Js(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function wr(e,n,t,r,o){const{appear:a,mode:i,persisted:s=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:m,onLeave:h,onAfterLeave:T,onLeaveCancelled:w,onBeforeAppear:H,onAppear:O,onAfterAppear:S,onAppearCancelled:A}=n,_=String(e.key),L=Js(t,e),G=(k,Y)=>{k&&Ke(k,r,9,Y)},V=(k,Y)=>{const $=Y[1];G(k,Y),z(k)?k.every(I=>I.length<=1)&&$():k.length<=1&&$()},oe={mode:i,persisted:s,beforeEnter(k){let Y=l;if(!t.isMounted)if(a)Y=H||l;else return;k[xn]&&k[xn](!0);const $=L[_];$&&zn(e,$)&&$.el[xn]&&$.el[xn](),G(Y,[k])},enter(k){let Y=f,$=c,I=d;if(!t.isMounted)if(a)Y=O||f,$=S||c,I=A||d;else return;let X=!1;k[et]=ve=>{X||(X=!0,ve?G(I,[k]):G($,[k]),oe.delayedLeave&&oe.delayedLeave(),k[et]=void 0)};const le=k[et].bind(null,!1);Y?V(Y,[k,le]):le()},leave(k,Y){const $=String(e.key);if(k[et]&&k[et](!0),t.isUnmounting)return Y();G(m,[k]);let I=!1;k[xn]=le=>{I||(I=!0,Y(),le?G(w,[k]):G(T,[k]),k[xn]=void 0,L[$]===e&&delete L[$])};const X=k[xn].bind(null,!1);L[$]=e,h?V(h,[k,X]):X()},clone(k){return wr(k,n,t,r)}};return oe}function yt(e,n){e.shapeFlag&6&&e.component?(e.transition=n,yt(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function ei(e,n=!1,t){let r=[],o=0;for(let a=0;a<e.length;a++){let i=e[a];const s=t==null?i.key:String(t)+String(i.key!=null?i.key:a);i.type===Ae?(i.patchFlag&128&&o++,r=r.concat(ei(i.children,n,s))):(n||i.type!==vn)&&r.push(s!=null?Hn(i,{key:s}):i)}if(o>1)for(let a=0;a<r.length;a++)r[a].patchFlag=-2;return r}function An(e,n){return W(e)?me({name:e.name},n,{setup:e}):e}function ni(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function go(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const kt=new WeakMap;function ft(e,n,t,r,o=!1){if(z(e)){e.forEach((w,H)=>ft(w,n&&(z(n)?n[H]:n),t,r,o));return}if(dt(r)&&!o){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&ft(e,n,t,r.component.subTree);return}const a=r.shapeFlag&4?oo(r.component):r.el,i=o?null:a,{i:s,r:l}=e,f=n&&n.r,c=s.refs===se?s.refs={}:s.refs,d=s.setupState,m=Z(d),h=d===se?xa:w=>go(c,w)?!1:ne(m,w),T=(w,H)=>!(H&&go(c,H));if(f!=null&&f!==l){if(yo(n),pe(f))c[f]=null,h(f)&&(d[f]=null);else if(Ee(f)){const w=n;T(f,w.k)&&(f.value=null),w.k&&(c[w.k]=null)}}if(W(l))_t(l,s,12,[i,c]);else{const w=pe(l),H=Ee(l);if(w||H){const O=()=>{if(e.f){const S=w?h(l)?d[l]:c[l]:T()||!e.k?l.value:c[e.k];if(o)z(S)&&Ur(S,a);else if(z(S))S.includes(a)||S.push(a);else if(w)c[l]=[a],h(l)&&(d[l]=c[l]);else{const A=[a];T(l,e.k)&&(l.value=A),e.k&&(c[e.k]=A)}}else w?(c[l]=i,h(l)&&(d[l]=i)):H&&(T(l,e.k)&&(l.value=i),e.k&&(c[e.k]=i))};if(i){const S=()=>{O(),kt.delete(e)};S.id=-1,kt.set(e,S),De(S,t)}else yo(e),O()}}}function yo(e){const n=kt.get(e);n&&(n.flags|=8,kt.delete(e))}Yt().requestIdleCallback;Yt().cancelIdleCallback;const dt=e=>!!e.type.__asyncLoader,ti=e=>e.type.__isKeepAlive;function ri(e,n){ai(e,"a",n)}function oi(e,n){ai(e,"da",n)}function ai(e,n,t=be){const r=e.__wdc||(e.__wdc=()=>{let o=t;for(;o;){if(o.isDeactivated)return;o=o.parent}return e()});if(Zt(n,r,t),t){let o=t.parent;for(;o&&o.parent;)ti(o.parent.vnode)&&el(r,n,t,o),o=o.parent}}function el(e,n,t,r){const o=Zt(n,e,r,!0);Zn(()=>{Ur(r[n],o)},t)}function Zt(e,n,t=be,r=!1){if(t){const o=t[e]||(t[e]=[]),a=n.__weh||(n.__weh=(...i)=>{un();const s=wt(t),l=Ke(n,t,e,i);return s(),mn(),l});return r?o.unshift(a):o.push(a),a}}const gn=e=>(n,t=be)=>{(!xt||e==="sp")&&Zt(e,(...r)=>n(...r),t)},nl=gn("bm"),Bn=gn("m"),tl=gn("bu"),ii=gn("u"),si=gn("bum"),Zn=gn("um"),rl=gn("sp"),ol=gn("rtg"),al=gn("rtc");function il(e,n=be){Zt("ec",e,n)}const sl="components";function li(e,n){return cl(sl,e,!0,n)||e}const ll=Symbol.for("v-ndc");function cl(e,n,t=!0,r=!1){const o=Ve||be;if(o){const a=o.type;{const s=jl(a,!1);if(s&&(s===n||s===ze(n)||s===Kt(ze(n))))return a}const i=bo(o[e]||a[e],n)||bo(o.appContext[e],n);return!i&&r?a:i}}function bo(e,n){return e&&(e[n]||e[ze(n)]||e[Kt(ze(n))])}function Jr(e,n,t,r){let o;const a=t,i=z(e);if(i||pe(e)){const s=i&&On(e);let l=!1,f=!1;s&&(l=!Be(e),f=hn(e),e=Xt(e)),o=new Array(e.length);for(let c=0,d=e.length;c<d;c++)o[c]=n(l?f?Yn(We(e[c])):We(e[c]):e[c],c,void 0,a)}else if(typeof e=="number"){o=new Array(e);for(let s=0;s<e;s++)o[s]=n(s+1,s,void 0,a)}else if(te(e))if(e[Symbol.iterator])o=Array.from(e,(s,l)=>n(s,l,void 0,a));else{const s=Object.keys(e);o=new Array(s.length);for(let l=0,f=s.length;l<f;l++){const c=s[l];o[l]=n(e[c],c,l,a)}}else o=[];return o}const Tr=e=>e?Ni(e)?oo(e):Tr(e.parent):null,pt=me(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>Tr(e.parent),$root:e=>Tr(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>fi(e),$forceUpdate:e=>e.f||(e.f=()=>{Zr(e.update)}),$nextTick:e=>e.n||(e.n=Ya.bind(e.proxy)),$watch:e=>Xs.bind(e)}),lr=(e,n)=>e!==se&&!e.__isScriptSetup&&ne(e,n),fl={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:o,props:a,accessCache:i,type:s,appContext:l}=e;if(n[0]!=="$"){const m=i[n];if(m!==void 0)switch(m){case 1:return r[n];case 2:return o[n];case 4:return t[n];case 3:return a[n]}else{if(lr(r,n))return i[n]=1,r[n];if(o!==se&&ne(o,n))return i[n]=2,o[n];if(ne(a,n))return i[n]=3,a[n];if(t!==se&&ne(t,n))return i[n]=4,t[n];Cr&&(i[n]=0)}}const f=pt[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=s.__cssModules)&&(c=c[n]))return c;if(t!==se&&ne(t,n))return i[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:o,ctx:a}=e;return lr(o,n)?(o[n]=t,!0):r!==se&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(a[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:o,props:a,type:i}},s){let l;return!!(t[s]||e!==se&&s[0]!=="$"&&ne(e,s)||lr(n,s)||ne(a,s)||ne(r,s)||ne(pt,s)||ne(o.config.globalProperties,s)||(l=i.__cssModules)&&l[s])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function xo(e){return z(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Cr=!0;function dl(e){const n=fi(e),t=e.proxy,r=e.ctx;Cr=!1,n.beforeCreate&&Eo(n.beforeCreate,e,"bc");const{data:o,computed:a,methods:i,watch:s,provide:l,inject:f,created:c,beforeMount:d,mounted:m,beforeUpdate:h,updated:T,activated:w,deactivated:H,beforeDestroy:O,beforeUnmount:S,destroyed:A,unmounted:_,render:L,renderTracked:G,renderTriggered:V,errorCaptured:oe,serverPrefetch:k,expose:Y,inheritAttrs:$,components:I,directives:X,filters:le}=n;if(f&&pl(f,r,null),i)for(const J in i){const K=i[J];W(K)&&(r[J]=K.bind(t))}if(o){const J=o.call(t,t);te(J)&&(e.data=jt(J))}if(Cr=!0,a)for(const J in a){const K=a[J],Ge=W(K)?K.bind(t,t):W(K.get)?K.get.bind(t,t):rn,Xe=!W(K)&&W(K.set)?K.set.bind(t):rn,de=ke({get:Ge,set:Xe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>de.value,set:ge=>de.value=ge})}if(s)for(const J in s)ci(s[J],r,t,J);if(l){const J=W(l)?l.call(t):l;Reflect.ownKeys(J).forEach(K=>{Nt(K,J[K])})}c&&Eo(c,e,"c");function ce(J,K){z(K)?K.forEach(Ge=>J(Ge.bind(t))):K&&J(K.bind(t))}if(ce(nl,d),ce(Bn,m),ce(tl,h),ce(ii,T),ce(ri,w),ce(oi,H),ce(il,oe),ce(al,G),ce(ol,V),ce(si,S),ce(Zn,_),ce(rl,k),z(Y))if(Y.length){const J=e.exposed||(e.exposed={});Y.forEach(K=>{Object.defineProperty(J,K,{get:()=>t[K],set:Ge=>t[K]=Ge,enumerable:!0})})}else e.exposed||(e.exposed={});L&&e.render===rn&&(e.render=L),$!=null&&(e.inheritAttrs=$),I&&(e.components=I),X&&(e.directives=X),k&&ni(e)}function pl(e,n,t=rn){z(e)&&(e=Ar(e));for(const r in e){const o=e[r];let a;te(o)?"default"in o?a=Fe(o.from||r,o.default,!0):a=Fe(o.from||r):a=Fe(o),Ee(a)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>a.value,set:i=>a.value=i}):n[r]=a}}function Eo(e,n,t){Ke(z(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function ci(e,n,t,r){let o=r.includes(".")?Ja(t,r):()=>t[r];if(pe(e)){const a=n[e];W(a)&&ct(o,a)}else if(W(e))ct(o,e.bind(t));else if(te(e))if(z(e))e.forEach(a=>ci(a,n,t,r));else{const a=W(e.handler)?e.handler.bind(t):n[e.handler];W(a)&&ct(o,a,e)}}function fi(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:o,optionsCache:a,config:{optionMergeStrategies:i}}=e.appContext,s=a.get(n);let l;return s?l=s:!o.length&&!t&&!r?l=n:(l={},o.length&&o.forEach(f=>Bt(l,f,i,!0)),Bt(l,n,i)),te(n)&&a.set(n,l),l}function Bt(e,n,t,r=!1){const{mixins:o,extends:a}=n;a&&Bt(e,a,t,!0),o&&o.forEach(i=>Bt(e,i,t,!0));for(const i in n)if(!(r&&i==="expose")){const s=ul[i]||t&&t[i];e[i]=s?s(e[i],n[i]):n[i]}return e}const ul={data:So,props:_o,emits:_o,methods:rt,computed:rt,beforeCreate:_e,created:_e,beforeMount:_e,mounted:_e,beforeUpdate:_e,updated:_e,beforeDestroy:_e,beforeUnmount:_e,destroyed:_e,unmounted:_e,activated:_e,deactivated:_e,errorCaptured:_e,serverPrefetch:_e,components:rt,directives:rt,watch:hl,provide:So,inject:ml};function So(e,n){return n?e?function(){return me(W(e)?e.call(this,this):e,W(n)?n.call(this,this):n)}:n:e}function ml(e,n){return rt(Ar(e),Ar(n))}function Ar(e){if(z(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function _e(e,n){return e?[...new Set([].concat(e,n))]:n}function rt(e,n){return e?me(Object.create(null),e,n):n}function _o(e,n){return e?z(e)&&z(n)?[...new Set([...e,...n])]:me(Object.create(null),xo(e),xo(n??{})):n}function hl(e,n){if(!e)return n;if(!n)return e;const t=me(Object.create(null),e);for(const r in n)t[r]=_e(e[r],n[r]);return t}function di(){return{app:null,config:{isNativeTag:xa,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let vl=0;function gl(e,n){return function(r,o=null){W(r)||(r=me({},r)),o!=null&&!te(o)&&(o=null);const a=di(),i=new WeakSet,s=[];let l=!1;const f=a.app={_uid:vl++,_component:r,_props:o,_container:null,_context:a,_instance:null,version:Zl,get config(){return a.config},set config(c){},use(c,...d){return i.has(c)||(c&&W(c.install)?(i.add(c),c.install(f,...d)):W(c)&&(i.add(c),c(f,...d))),f},mixin(c){return a.mixins.includes(c)||a.mixins.push(c),f},component(c,d){return d?(a.components[c]=d,f):a.components[c]},directive(c,d){return d?(a.directives[c]=d,f):a.directives[c]},mount(c,d,m){if(!l){const h=f._ceVNode||ue(r,o);return h.appContext=a,m===!0?m="svg":m===!1&&(m=void 0),e(h,c,m),l=!0,f._container=c,c.__vue_app__=f,oo(h.component)}},onUnmount(c){s.push(c)},unmount(){l&&(Ke(s,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return a.provides[c]=d,f},runWithContext(c){const d=Kn;Kn=f;try{return c()}finally{Kn=d}}};return f}}let Kn=null;const yl=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${ze(n)}Modifiers`]||e[`${kn(n)}Modifiers`];function bl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||se;let o=t;const a=n.startsWith("update:"),i=a&&yl(r,n.slice(7));i&&(i.trim&&(o=t.map(c=>pe(c)?c.trim():c)),i.number&&(o=t.map(is)));let s,l=r[s=tr(n)]||r[s=tr(ze(n))];!l&&a&&(l=r[s=tr(kn(n))]),l&&Ke(l,e,6,o);const f=r[s+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[s])return;e.emitted[s]=!0,Ke(f,e,6,o)}}const xl=new WeakMap;function pi(e,n,t=!1){const r=t?xl:n.emitsCache,o=r.get(e);if(o!==void 0)return o;const a=e.emits;let i={},s=!1;if(!W(e)){const l=f=>{const c=pi(f,n,!0);c&&(s=!0,me(i,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!a&&!s?(te(e)&&r.set(e,null),null):(z(a)?a.forEach(l=>i[l]=null):me(i,a),te(e)&&r.set(e,i),i)}function $t(e,n){return!e||!qt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,kn(n))||ne(e,n))}function wo(e){const{type:n,vnode:t,proxy:r,withProxy:o,propsOptions:[a],slots:i,attrs:s,emit:l,render:f,renderCache:c,props:d,data:m,setupState:h,ctx:T,inheritAttrs:w}=e,H=Ht(e);let O,S;try{if(t.shapeFlag&4){const _=o||r,L=_;O=tn(f.call(L,_,c,d,h,m,T)),S=s}else{const _=n;O=tn(_.length>1?_(d,{attrs:s,slots:i,emit:l}):_(d,null)),S=n.props?s:El(s)}}catch(_){ut.length=0,Qt(_,e,1),O=ue(vn)}let A=O;if(S&&w!==!1){const _=Object.keys(S),{shapeFlag:L}=A;_.length&&L&7&&(a&&_.some(Fr)&&(S=Sl(S,a)),A=Hn(A,S,!1,!0))}return t.dirs&&(A=Hn(A,null,!1,!0),A.dirs=A.dirs?A.dirs.concat(t.dirs):t.dirs),t.transition&&yt(A,t.transition),O=A,Ht(H),O}const El=e=>{let n;for(const t in e)(t==="class"||t==="style"||qt(t))&&((n||(n={}))[t]=e[t]);return n},Sl=(e,n)=>{const t={};for(const r in e)(!Fr(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function _l(e,n,t){const{props:r,children:o,component:a}=e,{props:i,children:s,patchFlag:l}=n,f=a.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?To(r,i,f):!!i;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const m=c[d];if(ui(i,r,m)&&!$t(f,m))return!0}}}else return(o||s)&&(!s||!s.$stable)?!0:r===i?!1:r?i?To(r,i,f):!0:!!i;return!1}function To(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let o=0;o<r.length;o++){const a=r[o];if(ui(n,e,a)&&!$t(t,a))return!0}return!1}function ui(e,n,t){const r=e[t],o=n[t];return t==="style"&&te(r)&&te(o)?!Vr(r,o):r!==o}function wl({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const mi={},hi=()=>Object.create(mi),vi=e=>Object.getPrototypeOf(e)===mi;function Tl(e,n,t,r=!1){const o={},a=hi();e.propsDefaults=Object.create(null),gi(e,n,o,a);for(const i in e.propsOptions[0])i in o||(o[i]=void 0);t?e.props=r?o:Va(o):e.type.props?e.props=o:e.props=a,e.attrs=a}function Cl(e,n,t,r){const{props:o,attrs:a,vnode:{patchFlag:i}}=e,s=Z(o),[l]=e.propsOptions;let f=!1;if((r||i>0)&&!(i&16)){if(i&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let m=c[d];if($t(e.emitsOptions,m))continue;const h=n[m];if(l)if(ne(a,m))h!==a[m]&&(a[m]=h,f=!0);else{const T=ze(m);o[T]=Rr(l,s,T,h,e,!1)}else h!==a[m]&&(a[m]=h,f=!0)}}}else{gi(e,n,o,a)&&(f=!0);let c;for(const d in s)(!n||!ne(n,d)&&((c=kn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(o[d]=Rr(l,s,d,void 0,e,!0)):delete o[d]);if(a!==s)for(const d in a)(!n||!ne(n,d))&&(delete a[d],f=!0)}f&&pn(e.attrs,"set","")}function gi(e,n,t,r){const[o,a]=e.propsOptions;let i=!1,s;if(n)for(let l in n){if(at(l))continue;const f=n[l];let c;o&&ne(o,c=ze(l))?!a||!a.includes(c)?t[c]=f:(s||(s={}))[c]=f:$t(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,i=!0)}if(a){const l=Z(t),f=s||se;for(let c=0;c<a.length;c++){const d=a[c];t[d]=Rr(o,l,d,f[d],e,!ne(f,d))}}return i}function Rr(e,n,t,r,o,a){const i=e[t];if(i!=null){const s=ne(i,"default");if(s&&r===void 0){const l=i.default;if(i.type!==Function&&!i.skipFactory&&W(l)){const{propsDefaults:f}=o;if(t in f)r=f[t];else{const c=wt(o);r=f[t]=l.call(null,n),c()}}else r=l;o.ce&&o.ce._setProp(t,r)}i[0]&&(a&&!s?r=!1:i[1]&&(r===""||r===kn(t))&&(r=!0))}return r}const Al=new WeakMap;function yi(e,n,t=!1){const r=t?Al:n.propsCache,o=r.get(e);if(o)return o;const a=e.props,i={},s=[];let l=!1;if(!W(e)){const c=d=>{l=!0;const[m,h]=yi(d,n,!0);me(i,m),h&&s.push(...h)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!a&&!l)return te(e)&&r.set(e,Vn),Vn;if(z(a))for(let c=0;c<a.length;c++){const d=ze(a[c]);Co(d)&&(i[d]=se)}else if(a)for(const c in a){const d=ze(c);if(Co(d)){const m=a[c],h=i[d]=z(m)||W(m)?{type:m}:me({},m),T=h.type;let w=!1,H=!0;if(z(T))for(let O=0;O<T.length;++O){const S=T[O],A=W(S)&&S.name;if(A==="Boolean"){w=!0;break}else A==="String"&&(H=!1)}else w=W(T)&&T.name==="Boolean";h[0]=w,h[1]=H,(w||ne(h,"default"))&&s.push(d)}}const f=[i,s];return te(e)&&r.set(e,f),f}function Co(e){return e[0]!=="$"&&!at(e)}const eo=e=>e==="_"||e==="_ctx"||e==="$stable",no=e=>z(e)?e.map(tn):[tn(e)],Rl=(e,n,t)=>{if(n._n)return n;const r=$r((...o)=>no(n(...o)),t);return r._c=!1,r},bi=(e,n,t)=>{const r=e._ctx;for(const o in e){if(eo(o))continue;const a=e[o];if(W(a))n[o]=Rl(o,a,r);else if(a!=null){const i=no(a);n[o]=()=>i}}},xi=(e,n)=>{const t=no(n);e.slots.default=()=>t},Ei=(e,n,t)=>{for(const r in n)(t||!eo(r))&&(e[r]=n[r])},Il=(e,n,t)=>{const r=e.slots=hi();if(e.vnode.shapeFlag&32){const o=n._;o?(Ei(r,n,t),t&&Ta(r,"_",o,!0)):bi(n,r)}else n&&xi(e,n)},Nl=(e,n,t)=>{const{vnode:r,slots:o}=e;let a=!0,i=se;if(r.shapeFlag&32){const s=n._;s?t&&s===1?a=!1:Ei(o,n,t):(a=!n.$stable,bi(n,o)),i=n}else n&&(xi(e,n),i={default:1});if(a)for(const s in o)!eo(s)&&i[s]==null&&delete o[s]},De=Ml;function Dl(e){return Pl(e)}function Pl(e,n){const t=Yt();t.__VUE__=!0;const{insert:r,remove:o,patchProp:a,createElement:i,createText:s,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:m,setScopeId:h=rn,insertStaticContent:T}=e,w=(p,u,v,g=null,x=null,b=null,N=void 0,R=null,C=!!u.dynamicChildren)=>{if(p===u)return;p&&!zn(p,u)&&(g=y(p),ge(p,x,b,!0),p=null),u.patchFlag===-2&&(C=!1,u.dynamicChildren=null);const{type:E,ref:U,shapeFlag:P}=u;switch(E){case Jt:H(p,u,v,g);break;case vn:O(p,u,v,g);break;case Dt:p==null&&S(u,v,g,N);break;case Ae:I(p,u,v,g,x,b,N,R,C);break;default:P&1?L(p,u,v,g,x,b,N,R,C):P&6?X(p,u,v,g,x,b,N,R,C):(P&64||P&128)&&E.process(p,u,v,g,x,b,N,R,C,B)}U!=null&&x?ft(U,p&&p.ref,b,u||p,!u):U==null&&p&&p.ref!=null&&ft(p.ref,null,b,p,!0)},H=(p,u,v,g)=>{if(p==null)r(u.el=s(u.children),v,g);else{const x=u.el=p.el;u.children!==p.children&&f(x,u.children)}},O=(p,u,v,g)=>{p==null?r(u.el=l(u.children||""),v,g):u.el=p.el},S=(p,u,v,g)=>{[p.el,p.anchor]=T(p.children,u,v,g,p.el,p.anchor)},A=({el:p,anchor:u},v,g)=>{let x;for(;p&&p!==u;)x=m(p),r(p,v,g),p=x;r(u,v,g)},_=({el:p,anchor:u})=>{let v;for(;p&&p!==u;)v=m(p),o(p),p=v;o(u)},L=(p,u,v,g,x,b,N,R,C)=>{if(u.type==="svg"?N="svg":u.type==="math"&&(N="mathml"),p==null)G(u,v,g,x,b,N,R,C);else{const E=p.el&&p.el._isVueCE?p.el:null;try{E&&E._beginPatch(),k(p,u,x,b,N,R,C)}finally{E&&E._endPatch()}}},G=(p,u,v,g,x,b,N,R)=>{let C,E;const{props:U,shapeFlag:P,transition:F,dirs:q}=p;if(C=p.el=i(p.type,b,U&&U.is,U),P&8?c(C,p.children):P&16&&oe(p.children,C,null,g,x,cr(p,b),N,R),q&&Rn(p,null,g,"created"),V(C,p,p.scopeId,N,g),U){for(const ae in U)ae!=="value"&&!at(ae)&&a(C,ae,null,U[ae],b,g);"value"in U&&a(C,"value",null,U.value,b),(E=U.onVnodeBeforeMount)&&Je(E,g,p)}q&&Rn(p,null,g,"beforeMount");const Q=Ll(x,F);Q&&F.beforeEnter(C),r(C,u,v),((E=U&&U.onVnodeMounted)||Q||q)&&De(()=>{E&&Je(E,g,p),Q&&F.enter(C),q&&Rn(p,null,g,"mounted")},x)},V=(p,u,v,g,x)=>{if(v&&h(p,v),g)for(let b=0;b<g.length;b++)h(p,g[b]);if(x){let b=x.subTree;if(u===b||Ti(b.type)&&(b.ssContent===u||b.ssFallback===u)){const N=x.vnode;V(p,N,N.scopeId,N.slotScopeIds,x.parent)}}},oe=(p,u,v,g,x,b,N,R,C=0)=>{for(let E=C;E<p.length;E++){const U=p[E]=R?dn(p[E]):tn(p[E]);w(null,U,u,v,g,x,b,N,R)}},k=(p,u,v,g,x,b,N)=>{const R=u.el=p.el;let{patchFlag:C,dynamicChildren:E,dirs:U}=u;C|=p.patchFlag&16;const P=p.props||se,F=u.props||se;let q;if(v&&In(v,!1),(q=F.onVnodeBeforeUpdate)&&Je(q,v,u,p),U&&Rn(u,p,v,"beforeUpdate"),v&&In(v,!0),(P.innerHTML&&F.innerHTML==null||P.textContent&&F.textContent==null)&&c(R,""),E?Y(p.dynamicChildren,E,R,v,g,cr(u,x),b):N||K(p,u,R,null,v,g,cr(u,x),b,!1),C>0){if(C&16)$(R,P,F,v,x);else if(C&2&&P.class!==F.class&&a(R,"class",null,F.class,x),C&4&&a(R,"style",P.style,F.style,x),C&8){const Q=u.dynamicProps;for(let ae=0;ae<Q.length;ae++){const re=Q[ae],Ie=P[re],Ne=F[re];(Ne!==Ie||re==="value")&&a(R,re,Ie,Ne,x,v)}}C&1&&p.children!==u.children&&c(R,u.children)}else!N&&E==null&&$(R,P,F,v,x);((q=F.onVnodeUpdated)||U)&&De(()=>{q&&Je(q,v,u,p),U&&Rn(u,p,v,"updated")},g)},Y=(p,u,v,g,x,b,N)=>{for(let R=0;R<u.length;R++){const C=p[R],E=u[R],U=C.el&&(C.type===Ae||!zn(C,E)||C.shapeFlag&198)?d(C.el):v;w(C,E,U,null,g,x,b,N,!0)}},$=(p,u,v,g,x)=>{if(u!==v){if(u!==se)for(const b in u)!at(b)&&!(b in v)&&a(p,b,u[b],null,x,g);for(const b in v){if(at(b))continue;const N=v[b],R=u[b];N!==R&&b!=="value"&&a(p,b,R,N,x,g)}"value"in v&&a(p,"value",u.value,v.value,x)}},I=(p,u,v,g,x,b,N,R,C)=>{const E=u.el=p?p.el:s(""),U=u.anchor=p?p.anchor:s("");let{patchFlag:P,dynamicChildren:F,slotScopeIds:q}=u;q&&(R=R?R.concat(q):q),p==null?(r(E,v,g),r(U,v,g),oe(u.children||[],v,U,x,b,N,R,C)):P>0&&P&64&&F&&p.dynamicChildren&&p.dynamicChildren.length===F.length?(Y(p.dynamicChildren,F,v,x,b,N,R),(u.key!=null||x&&u===x.subTree)&&Si(p,u,!0)):K(p,u,v,U,x,b,N,R,C)},X=(p,u,v,g,x,b,N,R,C)=>{u.slotScopeIds=R,p==null?u.shapeFlag&512?x.ctx.activate(u,v,g,N,C):le(u,v,g,x,b,N,C):ve(p,u,C)},le=(p,u,v,g,x,b,N)=>{const R=p.component=ql(p,g,x);if(ti(p)&&(R.ctx.renderer=B),Wl(R,!1,N),R.asyncDep){if(x&&x.registerDep(R,ce,N),!p.el){const C=R.subTree=ue(vn);O(null,C,u,v),p.placeholder=C.el}}else ce(R,p,u,v,x,b,N)},ve=(p,u,v)=>{const g=u.component=p.component;if(_l(p,u,v))if(g.asyncDep&&!g.asyncResolved){J(g,u,v);return}else g.next=u,g.update();else u.el=p.el,g.vnode=u},ce=(p,u,v,g,x,b,N)=>{const R=()=>{if(p.isMounted){let{next:P,bu:F,u:q,parent:Q,vnode:ae}=p;{const Ze=_i(p);if(Ze){P&&(P.el=ae.el,J(p,P,N)),Ze.asyncDep.then(()=>{De(()=>{p.isUnmounted||E()},x)});return}}let re=P,Ie;In(p,!1),P?(P.el=ae.el,J(p,P,N)):P=ae,F&&rr(F),(Ie=P.props&&P.props.onVnodeBeforeUpdate)&&Je(Ie,Q,P,ae),In(p,!0);const Ne=wo(p),Qe=p.subTree;p.subTree=Ne,w(Qe,Ne,d(Qe.el),y(Qe),p,x,b),P.el=Ne.el,re===null&&wl(p,Ne.el),q&&De(q,x),(Ie=P.props&&P.props.onVnodeUpdated)&&De(()=>Je(Ie,Q,P,ae),x)}else{let P;const{el:F,props:q}=u,{bm:Q,m:ae,parent:re,root:Ie,type:Ne}=p,Qe=dt(u);In(p,!1),Q&&rr(Q),!Qe&&(P=q&&q.onVnodeBeforeMount)&&Je(P,re,u),In(p,!0);{Ie.ce&&Ie.ce._hasShadowRoot()&&Ie.ce._injectChildStyle(Ne);const Ze=p.subTree=wo(p);w(null,Ze,v,g,p,x,b),u.el=Ze.el}if(ae&&De(ae,x),!Qe&&(P=q&&q.onVnodeMounted)){const Ze=u;De(()=>Je(P,re,Ze),x)}(u.shapeFlag&256||re&&dt(re.vnode)&&re.vnode.shapeFlag&256)&&p.a&&De(p.a,x),p.isMounted=!0,u=v=g=null}};p.scope.on();const C=p.effect=new Ia(R);p.scope.off();const E=p.update=C.run.bind(C),U=p.job=C.runIfDirty.bind(C);U.i=p,U.id=p.uid,C.scheduler=()=>Zr(U),In(p,!0),E()},J=(p,u,v)=>{u.component=p;const g=p.vnode.props;p.vnode=u,p.next=null,Cl(p,u.props,g,v),Nl(p,u.children,v),un(),vo(p),mn()},K=(p,u,v,g,x,b,N,R,C=!1)=>{const E=p&&p.children,U=p?p.shapeFlag:0,P=u.children,{patchFlag:F,shapeFlag:q}=u;if(F>0){if(F&128){Xe(E,P,v,g,x,b,N,R,C);return}else if(F&256){Ge(E,P,v,g,x,b,N,R,C);return}}q&8?(U&16&&Se(E,x,b),P!==E&&c(v,P)):U&16?q&16?Xe(E,P,v,g,x,b,N,R,C):Se(E,x,b,!0):(U&8&&c(v,""),q&16&&oe(P,v,g,x,b,N,R,C))},Ge=(p,u,v,g,x,b,N,R,C)=>{p=p||Vn,u=u||Vn;const E=p.length,U=u.length,P=Math.min(E,U);let F;for(F=0;F<P;F++){const q=u[F]=C?dn(u[F]):tn(u[F]);w(p[F],q,v,null,x,b,N,R,C)}E>U?Se(p,x,b,!0,!1,P):oe(u,v,g,x,b,N,R,C,P)},Xe=(p,u,v,g,x,b,N,R,C)=>{let E=0;const U=u.length;let P=p.length-1,F=U-1;for(;E<=P&&E<=F;){const q=p[E],Q=u[E]=C?dn(u[E]):tn(u[E]);if(zn(q,Q))w(q,Q,v,null,x,b,N,R,C);else break;E++}for(;E<=P&&E<=F;){const q=p[P],Q=u[F]=C?dn(u[F]):tn(u[F]);if(zn(q,Q))w(q,Q,v,null,x,b,N,R,C);else break;P--,F--}if(E>P){if(E<=F){const q=F+1,Q=q<U?u[q].el:g;for(;E<=F;)w(null,u[E]=C?dn(u[E]):tn(u[E]),v,Q,x,b,N,R,C),E++}}else if(E>F)for(;E<=P;)ge(p[E],x,b,!0),E++;else{const q=E,Q=E,ae=new Map;for(E=Q;E<=F;E++){const Oe=u[E]=C?dn(u[E]):tn(u[E]);Oe.key!=null&&ae.set(Oe.key,E)}let re,Ie=0;const Ne=F-Q+1;let Qe=!1,Ze=0;const $n=new Array(Ne);for(E=0;E<Ne;E++)$n[E]=0;for(E=q;E<=P;E++){const Oe=p[E];if(Ie>=Ne){ge(Oe,x,b,!0);continue}let $e;if(Oe.key!=null)$e=ae.get(Oe.key);else for(re=Q;re<=F;re++)if($n[re-Q]===0&&zn(Oe,u[re])){$e=re;break}$e===void 0?ge(Oe,x,b,!0):($n[$e-Q]=E+1,$e>=Ze?Ze=$e:Qe=!0,w(Oe,u[$e],v,null,x,b,N,R,C),Ie++)}const lo=Qe?Ol($n):Vn;for(re=lo.length-1,E=Ne-1;E>=0;E--){const Oe=Q+E,$e=u[Oe],co=u[Oe+1],fo=Oe+1<U?co.el||wi(co):g;$n[E]===0?w(null,$e,v,fo,x,b,N,R,C):Qe&&(re<0||E!==lo[re]?de($e,v,fo,2):re--)}}},de=(p,u,v,g,x=null)=>{const{el:b,type:N,transition:R,children:C,shapeFlag:E}=p;if(E&6){de(p.component.subTree,u,v,g);return}if(E&128){p.suspense.move(u,v,g);return}if(E&64){N.move(p,u,v,B);return}if(N===Ae){r(b,u,v);for(let P=0;P<C.length;P++)de(C[P],u,v,g);r(p.anchor,u,v);return}if(N===Dt){A(p,u,v);return}if(g!==2&&E&1&&R)if(g===0)R.beforeEnter(b),r(b,u,v),De(()=>R.enter(b),x);else{const{leave:P,delayLeave:F,afterLeave:q}=R,Q=()=>{p.ctx.isUnmounted?o(b):r(b,u,v)},ae=()=>{b._isLeaving&&b[xn](!0),P(b,()=>{Q(),q&&q()})};F?F(b,Q,ae):ae()}else r(b,u,v)},ge=(p,u,v,g=!1,x=!1)=>{const{type:b,props:N,ref:R,children:C,dynamicChildren:E,shapeFlag:U,patchFlag:P,dirs:F,cacheIndex:q}=p;if(P===-2&&(x=!1),R!=null&&(un(),ft(R,null,v,p,!0),mn()),q!=null&&(u.renderCache[q]=void 0),U&256){u.ctx.deactivate(p);return}const Q=U&1&&F,ae=!dt(p);let re;if(ae&&(re=N&&N.onVnodeBeforeUnmount)&&Je(re,u,p),U&6)je(p.component,v,g);else{if(U&128){p.suspense.unmount(v,g);return}Q&&Rn(p,null,u,"beforeUnmount"),U&64?p.type.remove(p,u,v,B,g):E&&!E.hasOnce&&(b!==Ae||P>0&&P&64)?Se(E,u,v,!1,!0):(b===Ae&&P&384||!x&&U&16)&&Se(C,u,v),g&&an(p)}(ae&&(re=N&&N.onVnodeUnmounted)||Q)&&De(()=>{re&&Je(re,u,p),Q&&Rn(p,null,u,"unmounted")},v)},an=p=>{const{type:u,el:v,anchor:g,transition:x}=p;if(u===Ae){sn(v,g);return}if(u===Dt){_(p);return}const b=()=>{o(v),x&&!x.persisted&&x.afterLeave&&x.afterLeave()};if(p.shapeFlag&1&&x&&!x.persisted){const{leave:N,delayLeave:R}=x,C=()=>N(v,b);R?R(p.el,b,C):C()}else b()},sn=(p,u)=>{let v;for(;p!==u;)v=m(p),o(p),p=v;o(u)},je=(p,u,v)=>{const{bum:g,scope:x,job:b,subTree:N,um:R,m:C,a:E}=p;Ao(C),Ao(E),g&&rr(g),x.stop(),b&&(b.flags|=8,ge(N,p,u,v)),R&&De(R,u),De(()=>{p.isUnmounted=!0},u)},Se=(p,u,v,g=!1,x=!1,b=0)=>{for(let N=b;N<p.length;N++)ge(p[N],u,v,g,x)},y=p=>{if(p.shapeFlag&6)return y(p.component.subTree);if(p.shapeFlag&128)return p.suspense.next();const u=m(p.anchor||p.el),v=u&&u[js];return v?m(v):u};let M=!1;const D=(p,u,v)=>{let g;p==null?u._vnode&&(ge(u._vnode,null,null,!0),g=u._vnode.component):w(u._vnode||null,p,u,null,null,null,v),u._vnode=p,M||(M=!0,vo(g),ja(),M=!1)},B={p:w,um:ge,m:de,r:an,mt:le,mc:oe,pc:K,pbc:Y,n:y,o:e};return{render:D,hydrate:void 0,createApp:gl(D)}}function cr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Ll(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function Si(e,n,t=!1){const r=e.children,o=n.children;if(z(r)&&z(o))for(let a=0;a<r.length;a++){const i=r[a];let s=o[a];s.shapeFlag&1&&!s.dynamicChildren&&((s.patchFlag<=0||s.patchFlag===32)&&(s=o[a]=dn(o[a]),s.el=i.el),!t&&s.patchFlag!==-2&&Si(i,s)),s.type===Jt&&(s.patchFlag===-1&&(s=o[a]=dn(s)),s.el=i.el),s.type===vn&&!s.el&&(s.el=i.el)}}function Ol(e){const n=e.slice(),t=[0];let r,o,a,i,s;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(o=t[t.length-1],e[o]<f){n[r]=o,t.push(r);continue}for(a=0,i=t.length-1;a<i;)s=a+i>>1,e[t[s]]<f?a=s+1:i=s;f<e[t[a]]&&(a>0&&(n[r]=t[a-1]),t[a]=r)}}for(a=t.length,i=t[a-1];a-- >0;)t[a]=i,i=n[i];return t}function _i(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:_i(n)}function Ao(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function wi(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?wi(n.subTree):null}const Ti=e=>e.__isSuspense;function Ml(e,n){n&&n.pendingBranch?z(e)?n.effects.push(...e):n.effects.push(e):Ws(e)}const Ae=Symbol.for("v-fgt"),Jt=Symbol.for("v-txt"),vn=Symbol.for("v-cmt"),Dt=Symbol.for("v-stc"),ut=[];let Me=null;function Re(e=!1){ut.push(Me=e?null:[])}function Hl(){ut.pop(),Me=ut[ut.length-1]||null}let bt=1;function Ft(e,n=!1){bt+=e,e<0&&Me&&n&&(Me.hasOnce=!0)}function Ci(e){return e.dynamicChildren=bt>0?Me||Vn:null,Hl(),bt>0&&Me&&Me.push(e),e}function Ue(e,n,t,r,o,a){return Ci(Te(e,n,t,r,o,a,!0))}function to(e,n,t,r,o){return Ci(ue(e,n,t,r,o,!0))}function Ut(e){return e?e.__v_isVNode===!0:!1}function zn(e,n){return e.type===n.type&&e.key===n.key}const Ai=({key:e})=>e??null,Pt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?pe(e)||Ee(e)||W(e)?{i:Ve,r:e,k:n,f:!!t}:e:null);function Te(e,n=null,t=null,r=0,o=null,a=e===Ae?0:1,i=!1,s=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Ai(n),ref:n&&Pt(n),scopeId:Za,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:a,patchFlag:r,dynamicProps:o,dynamicChildren:null,appContext:null,ctx:Ve};return s?(ro(l,t),a&128&&e.normalize(l)):t&&(l.shapeFlag|=pe(t)?8:16),bt>0&&!i&&Me&&(l.patchFlag>0||a&6)&&l.patchFlag!==32&&Me.push(l),l}const ue=kl;function kl(e,n=null,t=null,r=0,o=null,a=!1){if((!e||e===ll)&&(e=vn),Ut(e)){const s=Hn(e,n,!0);return t&&ro(s,t),bt>0&&!a&&Me&&(s.shapeFlag&6?Me[Me.indexOf(e)]=s:Me.push(s)),s.patchFlag=-2,s}if(Ql(e)&&(e=e.__vccOpts),n){n=Bl(n);let{class:s,style:l}=n;s&&!pe(s)&&(n.class=Mn(s)),te(l)&&(Qr(l)&&!z(l)&&(l=me({},l)),n.style=Gr(l))}const i=pe(e)?1:Ti(e)?128:Qs(e)?64:te(e)?4:W(e)?2:0;return Te(e,n,t,r,o,i,a,!0)}function Bl(e){return e?Qr(e)||vi(e)?me({},e):e:null}function Hn(e,n,t=!1,r=!1){const{props:o,ref:a,patchFlag:i,children:s,transition:l}=e,f=n?zl(o||{},n):o,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Ai(f),ref:n&&n.ref?t&&a?z(a)?a.concat(Pt(n)):[a,Pt(n)]:Pt(n):a,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:s,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Ae?i===-1?16:i|16:i,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&Hn(e.ssContent),ssFallback:e.ssFallback&&Hn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&yt(c,l.clone(c)),c}function Fl(e=" ",n=0){return ue(Jt,null,e,n)}function Ul(e,n){const t=ue(Dt,null,e);return t.staticCount=n,t}function Ri(e="",n=!1){return n?(Re(),to(vn,null,e)):ue(vn,null,e)}function tn(e){return e==null||typeof e=="boolean"?ue(vn):z(e)?ue(Ae,null,e.slice()):Ut(e)?dn(e):ue(Jt,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:Hn(e)}function ro(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(z(n))t=16;else if(typeof n=="object")if(r&65){const o=n.default;o&&(o._c&&(o._d=!1),ro(e,o()),o._c&&(o._d=!0));return}else{t=32;const o=n._;!o&&!vi(n)?n._ctx=Ve:o===3&&Ve&&(Ve.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else W(n)?(n={default:n,_ctx:Ve},t=32):(n=String(n),r&64?(t=16,n=[Fl(n)]):t=8);e.children=n,e.shapeFlag|=t}function zl(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const o in r)if(o==="class")n.class!==r.class&&(n.class=Mn([n.class,r.class]));else if(o==="style")n.style=Gr([n.style,r.style]);else if(qt(o)){const a=n[o],i=r[o];i&&a!==i&&!(z(a)&&a.includes(i))&&(n[o]=a?[].concat(a,i):i)}else o!==""&&(n[o]=r[o])}return n}function Je(e,n,t,r=null){Ke(e,n,7,[t,r])}const Gl=di();let Vl=0;function ql(e,n,t){const r=e.type,o=(n?n.appContext:e.appContext)||Gl,a={uid:Vl++,vnode:e,type:r,parent:n,appContext:o,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new hs(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(o.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:yi(r,o),emitsOptions:pi(r,o),emit:null,emitted:null,propsDefaults:se,inheritAttrs:r.inheritAttrs,ctx:se,data:se,props:se,attrs:se,slots:se,refs:se,setupState:se,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return a.ctx={_:a},a.root=n?n.root:a,a.emit=bl.bind(null,a),e.ce&&e.ce(a),a}let be=null;const Ii=()=>be||Ve;let zt,Ir;{const e=Yt(),n=(t,r)=>{let o;return(o=e[t])||(o=e[t]=[]),o.push(r),a=>{o.length>1?o.forEach(i=>i(a)):o[0](a)}};zt=n("__VUE_INSTANCE_SETTERS__",t=>be=t),Ir=n("__VUE_SSR_SETTERS__",t=>xt=t)}const wt=e=>{const n=be;return zt(e),e.scope.on(),()=>{e.scope.off(),zt(n)}},Ro=()=>{be&&be.scope.off(),zt(null)};function Ni(e){return e.vnode.shapeFlag&4}let xt=!1;function Wl(e,n=!1,t=!1){n&&Ir(n);const{props:r,children:o}=e.vnode,a=Ni(e);Tl(e,r,a,n),Il(e,o,t||n);const i=a?Kl(e,n):void 0;return n&&Ir(!1),i}function Kl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,fl);const{setup:r}=t;if(r){un();const o=e.setupContext=r.length>1?Xl(e):null,a=wt(e),i=_t(r,e,0,[e.props,o]),s=Sa(i);if(mn(),a(),(s||e.sp)&&!dt(e)&&ni(e),s){if(i.then(Ro,Ro),n)return i.then(l=>{Io(e,l)}).catch(l=>{Qt(l,e,0)});e.asyncDep=i}else Io(e,i)}else Di(e)}function Io(e,n,t){W(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Wa(n)),Di(e)}function Di(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const o=wt(e);un();try{dl(e)}finally{mn(),o()}}}const Yl={get(e,n){return ye(e,"get",""),e[n]}};function Xl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,Yl),slots:e.slots,emit:e.emit,expose:n}}function oo(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Wa(Ms(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in pt)return pt[t](e)},has(n,t){return t in n||t in pt}})):e.proxy}function jl(e,n=!0){return W(e)?e.displayName||e.name:e.name||n&&e.__name}function Ql(e){return W(e)&&"__vccOpts"in e}const ke=(e,n)=>Us(e,n,xt);function Pi(e,n,t){try{Ft(-1);const r=arguments.length;return r===2?te(n)&&!z(n)?Ut(n)?ue(e,null,[n]):ue(e,n):ue(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&Ut(t)&&(t=[t]),ue(e,n,t))}finally{Ft(1)}}const Zl="3.5.28";/**
+**/function _t(e,n,t,r){try{return r?e(...r):e()}catch(a){Qt(a,n,t)}}function Ye(e,n,t,r){if(W(e)){const a=_t(e,n,t,r);return a&&Eo(a)&&a.catch(o=>{Qt(o,n,t)}),a}if(z(e)){const a=[];for(let o=0;o<e.length;o++)a.push(Ye(e[o],n,t,r));return a}}function Qt(e,n,t,r=!0){const a=n?n.vnode:null,{errorHandler:o,throwUnhandledErrorInProduction:i}=n&&n.appContext.config||se;if(n){let s=n.parent;const l=n.proxy,f=`https://vuejs.org/error-reference/#runtime-${t}`;for(;s;){const c=s.ec;if(c){for(let d=0;d<c.length;d++)if(c[d](e,l,f)===!1)return}s=s.parent}if(o){un(),_t(o,null,10,[e,l,f]),mn();return}}Vs(e,t,a,r,i)}function Vs(e,n,t,r=!0,a=!1){if(a)throw e;console.error(e)}const Te=[];let nn=-1;const Wn=[];let _n=null,Fn=0;const Yo=Promise.resolve();let Mt=null;function Ko(e){const n=Mt||Yo;return e?n.then(this?e.bind(this):e):n}function qs(e){let n=nn+1,t=Te.length;for(;n<t;){const r=n+t>>>1,a=Te[r],o=gt(a);o<e||o===e&&a.flags&2?n=r+1:t=r}return n}function Zr(e){if(!(e.flags&1)){const n=gt(e),t=Te[Te.length-1];!t||!(e.flags&2)&&n>=gt(t)?Te.push(e):Te.splice(qs(n),0,e),e.flags|=1,Xo()}}function Xo(){Mt||(Mt=Yo.then(Qo))}function Ws(e){z(e)?Wn.push(...e):_n&&e.id===-1?_n.splice(Fn+1,0,e):e.flags&1||(Wn.push(e),e.flags|=1),Xo()}function ha(e,n,t=nn+1){for(;t<Te.length;t++){const r=Te[t];if(r&&r.flags&2){if(e&&r.id!==e.uid)continue;Te.splice(t,1),t--,r.flags&4&&(r.flags&=-2),r(),r.flags&4||(r.flags&=-2)}}}function jo(e){if(Wn.length){const n=[...new Set(Wn)].sort((t,r)=>gt(t)-gt(r));if(Wn.length=0,_n){_n.push(...n);return}for(_n=n,Fn=0;Fn<_n.length;Fn++){const t=_n[Fn];t.flags&4&&(t.flags&=-2),t.flags&8||t(),t.flags&=-2}_n=null,Fn=0}}const gt=e=>e.id==null?e.flags&2?-1:1/0:e.id;function Qo(e){try{for(nn=0;nn<Te.length;nn++){const n=Te[nn];n&&!(n.flags&8)&&(n.flags&4&&(n.flags&=-2),_t(n,n.i,n.i?15:14),n.flags&4||(n.flags&=-2))}}finally{for(;nn<Te.length;nn++){const n=Te[nn];n&&(n.flags&=-2)}nn=-1,Te.length=0,jo(),Mt=null,(Te.length||Wn.length)&&Qo()}}let Ve=null,Zo=null;function kt(e){const n=Ve;return Ve=e,Zo=e&&e.type.__scopeId||null,n}function $r(e,n=Ve,t){if(!n||e._n)return e;const r=(...a)=>{r._d&&Bt(-1);const o=kt(n);let i;try{i=e(...a)}finally{kt(o),r._d&&Bt(1)}return i};return r._n=!0,r._c=!0,r._d=!0,r}function Rn(e,n,t,r){const a=e.dirs,o=n&&n.dirs;for(let i=0;i<a.length;i++){const s=a[i];o&&(s.oldValue=o[i].value);let l=s.dir[r];l&&(un(),Ye(l,t,8,[e.el,s,e,n]),mn())}}function Nt(e,n){if(be){let t=be.provides;const r=be.parent&&be.parent.provides;r===t&&(t=be.provides=Object.create(r)),t[e]=n}}function Be(e,n,t=!1){const r=Ii();if(r||Yn){let a=Yn?Yn._context.provides:r?r.parent==null||r.ce?r.vnode.appContext&&r.vnode.appContext.provides:r.parent.provides:void 0;if(a&&e in a)return a[e];if(arguments.length>1)return t&&W(n)?n.call(r&&r.proxy):n}}const Ys=Symbol.for("v-scx"),Ks=()=>Be(Ys);function ct(e,n,t){return $o(e,n,t)}function $o(e,n,t=se){const{immediate:r,deep:a,flush:o,once:i}=t,s=me({},t),l=n&&r||!n&&o!=="post";let f;if(xt){if(o==="sync"){const h=Ks();f=h.__watcherHandles||(h.__watcherHandles=[])}else if(!l){const h=()=>{};return h.stop=rn,h.resume=rn,h.pause=rn,h}}const c=be;s.call=(h,C,w)=>Ye(h,c,C,w);let d=!1;o==="post"?s.scheduler=h=>{De(h,c&&c.suspense)}:o!=="sync"&&(d=!0,s.scheduler=(h,C)=>{C?h():Zr(h)}),s.augmentJob=h=>{n&&(h.flags|=4),d&&(h.flags|=2,c&&(h.id=c.uid,h.i=c))};const m=Gs(e,n,s);return xt&&(f?f.push(m):l&&m()),m}function Xs(e,n,t){const r=this.proxy,a=pe(e)?e.includes(".")?Jo(r,e):()=>r[e]:e.bind(r,r);let o;W(n)?o=n:(o=n.handler,t=n);const i=wt(this),s=$o(a,o.bind(r),t);return i(),s}function Jo(e,n){const t=n.split(".");return()=>{let r=e;for(let a=0;a<t.length&&r;a++)r=r[t[a]];return r}}const js=Symbol("_vte"),Qs=e=>e.__isTeleport,xn=Symbol("_leaveCb"),et=Symbol("_enterCb");function Zs(){const e={isMounted:!1,isLeaving:!1,isUnmounting:!1,leavingVNodes:new Map};return Un(()=>{e.isMounted=!0}),si(()=>{e.isUnmounting=!0}),e}const ke=[Function,Array],$s={mode:String,appear:Boolean,persisted:Boolean,onBeforeEnter:ke,onEnter:ke,onAfterEnter:ke,onEnterCancelled:ke,onBeforeLeave:ke,onLeave:ke,onAfterLeave:ke,onLeaveCancelled:ke,onBeforeAppear:ke,onAppear:ke,onAfterAppear:ke,onAppearCancelled:ke};function Js(e,n){const{leavingVNodes:t}=e;let r=t.get(n.type);return r||(r=Object.create(null),t.set(n.type,r)),r}function wr(e,n,t,r,a){const{appear:o,mode:i,persisted:s=!1,onBeforeEnter:l,onEnter:f,onAfterEnter:c,onEnterCancelled:d,onBeforeLeave:m,onLeave:h,onAfterLeave:C,onLeaveCancelled:w,onBeforeAppear:k,onAppear:O,onAfterAppear:E,onAppearCancelled:A}=n,_=String(e.key),L=Js(t,e),G=(H,K)=>{H&&Ye(H,r,9,K)},V=(H,K)=>{const $=K[1];G(H,K),z(H)?H.every(I=>I.length<=1)&&$():H.length<=1&&$()},ae={mode:i,persisted:s,beforeEnter(H){let K=l;if(!t.isMounted)if(o)K=k||l;else return;H[xn]&&H[xn](!0);const $=L[_];$&&zn(e,$)&&$.el[xn]&&$.el[xn](),G(K,[H])},enter(H){let K=f,$=c,I=d;if(!t.isMounted)if(o)K=O||f,$=E||c,I=A||d;else return;let X=!1;H[et]=ve=>{X||(X=!0,ve?G(I,[H]):G($,[H]),ae.delayedLeave&&ae.delayedLeave(),H[et]=void 0)};const le=H[et].bind(null,!1);K?V(K,[H,le]):le()},leave(H,K){const $=String(e.key);if(H[et]&&H[et](!0),t.isUnmounting)return K();G(m,[H]);let I=!1;H[xn]=le=>{I||(I=!0,K(),le?G(w,[H]):G(C,[H]),H[xn]=void 0,L[$]===e&&delete L[$])};const X=H[xn].bind(null,!1);L[$]=e,h?V(h,[H,X]):X()},clone(H){return wr(H,n,t,r)}};return ae}function yt(e,n){e.shapeFlag&6&&e.component?(e.transition=n,yt(e.component.subTree,n)):e.shapeFlag&128?(e.ssContent.transition=n.clone(e.ssContent),e.ssFallback.transition=n.clone(e.ssFallback)):e.transition=n}function ei(e,n=!1,t){let r=[],a=0;for(let o=0;o<e.length;o++){let i=e[o];const s=t==null?i.key:String(t)+String(i.key!=null?i.key:o);i.type===Ae?(i.patchFlag&128&&a++,r=r.concat(ei(i.children,n,s))):(n||i.type!==vn)&&r.push(s!=null?kn(i,{key:s}):i)}if(a>1)for(let o=0;o<r.length;o++)r[o].patchFlag=-2;return r}function An(e,n){return W(e)?me({name:e.name},n,{setup:e}):e}function ni(e){e.ids=[e.ids[0]+e.ids[2]+++"-",0,0]}function va(e,n){let t;return!!((t=Object.getOwnPropertyDescriptor(e,n))&&!t.configurable)}const Ht=new WeakMap;function ft(e,n,t,r,a=!1){if(z(e)){e.forEach((w,k)=>ft(w,n&&(z(n)?n[k]:n),t,r,a));return}if(dt(r)&&!a){r.shapeFlag&512&&r.type.__asyncResolved&&r.component.subTree.component&&ft(e,n,t,r.component.subTree);return}const o=r.shapeFlag&4?aa(r.component):r.el,i=a?null:o,{i:s,r:l}=e,f=n&&n.r,c=s.refs===se?s.refs={}:s.refs,d=s.setupState,m=Z(d),h=d===se?xo:w=>va(c,w)?!1:ne(m,w),C=(w,k)=>!(k&&va(c,k));if(f!=null&&f!==l){if(ga(n),pe(f))c[f]=null,h(f)&&(d[f]=null);else if(Se(f)){const w=n;C(f,w.k)&&(f.value=null),w.k&&(c[w.k]=null)}}if(W(l))_t(l,s,12,[i,c]);else{const w=pe(l),k=Se(l);if(w||k){const O=()=>{if(e.f){const E=w?h(l)?d[l]:c[l]:C()||!e.k?l.value:c[e.k];if(a)z(E)&&Fr(E,o);else if(z(E))E.includes(o)||E.push(o);else if(w)c[l]=[o],h(l)&&(d[l]=c[l]);else{const A=[o];C(l,e.k)&&(l.value=A),e.k&&(c[e.k]=A)}}else w?(c[l]=i,h(l)&&(d[l]=i)):k&&(C(l,e.k)&&(l.value=i),e.k&&(c[e.k]=i))};if(i){const E=()=>{O(),Ht.delete(e)};E.id=-1,Ht.set(e,E),De(E,t)}else ga(e),O()}}}function ga(e){const n=Ht.get(e);n&&(n.flags|=8,Ht.delete(e))}Kt().requestIdleCallback;Kt().cancelIdleCallback;const dt=e=>!!e.type.__asyncLoader,ti=e=>e.type.__isKeepAlive;function ri(e,n){oi(e,"a",n)}function ai(e,n){oi(e,"da",n)}function oi(e,n,t=be){const r=e.__wdc||(e.__wdc=()=>{let a=t;for(;a;){if(a.isDeactivated)return;a=a.parent}return e()});if(Zt(n,r,t),t){let a=t.parent;for(;a&&a.parent;)ti(a.parent.vnode)&&el(r,n,t,a),a=a.parent}}function el(e,n,t,r){const a=Zt(n,e,r,!0);Zn(()=>{Fr(r[n],a)},t)}function Zt(e,n,t=be,r=!1){if(t){const a=t[e]||(t[e]=[]),o=n.__weh||(n.__weh=(...i)=>{un();const s=wt(t),l=Ye(n,t,e,i);return s(),mn(),l});return r?a.unshift(o):a.push(o),o}}const gn=e=>(n,t=be)=>{(!xt||e==="sp")&&Zt(e,(...r)=>n(...r),t)},nl=gn("bm"),Un=gn("m"),tl=gn("bu"),ii=gn("u"),si=gn("bum"),Zn=gn("um"),rl=gn("sp"),al=gn("rtg"),ol=gn("rtc");function il(e,n=be){Zt("ec",e,n)}const sl="components";function li(e,n){return cl(sl,e,!0,n)||e}const ll=Symbol.for("v-ndc");function cl(e,n,t=!0,r=!1){const a=Ve||be;if(a){const o=a.type;{const s=jl(o,!1);if(s&&(s===n||s===ze(n)||s===Yt(ze(n))))return o}const i=ya(a[e]||o[e],n)||ya(a.appContext[e],n);return!i&&r?o:i}}function ya(e,n){return e&&(e[n]||e[ze(n)]||e[Yt(ze(n))])}function Jr(e,n,t,r){let a;const o=t,i=z(e);if(i||pe(e)){const s=i&&On(e);let l=!1,f=!1;s&&(l=!Ue(e),f=hn(e),e=Xt(e)),a=new Array(e.length);for(let c=0,d=e.length;c<d;c++)a[c]=n(l?f?Kn(We(e[c])):We(e[c]):e[c],c,void 0,o)}else if(typeof e=="number"){a=new Array(e);for(let s=0;s<e;s++)a[s]=n(s+1,s,void 0,o)}else if(te(e))if(e[Symbol.iterator])a=Array.from(e,(s,l)=>n(s,l,void 0,o));else{const s=Object.keys(e);a=new Array(s.length);for(let l=0,f=s.length;l<f;l++){const c=s[l];a[l]=n(e[c],c,l,o)}}else a=[];return a}const Cr=e=>e?Ni(e)?aa(e):Cr(e.parent):null,pt=me(Object.create(null),{$:e=>e,$el:e=>e.vnode.el,$data:e=>e.data,$props:e=>e.props,$attrs:e=>e.attrs,$slots:e=>e.slots,$refs:e=>e.refs,$parent:e=>Cr(e.parent),$root:e=>Cr(e.root),$host:e=>e.ce,$emit:e=>e.emit,$options:e=>fi(e),$forceUpdate:e=>e.f||(e.f=()=>{Zr(e.update)}),$nextTick:e=>e.n||(e.n=Ko.bind(e.proxy)),$watch:e=>Xs.bind(e)}),lr=(e,n)=>e!==se&&!e.__isScriptSetup&&ne(e,n),fl={get({_:e},n){if(n==="__v_skip")return!0;const{ctx:t,setupState:r,data:a,props:o,accessCache:i,type:s,appContext:l}=e;if(n[0]!=="$"){const m=i[n];if(m!==void 0)switch(m){case 1:return r[n];case 2:return a[n];case 4:return t[n];case 3:return o[n]}else{if(lr(r,n))return i[n]=1,r[n];if(a!==se&&ne(a,n))return i[n]=2,a[n];if(ne(o,n))return i[n]=3,o[n];if(t!==se&&ne(t,n))return i[n]=4,t[n];Tr&&(i[n]=0)}}const f=pt[n];let c,d;if(f)return n==="$attrs"&&ye(e.attrs,"get",""),f(e);if((c=s.__cssModules)&&(c=c[n]))return c;if(t!==se&&ne(t,n))return i[n]=4,t[n];if(d=l.config.globalProperties,ne(d,n))return d[n]},set({_:e},n,t){const{data:r,setupState:a,ctx:o}=e;return lr(a,n)?(a[n]=t,!0):r!==se&&ne(r,n)?(r[n]=t,!0):ne(e.props,n)||n[0]==="$"&&n.slice(1)in e?!1:(o[n]=t,!0)},has({_:{data:e,setupState:n,accessCache:t,ctx:r,appContext:a,props:o,type:i}},s){let l;return!!(t[s]||e!==se&&s[0]!=="$"&&ne(e,s)||lr(n,s)||ne(o,s)||ne(r,s)||ne(pt,s)||ne(a.config.globalProperties,s)||(l=i.__cssModules)&&l[s])},defineProperty(e,n,t){return t.get!=null?e._.accessCache[n]=0:ne(t,"value")&&this.set(e,n,t.value,null),Reflect.defineProperty(e,n,t)}};function ba(e){return z(e)?e.reduce((n,t)=>(n[t]=null,n),{}):e}let Tr=!0;function dl(e){const n=fi(e),t=e.proxy,r=e.ctx;Tr=!1,n.beforeCreate&&xa(n.beforeCreate,e,"bc");const{data:a,computed:o,methods:i,watch:s,provide:l,inject:f,created:c,beforeMount:d,mounted:m,beforeUpdate:h,updated:C,activated:w,deactivated:k,beforeDestroy:O,beforeUnmount:E,destroyed:A,unmounted:_,render:L,renderTracked:G,renderTriggered:V,errorCaptured:ae,serverPrefetch:H,expose:K,inheritAttrs:$,components:I,directives:X,filters:le}=n;if(f&&pl(f,r,null),i)for(const J in i){const Y=i[J];W(Y)&&(r[J]=Y.bind(t))}if(a){const J=a.call(t,t);te(J)&&(e.data=jt(J))}if(Tr=!0,o)for(const J in o){const Y=o[J],Ge=W(Y)?Y.bind(t,t):W(Y.get)?Y.get.bind(t,t):rn,Xe=!W(Y)&&W(Y.set)?Y.set.bind(t):rn,de=He({get:Ge,set:Xe});Object.defineProperty(r,J,{enumerable:!0,configurable:!0,get:()=>de.value,set:ge=>de.value=ge})}if(s)for(const J in s)ci(s[J],r,t,J);if(l){const J=W(l)?l.call(t):l;Reflect.ownKeys(J).forEach(Y=>{Nt(Y,J[Y])})}c&&xa(c,e,"c");function ce(J,Y){z(Y)?Y.forEach(Ge=>J(Ge.bind(t))):Y&&J(Y.bind(t))}if(ce(nl,d),ce(Un,m),ce(tl,h),ce(ii,C),ce(ri,w),ce(ai,k),ce(il,ae),ce(ol,G),ce(al,V),ce(si,E),ce(Zn,_),ce(rl,H),z(K))if(K.length){const J=e.exposed||(e.exposed={});K.forEach(Y=>{Object.defineProperty(J,Y,{get:()=>t[Y],set:Ge=>t[Y]=Ge,enumerable:!0})})}else e.exposed||(e.exposed={});L&&e.render===rn&&(e.render=L),$!=null&&(e.inheritAttrs=$),I&&(e.components=I),X&&(e.directives=X),H&&ni(e)}function pl(e,n,t=rn){z(e)&&(e=Ar(e));for(const r in e){const a=e[r];let o;te(a)?"default"in a?o=Be(a.from||r,a.default,!0):o=Be(a.from||r):o=Be(a),Se(o)?Object.defineProperty(n,r,{enumerable:!0,configurable:!0,get:()=>o.value,set:i=>o.value=i}):n[r]=o}}function xa(e,n,t){Ye(z(e)?e.map(r=>r.bind(n.proxy)):e.bind(n.proxy),n,t)}function ci(e,n,t,r){let a=r.includes(".")?Jo(t,r):()=>t[r];if(pe(e)){const o=n[e];W(o)&&ct(a,o)}else if(W(e))ct(a,e.bind(t));else if(te(e))if(z(e))e.forEach(o=>ci(o,n,t,r));else{const o=W(e.handler)?e.handler.bind(t):n[e.handler];W(o)&&ct(a,o,e)}}function fi(e){const n=e.type,{mixins:t,extends:r}=n,{mixins:a,optionsCache:o,config:{optionMergeStrategies:i}}=e.appContext,s=o.get(n);let l;return s?l=s:!a.length&&!t&&!r?l=n:(l={},a.length&&a.forEach(f=>Ut(l,f,i,!0)),Ut(l,n,i)),te(n)&&o.set(n,l),l}function Ut(e,n,t,r=!1){const{mixins:a,extends:o}=n;o&&Ut(e,o,t,!0),a&&a.forEach(i=>Ut(e,i,t,!0));for(const i in n)if(!(r&&i==="expose")){const s=ul[i]||t&&t[i];e[i]=s?s(e[i],n[i]):n[i]}return e}const ul={data:Sa,props:Ea,emits:Ea,methods:rt,computed:rt,beforeCreate:_e,created:_e,beforeMount:_e,mounted:_e,beforeUpdate:_e,updated:_e,beforeDestroy:_e,beforeUnmount:_e,destroyed:_e,unmounted:_e,activated:_e,deactivated:_e,errorCaptured:_e,serverPrefetch:_e,components:rt,directives:rt,watch:hl,provide:Sa,inject:ml};function Sa(e,n){return n?e?function(){return me(W(e)?e.call(this,this):e,W(n)?n.call(this,this):n)}:n:e}function ml(e,n){return rt(Ar(e),Ar(n))}function Ar(e){if(z(e)){const n={};for(let t=0;t<e.length;t++)n[e[t]]=e[t];return n}return e}function _e(e,n){return e?[...new Set([].concat(e,n))]:n}function rt(e,n){return e?me(Object.create(null),e,n):n}function Ea(e,n){return e?z(e)&&z(n)?[...new Set([...e,...n])]:me(Object.create(null),ba(e),ba(n??{})):n}function hl(e,n){if(!e)return n;if(!n)return e;const t=me(Object.create(null),e);for(const r in n)t[r]=_e(e[r],n[r]);return t}function di(){return{app:null,config:{isNativeTag:xo,performance:!1,globalProperties:{},optionMergeStrategies:{},errorHandler:void 0,warnHandler:void 0,compilerOptions:{}},mixins:[],components:{},directives:{},provides:Object.create(null),optionsCache:new WeakMap,propsCache:new WeakMap,emitsCache:new WeakMap}}let vl=0;function gl(e,n){return function(r,a=null){W(r)||(r=me({},r)),a!=null&&!te(a)&&(a=null);const o=di(),i=new WeakSet,s=[];let l=!1;const f=o.app={_uid:vl++,_component:r,_props:a,_container:null,_context:o,_instance:null,version:Zl,get config(){return o.config},set config(c){},use(c,...d){return i.has(c)||(c&&W(c.install)?(i.add(c),c.install(f,...d)):W(c)&&(i.add(c),c(f,...d))),f},mixin(c){return o.mixins.includes(c)||o.mixins.push(c),f},component(c,d){return d?(o.components[c]=d,f):o.components[c]},directive(c,d){return d?(o.directives[c]=d,f):o.directives[c]},mount(c,d,m){if(!l){const h=f._ceVNode||ue(r,a);return h.appContext=o,m===!0?m="svg":m===!1&&(m=void 0),e(h,c,m),l=!0,f._container=c,c.__vue_app__=f,aa(h.component)}},onUnmount(c){s.push(c)},unmount(){l&&(Ye(s,f._instance,16),e(null,f._container),delete f._container.__vue_app__)},provide(c,d){return o.provides[c]=d,f},runWithContext(c){const d=Yn;Yn=f;try{return c()}finally{Yn=d}}};return f}}let Yn=null;const yl=(e,n)=>n==="modelValue"||n==="model-value"?e.modelModifiers:e[`${n}Modifiers`]||e[`${ze(n)}Modifiers`]||e[`${Hn(n)}Modifiers`];function bl(e,n,...t){if(e.isUnmounted)return;const r=e.vnode.props||se;let a=t;const o=n.startsWith("update:"),i=o&&yl(r,n.slice(7));i&&(i.trim&&(a=t.map(c=>pe(c)?c.trim():c)),i.number&&(a=t.map(is)));let s,l=r[s=tr(n)]||r[s=tr(ze(n))];!l&&o&&(l=r[s=tr(Hn(n))]),l&&Ye(l,e,6,a);const f=r[s+"Once"];if(f){if(!e.emitted)e.emitted={};else if(e.emitted[s])return;e.emitted[s]=!0,Ye(f,e,6,a)}}const xl=new WeakMap;function pi(e,n,t=!1){const r=t?xl:n.emitsCache,a=r.get(e);if(a!==void 0)return a;const o=e.emits;let i={},s=!1;if(!W(e)){const l=f=>{const c=pi(f,n,!0);c&&(s=!0,me(i,c))};!t&&n.mixins.length&&n.mixins.forEach(l),e.extends&&l(e.extends),e.mixins&&e.mixins.forEach(l)}return!o&&!s?(te(e)&&r.set(e,null),null):(z(o)?o.forEach(l=>i[l]=null):me(i,o),te(e)&&r.set(e,i),i)}function $t(e,n){return!e||!qt(n)?!1:(n=n.slice(2).replace(/Once$/,""),ne(e,n[0].toLowerCase()+n.slice(1))||ne(e,Hn(n))||ne(e,n))}function _a(e){const{type:n,vnode:t,proxy:r,withProxy:a,propsOptions:[o],slots:i,attrs:s,emit:l,render:f,renderCache:c,props:d,data:m,setupState:h,ctx:C,inheritAttrs:w}=e,k=kt(e);let O,E;try{if(t.shapeFlag&4){const _=a||r,L=_;O=tn(f.call(L,_,c,d,h,m,C)),E=s}else{const _=n;O=tn(_.length>1?_(d,{attrs:s,slots:i,emit:l}):_(d,null)),E=n.props?s:Sl(s)}}catch(_){ut.length=0,Qt(_,e,1),O=ue(vn)}let A=O;if(E&&w!==!1){const _=Object.keys(E),{shapeFlag:L}=A;_.length&&L&7&&(o&&_.some(Br)&&(E=El(E,o)),A=kn(A,E,!1,!0))}return t.dirs&&(A=kn(A,null,!1,!0),A.dirs=A.dirs?A.dirs.concat(t.dirs):t.dirs),t.transition&&yt(A,t.transition),O=A,kt(k),O}const Sl=e=>{let n;for(const t in e)(t==="class"||t==="style"||qt(t))&&((n||(n={}))[t]=e[t]);return n},El=(e,n)=>{const t={};for(const r in e)(!Br(r)||!(r.slice(9)in n))&&(t[r]=e[r]);return t};function _l(e,n,t){const{props:r,children:a,component:o}=e,{props:i,children:s,patchFlag:l}=n,f=o.emitsOptions;if(n.dirs||n.transition)return!0;if(t&&l>=0){if(l&1024)return!0;if(l&16)return r?wa(r,i,f):!!i;if(l&8){const c=n.dynamicProps;for(let d=0;d<c.length;d++){const m=c[d];if(ui(i,r,m)&&!$t(f,m))return!0}}}else return(a||s)&&(!s||!s.$stable)?!0:r===i?!1:r?i?wa(r,i,f):!0:!!i;return!1}function wa(e,n,t){const r=Object.keys(n);if(r.length!==Object.keys(e).length)return!0;for(let a=0;a<r.length;a++){const o=r[a];if(ui(n,e,o)&&!$t(t,o))return!0}return!1}function ui(e,n,t){const r=e[t],a=n[t];return t==="style"&&te(r)&&te(a)?!Vr(r,a):r!==a}function wl({vnode:e,parent:n},t){for(;n;){const r=n.subTree;if(r.suspense&&r.suspense.activeBranch===e&&(r.el=e.el),r===e)(e=n.vnode).el=t,n=n.parent;else break}}const mi={},hi=()=>Object.create(mi),vi=e=>Object.getPrototypeOf(e)===mi;function Cl(e,n,t,r=!1){const a={},o=hi();e.propsDefaults=Object.create(null),gi(e,n,a,o);for(const i in e.propsOptions[0])i in a||(a[i]=void 0);t?e.props=r?a:Vo(a):e.type.props?e.props=a:e.props=o,e.attrs=o}function Tl(e,n,t,r){const{props:a,attrs:o,vnode:{patchFlag:i}}=e,s=Z(a),[l]=e.propsOptions;let f=!1;if((r||i>0)&&!(i&16)){if(i&8){const c=e.vnode.dynamicProps;for(let d=0;d<c.length;d++){let m=c[d];if($t(e.emitsOptions,m))continue;const h=n[m];if(l)if(ne(o,m))h!==o[m]&&(o[m]=h,f=!0);else{const C=ze(m);a[C]=Rr(l,s,C,h,e,!1)}else h!==o[m]&&(o[m]=h,f=!0)}}}else{gi(e,n,a,o)&&(f=!0);let c;for(const d in s)(!n||!ne(n,d)&&((c=Hn(d))===d||!ne(n,c)))&&(l?t&&(t[d]!==void 0||t[c]!==void 0)&&(a[d]=Rr(l,s,d,void 0,e,!0)):delete a[d]);if(o!==s)for(const d in o)(!n||!ne(n,d))&&(delete o[d],f=!0)}f&&pn(e.attrs,"set","")}function gi(e,n,t,r){const[a,o]=e.propsOptions;let i=!1,s;if(n)for(let l in n){if(ot(l))continue;const f=n[l];let c;a&&ne(a,c=ze(l))?!o||!o.includes(c)?t[c]=f:(s||(s={}))[c]=f:$t(e.emitsOptions,l)||(!(l in r)||f!==r[l])&&(r[l]=f,i=!0)}if(o){const l=Z(t),f=s||se;for(let c=0;c<o.length;c++){const d=o[c];t[d]=Rr(a,l,d,f[d],e,!ne(f,d))}}return i}function Rr(e,n,t,r,a,o){const i=e[t];if(i!=null){const s=ne(i,"default");if(s&&r===void 0){const l=i.default;if(i.type!==Function&&!i.skipFactory&&W(l)){const{propsDefaults:f}=a;if(t in f)r=f[t];else{const c=wt(a);r=f[t]=l.call(null,n),c()}}else r=l;a.ce&&a.ce._setProp(t,r)}i[0]&&(o&&!s?r=!1:i[1]&&(r===""||r===Hn(t))&&(r=!0))}return r}const Al=new WeakMap;function yi(e,n,t=!1){const r=t?Al:n.propsCache,a=r.get(e);if(a)return a;const o=e.props,i={},s=[];let l=!1;if(!W(e)){const c=d=>{l=!0;const[m,h]=yi(d,n,!0);me(i,m),h&&s.push(...h)};!t&&n.mixins.length&&n.mixins.forEach(c),e.extends&&c(e.extends),e.mixins&&e.mixins.forEach(c)}if(!o&&!l)return te(e)&&r.set(e,Vn),Vn;if(z(o))for(let c=0;c<o.length;c++){const d=ze(o[c]);Ca(d)&&(i[d]=se)}else if(o)for(const c in o){const d=ze(c);if(Ca(d)){const m=o[c],h=i[d]=z(m)||W(m)?{type:m}:me({},m),C=h.type;let w=!1,k=!0;if(z(C))for(let O=0;O<C.length;++O){const E=C[O],A=W(E)&&E.name;if(A==="Boolean"){w=!0;break}else A==="String"&&(k=!1)}else w=W(C)&&C.name==="Boolean";h[0]=w,h[1]=k,(w||ne(h,"default"))&&s.push(d)}}const f=[i,s];return te(e)&&r.set(e,f),f}function Ca(e){return e[0]!=="$"&&!ot(e)}const ea=e=>e==="_"||e==="_ctx"||e==="$stable",na=e=>z(e)?e.map(tn):[tn(e)],Rl=(e,n,t)=>{if(n._n)return n;const r=$r((...a)=>na(n(...a)),t);return r._c=!1,r},bi=(e,n,t)=>{const r=e._ctx;for(const a in e){if(ea(a))continue;const o=e[a];if(W(o))n[a]=Rl(a,o,r);else if(o!=null){const i=na(o);n[a]=()=>i}}},xi=(e,n)=>{const t=na(n);e.slots.default=()=>t},Si=(e,n,t)=>{for(const r in n)(t||!ea(r))&&(e[r]=n[r])},Il=(e,n,t)=>{const r=e.slots=hi();if(e.vnode.shapeFlag&32){const a=n._;a?(Si(r,n,t),t&&Co(r,"_",a,!0)):bi(n,r)}else n&&xi(e,n)},Nl=(e,n,t)=>{const{vnode:r,slots:a}=e;let o=!0,i=se;if(r.shapeFlag&32){const s=n._;s?t&&s===1?o=!1:Si(a,n,t):(o=!n.$stable,bi(n,a)),i=n}else n&&(xi(e,n),i={default:1});if(o)for(const s in a)!ea(s)&&i[s]==null&&delete a[s]},De=Ml;function Dl(e){return Pl(e)}function Pl(e,n){const t=Kt();t.__VUE__=!0;const{insert:r,remove:a,patchProp:o,createElement:i,createText:s,createComment:l,setText:f,setElementText:c,parentNode:d,nextSibling:m,setScopeId:h=rn,insertStaticContent:C}=e,w=(p,u,v,g=null,x=null,b=null,N=void 0,R=null,T=!!u.dynamicChildren)=>{if(p===u)return;p&&!zn(p,u)&&(g=y(p),ge(p,x,b,!0),p=null),u.patchFlag===-2&&(T=!1,u.dynamicChildren=null);const{type:S,ref:F,shapeFlag:P}=u;switch(S){case Jt:k(p,u,v,g);break;case vn:O(p,u,v,g);break;case Dt:p==null&&E(u,v,g,N);break;case Ae:I(p,u,v,g,x,b,N,R,T);break;default:P&1?L(p,u,v,g,x,b,N,R,T):P&6?X(p,u,v,g,x,b,N,R,T):(P&64||P&128)&&S.process(p,u,v,g,x,b,N,R,T,U)}F!=null&&x?ft(F,p&&p.ref,b,u||p,!u):F==null&&p&&p.ref!=null&&ft(p.ref,null,b,p,!0)},k=(p,u,v,g)=>{if(p==null)r(u.el=s(u.children),v,g);else{const x=u.el=p.el;u.children!==p.children&&f(x,u.children)}},O=(p,u,v,g)=>{p==null?r(u.el=l(u.children||""),v,g):u.el=p.el},E=(p,u,v,g)=>{[p.el,p.anchor]=C(p.children,u,v,g,p.el,p.anchor)},A=({el:p,anchor:u},v,g)=>{let x;for(;p&&p!==u;)x=m(p),r(p,v,g),p=x;r(u,v,g)},_=({el:p,anchor:u})=>{let v;for(;p&&p!==u;)v=m(p),a(p),p=v;a(u)},L=(p,u,v,g,x,b,N,R,T)=>{if(u.type==="svg"?N="svg":u.type==="math"&&(N="mathml"),p==null)G(u,v,g,x,b,N,R,T);else{const S=p.el&&p.el._isVueCE?p.el:null;try{S&&S._beginPatch(),H(p,u,x,b,N,R,T)}finally{S&&S._endPatch()}}},G=(p,u,v,g,x,b,N,R)=>{let T,S;const{props:F,shapeFlag:P,transition:B,dirs:q}=p;if(T=p.el=i(p.type,b,F&&F.is,F),P&8?c(T,p.children):P&16&&ae(p.children,T,null,g,x,cr(p,b),N,R),q&&Rn(p,null,g,"created"),V(T,p,p.scopeId,N,g),F){for(const oe in F)oe!=="value"&&!ot(oe)&&o(T,oe,null,F[oe],b,g);"value"in F&&o(T,"value",null,F.value,b),(S=F.onVnodeBeforeMount)&&Je(S,g,p)}q&&Rn(p,null,g,"beforeMount");const Q=Ll(x,B);Q&&B.beforeEnter(T),r(T,u,v),((S=F&&F.onVnodeMounted)||Q||q)&&De(()=>{S&&Je(S,g,p),Q&&B.enter(T),q&&Rn(p,null,g,"mounted")},x)},V=(p,u,v,g,x)=>{if(v&&h(p,v),g)for(let b=0;b<g.length;b++)h(p,g[b]);if(x){let b=x.subTree;if(u===b||Ci(b.type)&&(b.ssContent===u||b.ssFallback===u)){const N=x.vnode;V(p,N,N.scopeId,N.slotScopeIds,x.parent)}}},ae=(p,u,v,g,x,b,N,R,T=0)=>{for(let S=T;S<p.length;S++){const F=p[S]=R?dn(p[S]):tn(p[S]);w(null,F,u,v,g,x,b,N,R)}},H=(p,u,v,g,x,b,N)=>{const R=u.el=p.el;let{patchFlag:T,dynamicChildren:S,dirs:F}=u;T|=p.patchFlag&16;const P=p.props||se,B=u.props||se;let q;if(v&&In(v,!1),(q=B.onVnodeBeforeUpdate)&&Je(q,v,u,p),F&&Rn(u,p,v,"beforeUpdate"),v&&In(v,!0),(P.innerHTML&&B.innerHTML==null||P.textContent&&B.textContent==null)&&c(R,""),S?K(p.dynamicChildren,S,R,v,g,cr(u,x),b):N||Y(p,u,R,null,v,g,cr(u,x),b,!1),T>0){if(T&16)$(R,P,B,v,x);else if(T&2&&P.class!==B.class&&o(R,"class",null,B.class,x),T&4&&o(R,"style",P.style,B.style,x),T&8){const Q=u.dynamicProps;for(let oe=0;oe<Q.length;oe++){const re=Q[oe],Ie=P[re],Ne=B[re];(Ne!==Ie||re==="value")&&o(R,re,Ie,Ne,x,v)}}T&1&&p.children!==u.children&&c(R,u.children)}else!N&&S==null&&$(R,P,B,v,x);((q=B.onVnodeUpdated)||F)&&De(()=>{q&&Je(q,v,u,p),F&&Rn(u,p,v,"updated")},g)},K=(p,u,v,g,x,b,N)=>{for(let R=0;R<u.length;R++){const T=p[R],S=u[R],F=T.el&&(T.type===Ae||!zn(T,S)||T.shapeFlag&198)?d(T.el):v;w(T,S,F,null,g,x,b,N,!0)}},$=(p,u,v,g,x)=>{if(u!==v){if(u!==se)for(const b in u)!ot(b)&&!(b in v)&&o(p,b,u[b],null,x,g);for(const b in v){if(ot(b))continue;const N=v[b],R=u[b];N!==R&&b!=="value"&&o(p,b,R,N,x,g)}"value"in v&&o(p,"value",u.value,v.value,x)}},I=(p,u,v,g,x,b,N,R,T)=>{const S=u.el=p?p.el:s(""),F=u.anchor=p?p.anchor:s("");let{patchFlag:P,dynamicChildren:B,slotScopeIds:q}=u;q&&(R=R?R.concat(q):q),p==null?(r(S,v,g),r(F,v,g),ae(u.children||[],v,F,x,b,N,R,T)):P>0&&P&64&&B&&p.dynamicChildren&&p.dynamicChildren.length===B.length?(K(p.dynamicChildren,B,v,x,b,N,R),(u.key!=null||x&&u===x.subTree)&&Ei(p,u,!0)):Y(p,u,v,F,x,b,N,R,T)},X=(p,u,v,g,x,b,N,R,T)=>{u.slotScopeIds=R,p==null?u.shapeFlag&512?x.ctx.activate(u,v,g,N,T):le(u,v,g,x,b,N,T):ve(p,u,T)},le=(p,u,v,g,x,b,N)=>{const R=p.component=ql(p,g,x);if(ti(p)&&(R.ctx.renderer=U),Wl(R,!1,N),R.asyncDep){if(x&&x.registerDep(R,ce,N),!p.el){const T=R.subTree=ue(vn);O(null,T,u,v),p.placeholder=T.el}}else ce(R,p,u,v,x,b,N)},ve=(p,u,v)=>{const g=u.component=p.component;if(_l(p,u,v))if(g.asyncDep&&!g.asyncResolved){J(g,u,v);return}else g.next=u,g.update();else u.el=p.el,g.vnode=u},ce=(p,u,v,g,x,b,N)=>{const R=()=>{if(p.isMounted){let{next:P,bu:B,u:q,parent:Q,vnode:oe}=p;{const Ze=_i(p);if(Ze){P&&(P.el=oe.el,J(p,P,N)),Ze.asyncDep.then(()=>{De(()=>{p.isUnmounted||S()},x)});return}}let re=P,Ie;In(p,!1),P?(P.el=oe.el,J(p,P,N)):P=oe,B&&rr(B),(Ie=P.props&&P.props.onVnodeBeforeUpdate)&&Je(Ie,Q,P,oe),In(p,!0);const Ne=_a(p),Qe=p.subTree;p.subTree=Ne,w(Qe,Ne,d(Qe.el),y(Qe),p,x,b),P.el=Ne.el,re===null&&wl(p,Ne.el),q&&De(q,x),(Ie=P.props&&P.props.onVnodeUpdated)&&De(()=>Je(Ie,Q,P,oe),x)}else{let P;const{el:B,props:q}=u,{bm:Q,m:oe,parent:re,root:Ie,type:Ne}=p,Qe=dt(u);In(p,!1),Q&&rr(Q),!Qe&&(P=q&&q.onVnodeBeforeMount)&&Je(P,re,u),In(p,!0);{Ie.ce&&Ie.ce._hasShadowRoot()&&Ie.ce._injectChildStyle(Ne);const Ze=p.subTree=_a(p);w(null,Ze,v,g,p,x,b),u.el=Ze.el}if(oe&&De(oe,x),!Qe&&(P=q&&q.onVnodeMounted)){const Ze=u;De(()=>Je(P,re,Ze),x)}(u.shapeFlag&256||re&&dt(re.vnode)&&re.vnode.shapeFlag&256)&&p.a&&De(p.a,x),p.isMounted=!0,u=v=g=null}};p.scope.on();const T=p.effect=new Io(R);p.scope.off();const S=p.update=T.run.bind(T),F=p.job=T.runIfDirty.bind(T);F.i=p,F.id=p.uid,T.scheduler=()=>Zr(F),In(p,!0),S()},J=(p,u,v)=>{u.component=p;const g=p.vnode.props;p.vnode=u,p.next=null,Tl(p,u.props,g,v),Nl(p,u.children,v),un(),ha(p),mn()},Y=(p,u,v,g,x,b,N,R,T=!1)=>{const S=p&&p.children,F=p?p.shapeFlag:0,P=u.children,{patchFlag:B,shapeFlag:q}=u;if(B>0){if(B&128){Xe(S,P,v,g,x,b,N,R,T);return}else if(B&256){Ge(S,P,v,g,x,b,N,R,T);return}}q&8?(F&16&&Ee(S,x,b),P!==S&&c(v,P)):F&16?q&16?Xe(S,P,v,g,x,b,N,R,T):Ee(S,x,b,!0):(F&8&&c(v,""),q&16&&ae(P,v,g,x,b,N,R,T))},Ge=(p,u,v,g,x,b,N,R,T)=>{p=p||Vn,u=u||Vn;const S=p.length,F=u.length,P=Math.min(S,F);let B;for(B=0;B<P;B++){const q=u[B]=T?dn(u[B]):tn(u[B]);w(p[B],q,v,null,x,b,N,R,T)}S>F?Ee(p,x,b,!0,!1,P):ae(u,v,g,x,b,N,R,T,P)},Xe=(p,u,v,g,x,b,N,R,T)=>{let S=0;const F=u.length;let P=p.length-1,B=F-1;for(;S<=P&&S<=B;){const q=p[S],Q=u[S]=T?dn(u[S]):tn(u[S]);if(zn(q,Q))w(q,Q,v,null,x,b,N,R,T);else break;S++}for(;S<=P&&S<=B;){const q=p[P],Q=u[B]=T?dn(u[B]):tn(u[B]);if(zn(q,Q))w(q,Q,v,null,x,b,N,R,T);else break;P--,B--}if(S>P){if(S<=B){const q=B+1,Q=q<F?u[q].el:g;for(;S<=B;)w(null,u[S]=T?dn(u[S]):tn(u[S]),v,Q,x,b,N,R,T),S++}}else if(S>B)for(;S<=P;)ge(p[S],x,b,!0),S++;else{const q=S,Q=S,oe=new Map;for(S=Q;S<=B;S++){const Oe=u[S]=T?dn(u[S]):tn(u[S]);Oe.key!=null&&oe.set(Oe.key,S)}let re,Ie=0;const Ne=B-Q+1;let Qe=!1,Ze=0;const $n=new Array(Ne);for(S=0;S<Ne;S++)$n[S]=0;for(S=q;S<=P;S++){const Oe=p[S];if(Ie>=Ne){ge(Oe,x,b,!0);continue}let $e;if(Oe.key!=null)$e=oe.get(Oe.key);else for(re=Q;re<=B;re++)if($n[re-Q]===0&&zn(Oe,u[re])){$e=re;break}$e===void 0?ge(Oe,x,b,!0):($n[$e-Q]=S+1,$e>=Ze?Ze=$e:Qe=!0,w(Oe,u[$e],v,null,x,b,N,R,T),Ie++)}const la=Qe?Ol($n):Vn;for(re=la.length-1,S=Ne-1;S>=0;S--){const Oe=Q+S,$e=u[Oe],ca=u[Oe+1],fa=Oe+1<F?ca.el||wi(ca):g;$n[S]===0?w(null,$e,v,fa,x,b,N,R,T):Qe&&(re<0||S!==la[re]?de($e,v,fa,2):re--)}}},de=(p,u,v,g,x=null)=>{const{el:b,type:N,transition:R,children:T,shapeFlag:S}=p;if(S&6){de(p.component.subTree,u,v,g);return}if(S&128){p.suspense.move(u,v,g);return}if(S&64){N.move(p,u,v,U);return}if(N===Ae){r(b,u,v);for(let P=0;P<T.length;P++)de(T[P],u,v,g);r(p.anchor,u,v);return}if(N===Dt){A(p,u,v);return}if(g!==2&&S&1&&R)if(g===0)R.beforeEnter(b),r(b,u,v),De(()=>R.enter(b),x);else{const{leave:P,delayLeave:B,afterLeave:q}=R,Q=()=>{p.ctx.isUnmounted?a(b):r(b,u,v)},oe=()=>{b._isLeaving&&b[xn](!0),P(b,()=>{Q(),q&&q()})};B?B(b,Q,oe):oe()}else r(b,u,v)},ge=(p,u,v,g=!1,x=!1)=>{const{type:b,props:N,ref:R,children:T,dynamicChildren:S,shapeFlag:F,patchFlag:P,dirs:B,cacheIndex:q}=p;if(P===-2&&(x=!1),R!=null&&(un(),ft(R,null,v,p,!0),mn()),q!=null&&(u.renderCache[q]=void 0),F&256){u.ctx.deactivate(p);return}const Q=F&1&&B,oe=!dt(p);let re;if(oe&&(re=N&&N.onVnodeBeforeUnmount)&&Je(re,u,p),F&6)je(p.component,v,g);else{if(F&128){p.suspense.unmount(v,g);return}Q&&Rn(p,null,u,"beforeUnmount"),F&64?p.type.remove(p,u,v,U,g):S&&!S.hasOnce&&(b!==Ae||P>0&&P&64)?Ee(S,u,v,!1,!0):(b===Ae&&P&384||!x&&F&16)&&Ee(T,u,v),g&&on(p)}(oe&&(re=N&&N.onVnodeUnmounted)||Q)&&De(()=>{re&&Je(re,u,p),Q&&Rn(p,null,u,"unmounted")},v)},on=p=>{const{type:u,el:v,anchor:g,transition:x}=p;if(u===Ae){sn(v,g);return}if(u===Dt){_(p);return}const b=()=>{a(v),x&&!x.persisted&&x.afterLeave&&x.afterLeave()};if(p.shapeFlag&1&&x&&!x.persisted){const{leave:N,delayLeave:R}=x,T=()=>N(v,b);R?R(p.el,b,T):T()}else b()},sn=(p,u)=>{let v;for(;p!==u;)v=m(p),a(p),p=v;a(u)},je=(p,u,v)=>{const{bum:g,scope:x,job:b,subTree:N,um:R,m:T,a:S}=p;Ta(T),Ta(S),g&&rr(g),x.stop(),b&&(b.flags|=8,ge(N,p,u,v)),R&&De(R,u),De(()=>{p.isUnmounted=!0},u)},Ee=(p,u,v,g=!1,x=!1,b=0)=>{for(let N=b;N<p.length;N++)ge(p[N],u,v,g,x)},y=p=>{if(p.shapeFlag&6)return y(p.component.subTree);if(p.shapeFlag&128)return p.suspense.next();const u=m(p.anchor||p.el),v=u&&u[js];return v?m(v):u};let M=!1;const D=(p,u,v)=>{let g;p==null?u._vnode&&(ge(u._vnode,null,null,!0),g=u._vnode.component):w(u._vnode||null,p,u,null,null,null,v),u._vnode=p,M||(M=!0,ha(g),jo(),M=!1)},U={p:w,um:ge,m:de,r:on,mt:le,mc:ae,pc:Y,pbc:K,n:y,o:e};return{render:D,hydrate:void 0,createApp:gl(D)}}function cr({type:e,props:n},t){return t==="svg"&&e==="foreignObject"||t==="mathml"&&e==="annotation-xml"&&n&&n.encoding&&n.encoding.includes("html")?void 0:t}function In({effect:e,job:n},t){t?(e.flags|=32,n.flags|=4):(e.flags&=-33,n.flags&=-5)}function Ll(e,n){return(!e||e&&!e.pendingBranch)&&n&&!n.persisted}function Ei(e,n,t=!1){const r=e.children,a=n.children;if(z(r)&&z(a))for(let o=0;o<r.length;o++){const i=r[o];let s=a[o];s.shapeFlag&1&&!s.dynamicChildren&&((s.patchFlag<=0||s.patchFlag===32)&&(s=a[o]=dn(a[o]),s.el=i.el),!t&&s.patchFlag!==-2&&Ei(i,s)),s.type===Jt&&(s.patchFlag===-1&&(s=a[o]=dn(s)),s.el=i.el),s.type===vn&&!s.el&&(s.el=i.el)}}function Ol(e){const n=e.slice(),t=[0];let r,a,o,i,s;const l=e.length;for(r=0;r<l;r++){const f=e[r];if(f!==0){if(a=t[t.length-1],e[a]<f){n[r]=a,t.push(r);continue}for(o=0,i=t.length-1;o<i;)s=o+i>>1,e[t[s]]<f?o=s+1:i=s;f<e[t[o]]&&(o>0&&(n[r]=t[o-1]),t[o]=r)}}for(o=t.length,i=t[o-1];o-- >0;)t[o]=i,i=n[i];return t}function _i(e){const n=e.subTree.component;if(n)return n.asyncDep&&!n.asyncResolved?n:_i(n)}function Ta(e){if(e)for(let n=0;n<e.length;n++)e[n].flags|=8}function wi(e){if(e.placeholder)return e.placeholder;const n=e.component;return n?wi(n.subTree):null}const Ci=e=>e.__isSuspense;function Ml(e,n){n&&n.pendingBranch?z(e)?n.effects.push(...e):n.effects.push(e):Ws(e)}const Ae=Symbol.for("v-fgt"),Jt=Symbol.for("v-txt"),vn=Symbol.for("v-cmt"),Dt=Symbol.for("v-stc"),ut=[];let Me=null;function Re(e=!1){ut.push(Me=e?null:[])}function kl(){ut.pop(),Me=ut[ut.length-1]||null}let bt=1;function Bt(e,n=!1){bt+=e,e<0&&Me&&n&&(Me.hasOnce=!0)}function Ti(e){return e.dynamicChildren=bt>0?Me||Vn:null,kl(),bt>0&&Me&&Me.push(e),e}function Fe(e,n,t,r,a,o){return Ti(Ce(e,n,t,r,a,o,!0))}function ta(e,n,t,r,a){return Ti(ue(e,n,t,r,a,!0))}function Ft(e){return e?e.__v_isVNode===!0:!1}function zn(e,n){return e.type===n.type&&e.key===n.key}const Ai=({key:e})=>e??null,Pt=({ref:e,ref_key:n,ref_for:t})=>(typeof e=="number"&&(e=""+e),e!=null?pe(e)||Se(e)||W(e)?{i:Ve,r:e,k:n,f:!!t}:e:null);function Ce(e,n=null,t=null,r=0,a=null,o=e===Ae?0:1,i=!1,s=!1){const l={__v_isVNode:!0,__v_skip:!0,type:e,props:n,key:n&&Ai(n),ref:n&&Pt(n),scopeId:Zo,slotScopeIds:null,children:t,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetStart:null,targetAnchor:null,staticCount:0,shapeFlag:o,patchFlag:r,dynamicProps:a,dynamicChildren:null,appContext:null,ctx:Ve};return s?(ra(l,t),o&128&&e.normalize(l)):t&&(l.shapeFlag|=pe(t)?8:16),bt>0&&!i&&Me&&(l.patchFlag>0||o&6)&&l.patchFlag!==32&&Me.push(l),l}const ue=Hl;function Hl(e,n=null,t=null,r=0,a=null,o=!1){if((!e||e===ll)&&(e=vn),Ft(e)){const s=kn(e,n,!0);return t&&ra(s,t),bt>0&&!o&&Me&&(s.shapeFlag&6?Me[Me.indexOf(e)]=s:Me.push(s)),s.patchFlag=-2,s}if(Ql(e)&&(e=e.__vccOpts),n){n=Ul(n);let{class:s,style:l}=n;s&&!pe(s)&&(n.class=Mn(s)),te(l)&&(Qr(l)&&!z(l)&&(l=me({},l)),n.style=Gr(l))}const i=pe(e)?1:Ci(e)?128:Qs(e)?64:te(e)?4:W(e)?2:0;return Ce(e,n,t,r,a,i,o,!0)}function Ul(e){return e?Qr(e)||vi(e)?me({},e):e:null}function kn(e,n,t=!1,r=!1){const{props:a,ref:o,patchFlag:i,children:s,transition:l}=e,f=n?zl(a||{},n):a,c={__v_isVNode:!0,__v_skip:!0,type:e.type,props:f,key:f&&Ai(f),ref:n&&n.ref?t&&o?z(o)?o.concat(Pt(n)):[o,Pt(n)]:Pt(n):o,scopeId:e.scopeId,slotScopeIds:e.slotScopeIds,children:s,target:e.target,targetStart:e.targetStart,targetAnchor:e.targetAnchor,staticCount:e.staticCount,shapeFlag:e.shapeFlag,patchFlag:n&&e.type!==Ae?i===-1?16:i|16:i,dynamicProps:e.dynamicProps,dynamicChildren:e.dynamicChildren,appContext:e.appContext,dirs:e.dirs,transition:l,component:e.component,suspense:e.suspense,ssContent:e.ssContent&&kn(e.ssContent),ssFallback:e.ssFallback&&kn(e.ssFallback),placeholder:e.placeholder,el:e.el,anchor:e.anchor,ctx:e.ctx,ce:e.ce};return l&&r&&yt(c,l.clone(c)),c}function Bl(e=" ",n=0){return ue(Jt,null,e,n)}function Fl(e,n){const t=ue(Dt,null,e);return t.staticCount=n,t}function Ri(e="",n=!1){return n?(Re(),ta(vn,null,e)):ue(vn,null,e)}function tn(e){return e==null||typeof e=="boolean"?ue(vn):z(e)?ue(Ae,null,e.slice()):Ft(e)?dn(e):ue(Jt,null,String(e))}function dn(e){return e.el===null&&e.patchFlag!==-1||e.memo?e:kn(e)}function ra(e,n){let t=0;const{shapeFlag:r}=e;if(n==null)n=null;else if(z(n))t=16;else if(typeof n=="object")if(r&65){const a=n.default;a&&(a._c&&(a._d=!1),ra(e,a()),a._c&&(a._d=!0));return}else{t=32;const a=n._;!a&&!vi(n)?n._ctx=Ve:a===3&&Ve&&(Ve.slots._===1?n._=1:(n._=2,e.patchFlag|=1024))}else W(n)?(n={default:n,_ctx:Ve},t=32):(n=String(n),r&64?(t=16,n=[Bl(n)]):t=8);e.children=n,e.shapeFlag|=t}function zl(...e){const n={};for(let t=0;t<e.length;t++){const r=e[t];for(const a in r)if(a==="class")n.class!==r.class&&(n.class=Mn([n.class,r.class]));else if(a==="style")n.style=Gr([n.style,r.style]);else if(qt(a)){const o=n[a],i=r[a];i&&o!==i&&!(z(o)&&o.includes(i))&&(n[a]=o?[].concat(o,i):i)}else a!==""&&(n[a]=r[a])}return n}function Je(e,n,t,r=null){Ye(e,n,7,[t,r])}const Gl=di();let Vl=0;function ql(e,n,t){const r=e.type,a=(n?n.appContext:e.appContext)||Gl,o={uid:Vl++,vnode:e,type:r,parent:n,appContext:a,root:null,next:null,subTree:null,effect:null,update:null,job:null,scope:new hs(!0),render:null,proxy:null,exposed:null,exposeProxy:null,withProxy:null,provides:n?n.provides:Object.create(a.provides),ids:n?n.ids:["",0,0],accessCache:null,renderCache:[],components:null,directives:null,propsOptions:yi(r,a),emitsOptions:pi(r,a),emit:null,emitted:null,propsDefaults:se,inheritAttrs:r.inheritAttrs,ctx:se,data:se,props:se,attrs:se,slots:se,refs:se,setupState:se,setupContext:null,suspense:t,suspenseId:t?t.pendingId:0,asyncDep:null,asyncResolved:!1,isMounted:!1,isUnmounted:!1,isDeactivated:!1,bc:null,c:null,bm:null,m:null,bu:null,u:null,um:null,bum:null,da:null,a:null,rtg:null,rtc:null,ec:null,sp:null};return o.ctx={_:o},o.root=n?n.root:o,o.emit=bl.bind(null,o),e.ce&&e.ce(o),o}let be=null;const Ii=()=>be||Ve;let zt,Ir;{const e=Kt(),n=(t,r)=>{let a;return(a=e[t])||(a=e[t]=[]),a.push(r),o=>{a.length>1?a.forEach(i=>i(o)):a[0](o)}};zt=n("__VUE_INSTANCE_SETTERS__",t=>be=t),Ir=n("__VUE_SSR_SETTERS__",t=>xt=t)}const wt=e=>{const n=be;return zt(e),e.scope.on(),()=>{e.scope.off(),zt(n)}},Aa=()=>{be&&be.scope.off(),zt(null)};function Ni(e){return e.vnode.shapeFlag&4}let xt=!1;function Wl(e,n=!1,t=!1){n&&Ir(n);const{props:r,children:a}=e.vnode,o=Ni(e);Cl(e,r,o,n),Il(e,a,t||n);const i=o?Yl(e,n):void 0;return n&&Ir(!1),i}function Yl(e,n){const t=e.type;e.accessCache=Object.create(null),e.proxy=new Proxy(e.ctx,fl);const{setup:r}=t;if(r){un();const a=e.setupContext=r.length>1?Xl(e):null,o=wt(e),i=_t(r,e,0,[e.props,a]),s=Eo(i);if(mn(),o(),(s||e.sp)&&!dt(e)&&ni(e),s){if(i.then(Aa,Aa),n)return i.then(l=>{Ra(e,l)}).catch(l=>{Qt(l,e,0)});e.asyncDep=i}else Ra(e,i)}else Di(e)}function Ra(e,n,t){W(n)?e.type.__ssrInlineRender?e.ssrRender=n:e.render=n:te(n)&&(e.setupState=Wo(n)),Di(e)}function Di(e,n,t){const r=e.type;e.render||(e.render=r.render||rn);{const a=wt(e);un();try{dl(e)}finally{mn(),a()}}}const Kl={get(e,n){return ye(e,"get",""),e[n]}};function Xl(e){const n=t=>{e.exposed=t||{}};return{attrs:new Proxy(e.attrs,Kl),slots:e.slots,emit:e.emit,expose:n}}function aa(e){return e.exposed?e.exposeProxy||(e.exposeProxy=new Proxy(Wo(Ms(e.exposed)),{get(n,t){if(t in n)return n[t];if(t in pt)return pt[t](e)},has(n,t){return t in n||t in pt}})):e.proxy}function jl(e,n=!0){return W(e)?e.displayName||e.name:e.name||n&&e.__name}function Ql(e){return W(e)&&"__vccOpts"in e}const He=(e,n)=>Fs(e,n,xt);function Pi(e,n,t){try{Bt(-1);const r=arguments.length;return r===2?te(n)&&!z(n)?Ft(n)?ue(e,null,[n]):ue(e,n):ue(e,null,n):(r>3?t=Array.prototype.slice.call(arguments,2):r===3&&Ft(t)&&(t=[t]),ue(e,n,t))}finally{Bt(1)}}const Zl="3.5.28";/**
 * @vue/runtime-dom v3.5.28
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let Nr;const No=typeof window<"u"&&window.trustedTypes;if(No)try{Nr=No.createPolicy("vue",{createHTML:e=>e})}catch{}const Li=Nr?e=>Nr.createHTML(e):e=>e,$l="http://www.w3.org/2000/svg",Jl="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,Do=fn&&fn.createElement("template"),ec={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const o=n==="svg"?fn.createElementNS($l,e):n==="mathml"?fn.createElementNS(Jl,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&o.setAttribute("multiple",r.multiple),o},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,o,a){const i=t?t.previousSibling:n.lastChild;if(o&&(o===a||o.nextSibling))for(;n.insertBefore(o.cloneNode(!0),t),!(o===a||!(o=o.nextSibling)););else{Do.innerHTML=Li(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const s=Do.content;if(r==="svg"||r==="mathml"){const l=s.firstChild;for(;l.firstChild;)s.appendChild(l.firstChild);s.removeChild(l)}n.insertBefore(s,t)}return[i?i.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",nt="animation",Xn=Symbol("_vtc"),Oi={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},nc=me({},$s,Oi),Nn=(e,n=[])=>{z(e)?e.forEach(t=>t(...n)):e&&e(...n)},Po=e=>e?z(e)?e.some(n=>n.length>1):e.length>1:!1;function tc(e){const n={};for(const I in e)I in Oi||(n[I]=e[I]);if(e.css===!1)return n;const{name:t="v",type:r,duration:o,enterFromClass:a=`${t}-enter-from`,enterActiveClass:i=`${t}-enter-active`,enterToClass:s=`${t}-enter-to`,appearFromClass:l=a,appearActiveClass:f=i,appearToClass:c=s,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:m=`${t}-leave-active`,leaveToClass:h=`${t}-leave-to`}=e,T=rc(o),w=T&&T[0],H=T&&T[1],{onBeforeEnter:O,onEnter:S,onEnterCancelled:A,onLeave:_,onLeaveCancelled:L,onBeforeAppear:G=O,onAppear:V=S,onAppearCancelled:oe=A}=n,k=(I,X,le,ve)=>{I._enterCancelled=ve,En(I,X?c:s),En(I,X?f:i),le&&le()},Y=(I,X)=>{I._isLeaving=!1,En(I,d),En(I,h),En(I,m),X&&X()},$=I=>(X,le)=>{const ve=I?V:S,ce=()=>k(X,I,le);Nn(ve,[X,ce]),Lo(()=>{En(X,I?l:a),en(X,I?c:s),Po(ve)||Oo(X,r,w,ce)})};return me(n,{onBeforeEnter(I){Nn(O,[I]),en(I,a),en(I,i)},onBeforeAppear(I){Nn(G,[I]),en(I,l),en(I,f)},onEnter:$(!1),onAppear:$(!0),onLeave(I,X){I._isLeaving=!0;const le=()=>Y(I,X);en(I,d),I._enterCancelled?(en(I,m),Dr(I)):(Dr(I),en(I,m)),Lo(()=>{I._isLeaving&&(En(I,d),en(I,h),Po(_)||Oo(I,r,H,le))}),Nn(_,[I,le])},onEnterCancelled(I){k(I,!1,void 0,!0),Nn(A,[I])},onAppearCancelled(I){k(I,!0,void 0,!0),Nn(oe,[I])},onLeaveCancelled(I){Y(I),Nn(L,[I])}})}function rc(e){if(e==null)return null;if(te(e))return[fr(e.enter),fr(e.leave)];{const n=fr(e);return[n,n]}}function fr(e){return ss(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[Xn]||(e[Xn]=new Set)).add(n)}function En(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[Xn];t&&(t.delete(n),t.size||(e[Xn]=void 0))}function Lo(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let oc=0;function Oo(e,n,t,r){const o=e._endId=++oc,a=()=>{o===e._endId&&r()};if(t!=null)return setTimeout(a,t);const{type:i,timeout:s,propCount:l}=Mi(e,n);if(!i)return r();const f=i+"end";let c=0;const d=()=>{e.removeEventListener(f,m),a()},m=h=>{h.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},s+1),e.addEventListener(f,m)}function Mi(e,n){const t=window.getComputedStyle(e),r=T=>(t[T]||"").split(", "),o=r(`${yn}Delay`),a=r(`${yn}Duration`),i=Mo(o,a),s=r(`${nt}Delay`),l=r(`${nt}Duration`),f=Mo(s,l);let c=null,d=0,m=0;n===yn?i>0&&(c=yn,d=i,m=a.length):n===nt?f>0&&(c=nt,d=f,m=l.length):(d=Math.max(i,f),c=d>0?i>f?yn:nt:null,m=c?c===yn?a.length:l.length:0);const h=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:m,hasTransform:h}}function Mo(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Ho(t)+Ho(e[r])))}function Ho(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Dr(e){return(e?e.ownerDocument:document).body.offsetHeight}function ac(e,n,t){const r=e[Xn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const ko=Symbol("_vod"),ic=Symbol("_vsh"),sc=Symbol(""),lc=/(?:^|;)\s*display\s*:/;function cc(e,n,t){const r=e.style,o=pe(t);let a=!1;if(t&&!o){if(n)if(pe(n))for(const i of n.split(";")){const s=i.slice(0,i.indexOf(":")).trim();t[s]==null&&Lt(r,s,"")}else for(const i in n)t[i]==null&&Lt(r,i,"");for(const i in t)i==="display"&&(a=!0),Lt(r,i,t[i])}else if(o){if(n!==t){const i=r[sc];i&&(t+=";"+i),r.cssText=t,a=lc.test(t)}}else n&&e.removeAttribute("style");ko in e&&(e[ko]=a?r.display:"",e[ic]&&(r.display="none"))}const Bo=/\s*!important$/;function Lt(e,n,t){if(z(t))t.forEach(r=>Lt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=fc(e,n);Bo.test(t)?e.setProperty(kn(r),t.replace(Bo,""),"important"):e[r]=t}}const Fo=["Webkit","Moz","ms"],dr={};function fc(e,n){const t=dr[n];if(t)return t;let r=ze(n);if(r!=="filter"&&r in e)return dr[n]=r;r=Kt(r);for(let o=0;o<Fo.length;o++){const a=Fo[o]+r;if(a in e)return dr[n]=a}return n}const Uo="http://www.w3.org/1999/xlink";function zo(e,n,t,r,o,a=us(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(Uo,n.slice(6,n.length)):e.setAttributeNS(Uo,n,t):t==null||a&&!Ca(t)?e.removeAttribute(n):e.setAttribute(n,a?"":on(t)?String(t):t)}function Go(e,n,t,r,o){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Li(t):t);return}const a=e.tagName;if(n==="value"&&a!=="PROGRESS"&&!a.includes("-")){const s=a==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(s!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let i=!1;if(t===""||t==null){const s=typeof e[n];s==="boolean"?t=Ca(t):t==null&&s==="string"?(t="",i=!0):s==="number"&&(t=0,i=!0)}try{e[n]=t}catch{}i&&e.removeAttribute(o||n)}function dc(e,n,t,r){e.addEventListener(n,t,r)}function pc(e,n,t,r){e.removeEventListener(n,t,r)}const Vo=Symbol("_vei");function uc(e,n,t,r,o=null){const a=e[Vo]||(e[Vo]={}),i=a[n];if(r&&i)i.value=r;else{const[s,l]=mc(n);if(r){const f=a[n]=gc(r,o);dc(e,s,f,l)}else i&&(pc(e,s,i,l),a[n]=void 0)}}const qo=/(?:Once|Passive|Capture)$/;function mc(e){let n;if(qo.test(e)){n={};let r;for(;r=e.match(qo);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):kn(e.slice(2)),n]}let pr=0;const hc=Promise.resolve(),vc=()=>pr||(hc.then(()=>pr=0),pr=Date.now());function gc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;Ke(yc(r,t.value),n,5,[r])};return t.value=e,t.attached=vc(),t}function yc(e,n){if(z(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>o=>!o._stopped&&r&&r(o))}else return n}const Wo=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,bc=(e,n,t,r,o,a)=>{const i=o==="svg";n==="class"?ac(e,r,i):n==="style"?cc(e,t,r):qt(n)?Fr(n)||uc(e,n,t,r,a):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):xc(e,n,r,i))?(Go(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&zo(e,n,r,i,a,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!pe(r))?Go(e,ze(n),r,a,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),zo(e,n,r,i))};function xc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&Wo(n)&&W(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const o=e.tagName;if(o==="IMG"||o==="VIDEO"||o==="CANVAS"||o==="SOURCE")return!1}return Wo(n)&&pe(t)?!1:n in e}const Hi=new WeakMap,ki=new WeakMap,Gt=Symbol("_moveCb"),Ko=Symbol("_enterCb"),Ec=e=>(delete e.props.mode,e),Sc=Ec({name:"TransitionGroup",props:me({},nc,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=Ii(),r=Zs();let o,a;return ii(()=>{if(!o.length)return;const i=e.moveClass||`${e.name||"v"}-move`;if(!Ac(o[0].el,t.vnode.el,i)){o=[];return}o.forEach(wc),o.forEach(Tc);const s=o.filter(Cc);Dr(t.vnode.el),s.forEach(l=>{const f=l.el,c=f.style;en(f,i),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[Gt]=m=>{m&&m.target!==f||(!m||m.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[Gt]=null,En(f,i))};f.addEventListener("transitionend",d)}),o=[]}),()=>{const i=Z(e),s=tc(i);let l=i.tag||Ae;if(o=[],a)for(let f=0;f<a.length;f++){const c=a[f];c.el&&c.el instanceof Element&&(o.push(c),yt(c,wr(c,s,r,t)),Hi.set(c,Bi(c.el)))}a=n.default?ei(n.default()):[];for(let f=0;f<a.length;f++){const c=a[f];c.key!=null&&yt(c,wr(c,s,r,t))}return ue(l,null,a)}}}),_c=Sc;function wc(e){const n=e.el;n[Gt]&&n[Gt](),n[Ko]&&n[Ko]()}function Tc(e){ki.set(e,Bi(e.el))}function Cc(e){const n=Hi.get(e),t=ki.get(e),r=n.left-t.left,o=n.top-t.top;if(r||o){const a=e.el,i=a.style,s=a.getBoundingClientRect();let l=1,f=1;return a.offsetWidth&&(l=s.width/a.offsetWidth),a.offsetHeight&&(f=s.height/a.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),i.transform=i.webkitTransform=`translate(${r/l}px,${o/f}px)`,i.transitionDuration="0s",e}}function Bi(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function Ac(e,n,t){const r=e.cloneNode(),o=e[Xn];o&&o.forEach(s=>{s.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(s=>s&&r.classList.add(s)),r.style.display="none";const a=n.nodeType===1?n:n.parentNode;a.appendChild(r);const{hasTransform:i}=Mi(r);return a.removeChild(r),i}const Rc=me({patchProp:bc},ec);let Yo;function Ic(){return Yo||(Yo=Dl(Rc))}const Nc=((...e)=>{const n=Ic().createApp(...e),{mount:t}=n;return n.mount=r=>{const o=Pc(r);if(!o)return;const a=n._component;!W(a)&&!a.render&&!a.template&&(a.template=o.innerHTML),o.nodeType===1&&(o.textContent="");const i=t(o,!1,Dc(o));return o instanceof Element&&(o.removeAttribute("v-cloak"),o.setAttribute("data-v-app","")),i},n});function Dc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Pc(e){return pe(e)?document.querySelector(e):e}const gd=4,yd=2,Xo=400,jo=300,Qo=50,Lc=800,ot=500,Fi=100,Ui=200,bd=ot+Fi+Ui,xd=200,Oc=300,Mc=250,ur=8,Hc=8,kc=18,Bc=2.5,Fc=1.2,Uc=1.5,zc=10,Gc=4,Vc=2,qc=2,Wc=1.5,Kc=8,Zo=xe(null),Vt=xe("full");let $o=!1,mr=null;function Yc(){$o||($o=!0,mr=window.matchMedia("(prefers-reduced-motion: reduce)"),Vt.value=mr.matches?"reduced":"full",mr.addEventListener("change",e=>{Vt.value=e.matches?"reduced":"full"}))}function ao(){Bn(()=>{Yc()});const e=Vt;function n(o,a){if(a<=1)return 0;const i=Lc-Qo,s=Math.min(Qo,i/(a-1));return Math.round(o*s)}function t(o){Zo.value=o}function r(o){return Vt.value==="reduced"?Promise.resolve():o.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Mc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Zo,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Xc=["src"],jc=An({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=ao(),o=xe(null),a=xe(null),i=xe(!1);function s(c){const m=performance.now();return new Promise(h=>{const T=()=>{const w=typeof CSS<"u"&&typeof CSS.escape=="function"?CSS.escape(c):c,H=document.querySelector(`[data-shader-slug="${w}"]`);if(H){const O=H.getBoundingClientRect();h({top:O.top,left:O.left,width:O.width,height:O.height});return}if(performance.now()-m>=1500){h(null);return}requestAnimationFrame(T)};T()})}function l(c){const d=a.value,m=o.value;if(!d||!m){i.value=!1,t(null);return}const{top:h,left:T,width:w,height:H}=c.rect;m.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:ot,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),d.animate([{top:`${h}px`,left:`${T}px`,width:`${w}px`,height:`${H}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:ot,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{m.animate([{opacity:1},{opacity:0}],{duration:Ui,fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})},Fi)})}async function f(c){const d=a.value,m=o.value;if(!d||!m){i.value=!1,t(null);return}const h=await s(c.slug);if(!h){i.value=!1,t(null);return}m.animate([{backgroundColor:"rgba(9, 10, 16, 0.95)",opacity:1},{backgroundColor:"rgba(9, 10, 16, 0)",opacity:0}],{duration:ot,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),d.animate([{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"},{top:`${h.top}px`,left:`${h.left}px`,width:`${h.width}px`,height:`${h.height}px`,borderRadius:"8px"}],{duration:ot,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})}return ct(n,async c=>{if(!(!c||r.value==="reduced")){if(i.value=!0,await new Promise(d=>requestAnimationFrame(()=>d())),c.direction==="to-gallery"){await f(c);return}l(c)}}),(c,d)=>i.value&&Le(n)?(Re(),Ue("div",{key:0,ref_key:"overlayRef",ref:o,class:"transition-overlay"},[Te("img",{ref_key:"imgRef",ref:a,src:Le(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Xc)],512)):Ri("",!0)}}),Tt=(e,n)=>{const t=e.__vccOpts||e;for(const[r,o]of n)t[r]=o;return t},Qc=Tt(jc,[["__scopeId","data-v-58df5b9e"]]),Zc=An({__name:"App",setup(e){return(n,t)=>{const r=li("router-view");return Re(),Ue(Ae,null,[ue(r),ue(Qc)],64)}}}),$c="modulepreload",Jc=function(e){return"/"+e},Jo={},e0=function(n,t,r){let o=Promise.resolve();if(t&&t.length>0){let i=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=(s==null?void 0:s.nonce)||(s==null?void 0:s.getAttribute("nonce"));o=i(t.map(f=>{if(f=Jc(f),f in Jo)return;Jo[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const m=document.createElement("link");if(m.rel=c?"stylesheet":$c,c||(m.as="script"),m.crossOrigin="",m.href=f,l&&m.setAttribute("nonce",l),document.head.appendChild(m),c)return new Promise((h,T)=>{m.addEventListener("load",h),m.addEventListener("error",()=>T(new Error(`Unable to preload CSS for ${f}`)))})}))}function a(i){const s=new Event("vite:preloadError",{cancelable:!0});if(s.payload=i,window.dispatchEvent(s),!s.defaultPrevented)throw i}return o.then(i=>{for(const s of i||[])s.status==="rejected"&&a(s.reason);return n().catch(a)})};/*!
+**/let Nr;const Ia=typeof window<"u"&&window.trustedTypes;if(Ia)try{Nr=Ia.createPolicy("vue",{createHTML:e=>e})}catch{}const Li=Nr?e=>Nr.createHTML(e):e=>e,$l="http://www.w3.org/2000/svg",Jl="http://www.w3.org/1998/Math/MathML",fn=typeof document<"u"?document:null,Na=fn&&fn.createElement("template"),ec={insert:(e,n,t)=>{n.insertBefore(e,t||null)},remove:e=>{const n=e.parentNode;n&&n.removeChild(e)},createElement:(e,n,t,r)=>{const a=n==="svg"?fn.createElementNS($l,e):n==="mathml"?fn.createElementNS(Jl,e):t?fn.createElement(e,{is:t}):fn.createElement(e);return e==="select"&&r&&r.multiple!=null&&a.setAttribute("multiple",r.multiple),a},createText:e=>fn.createTextNode(e),createComment:e=>fn.createComment(e),setText:(e,n)=>{e.nodeValue=n},setElementText:(e,n)=>{e.textContent=n},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>fn.querySelector(e),setScopeId(e,n){e.setAttribute(n,"")},insertStaticContent(e,n,t,r,a,o){const i=t?t.previousSibling:n.lastChild;if(a&&(a===o||a.nextSibling))for(;n.insertBefore(a.cloneNode(!0),t),!(a===o||!(a=a.nextSibling)););else{Na.innerHTML=Li(r==="svg"?`<svg>${e}</svg>`:r==="mathml"?`<math>${e}</math>`:e);const s=Na.content;if(r==="svg"||r==="mathml"){const l=s.firstChild;for(;l.firstChild;)s.appendChild(l.firstChild);s.removeChild(l)}n.insertBefore(s,t)}return[i?i.nextSibling:n.firstChild,t?t.previousSibling:n.lastChild]}},yn="transition",nt="animation",Xn=Symbol("_vtc"),Oi={name:String,type:String,css:{type:Boolean,default:!0},duration:[String,Number,Object],enterFromClass:String,enterActiveClass:String,enterToClass:String,appearFromClass:String,appearActiveClass:String,appearToClass:String,leaveFromClass:String,leaveActiveClass:String,leaveToClass:String},nc=me({},$s,Oi),Nn=(e,n=[])=>{z(e)?e.forEach(t=>t(...n)):e&&e(...n)},Da=e=>e?z(e)?e.some(n=>n.length>1):e.length>1:!1;function tc(e){const n={};for(const I in e)I in Oi||(n[I]=e[I]);if(e.css===!1)return n;const{name:t="v",type:r,duration:a,enterFromClass:o=`${t}-enter-from`,enterActiveClass:i=`${t}-enter-active`,enterToClass:s=`${t}-enter-to`,appearFromClass:l=o,appearActiveClass:f=i,appearToClass:c=s,leaveFromClass:d=`${t}-leave-from`,leaveActiveClass:m=`${t}-leave-active`,leaveToClass:h=`${t}-leave-to`}=e,C=rc(a),w=C&&C[0],k=C&&C[1],{onBeforeEnter:O,onEnter:E,onEnterCancelled:A,onLeave:_,onLeaveCancelled:L,onBeforeAppear:G=O,onAppear:V=E,onAppearCancelled:ae=A}=n,H=(I,X,le,ve)=>{I._enterCancelled=ve,Sn(I,X?c:s),Sn(I,X?f:i),le&&le()},K=(I,X)=>{I._isLeaving=!1,Sn(I,d),Sn(I,h),Sn(I,m),X&&X()},$=I=>(X,le)=>{const ve=I?V:E,ce=()=>H(X,I,le);Nn(ve,[X,ce]),Pa(()=>{Sn(X,I?l:o),en(X,I?c:s),Da(ve)||La(X,r,w,ce)})};return me(n,{onBeforeEnter(I){Nn(O,[I]),en(I,o),en(I,i)},onBeforeAppear(I){Nn(G,[I]),en(I,l),en(I,f)},onEnter:$(!1),onAppear:$(!0),onLeave(I,X){I._isLeaving=!0;const le=()=>K(I,X);en(I,d),I._enterCancelled?(en(I,m),Dr(I)):(Dr(I),en(I,m)),Pa(()=>{I._isLeaving&&(Sn(I,d),en(I,h),Da(_)||La(I,r,k,le))}),Nn(_,[I,le])},onEnterCancelled(I){H(I,!1,void 0,!0),Nn(A,[I])},onAppearCancelled(I){H(I,!0,void 0,!0),Nn(ae,[I])},onLeaveCancelled(I){K(I),Nn(L,[I])}})}function rc(e){if(e==null)return null;if(te(e))return[fr(e.enter),fr(e.leave)];{const n=fr(e);return[n,n]}}function fr(e){return ss(e)}function en(e,n){n.split(/\s+/).forEach(t=>t&&e.classList.add(t)),(e[Xn]||(e[Xn]=new Set)).add(n)}function Sn(e,n){n.split(/\s+/).forEach(r=>r&&e.classList.remove(r));const t=e[Xn];t&&(t.delete(n),t.size||(e[Xn]=void 0))}function Pa(e){requestAnimationFrame(()=>{requestAnimationFrame(e)})}let ac=0;function La(e,n,t,r){const a=e._endId=++ac,o=()=>{a===e._endId&&r()};if(t!=null)return setTimeout(o,t);const{type:i,timeout:s,propCount:l}=Mi(e,n);if(!i)return r();const f=i+"end";let c=0;const d=()=>{e.removeEventListener(f,m),o()},m=h=>{h.target===e&&++c>=l&&d()};setTimeout(()=>{c<l&&d()},s+1),e.addEventListener(f,m)}function Mi(e,n){const t=window.getComputedStyle(e),r=C=>(t[C]||"").split(", "),a=r(`${yn}Delay`),o=r(`${yn}Duration`),i=Oa(a,o),s=r(`${nt}Delay`),l=r(`${nt}Duration`),f=Oa(s,l);let c=null,d=0,m=0;n===yn?i>0&&(c=yn,d=i,m=o.length):n===nt?f>0&&(c=nt,d=f,m=l.length):(d=Math.max(i,f),c=d>0?i>f?yn:nt:null,m=c?c===yn?o.length:l.length:0);const h=c===yn&&/\b(?:transform|all)(?:,|$)/.test(r(`${yn}Property`).toString());return{type:c,timeout:d,propCount:m,hasTransform:h}}function Oa(e,n){for(;e.length<n.length;)e=e.concat(e);return Math.max(...n.map((t,r)=>Ma(t)+Ma(e[r])))}function Ma(e){return e==="auto"?0:Number(e.slice(0,-1).replace(",","."))*1e3}function Dr(e){return(e?e.ownerDocument:document).body.offsetHeight}function oc(e,n,t){const r=e[Xn];r&&(n=(n?[n,...r]:[...r]).join(" ")),n==null?e.removeAttribute("class"):t?e.setAttribute("class",n):e.className=n}const ka=Symbol("_vod"),ic=Symbol("_vsh"),sc=Symbol(""),lc=/(?:^|;)\s*display\s*:/;function cc(e,n,t){const r=e.style,a=pe(t);let o=!1;if(t&&!a){if(n)if(pe(n))for(const i of n.split(";")){const s=i.slice(0,i.indexOf(":")).trim();t[s]==null&&Lt(r,s,"")}else for(const i in n)t[i]==null&&Lt(r,i,"");for(const i in t)i==="display"&&(o=!0),Lt(r,i,t[i])}else if(a){if(n!==t){const i=r[sc];i&&(t+=";"+i),r.cssText=t,o=lc.test(t)}}else n&&e.removeAttribute("style");ka in e&&(e[ka]=o?r.display:"",e[ic]&&(r.display="none"))}const Ha=/\s*!important$/;function Lt(e,n,t){if(z(t))t.forEach(r=>Lt(e,n,r));else if(t==null&&(t=""),n.startsWith("--"))e.setProperty(n,t);else{const r=fc(e,n);Ha.test(t)?e.setProperty(Hn(r),t.replace(Ha,""),"important"):e[r]=t}}const Ua=["Webkit","Moz","ms"],dr={};function fc(e,n){const t=dr[n];if(t)return t;let r=ze(n);if(r!=="filter"&&r in e)return dr[n]=r;r=Yt(r);for(let a=0;a<Ua.length;a++){const o=Ua[a]+r;if(o in e)return dr[n]=o}return n}const Ba="http://www.w3.org/1999/xlink";function Fa(e,n,t,r,a,o=us(n)){r&&n.startsWith("xlink:")?t==null?e.removeAttributeNS(Ba,n.slice(6,n.length)):e.setAttributeNS(Ba,n,t):t==null||o&&!To(t)?e.removeAttribute(n):e.setAttribute(n,o?"":an(t)?String(t):t)}function za(e,n,t,r,a){if(n==="innerHTML"||n==="textContent"){t!=null&&(e[n]=n==="innerHTML"?Li(t):t);return}const o=e.tagName;if(n==="value"&&o!=="PROGRESS"&&!o.includes("-")){const s=o==="OPTION"?e.getAttribute("value")||"":e.value,l=t==null?e.type==="checkbox"?"on":"":String(t);(s!==l||!("_value"in e))&&(e.value=l),t==null&&e.removeAttribute(n),e._value=t;return}let i=!1;if(t===""||t==null){const s=typeof e[n];s==="boolean"?t=To(t):t==null&&s==="string"?(t="",i=!0):s==="number"&&(t=0,i=!0)}try{e[n]=t}catch{}i&&e.removeAttribute(a||n)}function dc(e,n,t,r){e.addEventListener(n,t,r)}function pc(e,n,t,r){e.removeEventListener(n,t,r)}const Ga=Symbol("_vei");function uc(e,n,t,r,a=null){const o=e[Ga]||(e[Ga]={}),i=o[n];if(r&&i)i.value=r;else{const[s,l]=mc(n);if(r){const f=o[n]=gc(r,a);dc(e,s,f,l)}else i&&(pc(e,s,i,l),o[n]=void 0)}}const Va=/(?:Once|Passive|Capture)$/;function mc(e){let n;if(Va.test(e)){n={};let r;for(;r=e.match(Va);)e=e.slice(0,e.length-r[0].length),n[r[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Hn(e.slice(2)),n]}let pr=0;const hc=Promise.resolve(),vc=()=>pr||(hc.then(()=>pr=0),pr=Date.now());function gc(e,n){const t=r=>{if(!r._vts)r._vts=Date.now();else if(r._vts<=t.attached)return;Ye(yc(r,t.value),n,5,[r])};return t.value=e,t.attached=vc(),t}function yc(e,n){if(z(n)){const t=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{t.call(e),e._stopped=!0},n.map(r=>a=>!a._stopped&&r&&r(a))}else return n}const qa=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,bc=(e,n,t,r,a,o)=>{const i=a==="svg";n==="class"?oc(e,r,i):n==="style"?cc(e,t,r):qt(n)?Br(n)||uc(e,n,t,r,o):(n[0]==="."?(n=n.slice(1),!0):n[0]==="^"?(n=n.slice(1),!1):xc(e,n,r,i))?(za(e,n,r),!e.tagName.includes("-")&&(n==="value"||n==="checked"||n==="selected")&&Fa(e,n,r,i,o,n!=="value")):e._isVueCE&&(/[A-Z]/.test(n)||!pe(r))?za(e,ze(n),r,o,n):(n==="true-value"?e._trueValue=r:n==="false-value"&&(e._falseValue=r),Fa(e,n,r,i))};function xc(e,n,t,r){if(r)return!!(n==="innerHTML"||n==="textContent"||n in e&&qa(n)&&W(t));if(n==="spellcheck"||n==="draggable"||n==="translate"||n==="autocorrect"||n==="sandbox"&&e.tagName==="IFRAME"||n==="form"||n==="list"&&e.tagName==="INPUT"||n==="type"&&e.tagName==="TEXTAREA")return!1;if(n==="width"||n==="height"){const a=e.tagName;if(a==="IMG"||a==="VIDEO"||a==="CANVAS"||a==="SOURCE")return!1}return qa(n)&&pe(t)?!1:n in e}const ki=new WeakMap,Hi=new WeakMap,Gt=Symbol("_moveCb"),Wa=Symbol("_enterCb"),Sc=e=>(delete e.props.mode,e),Ec=Sc({name:"TransitionGroup",props:me({},nc,{tag:String,moveClass:String}),setup(e,{slots:n}){const t=Ii(),r=Zs();let a,o;return ii(()=>{if(!a.length)return;const i=e.moveClass||`${e.name||"v"}-move`;if(!Ac(a[0].el,t.vnode.el,i)){a=[];return}a.forEach(wc),a.forEach(Cc);const s=a.filter(Tc);Dr(t.vnode.el),s.forEach(l=>{const f=l.el,c=f.style;en(f,i),c.transform=c.webkitTransform=c.transitionDuration="";const d=f[Gt]=m=>{m&&m.target!==f||(!m||m.propertyName.endsWith("transform"))&&(f.removeEventListener("transitionend",d),f[Gt]=null,Sn(f,i))};f.addEventListener("transitionend",d)}),a=[]}),()=>{const i=Z(e),s=tc(i);let l=i.tag||Ae;if(a=[],o)for(let f=0;f<o.length;f++){const c=o[f];c.el&&c.el instanceof Element&&(a.push(c),yt(c,wr(c,s,r,t)),ki.set(c,Ui(c.el)))}o=n.default?ei(n.default()):[];for(let f=0;f<o.length;f++){const c=o[f];c.key!=null&&yt(c,wr(c,s,r,t))}return ue(l,null,o)}}}),_c=Ec;function wc(e){const n=e.el;n[Gt]&&n[Gt](),n[Wa]&&n[Wa]()}function Cc(e){Hi.set(e,Ui(e.el))}function Tc(e){const n=ki.get(e),t=Hi.get(e),r=n.left-t.left,a=n.top-t.top;if(r||a){const o=e.el,i=o.style,s=o.getBoundingClientRect();let l=1,f=1;return o.offsetWidth&&(l=s.width/o.offsetWidth),o.offsetHeight&&(f=s.height/o.offsetHeight),(!Number.isFinite(l)||l===0)&&(l=1),(!Number.isFinite(f)||f===0)&&(f=1),Math.abs(l-1)<.01&&(l=1),Math.abs(f-1)<.01&&(f=1),i.transform=i.webkitTransform=`translate(${r/l}px,${a/f}px)`,i.transitionDuration="0s",e}}function Ui(e){const n=e.getBoundingClientRect();return{left:n.left,top:n.top}}function Ac(e,n,t){const r=e.cloneNode(),a=e[Xn];a&&a.forEach(s=>{s.split(/\s+/).forEach(l=>l&&r.classList.remove(l))}),t.split(/\s+/).forEach(s=>s&&r.classList.add(s)),r.style.display="none";const o=n.nodeType===1?n:n.parentNode;o.appendChild(r);const{hasTransform:i}=Mi(r);return o.removeChild(r),i}const Rc=me({patchProp:bc},ec);let Ya;function Ic(){return Ya||(Ya=Dl(Rc))}const Nc=((...e)=>{const n=Ic().createApp(...e),{mount:t}=n;return n.mount=r=>{const a=Pc(r);if(!a)return;const o=n._component;!W(o)&&!o.render&&!o.template&&(o.template=a.innerHTML),a.nodeType===1&&(a.textContent="");const i=t(a,!1,Dc(a));return a instanceof Element&&(a.removeAttribute("v-cloak"),a.setAttribute("data-v-app","")),i},n});function Dc(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Pc(e){return pe(e)?document.querySelector(e):e}const yd=4,bd=2,Ka=400,Xa=300,ja=50,Lc=800,at=500,Bi=100,Fi=200,xd=at+Bi+Fi,Sd=200,Oc=300,Mc=250,ur=8,kc=8,Hc=18,Uc=2.5,Bc=1.2,Fc=1.5,zc=10,Gc=4,Vc=2,qc=2,Wc=1.5,Yc=8,Qa=xe(null),Vt=xe("full");let Za=!1,mr=null;function Kc(){Za||(Za=!0,mr=window.matchMedia("(prefers-reduced-motion: reduce)"),Vt.value=mr.matches?"reduced":"full",mr.addEventListener("change",e=>{Vt.value=e.matches?"reduced":"full"}))}function oa(){Un(()=>{Kc()});const e=Vt;function n(a,o){if(o<=1)return 0;const i=Lc-ja,s=Math.min(ja,i/(o-1));return Math.round(a*s)}function t(a){Qa.value=a}function r(a){return Vt.value==="reduced"?Promise.resolve():a.animate([{transform:"scale(1)",opacity:1},{transform:"scale(0.95)",opacity:0}],{duration:Mc,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{})}return{prefersReducedMotion:e,transitionSnapshot:Qa,getStaggerDelay:n,setTransitionSnapshot:t,triggerCardExit:r}}const Xc=["src"],jc=An({__name:"TransitionOverlay",setup(e){const{transitionSnapshot:n,setTransitionSnapshot:t,prefersReducedMotion:r}=oa(),a=xe(null),o=xe(null),i=xe(!1);function s(c){const m=performance.now();return new Promise(h=>{const C=()=>{const w=typeof CSS<"u"&&typeof CSS.escape=="function"?CSS.escape(c):c,k=document.querySelector(`[data-shader-slug="${w}"]`);if(k){const O=k.getBoundingClientRect();h({top:O.top,left:O.left,width:O.width,height:O.height});return}if(performance.now()-m>=1500){h(null);return}requestAnimationFrame(C)};C()})}function l(c){const d=o.value,m=a.value;if(!d||!m){i.value=!1,t(null);return}const{top:h,left:C,width:w,height:k}=c.rect;m.animate([{backgroundColor:"rgba(9, 10, 16, 0)"},{backgroundColor:"rgba(9, 10, 16, 0.95)"}],{duration:at,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),d.animate([{top:`${h}px`,left:`${C}px`,width:`${w}px`,height:`${k}px`,borderRadius:"8px"},{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"}],{duration:at,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{setTimeout(()=>{m.animate([{opacity:1},{opacity:0}],{duration:Fi,fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})},Bi)})}async function f(c){const d=o.value,m=a.value;if(!d||!m){i.value=!1,t(null);return}const h=await s(c.slug);if(!h){i.value=!1,t(null);return}m.animate([{backgroundColor:"rgba(9, 10, 16, 0.95)",opacity:1},{backgroundColor:"rgba(9, 10, 16, 0)",opacity:0}],{duration:at,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}),d.animate([{top:"0px",left:"0px",width:"100vw",height:"100vh",borderRadius:"0px"},{top:`${h.top}px`,left:`${h.left}px`,width:`${h.width}px`,height:`${h.height}px`,borderRadius:"8px"}],{duration:at,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{i.value=!1,t(null)})}return ct(n,async c=>{if(!(!c||r.value==="reduced")){if(i.value=!0,await new Promise(d=>requestAnimationFrame(()=>d())),c.direction==="to-gallery"){await f(c);return}l(c)}}),(c,d)=>i.value&&Le(n)?(Re(),Fe("div",{key:0,ref_key:"overlayRef",ref:a,class:"transition-overlay"},[Ce("img",{ref_key:"imgRef",ref:o,src:Le(n).screenshotUrl,alt:"",class:"transition-image"},null,8,Xc)],512)):Ri("",!0)}}),Ct=(e,n)=>{const t=e.__vccOpts||e;for(const[r,a]of n)t[r]=a;return t},Qc=Ct(jc,[["__scopeId","data-v-58df5b9e"]]),Zc=An({__name:"App",setup(e){return(n,t)=>{const r=li("router-view");return Re(),Fe(Ae,null,[ue(r),ue(Qc)],64)}}}),$c="modulepreload",Jc=function(e){return"/"+e},$a={},ef=function(n,t,r){let a=Promise.resolve();if(t&&t.length>0){let i=function(f){return Promise.all(f.map(c=>Promise.resolve(c).then(d=>({status:"fulfilled",value:d}),d=>({status:"rejected",reason:d}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=(s==null?void 0:s.nonce)||(s==null?void 0:s.getAttribute("nonce"));a=i(t.map(f=>{if(f=Jc(f),f in $a)return;$a[f]=!0;const c=f.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${d}`))return;const m=document.createElement("link");if(m.rel=c?"stylesheet":$c,c||(m.as="script"),m.crossOrigin="",m.href=f,l&&m.setAttribute("nonce",l),document.head.appendChild(m),c)return new Promise((h,C)=>{m.addEventListener("load",h),m.addEventListener("error",()=>C(new Error(`Unable to preload CSS for ${f}`)))})}))}function o(i){const s=new Event("vite:preloadError",{cancelable:!0});if(s.payload=i,window.dispatchEvent(s),!s.defaultPrevented)throw i}return a.then(i=>{for(const s of i||[])s.status==="rejected"&&o(s.reason);return n().catch(o)})};/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */const Gn=typeof document<"u";function zi(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function n0(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&zi(e.default)}const ee=Object.assign;function hr(e,n){const t={};for(const r in n){const o=n[r];t[r]=Ye(o)?o.map(e):e(o)}return t}const mt=()=>{},Ye=Array.isArray;function ea(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Gi=/#/g,t0=/&/g,r0=/\//g,o0=/=/g,a0=/\?/g,Vi=/\+/g,i0=/%5B/g,s0=/%5D/g,qi=/%5E/g,l0=/%60/g,Wi=/%7B/g,c0=/%7C/g,Ki=/%7D/g,f0=/%20/g;function io(e){return e==null?"":encodeURI(""+e).replace(c0,"|").replace(i0,"[").replace(s0,"]")}function d0(e){return io(e).replace(Wi,"{").replace(Ki,"}").replace(qi,"^")}function Pr(e){return io(e).replace(Vi,"%2B").replace(f0,"+").replace(Gi,"%23").replace(t0,"%26").replace(l0,"`").replace(Wi,"{").replace(Ki,"}").replace(qi,"^")}function p0(e){return Pr(e).replace(o0,"%3D")}function u0(e){return io(e).replace(Gi,"%23").replace(a0,"%3F")}function m0(e){return u0(e).replace(r0,"%2F")}function Et(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const h0=/\/$/,v0=e=>e.replace(h0,"");function vr(e,n,t="/"){let r,o={},a="",i="";const s=n.indexOf("#");let l=n.indexOf("?");return l=s>=0&&l>s?-1:l,l>=0&&(r=n.slice(0,l),a=n.slice(l,s>0?s:n.length),o=e(a.slice(1))),s>=0&&(r=r||n.slice(0,s),i=n.slice(s,n.length)),r=x0(r??n,t),{fullPath:r+a+i,path:r,query:o,hash:Et(i)}}function g0(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function na(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function y0(e,n,t){const r=n.matched.length-1,o=t.matched.length-1;return r>-1&&r===o&&jn(n.matched[r],t.matched[o])&&Yi(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function jn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Yi(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!b0(e[t],n[t]))return!1;return!0}function b0(e,n){return Ye(e)?ta(e,n):Ye(n)?ta(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function ta(e,n){return Ye(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function x0(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),o=r[r.length-1];(o===".."||o===".")&&r.push("");let a=t.length-1,i,s;for(i=0;i<r.length;i++)if(s=r[i],s!==".")if(s==="..")a>1&&a--;else break;return t.slice(0,a).join("/")+"/"+r.slice(i).join("/")}const bn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Lr=(function(e){return e.pop="pop",e.push="push",e})({}),gr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function E0(e){if(!e)if(Gn){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),v0(e)}const S0=/^[^#]+#/;function _0(e,n){return e.replace(S0,"#")+n}function w0(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const er=()=>({left:window.scrollX,top:window.scrollY});function T0(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),o=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!o)return;n=w0(o,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function ra(e,n){return(history.state?history.state.position-n:-1)+e}const Or=new Map;function C0(e,n){Or.set(e,n)}function A0(e){const n=Or.get(e);return Or.delete(e),n}function R0(e){return typeof e=="string"||e&&typeof e=="object"}function Xi(e){return typeof e=="string"||typeof e=="symbol"}let fe=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const ji=Symbol("");fe.MATCHER_NOT_FOUND+"",fe.NAVIGATION_GUARD_REDIRECT+"",fe.NAVIGATION_ABORTED+"",fe.NAVIGATION_CANCELLED+"",fe.NAVIGATION_DUPLICATED+"";function Qn(e,n){return ee(new Error,{type:e,[ji]:!0},n)}function cn(e,n){return e instanceof Error&&ji in e&&(n==null||!!(e.type&n))}const I0=["params","query","hash"];function N0(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of I0)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function D0(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const o=t[r].replace(Vi," "),a=o.indexOf("="),i=Et(a<0?o:o.slice(0,a)),s=a<0?null:Et(o.slice(a+1));if(i in n){let l=n[i];Ye(l)||(l=n[i]=[l]),l.push(s)}else n[i]=s}return n}function oa(e){let n="";for(let t in e){const r=e[t];if(t=p0(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(Ye(r)?r.map(o=>o&&Pr(o)):[r&&Pr(r)]).forEach(o=>{o!==void 0&&(n+=(n.length?"&":"")+t,o!=null&&(n+="="+o))})}return n}function P0(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=Ye(r)?r.map(o=>o==null?null:""+o):r==null?r:""+r)}return n}const Qi=Symbol(""),aa=Symbol(""),nr=Symbol(""),so=Symbol(""),Mr=Symbol("");function tt(){let e=[];function n(r){return e.push(r),()=>{const o=e.indexOf(r);o>-1&&e.splice(o,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function L0(e,n,t){const r=()=>{e[n].delete(t)};Zn(r),oi(r),ri(()=>{e[n].add(t)}),e[n].add(t)}function Ed(e){const n=Fe(Qi,{}).value;n&&L0(n,"leaveGuards",e)}function wn(e,n,t,r,o,a=i=>i()){const i=r&&(r.enterCallbacks[o]=r.enterCallbacks[o]||[]);return()=>new Promise((s,l)=>{const f=m=>{m===!1?l(Qn(fe.NAVIGATION_ABORTED,{from:t,to:n})):m instanceof Error?l(m):R0(m)?l(Qn(fe.NAVIGATION_GUARD_REDIRECT,{from:n,to:m})):(i&&r.enterCallbacks[o]===i&&typeof m=="function"&&i.push(m),s())},c=a(()=>e.call(r&&r.instances[o],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(m=>l(m))})}function yr(e,n,t,r,o=a=>a()){const a=[];for(const i of e)for(const s in i.components){let l=i.components[s];if(!(n!=="beforeRouteEnter"&&!i.instances[s]))if(zi(l)){const f=(l.__vccOpts||l)[n];f&&a.push(wn(f,t,r,i,s,o))}else{let f=l();a.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${s}" at "${i.path}"`);const d=n0(c)?c.default:c;i.mods[s]=c,i.components[s]=d;const m=(d.__vccOpts||d)[n];return m&&wn(m,t,r,i,s,o)()}))}}return a}function O0(e,n){const t=[],r=[],o=[],a=Math.max(n.matched.length,e.matched.length);for(let i=0;i<a;i++){const s=n.matched[i];s&&(e.matched.find(f=>jn(f,s))?r.push(s):t.push(s));const l=e.matched[i];l&&(n.matched.find(f=>jn(f,l))||o.push(l))}return[t,r,o]}/*!
+ */const Gn=typeof document<"u";function zi(e){return typeof e=="object"||"displayName"in e||"props"in e||"__vccOpts"in e}function nf(e){return e.__esModule||e[Symbol.toStringTag]==="Module"||e.default&&zi(e.default)}const ee=Object.assign;function hr(e,n){const t={};for(const r in n){const a=n[r];t[r]=Ke(a)?a.map(e):e(a)}return t}const mt=()=>{},Ke=Array.isArray;function Ja(e,n){const t={};for(const r in e)t[r]=r in n?n[r]:e[r];return t}const Gi=/#/g,tf=/&/g,rf=/\//g,af=/=/g,of=/\?/g,Vi=/\+/g,sf=/%5B/g,lf=/%5D/g,qi=/%5E/g,cf=/%60/g,Wi=/%7B/g,ff=/%7C/g,Yi=/%7D/g,df=/%20/g;function ia(e){return e==null?"":encodeURI(""+e).replace(ff,"|").replace(sf,"[").replace(lf,"]")}function pf(e){return ia(e).replace(Wi,"{").replace(Yi,"}").replace(qi,"^")}function Pr(e){return ia(e).replace(Vi,"%2B").replace(df,"+").replace(Gi,"%23").replace(tf,"%26").replace(cf,"`").replace(Wi,"{").replace(Yi,"}").replace(qi,"^")}function uf(e){return Pr(e).replace(af,"%3D")}function mf(e){return ia(e).replace(Gi,"%23").replace(of,"%3F")}function hf(e){return mf(e).replace(rf,"%2F")}function St(e){if(e==null)return null;try{return decodeURIComponent(""+e)}catch{}return""+e}const vf=/\/$/,gf=e=>e.replace(vf,"");function vr(e,n,t="/"){let r,a={},o="",i="";const s=n.indexOf("#");let l=n.indexOf("?");return l=s>=0&&l>s?-1:l,l>=0&&(r=n.slice(0,l),o=n.slice(l,s>0?s:n.length),a=e(o.slice(1))),s>=0&&(r=r||n.slice(0,s),i=n.slice(s,n.length)),r=Sf(r??n,t),{fullPath:r+o+i,path:r,query:a,hash:St(i)}}function yf(e,n){const t=n.query?e(n.query):"";return n.path+(t&&"?")+t+(n.hash||"")}function eo(e,n){return!n||!e.toLowerCase().startsWith(n.toLowerCase())?e:e.slice(n.length)||"/"}function bf(e,n,t){const r=n.matched.length-1,a=t.matched.length-1;return r>-1&&r===a&&jn(n.matched[r],t.matched[a])&&Ki(n.params,t.params)&&e(n.query)===e(t.query)&&n.hash===t.hash}function jn(e,n){return(e.aliasOf||e)===(n.aliasOf||n)}function Ki(e,n){if(Object.keys(e).length!==Object.keys(n).length)return!1;for(var t in e)if(!xf(e[t],n[t]))return!1;return!0}function xf(e,n){return Ke(e)?no(e,n):Ke(n)?no(n,e):(e==null?void 0:e.valueOf())===(n==null?void 0:n.valueOf())}function no(e,n){return Ke(n)?e.length===n.length&&e.every((t,r)=>t===n[r]):e.length===1&&e[0]===n}function Sf(e,n){if(e.startsWith("/"))return e;if(!e)return n;const t=n.split("/"),r=e.split("/"),a=r[r.length-1];(a===".."||a===".")&&r.push("");let o=t.length-1,i,s;for(i=0;i<r.length;i++)if(s=r[i],s!==".")if(s==="..")o>1&&o--;else break;return t.slice(0,o).join("/")+"/"+r.slice(i).join("/")}const bn={path:"/",name:void 0,params:{},query:{},hash:"",fullPath:"/",matched:[],meta:{},redirectedFrom:void 0};let Lr=(function(e){return e.pop="pop",e.push="push",e})({}),gr=(function(e){return e.back="back",e.forward="forward",e.unknown="",e})({});function Ef(e){if(!e)if(Gn){const n=document.querySelector("base");e=n&&n.getAttribute("href")||"/",e=e.replace(/^\w+:\/\/[^\/]+/,"")}else e="/";return e[0]!=="/"&&e[0]!=="#"&&(e="/"+e),gf(e)}const _f=/^[^#]+#/;function wf(e,n){return e.replace(_f,"#")+n}function Cf(e,n){const t=document.documentElement.getBoundingClientRect(),r=e.getBoundingClientRect();return{behavior:n.behavior,left:r.left-t.left-(n.left||0),top:r.top-t.top-(n.top||0)}}const er=()=>({left:window.scrollX,top:window.scrollY});function Tf(e){let n;if("el"in e){const t=e.el,r=typeof t=="string"&&t.startsWith("#"),a=typeof t=="string"?r?document.getElementById(t.slice(1)):document.querySelector(t):t;if(!a)return;n=Cf(a,e)}else n=e;"scrollBehavior"in document.documentElement.style?window.scrollTo(n):window.scrollTo(n.left!=null?n.left:window.scrollX,n.top!=null?n.top:window.scrollY)}function to(e,n){return(history.state?history.state.position-n:-1)+e}const Or=new Map;function Af(e,n){Or.set(e,n)}function Rf(e){const n=Or.get(e);return Or.delete(e),n}function If(e){return typeof e=="string"||e&&typeof e=="object"}function Xi(e){return typeof e=="string"||typeof e=="symbol"}let fe=(function(e){return e[e.MATCHER_NOT_FOUND=1]="MATCHER_NOT_FOUND",e[e.NAVIGATION_GUARD_REDIRECT=2]="NAVIGATION_GUARD_REDIRECT",e[e.NAVIGATION_ABORTED=4]="NAVIGATION_ABORTED",e[e.NAVIGATION_CANCELLED=8]="NAVIGATION_CANCELLED",e[e.NAVIGATION_DUPLICATED=16]="NAVIGATION_DUPLICATED",e})({});const ji=Symbol("");fe.MATCHER_NOT_FOUND+"",fe.NAVIGATION_GUARD_REDIRECT+"",fe.NAVIGATION_ABORTED+"",fe.NAVIGATION_CANCELLED+"",fe.NAVIGATION_DUPLICATED+"";function Qn(e,n){return ee(new Error,{type:e,[ji]:!0},n)}function cn(e,n){return e instanceof Error&&ji in e&&(n==null||!!(e.type&n))}const Nf=["params","query","hash"];function Df(e){if(typeof e=="string")return e;if(e.path!=null)return e.path;const n={};for(const t of Nf)t in e&&(n[t]=e[t]);return JSON.stringify(n,null,2)}function Pf(e){const n={};if(e===""||e==="?")return n;const t=(e[0]==="?"?e.slice(1):e).split("&");for(let r=0;r<t.length;++r){const a=t[r].replace(Vi," "),o=a.indexOf("="),i=St(o<0?a:a.slice(0,o)),s=o<0?null:St(a.slice(o+1));if(i in n){let l=n[i];Ke(l)||(l=n[i]=[l]),l.push(s)}else n[i]=s}return n}function ro(e){let n="";for(let t in e){const r=e[t];if(t=uf(t),r==null){r!==void 0&&(n+=(n.length?"&":"")+t);continue}(Ke(r)?r.map(a=>a&&Pr(a)):[r&&Pr(r)]).forEach(a=>{a!==void 0&&(n+=(n.length?"&":"")+t,a!=null&&(n+="="+a))})}return n}function Lf(e){const n={};for(const t in e){const r=e[t];r!==void 0&&(n[t]=Ke(r)?r.map(a=>a==null?null:""+a):r==null?r:""+r)}return n}const Qi=Symbol(""),ao=Symbol(""),nr=Symbol(""),sa=Symbol(""),Mr=Symbol("");function tt(){let e=[];function n(r){return e.push(r),()=>{const a=e.indexOf(r);a>-1&&e.splice(a,1)}}function t(){e=[]}return{add:n,list:()=>e.slice(),reset:t}}function Of(e,n,t){const r=()=>{e[n].delete(t)};Zn(r),ai(r),ri(()=>{e[n].add(t)}),e[n].add(t)}function Ed(e){const n=Be(Qi,{}).value;n&&Of(n,"leaveGuards",e)}function wn(e,n,t,r,a,o=i=>i()){const i=r&&(r.enterCallbacks[a]=r.enterCallbacks[a]||[]);return()=>new Promise((s,l)=>{const f=m=>{m===!1?l(Qn(fe.NAVIGATION_ABORTED,{from:t,to:n})):m instanceof Error?l(m):If(m)?l(Qn(fe.NAVIGATION_GUARD_REDIRECT,{from:n,to:m})):(i&&r.enterCallbacks[a]===i&&typeof m=="function"&&i.push(m),s())},c=o(()=>e.call(r&&r.instances[a],n,t,f));let d=Promise.resolve(c);e.length<3&&(d=d.then(f)),d.catch(m=>l(m))})}function yr(e,n,t,r,a=o=>o()){const o=[];for(const i of e)for(const s in i.components){let l=i.components[s];if(!(n!=="beforeRouteEnter"&&!i.instances[s]))if(zi(l)){const f=(l.__vccOpts||l)[n];f&&o.push(wn(f,t,r,i,s,a))}else{let f=l();o.push(()=>f.then(c=>{if(!c)throw new Error(`Couldn't resolve component "${s}" at "${i.path}"`);const d=nf(c)?c.default:c;i.mods[s]=c,i.components[s]=d;const m=(d.__vccOpts||d)[n];return m&&wn(m,t,r,i,s,a)()}))}}return o}function Mf(e,n){const t=[],r=[],a=[],o=Math.max(n.matched.length,e.matched.length);for(let i=0;i<o;i++){const s=n.matched[i];s&&(e.matched.find(f=>jn(f,s))?r.push(s):t.push(s));const l=e.matched[i];l&&(n.matched.find(f=>jn(f,l))||a.push(l))}return[t,r,a]}/*!
  * vue-router v4.6.4
  * (c) 2025 Eduardo San Martin Morote
  * @license MIT
- */let M0=()=>location.protocol+"//"+location.host;function Zi(e,n){const{pathname:t,search:r,hash:o}=n,a=e.indexOf("#");if(a>-1){let i=o.includes(e.slice(a))?e.slice(a).length:1,s=o.slice(i);return s[0]!=="/"&&(s="/"+s),na(s,"")}return na(t,e)+r+o}function H0(e,n,t,r){let o=[],a=[],i=null;const s=({state:m})=>{const h=Zi(e,location),T=t.value,w=n.value;let H=0;if(m){if(t.value=h,n.value=m,i&&i===T){i=null;return}H=w?m.position-w.position:0}else r(h);o.forEach(O=>{O(t.value,T,{delta:H,type:Lr.pop,direction:H?H>0?gr.forward:gr.back:gr.unknown})})};function l(){i=t.value}function f(m){o.push(m);const h=()=>{const T=o.indexOf(m);T>-1&&o.splice(T,1)};return a.push(h),h}function c(){if(document.visibilityState==="hidden"){const{history:m}=window;if(!m.state)return;m.replaceState(ee({},m.state,{scroll:er()}),"")}}function d(){for(const m of a)m();a=[],window.removeEventListener("popstate",s),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",s),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function ia(e,n,t,r=!1,o=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:o?er():null}}function k0(e){const{history:n,location:t}=window,r={value:Zi(e,t)},o={value:n.state};o.value||a(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function a(l,f,c){const d=e.indexOf("#"),m=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:M0()+e+l;try{n[c?"replaceState":"pushState"](f,"",m),o.value=f}catch(h){console.error(h),t[c?"replace":"assign"](m)}}function i(l,f){a(l,ee({},n.state,ia(o.value.back,l,o.value.forward,!0),f,{position:o.value.position}),!0),r.value=l}function s(l,f){const c=ee({},o.value,n.state,{forward:l,scroll:er()});a(c.current,c,!0),a(l,ee({},ia(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:o,push:s,replace:i}}function B0(e){e=E0(e);const n=k0(e),t=H0(e,n.state,n.location,n.replace);function r(a,i=!0){i||t.pauseListeners(),history.go(a)}const o=ee({location:"",base:e,go:r,createHref:_0.bind(null,e)},n,t);return Object.defineProperty(o,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(o,"state",{enumerable:!0,get:()=>n.state.value}),o}function F0(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),B0(e)}let Pn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var he=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(he||{});const U0={type:Pn.Static,value:""},z0=/[a-zA-Z0-9_]/;function G0(e){if(!e)return[[]];if(e==="/")return[[U0]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(h){throw new Error(`ERR (${t})/"${f}": ${h}`)}let t=he.Static,r=t;const o=[];let a;function i(){a&&o.push(a),a=[]}let s=0,l,f="",c="";function d(){f&&(t===he.Static?a.push({type:Pn.Static,value:f}):t===he.Param||t===he.ParamRegExp||t===he.ParamRegExpEnd?(a.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),a.push({type:Pn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function m(){f+=l}for(;s<e.length;){if(l=e[s++],l==="\\"&&t!==he.ParamRegExp){r=t,t=he.EscapeNext;continue}switch(t){case he.Static:l==="/"?(f&&d(),i()):l===":"?(d(),t=he.Param):m();break;case he.EscapeNext:m(),t=r;break;case he.Param:l==="("?t=he.ParamRegExp:z0.test(l)?m():(d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--);break;case he.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=he.ParamRegExpEnd:c+=l;break;case he.ParamRegExpEnd:d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--,c="";break;default:n("Unknown state");break}}return t===he.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),i(),o}const sa="[^/]+?",V0={sensitive:!1,strict:!1,start:!0,end:!0};var we=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(we||{});const q0=/[.+*?^${}()[\]/\\]/g;function W0(e,n){const t=ee({},V0,n),r=[];let o=t.start?"^":"";const a=[];for(const f of e){const c=f.length?[]:[we.Root];t.strict&&!f.length&&(o+="/");for(let d=0;d<f.length;d++){const m=f[d];let h=we.Segment+(t.sensitive?we.BonusCaseSensitive:0);if(m.type===Pn.Static)d||(o+="/"),o+=m.value.replace(q0,"\\$&"),h+=we.Static;else if(m.type===Pn.Param){const{value:T,repeatable:w,optional:H,regexp:O}=m;a.push({name:T,repeatable:w,optional:H});const S=O||sa;if(S!==sa){h+=we.BonusCustomRegExp;try{`${S}`}catch(_){throw new Error(`Invalid custom RegExp for param "${T}" (${S}): `+_.message)}}let A=w?`((?:${S})(?:/(?:${S}))*)`:`(${S})`;d||(A=H&&f.length<2?`(?:/${A})`:"/"+A),H&&(A+="?"),o+=A,h+=we.Dynamic,H&&(h+=we.BonusOptional),w&&(h+=we.BonusRepeatable),S===".*"&&(h+=we.BonusWildcard)}c.push(h)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=we.BonusStrict}t.strict||(o+="/?"),t.end?o+="$":t.strict&&!o.endsWith("/")&&(o+="(?:/|$)");const i=new RegExp(o,t.sensitive?"":"i");function s(f){const c=f.match(i),d={};if(!c)return null;for(let m=1;m<c.length;m++){const h=c[m]||"",T=a[m-1];d[T.name]=h&&T.repeatable?h.split("/"):h}return d}function l(f){let c="",d=!1;for(const m of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const h of m)if(h.type===Pn.Static)c+=h.value;else if(h.type===Pn.Param){const{value:T,repeatable:w,optional:H}=h,O=T in f?f[T]:"";if(Ye(O)&&!w)throw new Error(`Provided param "${T}" is an array but it is not repeatable (* or + modifiers)`);const S=Ye(O)?O.join("/"):O;if(!S)if(H)m.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${T}"`);c+=S}}return c||"/"}return{re:i,score:r,keys:a,parse:s,stringify:l}}function K0(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===we.Static+we.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===we.Static+we.Segment?1:-1:0}function $i(e,n){let t=0;const r=e.score,o=n.score;for(;t<r.length&&t<o.length;){const a=K0(r[t],o[t]);if(a)return a;t++}if(Math.abs(o.length-r.length)===1){if(la(r))return 1;if(la(o))return-1}return o.length-r.length}function la(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const Y0={strict:!1,end:!0,sensitive:!1};function X0(e,n,t){const r=W0(G0(e.path),t),o=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!o.record.aliasOf==!n.record.aliasOf&&n.children.push(o),o}function j0(e,n){const t=[],r=new Map;n=ea(Y0,n);function o(d){return r.get(d)}function a(d,m,h){const T=!h,w=fa(d);w.aliasOf=h&&h.record;const H=ea(n,d),O=[w];if("alias"in d){const _=typeof d.alias=="string"?[d.alias]:d.alias;for(const L of _)O.push(fa(ee({},w,{components:h?h.record.components:w.components,path:L,aliasOf:h?h.record:w})))}let S,A;for(const _ of O){const{path:L}=_;if(m&&L[0]!=="/"){const G=m.record.path,V=G[G.length-1]==="/"?"":"/";_.path=m.record.path+(L&&V+L)}if(S=X0(_,m,H),h?h.alias.push(S):(A=A||S,A!==S&&A.alias.push(S),T&&d.name&&!da(S)&&i(d.name)),Ji(S)&&l(S),w.children){const G=w.children;for(let V=0;V<G.length;V++)a(G[V],S,h&&h.children[V])}h=h||S}return A?()=>{i(A)}:mt}function i(d){if(Xi(d)){const m=r.get(d);m&&(r.delete(d),t.splice(t.indexOf(m),1),m.children.forEach(i),m.alias.forEach(i))}else{const m=t.indexOf(d);m>-1&&(t.splice(m,1),d.record.name&&r.delete(d.record.name),d.children.forEach(i),d.alias.forEach(i))}}function s(){return t}function l(d){const m=$0(d,t);t.splice(m,0,d),d.record.name&&!da(d)&&r.set(d.record.name,d)}function f(d,m){let h,T={},w,H;if("name"in d&&d.name){if(h=r.get(d.name),!h)throw Qn(fe.MATCHER_NOT_FOUND,{location:d});H=h.record.name,T=ee(ca(m.params,h.keys.filter(A=>!A.optional).concat(h.parent?h.parent.keys.filter(A=>A.optional):[]).map(A=>A.name)),d.params&&ca(d.params,h.keys.map(A=>A.name))),w=h.stringify(T)}else if(d.path!=null)w=d.path,h=t.find(A=>A.re.test(w)),h&&(T=h.parse(w),H=h.record.name);else{if(h=m.name?r.get(m.name):t.find(A=>A.re.test(m.path)),!h)throw Qn(fe.MATCHER_NOT_FOUND,{location:d,currentLocation:m});H=h.record.name,T=ee({},m.params,d.params),w=h.stringify(T)}const O=[];let S=h;for(;S;)O.unshift(S.record),S=S.parent;return{name:H,path:w,params:T,matched:O,meta:Z0(O)}}e.forEach(d=>a(d));function c(){t.length=0,r.clear()}return{addRoute:a,resolve:f,removeRoute:i,clearRoutes:c,getRoutes:s,getRecordMatcher:o}}function ca(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function fa(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:Q0(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function Q0(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function da(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function Z0(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function $0(e,n){let t=0,r=n.length;for(;t!==r;){const a=t+r>>1;$i(e,n[a])<0?r=a:t=a+1}const o=J0(e);return o&&(r=n.lastIndexOf(o,r-1)),r}function J0(e){let n=e;for(;n=n.parent;)if(Ji(n)&&$i(e,n)===0)return n}function Ji({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function pa(e){const n=Fe(nr),t=Fe(so),r=ke(()=>{const l=Le(e.to);return n.resolve(l)}),o=ke(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const m=d.findIndex(jn.bind(null,c));if(m>-1)return m;const h=ua(l[f-2]);return f>1&&ua(c)===h&&d[d.length-1].path!==h?d.findIndex(jn.bind(null,l[f-2])):m}),a=ke(()=>o.value>-1&&of(t.params,r.value.params)),i=ke(()=>o.value>-1&&o.value===t.matched.length-1&&Yi(t.params,r.value.params));function s(l={}){if(rf(l)){const f=n[Le(e.replace)?"replace":"push"](Le(e.to)).catch(mt);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:ke(()=>r.value.href),isActive:a,isExactActive:i,navigate:s}}function ef(e){return e.length===1?e[0]:e}const nf=An({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:pa,setup(e,{slots:n}){const t=jt(pa(e)),{options:r}=Fe(nr),o=ke(()=>({[ma(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[ma(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const a=n.default&&ef(n.default(t));return e.custom?a:Pi("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:o.value},a)}}}),tf=nf;function rf(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function of(e,n){for(const t in n){const r=n[t],o=e[t];if(typeof r=="string"){if(r!==o)return!1}else if(!Ye(o)||o.length!==r.length||r.some((a,i)=>a.valueOf()!==o[i].valueOf()))return!1}return!0}function ua(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const ma=(e,n,t)=>e??n??t,af=An({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=Fe(Mr),o=ke(()=>e.route||r.value),a=Fe(aa,0),i=ke(()=>{let f=Le(a);const{matched:c}=o.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),s=ke(()=>o.value.matched[i.value]);Nt(aa,ke(()=>i.value+1)),Nt(Qi,s),Nt(Mr,o);const l=xe();return ct(()=>[l.value,s.value,e.name],([f,c,d],[m,h,T])=>{c&&(c.instances[d]=f,h&&h!==c&&f&&f===m&&(c.leaveGuards.size||(c.leaveGuards=h.leaveGuards),c.updateGuards.size||(c.updateGuards=h.updateGuards))),f&&c&&(!h||!jn(c,h)||!m)&&(c.enterCallbacks[d]||[]).forEach(w=>w(f))},{flush:"post"}),()=>{const f=o.value,c=e.name,d=s.value,m=d&&d.components[c];if(!m)return ha(t.default,{Component:m,route:f});const h=d.props[c],T=h?h===!0?f.params:typeof h=="function"?h(f):h:null,H=Pi(m,ee({},T,n,{onVnodeUnmounted:O=>{O.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ha(t.default,{Component:H,route:f})||H}}});function ha(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const sf=af;function lf(e){const n=j0(e.routes,e),t=e.parseQuery||D0,r=e.stringifyQuery||oa,o=e.history,a=tt(),i=tt(),s=tt(),l=Hs(bn);let f=bn;Gn&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=hr.bind(null,y=>""+y),d=hr.bind(null,m0),m=hr.bind(null,Et);function h(y,M){let D,B;return Xi(y)?(D=n.getRecordMatcher(y),B=M):B=y,n.addRoute(B,D)}function T(y){const M=n.getRecordMatcher(y);M&&n.removeRoute(M)}function w(){return n.getRoutes().map(y=>y.record)}function H(y){return!!n.getRecordMatcher(y)}function O(y,M){if(M=ee({},M||l.value),typeof y=="string"){const v=vr(t,y,M.path),g=n.resolve({path:v.path},M),x=o.createHref(v.fullPath);return ee(v,g,{params:m(g.params),hash:Et(v.hash),redirectedFrom:void 0,href:x})}let D;if(y.path!=null)D=ee({},y,{path:vr(t,y.path,M.path).path});else{const v=ee({},y.params);for(const g in v)v[g]==null&&delete v[g];D=ee({},y,{params:d(v)}),M.params=d(M.params)}const B=n.resolve(D,M),j=y.hash||"";B.params=c(m(B.params));const p=g0(r,ee({},y,{hash:d0(j),path:B.path})),u=o.createHref(p);return ee({fullPath:p,hash:j,query:r===oa?P0(y.query):y.query||{}},B,{redirectedFrom:void 0,href:u})}function S(y){return typeof y=="string"?vr(t,y,l.value.path):ee({},y)}function A(y,M){if(f!==y)return Qn(fe.NAVIGATION_CANCELLED,{from:M,to:y})}function _(y){return V(y)}function L(y){return _(ee(S(y),{replace:!0}))}function G(y,M){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:B}=D;let j=typeof B=="function"?B(y,M):B;return typeof j=="string"&&(j=j.includes("?")||j.includes("#")?j=S(j):{path:j},j.params={}),ee({query:y.query,hash:y.hash,params:j.path!=null?{}:y.params},j)}}function V(y,M){const D=f=O(y),B=l.value,j=y.state,p=y.force,u=y.replace===!0,v=G(D,B);if(v)return V(ee(S(v),{state:typeof v=="object"?ee({},j,v.state):j,force:p,replace:u}),M||D);const g=D;g.redirectedFrom=M;let x;return!p&&y0(r,B,D)&&(x=Qn(fe.NAVIGATION_DUPLICATED,{to:g,from:B}),de(B,B,!0,!1)),(x?Promise.resolve(x):Y(g,B)).catch(b=>cn(b)?cn(b,fe.NAVIGATION_GUARD_REDIRECT)?b:Xe(b):K(b,g,B)).then(b=>{if(b){if(cn(b,fe.NAVIGATION_GUARD_REDIRECT))return V(ee({replace:u},S(b.to),{state:typeof b.to=="object"?ee({},j,b.to.state):j,force:p}),M||g)}else b=I(g,B,!0,u,j);return $(g,B,b),b})}function oe(y,M){const D=A(y,M);return D?Promise.reject(D):Promise.resolve()}function k(y){const M=sn.values().next().value;return M&&typeof M.runWithContext=="function"?M.runWithContext(y):y()}function Y(y,M){let D;const[B,j,p]=O0(y,M);D=yr(B.reverse(),"beforeRouteLeave",y,M);for(const v of B)v.leaveGuards.forEach(g=>{D.push(wn(g,y,M))});const u=oe.bind(null,y,M);return D.push(u),Se(D).then(()=>{D=[];for(const v of a.list())D.push(wn(v,y,M));return D.push(u),Se(D)}).then(()=>{D=yr(j,"beforeRouteUpdate",y,M);for(const v of j)v.updateGuards.forEach(g=>{D.push(wn(g,y,M))});return D.push(u),Se(D)}).then(()=>{D=[];for(const v of p)if(v.beforeEnter)if(Ye(v.beforeEnter))for(const g of v.beforeEnter)D.push(wn(g,y,M));else D.push(wn(v.beforeEnter,y,M));return D.push(u),Se(D)}).then(()=>(y.matched.forEach(v=>v.enterCallbacks={}),D=yr(p,"beforeRouteEnter",y,M,k),D.push(u),Se(D))).then(()=>{D=[];for(const v of i.list())D.push(wn(v,y,M));return D.push(u),Se(D)}).catch(v=>cn(v,fe.NAVIGATION_CANCELLED)?v:Promise.reject(v))}function $(y,M,D){s.list().forEach(B=>k(()=>B(y,M,D)))}function I(y,M,D,B,j){const p=A(y,M);if(p)return p;const u=M===bn,v=Gn?history.state:{};D&&(B||u?o.replace(y.fullPath,ee({scroll:u&&v&&v.scroll},j)):o.push(y.fullPath,j)),l.value=y,de(y,M,D,u),Xe()}let X;function le(){X||(X=o.listen((y,M,D)=>{if(!je.listening)return;const B=O(y),j=G(B,je.currentRoute.value);if(j){V(ee(j,{replace:!0,force:!0}),B).catch(mt);return}f=B;const p=l.value;Gn&&C0(ra(p.fullPath,D.delta),er()),Y(B,p).catch(u=>cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_CANCELLED)?u:cn(u,fe.NAVIGATION_GUARD_REDIRECT)?(V(ee(S(u.to),{force:!0}),B).then(v=>{cn(v,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Lr.pop&&o.go(-1,!1)}).catch(mt),Promise.reject()):(D.delta&&o.go(-D.delta,!1),K(u,B,p))).then(u=>{u=u||I(B,p,!1),u&&(D.delta&&!cn(u,fe.NAVIGATION_CANCELLED)?o.go(-D.delta,!1):D.type===Lr.pop&&cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&o.go(-1,!1)),$(B,p,u)}).catch(mt)}))}let ve=tt(),ce=tt(),J;function K(y,M,D){Xe(y);const B=ce.list();return B.length?B.forEach(j=>j(y,M,D)):console.error(y),Promise.reject(y)}function Ge(){return J&&l.value!==bn?Promise.resolve():new Promise((y,M)=>{ve.add([y,M])})}function Xe(y){return J||(J=!y,le(),ve.list().forEach(([M,D])=>y?D(y):M()),ve.reset()),y}function de(y,M,D,B){const{scrollBehavior:j}=e;if(!Gn||!j)return Promise.resolve();const p=!D&&A0(ra(y.fullPath,0))||(B||!D)&&history.state&&history.state.scroll||null;return Ya().then(()=>j(y,M,p)).then(u=>u&&T0(u)).catch(u=>K(u,y,M))}const ge=y=>o.go(y);let an;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:h,removeRoute:T,clearRoutes:n.clearRoutes,hasRoute:H,getRoutes:w,resolve:O,options:e,push:_,replace:L,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:a.add,beforeResolve:i.add,afterEach:s.add,onError:ce.add,isReady:Ge,install(y){y.component("RouterLink",tf),y.component("RouterView",sf),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Le(l)}),Gn&&!an&&l.value===bn&&(an=!0,_(o.location).catch(B=>{}));const M={};for(const B in bn)Object.defineProperty(M,B,{get:()=>l.value[B],enumerable:!0});y.provide(nr,je),y.provide(so,Va(M)),y.provide(Mr,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=bn,X&&X(),X=null,l.value=bn,an=!1,J=!1),D()}}};function Se(y){return y.reduce((M,D)=>M.then(()=>k(D)),Promise.resolve())}return je}function cf(){return Fe(nr)}function Sd(e){return Fe(so)}const ff="/assets/screenshot-BGlXLzxn.webp",df="/assets/screenshot-BU-MfndP.webp",pf="/assets/screenshot-BbBk66JL.webp",uf="/assets/screenshot-DJ8DWsNe.webp",mf="/assets/screenshot-zFcJ0H7U.webp",hf="/assets/screenshot-Bgnvpmle.webp",vf="/assets/screenshot-DI4mxV0q.webp",gf="/assets/screenshot-Cr4gcPub.webp",yf="/assets/screenshot-Bftu4Vm4.webp",bf="/assets/screenshot-D69-qLJd.webp",xf="/assets/screenshot-RF0P22ZC.webp",Ef="/assets/screenshot-uj0WCOUe.webp",Sf="/assets/screenshot-CbvnZ5gw.webp",_f="/assets/screenshot-D2kvp1Pc.webp",wf="/assets/screenshot-FespJOdi.webp",Tf="/assets/screenshot-BYNpPvRq.webp",Cf="/assets/screenshot-TbFZaVjZ.webp",Af="/assets/screenshot-eXevvs9S.webp",Rf="/assets/screenshot-BXUdMyeo.webp",If="/assets/screenshot-CLKNMPWT.webp",Nf="/assets/screenshot-Dge5FRDF.webp",Df="/assets/screenshot-BT7IpjX0.webp",Pf="/assets/screenshot-o465L8pw.webp",Lf="/assets/screenshot-BeLUHnME.webp",Of="/assets/screenshot-dnSW_Jt8.webp",Mf="/assets/screenshot-Zy4Ap0si.webp",Hf="/assets/screenshot-GJoazymJ.webp",kf="/assets/screenshot-Dj7Yx2aa.webp",Bf="/assets/screenshot-C1Jepfpl.webp",Ff="/assets/screenshot-UCJWYxEG.webp",Uf="/assets/screenshot-COHhF7ff.webp",es=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:ff,passes:{image:`/**
+ */let kf=()=>location.protocol+"//"+location.host;function Zi(e,n){const{pathname:t,search:r,hash:a}=n,o=e.indexOf("#");if(o>-1){let i=a.includes(e.slice(o))?e.slice(o).length:1,s=a.slice(i);return s[0]!=="/"&&(s="/"+s),eo(s,"")}return eo(t,e)+r+a}function Hf(e,n,t,r){let a=[],o=[],i=null;const s=({state:m})=>{const h=Zi(e,location),C=t.value,w=n.value;let k=0;if(m){if(t.value=h,n.value=m,i&&i===C){i=null;return}k=w?m.position-w.position:0}else r(h);a.forEach(O=>{O(t.value,C,{delta:k,type:Lr.pop,direction:k?k>0?gr.forward:gr.back:gr.unknown})})};function l(){i=t.value}function f(m){a.push(m);const h=()=>{const C=a.indexOf(m);C>-1&&a.splice(C,1)};return o.push(h),h}function c(){if(document.visibilityState==="hidden"){const{history:m}=window;if(!m.state)return;m.replaceState(ee({},m.state,{scroll:er()}),"")}}function d(){for(const m of o)m();o=[],window.removeEventListener("popstate",s),window.removeEventListener("pagehide",c),document.removeEventListener("visibilitychange",c)}return window.addEventListener("popstate",s),window.addEventListener("pagehide",c),document.addEventListener("visibilitychange",c),{pauseListeners:l,listen:f,destroy:d}}function oo(e,n,t,r=!1,a=!1){return{back:e,current:n,forward:t,replaced:r,position:window.history.length,scroll:a?er():null}}function Uf(e){const{history:n,location:t}=window,r={value:Zi(e,t)},a={value:n.state};a.value||o(r.value,{back:null,current:r.value,forward:null,position:n.length-1,replaced:!0,scroll:null},!0);function o(l,f,c){const d=e.indexOf("#"),m=d>-1?(t.host&&document.querySelector("base")?e:e.slice(d))+l:kf()+e+l;try{n[c?"replaceState":"pushState"](f,"",m),a.value=f}catch(h){console.error(h),t[c?"replace":"assign"](m)}}function i(l,f){o(l,ee({},n.state,oo(a.value.back,l,a.value.forward,!0),f,{position:a.value.position}),!0),r.value=l}function s(l,f){const c=ee({},a.value,n.state,{forward:l,scroll:er()});o(c.current,c,!0),o(l,ee({},oo(r.value,l,null),{position:c.position+1},f),!1),r.value=l}return{location:r,state:a,push:s,replace:i}}function Bf(e){e=Ef(e);const n=Uf(e),t=Hf(e,n.state,n.location,n.replace);function r(o,i=!0){i||t.pauseListeners(),history.go(o)}const a=ee({location:"",base:e,go:r,createHref:wf.bind(null,e)},n,t);return Object.defineProperty(a,"location",{enumerable:!0,get:()=>n.location.value}),Object.defineProperty(a,"state",{enumerable:!0,get:()=>n.state.value}),a}function Ff(e){return e=location.host?e||location.pathname+location.search:"",e.includes("#")||(e+="#"),Bf(e)}let Pn=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.Group=2]="Group",e})({});var he=(function(e){return e[e.Static=0]="Static",e[e.Param=1]="Param",e[e.ParamRegExp=2]="ParamRegExp",e[e.ParamRegExpEnd=3]="ParamRegExpEnd",e[e.EscapeNext=4]="EscapeNext",e})(he||{});const zf={type:Pn.Static,value:""},Gf=/[a-zA-Z0-9_]/;function Vf(e){if(!e)return[[]];if(e==="/")return[[zf]];if(!e.startsWith("/"))throw new Error(`Invalid path "${e}"`);function n(h){throw new Error(`ERR (${t})/"${f}": ${h}`)}let t=he.Static,r=t;const a=[];let o;function i(){o&&a.push(o),o=[]}let s=0,l,f="",c="";function d(){f&&(t===he.Static?o.push({type:Pn.Static,value:f}):t===he.Param||t===he.ParamRegExp||t===he.ParamRegExpEnd?(o.length>1&&(l==="*"||l==="+")&&n(`A repeatable param (${f}) must be alone in its segment. eg: '/:ids+.`),o.push({type:Pn.Param,value:f,regexp:c,repeatable:l==="*"||l==="+",optional:l==="*"||l==="?"})):n("Invalid state to consume buffer"),f="")}function m(){f+=l}for(;s<e.length;){if(l=e[s++],l==="\\"&&t!==he.ParamRegExp){r=t,t=he.EscapeNext;continue}switch(t){case he.Static:l==="/"?(f&&d(),i()):l===":"?(d(),t=he.Param):m();break;case he.EscapeNext:m(),t=r;break;case he.Param:l==="("?t=he.ParamRegExp:Gf.test(l)?m():(d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--);break;case he.ParamRegExp:l===")"?c[c.length-1]=="\\"?c=c.slice(0,-1)+l:t=he.ParamRegExpEnd:c+=l;break;case he.ParamRegExpEnd:d(),t=he.Static,l!=="*"&&l!=="?"&&l!=="+"&&s--,c="";break;default:n("Unknown state");break}}return t===he.ParamRegExp&&n(`Unfinished custom RegExp for param "${f}"`),d(),i(),a}const io="[^/]+?",qf={sensitive:!1,strict:!1,start:!0,end:!0};var we=(function(e){return e[e._multiplier=10]="_multiplier",e[e.Root=90]="Root",e[e.Segment=40]="Segment",e[e.SubSegment=30]="SubSegment",e[e.Static=40]="Static",e[e.Dynamic=20]="Dynamic",e[e.BonusCustomRegExp=10]="BonusCustomRegExp",e[e.BonusWildcard=-50]="BonusWildcard",e[e.BonusRepeatable=-20]="BonusRepeatable",e[e.BonusOptional=-8]="BonusOptional",e[e.BonusStrict=.7000000000000001]="BonusStrict",e[e.BonusCaseSensitive=.25]="BonusCaseSensitive",e})(we||{});const Wf=/[.+*?^${}()[\]/\\]/g;function Yf(e,n){const t=ee({},qf,n),r=[];let a=t.start?"^":"";const o=[];for(const f of e){const c=f.length?[]:[we.Root];t.strict&&!f.length&&(a+="/");for(let d=0;d<f.length;d++){const m=f[d];let h=we.Segment+(t.sensitive?we.BonusCaseSensitive:0);if(m.type===Pn.Static)d||(a+="/"),a+=m.value.replace(Wf,"\\$&"),h+=we.Static;else if(m.type===Pn.Param){const{value:C,repeatable:w,optional:k,regexp:O}=m;o.push({name:C,repeatable:w,optional:k});const E=O||io;if(E!==io){h+=we.BonusCustomRegExp;try{`${E}`}catch(_){throw new Error(`Invalid custom RegExp for param "${C}" (${E}): `+_.message)}}let A=w?`((?:${E})(?:/(?:${E}))*)`:`(${E})`;d||(A=k&&f.length<2?`(?:/${A})`:"/"+A),k&&(A+="?"),a+=A,h+=we.Dynamic,k&&(h+=we.BonusOptional),w&&(h+=we.BonusRepeatable),E===".*"&&(h+=we.BonusWildcard)}c.push(h)}r.push(c)}if(t.strict&&t.end){const f=r.length-1;r[f][r[f].length-1]+=we.BonusStrict}t.strict||(a+="/?"),t.end?a+="$":t.strict&&!a.endsWith("/")&&(a+="(?:/|$)");const i=new RegExp(a,t.sensitive?"":"i");function s(f){const c=f.match(i),d={};if(!c)return null;for(let m=1;m<c.length;m++){const h=c[m]||"",C=o[m-1];d[C.name]=h&&C.repeatable?h.split("/"):h}return d}function l(f){let c="",d=!1;for(const m of e){(!d||!c.endsWith("/"))&&(c+="/"),d=!1;for(const h of m)if(h.type===Pn.Static)c+=h.value;else if(h.type===Pn.Param){const{value:C,repeatable:w,optional:k}=h,O=C in f?f[C]:"";if(Ke(O)&&!w)throw new Error(`Provided param "${C}" is an array but it is not repeatable (* or + modifiers)`);const E=Ke(O)?O.join("/"):O;if(!E)if(k)m.length<2&&(c.endsWith("/")?c=c.slice(0,-1):d=!0);else throw new Error(`Missing required param "${C}"`);c+=E}}return c||"/"}return{re:i,score:r,keys:o,parse:s,stringify:l}}function Kf(e,n){let t=0;for(;t<e.length&&t<n.length;){const r=n[t]-e[t];if(r)return r;t++}return e.length<n.length?e.length===1&&e[0]===we.Static+we.Segment?-1:1:e.length>n.length?n.length===1&&n[0]===we.Static+we.Segment?1:-1:0}function $i(e,n){let t=0;const r=e.score,a=n.score;for(;t<r.length&&t<a.length;){const o=Kf(r[t],a[t]);if(o)return o;t++}if(Math.abs(a.length-r.length)===1){if(so(r))return 1;if(so(a))return-1}return a.length-r.length}function so(e){const n=e[e.length-1];return e.length>0&&n[n.length-1]<0}const Xf={strict:!1,end:!0,sensitive:!1};function jf(e,n,t){const r=Yf(Vf(e.path),t),a=ee(r,{record:e,parent:n,children:[],alias:[]});return n&&!a.record.aliasOf==!n.record.aliasOf&&n.children.push(a),a}function Qf(e,n){const t=[],r=new Map;n=Ja(Xf,n);function a(d){return r.get(d)}function o(d,m,h){const C=!h,w=co(d);w.aliasOf=h&&h.record;const k=Ja(n,d),O=[w];if("alias"in d){const _=typeof d.alias=="string"?[d.alias]:d.alias;for(const L of _)O.push(co(ee({},w,{components:h?h.record.components:w.components,path:L,aliasOf:h?h.record:w})))}let E,A;for(const _ of O){const{path:L}=_;if(m&&L[0]!=="/"){const G=m.record.path,V=G[G.length-1]==="/"?"":"/";_.path=m.record.path+(L&&V+L)}if(E=jf(_,m,k),h?h.alias.push(E):(A=A||E,A!==E&&A.alias.push(E),C&&d.name&&!fo(E)&&i(d.name)),Ji(E)&&l(E),w.children){const G=w.children;for(let V=0;V<G.length;V++)o(G[V],E,h&&h.children[V])}h=h||E}return A?()=>{i(A)}:mt}function i(d){if(Xi(d)){const m=r.get(d);m&&(r.delete(d),t.splice(t.indexOf(m),1),m.children.forEach(i),m.alias.forEach(i))}else{const m=t.indexOf(d);m>-1&&(t.splice(m,1),d.record.name&&r.delete(d.record.name),d.children.forEach(i),d.alias.forEach(i))}}function s(){return t}function l(d){const m=Jf(d,t);t.splice(m,0,d),d.record.name&&!fo(d)&&r.set(d.record.name,d)}function f(d,m){let h,C={},w,k;if("name"in d&&d.name){if(h=r.get(d.name),!h)throw Qn(fe.MATCHER_NOT_FOUND,{location:d});k=h.record.name,C=ee(lo(m.params,h.keys.filter(A=>!A.optional).concat(h.parent?h.parent.keys.filter(A=>A.optional):[]).map(A=>A.name)),d.params&&lo(d.params,h.keys.map(A=>A.name))),w=h.stringify(C)}else if(d.path!=null)w=d.path,h=t.find(A=>A.re.test(w)),h&&(C=h.parse(w),k=h.record.name);else{if(h=m.name?r.get(m.name):t.find(A=>A.re.test(m.path)),!h)throw Qn(fe.MATCHER_NOT_FOUND,{location:d,currentLocation:m});k=h.record.name,C=ee({},m.params,d.params),w=h.stringify(C)}const O=[];let E=h;for(;E;)O.unshift(E.record),E=E.parent;return{name:k,path:w,params:C,matched:O,meta:$f(O)}}e.forEach(d=>o(d));function c(){t.length=0,r.clear()}return{addRoute:o,resolve:f,removeRoute:i,clearRoutes:c,getRoutes:s,getRecordMatcher:a}}function lo(e,n){const t={};for(const r of n)r in e&&(t[r]=e[r]);return t}function co(e){const n={path:e.path,redirect:e.redirect,name:e.name,meta:e.meta||{},aliasOf:e.aliasOf,beforeEnter:e.beforeEnter,props:Zf(e),children:e.children||[],instances:{},leaveGuards:new Set,updateGuards:new Set,enterCallbacks:{},components:"components"in e?e.components||null:e.component&&{default:e.component}};return Object.defineProperty(n,"mods",{value:{}}),n}function Zf(e){const n={},t=e.props||!1;if("component"in e)n.default=t;else for(const r in e.components)n[r]=typeof t=="object"?t[r]:t;return n}function fo(e){for(;e;){if(e.record.aliasOf)return!0;e=e.parent}return!1}function $f(e){return e.reduce((n,t)=>ee(n,t.meta),{})}function Jf(e,n){let t=0,r=n.length;for(;t!==r;){const o=t+r>>1;$i(e,n[o])<0?r=o:t=o+1}const a=e0(e);return a&&(r=n.lastIndexOf(a,r-1)),r}function e0(e){let n=e;for(;n=n.parent;)if(Ji(n)&&$i(e,n)===0)return n}function Ji({record:e}){return!!(e.name||e.components&&Object.keys(e.components).length||e.redirect)}function po(e){const n=Be(nr),t=Be(sa),r=He(()=>{const l=Le(e.to);return n.resolve(l)}),a=He(()=>{const{matched:l}=r.value,{length:f}=l,c=l[f-1],d=t.matched;if(!c||!d.length)return-1;const m=d.findIndex(jn.bind(null,c));if(m>-1)return m;const h=uo(l[f-2]);return f>1&&uo(c)===h&&d[d.length-1].path!==h?d.findIndex(jn.bind(null,l[f-2])):m}),o=He(()=>a.value>-1&&o0(t.params,r.value.params)),i=He(()=>a.value>-1&&a.value===t.matched.length-1&&Ki(t.params,r.value.params));function s(l={}){if(a0(l)){const f=n[Le(e.replace)?"replace":"push"](Le(e.to)).catch(mt);return e.viewTransition&&typeof document<"u"&&"startViewTransition"in document&&document.startViewTransition(()=>f),f}return Promise.resolve()}return{route:r,href:He(()=>r.value.href),isActive:o,isExactActive:i,navigate:s}}function n0(e){return e.length===1?e[0]:e}const t0=An({name:"RouterLink",compatConfig:{MODE:3},props:{to:{type:[String,Object],required:!0},replace:Boolean,activeClass:String,exactActiveClass:String,custom:Boolean,ariaCurrentValue:{type:String,default:"page"},viewTransition:Boolean},useLink:po,setup(e,{slots:n}){const t=jt(po(e)),{options:r}=Be(nr),a=He(()=>({[mo(e.activeClass,r.linkActiveClass,"router-link-active")]:t.isActive,[mo(e.exactActiveClass,r.linkExactActiveClass,"router-link-exact-active")]:t.isExactActive}));return()=>{const o=n.default&&n0(n.default(t));return e.custom?o:Pi("a",{"aria-current":t.isExactActive?e.ariaCurrentValue:null,href:t.href,onClick:t.navigate,class:a.value},o)}}}),r0=t0;function a0(e){if(!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)&&!e.defaultPrevented&&!(e.button!==void 0&&e.button!==0)){if(e.currentTarget&&e.currentTarget.getAttribute){const n=e.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(n))return}return e.preventDefault&&e.preventDefault(),!0}}function o0(e,n){for(const t in n){const r=n[t],a=e[t];if(typeof r=="string"){if(r!==a)return!1}else if(!Ke(a)||a.length!==r.length||r.some((o,i)=>o.valueOf()!==a[i].valueOf()))return!1}return!0}function uo(e){return e?e.aliasOf?e.aliasOf.path:e.path:""}const mo=(e,n,t)=>e??n??t,i0=An({name:"RouterView",inheritAttrs:!1,props:{name:{type:String,default:"default"},route:Object},compatConfig:{MODE:3},setup(e,{attrs:n,slots:t}){const r=Be(Mr),a=He(()=>e.route||r.value),o=Be(ao,0),i=He(()=>{let f=Le(o);const{matched:c}=a.value;let d;for(;(d=c[f])&&!d.components;)f++;return f}),s=He(()=>a.value.matched[i.value]);Nt(ao,He(()=>i.value+1)),Nt(Qi,s),Nt(Mr,a);const l=xe();return ct(()=>[l.value,s.value,e.name],([f,c,d],[m,h,C])=>{c&&(c.instances[d]=f,h&&h!==c&&f&&f===m&&(c.leaveGuards.size||(c.leaveGuards=h.leaveGuards),c.updateGuards.size||(c.updateGuards=h.updateGuards))),f&&c&&(!h||!jn(c,h)||!m)&&(c.enterCallbacks[d]||[]).forEach(w=>w(f))},{flush:"post"}),()=>{const f=a.value,c=e.name,d=s.value,m=d&&d.components[c];if(!m)return ho(t.default,{Component:m,route:f});const h=d.props[c],C=h?h===!0?f.params:typeof h=="function"?h(f):h:null,k=Pi(m,ee({},C,n,{onVnodeUnmounted:O=>{O.component.isUnmounted&&(d.instances[c]=null)},ref:l}));return ho(t.default,{Component:k,route:f})||k}}});function ho(e,n){if(!e)return null;const t=e(n);return t.length===1?t[0]:t}const s0=i0;function l0(e){const n=Qf(e.routes,e),t=e.parseQuery||Pf,r=e.stringifyQuery||ro,a=e.history,o=tt(),i=tt(),s=tt(),l=ks(bn);let f=bn;Gn&&e.scrollBehavior&&"scrollRestoration"in history&&(history.scrollRestoration="manual");const c=hr.bind(null,y=>""+y),d=hr.bind(null,hf),m=hr.bind(null,St);function h(y,M){let D,U;return Xi(y)?(D=n.getRecordMatcher(y),U=M):U=y,n.addRoute(U,D)}function C(y){const M=n.getRecordMatcher(y);M&&n.removeRoute(M)}function w(){return n.getRoutes().map(y=>y.record)}function k(y){return!!n.getRecordMatcher(y)}function O(y,M){if(M=ee({},M||l.value),typeof y=="string"){const v=vr(t,y,M.path),g=n.resolve({path:v.path},M),x=a.createHref(v.fullPath);return ee(v,g,{params:m(g.params),hash:St(v.hash),redirectedFrom:void 0,href:x})}let D;if(y.path!=null)D=ee({},y,{path:vr(t,y.path,M.path).path});else{const v=ee({},y.params);for(const g in v)v[g]==null&&delete v[g];D=ee({},y,{params:d(v)}),M.params=d(M.params)}const U=n.resolve(D,M),j=y.hash||"";U.params=c(m(U.params));const p=yf(r,ee({},y,{hash:pf(j),path:U.path})),u=a.createHref(p);return ee({fullPath:p,hash:j,query:r===ro?Lf(y.query):y.query||{}},U,{redirectedFrom:void 0,href:u})}function E(y){return typeof y=="string"?vr(t,y,l.value.path):ee({},y)}function A(y,M){if(f!==y)return Qn(fe.NAVIGATION_CANCELLED,{from:M,to:y})}function _(y){return V(y)}function L(y){return _(ee(E(y),{replace:!0}))}function G(y,M){const D=y.matched[y.matched.length-1];if(D&&D.redirect){const{redirect:U}=D;let j=typeof U=="function"?U(y,M):U;return typeof j=="string"&&(j=j.includes("?")||j.includes("#")?j=E(j):{path:j},j.params={}),ee({query:y.query,hash:y.hash,params:j.path!=null?{}:y.params},j)}}function V(y,M){const D=f=O(y),U=l.value,j=y.state,p=y.force,u=y.replace===!0,v=G(D,U);if(v)return V(ee(E(v),{state:typeof v=="object"?ee({},j,v.state):j,force:p,replace:u}),M||D);const g=D;g.redirectedFrom=M;let x;return!p&&bf(r,U,D)&&(x=Qn(fe.NAVIGATION_DUPLICATED,{to:g,from:U}),de(U,U,!0,!1)),(x?Promise.resolve(x):K(g,U)).catch(b=>cn(b)?cn(b,fe.NAVIGATION_GUARD_REDIRECT)?b:Xe(b):Y(b,g,U)).then(b=>{if(b){if(cn(b,fe.NAVIGATION_GUARD_REDIRECT))return V(ee({replace:u},E(b.to),{state:typeof b.to=="object"?ee({},j,b.to.state):j,force:p}),M||g)}else b=I(g,U,!0,u,j);return $(g,U,b),b})}function ae(y,M){const D=A(y,M);return D?Promise.reject(D):Promise.resolve()}function H(y){const M=sn.values().next().value;return M&&typeof M.runWithContext=="function"?M.runWithContext(y):y()}function K(y,M){let D;const[U,j,p]=Mf(y,M);D=yr(U.reverse(),"beforeRouteLeave",y,M);for(const v of U)v.leaveGuards.forEach(g=>{D.push(wn(g,y,M))});const u=ae.bind(null,y,M);return D.push(u),Ee(D).then(()=>{D=[];for(const v of o.list())D.push(wn(v,y,M));return D.push(u),Ee(D)}).then(()=>{D=yr(j,"beforeRouteUpdate",y,M);for(const v of j)v.updateGuards.forEach(g=>{D.push(wn(g,y,M))});return D.push(u),Ee(D)}).then(()=>{D=[];for(const v of p)if(v.beforeEnter)if(Ke(v.beforeEnter))for(const g of v.beforeEnter)D.push(wn(g,y,M));else D.push(wn(v.beforeEnter,y,M));return D.push(u),Ee(D)}).then(()=>(y.matched.forEach(v=>v.enterCallbacks={}),D=yr(p,"beforeRouteEnter",y,M,H),D.push(u),Ee(D))).then(()=>{D=[];for(const v of i.list())D.push(wn(v,y,M));return D.push(u),Ee(D)}).catch(v=>cn(v,fe.NAVIGATION_CANCELLED)?v:Promise.reject(v))}function $(y,M,D){s.list().forEach(U=>H(()=>U(y,M,D)))}function I(y,M,D,U,j){const p=A(y,M);if(p)return p;const u=M===bn,v=Gn?history.state:{};D&&(U||u?a.replace(y.fullPath,ee({scroll:u&&v&&v.scroll},j)):a.push(y.fullPath,j)),l.value=y,de(y,M,D,u),Xe()}let X;function le(){X||(X=a.listen((y,M,D)=>{if(!je.listening)return;const U=O(y),j=G(U,je.currentRoute.value);if(j){V(ee(j,{replace:!0,force:!0}),U).catch(mt);return}f=U;const p=l.value;Gn&&Af(to(p.fullPath,D.delta),er()),K(U,p).catch(u=>cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_CANCELLED)?u:cn(u,fe.NAVIGATION_GUARD_REDIRECT)?(V(ee(E(u.to),{force:!0}),U).then(v=>{cn(v,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&!D.delta&&D.type===Lr.pop&&a.go(-1,!1)}).catch(mt),Promise.reject()):(D.delta&&a.go(-D.delta,!1),Y(u,U,p))).then(u=>{u=u||I(U,p,!1),u&&(D.delta&&!cn(u,fe.NAVIGATION_CANCELLED)?a.go(-D.delta,!1):D.type===Lr.pop&&cn(u,fe.NAVIGATION_ABORTED|fe.NAVIGATION_DUPLICATED)&&a.go(-1,!1)),$(U,p,u)}).catch(mt)}))}let ve=tt(),ce=tt(),J;function Y(y,M,D){Xe(y);const U=ce.list();return U.length?U.forEach(j=>j(y,M,D)):console.error(y),Promise.reject(y)}function Ge(){return J&&l.value!==bn?Promise.resolve():new Promise((y,M)=>{ve.add([y,M])})}function Xe(y){return J||(J=!y,le(),ve.list().forEach(([M,D])=>y?D(y):M()),ve.reset()),y}function de(y,M,D,U){const{scrollBehavior:j}=e;if(!Gn||!j)return Promise.resolve();const p=!D&&Rf(to(y.fullPath,0))||(U||!D)&&history.state&&history.state.scroll||null;return Ko().then(()=>j(y,M,p)).then(u=>u&&Tf(u)).catch(u=>Y(u,y,M))}const ge=y=>a.go(y);let on;const sn=new Set,je={currentRoute:l,listening:!0,addRoute:h,removeRoute:C,clearRoutes:n.clearRoutes,hasRoute:k,getRoutes:w,resolve:O,options:e,push:_,replace:L,go:ge,back:()=>ge(-1),forward:()=>ge(1),beforeEach:o.add,beforeResolve:i.add,afterEach:s.add,onError:ce.add,isReady:Ge,install(y){y.component("RouterLink",r0),y.component("RouterView",s0),y.config.globalProperties.$router=je,Object.defineProperty(y.config.globalProperties,"$route",{enumerable:!0,get:()=>Le(l)}),Gn&&!on&&l.value===bn&&(on=!0,_(a.location).catch(U=>{}));const M={};for(const U in bn)Object.defineProperty(M,U,{get:()=>l.value[U],enumerable:!0});y.provide(nr,je),y.provide(sa,Vo(M)),y.provide(Mr,l);const D=y.unmount;sn.add(y),y.unmount=function(){sn.delete(y),sn.size<1&&(f=bn,X&&X(),X=null,l.value=bn,on=!1,J=!1),D()}}};function Ee(y){return y.reduce((M,D)=>M.then(()=>H(D)),Promise.resolve())}return je}function c0(){return Be(nr)}function _d(e){return Be(sa)}const f0="/assets/screenshot-BGlXLzxn.webp",d0="/assets/screenshot-BU-MfndP.webp",p0="/assets/screenshot-D6dFT7RF.webp",u0="/assets/screenshot-BbBk66JL.webp",m0="/assets/screenshot-DJ8DWsNe.webp",h0="/assets/screenshot-zFcJ0H7U.webp",v0="/assets/screenshot-Bgnvpmle.webp",g0="/assets/screenshot-DI4mxV0q.webp",y0="/assets/screenshot-Cr4gcPub.webp",b0="/assets/screenshot-Bftu4Vm4.webp",x0="/assets/screenshot-D69-qLJd.webp",S0="/assets/screenshot-RF0P22ZC.webp",E0="/assets/screenshot-uj0WCOUe.webp",_0="/assets/screenshot-CbvnZ5gw.webp",w0="/assets/screenshot-D2kvp1Pc.webp",C0="/assets/screenshot-FespJOdi.webp",T0="/assets/screenshot-BYNpPvRq.webp",A0="/assets/screenshot-TbFZaVjZ.webp",R0="/assets/screenshot-eXevvs9S.webp",I0="/assets/screenshot-BXUdMyeo.webp",N0="/assets/screenshot-CLKNMPWT.webp",D0="/assets/screenshot-Dge5FRDF.webp",P0="/assets/screenshot-BT7IpjX0.webp",L0="/assets/screenshot-o465L8pw.webp",O0="/assets/screenshot-BeLUHnME.webp",M0="/assets/screenshot-dnSW_Jt8.webp",k0="/assets/screenshot-Zy4Ap0si.webp",H0="/assets/screenshot-GJoazymJ.webp",U0="/assets/screenshot-Dj7Yx2aa.webp",B0="/assets/screenshot-C1Jepfpl.webp",F0="/assets/screenshot-UCJWYxEG.webp",z0="/assets/screenshot-COHhF7ff.webp",es=[{slug:"arrakis",title:"24h in Arrakis",description:"A full day/night cycle of pure raymarched desert poetry.",date:"2026-02-12",tags:["raymarching","3d","noise"],links:{},screenshotUrl:f0,passes:{image:`/**
  * 24h in Arrakis
  * @author guinetik
  * @date 2026-02-12
@@ -682,7 +682,7 @@ float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
-`}]},{slug:"black-hole",title:"Black Hole",description:"Raytraced black hole with Newtonian gravitational lensing, a procedural accretion disk, and a starfield background that visibly bends around the event horizon. Based on Genuary 2026 Day 31.",date:"2026-01-31",tags:["genuary","space","3d","physics"],links:{},screenshotUrl:df,passes:{image:`/**
+`}]},{slug:"black-hole",title:"Black Hole",description:"Raytraced black hole with Newtonian gravitational lensing, a procedural accretion disk, and a starfield background that visibly bends around the event horizon. Based on Genuary 2026 Day 31.",date:"2026-01-31",tags:["genuary","space","3d","physics"],links:{},screenshotUrl:d0,passes:{image:`/**
  * Black Hole Raytracer
  *
  * Raytraced black hole with Newtonian gravitational lensing,
@@ -958,7 +958,943 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(finalColor, 1.0);
 }
-`},channels:{},commonsSources:[]},{slug:"caustics-pool",title:"Caustic Study #02: Pool",description:"Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",date:"2026-02-15",tags:["caustics","raymarching","3d","physics"],links:{},screenshotUrl:pf,passes:{image:`/**
+`},channels:{},commonsSources:[]},{slug:"caustics-crystal",title:"Caustic Study #03: Crystal",description:"Ray-marched faceted crystal with prismatic caustics from chromatic dispersion. Light refracts through the gemstone's facets, projecting rainbow patterns on the ground plane below.",date:"2026-02-18",tags:["caustics","raymarching","3d","physics","refraction"],links:{},screenshotUrl:p0,passes:{image:`/**
+ * Caustic Study #03: Crystal
+ * @author guinetik
+ * @date 2026-02-18
+ *
+ * Ray-marched faceted crystal (octahedron-based diamond SDF) hovering above
+ * a dark ground plane. Light refracts through the gemstone's facets with
+ * chromatic dispersion (separate UV offset per R/G/B channel), projecting
+ * prismatic rainbow caustics on the ground.
+ *
+ * TECHNIQUE: Modified octahedron SDF
+ * The octahedron's L1-norm distance gives natural faceted edges.
+ * Y-stretch elongates into a diamond profile; max() with a plane
+ * clips a flat table facet on top, mimicking a brilliant cut.
+ *
+ * TECHNIQUE: Prismatic caustics via chromatic causticWarp
+ * Instead of expensive per-pixel ray tracing, we sample the causticWarp()
+ * pattern at three chromatically offset UV positions (one per R/G/B channel).
+ * The UV offsets rotate with the crystal, creating shifting rainbow patterns.
+ * Brightness is modulated by the crystal's projected shadow footprint.
+ *
+ * TECHNIQUE: Refract-through via analytical ground intersection
+ * Instead of unreliable interior SDF marching, refract the view ray
+ * at the crystal entry surface and intersect the ground plane
+ * analytically. This always works regardless of view angle or
+ * crystal shape complexity.
+ */
+
+// === CRYSTAL GEOMETRY ===
+#define CRYSTAL_POS     vec3(0.0, 0.5, 0.0)   // Hover center — raise to widen caustic spread on ground
+#define CRYSTAL_SIZE    0.5                     // Octahedron half-extent — controls gem width
+#define CRYSTAL_STRETCH 1.6                     // Y-axis stretch — >1 = taller diamond, <1 = pancake
+#define TABLE_CUT       0.28                    // Y-height for flat table facet — lower = larger flat top
+#define ROTATE_SPEED    0.25                    // Auto-rotation rad/s around Y — 0 disables
+
+// === RAY MARCHING ===
+#define MAX_STEPS       100                     // March iterations — 100 sufficient for simple scene
+#define SURF_EPSILON    0.0005                  // Surface hit threshold — tight for sharp facet edges
+#define MAX_DIST        30.0                    // Maximum ray travel distance
+#define NORMAL_EPS      0.0005                  // Central-difference offset for normals
+#define STEP_BIAS       0.01                    // Offset to step past surface when entering/exiting crystal
+
+// === GROUND PLANE ===
+#define GROUND_Y       -0.6                     // Ground plane Y — distance below crystal affects caustic scale
+#define GROUND_COL     vec3(0.12, 0.11, 0.13)   // Medium-dark stone — visible but doesn't compete with caustics
+#define GROUND_SPEC    24.0                     // Specular exponent for ground highlights
+#define GROUND_SPEC_COL vec3(0.12)              // Specular highlight color
+
+// === LIGHTING ===
+#define LIGHT_DIR       normalize(vec3(0.5, 1.0, 0.3))  // Directional light from above-right
+#define LIGHT_COL       vec3(1.0, 0.97, 0.92)            // Warm white light color
+#define AMBIENT         0.2                               // Ambient illumination — enough to see the ground
+
+// === CRYSTAL MATERIAL ===
+#define IOR_BASE        1.54                    // Index of refraction — quartz = 1.54
+#define FRESNEL_POWER   5.0                     // Schlick exponent — higher = more edge reflection
+#define FRESNEL_MIN     0.04                    // Reflectance at normal incidence (clear quartz is low)
+#define FRESNEL_MAX     0.85                    // Reflectance at grazing angle
+#define ABSORB_TINT     vec3(0.98, 0.98, 1.0)  // Near-white — clear quartz, very slight cool tint
+#define ABSORB_DENSITY  0.1                     // Very low absorption — nearly transparent
+#define SPEC_POWER      80.0                    // Specular exponent — high = tiny bright highlights
+#define SPEC_BRIGHT     2.5                     // Specular intensity multiplier
+
+// === PRISMATIC CAUSTICS ===
+#define CAUSTIC_FOOTPRINT 0.8                   // Radius of caustic pattern — tight focus under crystal
+#define CAUSTIC_BRIGHT  1.5                     // Caustic brightness — visible against brighter ground
+#define CAUSTIC_SCALE_A 1.8                     // UV scale for primary caustic layer — lower = larger pattern
+#define CAUSTIC_SCALE_B 1.2                     // UV scale for secondary caustic layer (parallax)
+#define CAUSTIC_SPEED   0.4                     // Time multiplier for caustic animation
+#define CAUSTIC_OFFSET  23.0                    // Time offset — decorrelates from t=0 boring state
+#define CAUSTIC_ITERS   5                       // Warp iterations — 5 = crisp convergence lines
+#define CAUSTIC_INTEN   0.005                   // Inverse-distance sensitivity
+#define CAUSTIC_BASE    1.17                    // Brightness curve offset
+#define CAUSTIC_POWER   1.4                     // Brightness curve exponent
+#define CAUSTIC_SHARP   8.0                     // Final power — higher = thinner brighter lines
+#define CHROMA_SPREAD   0.25                    // Chromatic UV offset between R/G/B — higher = wider rainbow
+#define CAUSTIC_MIX_B   0.35                    // Blend weight of secondary caustic layer
+
+// === AMBIENT SHIMMER ===
+#define SHIMMER_SCALE   1.0                     // UV scale for background shimmer
+#define SHIMMER_SPEED   0.25                    // Shimmer animation speed
+#define SHIMMER_OFFSET  11.0                    // Decorrelation offset from main caustics
+#define SHIMMER_STR     0.02                    // Very subtle background life — too high = noisy ground
+
+// === CAMERA ===
+#define CAM_DIST        3.0                     // Orbital distance — closer for more detail
+#define CAM_HEIGHT      1.9                     // Base camera height
+#define CAM_TARGET      vec3(0.0, 0.1, 0.0)    // Look slightly above ground center
+#define CAM_FOV         1.8                     // Focal length inverse — lower = more telephoto
+
+// === BACKGROUND ===
+#define SKY_COL         vec3(0.05, 0.05, 0.08)  // Dark blue-gray sky — visible but moody
+#define INV_SQRT3       0.57735027               // 1/sqrt(3) — octahedron normalization
+
+// -------------------------------------------------------
+// Crystal SDF — octahedron stretched into diamond
+// -------------------------------------------------------
+float sdOctahedron(vec3 p, float s)
+{
+    p = abs(p);
+    return (p.x + p.y + p.z - s) * INV_SQRT3;
+}
+
+float sdCrystal(vec3 p)
+{
+    vec3 q = p;
+    q.y /= CRYSTAL_STRETCH;
+    float d = sdOctahedron(q, CRYSTAL_SIZE);
+    // Flat table facet on top
+    d = max(d, p.y - TABLE_CUT);
+    return d;
+}
+
+// -------------------------------------------------------
+// Rotation
+// -------------------------------------------------------
+mat3 rotateY(float a)
+{
+    float c = cos(a);
+    float s = sin(a);
+    return mat3(c, 0.0, s,  0.0, 1.0, 0.0,  -s, 0.0, c);
+}
+
+// -------------------------------------------------------
+// Crystal in world space (used by both full scene and crystal-only maps)
+// -------------------------------------------------------
+float crystalWorld(vec3 p, float rotAngle)
+{
+    vec3 cp = p - CRYSTAL_POS;
+    cp = rotateY(-rotAngle) * cp;
+    return sdCrystal(cp);
+}
+
+// -------------------------------------------------------
+// Full scene map — crystal + ground
+// -------------------------------------------------------
+float map(vec3 p, float rotAngle)
+{
+    float dGround = p.y - GROUND_Y;
+    float dCrystal = crystalWorld(p, rotAngle);
+    return min(dGround, dCrystal);
+}
+
+// Scene map with material ID (0=ground, 1=crystal)
+float mapID(vec3 p, float rotAngle, out int matID)
+{
+    float dGround = p.y - GROUND_Y;
+    float dCrystal = crystalWorld(p, rotAngle);
+    if (dCrystal < dGround) { matID = 1; return dCrystal; }
+    else                    { matID = 0; return dGround; }
+}
+
+// -------------------------------------------------------
+// Normals
+// -------------------------------------------------------
+vec3 calcNormal(vec3 p, float rotAngle)
+{
+    vec2 e = vec2(NORMAL_EPS, 0.0);
+    return normalize(vec3(
+        map(p + e.xyy, rotAngle) - map(p - e.xyy, rotAngle),
+        map(p + e.yxy, rotAngle) - map(p - e.yxy, rotAngle),
+        map(p + e.yyx, rotAngle) - map(p - e.yyx, rotAngle)
+    ));
+}
+
+// -------------------------------------------------------
+// Ray march — full scene
+// -------------------------------------------------------
+float march(vec3 ro, vec3 rd, float rotAngle)
+{
+    float t = 0.0;
+    for (int i = 0; i < MAX_STEPS; i++)
+    {
+        float d = map(ro + rd * t, rotAngle);
+        if (d < SURF_EPSILON) return t;
+        if (t > MAX_DIST) break;
+        t += d;
+    }
+    return -1.0;
+}
+
+// -------------------------------------------------------
+// Fresnel (Schlick)
+// -------------------------------------------------------
+float fresnelSchlick(vec3 rd, vec3 n)
+{
+    float cosTheta = abs(dot(rd, n));
+    float f = pow(max(1.0 - cosTheta, 0.0), FRESNEL_POWER);
+    return mix(FRESNEL_MIN, FRESNEL_MAX, f);
+}
+
+// -------------------------------------------------------
+// Single caustic layer with chromatic offsets
+//
+// TECHNIQUE: Chromatic causticWarp sampling
+// Sample causticWarp at 3 UV positions offset in the direction
+// determined by crystal rotation. The UV shift per channel
+// simulates how different wavelengths refract at different
+// angles through the crystal, creating rainbow separation.
+// -------------------------------------------------------
+float causticLayer(vec2 uv, float scale, float t)
+{
+    float time = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
+    float c = causticWarp(uv, scale, time, CAUSTIC_ITERS, CAUSTIC_INTEN);
+    c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
+    return pow(abs(c), CAUSTIC_SHARP);
+}
+
+vec3 prismaticCaustic(vec3 groundPos, float rotAngle, float t)
+{
+    // Project crystal position onto ground — caustic center
+    vec2 center = CRYSTAL_POS.xz;
+    vec2 gxz = groundPos.xz;
+
+    // Soft circular footprint — fades at edges
+    float dist = length(gxz - center);
+    float footprint = 1.0 - smoothstep(0.0, CAUSTIC_FOOTPRINT, dist);
+    if (footprint < 0.01) return vec3(0.0);
+
+    // Chromatic UV offset direction rotates with crystal
+    vec2 chromaDir = vec2(cos(rotAngle), sin(rotAngle));
+    vec2 baseUV = gxz;
+
+    // Sample caustic pattern at chromatically offset UVs
+    // Red refracts least, blue refracts most
+    vec2 uvR = baseUV - chromaDir * CHROMA_SPREAD;
+    vec2 uvG = baseUV;
+    vec2 uvB = baseUV + chromaDir * CHROMA_SPREAD;
+
+    // Primary layer
+    float cR = causticLayer(uvR, CAUSTIC_SCALE_A, t);
+    float cG = causticLayer(uvG, CAUSTIC_SCALE_A, t);
+    float cB = causticLayer(uvB, CAUSTIC_SCALE_A, t);
+
+    // Secondary layer at different scale for depth
+    float cR2 = causticLayer(uvR, CAUSTIC_SCALE_B, t + 5.0);
+    float cG2 = causticLayer(uvG, CAUSTIC_SCALE_B, t + 5.0);
+    float cB2 = causticLayer(uvB, CAUSTIC_SCALE_B, t + 5.0);
+
+    vec3 c1 = vec3(cR, cG, cB);
+    vec3 c2 = vec3(cR2, cG2, cB2);
+    vec3 caustic = c1 + c2 * CAUSTIC_MIX_B;
+
+    // Brighten toward center, fade at edges
+    float centerBright = smoothstep(CAUSTIC_FOOTPRINT, 0.0, dist * 0.8);
+
+    return caustic * footprint * centerBright * CAUSTIC_BRIGHT;
+}
+
+// -------------------------------------------------------
+// Ambient shimmer — very subtle background caustic wash
+// -------------------------------------------------------
+float ambientShimmer(vec2 uv, float t)
+{
+    float time = t * SHIMMER_SPEED + SHIMMER_OFFSET;
+    float c = causticWarp(uv, SHIMMER_SCALE, time, 3, CAUSTIC_INTEN);
+    c = CAUSTIC_BASE - pow(max(c, 0.0), CAUSTIC_POWER);
+    return pow(abs(c), CAUSTIC_SHARP) * SHIMMER_STR;
+}
+
+// -------------------------------------------------------
+// Soft shadow — approximate crystal shadow on ground
+// March from ground point toward light, check if crystal blocks
+// -------------------------------------------------------
+float softShadow(vec3 p, float rotAngle)
+{
+    vec3 rd = LIGHT_DIR;
+    float shade = 1.0;
+    float t = STEP_BIAS;
+    for (int i = 0; i < 32; i++)
+    {
+        float d = crystalWorld(p + rd * t, rotAngle);
+        if (d < SURF_EPSILON) return 0.15;
+        shade = min(shade, 8.0 * d / t);
+        t += clamp(d, 0.01, 0.2);
+        if (t > 3.0) break;
+    }
+    return clamp(shade, 0.15, 1.0);
+}
+
+// -------------------------------------------------------
+// Main
+// -------------------------------------------------------
+void mainImage(out vec4 fragColor, in vec2 fragCoord)
+{
+    float t = iTime;
+
+    // Orbit camera from buffer-a state
+    OrbitCameraRay cam = orbitCameraRay(
+        iChannel0, fragCoord, iResolution.xy,
+        CAM_DIST, CAM_HEIGHT, CAM_TARGET, CAM_FOV
+    );
+    vec3 ro = cam.ro;
+    vec3 rd = cam.rd;
+
+    float rotAngle = t * ROTATE_SPEED;
+
+    vec3 col = SKY_COL;
+
+    float hitT = march(ro, rd, rotAngle);
+
+    if (hitT > 0.0)
+    {
+        vec3 hitPos = ro + rd * hitT;
+        int matID;
+        mapID(hitPos, rotAngle, matID);
+        vec3 n = calcNormal(hitPos, rotAngle);
+
+        if (matID == 1)
+        {
+            // === CRYSTAL (clear quartz) ===
+            // TECHNIQUE: Refract-through via analytical ground intersection
+            // Instead of unreliable interior SDF marching, refract the view
+            // ray at entry and intersect the ground plane analytically.
+            // This always works regardless of crystal shape or view angle.
+
+            float fres = fresnelSchlick(rd, n);
+
+            // --- Reflection ---
+            vec3 reflDir = reflect(rd, n);
+            vec3 reflCol = SKY_COL + LIGHT_COL * max(reflDir.y, 0.0) * 0.2;
+
+            // Specular highlight — bright point light on facets
+            vec3 halfVec = normalize(LIGHT_DIR - rd);
+            float spec = pow(max(dot(n, halfVec), 0.0), SPEC_POWER);
+            reflCol += LIGHT_COL * spec * SPEC_BRIGHT;
+
+            // --- Refraction (see-through) ---
+            // TECHNIQUE: Project-down with refraction offset
+            // Project the crystal hit point straight down to the ground plane,
+            // then offset by the refraction displacement. This always works
+            // regardless of camera angle — top, front, side, any pitch.
+            vec3 refrDir = refract(rd, n, 1.0 / IOR_BASE);
+            if (length(refrDir) < 0.001) refrDir = rd; // TIR fallback
+
+            // Project hit point down to ground, offset by refraction
+            vec2 groundUV = hitPos.xz + (refrDir.xz - rd.xz) * (hitPos.y - GROUND_Y);
+            vec3 groundHit = vec3(groundUV.x, GROUND_Y, groundUV.y);
+
+            float diff = max(dot(vec3(0.0, 1.0, 0.0), LIGHT_DIR), 0.0);
+            vec3 refrCol = GROUND_COL * (AMBIENT + diff * 0.5);
+            refrCol += prismaticCaustic(groundHit, rotAngle, t);
+            refrCol += ambientShimmer(groundHit.xz, t) * 0.3;
+
+            // Subtle tint based on view angle (thicker path = more tint)
+            float NdotV = abs(dot(n, -rd));
+            vec3 absorption = mix(ABSORB_TINT, vec3(1.0), NdotV);
+            refrCol *= absorption;
+
+            col = mix(refrCol, reflCol, fres);
+
+            // Rim light — subtle white edge glow on silhouette
+            float rim = 1.0 - NdotV;
+            col += LIGHT_COL * pow(max(rim, 0.0), 3.0) * 0.1;
+
+            // Facet edge highlight — makes edges sparkle
+            float edgeCatch = pow(max(dot(n, LIGHT_DIR), 0.0), 2.0);
+            col += LIGHT_COL * edgeCatch * 0.15;
+        }
+        else
+        {
+            // === GROUND ===
+            float diff = max(dot(n, LIGHT_DIR), 0.0);
+            float shadow = softShadow(hitPos, rotAngle);
+            col = GROUND_COL * (AMBIENT + diff * 0.4 * shadow);
+
+            // Specular
+            vec3 halfVec = normalize(LIGHT_DIR - rd);
+            float spec = pow(max(dot(n, halfVec), 0.0), GROUND_SPEC);
+            col += GROUND_SPEC_COL * spec * shadow;
+
+            // Prismatic caustics
+            col += prismaticCaustic(hitPos, rotAngle, t);
+
+            // Very subtle ambient shimmer
+            col += ambientShimmer(hitPos.xz, t) * 0.5;
+        }
+    }
+
+    // Gamma correction
+    col = pow(max(col, 0.0), vec3(0.45));
+
+    fragColor = vec4(col, 1.0);
+}
+`,bufferA:`/**
+ * Caustic Study #03: Crystal — Buffer A: Camera state
+ *
+ * @author guinetik
+ * @date 2026-02-18
+ *
+ * Orbit camera with mouse-drag inertia, powered by camera commons.
+ * Crystal view: wider pitch range for looking down at the gem from above.
+ *
+ * === STATE LAYOUT (buffer-a → iChannel0) ===
+ * Pixel (0, 0): yaw (x), pitch (y), yawVel (z), pitchVel (w)
+ * Pixel (1, 0): prevMouseX (x), prevMouseY (y), unused (zw)
+ */
+
+// -- Pitch limits (radians) --
+// Slightly elevated default view to look down at the crystal
+#define PITCH_MIN -0.5    // Max downward tilt — allows steep overhead view
+#define PITCH_MAX  0.3    // Max upward tilt — sees crystal from below
+
+void mainImage(out vec4 fragColor, in vec2 fragCoord)
+{
+    OrbitCameraConfig cfg = orbitCameraDefaultConfig();
+    cfg.pitchMin = PITCH_MIN;
+    cfg.pitchMax = PITCH_MAX;
+    orbitCameraUpdate(fragColor, fragCoord, iChannel0, cfg, iFrame, iMouse, iResolution);
+}
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"camera",source:`/**
+ * Orbit Camera Commons
+ * @author guinetik
+ * @date 2026-02-20
+ *
+ * Reusable orbit camera with mouse-drag inertia, friction decay, and idle
+ * auto-rotation. Split into two parts:
+ *
+ * 1. **Buffer-A side** — \`orbitCameraUpdate()\` runs the state machine:
+ *    drag detection, velocity blending, friction, idle orbit blend.
+ *    Stores yaw/pitch/velocities in pixel (0,0), prev mouse in pixel (1,0).
+ *
+ * 2. **Image side** — \`orbitCameraRay()\` reads buffer state and computes
+ *    a spherical orbit camera with \`cameraLookAt()\` view matrix.
+ *
+ * === STATE LAYOUT (buffer-a → iChannel0) ===
+ * Pixel (0, 0): yaw (x), pitch (y), yawVel (z), pitchVel (w)
+ * Pixel (1, 0): prevMouseX (x), prevMouseY (y), unused (zw)
+ *
+ * TECHNIQUE: Drag detection via mouse-delta dead zone
+ * Instead of relying on iMouse.z (which stays positive after first click
+ * in some renderers), we compare current vs previous mouse position.
+ * If the squared delta exceeds DRAG_DEAD_ZONE², we're dragging.
+ *
+ * TECHNIQUE: Inertia with idle orbit blend
+ * On release, velocity decays by FRICTION per frame. When yaw velocity
+ * drops below IDLE_THRESHOLD, it blends toward IDLE_ORBIT_SPEED so the
+ * camera never fully stops. Pitch always decays to zero (no idle tilt).
+ */
+
+// Guard TAU define to avoid conflicts with shader-local constants
+#ifndef _CAM_TAU
+#define _CAM_TAU 6.28318530718
+#endif
+
+// -------------------------------------------------------
+// Configuration struct — all tunable camera parameters
+// -------------------------------------------------------
+
+/**
+ * Orbit camera tuning parameters. Create via orbitCameraDefaultConfig()
+ * and override individual fields as needed.
+ *
+ * friction       — velocity multiplier per frame when not dragging (0.99 = slow decay, 0.9 = fast)
+ * dragSensitivity — horizontal drag-to-velocity scale
+ * pitchSensitivity — vertical drag-to-velocity scale (typically < dragSensitivity)
+ * velocitySmooth  — blend factor for new drag velocity (0 = ignore drag, 1 = instant)
+ * idleOrbitSpeed  — yaw velocity target when coasting below threshold (rad/frame)
+ * idleThreshold   — velocity magnitude below which idle blend kicks in
+ * idleBlend       — blend rate toward idle orbit speed (0 = never, 1 = instant)
+ * dragDeadZone    — minimum mouse delta to register as drag (normalized coords)
+ * pitchMin        — minimum pitch angle in radians (negative = look down)
+ * pitchMax        — maximum pitch angle in radians (positive = look up)
+ */
+struct OrbitCameraConfig {
+    float friction;
+    float dragSensitivity;
+    float pitchSensitivity;
+    float velocitySmooth;
+    float idleOrbitSpeed;
+    float idleThreshold;
+    float idleBlend;
+    float dragDeadZone;
+    float pitchMin;
+    float pitchMax;
+};
+
+/**
+ * Sensible defaults matching the caustics-pool camera behavior.
+ * Override pitchMin/pitchMax per shader for different viewing angles.
+ */
+OrbitCameraConfig orbitCameraDefaultConfig() {
+    OrbitCameraConfig cfg;
+    cfg.friction         = 0.993;
+    cfg.dragSensitivity  = 2.0;
+    cfg.pitchSensitivity = 0.3;
+    cfg.velocitySmooth   = 0.35;
+    cfg.idleOrbitSpeed   = 0.003;
+    cfg.idleThreshold    = 0.0003;
+    cfg.idleBlend        = 0.015;
+    cfg.dragDeadZone     = 0.0001;
+    cfg.pitchMin         = -0.35;
+    cfg.pitchMax         =  0.18;
+    return cfg;
+}
+
+// -------------------------------------------------------
+// Buffer-A: full camera state machine
+// -------------------------------------------------------
+
+/**
+ * Run the orbit camera state machine for a single frame.
+ * Call this from buffer-a's mainImage(). Only pixels (0,0) and (1,0)
+ * are written; all others output vec4(0).
+ *
+ * Uniforms are passed as parameters (not referenced as globals) so this
+ * function works in Shadertoy's Common tab where uniforms aren't in scope.
+ *
+ * @param fragColor    Output color (state data, not visual)
+ * @param fragCoord    Fragment coordinates
+ * @param stateSampler Previous frame's buffer (self-feedback)
+ * @param cfg          Camera configuration
+ * @param frame        Current frame number (iFrame)
+ * @param mouse        Mouse state (iMouse)
+ * @param resolution   Viewport resolution (iResolution)
+ */
+void orbitCameraUpdate(
+    out vec4 fragColor,
+    in vec2 fragCoord,
+    in sampler2D stateSampler,
+    in OrbitCameraConfig cfg,
+    int frame,
+    vec4 mouse,
+    vec3 resolution
+) {
+    // Only pixels (0,0) and (1,0) store state
+    if (fragCoord.x > 1.5 || fragCoord.y > 1.5) {
+        fragColor = vec4(0.0);
+        return;
+    }
+
+    // Read previous state from both pixels
+    vec4 state = texelFetch(stateSampler, ivec2(0, 0), 0);
+    vec4 prevMouseState = texelFetch(stateSampler, ivec2(1, 0), 0);
+
+    float yaw      = state.x;
+    float pitch    = state.y;
+    float yawVel   = state.z;
+    float pitchVel = state.w;
+    float prevMX   = prevMouseState.x;
+    float prevMY   = prevMouseState.y;
+
+    // Initialize on first frame
+    if (frame == 0) {
+        yaw      = 0.0;
+        pitch    = 0.0;
+        yawVel   = cfg.idleOrbitSpeed;
+        pitchVel = 0.0;
+        prevMX   = mouse.x / resolution.x;
+        prevMY   = mouse.y / resolution.y;
+    }
+
+    float mouseX = mouse.x / resolution.x;
+    float mouseY = mouse.y / resolution.y;
+
+    // Detect drag: mouse position actually changed this frame
+    float dx = mouseX - prevMX;
+    float dy = mouseY - prevMY;
+    bool dragging = (dx * dx + dy * dy) > cfg.dragDeadZone * cfg.dragDeadZone;
+
+    if (dragging) {
+        // Blend drag delta into velocity for smooth momentum buildup
+        float dragYawVel   = dx * cfg.dragSensitivity;
+        float dragPitchVel = -dy * cfg.pitchSensitivity; // inverted Y: drag up = look higher
+
+        yawVel   = mix(yawVel,   dragYawVel,   cfg.velocitySmooth);
+        pitchVel = mix(pitchVel, dragPitchVel, cfg.velocitySmooth);
+    } else {
+        // Not dragging: friction decay
+        yawVel   *= cfg.friction;
+        pitchVel *= cfg.friction;
+
+        // Yaw blends toward idle orbit when nearly stopped
+        if (abs(yawVel) < cfg.idleThreshold) {
+            yawVel = mix(yawVel, cfg.idleOrbitSpeed, cfg.idleBlend);
+        }
+
+        // Pitch decays to zero (no idle pitch movement)
+        if (abs(pitchVel) < cfg.idleThreshold) {
+            pitchVel = mix(pitchVel, 0.0, cfg.idleBlend);
+        }
+    }
+
+    // Integrate angles
+    yaw += yawVel;
+    yaw = mod(yaw, _CAM_TAU);
+
+    pitch += pitchVel;
+    pitch = clamp(pitch, cfg.pitchMin, cfg.pitchMax);
+
+    // Output: pixel (0,0) = angles + velocities, pixel (1,0) = mouse
+    if (fragCoord.x < 0.5) {
+        fragColor = vec4(yaw, pitch, yawVel, pitchVel);
+    } else {
+        fragColor = vec4(mouseX, mouseY, 0.0, 0.0);
+    }
+}
+
+// -------------------------------------------------------
+// Image side: view matrix + orbit ray
+// -------------------------------------------------------
+
+/**
+ * Construct a right-handed view matrix (camera-to-world).
+ * Named cameraLookAt to avoid clashes with shader-local lookAt functions.
+ *
+ * @param ro  Camera position (ray origin)
+ * @param ta  Look-at target point
+ * @return 3x3 view matrix [right, up, forward]
+ */
+mat3 cameraLookAt(vec3 ro, vec3 ta) {
+    vec3 fwd = normalize(ta - ro);
+    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
+    vec3 up = cross(right, fwd);
+    return mat3(right, up, fwd);
+}
+
+/**
+ * Result of orbit camera ray computation.
+ * ro    — ray origin (camera position in world space)
+ * rd    — ray direction (normalized, per-pixel)
+ * yaw   — current yaw angle from buffer state
+ * pitch — current pitch angle from buffer state
+ */
+struct OrbitCameraRay {
+    vec3 ro;
+    vec3 rd;
+    float yaw;
+    float pitch;
+};
+
+/**
+ * Compute orbit camera ray from buffer state.
+ *
+ * Reads yaw/pitch from pixel (0,0) of the state buffer, converts to a
+ * spherical orbit position at the given distance and height from the
+ * target, and builds a per-pixel ray direction.
+ *
+ * TECHNIQUE: Spherical orbit via base elevation
+ * The base elevation angle is derived from CAM_HEIGHT and CAM_DIST,
+ * then pitch is added on top. This keeps the camera at approximately
+ * the right height regardless of the orbit distance.
+ *
+ * @param stateSampler  Buffer containing camera state (pixel 0,0)
+ * @param fragCoord     Fragment coordinates
+ * @param resolution    Viewport resolution (iResolution.xy)
+ * @param dist          Horizontal orbit distance from target
+ * @param height        Base camera height above target
+ * @param target        Look-at target point
+ * @param fov           Field of view (focal length inverse — lower = telephoto)
+ * @return OrbitCameraRay with ro, rd, yaw, pitch
+ */
+OrbitCameraRay orbitCameraRay(
+    in sampler2D stateSampler,
+    in vec2 fragCoord,
+    in vec2 resolution,
+    float dist,
+    float height,
+    vec3 target,
+    float fov
+) {
+    OrbitCameraRay cam;
+
+    vec2 uv = (fragCoord * 2.0 - resolution) / min(resolution.x, resolution.y);
+
+    // Camera angles from buffer state (pixel 0,0)
+    vec4 camState = texelFetch(stateSampler, ivec2(0, 0), 0);
+    cam.yaw   = camState.x;
+    cam.pitch = camState.y;
+
+    // Spherical camera: pitch tilts elevation around the base height
+    float baseElev = atan(height, dist);
+    float elev     = baseElev + cam.pitch;
+    float camR     = length(vec2(dist, height));
+
+    cam.ro = vec3(
+        cos(elev) * cos(cam.yaw) * camR,
+        sin(elev) * camR,
+        cos(elev) * sin(cam.yaw) * camR
+    );
+
+    mat3 viewMat = cameraLookAt(cam.ro, target);
+    cam.rd = viewMat * normalize(vec3(uv, fov));
+
+    return cam;
+}
+`},{name:"sphere",source:`/**
+ * Sphere Projection & Intersection Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless helpers for analytic sphere rendering:
+ * 2D rotation, responsive UV-to-sphere projection, ray-sphere intersection,
+ * and surface normal/UV extraction.
+ */
+
+// === 2D ROTATION ===
+
+/**
+ * Rotate a 2D vector by angle \`a\` (radians).
+ * Equivalent to multiplying by mat2(cos(a), -sin(a), sin(a), cos(a)).
+ */
+vec2 Rotate(vec2 p, float a) {
+    return p * cos(a) + vec2(-p.y, p.x) * sin(a);
+}
+
+// === SPHERE PROJECTION ===
+
+/**
+ * Compute responsive UV coordinates for unit-sphere rendering.
+ *
+ * Maps fragment coordinates to a centered coordinate system where the
+ * unit sphere fills most of the viewport. On portrait screens, applies an
+ * additional scale boost to shrink the sphere from ~91% to ~68% of viewport
+ * width, preventing the sphere from dominating mobile displays.
+ *
+ * Portrait boost: linearly increases with portrait-ness (1 - aspect),
+ * scaled by 0.7 for a natural feel. On landscape/square screens the boost
+ * is zero and behavior is identical to the original formula.
+ *
+ * | Device             | Aspect | uvScale | Sphere width fill |
+ * |--------------------|--------|---------|-------------------|
+ * | Phone portrait     | 0.46   | 3.04    | ~68%              |
+ * | iPad portrait      | 0.75   | 1.72    | ~78%              |
+ * | Desktop 16:9       | 1.78   | 1.1     | ~51% (unchanged)  |
+ *
+ * @param fragCoord  Pixel coordinates (gl_FragCoord.xy)
+ * @param resolution Viewport resolution (iResolution.xy)
+ * @param baseScale  Base UV scale — larger zooms out (typically 1.1)
+ * @return Centered UV coordinates where unit sphere has radius 1.0
+ */
+vec2 sphereUV(vec2 fragCoord, vec2 resolution, float baseScale) {
+    float aspect = resolution.x / resolution.y;
+    // Boost effective scale on portrait screens to shrink sphere from 91% → ~68% width fill
+    float portraitBoost = max(0.0, 1.0 - aspect) * 0.7;
+    float uvScale = (baseScale + portraitBoost) / min(1.0, aspect);
+    return uvScale * (2.0 * fragCoord - resolution) / resolution.y;
+}
+
+// === RAY-SPHERE INTERSECTION ===
+
+// Guard PI/TAU defines to avoid conflicts with shader-local constants
+#ifndef M_PI
+#define M_PI 3.14159265359
+#endif
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Ray-sphere intersection via quadratic discriminant.
+ *
+ * Solves |ro + t*rd - center|^2 = radius^2 for the nearest positive t.
+ * Returns -1.0 on miss (discriminant < 0 or both roots behind the ray).
+ *
+ * @param ro      Ray origin
+ * @param rd      Ray direction (must be normalized)
+ * @param center  Sphere center in world space
+ * @param radius  Sphere radius
+ * @return Nearest positive t, or -1.0 if no hit
+ */
+float intersectSphere(vec3 ro, vec3 rd, vec3 center, float radius) {
+    vec3 oc = ro - center;
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - radius * radius;
+    float h = b * b - c;
+
+    if (h < 0.0) return -1.0;
+
+    h = sqrt(h);
+    float t = -b - h;
+
+    if (t < 0.0) t = -b + h;
+    if (t < 0.0) return -1.0;
+
+    return t;
+}
+
+/**
+ * Compute surface normal and spherical UV at a hit point on a sphere.
+ *
+ * Normal points outward from center. UV maps longitude to [0,1] on x
+ * and latitude to [0,1] on y (0 = south pole, 1 = north pole).
+ *
+ * @param hitPoint  World-space intersection point
+ * @param center    Sphere center
+ * @param normal    (out) Unit surface normal
+ * @param uv        (out) Spherical UV in [0,1]^2
+ */
+void getSphereInfo(vec3 hitPoint, vec3 center, out vec3 normal, out vec2 uv) {
+    normal = normalize(hitPoint - center);
+    float latitude = 0.5 + asin(normal.y) / M_PI;
+    float longitude = 0.5 + atan(normal.x, normal.z) / M_TAU;
+    uv = vec2(longitude, latitude);
+}
+`},{name:"color",source:`/**
+ * Color Conversion Utilities
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless color space conversion functions.
+ */
+
+// === HSL TO RGB ===
+
+/**
+ * Convert HSL color to RGB.
+ *
+ * @param h  Hue in degrees (0–360, wraps automatically)
+ * @param s  Saturation (0.0–1.0)
+ * @param l  Lightness (0.0–1.0)
+ * @return RGB color in [0, 1] per component
+ */
+vec3 hsl2rgb(float h, float s, float l) {
+    h = mod(h, 360.0) / 60.0;
+    float c = (1.0 - abs(2.0 * l - 1.0)) * s;
+    float x = c * (1.0 - abs(mod(h, 2.0) - 1.0));
+    float m = l - c * 0.5;
+    vec3 rgb;
+    if      (h < 1.0) rgb = vec3(c, x, 0.0);
+    else if (h < 2.0) rgb = vec3(x, c, 0.0);
+    else if (h < 3.0) rgb = vec3(0.0, c, x);
+    else if (h < 4.0) rgb = vec3(0.0, x, c);
+    else if (h < 5.0) rgb = vec3(x, 0.0, c);
+    else              rgb = vec3(c, 0.0, x);
+    return rgb + m;
+}
+
+// === HSV CONVERSIONS ===
+
+/**
+ * Convert RGB color to HSV.
+ *
+ * @param c  RGB color in [0, 1] per component
+ * @return   HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ */
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+/**
+ * Convert HSV color to RGB.
+ *
+ * @param c  HSV where H is in [0, 1] (not degrees), S and V in [0, 1]
+ * @return   RGB color in [0, 1] per component
+ */
+vec3 hsv2rgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+`},{name:"sdf",source:`/**
+ * Signed Distance Field Primitives
+ * @author guinetik
+ * @date 2026-02-15
+ *
+ * Stateless distance field functions for 2D rendering.
+ */
+
+// === LINE SEGMENT ===
+
+/**
+ * Compute minimum distance from a point to a line segment.
+ *
+ * Returns the perpendicular distance from point \`p\` to the closest
+ * point on the segment from \`a\` to \`b\`. Handles degenerate
+ * zero-length segments gracefully.
+ *
+ * @param a  Segment start point
+ * @param b  Segment end point
+ * @param p  Query point
+ * @return Distance from \`p\` to the nearest point on segment (a, b)
+ */
+float dfLine(vec2 a, vec2 b, vec2 p) {
+    vec2 ab = b - a;
+    float denom = dot(ab, ab);
+    if (denom < 1e-10) return distance(a, p);
+    float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
+    return distance(a + ab * t, p);
+}
+`},{name:"caustic",source:`/**
+ * Caustic Pattern (joltz0r / David Hoskins)
+ * @author joltz0r, David Hoskins (adapted by guinetik)
+ * @date 2026-02-16
+ *
+ * Iterative domain warp for underwater caustic patterns.
+ * Each iteration displaces UV coordinates with sin/cos feedback,
+ * accumulating inverse distance to create bright convergence lines
+ * mimicking refracted light on a pool floor.
+ *
+ * Two layers at different scales are recommended for depth complexity.
+ */
+
+#ifndef M_TAU
+#define M_TAU 6.28318530718
+#endif
+
+/**
+ * Compute raw caustic convergence via iterative domain warp.
+ *
+ * Returns normalized accumulation value -- higher where displaced UV
+ * coordinates converge, producing bright caustic lines. Apply
+ * post-processing for final brightness curve:
+ *   c = base - pow(c, power);   // typical: 1.17 - pow(c, 1.4)
+ *   c = pow(abs(c), bright);    // typical: pow(abs(c), 8.0)
+ *
+ * @param uv        2D sample position
+ * @param scale     UV scaling (larger = finer pattern, typical 0.5-3.0)
+ * @param time      Animation time (pre-scaled by caller)
+ * @param iters     Warp iterations: 3=soft blobs, 5=crisp, 8+=very sharp
+ * @param intensity Inverse-distance sensitivity (smaller = tighter lines, typical 0.005)
+ * @return Normalized convergence value
+ */
+float causticWarp(vec2 uv, float scale, float time, int iters, float intensity) {
+    vec2 p = mod(uv * scale * M_TAU, M_TAU) - 250.0;
+    vec2 i = p;
+    float c = 1.0;
+    for (int n = 0; n < 8; n++) {
+        if (n >= iters) break;
+        float tt = time * (1.0 - (3.5 / float(n + 1)));
+        i = p + vec2(
+            cos(tt - i.x) + sin(tt + i.y),
+            sin(tt - i.y) + cos(tt + i.x)
+        );
+        c += 1.0 / length(vec2(
+            p.x / (sin(i.x + tt) / intensity),
+            p.y / (cos(i.y + tt) / intensity)
+        ));
+    }
+    return c / float(iters);
+}
+`}]},{slug:"caustics-pool",title:"Caustic Study #02: Pool",description:"Ray-marched 3D swimming pool with tiled interior surfaces, a transparent water plane, caustic light patterns, and a periodically dropping ball with ripple physics. Mouse drag orbits with inertia.",date:"2026-02-15",tags:["caustics","raymarching","3d","physics"],links:{},screenshotUrl:u0,passes:{image:`/**
  * Caustics Pool
  *
  * @author guinetik
@@ -1300,41 +2236,19 @@ float fresnel(vec3 rd, vec3 n)
 }
 
 // -------------------------------------------------------
-// Camera
-// -------------------------------------------------------
-mat3 lookAt(vec3 ro, vec3 ta)
-{
-    vec3 fwd = normalize(ta - ro);
-    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
-    vec3 up = cross(right, fwd);
-    return mat3(right, up, fwd);
-}
-
-// -------------------------------------------------------
 // Main
 // -------------------------------------------------------
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
-    vec2 uv = (fragCoord * 2.0 - iResolution.xy) / min(iResolution.x, iResolution.y);
     float t = iTime;
 
-    // Camera angles from buffer-a (pixel 0,0) — has inertia/friction
-    vec4 camState = texelFetch(iChannel0, ivec2(0, 0), 0);
-    float yaw   = camState.x;
-    float pitch = camState.y;
-
-    // Spherical camera: pitch tilts elevation around the base height
-    float baseElev = atan(CAM_HEIGHT, CAM_DIST);
-    float elev     = baseElev + pitch;
-    float camR     = length(vec2(CAM_DIST, CAM_HEIGHT));
-
-    vec3 ro = vec3(
-        cos(elev) * cos(yaw) * camR,
-        sin(elev) * camR,
-        cos(elev) * sin(yaw) * camR
+    // Orbit camera from buffer-a state
+    OrbitCameraRay cam = orbitCameraRay(
+        iChannel0, fragCoord, iResolution.xy,
+        CAM_DIST, CAM_HEIGHT, CAM_TARGET, CAM_FOV
     );
-    mat3 cam = lookAt(ro, CAM_TARGET);
-    vec3 rd = cam * normalize(vec3(uv, CAM_FOV));
+    vec3 ro = cam.ro;
+    vec3 rd = cam.rd;
 
     // Get ball state
     BallState ball = getBall(t);
@@ -1437,126 +2351,303 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
  * @author guinetik
  * @date 2026-02-15
  *
- * Pixel (0,0) stores camera angles and velocities:
- *   .x = yaw angle (radians, wraps TAU)
- *   .y = pitch angle (radians, clamped)
- *   .z = yaw velocity (radians/frame)
- *   .w = pitch velocity (radians/frame)
+ * Orbit camera with mouse-drag inertia, powered by camera commons.
+ * Pool view: shallow pitch range for looking down into the water.
  *
- * Pixel (1,0) stores previous mouse position:
- *   .x = previous mouse X normalized
- *   .y = previous mouse Y normalized
- *
- * Drag detection: if mouse position changed between frames, we're
- * dragging. This avoids relying on iMouse.z which stays positive
- * after the first click in our renderer.
- *
- * On release, velocity decays slowly (high friction coefficient =
- * long coast). When nearly stopped, yaw blends back to idle orbit;
- * pitch decays to zero.
+ * === STATE LAYOUT (buffer-a → iChannel0) ===
+ * Pixel (0, 0): yaw (x), pitch (y), yawVel (z), pitchVel (w)
+ * Pixel (1, 0): prevMouseX (x), prevMouseY (y), unused (zw)
  */
 
-// -- Camera physics (per-frame units) --
-#define FRICTION          0.993
-#define DRAG_SENSITIVITY  2.0
-#define PITCH_SENSITIVITY 0.3
-#define VELOCITY_SMOOTH   0.35
-#define IDLE_ORBIT_SPEED  0.003
-#define IDLE_THRESHOLD    0.0003
-#define IDLE_BLEND        0.015
-#define DRAG_DEAD_ZONE    0.0001
-
 // -- Pitch limits (radians) --
-#define PITCH_MIN        -0.35
-#define PITCH_MAX         0.18
-
-#define TAU 6.28318530718
+// Shallow range: camera looks slightly down into the pool
+#define PITCH_MIN -0.35   // Max downward tilt — prevents looking under the pool
+#define PITCH_MAX  0.18   // Max upward tilt — keeps water surface visible
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
+    OrbitCameraConfig cfg = orbitCameraDefaultConfig();
+    cfg.pitchMin = PITCH_MIN;
+    cfg.pitchMax = PITCH_MAX;
+    orbitCameraUpdate(fragColor, fragCoord, iChannel0, cfg, iFrame, iMouse, iResolution);
+}
+`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"camera",source:`/**
+ * Orbit Camera Commons
+ * @author guinetik
+ * @date 2026-02-20
+ *
+ * Reusable orbit camera with mouse-drag inertia, friction decay, and idle
+ * auto-rotation. Split into two parts:
+ *
+ * 1. **Buffer-A side** — \`orbitCameraUpdate()\` runs the state machine:
+ *    drag detection, velocity blending, friction, idle orbit blend.
+ *    Stores yaw/pitch/velocities in pixel (0,0), prev mouse in pixel (1,0).
+ *
+ * 2. **Image side** — \`orbitCameraRay()\` reads buffer state and computes
+ *    a spherical orbit camera with \`cameraLookAt()\` view matrix.
+ *
+ * === STATE LAYOUT (buffer-a → iChannel0) ===
+ * Pixel (0, 0): yaw (x), pitch (y), yawVel (z), pitchVel (w)
+ * Pixel (1, 0): prevMouseX (x), prevMouseY (y), unused (zw)
+ *
+ * TECHNIQUE: Drag detection via mouse-delta dead zone
+ * Instead of relying on iMouse.z (which stays positive after first click
+ * in some renderers), we compare current vs previous mouse position.
+ * If the squared delta exceeds DRAG_DEAD_ZONE², we're dragging.
+ *
+ * TECHNIQUE: Inertia with idle orbit blend
+ * On release, velocity decays by FRICTION per frame. When yaw velocity
+ * drops below IDLE_THRESHOLD, it blends toward IDLE_ORBIT_SPEED so the
+ * camera never fully stops. Pitch always decays to zero (no idle tilt).
+ */
+
+// Guard TAU define to avoid conflicts with shader-local constants
+#ifndef _CAM_TAU
+#define _CAM_TAU 6.28318530718
+#endif
+
+// -------------------------------------------------------
+// Configuration struct — all tunable camera parameters
+// -------------------------------------------------------
+
+/**
+ * Orbit camera tuning parameters. Create via orbitCameraDefaultConfig()
+ * and override individual fields as needed.
+ *
+ * friction       — velocity multiplier per frame when not dragging (0.99 = slow decay, 0.9 = fast)
+ * dragSensitivity — horizontal drag-to-velocity scale
+ * pitchSensitivity — vertical drag-to-velocity scale (typically < dragSensitivity)
+ * velocitySmooth  — blend factor for new drag velocity (0 = ignore drag, 1 = instant)
+ * idleOrbitSpeed  — yaw velocity target when coasting below threshold (rad/frame)
+ * idleThreshold   — velocity magnitude below which idle blend kicks in
+ * idleBlend       — blend rate toward idle orbit speed (0 = never, 1 = instant)
+ * dragDeadZone    — minimum mouse delta to register as drag (normalized coords)
+ * pitchMin        — minimum pitch angle in radians (negative = look down)
+ * pitchMax        — maximum pitch angle in radians (positive = look up)
+ */
+struct OrbitCameraConfig {
+    float friction;
+    float dragSensitivity;
+    float pitchSensitivity;
+    float velocitySmooth;
+    float idleOrbitSpeed;
+    float idleThreshold;
+    float idleBlend;
+    float dragDeadZone;
+    float pitchMin;
+    float pitchMax;
+};
+
+/**
+ * Sensible defaults matching the caustics-pool camera behavior.
+ * Override pitchMin/pitchMax per shader for different viewing angles.
+ */
+OrbitCameraConfig orbitCameraDefaultConfig() {
+    OrbitCameraConfig cfg;
+    cfg.friction         = 0.993;
+    cfg.dragSensitivity  = 2.0;
+    cfg.pitchSensitivity = 0.3;
+    cfg.velocitySmooth   = 0.35;
+    cfg.idleOrbitSpeed   = 0.003;
+    cfg.idleThreshold    = 0.0003;
+    cfg.idleBlend        = 0.015;
+    cfg.dragDeadZone     = 0.0001;
+    cfg.pitchMin         = -0.35;
+    cfg.pitchMax         =  0.18;
+    return cfg;
+}
+
+// -------------------------------------------------------
+// Buffer-A: full camera state machine
+// -------------------------------------------------------
+
+/**
+ * Run the orbit camera state machine for a single frame.
+ * Call this from buffer-a's mainImage(). Only pixels (0,0) and (1,0)
+ * are written; all others output vec4(0).
+ *
+ * Uniforms are passed as parameters (not referenced as globals) so this
+ * function works in Shadertoy's Common tab where uniforms aren't in scope.
+ *
+ * @param fragColor    Output color (state data, not visual)
+ * @param fragCoord    Fragment coordinates
+ * @param stateSampler Previous frame's buffer (self-feedback)
+ * @param cfg          Camera configuration
+ * @param frame        Current frame number (iFrame)
+ * @param mouse        Mouse state (iMouse)
+ * @param resolution   Viewport resolution (iResolution)
+ */
+void orbitCameraUpdate(
+    out vec4 fragColor,
+    in vec2 fragCoord,
+    in sampler2D stateSampler,
+    in OrbitCameraConfig cfg,
+    int frame,
+    vec4 mouse,
+    vec3 resolution
+) {
     // Only pixels (0,0) and (1,0) store state
-    if (fragCoord.x > 1.5 || fragCoord.y > 1.5)
-    {
+    if (fragCoord.x > 1.5 || fragCoord.y > 1.5) {
         fragColor = vec4(0.0);
         return;
     }
 
     // Read previous state from both pixels
-    vec4 state = texelFetch(iChannel0, ivec2(0, 0), 0);
-    vec4 mouse = texelFetch(iChannel0, ivec2(1, 0), 0);
+    vec4 state = texelFetch(stateSampler, ivec2(0, 0), 0);
+    vec4 prevMouseState = texelFetch(stateSampler, ivec2(1, 0), 0);
 
     float yaw      = state.x;
     float pitch    = state.y;
     float yawVel   = state.z;
     float pitchVel = state.w;
-    float prevMX   = mouse.x;
-    float prevMY   = mouse.y;
+    float prevMX   = prevMouseState.x;
+    float prevMY   = prevMouseState.y;
 
     // Initialize on first frame
-    if (iFrame == 0)
-    {
+    if (frame == 0) {
         yaw      = 0.0;
         pitch    = 0.0;
-        yawVel   = IDLE_ORBIT_SPEED;
+        yawVel   = cfg.idleOrbitSpeed;
         pitchVel = 0.0;
-        prevMX   = iMouse.x / iResolution.x;
-        prevMY   = iMouse.y / iResolution.y;
+        prevMX   = mouse.x / resolution.x;
+        prevMY   = mouse.y / resolution.y;
     }
 
-    float mouseX = iMouse.x / iResolution.x;
-    float mouseY = iMouse.y / iResolution.y;
+    float mouseX = mouse.x / resolution.x;
+    float mouseY = mouse.y / resolution.y;
 
     // Detect drag: mouse position actually changed this frame
     float dx = mouseX - prevMX;
     float dy = mouseY - prevMY;
-    bool dragging = (dx * dx + dy * dy) > DRAG_DEAD_ZONE * DRAG_DEAD_ZONE;
+    bool dragging = (dx * dx + dy * dy) > cfg.dragDeadZone * cfg.dragDeadZone;
 
-    if (dragging)
-    {
+    if (dragging) {
         // Blend drag delta into velocity for smooth momentum buildup
-        float dragYawVel   = dx * DRAG_SENSITIVITY;
-        float dragPitchVel = -dy * PITCH_SENSITIVITY; // inverted Y: drag up = look higher
+        float dragYawVel   = dx * cfg.dragSensitivity;
+        float dragPitchVel = -dy * cfg.pitchSensitivity; // inverted Y: drag up = look higher
 
-        yawVel   = mix(yawVel,   dragYawVel,   VELOCITY_SMOOTH);
-        pitchVel = mix(pitchVel, dragPitchVel, VELOCITY_SMOOTH);
-    }
-    else
-    {
+        yawVel   = mix(yawVel,   dragYawVel,   cfg.velocitySmooth);
+        pitchVel = mix(pitchVel, dragPitchVel, cfg.velocitySmooth);
+    } else {
         // Not dragging: friction decay
-        yawVel   *= FRICTION;
-        pitchVel *= FRICTION;
+        yawVel   *= cfg.friction;
+        pitchVel *= cfg.friction;
 
         // Yaw blends toward idle orbit when nearly stopped
-        if (abs(yawVel) < IDLE_THRESHOLD)
-        {
-            yawVel = mix(yawVel, IDLE_ORBIT_SPEED, IDLE_BLEND);
+        if (abs(yawVel) < cfg.idleThreshold) {
+            yawVel = mix(yawVel, cfg.idleOrbitSpeed, cfg.idleBlend);
         }
 
         // Pitch decays to zero (no idle pitch movement)
-        if (abs(pitchVel) < IDLE_THRESHOLD)
-        {
-            pitchVel = mix(pitchVel, 0.0, IDLE_BLEND);
+        if (abs(pitchVel) < cfg.idleThreshold) {
+            pitchVel = mix(pitchVel, 0.0, cfg.idleBlend);
         }
     }
 
     // Integrate angles
     yaw += yawVel;
-    yaw = mod(yaw, TAU);
+    yaw = mod(yaw, _CAM_TAU);
 
     pitch += pitchVel;
-    pitch = clamp(pitch, PITCH_MIN, PITCH_MAX);
+    pitch = clamp(pitch, cfg.pitchMin, cfg.pitchMax);
 
     // Output: pixel (0,0) = angles + velocities, pixel (1,0) = mouse
-    if (fragCoord.x < 0.5)
-    {
+    if (fragCoord.x < 0.5) {
         fragColor = vec4(yaw, pitch, yawVel, pitchVel);
-    }
-    else
-    {
+    } else {
         fragColor = vec4(mouseX, mouseY, 0.0, 0.0);
     }
 }
-`},channels:{image:{iChannel0:"buffer-a"},bufferA:{iChannel0:"buffer-a"}},commonsSources:[{name:"sphere",source:`/**
+
+// -------------------------------------------------------
+// Image side: view matrix + orbit ray
+// -------------------------------------------------------
+
+/**
+ * Construct a right-handed view matrix (camera-to-world).
+ * Named cameraLookAt to avoid clashes with shader-local lookAt functions.
+ *
+ * @param ro  Camera position (ray origin)
+ * @param ta  Look-at target point
+ * @return 3x3 view matrix [right, up, forward]
+ */
+mat3 cameraLookAt(vec3 ro, vec3 ta) {
+    vec3 fwd = normalize(ta - ro);
+    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
+    vec3 up = cross(right, fwd);
+    return mat3(right, up, fwd);
+}
+
+/**
+ * Result of orbit camera ray computation.
+ * ro    — ray origin (camera position in world space)
+ * rd    — ray direction (normalized, per-pixel)
+ * yaw   — current yaw angle from buffer state
+ * pitch — current pitch angle from buffer state
+ */
+struct OrbitCameraRay {
+    vec3 ro;
+    vec3 rd;
+    float yaw;
+    float pitch;
+};
+
+/**
+ * Compute orbit camera ray from buffer state.
+ *
+ * Reads yaw/pitch from pixel (0,0) of the state buffer, converts to a
+ * spherical orbit position at the given distance and height from the
+ * target, and builds a per-pixel ray direction.
+ *
+ * TECHNIQUE: Spherical orbit via base elevation
+ * The base elevation angle is derived from CAM_HEIGHT and CAM_DIST,
+ * then pitch is added on top. This keeps the camera at approximately
+ * the right height regardless of the orbit distance.
+ *
+ * @param stateSampler  Buffer containing camera state (pixel 0,0)
+ * @param fragCoord     Fragment coordinates
+ * @param resolution    Viewport resolution (iResolution.xy)
+ * @param dist          Horizontal orbit distance from target
+ * @param height        Base camera height above target
+ * @param target        Look-at target point
+ * @param fov           Field of view (focal length inverse — lower = telephoto)
+ * @return OrbitCameraRay with ro, rd, yaw, pitch
+ */
+OrbitCameraRay orbitCameraRay(
+    in sampler2D stateSampler,
+    in vec2 fragCoord,
+    in vec2 resolution,
+    float dist,
+    float height,
+    vec3 target,
+    float fov
+) {
+    OrbitCameraRay cam;
+
+    vec2 uv = (fragCoord * 2.0 - resolution) / min(resolution.x, resolution.y);
+
+    // Camera angles from buffer state (pixel 0,0)
+    vec4 camState = texelFetch(stateSampler, ivec2(0, 0), 0);
+    cam.yaw   = camState.x;
+    cam.pitch = camState.y;
+
+    // Spherical camera: pitch tilts elevation around the base height
+    float baseElev = atan(height, dist);
+    float elev     = baseElev + cam.pitch;
+    float camR     = length(vec2(dist, height));
+
+    cam.ro = vec3(
+        cos(elev) * cos(cam.yaw) * camR,
+        sin(elev) * camR,
+        cos(elev) * sin(cam.yaw) * camR
+    );
+
+    mat3 viewMat = cameraLookAt(cam.ro, target);
+    cam.rd = viewMat * normalize(vec3(uv, fov));
+
+    return cam;
+}
+`},{name:"sphere",source:`/**
  * Sphere Projection & Intersection Utilities
  * @author guinetik
  * @date 2026-02-15
@@ -1716,7 +2807,7 @@ float causticWarp(vec2 uv, float scale, float time, int iters, float intensity) 
     }
     return c / float(iters);
 }
-`}]},{slug:"caustics-study",title:"Caustic Study #01: Simple",description:"Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",date:"2026-02-15",tags:["caustics","procedural","physics"],links:{},screenshotUrl:uf,passes:{image:`/**
+`}]},{slug:"caustics-study",title:"Caustic Study #01: Simple",description:"Water caustic pattern via iterative domain warping. Each iteration displaces UV coordinates with sin/cos feedback, accumulating inverse distance to create bright convergence lines mimicking refracted light on a pool floor.",date:"2026-02-15",tags:["caustics","procedural","physics"],links:{},screenshotUrl:m0,passes:{image:`/**
  * Caustic Study #01: Simple
  * @author guinetik
  * @date 2026-02-15
@@ -1899,7 +2990,7 @@ float causticWarp(vec2 uv, float scale, float time, int iters, float intensity) 
     }
     return c / float(iters);
 }
-`}]},{slug:"chua",title:"Attractor Study #06: Chua",description:"Chua's double-scroll circuit attractor — the first physical electronic circuit proven to exhibit chaos (1983). 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-16",tags:["attractors","3d"],links:{},screenshotUrl:mf,passes:{image:`/**
+`}]},{slug:"chua",title:"Attractor Study #06: Chua",description:"Chua's double-scroll circuit attractor — the first physical electronic circuit proven to exhibit chaos (1983). 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-16",tags:["attractors","3d"],links:{},screenshotUrl:h0,passes:{image:`/**
  * Attractor Study #06: Chua — Image Pass
  * @author guinetik
  * @date 2026-02-16
@@ -2375,7 +3466,7 @@ float dfLine(vec2 a, vec2 b, vec2 p) {
     float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
     return distance(a + ab * t, p);
 }
-`}]},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","3d"],links:{},screenshotUrl:hf,passes:{image:`/**\r
+`}]},{slug:"dadras",title:"Attractor Study #01: Dadras",description:"Dadras strange attractor (2010) by Sara Dadras & Hamid Reza Momeni. A three-scroll chaotic system rendered with distance-field line tracing and feedback accumulation. Velocity-mapped HSL coloring shifts over time with random blink pulses.",date:"2026-02-10",tags:["attractors","3d"],links:{},screenshotUrl:v0,passes:{image:`/**\r
  * Attractor Study #01: Dadras — Image Pass\r
  * @author guinetik\r
  * @date 2026-02-10\r
@@ -2848,7 +3939,7 @@ mat3 rotY(float a) {
 vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
     return (viewRot * p).xy * scale;
 }
-`}]},{slug:"domain-warping",title:"06. Domain Warping Study",description:"Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",date:"2026-01-27",tags:["10-days","procedural"],links:{},screenshotUrl:vf,passes:{image:`/**\r
+`}]},{slug:"domain-warping",title:"06. Domain Warping Study",description:"Multi-layer domain warping with recursive coordinate distortion, animated rotation, and mouse-interactive effects. Terminal green aesthetic with accent colors and dark vortex contrast.",date:"2026-01-27",tags:["10-days","procedural"],links:{},screenshotUrl:g0,passes:{image:`/**\r
  * Domain Warping Study\r
  * @author guinetik\r
  * @date 2026-01-27\r
@@ -3217,7 +4308,7 @@ float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
-`}]},{slug:"exoplanets",title:"Exoplanets Study",description:"A procedural solar system with a star and three different planet types",date:"2025-11-26",tags:["exoplanets","raymarching","3d","space"],links:{},screenshotUrl:gf,passes:{image:`/**\r
+`}]},{slug:"exoplanets",title:"Exoplanets Study",description:"A procedural solar system with a star and three different planet types",date:"2025-11-26",tags:["exoplanets","raymarching","3d","space"],links:{},screenshotUrl:y0,passes:{image:`/**\r
  * Exoplanets Study\r
  * @author guinetik\r
  * @date 2025-11-26\r
@@ -4592,7 +5683,7 @@ float plasmaNoise(vec3 p, float time) {
 
     return value / totalAmp;
 }
-`}]},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:yf,passes:{image:`/**\r
+`}]},{slug:"genuary31",title:"Genuary 2026 Day 31: GLSL Day",description:"Raymarched triangular grid terrain with Sierpinski fractal sky dome, raytraced black hole with gravitational lensing and accretion disk, bird flocks, and Matrix rain overlay with scanlines.",date:"2026-01-31",tags:["genuary","raymarching","3d"],links:{},screenshotUrl:b0,passes:{image:`/**\r
  * Genuary 2026 Day 31: GLSL Day\r
  * @author guinetik\r
  * @date 2026-01-31\r
@@ -5344,7 +6435,7 @@ vec3 renderMatrix(vec2 fragCoord, vec2 resolution, float time) {\r
 \r
     return col;\r
 }\r
-`},channels:{},commonsSources:[]},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:bf,passes:{image:`/**\r
+`},channels:{},commonsSources:[]},{slug:"gravity-well",title:"Gravity Well Study ",description:"Gravitational lensing effect that warps input images/videos through orbiting singularities. Wells sample and boost colors from the texture beneath them for glowing halos, while dark cores create the event horizon effect.",date:"2026-01-29",tags:["10-days","procedural","space"],links:{},screenshotUrl:x0,passes:{image:`/**\r
  * Gravity Well Study\r
  *\r
  * @author guinetik\r
@@ -5531,7 +6622,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/space.jpg"}},commonsSources:[]},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","3d"],links:{},screenshotUrl:xf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/space.jpg"}},commonsSources:[]},{slug:"halvorsen",title:"Attractor Study #05: Halvorsen",description:"Halvorsen's symmetric chaotic attractor with three-fold rotational symmetry. 20 particles with respawn dynamics traced through 3D phase space. Drag to rotate.",date:"2026-02-15",tags:["attractors","3d"],links:{},screenshotUrl:S0,passes:{image:`/**
  * Attractor Study #05: Halvorsen — Image Pass
  * @author guinetik
  * @date 2026-02-15
@@ -5976,7 +7067,7 @@ float dfLine(vec2 a, vec2 b, vec2 p) {
     float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
     return distance(a + ab * t, p);
 }
-`}]},{slug:"kaleidoscope-study",title:"Kaleidoscope Interactive",description:"Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",date:"2026-01-28",tags:["procedural"],links:{},screenshotUrl:Ef,passes:{image:`/**\r
+`}]},{slug:"kaleidoscope-study",title:"Kaleidoscope Interactive",description:"Polar coordinate folding with 10 iterations of symmetry. Auto-rotating with mouse X/Y control for speed and zoom, producing vignette-focused mandala-like patterns.",date:"2026-01-28",tags:["procedural"],links:{},screenshotUrl:E0,passes:{image:`/**\r
  * Kaleidoscope Interactive\r
  * @author guinetik\r
  * @date 2026-01-28\r
@@ -6076,7 +7167,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/penrose.png"}},commonsSources:[]},{slug:"kaleidoscopic",title:"Kaleidoscopic Study",description:"Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",date:"2026-02-01",tags:["10-days","procedural"],links:{},screenshotUrl:Sf,passes:{image:`/**\r
+`},channels:{image:{iChannel0:"textures/penrose.png"}},commonsSources:[]},{slug:"kaleidoscopic",title:"Kaleidoscopic Study",description:"Mandala-like symmetric patterns through polar coordinate folding. Three kaleidoscope styles: simple N-fold symmetry, iterative fractal folding for complex patterns, and spiral twist that warps with radius.",date:"2026-02-01",tags:["10-days","procedural"],links:{},screenshotUrl:_0,passes:{image:`/**\r
  * Kaleidoscopic Study\r
  * @author guinetik\r
  * @date 2026-02-01\r
@@ -6322,7 +7413,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:_f,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"liquid-glass",title:"Liquid Glass",description:"A frosted glass lens with Fresnel reflections and chromatic aberration, drifting over an input image like a billiard ball. Based on Genuary 2026 Day 23.",date:"2026-01-23",tags:["genuary","procedural"],links:{},screenshotUrl:w0,passes:{image:`/**
  * Liquid Glass
  * @author guinetik
  * @date 2026-01-23
@@ -6678,7 +7769,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     fragColor = vec4(clamp(finalColor, 0.0, 1.0), 1.0);
 }
-`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:wf,passes:{image:`/**
+`},channels:{image:{iChannel0:"textures/landscape.jpeg"}},commonsSources:[]},{slug:"lorenz",title:"Attractor Study #02: Lorenz",description:"Lorenz strange attractor (1963), the classic 'butterfly effect' system. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, continuous hue shift, and random blink pulses.",date:"2026-02-10",tags:["attractors","simulation"],links:{},screenshotUrl:C0,passes:{image:`/**
  * Attractor Study #02: Lorenz — Image Pass
  * @author guinetik
  * @date 2026-02-10
@@ -7148,7 +8239,7 @@ mat3 rotY(float a) {
 vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
     return (viewRot * p).xy * scale;
 }
-`}]},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space"],links:{},screenshotUrl:Tf,passes:{image:`/**\r
+`}]},{slug:"nebulae",title:"Nebulae Generator",description:"Procedural nebulae with heterogeneous density, dust lanes, emission knots, dark nebulae, galaxies, storms with lightning, and stars. Cinematic camera cuts with auto-pan or mouse drag override.",date:"2025-11-25",tags:["procedural","space"],links:{},screenshotUrl:T0,passes:{image:`/**\r
  * Nebula Background Shadertoy Study\r
  *\r
  * @author guinetik\r
@@ -8146,7 +9237,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {\r
 \r
     fragColor = vec4(finalColor, 1.0);\r
 }\r
-`},channels:{},commonsSources:[]},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Cf,passes:{image:`/**
+`},channels:{},commonsSources:[]},{slug:"planet-earth",title:"Earth-like Planet",description:"A procedural Earth-like world with oceans, forests, deserts, ice caps, clouds, and atmospheric scattering. All terrain generated from inline hash-based noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:A0,passes:{image:`/**
  * Earth-like Planet
  * @author guinetik
  * @date 2025-11-27
@@ -8672,7 +9763,7 @@ vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
     float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
     return atmosColor * falloff * lightFacing * intensity;
 }
-`}]},{slug:"planet-gas-giant",title:"Gas Giant",description:"Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Af,passes:{image:`/**
+`}]},{slug:"planet-gas-giant",title:"Gas Giant",description:"Jupiter-like gas giant with alternating tan zones and brown belts, turbulent eddies at band boundaries, and the Great Red Spot. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:R0,passes:{image:`/**
  * Gas Giant (Jupiter)
  * @author guinetik
  * @date 2025-11-27
@@ -9186,7 +10277,7 @@ vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
     float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
     return atmosColor * falloff * lightFacing * intensity;
 }
-`}]},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:Rf,passes:{image:`/**
+`}]},{slug:"planet-lava",title:"Lava World",description:"A molten lava planet with boiling surface, glowing cracks, atmospheric haze, and volumetric corona rays. Fully procedural using simplex noise.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:I0,passes:{image:`/**
  * Lava World
  * @author guinetik
  * @date 2025-11-27
@@ -9640,7 +10731,7 @@ vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
     float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
     return atmosColor * falloff * lightFacing * intensity;
 }
-`}]},{slug:"planet-neptune-like",title:"Neptune-like",description:"A Neptune-like ice giant with colorful banded atmosphere, turbulent storms, and dramatic lighting. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:If,passes:{image:`/**
+`}]},{slug:"planet-neptune-like",title:"Neptune-like",description:"A Neptune-like ice giant with colorful banded atmosphere, turbulent storms, and dramatic lighting. Fully procedural with no texture dependencies.",date:"2025-11-27",tags:["exoplanets","space","3d"],links:{},screenshotUrl:N0,passes:{image:`/**
  * Neptune-like Ice Giant
  * @author guinetik
  * @date 2025-11-27
@@ -10092,7 +11183,7 @@ vec3 halo(vec2 uv, vec3 atmosColor, vec3 lightDir, float intensity) {
     float lightFacing = clamp(dot(dir, lightDir), 0.0, 1.0);
     return atmosColor * falloff * lightFacing * intensity;
 }
-`}]},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Nf,passes:{image:`/**\r
+`}]},{slug:"plasma",title:"Perlin Plasma Study",description:"Classic demoscene plasma effect enhanced with Perlin noise for organic turbulence. Multiple sine wave interference patterns warped through FBM noise create flowing psychedelic color fields.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:D0,passes:{image:`/**\r
  * Perlin Plasma Study\r
  * @author guinetik\r
  * @date 2026-01-30\r
@@ -10418,7 +11509,7 @@ float perlinFbm(vec3 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
-`}]},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:Df,passes:{image:`/**\r
+`}]},{slug:"ripples",title:"Perlin Ripples Study",description:"Chaotic liquid surface with multiple wandering ripple sources that move unpredictably through noise space. Each source has randomized parameters and pulsing intensity. Sudden burst ripples spawn randomly. Turbulent noise adds extra chaos.",date:"2026-01-30",tags:["10-days","procedural","noise"],links:{},screenshotUrl:P0,passes:{image:`/**\r
  * Perlin Ripples Study\r
  * @author guinetik\r
  * @date 2026-01-30\r
@@ -10812,7 +11903,7 @@ float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
-`}]},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","3d"],links:{},screenshotUrl:Pf,passes:{image:`/**\r
+`}]},{slug:"rossler",title:"Attractor Study #03: Rossler",description:"Rössler strange attractor (1976), a single-scroll spiral with chaotic z-foldback. Distance-field line tracing with feedback accumulation. Velocity-mapped HSL coloring, hue shift, blink pulses, and click-drag orbit.",date:"2026-02-11",tags:["attractors","3d"],links:{},screenshotUrl:L0,passes:{image:`/**\r
  * Attractor Study #03: Rossler — Image Pass\r
  * @author guinetik\r
  * @date 2026-02-11\r
@@ -11333,7 +12424,7 @@ mat3 rotY(float a) {
 vec2 projectMat(vec3 p, mat3 viewRot, float scale) {
     return (viewRot * p).xy * scale;
 }
-`}]},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","space"],links:{},screenshotUrl:Lf,passes:{image:`/**
+`}]},{slug:"signal-noise",title:"Signal / Noise",description:"A meditation on attractors, cosmic distance, and connection across void. Two pulsing signals interfere through a Lorenz attractor field, connected by a breathing filament amid cosmic dust and nebula.",date:"2026-02-11",tags:["attractors","space"],links:{},screenshotUrl:O0,passes:{image:`/**
  * Signal / Noise
  * @author guinetik
  * @date 2026-02-11
@@ -11678,7 +12769,7 @@ float fbmValue2D(vec2 pos, int octaves, float lacunarity, float gain) {
     }
     return height / total;
 }
-`}]},{slug:"star-blue-giant",title:"Blue Giant",description:"A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Of,passes:{image:`/**
+`}]},{slug:"star-blue-giant",title:"Blue Giant",description:"A massive blue giant star with a smooth, intense surface and powerful corona glow. Temperature at ~20000K with low but steady stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:M0,passes:{image:`/**
  * Blue Giant Star
  * @author guinetik
  * @date 2025-11-29
@@ -12237,7 +13328,7 @@ float plasmaNoise(vec3 p, float time) {
 
     return value / totalAmp;
 }
-`}]},{slug:"star-red-dwarf",title:"Red Dwarf",description:"A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Mf,passes:{image:`/**
+`}]},{slug:"star-red-dwarf",title:"Red Dwarf",description:"A small, turbulent red dwarf star with orange-red boiling plasma, active flares, and prominent corona. Temperature locked at ~3000K with high stellar activity.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:k0,passes:{image:`/**
  * Red Dwarf Star
  * @author guinetik
  * @date 2025-11-29
@@ -12796,7 +13887,7 @@ float plasmaNoise(vec3 p, float time) {
 
     return value / totalAmp;
 }
-`}]},{slug:"star-study",title:"Star Study",description:"A procedural star with boiling plasma surface and an orbiting planet",date:"2025-11-30",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:Hf,passes:{image:`/**\r
+`}]},{slug:"star-study",title:"Star Study",description:"A procedural star with boiling plasma surface and an orbiting planet",date:"2025-11-30",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:H0,passes:{image:`/**\r
  * Star Study - 3D Raymarched Star with Orbiting Planet\r
  *\r
  * @author guinetik\r
@@ -13896,7 +14987,7 @@ float plasmaNoise(vec3 p, float time) {
 
     return value / totalAmp;
 }
-`}]},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:kf,passes:{image:`/**
+`}]},{slug:"star-sun",title:"Solar",description:"Our Sun rendered as a yellow-white star with balanced convection cells, moderate flare activity, and a warm corona glow. Temperature set to 5778K.",date:"2025-11-29",tags:["exoplanets","space","3d","raymarching"],links:{},screenshotUrl:U0,passes:{image:`/**
  * Solar Star
  * @author guinetik
  * @date 2025-11-29
@@ -14412,7 +15503,7 @@ float plasmaNoise(vec3 p, float time) {
 
     return value / totalAmp;
 }
-`}]},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:Bf,passes:{image:`/**\r
+`}]},{slug:"stargate",title:"Stargate Study",description:"A raymarched infinite corridor effect inspired by the 2001: A Space Odyssey Stargate sequence. The shader creates a pseudo-3D tunnel by sphere-tracing through a box corridor, mapping the input video/image onto the walls with noise-based distortion.",date:"2026-02-02",tags:["10-days","raymarching","3d"],links:{},screenshotUrl:B0,passes:{image:`/**\r
  * Stargate Study\r
  * @author guinetik\r
  * @date 2026-02-02\r
@@ -14816,7 +15907,7 @@ vec3 hsv2rgb(vec3 c) {
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
-`}]},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","3d"],links:{},screenshotUrl:Ff,passes:{image:`/**
+`}]},{slug:"thomas",title:"Attractor Study #04: Thomas",description:"Thomas' cyclically symmetric attractor (1999) with 16 particles traced through 3D phase space. Drag to rotate.",date:"2026-02-13",tags:["attractors","3d"],links:{},screenshotUrl:F0,passes:{image:`/**
  * Attractor Study #04: Thomas — Image Pass
  * @author guinetik
  * @date 2026-02-13
@@ -15245,7 +16336,7 @@ float dfLine(vec2 a, vec2 b, vec2 p) {
     float t = clamp(dot(p - a, ab) / denom, 0.0, 1.0);
     return distance(a + ab * t, p);
 }
-`}]},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:Uf,passes:{image:`/**\r
+`}]},{slug:"waves",title:"Smooth Waves",description:"Dali-inspired liquid with layered sine waves, center ripple source, corner-based interference patterns, and heat shimmer. Smooth flowing animation with displacement edge highlighting.",date:"2026-01-29",tags:["10-days","procedural"],links:{},screenshotUrl:z0,passes:{image:`/**\r
  * Smooth Waves Study\r
  * @author guinetik\r
  * @date 2026-01-29\r
@@ -15469,4 +16560,4 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)\r
 \r
     fragColor = vec4(color, 1.0);\r
 }\r
-`},channels:{image:{iChannel0:"textures/sea.jpg"}},commonsSources:[]}],Hr=[...es].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),zf=[...new Set(es.flatMap(e=>e.tags))].sort();function _d(e){return Hr.find(n=>n.slug===e)}function Gf(){const e=xe(null),n=ke(()=>e.value===null?Hr:Hr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:zf,filteredShaders:n,setTag:t}}const Vf=Math.PI*.5,va=150;function kr(e,n,t,r=0){let o=null,a=null,i=0,s=null,l=0,f="none",c=0;function d(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function m(){return window.matchMedia("(hover: hover)").matches}function h(){o=document.createElement("canvas"),o.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",o.setAttribute("aria-hidden","true"),document.body.appendChild(o),a=o.getContext("2d")}function T(S){if(!o)return;const A=S.getBoundingClientRect(),L=getComputedStyle(S).borderRadius||"0";o.style.top=`${A.top+r}px`,o.style.left=`${A.left}px`,o.style.width=`${A.width}px`,o.style.height=`${A.height}px`,o.style.borderRadius=L,o.style.overflow="hidden";const G=window.devicePixelRatio||1,V=Math.round(A.width*G),oe=Math.round(A.height*G);(o.width!==V||o.height!==oe)&&(o.width=V,o.height=oe)}function w(S){if((!o||!a||!s)&&f==="none"&&l<=0)return;const A=c?S-c:16;if(c=S,f==="in")l=Math.min(1,l+A/va),l>=1&&(f="none");else if(f==="out"&&(l=Math.max(0,l-A/va),l<=0)){f="none",o&&(o.style.opacity="0");return}if(o&&(o.style.opacity=String(l)),!o||!a)return;s&&T(s);const _=window.devicePixelRatio||1,L=o.width/_,G=o.height/_;a.setTransform(_,0,0,_,0,0),a.clearRect(0,0,L,G);const V=S*.001*qc,oe=G*.5;for(let k=0;k<2;k++){const Y=k===0?0:Vf,$=k===0?.5:.25;a.beginPath(),a.strokeStyle=`rgba(17, 220, 255, ${$})`,a.lineWidth=Wc,a.shadowColor=`rgba(17, 220, 255, ${$*.5})`,a.shadowBlur=Kc;for(let I=0;I<=L;I+=2){const X=oe+Math.sin(I/L*Math.PI*2*Vc+V+Y)*Gc;I===0?a.moveTo(I,X):a.lineTo(I,X)}a.stroke(),a.shadowBlur=0}i=requestAnimationFrame(w)}function H(S){if(d()||!m())return;const A=S.target.closest(n);if(!A)return;o||h();const _=t?A.querySelector(t)??A:A;s=_,T(_),f="in",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w)}function O(S){if(!S.target.closest(n))return;const _=S.relatedTarget;_&&_.closest(n)||(s=null,f="out",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w))}Bn(()=>{const S=e.value;S&&(S.addEventListener("mouseenter",H,!0),S.addEventListener("mouseleave",O,!0))}),Zn(()=>{cancelAnimationFrame(i);const S=e.value;S&&(S.removeEventListener("mouseenter",H,!0),S.removeEventListener("mouseleave",O,!0)),o&&o.parentNode&&o.parentNode.removeChild(o),o=null,a=null,s=null})}const qf=["onClick"],Wf=An({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=xe(null);return kr(r,".tag-btn"),(o,a)=>(Re(),Ue("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Te("button",{class:Mn(["tag-btn",{active:e.activeTag===null}]),onClick:a[0]||(a[0]=i=>t("select",null))}," All ",2),(Re(!0),Ue(Ae,null,Jr(e.tags,i=>(Re(),Ue("button",{key:i,class:Mn(["tag-btn",{active:e.activeTag===i}]),onClick:s=>t("select",i)},it(i),11,qf))),128))],512))}}),Kf=Tt(Wf,[["__scopeId","data-v-f002c231"]]),Yf={class:"card-trace-svg","aria-hidden":"true"},Xf=["stroke-dasharray","stroke-dashoffset"],jf={class:"card-content"},Qf=["src","alt"],Zf={class:"card-overlay"},$f={class:"card-kicker"},Jf={class:"card-title"},ed={class:"card-tags"},nd=An({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=cf(),{prefersReducedMotion:o,getStaggerDelay:a,setTransitionSnapshot:i}=ao(),s=xe(null),l=xe(null),f=xe("hidden"),c=xe(0);let d=null,m=0,h=!1,T=0;function w(){const _=s.value;if(!_)return null;const L=_.$el;return L instanceof HTMLElement?L:null}function H(_){const L=l.value;if(!L||!c.value){f.value="visible";return}T=window.setTimeout(()=>{f.value="tracing",L.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Xo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},jo)})},_)}function O(){clearTimeout(T),f.value="hidden";const _=l.value;_&&_.getAnimations().forEach(L=>L.cancel())}Bn(()=>{if(o.value==="reduced"){f.value="visible";return}const _=w(),L=l.value;if(!_||!L){f.value="visible";return}const G=_.getBoundingClientRect();c.value=(G.width+G.height)*2,m=performance.now(),d=new IntersectionObserver(V=>{const oe=V[0];if(oe)if(oe.isIntersecting){const k=!h&&performance.now()-m<100;k&&(h=!0);const Y=k?a(t.index,t.total):0;H(Y)}else(h||performance.now()-m>100)&&O()},{rootMargin:"0px 0px 75px 0px"}),d.observe(_)}),Zn(()=>{d==null||d.disconnect(),d=null,clearTimeout(T)});function S(){if(o.value==="reduced"){f.value="visible";return}const _=l.value;if(!_||!c.value){f.value="visible";return}f.value="tracing",_.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Xo,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},jo)})}function A(_){if(o.value==="reduced")return;_.preventDefault();const L=w();if(!L)return;const G=L.getBoundingClientRect();i({direction:"to-detail",slug:t.shader.slug,rect:{top:G.top,left:G.left,width:G.width,height:G.height},screenshotUrl:t.shader.screenshotUrl});const V=L.parentElement;V&&Array.from(V.children).filter(k=>k!==L).forEach(k=>{k.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Oc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:S,getCardEl:w}),(_,L)=>{const G=li("router-link");return Re(),to(G,{ref_key:"cardRef",ref:s,to:"/shader/"+e.shader.slug,"data-shader-slug":e.shader.slug,class:Mn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:A},{default:$r(()=>[(Re(),Ue("svg",Yf,[Te("rect",{ref_key:"svgRef",ref:l,class:"entrance-trace",x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,Xf)])),Te("div",jf,[Te("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Qf),L[0]||(L[0]=Te("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Te("div",Zf,[Te("span",$f,it(e.shader.date),1),Te("span",Jf,it(e.shader.title),1)]),Te("div",ed,[(Re(!0),Ue(Ae,null,Jr(e.shader.tags,V=>(Re(),Ue("span",{key:V,class:"card-tag"},it(V),1))),128))])])]),_:1},8,["to","data-shader-slug","class"])}}}),td=Tt(nd,[["__scopeId","data-v-a59e80ff"]]),It=200,ga=40,rd=280,od=12,ya=85,ad=55,ba=.45,id=.12,sd=.25,ld=15;function cd(e){let n=0,t=-1,r=-1,o=!0;function a(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function i(){t=-1,r=-1}function s(){o=!document.hidden,o&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!o)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const m=window.devicePixelRatio||1,h=c.clientWidth,T=c.clientHeight;if(h===0||T===0){n=requestAnimationFrame(l);return}const w=Math.round(h*m),H=Math.round(T*m);(c.width!==w||c.height!==H)&&(c.width=w,c.height=H),d.setTransform(m,0,0,m,0,0),d.clearRect(0,0,h,T);const O=f*.001,S=O*Fc,A=O*od,_=2;for(let L=0;L<ur;L++){const G=L/(ur-1),V=T*(.08+G*.84),oe=L*Math.PI*.6,k=Bc+L%3*.3,Y=1+(L%2===0?.15:-.1)*(L/ur),I=(ga+G*(rd-ga)+A)%360,X=Math.abs(G-.5)*2;let le=ba-(ba-id)*X,ve=ad;const ce=.4+L%4*.15,J=Math.sin(O*ce+L*1.7)*.5+.5;le*=.7+J*.3;let K=0;if(t>=0&&r>=0){const de=Math.abs(V-r);de<It&&(K=1-de/It,K*=K,le=Math.min(1,le+sd*K),ve=ve+ld*K)}const Ge=`hsla(${I}, ${ya}%, ${ve}%, ${le})`,Xe=`hsla(${I}, ${ya}%, ${ve}%, ${le*.5})`;d.beginPath(),d.strokeStyle=Ge,d.lineWidth=Uc+K*.5,d.shadowColor=Xe,d.shadowBlur=zc+K*6;for(let de=0;de<=h;de+=_){let ge=Hc;if(t>=0&&r>=0){const sn=de-t,je=V-r,Se=Math.sqrt(sn*sn+je*je);if(Se<It){const y=1-Se/It;ge+=kc*y*y}}const an=V+Math.sin(de/h*Math.PI*2*k+S*Y+oe)*ge;de===0?d.moveTo(de,an):d.lineTo(de,an)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Bn(()=>{const f=e.value;f&&(f.addEventListener("mousemove",a),f.addEventListener("mouseleave",i),document.addEventListener("visibilitychange",s),n=requestAnimationFrame(l))}),Zn(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",a),f.removeEventListener("mouseleave",i)),document.removeEventListener("visibilitychange",s)})}const fd=An({__name:"SineWaveDivider",setup(e){const n=xe(null);return cd(n),(t,r)=>(Re(),Ue("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),dd=Tt(fd,[["__scopeId","data-v-05c59859"]]),pd={class:"gallery-filter gallery-seq-2"},ud={key:0,class:"gallery-empty"},md=An({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:o}=Gf(),{triggerCardExit:a,prefersReducedMotion:i}=ao(),s=xe(null),l=xe(null),f=xe(!0);kr(s,".profile-link, .github-link"),kr(l,".shader-card",".card-overlay",8),Bn(()=>{if(i.value==="reduced"){f.value=!1;return}requestAnimationFrame(()=>{requestAnimationFrame(()=>{f.value=!1})})});function c(m,h){if(i.value==="reduced"){h();return}setTimeout(h,800)}function d(m,h){if(i.value==="reduced"){h();return}a(m).then(h)}return(m,h)=>(Re(),Ue("div",{class:Mn(["gallery-view n-layout-shell",{"gallery--entering":f.value}])},[Te("header",{ref_key:"headerRef",ref:s,class:"gallery-header n-panel gallery-seq-1"},[ue(dd),h[0]||(h[0]=Ul('<div class="gallery-brand" data-v-2a9ac4b9><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-2a9ac4b9><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-2a9ac4b9><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-2a9ac4b9></path></svg></a><h1 class="gallery-title" data-v-2a9ac4b9>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-2a9ac4b9><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-2a9ac4b9>Website</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-2a9ac4b9>Shadertoy</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on X" title="X (Twitter)" data-v-2a9ac4b9><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-2a9ac4b9><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" data-v-2a9ac4b9></path></svg></a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-2a9ac4b9><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-2a9ac4b9><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-2a9ac4b9></path></svg></a></nav><p class="gallery-subtitle" data-v-2a9ac4b9> Interactive GPU programming experiments using WebGL. </p>',3))],512),Te("div",pd,[ue(Kf,{tags:Le(t),activeTag:Le(n),onSelect:Le(o)},null,8,["tags","activeTag","onSelect"])]),Te("div",{ref_key:"gridRef",ref:l,class:"gallery-seq-3"},[ue(_c,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:c,onLeave:d,css:!1},{default:$r(()=>[(Re(!0),Ue(Ae,null,Jr(Le(r),(T,w)=>(Re(),to(td,{key:T.slug,shader:T,index:w,total:Le(r).length},null,8,["shader","index","total"]))),128))]),_:1})],512),Le(r).length===0?(Re(),Ue("p",ud," No shaders found. ")):Ri("",!0)],2))}}),hd=Tt(md,[["__scopeId","data-v-2a9ac4b9"]]),vd=[{path:"/",name:"gallery",component:hd},{path:"/shader/:slug",name:"shader-detail",component:()=>e0(()=>import("./ShaderDetailView-BI5Y-hX4.js"),__vite__mapDeps([0,1]))}],ns=lf({history:F0(),routes:vd});ns.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Nc(Zc).use(ns).mount("#app");export{cf as A,Ya as B,yd as F,gd as M,bd as O,xd as S,Tt as _,Ue as a,Ri as b,ke as c,An as d,Te as e,_d as f,Re as g,e0 as h,Ae as i,Jr as j,ao as k,kr as l,Bn as m,Mn as n,Zn as o,Ed as p,ue as q,xe as r,$r as s,it as t,Le as u,to as v,ct as w,Fl as x,Sd as y,li as z};
+`},channels:{image:{iChannel0:"textures/sea.jpg"}},commonsSources:[]}],kr=[...es].sort((e,n)=>new Date(n.date).getTime()-new Date(e.date).getTime()),G0=[...new Set(es.flatMap(e=>e.tags))].sort();function wd(e){return kr.find(n=>n.slug===e)}function V0(){const e=xe(null),n=He(()=>e.value===null?kr:kr.filter(r=>r.tags.includes(e.value)));function t(r){e.value=e.value===r?null:r}return{activeTag:e,allTags:G0,filteredShaders:n,setTag:t}}const q0=Math.PI*.5,vo=150;function Hr(e,n,t,r=0){let a=null,o=null,i=0,s=null,l=0,f="none",c=0;function d(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches}function m(){return window.matchMedia("(hover: hover)").matches}function h(){a=document.createElement("canvas"),a.style.cssText="position:fixed;pointer-events:none;z-index:50;opacity:0;transition:none;",a.setAttribute("aria-hidden","true"),document.body.appendChild(a),o=a.getContext("2d")}function C(E){if(!a)return;const A=E.getBoundingClientRect(),L=getComputedStyle(E).borderRadius||"0";a.style.top=`${A.top+r}px`,a.style.left=`${A.left}px`,a.style.width=`${A.width}px`,a.style.height=`${A.height}px`,a.style.borderRadius=L,a.style.overflow="hidden";const G=window.devicePixelRatio||1,V=Math.round(A.width*G),ae=Math.round(A.height*G);(a.width!==V||a.height!==ae)&&(a.width=V,a.height=ae)}function w(E){if((!a||!o||!s)&&f==="none"&&l<=0)return;const A=c?E-c:16;if(c=E,f==="in")l=Math.min(1,l+A/vo),l>=1&&(f="none");else if(f==="out"&&(l=Math.max(0,l-A/vo),l<=0)){f="none",a&&(a.style.opacity="0");return}if(a&&(a.style.opacity=String(l)),!a||!o)return;s&&C(s);const _=window.devicePixelRatio||1,L=a.width/_,G=a.height/_;o.setTransform(_,0,0,_,0,0),o.clearRect(0,0,L,G);const V=E*.001*qc,ae=G*.5;for(let H=0;H<2;H++){const K=H===0?0:q0,$=H===0?.5:.25;o.beginPath(),o.strokeStyle=`rgba(17, 220, 255, ${$})`,o.lineWidth=Wc,o.shadowColor=`rgba(17, 220, 255, ${$*.5})`,o.shadowBlur=Yc;for(let I=0;I<=L;I+=2){const X=ae+Math.sin(I/L*Math.PI*2*Vc+V+K)*Gc;I===0?o.moveTo(I,X):o.lineTo(I,X)}o.stroke(),o.shadowBlur=0}i=requestAnimationFrame(w)}function k(E){if(d()||!m())return;const A=E.target.closest(n);if(!A)return;a||h();const _=t?A.querySelector(t)??A:A;s=_,C(_),f="in",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w)}function O(E){if(!E.target.closest(n))return;const _=E.relatedTarget;_&&_.closest(n)||(s=null,f="out",cancelAnimationFrame(i),c=0,i=requestAnimationFrame(w))}Un(()=>{const E=e.value;E&&(E.addEventListener("mouseenter",k,!0),E.addEventListener("mouseleave",O,!0))}),Zn(()=>{cancelAnimationFrame(i);const E=e.value;E&&(E.removeEventListener("mouseenter",k,!0),E.removeEventListener("mouseleave",O,!0)),a&&a.parentNode&&a.parentNode.removeChild(a),a=null,o=null,s=null})}const W0=["onClick"],Y0=An({__name:"TagFilter",props:{tags:{},activeTag:{}},emits:["select"],setup(e,{emit:n}){const t=n,r=xe(null);return Hr(r,".tag-btn"),(a,o)=>(Re(),Fe("div",{ref_key:"filterRef",ref:r,class:"tag-filter"},[Ce("button",{class:Mn(["tag-btn",{active:e.activeTag===null}]),onClick:o[0]||(o[0]=i=>t("select",null))}," All ",2),(Re(!0),Fe(Ae,null,Jr(e.tags,i=>(Re(),Fe("button",{key:i,class:Mn(["tag-btn",{active:e.activeTag===i}]),onClick:s=>t("select",i)},it(i),11,W0))),128))],512))}}),K0=Ct(Y0,[["__scopeId","data-v-f002c231"]]),X0={class:"card-trace-svg","aria-hidden":"true"},j0=["stroke-dasharray","stroke-dashoffset"],Q0={class:"card-content"},Z0=["src","alt"],$0={class:"card-overlay"},J0={class:"card-kicker"},ed={class:"card-title"},nd={class:"card-tags"},td=An({__name:"ShaderCard",props:{shader:{},index:{},total:{}},setup(e,{expose:n}){const t=e,r=c0(),{prefersReducedMotion:a,getStaggerDelay:o,setTransitionSnapshot:i}=oa(),s=xe(null),l=xe(null),f=xe("hidden"),c=xe(0);let d=null,m=0,h=!1,C=0;function w(){const _=s.value;if(!_)return null;const L=_.$el;return L instanceof HTMLElement?L:null}function k(_){const L=l.value;if(!L||!c.value){f.value="visible";return}C=window.setTimeout(()=>{f.value="tracing",L.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Ka,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xa)})},_)}function O(){clearTimeout(C),f.value="hidden";const _=l.value;_&&_.getAnimations().forEach(L=>L.cancel())}Un(()=>{if(a.value==="reduced"){f.value="visible";return}const _=w(),L=l.value;if(!_||!L){f.value="visible";return}const G=_.getBoundingClientRect();c.value=(G.width+G.height)*2,m=performance.now(),d=new IntersectionObserver(V=>{const ae=V[0];if(ae)if(ae.isIntersecting){const H=!h&&performance.now()-m<100;H&&(h=!0);const K=H?o(t.index,t.total):0;k(K)}else(h||performance.now()-m>100)&&O()},{rootMargin:"0px 0px 75px 0px"}),d.observe(_)}),Zn(()=>{d==null||d.disconnect(),d=null,clearTimeout(C)});function E(){if(a.value==="reduced"){f.value="visible";return}const _=l.value;if(!_||!c.value){f.value="visible";return}f.value="tracing",_.animate([{strokeDashoffset:c.value},{strokeDashoffset:0}],{duration:Ka,easing:"cubic-bezier(0.25, 0.1, 0.25, 1)",fill:"forwards"}).finished.then(()=>{f.value="filling",setTimeout(()=>{f.value="visible"},Xa)})}function A(_){if(a.value==="reduced")return;_.preventDefault();const L=w();if(!L)return;const G=L.getBoundingClientRect();i({direction:"to-detail",slug:t.shader.slug,rect:{top:G.top,left:G.left,width:G.width,height:G.height},screenshotUrl:t.shader.screenshotUrl});const V=L.parentElement;V&&Array.from(V.children).filter(H=>H!==L).forEach(H=>{H.animate([{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.95)"}],{duration:Oc,easing:"ease-out",fill:"forwards"})}),setTimeout(()=>{r.push("/shader/"+t.shader.slug)},100)}return n({triggerEntrance:E,getCardEl:w}),(_,L)=>{const G=li("router-link");return Re(),ta(G,{ref_key:"cardRef",ref:s,to:"/shader/"+e.shader.slug,"data-shader-slug":e.shader.slug,class:Mn(["shader-card n-panel n-corner-frame",{"card--hidden":f.value==="hidden","card--tracing":f.value==="tracing","card--filling":f.value==="filling","card--visible":f.value==="visible"}]),onClick:A},{default:$r(()=>[(Re(),Fe("svg",X0,[Ce("rect",{ref_key:"svgRef",ref:l,class:"entrance-trace",x:"0.5",y:"0.5",rx:"8",ry:"8",width:"calc(100% - 1px)",height:"calc(100% - 1px)",fill:"none","stroke-dasharray":c.value,"stroke-dashoffset":c.value,"stroke-width":"2"},null,8,j0)])),Ce("div",Q0,[Ce("img",{src:e.shader.screenshotUrl,alt:e.shader.title,loading:"lazy",class:"card-image"},null,8,Z0),L[0]||(L[0]=Ce("div",{class:"card-scanline","aria-hidden":"true"},null,-1)),Ce("div",$0,[Ce("span",J0,it(e.shader.date),1),Ce("span",ed,it(e.shader.title),1)]),Ce("div",nd,[(Re(!0),Fe(Ae,null,Jr(e.shader.tags,V=>(Re(),Fe("span",{key:V,class:"card-tag"},it(V),1))),128))])])]),_:1},8,["to","data-shader-slug","class"])}}}),rd=Ct(td,[["__scopeId","data-v-a59e80ff"]]),It=200,go=40,ad=280,od=12,yo=85,id=55,bo=.45,sd=.12,ld=.25,cd=15;function fd(e){let n=0,t=-1,r=-1,a=!0;function o(f){const c=e.value;if(!c)return;const d=c.getBoundingClientRect();t=f.clientX-d.left,r=f.clientY-d.top}function i(){t=-1,r=-1}function s(){a=!document.hidden,a&&e.value&&(n=requestAnimationFrame(l))}function l(f){if(!a)return;const c=e.value;if(!c)return;const d=c.getContext("2d");if(!d)return;const m=window.devicePixelRatio||1,h=c.clientWidth,C=c.clientHeight;if(h===0||C===0){n=requestAnimationFrame(l);return}const w=Math.round(h*m),k=Math.round(C*m);(c.width!==w||c.height!==k)&&(c.width=w,c.height=k),d.setTransform(m,0,0,m,0,0),d.clearRect(0,0,h,C);const O=f*.001,E=O*Bc,A=O*od,_=2;for(let L=0;L<ur;L++){const G=L/(ur-1),V=C*(.08+G*.84),ae=L*Math.PI*.6,H=Uc+L%3*.3,K=1+(L%2===0?.15:-.1)*(L/ur),I=(go+G*(ad-go)+A)%360,X=Math.abs(G-.5)*2;let le=bo-(bo-sd)*X,ve=id;const ce=.4+L%4*.15,J=Math.sin(O*ce+L*1.7)*.5+.5;le*=.7+J*.3;let Y=0;if(t>=0&&r>=0){const de=Math.abs(V-r);de<It&&(Y=1-de/It,Y*=Y,le=Math.min(1,le+ld*Y),ve=ve+cd*Y)}const Ge=`hsla(${I}, ${yo}%, ${ve}%, ${le})`,Xe=`hsla(${I}, ${yo}%, ${ve}%, ${le*.5})`;d.beginPath(),d.strokeStyle=Ge,d.lineWidth=Fc+Y*.5,d.shadowColor=Xe,d.shadowBlur=zc+Y*6;for(let de=0;de<=h;de+=_){let ge=kc;if(t>=0&&r>=0){const sn=de-t,je=V-r,Ee=Math.sqrt(sn*sn+je*je);if(Ee<It){const y=1-Ee/It;ge+=Hc*y*y}}const on=V+Math.sin(de/h*Math.PI*2*H+E*K+ae)*ge;de===0?d.moveTo(de,on):d.lineTo(de,on)}d.stroke(),d.shadowBlur=0}n=requestAnimationFrame(l)}Un(()=>{const f=e.value;f&&(f.addEventListener("mousemove",o),f.addEventListener("mouseleave",i),document.addEventListener("visibilitychange",s),n=requestAnimationFrame(l))}),Zn(()=>{cancelAnimationFrame(n);const f=e.value;f&&(f.removeEventListener("mousemove",o),f.removeEventListener("mouseleave",i)),document.removeEventListener("visibilitychange",s)})}const dd=An({__name:"SineWaveDivider",setup(e){const n=xe(null);return fd(n),(t,r)=>(Re(),Fe("canvas",{ref_key:"canvasRef",ref:n,class:"sine-wave-bg","aria-hidden":"true"},null,512))}}),pd=Ct(dd,[["__scopeId","data-v-05c59859"]]),ud={class:"gallery-filter gallery-seq-2"},md={key:0,class:"gallery-empty"},hd=An({__name:"GalleryView",setup(e){const{activeTag:n,allTags:t,filteredShaders:r,setTag:a}=V0(),{triggerCardExit:o,prefersReducedMotion:i}=oa(),s=xe(null),l=xe(null),f=xe(!0);Hr(s,".profile-link, .github-link"),Hr(l,".shader-card",".card-overlay",8),Un(()=>{if(i.value==="reduced"){f.value=!1;return}requestAnimationFrame(()=>{requestAnimationFrame(()=>{f.value=!1})})});function c(m,h){if(i.value==="reduced"){h();return}setTimeout(h,800)}function d(m,h){if(i.value==="reduced"){h();return}o(m).then(h)}return(m,h)=>(Re(),Fe("div",{class:Mn(["gallery-view n-layout-shell",{"gallery--entering":f.value}])},[Ce("header",{ref_key:"headerRef",ref:s,class:"gallery-header n-panel gallery-seq-1"},[ue(pd),h[0]||(h[0]=Fl('<div class="gallery-brand" data-v-2a9ac4b9><a href="https://guinetik.com" target="_blank" rel="noopener" class="brand-logo-link" aria-label="Visit Guinetik website" data-v-2a9ac4b9><svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="32.9 174.743 71.888 63.576" aria-hidden="true" data-v-2a9ac4b9><path d="M 57.971 224.292 L 57.971 203.374 L 57.971 194.861 L 75.109 194.861 L 75.109 188.769 L 63.16 188.769 L 63.16 174.743 L 57.971 174.743 L 57.971 189.041 L 57.971 194.861 L 32.9 194.861 L 32.9 203.773 L 50.377 203.773 L 50.377 224.292 L 57.971 224.292 Z M 79.717 238.319 L 79.717 224.02 L 79.717 218.2 L 104.788 218.2 L 104.788 209.287 L 87.31 209.287 L 87.31 188.769 L 79.717 188.769 L 79.717 209.686 L 79.717 218.2 L 62.579 218.2 L 62.579 224.293 L 74.526 224.293 L 74.526 238.319 L 79.717 238.319 Z" data-v-2a9ac4b9></path></svg></a><h1 class="gallery-title" data-v-2a9ac4b9>Guinetik&#39;s Shaders Collection</h1></div><nav class="gallery-links" aria-label="Profile links" data-v-2a9ac4b9><a href="https://guinetik.com" target="_blank" rel="noopener" class="profile-link" data-v-2a9ac4b9>Website</a><a href="https://www.shadertoy.com/user/guinetik" target="_blank" rel="noopener" class="profile-link" data-v-2a9ac4b9>Shadertoy</a><a href="https://x.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on X" title="X (Twitter)" data-v-2a9ac4b9><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-2a9ac4b9><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" data-v-2a9ac4b9></path></svg></a><a href="https://github.com/guinetik" target="_blank" rel="noopener" class="github-link" aria-label="Visit Guinetik on GitHub" title="GitHub" data-v-2a9ac4b9><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" data-v-2a9ac4b9><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-v-2a9ac4b9></path></svg></a></nav><p class="gallery-subtitle" data-v-2a9ac4b9> Interactive GPU programming experiments using WebGL. </p>',3))],512),Ce("div",ud,[ue(K0,{tags:Le(t),activeTag:Le(n),onSelect:Le(a)},null,8,["tags","activeTag","onSelect"])]),Ce("div",{ref_key:"gridRef",ref:l,class:"gallery-seq-3"},[ue(_c,{name:"shader-card",tag:"div",class:"gallery-grid",onEnter:c,onLeave:d,css:!1},{default:$r(()=>[(Re(!0),Fe(Ae,null,Jr(Le(r),(C,w)=>(Re(),ta(rd,{key:C.slug,shader:C,index:w,total:Le(r).length},null,8,["shader","index","total"]))),128))]),_:1})],512),Le(r).length===0?(Re(),Fe("p",md," No shaders found. ")):Ri("",!0)],2))}}),vd=Ct(hd,[["__scopeId","data-v-2a9ac4b9"]]),gd=[{path:"/",name:"gallery",component:vd},{path:"/shader/:slug",name:"shader-detail",component:()=>ef(()=>import("./ShaderDetailView-Cp1iKztE.js"),__vite__mapDeps([0,1]))}],ns=l0({history:Ff(),routes:gd});ns.afterEach(e=>{typeof window.gtag=="function"&&window.gtag("event","page_view",{page_path:e.fullPath})});Nc(Zc).use(ns).mount("#app");export{c0 as A,Ko as B,bd as F,yd as M,xd as O,Sd as S,Ct as _,Fe as a,Ri as b,He as c,An as d,Ce as e,wd as f,Re as g,ef as h,Ae as i,Jr as j,oa as k,Hr as l,Un as m,Mn as n,Zn as o,Ed as p,ue as q,xe as r,$r as s,it as t,Le as u,ta as v,ct as w,Bl as x,_d as y,li as z};
