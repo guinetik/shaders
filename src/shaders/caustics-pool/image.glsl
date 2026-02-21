@@ -340,41 +340,19 @@ float fresnel(vec3 rd, vec3 n)
 }
 
 // -------------------------------------------------------
-// Camera
-// -------------------------------------------------------
-mat3 lookAt(vec3 ro, vec3 ta)
-{
-    vec3 fwd = normalize(ta - ro);
-    vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
-    vec3 up = cross(right, fwd);
-    return mat3(right, up, fwd);
-}
-
-// -------------------------------------------------------
 // Main
 // -------------------------------------------------------
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
-    vec2 uv = (fragCoord * 2.0 - iResolution.xy) / min(iResolution.x, iResolution.y);
     float t = iTime;
 
-    // Camera angles from buffer-a (pixel 0,0) — has inertia/friction
-    vec4 camState = texelFetch(iChannel0, ivec2(0, 0), 0);
-    float yaw   = camState.x;
-    float pitch = camState.y;
-
-    // Spherical camera: pitch tilts elevation around the base height
-    float baseElev = atan(CAM_HEIGHT, CAM_DIST);
-    float elev     = baseElev + pitch;
-    float camR     = length(vec2(CAM_DIST, CAM_HEIGHT));
-
-    vec3 ro = vec3(
-        cos(elev) * cos(yaw) * camR,
-        sin(elev) * camR,
-        cos(elev) * sin(yaw) * camR
+    // Orbit camera from buffer-a state
+    OrbitCameraRay cam = orbitCameraRay(
+        iChannel0, fragCoord, iResolution.xy,
+        CAM_DIST, CAM_HEIGHT, CAM_TARGET, CAM_FOV
     );
-    mat3 cam = lookAt(ro, CAM_TARGET);
-    vec3 rd = cam * normalize(vec3(uv, CAM_FOV));
+    vec3 ro = cam.ro;
+    vec3 rd = cam.rd;
 
     // Get ball state
     BallState ball = getBall(t);
