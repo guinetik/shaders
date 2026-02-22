@@ -57,7 +57,7 @@
 // === ORBITAL TILT ===
 #define TILT_ANGLE 0.44           // Tilt orbital axis ~25° so rotation reveals 3D structure
                                   // Without tilt, m=0 orbitals are symmetric around orbit axis
-#define SPIN_SPEED 0.3            // Orbital auto-spin speed (rad/s) — always rotates via iTime
+#define SPIN_SPEED 0.8            // Orbital auto-spin speed (rad/s) — always rotates via iTime
                                   // Independent of camera; mouse drag orbits camera on top of this
 
 // === CAMERA ===
