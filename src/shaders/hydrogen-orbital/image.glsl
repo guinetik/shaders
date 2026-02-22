@@ -15,7 +15,7 @@
  * TECHNIQUE: Volumetric density accumulation with noise stippling
  * Rays march through a bounding sphere, sampling |psi|² at each step.
  * A 3D hash creates particle-like stippling — high density = solid core,
- * low density = sparse scattered dots. Ocean/cyan colormap applied to density.
+ * low density = sparse scattered dots. Rainbow colormap applied to density.
  *
  * TECHNIQUE: Slideshow cross-fade between orbital presets
  * 8 presets cycle every ~6 seconds. During 1.5s transitions, BOTH orbitals
@@ -212,28 +212,30 @@ float probabilityDensity(int n, int l, int m, float r, float theta) {
 }
 
 // -------------------------------------------------------
-// Ocean/cyan colormap
+// Rainbow colormap
 // -------------------------------------------------------
 
 /**
- * Ocean cyan colormap — deep navy through cyan to bright white.
- * Matches the "ocean" palette from the gcanvas hydrogen orbital demo.
- * Maps [0,1] through 6 control points.
+ * Rainbow colormap — full spectrum from red through violet.
+ * Matches the "rainbow" palette from the gcanvas hydrogen orbital demo.
+ * Maps [0,1] through 7 control points: red → orange → yellow → green → blue → indigo → violet.
  */
-vec3 oceanCyan(float t) {
+vec3 rainbow(float t) {
     t = clamp(t, 0.0, 1.0);
-    const vec3 c0 = vec3(0.0, 0.0, 0.078);
-    const vec3 c1 = vec3(0.0, 0.078, 0.314);
-    const vec3 c2 = vec3(0.0, 0.314, 0.627);
-    const vec3 c3 = vec3(0.0, 0.706, 0.863);
-    const vec3 c4 = vec3(0.392, 0.941, 1.0);
-    const vec3 c5 = vec3(1.0, 1.0, 1.0);
-    float x = t * 5.0;
+    const vec3 c0 = vec3(1.0, 0.0, 0.0);
+    const vec3 c1 = vec3(1.0, 0.498, 0.0);
+    const vec3 c2 = vec3(1.0, 1.0, 0.0);
+    const vec3 c3 = vec3(0.0, 1.0, 0.0);
+    const vec3 c4 = vec3(0.0, 0.0, 1.0);
+    const vec3 c5 = vec3(0.294, 0.0, 0.510);
+    const vec3 c6 = vec3(0.580, 0.0, 0.827);
+    float x = t * 6.0;
     if (x < 1.0) return mix(c0, c1, x);
     if (x < 2.0) return mix(c1, c2, x - 1.0);
     if (x < 3.0) return mix(c2, c3, x - 2.0);
     if (x < 4.0) return mix(c3, c4, x - 3.0);
-    return mix(c4, c5, x - 4.0);
+    if (x < 5.0) return mix(c4, c5, x - 4.0);
+    return mix(c5, c6, x - 5.0);
 }
 
 // -------------------------------------------------------
@@ -361,7 +363,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
         // Map brightness to colormap — high density = bright/white, low = deep blue
         float colorT = COLORMAP_FLOOR + pow(brightness, COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
-        vec3 col = oceanCyan(colorT);
+        vec3 col = rainbow(colorT);
 
         // Additive accumulation (emissive particles)
         accum += col * brightness * (1.0 - accumA);
