@@ -39,11 +39,12 @@
 
 // === NOISE STIPPLING ===
 #define STIPPLE_SCALE 12.0      // Spatial frequency of noise — higher = finer grain
-#define STIPPLE_THRESHOLD 0.4   // Density threshold for particle visibility
+#define STIPPLE_GAIN 1.4        // Noise threshold = density × this — higher = more particles visible
 
 // === COLORMAP ===
-#define COLORMAP_FLOOR 0.15     // Skip darkest portion of inferno
-#define COLORMAP_POWER 0.6      // Gamma on density-to-color — < 1.0 brightens midtones
+#define COLORMAP_FLOOR 0.15       // Skip darkest portion of inferno
+#define COLORMAP_POWER 0.6        // Gamma on density-to-color — < 1.0 brightens midtones
+#define COLORMAP_DENSITY_GAIN 5.0 // Amplifies density before colormap lookup — higher = more saturated
 
 // === CAMERA ===
 #define CAM_DIST 6.0            // Orbit distance from target
@@ -324,12 +325,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
         // Noise stippling — particle-cloud texture
         float noise = hash31(pos * STIPPLE_SCALE);
-        float stipple = step(noise, density * STIPPLE_THRESHOLD + density);
+        float stipple = step(noise, density * STIPPLE_GAIN);
 
         float d = density * stipple;
 
         // Map density to inferno colormap
-        float colorT = COLORMAP_FLOOR + pow(clamp(d * 5.0, 0.0, 1.0), COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
+        float colorT = COLORMAP_FLOOR + pow(clamp(d * COLORMAP_DENSITY_GAIN, 0.0, 1.0), COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
         vec3 col = inferno(colorT);
 
         // Additive accumulation (emissive volume)
