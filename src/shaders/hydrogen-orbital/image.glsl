@@ -15,7 +15,7 @@
  * TECHNIQUE: Volumetric density accumulation with noise stippling
  * Rays march through a bounding sphere, sampling |psi|² at each step.
  * A 3D hash creates particle-like stippling — high density = solid core,
- * low density = sparse scattered dots. Inferno colormap applied to density.
+ * low density = sparse scattered dots. Ocean/cyan colormap applied to density.
  *
  * TECHNIQUE: Slideshow cross-fade between orbital presets
  * 8 presets cycle every ~6 seconds. During 1.5s transitions, BOTH orbitals
@@ -47,8 +47,8 @@
 #define COLORMAP_DENSITY_GAIN 5.0 // Amplifies density before colormap lookup — higher = more saturated
 
 // === CAMERA ===
-#define CAM_DIST 6.0            // Orbit distance from target
-#define CAM_HEIGHT 1.0          // Camera height above target plane
+#define CAM_DIST 18.0           // Orbit distance from target — further to see full orbital
+#define CAM_HEIGHT 2.0          // Camera height above target plane
 #define CAM_TARGET vec3(0.0)    // Look-at target — orbital center
 #define CAM_FOV 1.5             // Field of view factor
 
@@ -200,31 +200,28 @@ float probabilityDensity(int n, int l, int m, float r, float theta) {
 }
 
 // -------------------------------------------------------
-// Inferno colormap (Matplotlib)
+// Ocean/cyan colormap
 // -------------------------------------------------------
 
 /**
- * Attempt to approximate the Matplotlib inferno colormap.
- * Maps [0,1] through 8 control points from dark purple to bright yellow.
+ * Ocean cyan colormap — deep navy through cyan to bright white.
+ * Matches the "ocean" palette from the gcanvas hydrogen orbital demo.
+ * Maps [0,1] through 6 control points.
  */
-vec3 inferno(float t) {
+vec3 oceanCyan(float t) {
     t = clamp(t, 0.0, 1.0);
-    const vec3 c0 = vec3(0.0, 0.0, 0.016);
-    const vec3 c1 = vec3(0.157, 0.043, 0.329);
-    const vec3 c2 = vec3(0.396, 0.082, 0.431);
-    const vec3 c3 = vec3(0.624, 0.165, 0.388);
-    const vec3 c4 = vec3(0.831, 0.282, 0.259);
-    const vec3 c5 = vec3(0.961, 0.490, 0.082);
-    const vec3 c6 = vec3(0.980, 0.757, 0.153);
-    const vec3 c7 = vec3(0.988, 1.0, 0.643);
-    float x = t * 7.0;
+    const vec3 c0 = vec3(0.0, 0.0, 0.078);
+    const vec3 c1 = vec3(0.0, 0.078, 0.314);
+    const vec3 c2 = vec3(0.0, 0.314, 0.627);
+    const vec3 c3 = vec3(0.0, 0.706, 0.863);
+    const vec3 c4 = vec3(0.392, 0.941, 1.0);
+    const vec3 c5 = vec3(1.0, 1.0, 1.0);
+    float x = t * 5.0;
     if (x < 1.0) return mix(c0, c1, x);
     if (x < 2.0) return mix(c1, c2, x - 1.0);
     if (x < 3.0) return mix(c2, c3, x - 2.0);
     if (x < 4.0) return mix(c3, c4, x - 3.0);
-    if (x < 5.0) return mix(c4, c5, x - 4.0);
-    if (x < 6.0) return mix(c5, c6, x - 5.0);
-    return mix(c6, c7, x - 6.0);
+    return mix(c4, c5, x - 4.0);
 }
 
 // -------------------------------------------------------
@@ -331,7 +328,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
         // Map density to inferno colormap
         float colorT = COLORMAP_FLOOR + pow(clamp(d * COLORMAP_DENSITY_GAIN, 0.0, 1.0), COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
-        vec3 col = inferno(colorT);
+        vec3 col = oceanCyan(colorT);
 
         // Additive accumulation (emissive volume)
         accum += col * d * (1.0 - accumA);
