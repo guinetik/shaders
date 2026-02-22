@@ -1,5 +1,5 @@
 /**
- * Hydrogen Orbital
+ * Quantum Orbital
  * @author guinetik
  * @date 2026-02-22
  *

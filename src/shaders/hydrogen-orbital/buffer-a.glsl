@@ -1,5 +1,5 @@
 /**
- * Hydrogen Orbital — Buffer A: Camera state
+ * Quantum Orbital — Buffer A: Camera state
  * @author guinetik
  * @date 2026-02-22
  *

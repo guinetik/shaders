@@ -1,6 +1,6 @@
 {
-  "title": "Hydrogen Orbital",
-  "description": "Volumetric ray-marched hydrogen atom electron orbitals cycling through quantum states. Computes |ψ(n,l,m)|² probability density from associated Laguerre and Legendre polynomials directly in GLSL.",
+  "title": "Quantum Orbital",
+  "description": "Volumetric ray-marched quantum electron orbitals cycling through quantum states. Computes |ψ(n,l,m)|² probability density from associated Laguerre and Legendre polynomials directly in GLSL.",
   "date": "2026-02-22",
   "tags": ["volumetric", "raymarching", "3d", "physics", "quantum"],
   "commons": ["camera"],
