@@ -53,7 +53,7 @@
 // === COLORMAP ===
 #define COLORMAP_FLOOR 0.2        // Skip darkest portion of colormap — avoids invisible particles
 #define COLORMAP_POWER 0.5        // Gamma on density-to-color — < 1.0 brightens midtones
-#define COLORMAP_DENSITY_GAIN 8.0 // Amplifies density before colormap lookup — higher = more saturated
+#define COLORMAP_DENSITY_GAIN 0.3 // Scales density into [0,1] for colormap — lower = more color spread
 
 // === ORBITAL TILT ===
 #define TILT_ANGLE 0.44           // Tilt orbital axis ~25° so rotation reveals 3D structure
