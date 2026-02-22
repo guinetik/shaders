@@ -45,13 +45,14 @@
                                 // Lower = sparser dots, higher = denser cloud
 
 // === DEPTH ATTENUATION ===
-#define DEPTH_FALLOFF 0.03      // How fast particles fade with distance from camera
+#define DEPTH_FALLOFF 0.06      // How fast particles fade with distance from camera
                                 // Higher = stronger depth cue, 0 = no falloff
-#define BRIGHTNESS_BOOST 5.0    // Overall particle brightness multiplier
+                                // At 0.06: particles at t=20 are ~30% brightness of t=0
+#define BRIGHTNESS_BOOST 6.0    // Overall particle brightness multiplier
 
 // === COLORMAP ===
-#define COLORMAP_FLOOR 0.2        // Skip darkest portion of colormap — avoids invisible particles
-#define COLORMAP_POWER 0.5        // Gamma on density-to-color — < 1.0 brightens midtones
+#define COLORMAP_FLOOR 0.05       // Low floor lets dark particles stay visible as deep colors
+#define COLORMAP_POWER 0.4        // Stronger gamma push — widens the bright-to-dark range
 #define COLORMAP_DENSITY_GAIN 8.0 // Amplifies density before colormap lookup — higher = more saturated
 
 // === ORBITAL TILT ===
