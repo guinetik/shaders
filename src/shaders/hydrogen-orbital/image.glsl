@@ -286,8 +286,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     // --- Ray-sphere intersection ---
     vec2 tHit = intersectSphere(ro, rd, boundR);
-    if (tHit.x < 0.0) {
-        // Miss — background gradient
+    if (tHit.y < 0.0) {
+        // Miss — sphere entirely behind camera
         vec2 uv = fragCoord / iResolution.xy;
         vec3 bg = mix(BG_BOTTOM, BG_TOP, uv.y);
         fragColor = vec4(bg, 1.0);
