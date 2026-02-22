@@ -55,6 +55,8 @@
 // === ORBITAL TILT ===
 #define TILT_ANGLE 0.44           // Tilt orbital axis ~25° so rotation reveals 3D structure
                                   // Without tilt, m=0 orbitals are symmetric around orbit axis
+#define SPIN_SPEED 0.3            // Orbital auto-spin speed (rad/s) — always rotates via iTime
+                                  // Independent of camera; mouse drag orbits camera on top of this
 
 // === CAMERA ===
 #define CAM_DIST 35.0           // Orbit distance from target — fits largest orbitals (4f)
@@ -306,9 +308,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     float stepLen = (tFar - tNear) / float(MAX_MARCH_STEPS);
 
     // --- Volume march ---
-    // Precompute orbital tilt rotation (around x-axis)
+    // Precompute orbital tilt (x-axis) and spin (y-axis) rotations
     float cosT = cos(TILT_ANGLE);
     float sinT = sin(TILT_ANGLE);
+    float spinAngle = iTime * SPIN_SPEED;
+    float cosS = cos(spinAngle);
+    float sinS = sin(spinAngle);
 
     vec3 accum = vec3(0.0);
     float accumA = 0.0;
@@ -319,8 +324,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         float t = tNear + (float(i) + 0.5) * stepLen;
         vec3 pos = ro + rd * t;
 
+        // Spin orbital around y-axis (always rotating via iTime)
+        vec3 spun = vec3(pos.x * cosS + pos.z * sinS, pos.y, -pos.x * sinS + pos.z * cosS);
+
         // Tilt orbital so symmetry axis isn't aligned with camera orbit
-        vec3 tilted = vec3(pos.x, pos.y * cosT - pos.z * sinT, pos.y * sinT + pos.z * cosT);
+        vec3 tilted = vec3(spun.x, spun.y * cosT - spun.z * sinT, spun.y * sinT + spun.z * cosT);
 
         // Spherical coordinates in tilted frame
         float r = length(tilted);
