@@ -401,13 +401,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         // Skip invisible samples
         if (isParticle < 0.5) continue;
 
-        // Particle brightness: based on density + depth attenuation
+        // Color from density — maps full rainbow range regardless of depth
+        // High density (core) = violet end, low density (edge) = red end
+        float colorT = COLORMAP_FLOOR + pow(clamp(rawDensity * COLORMAP_DENSITY_GAIN, 0.0, 1.0), COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
+        vec3 col = rainbow(colorT);
+
+        // Brightness from depth — near particles bright, far ones dim (3D cue)
         float depthAtten = exp(-t * DEPTH_FALLOFF);
         float brightness = clamp(rawDensity * BRIGHTNESS_BOOST, 0.0, 1.0) * depthAtten;
-
-        // Map brightness to colormap — high density = bright/white, low = deep blue
-        float colorT = COLORMAP_FLOOR + pow(brightness, COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
-        vec3 col = rainbow(colorT);
 
         // Additive accumulation (emissive particles)
         accum += col * brightness * (1.0 - accumA);
