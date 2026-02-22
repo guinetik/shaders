@@ -38,13 +38,23 @@
 #define DENSITY_SCALE 800.0     // Multiplier on |psi|² for visible accumulation
 
 // === NOISE STIPPLING ===
-#define STIPPLE_SCALE 12.0      // Spatial frequency of noise — higher = finer grain
-#define STIPPLE_GAIN 1.4        // Noise threshold = density × this — higher = more particles visible
+#define STIPPLE_SCALE 8.0       // Spatial frequency of noise — higher = finer grain
+#define STIPPLE_PROB 0.15       // Base probability a sample becomes a visible "particle"
+                                // Lower = sparser dots, higher = denser cloud
+
+// === DEPTH ATTENUATION ===
+#define DEPTH_FALLOFF 0.03      // How fast particles fade with distance from camera
+                                // Higher = stronger depth cue, 0 = no falloff
+#define BRIGHTNESS_BOOST 3.0    // Overall particle brightness multiplier
 
 // === COLORMAP ===
-#define COLORMAP_FLOOR 0.15       // Skip darkest portion of inferno
-#define COLORMAP_POWER 0.6        // Gamma on density-to-color — < 1.0 brightens midtones
-#define COLORMAP_DENSITY_GAIN 5.0 // Amplifies density before colormap lookup — higher = more saturated
+#define COLORMAP_FLOOR 0.2        // Skip darkest portion of colormap — avoids invisible particles
+#define COLORMAP_POWER 0.5        // Gamma on density-to-color — < 1.0 brightens midtones
+#define COLORMAP_DENSITY_GAIN 8.0 // Amplifies density before colormap lookup — higher = more saturated
+
+// === ORBITAL TILT ===
+#define TILT_ANGLE 0.44           // Tilt orbital axis ~25° so rotation reveals 3D structure
+                                  // Without tilt, m=0 orbitals are symmetric around orbit axis
 
 // === CAMERA ===
 #define CAM_DIST 35.0           // Orbit distance from target — fits largest orbitals (4f)
@@ -296,6 +306,10 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     float stepLen = (tFar - tNear) / float(MAX_MARCH_STEPS);
 
     // --- Volume march ---
+    // Precompute orbital tilt rotation (around x-axis)
+    float cosT = cos(TILT_ANGLE);
+    float sinT = sin(TILT_ANGLE);
+
     vec3 accum = vec3(0.0);
     float accumA = 0.0;
 
@@ -305,9 +319,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         float t = tNear + (float(i) + 0.5) * stepLen;
         vec3 pos = ro + rd * t;
 
-        // Spherical coordinates
-        float r = length(pos);
-        float theta = acos(clamp(pos.y / max(r, 0.0001), -1.0, 1.0));
+        // Tilt orbital so symmetry axis isn't aligned with camera orbit
+        vec3 tilted = vec3(pos.x, pos.y * cosT - pos.z * sinT, pos.y * sinT + pos.z * cosT);
+
+        // Spherical coordinates in tilted frame
+        float r = length(tilted);
+        float theta = acos(clamp(tilted.y / max(r, 0.0001), -1.0, 1.0));
 
         // Sample density from current orbital
         float density = probabilityDensity(qCurrent.x, qCurrent.y, qCurrent.z, r, theta);
@@ -318,21 +335,29 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
             density = mix(density, densityNext, fadeT);
         }
 
-        density *= DENSITY_SCALE * stepLen;
+        // Scale density for visibility
+        float rawDensity = density * DENSITY_SCALE * stepLen;
 
-        // Noise stippling — particle-cloud texture
+        // Noise stippling — discrete particle-like dots
+        // Each sample either becomes a visible "particle" or is invisible
         float noise = hash31(pos * STIPPLE_SCALE);
-        float stipple = step(noise, density * STIPPLE_GAIN);
+        float visibility = rawDensity * STIPPLE_PROB;
+        float isParticle = step(noise, visibility);
 
-        float d = density * stipple;
+        // Skip invisible samples
+        if (isParticle < 0.5) continue;
 
-        // Map density to inferno colormap
-        float colorT = COLORMAP_FLOOR + pow(clamp(d * COLORMAP_DENSITY_GAIN, 0.0, 1.0), COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
+        // Particle brightness: based on density + depth attenuation
+        float depthAtten = exp(-t * DEPTH_FALLOFF);
+        float brightness = clamp(rawDensity * BRIGHTNESS_BOOST, 0.0, 1.0) * depthAtten;
+
+        // Map brightness to colormap — high density = bright/white, low = deep blue
+        float colorT = COLORMAP_FLOOR + pow(brightness, COLORMAP_POWER) * (1.0 - COLORMAP_FLOOR);
         vec3 col = oceanCyan(colorT);
 
-        // Additive accumulation (emissive volume)
-        accum += col * d * (1.0 - accumA);
-        accumA += d * (1.0 - accumA);
+        // Additive accumulation (emissive particles)
+        accum += col * brightness * (1.0 - accumA);
+        accumA += brightness * 0.5 * (1.0 - accumA);
     }
 
     // Background gradient
