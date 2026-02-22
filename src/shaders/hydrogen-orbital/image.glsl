@@ -348,7 +348,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
         // Noise stippling — discrete particle-like dots
         // Each sample either becomes a visible "particle" or is invisible
-        float noise = hash31(pos * STIPPLE_SCALE);
+        float noise = hash31(tilted * STIPPLE_SCALE);
         float visibility = rawDensity * STIPPLE_PROB;
         float isParticle = step(noise, visibility);
 
