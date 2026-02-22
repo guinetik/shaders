@@ -24,7 +24,9 @@
 
 // === ORBITAL PRESETS ===
 #define NUM_PRESETS 8
-#define PRESET_DURATION 6.0     // Seconds per orbital before transition
+#define BASE_DURATION 3.0       // Duration for simplest orbital (1s) in seconds
+#define COMPLEXITY_SCALE 1.5    // Extra seconds per unit of complexity (n + l)
+                                // e.g. 1s(n=1,l=0)=3s, 3d(n=3,l=2)=10.5s, 4f(n=4,l=3)=13.5s
 #define FADE_DURATION 1.5       // Cross-fade overlap in seconds
 
 // === RAY MARCHING ===
@@ -85,6 +87,47 @@ ivec3 getPreset(int idx) {
     if (idx == 5) return ivec3(3, 2, 0);  // 3d
     if (idx == 6) return ivec3(4, 2, 0);  // 4d
     return ivec3(4, 3, 0);                // 4f
+}
+
+/**
+ * Duration for a given preset based on its complexity (n + l).
+ * Simple orbitals (1s) get BASE_DURATION, complex ones (4f) get much longer.
+ */
+float getPresetDuration(int idx) {
+    ivec3 q = getPreset(idx);
+    return BASE_DURATION + float(q.x + q.y) * COMPLEXITY_SCALE;
+}
+
+/**
+ * Total cycle duration (sum of all preset durations).
+ */
+float getTotalCycleDuration() {
+    float total = 0.0;
+    for (int i = 0; i < NUM_PRESETS; i++) {
+        total += getPresetDuration(i);
+    }
+    return total;
+}
+
+/**
+ * Find current preset index and time within that preset from global time.
+ * Returns preset index; writes time-within-preset to outCycleT.
+ */
+int getPresetAtTime(float globalTime, out float outCycleT, out float outDuration) {
+    float totalCycle = getTotalCycleDuration();
+    float t = mod(globalTime, totalCycle);
+    for (int i = 0; i < NUM_PRESETS; i++) {
+        float dur = getPresetDuration(i);
+        if (t < dur) {
+            outCycleT = t;
+            outDuration = dur;
+            return i;
+        }
+        t -= dur;
+    }
+    outCycleT = 0.0;
+    outDuration = getPresetDuration(NUM_PRESETS - 1);
+    return NUM_PRESETS - 1;
 }
 
 // -------------------------------------------------------
@@ -279,17 +322,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec3 ro = cam.ro;
     vec3 rd = cam.rd;
 
-    // --- Slideshow timing ---
-    float totalT = iTime;
-    float cycleT = mod(totalT, PRESET_DURATION);
-    int presetIdx = int(mod(totalT / PRESET_DURATION, float(NUM_PRESETS)));
+    // --- Slideshow timing (complexity-proportional durations) ---
+    float cycleT, duration;
+    int presetIdx = getPresetAtTime(iTime, cycleT, duration);
     int nextIdx = int(mod(float(presetIdx + 1), float(NUM_PRESETS)));
 
     ivec3 qCurrent = getPreset(presetIdx);
     ivec3 qNext = getPreset(nextIdx);
 
     // Cross-fade factor: 0 during hold, ramps 0->1 during last FADE_DURATION seconds
-    float fadeT = smoothstep(PRESET_DURATION - FADE_DURATION, PRESET_DURATION, cycleT);
+    float fadeT = smoothstep(duration - FADE_DURATION, duration, cycleT);
 
     // Bounding sphere radius — sized to larger orbital
     int maxN = max(qCurrent.x, qNext.x);
