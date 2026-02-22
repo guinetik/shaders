@@ -47,7 +47,7 @@
 #define COLORMAP_DENSITY_GAIN 5.0 // Amplifies density before colormap lookup — higher = more saturated
 
 // === CAMERA ===
-#define CAM_DIST 18.0           // Orbit distance from target — further to see full orbital
+#define CAM_DIST 35.0           // Orbit distance from target — fits largest orbitals (4f)
 #define CAM_HEIGHT 2.0          // Camera height above target plane
 #define CAM_TARGET vec3(0.0)    // Look-at target — orbital center
 #define CAM_FOV 1.5             // Field of view factor

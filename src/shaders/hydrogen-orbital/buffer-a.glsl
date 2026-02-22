@@ -20,5 +20,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     OrbitCameraConfig cfg = orbitCameraDefaultConfig();
     cfg.pitchMin = PITCH_MIN;
     cfg.pitchMax = PITCH_MAX;
+    cfg.idleOrbitSpeed = 0.012;   // Faster auto-rotation — clearly visible orbit
+    cfg.idleThreshold = 0.001;    // Enter idle sooner after drag release
+    cfg.idleBlend = 0.03;         // Faster blend into idle orbit
     orbitCameraUpdate(fragColor, fragCoord, iChannel0, cfg, iFrame, iMouse, iResolution);
 }
