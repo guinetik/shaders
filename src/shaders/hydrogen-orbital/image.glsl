@@ -35,17 +35,17 @@
 #define BOHR_RADIUS 1.0         // Natural units — all distances in units of a0
 #define R_MAX_SCALE 4.0         // Bounding sphere = n² * this + R_MAX_PAD
 #define R_MAX_PAD 10.0          // Additive padding on bounding sphere radius
-#define DENSITY_SCALE 800.0     // Multiplier on |psi|² for visible accumulation
+#define DENSITY_SCALE 2000.0    // Multiplier on |psi|² for visible accumulation
 
 // === NOISE STIPPLING ===
 #define STIPPLE_SCALE 8.0       // Spatial frequency of noise — higher = finer grain
-#define STIPPLE_PROB 0.15       // Base probability a sample becomes a visible "particle"
+#define STIPPLE_PROB 0.35       // Base probability a sample becomes a visible "particle"
                                 // Lower = sparser dots, higher = denser cloud
 
 // === DEPTH ATTENUATION ===
 #define DEPTH_FALLOFF 0.03      // How fast particles fade with distance from camera
                                 // Higher = stronger depth cue, 0 = no falloff
-#define BRIGHTNESS_BOOST 3.0    // Overall particle brightness multiplier
+#define BRIGHTNESS_BOOST 5.0    // Overall particle brightness multiplier
 
 // === COLORMAP ===
 #define COLORMAP_FLOOR 0.2        // Skip darkest portion of colormap — avoids invisible particles
@@ -295,13 +295,14 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     int maxN = max(qCurrent.x, qNext.x);
     float boundR = float(maxN * maxN) * R_MAX_SCALE + R_MAX_PAD;
 
+    // --- Background gradient (always applied) ---
+    vec2 uv = fragCoord / iResolution.xy;
+    vec3 bg = mix(BG_BOTTOM, BG_TOP, uv.y);
+
     // --- Ray-sphere intersection ---
     vec2 tHit = intersectSphere(ro, rd, boundR);
     if (tHit.y < 0.0) {
-        // Miss — sphere entirely behind camera
-        vec2 uv = fragCoord / iResolution.xy;
-        vec3 bg = mix(BG_BOTTOM, BG_TOP, uv.y);
-        fragColor = vec4(bg, 1.0);
+        fragColor = vec4(pow(max(bg, vec3(0.0)), vec3(0.45)), 1.0);
         return;
     }
 
@@ -370,10 +371,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         accumA += brightness * 0.5 * (1.0 - accumA);
     }
 
-    // Background gradient
-    vec2 uv = fragCoord / iResolution.xy;
-    vec3 bg = mix(BG_BOTTOM, BG_TOP, uv.y);
-
+    // Composite orbital over background
     vec3 col = bg * (1.0 - accumA) + accum;
 
     // Gamma correction
