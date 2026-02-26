@@ -1,0 +1,8 @@
+{
+  "title": "Aurora Borealis",
+  "description": "Volumetric aurora based on Baranoski et al. Three-line emission model (557.7nm green, 630.0nm red, 427.8nm blue) sampled at different spatial scales to approximate per-channel gaussian blur. Triangle-wave noise for fibrous curtain structure with polynomial ray stride.",
+  "date": "2026-02-26",
+  "tags": ["volumetric", "atmosphere", "noise", "physics"],
+  "commons": ["noise-value", "color"],
+  "links": {}
+}
