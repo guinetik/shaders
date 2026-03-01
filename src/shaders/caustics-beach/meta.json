@@ -1,7 +1,12 @@
 {
-  "title": "Caustics Beach",
-  "description": "Description of the effect.",
+  "title": "Caustic Study #04: Beach",
+  "description": "Underwater camera between a sandy floor and the water surface. Dual-layer caustic light patterns project onto the sand as bright convergence lines, while the surface seen from below shows the same pattern with Snell's window refraction. Physically-based per-channel water absorption shifts color from clear to deep blue-green with distance.",
   "date": "2026-03-01",
-  "tags": [],
-  "links": {}
+  "tags": ["caustics", "raymarching", "3d", "physics", "underwater"],
+  "commons": ["camera", "caustic"],
+  "links": {},
+  "channels": {
+    "image": { "iChannel0": "buffer-a" },
+    "bufferA": { "iChannel0": "buffer-a" }
+  }
 }
