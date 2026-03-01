@@ -166,6 +166,27 @@ vec3 surfaceNormal(vec2 xz, float t)
 }
 
 // -------------------------------------------------------
+// Caustic pattern — dual-layer wrapper around causticWarp
+// (joltz0r / David Hoskins iterative domain warp)
+//
+// Returns combined brightness from two caustic layers at
+// different UV scales, offset in time for parallax depth.
+// -------------------------------------------------------
+float causticPattern(vec2 uv, float t)
+{
+    float time = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
+    float c1 = causticWarp(uv, CAUSTIC_SCALE_A, time, CAUSTIC_ITERS, CAUSTIC_INTEN);
+    c1 = CAUSTIC_BASE - pow(max(c1, 0.0), CAUSTIC_POWER);
+    c1 = pow(abs(c1), CAUSTIC_BRIGHT);
+
+    float c2 = causticWarp(uv, CAUSTIC_SCALE_B, time + 7.0, CAUSTIC_ITERS, CAUSTIC_INTEN);
+    c2 = CAUSTIC_BASE - pow(max(c2, 0.0), CAUSTIC_POWER);
+    c2 = pow(abs(c2), CAUSTIC_BRIGHT);
+
+    return c1 + c2 * CAUSTIC_MIX_B;
+}
+
+// -------------------------------------------------------
 // Main
 // -------------------------------------------------------
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
@@ -214,6 +235,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         // Basic diffuse lighting
         float diff = max(dot(n, LIGHT_DIR), 0.0);
         col *= AMBIENT + DIFFUSE_STR * diff;
+
+        // Caustic light projected from the surface onto the sand
+        // TECHNIQUE: Same causticWarp produces the "shadow" pattern —
+        // bright convergence lines where sunlight focuses through waves.
+        // Attenuated by water depth between surface and sand.
+        float depthAboveSand = SURFACE_Y - p.y;
+        float depthFade = exp(-depthAboveSand * 0.15);
+        float caustic = causticPattern(p.xz, t);
+        col += CAUSTIC_COL * caustic * CAUSTIC_SAND_STR * depthFade;
     }
     else if (hitSurface)
     {
@@ -237,6 +267,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         // Fresnel brightening near the edge of Snell's window
         float fresnelEdge = pow(max(1.0 - cosAngle, 0.0), 3.0);
         col += vec3(0.05, 0.12, 0.18) * fresnelEdge;
+
+        // Caustic pattern visible on the surface from below
+        // Same pattern as on sand — seen at the source of the refraction
+        float surfCaustic = causticPattern(p.xz, t);
+        col += CAUSTIC_COL * surfCaustic * CAUSTIC_SURF_STR * snellMask;
     }
 
     // Water absorption based on travel distance
