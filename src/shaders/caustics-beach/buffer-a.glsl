@@ -16,7 +16,7 @@
 // -- Pitch limits (radians) --
 // Underwater range: camera can look up at the surface or down at the sand
 #define PITCH_MIN -0.4    // Look down toward the sand floor
-#define PITCH_MAX  0.5    // Look up toward the water surface
+#define PITCH_MAX  1.3    // Look up toward the water surface — nearly straight up
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
