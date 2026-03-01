@@ -152,6 +152,20 @@ float planeHit(vec3 ro, vec3 rd, float planeY)
 }
 
 // -------------------------------------------------------
+// Surface ripple normal (seen from below)
+// Perturbs the flat surface normal with gentle waves
+// -------------------------------------------------------
+vec3 surfaceNormal(vec2 xz, float t)
+{
+    float tx = t * CAUSTIC_SPEED + CAUSTIC_OFFSET;
+    float dx = cos(xz.x * SURFACE_RIPPLE_FREQ * TAU + tx * 1.1)
+             + cos(xz.y * SURFACE_RIPPLE_FREQ * 0.7 * TAU + tx * 0.8);
+    float dz = sin(xz.y * SURFACE_RIPPLE_FREQ * TAU + tx * 0.9)
+             + sin(xz.x * SURFACE_RIPPLE_FREQ * 0.6 * TAU + tx * 1.2);
+    return normalize(vec3(dx * SURFACE_RIPPLE_AMP, -1.0, dz * SURFACE_RIPPLE_AMP));
+}
+
+// -------------------------------------------------------
 // Main
 // -------------------------------------------------------
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
@@ -203,8 +217,26 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     }
     else if (hitSurface)
     {
-        // Placeholder: flat blue for now (Snell's window in Task 4)
-        col = SURFACE_TIR;
+        vec3 p = ro + rd * tHit;
+
+        // TECHNIQUE: Snell's window (total internal reflection from below)
+        // Looking up from underwater, you can only see through the surface
+        // within the critical angle (~48.6 deg for water, n=1.33).
+        // Outside this cone: total internal reflection — you see the
+        // underwater scene mirrored. Inside: you see the bright sky.
+        vec3 surfN = surfaceNormal(p.xz, t);
+        float cosAngle = abs(dot(rd, surfN));
+
+        // Smooth transition at Snell's window boundary
+        float snellMask = smoothstep(SNELL_COS - 0.08, SNELL_COS + 0.08, cosAngle);
+
+        // Inside window: bright sky with depth-tinted falloff
+        // Outside window: dark TIR reflection of underwater scene
+        col = mix(SURFACE_TIR, SURFACE_BRIGHT, snellMask);
+
+        // Fresnel brightening near the edge of Snell's window
+        float fresnelEdge = pow(max(1.0 - cosAngle, 0.0), 3.0);
+        col += vec3(0.05, 0.12, 0.18) * fresnelEdge;
     }
 
     // Water absorption based on travel distance
