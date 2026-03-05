@@ -59,25 +59,23 @@ export class FrameGraph {
     ctx.lineTo(width, targetY);
     ctx.stroke();
 
-    // Draw frame time line
-    ctx.lineWidth = 2;
-    ctx.beginPath();
+    // Draw frame time line (segment by segment for color coding)
+    for (let i = 1; i < frameMetrics.length; i++) {
+      const x0 = (i - 1) * xStep;
+      const y0 = height - frameMetrics[i - 1] * scale;
+      const x1 = i * xStep;
+      const y1 = height - frameMetrics[i] * scale;
 
-    for (let i = 0; i < frameMetrics.length; i++) {
-      const x = i * xStep;
-      const y = height - frameMetrics[i] * scale;
-
-      // Color based on whether frame exceeds target
+      // Color based on whether this segment's current frame exceeds target
       const isStutter = frameMetrics[i] > targetFrameTimeMs;
       ctx.strokeStyle = isStutter ? '#FF3333' : '#00C8FF';
+      ctx.lineWidth = 2;
 
-      if (i === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.lineTo(x1, y1);
+      ctx.stroke();
     }
-    ctx.stroke();
   }
 }
 
