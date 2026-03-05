@@ -69,27 +69,29 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       g.angleY     = _gridHashSeed(cycleSeed, 2u) * _GAL_TAU;
       g.angleZ     = _gridHashSeed(cycleSeed, 3u) * _GAL_TAU;
 
-      // Color — type-aware stellar population colors
+      // Color — saturated stellar population colors (Hubble XDF reference)
       float h1 = _gridHashSeed(cycleSeed, 4u);
       float h2 = _gridHashSeed(cycleSeed, 5u);
       int gtype = typeIndex % 5;
       if (gtype == 0) {
-        // Spiral: blue-white arms, some warm undertone variation
-        g.color = mix(vec3(0.4, 0.55, 1.0), vec3(0.7, 0.8, 1.0), h1);
-        g.color = mix(g.color, vec3(1.0, 0.85, 0.6), h2 * 0.25);
+        // Spiral: vivid blue to cyan (young O/B stars in arms)
+        g.color = mix(vec3(0.2, 0.4, 1.0), vec3(0.3, 0.8, 1.0), h1);
       } else if (gtype == 1) {
-        // Barred spiral: slightly warmer than spiral, yellow-blue range
-        g.color = mix(vec3(0.5, 0.6, 1.0), vec3(1.0, 0.85, 0.5), h1);
+        // Barred spiral: gold-orange bar with blue arm tinge
+        g.color = mix(vec3(1.0, 0.7, 0.2), vec3(0.3, 0.5, 1.0), h1);
       } else if (gtype == 2) {
-        // Elliptical: warm reds, oranges, yellows (old stars dominate)
-        g.color = mix(vec3(1.0, 0.5, 0.25), vec3(1.0, 0.9, 0.5), h1);
+        // Elliptical: deep red to bright orange (old K/M stars)
+        g.color = mix(vec3(1.0, 0.2, 0.05), vec3(1.0, 0.6, 0.1), h1);
       } else if (gtype == 3) {
-        // Lenticular: warm yellow-white, transitional population
-        g.color = mix(vec3(1.0, 0.75, 0.45), vec3(0.9, 0.9, 0.7), h1);
+        // Lenticular: warm gold to salmon
+        g.color = mix(vec3(1.0, 0.65, 0.2), vec3(1.0, 0.5, 0.35), h1);
       } else {
-        // Irregular: starburst blue or magenta HII regions
-        g.color = mix(vec3(0.3, 0.5, 1.0), vec3(0.9, 0.5, 0.8), h1);
+        // Irregular: starburst cyan to hot magenta (HII emission)
+        g.color = mix(vec3(0.1, 0.6, 1.0), vec3(1.0, 0.2, 0.6), h1);
       }
+      // Per-galaxy brightness variation from stellar mass
+      float massBright = 0.7 + 0.3 * (g.mass_log10 - 9.0) / 3.0;
+      g.color *= massBright;
 
       // Physical parameters (from DB schema)
       g.axialRatio    = 0.3 + _gridHashSeed(cycleSeed, 7u) * 0.7;

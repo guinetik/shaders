@@ -143,8 +143,8 @@ vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
 vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   vec3 col = vec3(0.0);
 
-  // Dust base color: galaxy tint with slight blue lift (star-forming regions)
-  vec3 dustCol = g.color * 0.8 + vec3(0.06, 0.12, 0.2);
+  // Dust base color: galaxy tint drives the hue
+  vec3 dustCol = g.color;
 
   float flip = 1.0;
   float t = iTime * GAL_ORBIT_SPEED;
@@ -205,11 +205,8 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
 
     // Add stars (skip innermost rings to avoid center clutter)
     if (i > 3.0 / style.starDensity) {
-      vec3 starCol = mix(
-        vec3(0.5 + sin(n * GAL_STAR_COLOR_FREQ) * 0.5, 0.5, 1.0),
-        vec3(1.0),
-        n
-      );
+      // Star color: mix galaxy tint with hot white (bright stars are whiter)
+      vec3 starCol = mix(dustCol, vec3(1.0), 0.3 + n * 0.5);
       col += sL * starCol;
     }
   }
@@ -249,7 +246,7 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.8, 0.7), g.color, 0.3));
+           mix(vec3(1.0, 0.9, 0.8), g.color, 0.6));
   return col;
 }
 
@@ -275,7 +272,7 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.85, 0.6), g.color, 0.3));
+           mix(vec3(1.0, 0.9, 0.7), g.color, 0.6));
   return col;
 }
 
@@ -302,7 +299,7 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.7, 0.5), g.color, 0.3));
+           mix(vec3(1.0, 0.8, 0.6), g.color, 0.7));
   return col;
 }
 
@@ -329,7 +326,7 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.75, 0.55), g.color, 0.3));
+           mix(vec3(1.0, 0.85, 0.65), g.color, 0.6));
   return col;
 }
 
@@ -356,7 +353,7 @@ vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(0.8, 0.8, 1.0), g.color, 0.4));
+           mix(vec3(0.9, 0.85, 1.0), g.color, 0.6));
   return col;
 }
 
