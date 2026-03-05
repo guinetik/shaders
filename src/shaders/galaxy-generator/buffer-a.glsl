@@ -302,7 +302,55 @@ void generateIrregular(GalaxyPreset preset, uint baseSeed, inout vec4 particle, 
   particle.w = brightness;
 }
 
-// Stub: output white canvas
+// ─────────────────────────────────────────────────────────────────────────────
+// BUFFER MAINTENANCE & PARTICLE GENERATION
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Dispatch particle generation based on preset type. */
+void generateParticle(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  particle = vec4(0.0); // default
+
+  switch(preset.type) {
+    case 0: // spiral
+      generateSpiral(preset, baseSeed, particle, particleIndex);
+      break;
+    case 1: // barred
+      generateBarredSpiral(preset, baseSeed, particle, particleIndex);
+      break;
+    case 2: // elliptical
+      generateElliptical(preset, baseSeed, particle, particleIndex);
+      break;
+    case 3: // lenticular
+      generateLenticular(preset, baseSeed, particle, particleIndex);
+      break;
+    case 4: // irregular
+      generateIrregular(preset, baseSeed, particle, particleIndex);
+      break;
+  }
+}
+
+/** Main image pass: generate or persist particles. */
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  fragColor = vec4(1.0, 1.0, 1.0, 1.0);
+  GalaxyPreset preset = getCurrentPreset();
+  int presetIdx = getCurrentPresetIndex();
+
+  // Seed from preset index (changes every cycle)
+  uint baseSeed = uint(presetIdx) * 12345u;
+
+  // Map fragCoord to particle index (row-major layout)
+  int particleIndex = int(fragCoord.y) * int(iResolution.x) + int(fragCoord.x);
+
+  vec4 particle = vec4(0.0);
+
+  // Generate if within particle count, otherwise empty
+  if (particleIndex < preset.numParticles && iFrame == 0) {
+    generateParticle(preset, baseSeed, particle, particleIndex);
+  } else if (particleIndex >= preset.numParticles) {
+    particle = vec4(0.0);
+  } else {
+    // Persist previous frame's particle
+    particle = texture(iChannel0, fragCoord / iResolution.xy);
+  }
+
+  fragColor = particle;
 }
