@@ -38,6 +38,68 @@ vec2 hash2(uint seed) {
   return vec2(float(h0) / 4294967296.0, float(h1) / 4294967296.0);
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// GALAXY PRESET DEFINITIONS
+// ─────────────────────────────────────────────────────────────────────────────
+
+struct GalaxyPreset {
+  int type;                // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
+  int numParticles;
+  float galaxyRadius;
+  int numArms;
+  float armWidth;
+  float spiralTightness;
+  float spiralStart;
+  float bulgeRadius;
+  float barLength;
+  float barWidth;
+  float ellipticity;
+  float axisRatio;
+  float irregularity;
+  int clumpCount;
+};
+
+// Preset gallery (12 presets)
+const GalaxyPreset PRESETS[12] = GalaxyPreset[](
+  // 0: Tight Spiral (SAa)
+  GalaxyPreset(0, 10000, 320.0, 2, 25.0, 0.14, 50.0, 70.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 1: Medium Spiral (SAb)
+  GalaxyPreset(0, 10000, 350.0, 2, 40.0, 0.25, 30.0, 35.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 2: Grand-Design Spiral (SAc)
+  GalaxyPreset(0, 12000, 380.0, 2, 55.0, 0.22, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 3: Barred Tight (SBa)
+  GalaxyPreset(1, 10000, 320.0, 2, 30.0, 0.16, 60.0, 50.0, 140.0, 30.0, 0.0, 0.0, 0.0, 0),
+  // 4: Barred Open (SBc)
+  GalaxyPreset(1, 11000, 380.0, 2, 60.0, 0.35, 40.0, 0.0, 90.0, 20.0, 0.0, 0.0, 0.0, 0),
+  // 5: Spherical Elliptical (E0)
+  GalaxyPreset(2, 9000, 300.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.9, 0.0, 0),
+  // 6: Elongated Elliptical (E7)
+  GalaxyPreset(2, 8500, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.5, 0.0, 0),
+  // 7: Lenticular (S0)
+  GalaxyPreset(3, 10500, 300.0, 0, 0.0, 0.0, 0.0, 80.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 8: Flocculent Spiral (SAd)
+  GalaxyPreset(0, 10500, 360.0, 4, 65.0, 0.3, 40.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0),
+  // 9: Clumpy Irregular (Irr-I)
+  GalaxyPreset(4, 8000, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 5),
+  // 10: Scattered Irregular (Irr-II)
+  GalaxyPreset(4, 7500, 260.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 3),
+  // 11: Flocculent Open (SAd variant)
+  GalaxyPreset(0, 11000, 370.0, 6, 70.0, 0.32, 35.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0)
+);
+
+#define PRESET_COUNT 12
+
+/** Get current preset based on iTime */
+GalaxyPreset getCurrentPreset() {
+  int idx = int(iTime / PRESET_DURATION) % PRESET_COUNT;
+  return PRESETS[idx];
+}
+
+/** Get current preset index */
+int getCurrentPresetIndex() {
+  return int(iTime / PRESET_DURATION) % PRESET_COUNT;
+}
+
 // Stub: output white canvas
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor = vec4(1.0, 1.0, 1.0, 1.0);
