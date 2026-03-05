@@ -40,8 +40,8 @@ export function useShaderDebug() {
   /**
    * Calculate average frame time over all metrics in buffer.
    */
-  const avgFrameTime = computed(() => {
-    if (frameMetrics.value.length === 0) return 0;
+  const avgFrameTime = computed((): string => {
+    if (frameMetrics.value.length === 0) return '0.00';
     const sum = frameMetrics.value.reduce((acc, m) => acc + m.totalTimeMs, 0);
     return (sum / frameMetrics.value.length).toFixed(2);
   });
@@ -49,9 +49,9 @@ export function useShaderDebug() {
   /**
    * Calculate average GPU time from all metrics with GPU data.
    */
-  const avgGpuTime = computed(() => {
+  const avgGpuTime = computed((): string => {
     const withGpu = frameMetrics.value.filter(m => m.gpuTimeMs !== null);
-    if (withGpu.length === 0) return 0;
+    if (withGpu.length === 0) return '0.00';
     const sum = withGpu.reduce((acc, m) => acc + (m.gpuTimeMs || 0), 0);
     return (sum / withGpu.length).toFixed(2);
   });
@@ -59,8 +59,8 @@ export function useShaderDebug() {
   /**
    * Find peak frame time in the buffer.
    */
-  const peakFrameTime = computed(() => {
-    if (frameMetrics.value.length === 0) return 0;
+  const peakFrameTime = computed((): string => {
+    if (frameMetrics.value.length === 0) return '0.00';
     return Math.max(...frameMetrics.value.map(m => m.totalTimeMs)).toFixed(2);
   });
 

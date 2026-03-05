@@ -4,10 +4,13 @@ import { useRoute, useRouter, onBeforeRouteLeave } from "vue-router";
 import { useShaderDetail } from "../composables/useShaderDetail";
 import { useNeutronMotion } from "../composables/useNeutronMotion";
 import { useSineWaveHover } from "../composables/useSineWaveHover";
+import { useShaderDebug } from "../composables/useShaderDebug";
 import { OVERLAY_COMPLETE_MS, SHADER_START_DELAY_MS } from "../constants";
 import ShaderRenderer from "../components/ShaderRenderer.vue";
 import CodeViewer from "../components/CodeViewer.vue";
 import ShaderInfoDrawer from "../components/ShaderInfoDrawer.vue";
+import DebugPanel from "../components/DebugPanel.vue";
+import DebugOverlay from "../components/DebugOverlay.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -22,6 +25,25 @@ const {
 } = useShaderDetail(slug);
 
 const { prefersReducedMotion, transitionSnapshot, setTransitionSnapshot } = useNeutronMotion();
+
+const {
+    isDebugOpen,
+    activeDebugTab,
+    frameMetrics,
+    gpuTimerQuerySupported,
+    shaderErrors,
+    showHeatmap,
+    currentFps,
+    avgFrameTime,
+    avgGpuTime,
+    peakFrameTime,
+    toggleDebug,
+    setActiveTab,
+    toggleHeatmap,
+    clearErrors,
+} = useShaderDebug();
+
+const isViewingDebugTab = ref(false);
 
 const rendererRef = ref<InstanceType<typeof ShaderRenderer> | null>(null);
 const isEntering = ref(true);
@@ -239,6 +261,13 @@ function showCodeFromDrawer(): void {
                         >
                             Code
                         </button>
+                        <button
+                            class="tab-button"
+                            :class="{ active: isViewingDebugTab }"
+                            @click="isViewingDebugTab = true; activeTab = 'debug'"
+                        >
+                            Debug
+                        </button>
                     </div>
                 </nav>
             </div>
@@ -253,10 +282,40 @@ function showCodeFromDrawer(): void {
                     :screenshotUrl="shader.screenshotUrl"
                     :deferStart="true"
                 />
+                <DebugOverlay
+                    v-if="isDebugOpen && activeTab === 'render'"
+                    :active-debug-tab="activeDebugTab"
+                    :frame-metrics="frameMetrics"
+                    :current-fps="currentFps"
+                    :avg-frame-time="avgFrameTime"
+                    :avg-gpu-time="avgGpuTime"
+                    :peak-frame-time="peakFrameTime"
+                    :gpu-timer-query-supported="gpuTimerQuerySupported"
+                    :shader-errors="shaderErrors"
+                    :show-heatmap="showHeatmap"
+                    @set-active-tab="setActiveTab"
+                    @toggle-heatmap="toggleHeatmap"
+                    @clear-errors="clearErrors"
+                />
                 <CodeViewer
-                    v-else
+                    v-else-if="activeTab === 'code'"
                     :passes="shader.passes"
                     :commonsSources="shader.commonsSources"
+                />
+                <DebugPanel
+                    v-else-if="activeTab === 'debug'"
+                    :active-debug-tab="activeDebugTab"
+                    :frame-metrics="frameMetrics"
+                    :current-fps="currentFps"
+                    :avg-frame-time="avgFrameTime"
+                    :avg-gpu-time="avgGpuTime"
+                    :peak-frame-time="peakFrameTime"
+                    :gpu-timer-query-supported="gpuTimerQuerySupported"
+                    :shader-errors="shaderErrors"
+                    :show-heatmap="showHeatmap"
+                    @set-active-tab="setActiveTab"
+                    @toggle-heatmap="toggleHeatmap"
+                    @clear-errors="clearErrors"
                 />
             </section>
 
@@ -267,6 +326,14 @@ function showCodeFromDrawer(): void {
                     </button>
                     <button class="action-button" @click="takeScreenshot">
                         <span class="action-icon">[*]</span> Screenshot
+                    </button>
+                    <button
+                        v-if="activeTab === 'render'"
+                        class="action-button"
+                        :class="{ active: isDebugOpen }"
+                        @click="toggleDebug"
+                    >
+                        <span class="action-icon">⊟</span> Debug
                     </button>
                     <a
                         v-if="shader.links.shadertoy"
