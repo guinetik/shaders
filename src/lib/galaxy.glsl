@@ -143,8 +143,8 @@ vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
 vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   vec3 col = vec3(0.0);
 
-  // Dust base color: blend stellar blue with galaxy tint
-  vec3 dustCol = mix(vec3(0.3, 0.6, 1.0), g.color, 0.5);
+  // Dust base color: galaxy tint with slight blue lift (star-forming regions)
+  vec3 dustCol = g.color * 0.8 + vec3(0.06, 0.12, 0.2);
 
   float flip = 1.0;
   float t = iTime * GAL_ORBIT_SPEED;
