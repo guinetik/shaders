@@ -11,6 +11,7 @@ import { ref, watch, onUnmounted } from 'vue';
 import type { Ref } from 'vue';
 import type { ShaderPasses, ShaderChannels, CommonsSource, PassId, ChannelSlot, ChannelTarget } from '../types';
 import { MAX_BUFFER_PASSES, FBOS_PER_BUFFER } from '../constants';
+import { useShaderDebug } from './useShaderDebug';
 
 /** Ordered list of buffer pass IDs for iteration */
 const BUFFER_PASS_IDS: readonly PassId[] = ['bufferA', 'bufferB', 'bufferC', 'bufferD'] as const;
@@ -46,6 +47,64 @@ const VIDEO_EXTENSIONS: ReadonlySet<string> = new Set(['.mp4', '.webm']);
 function isVideoTexture(target: string): boolean {
   const dot = target.lastIndexOf('.');
   return dot !== -1 && VIDEO_EXTENSIONS.has(target.substring(dot).toLowerCase());
+}
+
+/** Extension for GPU timer queries */
+type GPUTimerQueryExt = any; // WebGLGetParameter doesn't type this well
+
+/**
+ * Initialize and detect GPU timer query support.
+ *
+ * @param gl - WebGL context
+ * @returns Timer extension or null if unsupported
+ */
+function getTimerQueryExtension(gl: WebGLRenderingContext | WebGL2RenderingContext): GPUTimerQueryExt | null {
+  try {
+    return gl.getExtension('EXT_disjoint_timer_query_webgl2') ||
+           gl.getExtension('EXT_disjoint_timer_query');
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Create a GPU timer query for measuring pass time.
+ *
+ * @param gl - WebGL context
+ * @param ext - Timer query extension
+ * @returns Query object or null if unsupported
+ */
+function createTimerQuery(gl: WebGL2RenderingContext, ext: GPUTimerQueryExt): WebGLQuery | null {
+  if (!ext) return null;
+  const query = gl.createQuery();
+  if (!query) return null;
+  gl.beginQuery(ext.TIME_ELAPSED_EXT, query);
+  return query;
+}
+
+/**
+ * Get elapsed time from a completed query in milliseconds.
+ *
+ * @param gl - WebGL context
+ * @param query - The query object
+ * @param ext - Timer query extension
+ * @returns Elapsed time in milliseconds, or null if not ready
+ */
+function getQueryElapsedMs(
+  gl: WebGL2RenderingContext,
+  query: WebGLQuery,
+  ext: GPUTimerQueryExt
+): number | null {
+  if (gl.getParameter(ext.GPU_DISJOINT_EXT)) {
+    return null; // GPU context loss, results unreliable
+  }
+
+  if (!gl.getQueryParameter(query, gl.QUERY_RESULT_AVAILABLE)) {
+    return null; // Not ready yet
+  }
+
+  const elapsed = gl.getQueryParameter(query, gl.QUERY_RESULT);
+  return elapsed / 1_000_000; // Convert nanoseconds to milliseconds
 }
 
 /** Number of vertices in the fullscreen quad (two triangles) */
@@ -362,6 +421,9 @@ function createFullscreenQuad(
  * @param canvasRef - Reactive ref to the target canvas element
  * @param passes - Shader source code organized by render pass
  * @param channels - Channel wiring between passes
+ * @param commonsSources - Optional shared GLSL library files
+ * @param deferStart - If true, caller must invoke start() manually
+ * @param debugState - Optional debug composable for frame metrics and errors
  * @returns Reactive error state, running state, and start/stop controls
  */
 export function useShaderRenderer(
@@ -370,6 +432,7 @@ export function useShaderRenderer(
   channels: ShaderChannels,
   commonsSources: CommonsSource[] = [],
   deferStart = false,
+  debugState?: ReturnType<typeof useShaderDebug>,
 ): {
   /** Error message if shader compilation fails */
   error: Ref<string | null>;
@@ -385,6 +448,9 @@ export function useShaderRenderer(
 
   /** WebGL2 context, set during initialization */
   let gl: WebGL2RenderingContext | null = null;
+
+  /** GPU timer query extension, set during initialization */
+  let timerQueryExt: GPUTimerQueryExt | null = null;
 
   /** Compiled pass programs keyed by PassId */
   let passPrograms: Map<PassId, PassProgram> = new Map();
@@ -571,6 +637,12 @@ export function useShaderRenderer(
       console.warn('[ShaderRenderer] EXT_color_buffer_float not available — float FBOs may fail');
     }
 
+    // Detect GPU timer query support
+    timerQueryExt = getTimerQueryExtension(gl);
+    if (debugState) {
+      debugState.setGpuTimerSupport(timerQueryExt !== null);
+    }
+
     // Create fullscreen quad
     const quadResult = createFullscreenQuad(gl);
     if (typeof quadResult === 'string') {
@@ -727,6 +799,9 @@ export function useShaderRenderer(
   function renderFrame(): void {
     if (!gl || !quadVAO) return;
 
+    // Capture frame start time for CPU metrics
+    const frameStartTime = performance.now();
+
     updateVideoTextures();
 
     const canvas = gl.canvas as HTMLCanvasElement;
@@ -737,6 +812,9 @@ export function useShaderRenderer(
 
     gl.viewport(0, 0, width, height);
     gl.bindVertexArray(quadVAO);
+
+    // Create GPU timer query before render pass
+    const gpuQuery = createTimerQuery(gl, timerQueryExt);
 
     // Render buffer passes in order: A -> B -> C -> D
     const activeBuffers = cachedActiveBufferPasses;
@@ -773,6 +851,31 @@ export function useShaderRenderer(
     gl.drawArrays(gl.TRIANGLES, 0, FULLSCREEN_QUAD_VERTICES);
 
     gl.bindVertexArray(null);
+
+    // End GPU timer query
+    if (gpuQuery && timerQueryExt) {
+      gl.endQuery(timerQueryExt.TIME_ELAPSED_EXT);
+    }
+
+    // Capture frame end time and compute CPU metrics
+    const frameEndTime = performance.now();
+    const cpuTimeMs = frameEndTime - frameStartTime;
+
+    // Query GPU result (async - will be null first frame, populated next)
+    let gpuTimeMs: number | null = null;
+    if (gpuQuery && timerQueryExt) {
+      gpuTimeMs = getQueryElapsedMs(gl, gpuQuery, timerQueryExt);
+    }
+
+    // Record frame metric
+    if (debugState) {
+      debugState.addFrameMetric({
+        timestamp: Date.now(),
+        cpuTimeMs,
+        gpuTimeMs,
+        totalTimeMs: cpuTimeMs,
+      });
+    }
 
     // Log diagnostics for the first few frames
     if (frameCount < 3) {
