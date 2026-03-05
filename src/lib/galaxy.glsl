@@ -22,7 +22,7 @@ mat2 rot2d(float angle) {
 // GALAXY DEFINITION
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Galaxy entity with type, seed, position, scale, and rotation */
+/** Galaxy entity with type, seed, position, scale, rotation, and color */
 struct Galaxy {
   int type;      // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
   uint seed;     // deterministic randomness
@@ -31,6 +31,7 @@ struct Galaxy {
   float angleX;  // rotation around X axis
   float angleY;  // rotation around Y axis
   float angleZ;  // rotation around Z axis
+  vec3 color;    // random color for this galaxy
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -48,10 +49,9 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
   float angle = atan(rotated.y, rotated.x);
 
-  // Temporary: colored circle
-  vec3 color = vec3(1.0, 0.2, 0.2); // red
+  // Use random color from galaxy
   float falloff = smoothstep(radius, 0.0, dist);
-  return color * falloff;
+  return g.color * falloff;
 }
 
 /** Render barred spiral galaxy (bar + spiral arms) */
@@ -64,10 +64,9 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
   // Apply rotation
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
 
-  // Temporary: colored circle
-  vec3 color = vec3(1.0, 0.5, 0.1); // orange
+  // Use random color from galaxy
   float falloff = smoothstep(radius, 0.0, dist);
-  return color * falloff;
+  return g.color * falloff;
 }
 
 /** Render elliptical galaxy (smooth, featureless) */
@@ -80,10 +79,9 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
   // Apply rotation
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
 
-  // Temporary: colored circle
-  vec3 color = vec3(0.2, 0.5, 1.0); // blue
+  // Use random color from galaxy
   float falloff = smoothstep(radius, 0.0, dist);
-  return color * falloff;
+  return g.color * falloff;
 }
 
 /** Render lenticular galaxy (disk + bulge) */
@@ -96,10 +94,9 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
   // Apply rotation
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
 
-  // Temporary: colored circle
-  vec3 color = vec3(0.8, 0.8, 0.2); // yellow
+  // Use random color from galaxy
   float falloff = smoothstep(radius, 0.0, dist);
-  return color * falloff;
+  return g.color * falloff;
 }
 
 /** Render irregular galaxy (clumpy, chaotic) */
@@ -112,10 +109,9 @@ vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
   // Apply rotation
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
 
-  // Temporary: colored circle
-  vec3 color = vec3(0.8, 0.2, 0.8); // magenta
+  // Use random color from galaxy
   float falloff = smoothstep(radius, 0.0, dist);
-  return color * falloff;
+  return g.color * falloff;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

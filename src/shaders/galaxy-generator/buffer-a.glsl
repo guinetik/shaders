@@ -50,6 +50,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       g.angleY = hashSeed(cycleSeed, 2u) * 6.28318;
       g.angleZ = hashSeed(cycleSeed, 3u) * 6.28318;
 
+      // Randomized color (change every 7 seconds)
+      g.color = vec3(
+        hashSeed(cycleSeed, 4u),
+        hashSeed(cycleSeed, 5u),
+        hashSeed(cycleSeed, 6u)
+      );
+
       // Render and composite
       col += renderGalaxy(g, fragCoord);
 
