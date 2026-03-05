@@ -384,8 +384,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
   vec4 particle = vec4(0.0);
 
-  // Generate if within particle count, otherwise empty
-  if (particleIndex < preset.numParticles && iFrame == 0) {
+  // Detect preset cycle boundary (regenerate at start of each 7-second cycle)
+  float cyclePhase = fract(iTime / PRESET_DURATION);
+  bool isNewPreset = cyclePhase < 0.05 || iFrame == 0; // first 5% of cycle or first frame
+
+  // Generate if within particle count and at preset boundary
+  if (particleIndex < preset.numParticles && isNewPreset) {
     generateParticle(preset, baseSeed, particle, particleIndex);
   } else if (particleIndex >= preset.numParticles) {
     particle = vec4(0.0);
