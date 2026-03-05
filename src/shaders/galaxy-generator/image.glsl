@@ -51,8 +51,13 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   // Approximate particle count for this preset
   int particleCount = 10000; // average
 
+  // Optional 3D tilt (reduce y by ~10% for shallow perspective)
+  float tiltAmount = 0.1;
+  vec2 fragCoordTilted = fragCoord;
+  fragCoordTilted.y *= (1.0 - tiltAmount);
+
   // Early exit if too far from any particle
-  vec2 centerDist = abs(fragCoord - iResolution.xy * 0.5);
+  vec2 centerDist = abs(fragCoordTilted - iResolution.xy * 0.5);
   if (min(centerDist.x, centerDist.y) > 400.0) {
     // Far from center, render background
     fragColor = vec4(0.0, 0.0, 0.0, 1.0);
@@ -64,8 +69,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec4 p = sampleParticle(i);
     if (length(p.xy) < 0.1) continue;
 
+    // Apply same tilt to particles
     vec2 ppos = p.xy + iResolution.xy * 0.5;
-    vec2 diff = fragCoord - ppos;
+    ppos.y *= (1.0 - tiltAmount);
+
+    vec2 diff = fragCoordTilted - ppos;
     float dist = length(diff);
 
     float brightness = p.w;
