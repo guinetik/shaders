@@ -143,8 +143,9 @@ vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
 vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   vec3 col = vec3(0.0);
 
-  // Dust base color: galaxy tint drives the hue
-  vec3 dustCol = g.color;
+  // Dust base color: bright blue-white (Megaparsecs original).
+  // Galaxy color is applied as a post-multiply tint by each type renderer.
+  vec3 dustCol = vec3(0.3, 0.6, 1.0);
 
   float flip = 1.0;
   float t = iTime * GAL_ORBIT_SPEED;
@@ -247,6 +248,7 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.9, 0.8), g.color, 0.6));
+  col *= g.color;
   return col;
 }
 
@@ -273,6 +275,7 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.9, 0.7), g.color, 0.6));
+  col *= g.color;
   return col;
 }
 
@@ -300,6 +303,7 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.8, 0.6), g.color, 0.7));
+  col *= g.color;
   return col;
 }
 
@@ -327,6 +331,7 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.85, 0.65), g.color, 0.6));
+  col *= g.color;
   return col;
 }
 
@@ -354,6 +359,7 @@ vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(0.9, 0.85, 1.0), g.color, 0.6));
+  col *= g.color;
   return col;
 }
 
