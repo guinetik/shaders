@@ -100,6 +100,63 @@ int getCurrentPresetIndex() {
   return int(iTime / PRESET_DURATION) % PRESET_COUNT;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PARTICLE GENERATION ALGORITHMS
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Generate particles along logarithmic spiral arms. */
+void generateSpiral(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  int numArms = preset.numArms;
+  float armWidth = preset.armWidth;
+  float spiralTightness = preset.spiralTightness;
+  float spiralStart = preset.spiralStart;
+  float bulgeRadius = preset.bulgeRadius;
+
+  // Seed this particle
+  uint seed = baseSeed + uint(particleIndex);
+
+  // Decide: bulge or arm?
+  float bulgeChance = 0.15;
+  if (bulgeRadius > 0.001 && hash(seed) < bulgeChance) {
+    // Place in bulge (simple radial distribution)
+    float r = sqrt(hash(seed + 1u)) * bulgeRadius;
+    float theta = hash(seed + 2u) * 6.28318;
+    particle.x = r * cos(theta);
+    particle.y = r * sin(theta);
+  } else {
+    // Place along spiral arm
+    int armIdx = particleIndex % numArms;
+    float armTheta = (float(particleIndex) / float(preset.numParticles)) * 6.28318 * float(numArms);
+    float r = spiralStart + armTheta / (6.28318 * spiralTightness);
+    r *= 0.85 + 0.3 * hash(seed + 3u); // logarithmic scatter
+
+    // Add perpendicular scatter (arm width)
+    float scatter = (hash(seed + 4u) - 0.5) * armWidth;
+    float perpTheta = armTheta + scatter / max(r, 1.0);
+
+    particle.x = r * cos(perpTheta);
+    particle.y = r * sin(perpTheta);
+  }
+
+  // Assign color hue based on distance (core warm → arms cool)
+  float dist = length(particle.xy);
+  float distFactor = clamp(dist / preset.galaxyRadius, 0.0, 1.0);
+  float hue = mix(45.0, 215.0, distFactor); // 45=warm gold, 215=cool blue
+  particle.z = hue;
+
+  // Assign brightness (layer assignment)
+  float roll = hash(seed + 5u);
+  float brightness;
+  if (roll < 0.65) {
+    brightness = 0.08 + hash(seed + 6u) * 0.16; // dust layer
+  } else if (roll < 0.97) {
+    brightness = 0.32 + hash(seed + 6u) * 0.4; // star layer
+  } else {
+    brightness = 0.64 + hash(seed + 6u) * 0.16; // bright layer
+  }
+  particle.w = brightness;
+}
+
 // Stub: output white canvas
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor = vec4(1.0, 1.0, 1.0, 1.0);
