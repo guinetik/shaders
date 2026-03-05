@@ -15,6 +15,28 @@
 // COLOR UTILITIES
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * COLOR RENDERING
+ *
+ * Galaxy particles use realistic stellar colors based on temperature (blackbody sequence):
+ *   - Cool red: M dwarfs (old, low-mass stars) — hue ~10°
+ *   - Orange: K giants — hue ~25°
+ *   - Yellow: G stars (Sun-like) — hue ~42°
+ *   - Blue-white: A/B stars (hot, young) — hue ~210°
+ *   - Deep blue: O stars (very hot, massive) — hue ~225°
+ *
+ * Buffer-a assigns hues based on radial distance (metallicity gradient):
+ *   - Core: warm (old population, high metallicity)
+ *   - Arms: cool (young population, blue stars, low metallicity)
+ *   - Dust: faint nebular (blue-violet)
+ *
+ * TECHNIQUE: HSL Color Space
+ * HSL (Hue-Saturation-Lightness) is more intuitive than RGB for stellar colors.
+ * Brightness from buffer determines saturation and lightness dynamically:
+ *   - Brighter particles → more saturated, lighter (appears hotter/stronger)
+ *   - Dimmer particles → less saturated, darker (dust, faint stars)
+ */
+
 /** Convert HSL to RGB (hue in degrees [0-360], s/l in [0,1]) */
 vec3 hslToRgb(float hue, float sat, float light) {
   hue = mod(hue, 360.0) / 60.0;
@@ -32,6 +54,27 @@ vec3 hslToRgb(float hue, float sat, float light) {
   float m = light - c * 0.5;
   return rgb + m;
 }
+
+/**
+ * PARTICLE SAMPLING & RENDERING
+ *
+ * Particles are fetched from buffer-a using texelFetch (exact pixel, no filtering).
+ * Rendering uses a hybrid approach:
+ *
+ *   - Dim particles (dust, brightness < 0.3): rendered as small points (2-3 pixels)
+ *   - Bright particles (brightness > 0.6): rendered as glowing halos (8-10 pixels)
+ *   - Smooth falloff (smoothstep) creates soft glow edges
+ *
+ * TECHNIQUE: Distance Falloff
+ * Each particle glows outward in a circular region of radius = 2 + brightness × 8.
+ * Falloff is smooth (smoothstep), not hard-edged, for photorealistic appearance.
+ * Particles additively blend (+=) creating natural bright spots where multiple overlap.
+ *
+ * TECHNIQUE: Early Termination Optimization
+ * Fragments >400 pixels from screen center skip the particle loop entirely
+ * (galaxies are only ~280-380 pixels radius, so this is safe).
+ * Distance culling (if dist > particleRadius continue) skips expensive color calcs.
+ */
 
 /** Sample particle from buffer. Returns (x, y, hue, brightness). */
 vec4 sampleParticle(int particleIndex) {
@@ -63,6 +106,20 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     fragColor = vec4(0.0, 0.0, 0.0, 1.0);
     return;
   }
+
+  /**
+   * RENDERING LOOP
+   *
+   * For each fragment:
+   * 1. Apply perspective tilt (y-compression, 10%) for shallow viewing angle
+   * 2. Check early spatial exit (if too far from center, skip to black background)
+   * 3. Iterate all particles:
+   *    - Skip empty/invalid particles (length < 0.1)
+   *    - Skip particles beyond distance threshold
+   *    - Sample color from hue; apply brightness-based saturation/lightness
+   *    - Calculate glow falloff; accumulate color with additive blending
+   * 4. Apply gamma correction (0.45) for proper perception on sRGB displays
+   */
 
   // Limit loop to particle count
   for (int i = 0; i < min(particleCount, MAX_PARTICLES); i++) {

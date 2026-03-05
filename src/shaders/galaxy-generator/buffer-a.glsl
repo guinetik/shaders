@@ -104,6 +104,36 @@ int getCurrentPresetIndex() {
 // PARTICLE GENERATION ALGORITHMS
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * PARTICLE GENERATION ALGORITHMS
+ *
+ * Each generator creates particles deterministically from a galaxy preset using seeded PRNGs.
+ * All generators use the same pattern:
+ *
+ * 1. Seed particle index with preset index (deterministic across frames)
+ * 2. Place position based on galaxy morphology (spiral arm, ellipse, clump, etc.)
+ * 3. Assign color hue based on radial distance (core warm → outer cool)
+ * 4. Assign brightness layer (dust/star/bright) stochastically
+ *
+ * TECHNIQUE: Logarithmic Spiral Placement (generateSpiral)
+ * Stars are placed at r(θ) = spiralStart + θ / (2π × spiralTightness).
+ * Lower spiralTightness → tighter, more compact spirals (Sa galaxies).
+ * Higher spiralTightness → looser, more open spirals (Sc/Sd galaxies).
+ * Perpendicular scatter (±armWidth) creates realistic arm density variation.
+ *
+ * TECHNIQUE: Seeded Randomness
+ * All randomness is deterministic: seed = baseSeed + particleIndex.
+ * This ensures consistent particle positions across frames for the same preset.
+ * When preset changes (iTime cycle), baseSeed changes, creating new random positions.
+ *
+ * TECHNIQUE: Layer Assignment
+ * Particles are classified by brightness percentile:
+ *   - Dust (65%): faint background nebulae
+ *   - Stars (32%): normal main-sequence stars
+ *   - Bright (3%): OB giants, supergiants
+ * This distribution matches stellar populations in real galaxies.
+ */
+
 /** Generate particles along logarithmic spiral arms. */
 void generateSpiral(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
   int numArms = preset.numArms;
@@ -305,6 +335,18 @@ void generateIrregular(GalaxyPreset preset, uint baseSeed, inout vec4 particle, 
 // ─────────────────────────────────────────────────────────────────────────────
 // BUFFER MAINTENANCE & PARTICLE GENERATION
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * BUFFER MAINTENANCE
+ *
+ * buffer-a stores particles as (x, y, hue, brightness) in RGBA16F texture.
+ * Each frame:
+ *   - If iFrame == 0 (frame just after preset change): regenerate all particles
+ *   - Otherwise: persist previous frame's particles
+ *
+ * This ensures smooth transitions: particles appear instantly when preset changes,
+ * then hold steady until next cycle (7 seconds per preset).
+ */
 
 /** Dispatch particle generation based on preset type. */
 void generateParticle(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
