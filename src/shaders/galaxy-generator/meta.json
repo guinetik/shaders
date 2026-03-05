@@ -4,7 +4,7 @@
   "date": "2026-03-05",
   "tags": ["procedural", "particles", "astronomy", "generative"],
   "links": {},
-  "commons": ["galaxy"],
+  "commons": ["noise-value", "galaxy"],
   "channels": {
     "image": { "iChannel0": "buffer-a" },
     "bufferA": { "iChannel0": "buffer-a" }

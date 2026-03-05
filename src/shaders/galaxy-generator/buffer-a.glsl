@@ -3,74 +3,87 @@
  * @author guinetik
  * @date 2026-03-05
  *
- * Renders a 3×3 grid of galaxies, cycling through 5 types.
- * Uses galaxy.glsl library for polymorphic rendering.
- * Each galaxy has randomized rotation angles.
+ * Renders a 3x3 grid of galaxies, cycling through 5 types every 7 seconds.
+ * Uses galaxy.glsl library for polymorphic ring-loop rendering.
+ * Each galaxy gets randomized orientation, color, and physical params.
  */
+
+#define GRID_COLS 3
+#define GRID_ROWS 3
+#define CYCLE_DURATION 7.0          // Seconds per galaxy set
+#define GALAXY_FILL 0.35            // Galaxy radius as fraction of cell size
 
 // ─────────────────────────────────────────────────────────────────────────────
 // UTILITIES
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Simple hash for pseudo-random numbers */
-float hash(uint x) {
-  x = ((x >> 16) ^ x) * 0x7feb352du;
-  x = ((x >> 15) ^ x) * 0x846ca68bu;
-  return float((x >> 16) ^ x) / 4294967296.0;
+/**
+ * Integer hash for deterministic pseudo-random numbers.
+ * PCG-style — better distribution than sin-hash for seed-based generation.
+ */
+float _gridHash(uint x) {
+  x = ((x >> 16u) ^ x) * 0x7feb352du;
+  x = ((x >> 15u) ^ x) * 0x846ca68bu;
+  return float((x >> 16u) ^ x) / 4294967296.0;
 }
 
-/** Hash with seed */
-float hashSeed(uint seed, uint offset) {
-  return hash(seed + offset);
+/** Hash with seed + offset for multiple independent random values */
+float _gridHashSeed(uint seed, uint offset) {
+  return _gridHash(seed + offset);
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   vec3 col = vec3(0.0);
 
-  // 3×3 grid layout
+  // Grid cell dimensions
+  vec2 cellSize = iResolution.xy / vec2(float(GRID_COLS), float(GRID_ROWS));
+  float galaxyRadius = min(cellSize.x, cellSize.y) * GALAXY_FILL;
+
   int typeIndex = 0;
-  for (int y = 0; y < 3; y++) {
-    for (int x = 0; x < 3; x++) {
-      // Grid cell center
+  for (int y = 0; y < GRID_ROWS; y++) {
+    for (int x = 0; x < GRID_COLS; x++) {
+      // Cell center in screen pixels
       vec2 cellCenter = vec2(
-        (float(x) + 0.5) * iResolution.x / 3.0,
-        (float(y) + 0.5) * iResolution.y / 3.0
+        (float(x) + 0.5) * cellSize.x,
+        (float(y) + 0.5) * cellSize.y
       );
 
-      // Create galaxy for this cell
+      // Early-out: skip if fragment is far from this galaxy
+      if (length(fragCoord - cellCenter) > galaxyRadius * GAL_MAX_RADIUS) {
+        typeIndex++;
+        continue;
+      }
+
+      // Deterministic seed per galaxy per cycle
+      uint cycleSeed = uint(int(iTime / CYCLE_DURATION)) * 12345u + uint(typeIndex);
+
+      // Build Galaxy
       Galaxy g;
-      g.type = typeIndex % 5;
-      uint cycleSeed = uint(int(iTime / 7.0)) * 12345u + uint(typeIndex);
-      g.seed = cycleSeed;
-      g.center = cellCenter;
-      g.scale = 1.0;
+      g.type       = typeIndex % 5;
+      g.seed       = cycleSeed;
+      g.center     = cellCenter;
+      g.scale      = galaxyRadius;
 
-      // Rotation angles
-      g.angleX = hashSeed(cycleSeed, 1u) * 6.28318;
-      g.angleY = hashSeed(cycleSeed, 2u) * 6.28318;
-      g.angleZ = hashSeed(cycleSeed, 3u) * 6.28318;
+      // Orientation
+      g.angleX     = _gridHashSeed(cycleSeed, 1u) * _GAL_TAU;
+      g.angleY     = _gridHashSeed(cycleSeed, 2u) * _GAL_TAU;
+      g.angleZ     = _gridHashSeed(cycleSeed, 3u) * _GAL_TAU;
 
-      // Color
-      g.color = vec3(
-        hashSeed(cycleSeed, 4u),
-        hashSeed(cycleSeed, 5u),
-        hashSeed(cycleSeed, 6u)
+      // Color — bias toward realistic stellar hues (warm whites, blues, golds)
+      float hueRand = _gridHashSeed(cycleSeed, 4u);
+      g.color = mix(
+        vec3(0.4, 0.5, 1.0),   // blue-white (young stars)
+        vec3(1.0, 0.7, 0.4),   // gold-orange (old stars)
+        hueRand
       );
 
       // Physical parameters (from DB schema)
-      // axialRatio: b/a (0.3-1.0), default 0.7
-      g.axialRatio = 0.3 + hashSeed(cycleSeed, 7u) * 0.7;
+      g.axialRatio    = 0.3 + _gridHashSeed(cycleSeed, 7u) * 0.7;
+      g.mass_log10    = 9.0 + _gridHashSeed(cycleSeed, 8u) * 3.0;
+      g.velocity_kmps = 3000.0 + _gridHashSeed(cycleSeed, 9u) * 6000.0;
+      g.distance_mpc  = 10.0 + _gridHashSeed(cycleSeed, 10u) * 90.0;
 
-      // mass_log10: log stellar mass (9-12), default Milky Way ~10.5
-      g.mass_log10 = 9.0 + hashSeed(cycleSeed, 8u) * 3.0;
-
-      // velocity_kmps: CMB velocity (0-14000), default 3000-9000
-      g.velocity_kmps = 3000.0 + hashSeed(cycleSeed, 9u) * 6000.0;
-
-      // distance_mpc: distance (1-1000+), default 10-100
-      g.distance_mpc = 10.0 + hashSeed(cycleSeed, 10u) * 90.0;
-
-      // Render and composite
+      // Render
       col += renderGalaxy(g, fragCoord);
 
       typeIndex++;
