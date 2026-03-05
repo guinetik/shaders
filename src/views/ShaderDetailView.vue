@@ -662,6 +662,12 @@ function showCodeFromDrawer(): void {
     color: var(--n-text-dim);
 }
 
+.action-button.active {
+    border-color: var(--n-border-active);
+    box-shadow: 0 0 12px var(--n-glow);
+    background: var(--n-bg-hover);
+}
+
 @media (hover: hover) {
     .action-button:hover {
         border-color: var(--n-border-active);
@@ -836,6 +842,11 @@ function showCodeFromDrawer(): void {
         flex: 1;
         min-height: 0;
         max-height: none;
+    }
+
+    /* Hide Debug tab on mobile (overlay-only mode) */
+    .tab-button:nth-child(3) {
+        display: none;
     }
 
     .mobile-overlay-controls,
