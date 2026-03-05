@@ -27,8 +27,8 @@
 // CONSTANTS
 // ─────────────────────────────────────────────────────────────────────────────
 
-#define GAL_MAX_RADIUS 1.2              // Early-out distance (normalized UV)
-#define GAL_FADE_START 0.7              // Radial fade begins here (0=center, 1=edge)
+#define GAL_MAX_RADIUS 1.5              // Early-out distance (in tilted UV space)
+#define GAL_MIN_COS_TILT 0.15           // Minimum cos(tilt) — clamps max edge-on stretch
 #define GAL_RING_PHASE_OFFSET 100.0     // Per-ring orbital phase spread
 #define GAL_ORBIT_SPEED 0.1             // Time multiplier for orbital motion
 #define GAL_DUST_UV_SCALE 0.2           // UV scale for dust sampling
@@ -99,22 +99,20 @@ struct GalaxyStyle {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Fake 3D tilt via UV Y-compression.
- * Simulates viewing a flat disk from an angle.
- * cos(0)=1.0 → face-on. cos(PI/2)=0.0 → edge-on (clamped to 0.2 min).
+ * 3D tilt via UV Y-stretch (ray-plane intersection approximation).
+ *
+ * TECHNIQUE: When viewing a tilted disk, screen-space Y maps to disk-space
+ * positions that are FARTHER apart (not closer). A point 0.3 above center
+ * on screen corresponds to a point 0.6 on the disk if tilted 60 degrees.
+ * This stretches Y so points off the disk plane map to large UV distances
+ * where the ring Gaussian is near zero — creating natural thin edge-on shapes.
+ *
+ * cos(0)=1.0 → face-on (no stretch). cos(PI/2)→0 → edge-on (max stretch).
+ * Clamped to GAL_MIN_COS_TILT to prevent infinite stretch at exactly 90 degrees.
  */
 vec2 _galApplyTilt(vec2 uv, float angleX) {
-  uv.y *= mix(0.2, 1.0, abs(cos(angleX)));
+  uv.y /= max(abs(cos(angleX)), GAL_MIN_COS_TILT);
   return uv;
-}
-
-/**
- * Smooth radial edge fade — eliminates hard circular cutoff.
- * Applied in screen space (pre-tilt UV) so fade shape matches bounding circle.
- * Returns 1.0 at center, smoothly drops to 0.0 at GAL_MAX_RADIUS.
- */
-float _galEdgeFade(vec2 uv) {
-  return 1.0 - smoothstep(GAL_FADE_START, GAL_MAX_RADIUS, length(uv));
 }
 
 /**
@@ -235,9 +233,8 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
  */
 vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-  float fade = _galEdgeFade(uv);
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
   GalaxyStyle s;
   s.twist        = 1.0;
@@ -253,7 +250,7 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.8, 0.7), g.color, 0.3));
-  return col * fade;
+  return col;
 }
 
 /**
@@ -262,9 +259,8 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
  */
 vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-  float fade = _galEdgeFade(uv);
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
   GalaxyStyle s;
   s.twist        = 1.3;
@@ -280,7 +276,7 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.85, 0.6), g.color, 0.3));
-  return col * fade;
+  return col;
 }
 
 /**
@@ -290,9 +286,8 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
  */
 vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-  float fade = _galEdgeFade(uv);
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
   GalaxyStyle s;
   s.twist        = 0.0;
@@ -308,7 +303,7 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.7, 0.5), g.color, 0.3));
-  return col * fade;
+  return col;
 }
 
 /**
@@ -318,9 +313,8 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
  */
 vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-  float fade = _galEdgeFade(uv);
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
   GalaxyStyle s;
   s.twist        = 0.05;
@@ -336,7 +330,7 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(1.0, 0.75, 0.55), g.color, 0.3));
-  return col * fade;
+  return col;
 }
 
 /**
@@ -346,9 +340,8 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
  */
 vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-  float fade = _galEdgeFade(uv);
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
   GalaxyStyle s;
   s.twist        = 0.3;
@@ -364,7 +357,7 @@ vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
            mix(vec3(0.8, 0.8, 1.0), g.color, 0.4));
-  return col * fade;
+  return col;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
