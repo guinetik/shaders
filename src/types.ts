@@ -85,6 +85,52 @@ export interface ShaderEntry extends ShaderMeta {
   commonsSources: CommonsSource[];
 }
 
+// -- Debug Types --
+
+/** Single frame timing measurement */
+export interface FrameMetric {
+  /** When frame was captured (Date.now()) */
+  timestamp: number;
+  /** CPU-side time for frame in milliseconds */
+  cpuTimeMs: number;
+  /** GPU time from timer query in milliseconds (null if unsupported) */
+  gpuTimeMs: number | null;
+  /** Total wall-clock frame time in milliseconds */
+  totalTimeMs: number;
+}
+
+/** Shader compilation or runtime error */
+export interface ShaderError {
+  /** Error type: 'compile' | 'runtime' | 'texture-load' | 'webgl' */
+  type: 'compile' | 'runtime' | 'texture-load' | 'webgl';
+  /** Error message text */
+  message: string;
+  /** Source file name (e.g., "buffer-a.glsl") if applicable */
+  file?: string;
+  /** Line number if applicable */
+  line?: number;
+  /** When error was recorded (Date.now()) */
+  timestamp: number;
+  /** Severity: 'error' | 'warning' | 'info' */
+  severity: 'error' | 'warning' | 'info';
+}
+
+/** Debug panel state */
+export interface DebugState {
+  /** Whether debug panel is open */
+  isDebugOpen: boolean;
+  /** Active debug sub-tab: 'frames' | 'heatmap' | 'errors' */
+  activeDebugTab: 'frames' | 'heatmap' | 'errors';
+  /** Last 60 frame timings */
+  frameMetrics: FrameMetric[];
+  /** Whether GPU timer queries are supported */
+  gpuTimerQuerySupported: boolean;
+  /** Collected shader errors and warnings */
+  shaderErrors: ShaderError[];
+  /** Whether heatmap rendering is enabled */
+  showHeatmap: boolean;
+}
+
 // -- Animation Types --
 
 /** Bounding-box snapshot for FLIP animations */
