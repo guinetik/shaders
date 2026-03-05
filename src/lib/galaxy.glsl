@@ -38,80 +38,50 @@ struct Galaxy {
 // RENDER STUBS (Type-Specific Implementations)
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Render spiral galaxy (2-armed logarithmic spiral) */
-vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
+/**
+ * Helper: Render ellipse with rotation and random eccentricity.
+ * Rotation becomes visible because ellipse deforms under rotation.
+ */
+vec3 renderEllipseGalaxy(Galaxy g, vec2 fragCoord, float eccentricity) {
   vec2 toGalaxy = fragCoord - g.center;
-  float dist = length(toGalaxy);
-  float radius = 60.0 * g.scale;
-  if (dist > radius) return vec3(0.0);
 
   // Apply rotation
   vec2 rotated = toGalaxy * rot2d(g.angleZ);
-  float angle = atan(rotated.y, rotated.x);
+
+  // Ellipse distance (stretched axis)
+  float ellDist = length(rotated / vec2(1.0, eccentricity));
+  float radius = 60.0 * g.scale;
+
+  if (ellDist > radius) return vec3(0.0);
 
   // Use random color from galaxy
-  float falloff = smoothstep(radius, 0.0, dist);
+  float falloff = smoothstep(radius, 0.0, ellDist);
   return g.color * falloff;
+}
+
+/** Render spiral galaxy (2-armed logarithmic spiral) */
+vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
+  return renderEllipseGalaxy(g, fragCoord, 0.6); // Elongated
 }
 
 /** Render barred spiral galaxy (bar + spiral arms) */
 vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
-  vec2 toGalaxy = fragCoord - g.center;
-  float dist = length(toGalaxy);
-  float radius = 60.0 * g.scale;
-  if (dist > radius) return vec3(0.0);
-
-  // Apply rotation
-  vec2 rotated = toGalaxy * rot2d(g.angleZ);
-
-  // Use random color from galaxy
-  float falloff = smoothstep(radius, 0.0, dist);
-  return g.color * falloff;
+  return renderEllipseGalaxy(g, fragCoord, 0.5); // More elongated
 }
 
 /** Render elliptical galaxy (smooth, featureless) */
 vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
-  vec2 toGalaxy = fragCoord - g.center;
-  float dist = length(toGalaxy);
-  float radius = 60.0 * g.scale;
-  if (dist > radius) return vec3(0.0);
-
-  // Apply rotation
-  vec2 rotated = toGalaxy * rot2d(g.angleZ);
-
-  // Use random color from galaxy
-  float falloff = smoothstep(radius, 0.0, dist);
-  return g.color * falloff;
+  return renderEllipseGalaxy(g, fragCoord, 0.7); // Slightly elongated
 }
 
 /** Render lenticular galaxy (disk + bulge) */
 vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
-  vec2 toGalaxy = fragCoord - g.center;
-  float dist = length(toGalaxy);
-  float radius = 60.0 * g.scale;
-  if (dist > radius) return vec3(0.0);
-
-  // Apply rotation
-  vec2 rotated = toGalaxy * rot2d(g.angleZ);
-
-  // Use random color from galaxy
-  float falloff = smoothstep(radius, 0.0, dist);
-  return g.color * falloff;
+  return renderEllipseGalaxy(g, fragCoord, 0.4); // Very flat disk
 }
 
 /** Render irregular galaxy (clumpy, chaotic) */
 vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
-  vec2 toGalaxy = fragCoord - g.center;
-  float dist = length(toGalaxy);
-  float radius = 60.0 * g.scale;
-  if (dist > radius) return vec3(0.0);
-
-  // Apply rotation
-  vec2 rotated = toGalaxy * rot2d(g.angleZ);
-
-  // Use random color from galaxy
-  float falloff = smoothstep(radius, 0.0, dist);
-  return g.color * falloff;
+  return renderEllipseGalaxy(g, fragCoord, 0.8); // Nearly circular
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
