@@ -479,6 +479,9 @@ export function useShaderRenderer(
   /** Timestamp of the most recent resume (performance.now()) */
   let resumeTimestamp = 0;
 
+  /** Timestamp of the previous frame for measuring actual frame time */
+  let lastFrameTimestamp = 0;
+
   /** Whether the page is currently hidden */
   let pageHidden = false;
 
@@ -799,8 +802,10 @@ export function useShaderRenderer(
   function renderFrame(): void {
     if (!gl || !quadVAO) return;
 
-    // Capture frame start time for CPU metrics
-    const frameStartTime = performance.now();
+    // Measure actual frame time (time since last frame)
+    const currentTimestamp = performance.now();
+    const frameTimeMs = lastFrameTimestamp > 0 ? currentTimestamp - lastFrameTimestamp : 0;
+    lastFrameTimestamp = currentTimestamp;
 
     updateVideoTextures();
 
@@ -857,23 +862,19 @@ export function useShaderRenderer(
       gl.endQuery(timerQueryExt.TIME_ELAPSED_EXT);
     }
 
-    // Capture frame end time and compute CPU metrics
-    const frameEndTime = performance.now();
-    const cpuTimeMs = frameEndTime - frameStartTime;
-
     // Query GPU result (async - will be null first frame, populated next)
     let gpuTimeMs: number | null = null;
     if (gpuQuery && timerQueryExt) {
       gpuTimeMs = getQueryElapsedMs(gl, gpuQuery, timerQueryExt);
     }
 
-    // Record frame metric
+    // Record frame metric with actual frame time
     if (debugState) {
       debugState.addFrameMetric({
         timestamp: Date.now(),
-        cpuTimeMs,
+        cpuTimeMs: frameTimeMs,
         gpuTimeMs,
-        totalTimeMs: cpuTimeMs,
+        totalTimeMs: frameTimeMs,
       });
     }
 
