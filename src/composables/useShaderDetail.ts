@@ -23,8 +23,8 @@ export function useShaderDetail(slug: string) {
   /** Whether the shader was not found */
   const notFound = computed<boolean>(() => shader.value === undefined);
 
-  /** Active tab: 'render', 'code', or 'debug' */
-  const activeTab = ref<'render' | 'code' | 'debug'>('render');
+  /** Active tab: 'render' or 'code' */
+  const activeTab = ref<'render' | 'code'>('render');
 
   /** Whether the mobile info drawer is currently open */
   const isInfoDrawerOpen = ref<boolean>(false);

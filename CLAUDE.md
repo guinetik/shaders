@@ -77,7 +77,8 @@ shaders/
 │   │   ├── noise-perlin.glsl  # Perlin gradient noise, perlinNoise3D(), perlinFbm()
 │   │   ├── color.glsl        # hsl2rgb(), rgb2hsv(), hsv2rgb()
 │   │   ├── sdf.glsl          # dfLine()
-│   │   └── projection.glsl   # rotX(), rotY(), projectMat()
+│   │   ├── projection.glsl   # rotX(), rotY(), projectMat()
+│   │   └── camera.glsl       # orbitCameraUpdate(), orbitCameraRay(), cameraLookAt()
 │   ├── composables/          # Domain logic (controllers)
 │   │   ├── useShaderGallery.ts   # Gallery filtering/sorting
 │   │   ├── useShaderRenderer.ts  # WebGL2 multi-pass renderer
@@ -154,7 +155,7 @@ shaders/
 }
 ```
 
-Available commons: `sphere`, `lighting`, `atmosphere`, `noise-value`, `noise-pcg`, `noise-perlin`, `normal-map`, `color`, `sdf`, `projection`. Order matters — files are concatenated in array order before each pass's source. See `src/lib/` for function signatures.
+Available commons: `sphere`, `lighting`, `atmosphere`, `noise-value`, `noise-pcg`, `noise-perlin`, `normal-map`, `color`, `sdf`, `projection`, `camera`. Order matters — files are concatenated in array order before each pass's source. See `src/lib/` for function signatures.
 
 7. Optionally add `screenshot.webp` in the shader folder for the gallery thumbnail
 
