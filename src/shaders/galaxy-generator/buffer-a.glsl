@@ -157,6 +157,81 @@ void generateSpiral(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in 
   particle.w = brightness;
 }
 
+/** Generate particles in elliptical distribution (Sérsic-like falloff). */
+void generateElliptical(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  uint seed = baseSeed + uint(particleIndex);
+
+  // Radial distribution with inverse-square falloff
+  float u = hash(seed);
+  float r = preset.galaxyRadius * pow(u, 0.4); // concentrated toward center
+  float theta = hash(seed + 1u) * 6.28318;
+
+  // Apply ellipticity (axis ratio)
+  float x = r * cos(theta);
+  float y = r * sin(theta) * preset.axisRatio;
+
+  particle.x = x;
+  particle.y = y;
+
+  // Color: slightly warmer (more old stars)
+  float dist = length(vec2(x, y / preset.axisRatio));
+  float distFactor = clamp(dist / preset.galaxyRadius, 0.0, 1.0);
+  float hue = mix(35.0, 180.0, distFactor * 0.7); // shifted warmer
+  particle.z = hue;
+
+  // Brightness: mostly dim in ellipticals
+  float brightness = 0.15 + hash(seed + 2u) * 0.35;
+  particle.w = brightness;
+}
+
+/** Generate particles along barred spiral (bar + spiral arms). */
+void generateBarredSpiral(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  uint seed = baseSeed + uint(particleIndex);
+
+  float barChance = 0.25; // 25% of particles in bar
+  if (hash(seed) < barChance) {
+    // Place in bar
+    float x = (hash(seed + 1u) - 0.5) * preset.barLength;
+    float y = (hash(seed + 2u) - 0.5) * preset.barWidth;
+    particle.x = x;
+    particle.y = y;
+  } else {
+    // Place along spiral arms (reuse spiral logic)
+    float armWidth = preset.armWidth;
+    float spiralTightness = preset.spiralTightness;
+    float spiralStart = preset.spiralStart;
+
+    int numArms = preset.numArms;
+    float armTheta = (float(particleIndex) / float(preset.numParticles)) * 6.28318 * float(numArms);
+    float r = spiralStart + armTheta / (6.28318 * spiralTightness);
+    r *= 0.85 + 0.3 * hash(seed + 3u);
+
+    float scatter = (hash(seed + 4u) - 0.5) * armWidth;
+    float perpTheta = armTheta + scatter / max(r, 1.0);
+
+    particle.x = r * cos(perpTheta);
+    particle.y = r * sin(perpTheta);
+  }
+
+  // Color: arm-biased hues
+  float dist = length(particle.xy);
+  float distFactor = clamp(dist / preset.galaxyRadius, 0.0, 1.0);
+  float hue = mix(50.0, 220.0, distFactor);
+  particle.z = hue;
+
+  // Brightness
+  float roll = hash(seed + 5u);
+  float brightness;
+  if (roll < 0.6) {
+    brightness = 0.1 + hash(seed + 6u) * 0.2;
+  } else if (roll < 0.95) {
+    brightness = 0.35 + hash(seed + 6u) * 0.35;
+  } else {
+    brightness = 0.65 + hash(seed + 6u) * 0.15;
+  }
+  particle.w = brightness;
+}
+
 // Stub: output white canvas
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor = vec4(1.0, 1.0, 1.0, 1.0);
