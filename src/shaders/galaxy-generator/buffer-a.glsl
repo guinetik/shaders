@@ -232,6 +232,76 @@ void generateBarredSpiral(GalaxyPreset preset, uint baseSeed, inout vec4 particl
   particle.w = brightness;
 }
 
+/** Generate particles for lenticular (disk + bulge). */
+void generateLenticular(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  uint seed = baseSeed + uint(particleIndex);
+
+  float bulgeFraction = 0.3; // ~30% in bulge
+  if (hash(seed) < bulgeFraction) {
+    // Bulge: spherical
+    float r = sqrt(hash(seed + 1u)) * preset.bulgeRadius;
+    float theta = hash(seed + 2u) * 6.28318;
+    particle.x = r * cos(theta);
+    particle.y = r * sin(theta);
+  } else {
+    // Disk: thin radial distribution
+    float r = preset.galaxyRadius * pow(hash(seed + 1u), 0.5);
+    float theta = hash(seed + 2u) * 6.28318;
+    float diskThick = 0.05 * preset.galaxyRadius;
+    float y = (hash(seed + 3u) - 0.5) * diskThick;
+
+    particle.x = r * cos(theta);
+    particle.y = y;
+  }
+
+  // Color: intermediate (transition population)
+  float dist = length(particle.xy);
+  float distFactor = clamp(dist / preset.galaxyRadius, 0.0, 1.0);
+  float hue = mix(40.0, 200.0, distFactor * 0.6);
+  particle.z = hue;
+
+  // Brightness: moderate
+  float brightness = 0.2 + hash(seed + 4u) * 0.35;
+  particle.w = brightness;
+}
+
+/** Generate particles in irregular clumpy distribution. */
+void generateIrregular(GalaxyPreset preset, uint baseSeed, inout vec4 particle, in int particleIndex) {
+  uint seed = baseSeed + uint(particleIndex);
+
+  int clumpCount = max(preset.clumpCount, 1);
+  int clumpIdx = particleIndex % clumpCount;
+
+  // Random clump center
+  uint clumpSeed = baseSeed + uint(clumpIdx) * 1000u;
+  float clumpTheta = hash(clumpSeed) * 6.28318;
+  float clumpR = preset.galaxyRadius * 0.5 * (0.3 + 0.7 * hash(clumpSeed + 1u));
+  float clumpCx = clumpR * cos(clumpTheta);
+  float clumpCy = clumpR * sin(clumpTheta);
+
+  // Scatter particles around clump
+  float scatterRad = preset.galaxyRadius * 0.15;
+  float scatter = scatterRad * pow(hash(seed), 0.5);
+  float scatterTheta = hash(seed + 1u) * 6.28318;
+
+  particle.x = clumpCx + scatter * cos(scatterTheta);
+  particle.y = clumpCy + scatter * sin(scatterTheta);
+
+  // Color: varied (young stars, dust)
+  float roll = hash(seed + 2u);
+  float hue;
+  if (roll < 0.5) {
+    hue = 10.0 + hash(seed + 3u) * 40.0; // red-orange old
+  } else {
+    hue = 200.0 + hash(seed + 3u) * 50.0; // blue-white young
+  }
+  particle.z = hue;
+
+  // Brightness
+  float brightness = 0.12 + hash(seed + 4u) * 0.38;
+  particle.w = brightness;
+}
+
 // Stub: output white canvas
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor = vec4(1.0, 1.0, 1.0, 1.0);
