@@ -61,30 +61,30 @@ struct GalaxyPreset {
 
 // Preset gallery (12 presets)
 const GalaxyPreset PRESETS[12] = GalaxyPreset[](
-  // 0: Tight Spiral (SAa) — 12000 particles for clarity
-  GalaxyPreset(0, 12000, 320.0, 2, 25.0, 0.14, 50.0, 70.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
-  // 1: Medium Spiral (SAb) — 12000 particles
-  GalaxyPreset(0, 12000, 350.0, 2, 40.0, 0.25, 30.0, 35.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
-  // 2: Grand-Design Spiral (SAc) — 14000 particles for largest
-  GalaxyPreset(0, 14000, 380.0, 2, 55.0, 0.22, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
-  // 3: Barred Tight (SBa) — 12000 particles
-  GalaxyPreset(1, 12000, 320.0, 2, 30.0, 0.16, 60.0, 50.0, 140.0, 30.0, 0.0, 0.0, 0.0, 0),
-  // 4: Barred Open (SBc) — 13000 particles
-  GalaxyPreset(1, 13000, 380.0, 2, 60.0, 0.35, 40.0, 0.0, 90.0, 20.0, 0.0, 0.0, 0.0, 0),
-  // 5: Spherical Elliptical (E0) — 10000 particles
-  GalaxyPreset(2, 10000, 300.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.9, 0.0, 0),
-  // 6: Elongated Elliptical (E7) — 9500 particles
-  GalaxyPreset(2, 9500, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.5, 0.0, 0),
-  // 7: Lenticular (S0) — 11000 particles
-  GalaxyPreset(3, 11000, 300.0, 0, 0.0, 0.0, 0.0, 80.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
-  // 8: Flocculent Spiral (SAd) — 13000 particles
-  GalaxyPreset(0, 13000, 360.0, 4, 65.0, 0.3, 40.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0),
-  // 9: Clumpy Irregular (Irr-I) — 9000 particles
-  GalaxyPreset(4, 9000, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 5),
-  // 10: Scattered Irregular (Irr-II) — 8500 particles
-  GalaxyPreset(4, 8500, 260.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 3),
-  // 11: Flocculent Open (SAd variant) — 13500 particles
-  GalaxyPreset(0, 13500, 370.0, 6, 70.0, 0.32, 35.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0)
+  // 0: Tight Spiral (SAa) — 1000 particles
+  GalaxyPreset(0, 1000, 320.0, 2, 25.0, 0.14, 50.0, 70.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 1: Medium Spiral (SAb) — 1000 particles
+  GalaxyPreset(0, 1000, 350.0, 2, 40.0, 0.25, 30.0, 35.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 2: Grand-Design Spiral (SAc) — 1000 particles
+  GalaxyPreset(0, 1000, 380.0, 2, 55.0, 0.22, 25.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 3: Barred Tight (SBa) — 1000 particles
+  GalaxyPreset(1, 1000, 320.0, 2, 30.0, 0.16, 60.0, 50.0, 140.0, 30.0, 0.0, 0.0, 0.0, 0),
+  // 4: Barred Open (SBc) — 1000 particles
+  GalaxyPreset(1, 1000, 380.0, 2, 60.0, 0.35, 40.0, 0.0, 90.0, 20.0, 0.0, 0.0, 0.0, 0),
+  // 5: Spherical Elliptical (E0) — 1000 particles
+  GalaxyPreset(2, 1000, 300.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.9, 0.0, 0),
+  // 6: Elongated Elliptical (E7) — 1000 particles
+  GalaxyPreset(2, 1000, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.5, 0.0, 0),
+  // 7: Lenticular (S0) — 1000 particles
+  GalaxyPreset(3, 1000, 300.0, 0, 0.0, 0.0, 0.0, 80.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0),
+  // 8: Flocculent Spiral (SAd) — 1000 particles
+  GalaxyPreset(0, 1000, 360.0, 4, 65.0, 0.3, 40.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0),
+  // 9: Clumpy Irregular (Irr-I) — 1000 particles
+  GalaxyPreset(4, 1000, 280.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 5),
+  // 10: Scattered Irregular (Irr-II) — 1000 particles
+  GalaxyPreset(4, 1000, 260.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 3),
+  // 11: Flocculent Open (SAd variant) — 1000 particles
+  GalaxyPreset(0, 1000, 370.0, 6, 70.0, 0.32, 35.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0)
 );
 
 #define PRESET_COUNT 12

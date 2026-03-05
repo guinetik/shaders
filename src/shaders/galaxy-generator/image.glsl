@@ -92,7 +92,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   int presetIdx = int(iTime / PRESET_DURATION) % 12;
 
   // Approximate particle count for this preset
-  int particleCount = 10000; // average
+  int particleCount = 1000;
 
   // Optional 3D tilt (reduce y by ~10% for shallow perspective)
   float tiltAmount = 0.1;
