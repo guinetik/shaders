@@ -45,41 +45,43 @@ vec4 sampleParticle(int particleIndex) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  vec3 col = vec3(0.0); // black background
+  vec3 col = vec3(0.0);
+  int presetIdx = int(iTime / PRESET_DURATION) % 12;
 
-  // Sample all particles (brute force)
-  for (int i = 0; i < MAX_PARTICLES; i++) {
+  // Approximate particle count for this preset
+  int particleCount = 10000; // average
+
+  // Early exit if too far from any particle
+  vec2 centerDist = abs(fragCoord - iResolution.xy * 0.5);
+  if (min(centerDist.x, centerDist.y) > 400.0) {
+    // Far from center, render background
+    fragColor = vec4(0.0, 0.0, 0.0, 1.0);
+    return;
+  }
+
+  // Limit loop to particle count
+  for (int i = 0; i < min(particleCount, MAX_PARTICLES); i++) {
     vec4 p = sampleParticle(i);
-
-    // Skip empty particles
     if (length(p.xy) < 0.1) continue;
 
-    // Particle position in screen space
-    vec2 ppos = p.xy + iResolution.xy * 0.5; // center on screen
+    vec2 ppos = p.xy + iResolution.xy * 0.5;
     vec2 diff = fragCoord - ppos;
     float dist = length(diff);
 
-    // Determine particle size by brightness (bright = large halo)
     float brightness = p.w;
-    float particleRadius = 2.0 + brightness * 8.0; // 2–10 pixel radius
+    float particleRadius = 2.0 + brightness * 8.0;
+    if (dist > particleRadius) continue; // skip far particles
 
-    // Render only if within radius
-    if (dist < particleRadius) {
-      // Color from hue
-      float hue = p.z;
-      float sat = 0.8 + brightness * 0.2; // brighter = more saturated
-      float light = 0.4 + brightness * 0.2; // brighter = lighter
-      vec3 pcolor = hslToRgb(hue, sat, light);
+    float hue = p.z;
+    float sat = 0.8 + brightness * 0.2;
+    float light = 0.4 + brightness * 0.2;
+    vec3 pcolor = hslToRgb(hue, sat, light);
 
-      // Glow falloff
-      float falloff = smoothstep(particleRadius, 0.0, dist);
-      float alpha = brightness * falloff;
-
-      col += pcolor * alpha;
-    }
+    float falloff = smoothstep(particleRadius, 0.0, dist);
+    float alpha = brightness * falloff;
+    col += pcolor * alpha;
   }
 
-  // Gamma correction
   col = pow(col, vec3(0.45));
   fragColor = vec4(col, 1.0);
 }
