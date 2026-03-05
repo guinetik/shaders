@@ -38,6 +38,14 @@
 #define GAL_SUPERNOVA_MULT 10.0         // Supernova brightness boost
 #define GAL_INNER_RADIUS 0.1            // Innermost ring radius (normalized)
 #define GAL_OUTER_RADIUS 1.0            // Outermost ring radius (normalized)
+#define GAL_MAX_RINGS 25                // Fixed upper bound for ring loop (integer)
+#define GAL_RING_DECORR_A 563.2         // Ring-to-ring decorrelation seed A
+#define GAL_RING_DECORR_B 673.2         // Ring-to-ring decorrelation seed B
+#define GAL_STAR_OFFSET_A 17.3          // Star ID offset multiplier (decorrelation)
+#define GAL_STAR_OFFSET_B 31.7          // Star ID offset multiplier (decorrelation)
+#define GAL_TWINKLE_FREQ 784.0          // Star twinkle oscillation frequency
+#define GAL_SUPERNOVA_TIME_SCALE 0.05   // Supernova pulse time multiplier (slow)
+#define GAL_STAR_COLOR_FREQ 100.0       // Star color variation frequency
 
 // ─────────────────────────────────────────────────────────────────────────────
 // UTILITIES
@@ -135,11 +143,13 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   // Seed-based rotation direction (clockwise vs counter-clockwise)
   t *= (float(g.seed % 2u) * 2.0 - 1.0);
 
-  for (float i = 0.0; i < 1.0; i += 1.0 / style.numRings) {
+  for (int j = 0; j < GAL_MAX_RINGS; j++) {
+    float i = float(j) / style.numRings;
+    if (i >= 1.0) break;
     flip *= -1.0;
 
     // Ring-to-ring Y perturbation (disk thickness, decorrelates rings)
-    float z = mix(style.diskThickness, 0.0, i) * flip * fract(sin(i * 563.2) * 673.2);
+    float z = mix(style.diskThickness, 0.0, i) * flip * fract(sin(i * GAL_RING_DECORR_A) * GAL_RING_DECORR_B);
 
     // Ring radius: inner to outer
     float r = mix(GAL_INNER_RADIUS, GAL_OUTER_RADIUS, i);
@@ -171,7 +181,7 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
     // === Point Stars ===
     vec2 starId = floor(texUv * style.starDensity);
     vec2 starUv = fract(texUv * style.starDensity) - 0.5;
-    float n = hashN2(starId + vec2(i * 17.3, i * 31.7));
+    float n = hashN2(starId + vec2(i * GAL_STAR_OFFSET_A, i * GAL_STAR_OFFSET_B));
     float starDist = length(starUv);
 
     // Star glow: bright point with 1/distance falloff
@@ -181,14 +191,14 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
 
     // Twinkle + rare supernova
     float sN = sL;
-    sL *= sin(n * 784.0 + iTime) * 0.5 + 0.5;
-    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0, sin(n * 784.0 + iTime * 0.05))
+    sL *= sin(n * GAL_TWINKLE_FREQ + iTime) * 0.5 + 0.5;
+    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0, sin(n * GAL_TWINKLE_FREQ + iTime * GAL_SUPERNOVA_TIME_SCALE))
         * GAL_SUPERNOVA_MULT;
 
     // Add stars (skip innermost rings to avoid center clutter)
     if (i > 3.0 / style.starDensity) {
       vec3 starCol = mix(
-        vec3(0.5 + sin(n * 100.0) * 0.5, 0.5, 1.0),
+        vec3(0.5 + sin(n * GAL_STAR_COLOR_FREQ) * 0.5, 0.5, 1.0),
         vec3(1.0),
         n
       );
