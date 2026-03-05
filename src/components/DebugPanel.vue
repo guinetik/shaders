@@ -92,6 +92,9 @@ const activeTabClass = computed(() => ({
   height: 100%;
   background: var(--n-surface);
   border-radius: 8px;
+  /* Desktop: side panel */
+  width: 100%;
+  max-width: 400px;
 }
 
 .debug-tabs {
@@ -134,5 +137,28 @@ const activeTabClass = computed(() => ({
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+/* Mobile: full-screen drawer */
+@media (max-width: 767px) {
+  .debug-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 </style>

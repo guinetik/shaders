@@ -26,6 +26,7 @@ const {
 
 const { prefersReducedMotion, transitionSnapshot, setTransitionSnapshot } = useNeutronMotion();
 
+const debugState = useShaderDebug();
 const {
     isDebugOpen,
     activeDebugTab,
@@ -41,7 +42,7 @@ const {
     setActiveTab,
     toggleHeatmap,
     clearErrors,
-} = useShaderDebug();
+} = debugState;
 
 const isViewingDebugTab = ref(false);
 
@@ -272,38 +273,42 @@ function showCodeFromDrawer(): void {
                 </nav>
             </div>
 
-            <section class="tab-content detail-stagger-0">
-                <ShaderRenderer
-                    v-if="activeTab === 'render'"
-                    ref="rendererRef"
-                    :passes="shader.passes"
-                    :channels="shader.channels"
-                    :commonsSources="shader.commonsSources"
-                    :screenshotUrl="shader.screenshotUrl"
-                    :deferStart="true"
-                />
-                <DebugOverlay
-                    v-if="isDebugOpen && activeTab === 'render'"
-                    :active-debug-tab="activeDebugTab"
-                    :frame-metrics="frameMetrics"
-                    :current-fps="currentFps"
-                    :avg-frame-time="avgFrameTime"
-                    :avg-gpu-time="avgGpuTime"
-                    :peak-frame-time="peakFrameTime"
-                    :gpu-timer-query-supported="gpuTimerQuerySupported"
-                    :shader-errors="shaderErrors"
-                    :show-heatmap="showHeatmap"
-                    @set-active-tab="setActiveTab"
-                    @toggle-heatmap="toggleHeatmap"
-                    @clear-errors="clearErrors"
-                />
-                <CodeViewer
-                    v-else-if="activeTab === 'code'"
-                    :passes="shader.passes"
-                    :commonsSources="shader.commonsSources"
-                />
+            <section class="tab-content detail-stagger-0" :class="{ 'debug-split': activeTab === 'debug' }">
+                <div class="content-main">
+                    <ShaderRenderer
+                        v-if="activeTab === 'render'"
+                        ref="rendererRef"
+                        :passes="shader.passes"
+                        :channels="shader.channels"
+                        :commonsSources="shader.commonsSources"
+                        :screenshotUrl="shader.screenshotUrl"
+                        :deferStart="true"
+                        :debugState="debugState"
+                    />
+                    <DebugOverlay
+                        v-if="isDebugOpen && activeTab === 'render'"
+                        :active-debug-tab="activeDebugTab"
+                        :frame-metrics="frameMetrics"
+                        :current-fps="currentFps"
+                        :avg-frame-time="avgFrameTime"
+                        :avg-gpu-time="avgGpuTime"
+                        :peak-frame-time="peakFrameTime"
+                        :gpu-timer-query-supported="gpuTimerQuerySupported"
+                        :shader-errors="shaderErrors"
+                        :show-heatmap="showHeatmap"
+                        @set-active-tab="setActiveTab"
+                        @toggle-heatmap="toggleHeatmap"
+                        @clear-errors="clearErrors"
+                    />
+                    <CodeViewer
+                        v-else-if="activeTab === 'code'"
+                        :passes="shader.passes"
+                        :commonsSources="shader.commonsSources"
+                    />
+                </div>
                 <DebugPanel
-                    v-else-if="activeTab === 'debug'"
+                    v-if="activeTab === 'debug'"
+                    class="debug-side-panel"
                     :active-debug-tab="activeDebugTab"
                     :frame-metrics="frameMetrics"
                     :current-fps="currentFps"
@@ -629,6 +634,23 @@ function showCodeFromDrawer(): void {
     position: relative;
 }
 
+.tab-content.debug-split {
+    display: flex;
+    gap: 12px;
+}
+
+.tab-content.debug-split .content-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.debug-side-panel {
+    width: 350px;
+    flex-shrink: 0;
+    border-left: 1px solid var(--n-border);
+    border-radius: 0;
+}
+
 /* -- Action bar (simple fade) -- */
 .action-expand-wrap {
     margin-top: 12px;
@@ -819,6 +841,15 @@ function showCodeFromDrawer(): void {
         border-radius: 0;
     }
 
+    .tab-content.debug-split {
+        display: block;
+        position: relative;
+    }
+
+    .tab-content.debug-split .content-main {
+        display: none;
+    }
+
     .tab-content :deep(.renderer-container),
     .tab-content :deep(.shader-canvas) {
         width: 100%;
@@ -844,7 +875,7 @@ function showCodeFromDrawer(): void {
         max-height: none;
     }
 
-    /* Hide Debug tab on mobile (overlay-only mode) */
+    /* Hide Debug tab on mobile (drawer-only mode) */
     .tab-button:nth-child(3) {
         display: none;
     }

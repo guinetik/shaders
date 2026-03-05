@@ -11,6 +11,8 @@ const props = withDefaults(defineProps<{
   screenshotUrl?: string;
   /** When true, defer shader compilation until startRendering() is called */
   deferStart?: boolean;
+  /** Optional debug state composable instance for frame metrics and error capture */
+  debugState?: any;
 }>(), {
   screenshotUrl: '',
   deferStart: false,
@@ -20,7 +22,7 @@ const canvasRef = ref<HTMLCanvasElement | null>(null);
 const showPlaceholder = ref(!!props.screenshotUrl);
 
 const { error, isRunning, start } = useShaderRenderer(
-  canvasRef, props.passes, props.channels, props.commonsSources, props.deferStart,
+  canvasRef, props.passes, props.channels, props.commonsSources, props.deferStart, props.debugState,
 );
 
 /** Hide the placeholder once the shader is actually running */
