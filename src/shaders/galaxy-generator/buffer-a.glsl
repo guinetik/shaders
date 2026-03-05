@@ -39,23 +39,36 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
       // Create galaxy for this cell
       Galaxy g;
-      g.type = typeIndex % 5;  // Cycle through 5 types
+      g.type = typeIndex % 5;
       uint cycleSeed = uint(int(iTime / 7.0)) * 12345u + uint(typeIndex);
       g.seed = cycleSeed;
       g.center = cellCenter;
       g.scale = 1.0;
 
-      // Randomized rotation angles (change every 7 seconds)
+      // Rotation angles
       g.angleX = hashSeed(cycleSeed, 1u) * 6.28318;
       g.angleY = hashSeed(cycleSeed, 2u) * 6.28318;
       g.angleZ = hashSeed(cycleSeed, 3u) * 6.28318;
 
-      // Randomized color (change every 7 seconds)
+      // Color
       g.color = vec3(
         hashSeed(cycleSeed, 4u),
         hashSeed(cycleSeed, 5u),
         hashSeed(cycleSeed, 6u)
       );
+
+      // Physical parameters (from DB schema)
+      // axialRatio: b/a (0.3-1.0), default 0.7
+      g.axialRatio = 0.3 + hashSeed(cycleSeed, 7u) * 0.7;
+
+      // mass_log10: log stellar mass (9-12), default Milky Way ~10.5
+      g.mass_log10 = 9.0 + hashSeed(cycleSeed, 8u) * 3.0;
+
+      // velocity_kmps: CMB velocity (0-14000), default 3000-9000
+      g.velocity_kmps = 3000.0 + hashSeed(cycleSeed, 9u) * 6000.0;
+
+      // distance_mpc: distance (1-1000+), default 10-100
+      g.distance_mpc = 10.0 + hashSeed(cycleSeed, 10u) * 90.0;
 
       // Render and composite
       col += renderGalaxy(g, fragCoord);

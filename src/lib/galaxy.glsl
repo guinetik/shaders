@@ -22,16 +22,20 @@ mat2 rot2d(float angle) {
 // GALAXY DEFINITION
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Galaxy entity with type, seed, position, scale, rotation, and color */
+/** Galaxy entity with morphology and physical parameters */
 struct Galaxy {
-  int type;      // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
-  uint seed;     // deterministic randomness
-  vec2 center;   // center position (screen space)
-  float scale;   // relative size multiplier
-  float angleX;  // rotation around X axis
-  float angleY;  // rotation around Y axis
-  float angleZ;  // rotation around Z axis
-  vec3 color;    // random color for this galaxy
+  int type;           // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
+  uint seed;          // deterministic randomness
+  vec2 center;        // center position (screen space)
+  float scale;        // relative size multiplier
+  float angleX;       // rotation around X axis
+  float angleY;       // rotation around Y axis
+  float angleZ;       // rotation around Z axis
+  vec3 color;         // random color for this galaxy
+  float axialRatio;   // b/a elongation (0.3-1.0, from DB axial_ratio)
+  float mass_log10;   // log10 stellar mass (9-12, from DB log_ms_t)
+  float velocity_kmps;// CMB velocity in km/s (0-14000+, from DB vcmb)
+  float distance_mpc; // distance in megaparsecs (always populated)
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
