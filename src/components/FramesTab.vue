@@ -38,12 +38,13 @@ watch(
 );
 
 /**
- * Calculate elapsed time from first metric to now.
+ * Calculate elapsed time from first metric to last metric in array.
  */
 function getElapsedTime(metrics: FrameMetric[]): string {
   if (metrics.length === 0) return '0:00';
   const firstTimestamp = metrics[0].timestamp;
-  const elapsed = Date.now() - firstTimestamp;
+  const lastTimestamp = metrics[metrics.length - 1].timestamp;
+  const elapsed = lastTimestamp - firstTimestamp;
   const seconds = Math.floor((elapsed / 1000) % 60);
   const minutes = Math.floor((elapsed / 60000) % 60);
   return `${minutes}:${seconds.toString().padStart(2, '0')}`;

@@ -31,6 +31,11 @@ const emit = defineEmits<{
         {{ showHeatmap ? 'Heatmap: ON' : 'Heatmap: OFF' }}
       </button>
 
+      <div v-if="showHeatmap" class="heatmap-not-implemented">
+        <p style="color: #FFD700;">⚠️ Heatmap rendering not yet implemented.</p>
+        <p>When fully implemented, this will show GPU instruction cost per pixel with a thermal color gradient.</p>
+      </div>
+
       <div class="heatmap-info">
         <p>
           When enabled, the shader view shows GPU instruction cost per pixel
@@ -118,6 +123,20 @@ const emit = defineEmits<{
   border-color: var(--n-border-active);
   box-shadow: 0 0 12px var(--n-glow);
   background: var(--n-bg-hover);
+}
+
+.heatmap-not-implemented {
+  padding: 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--n-text-dim);
+  line-height: 1.5;
+}
+
+.heatmap-not-implemented p {
+  margin: 6px 0;
 }
 
 .heatmap-info {
