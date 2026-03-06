@@ -125,23 +125,31 @@ vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// RING-LOOP RENDERER
+// SPIRAL RENDERER (multi-arm density wave)
 // ─────────────────────────────────────────────────────────────────────────────
 
+#define GAL_MAX_ARM_FAMILIES 4         // Fixed upper bound for arm loop
+#define GAL_ARM_DUST_DECORR 3.7        // Dust noise offset per arm (decorrelation)
+#define GAL_ARM_STAR_DECORR_A 53.1     // Star hash decorrelation per arm (x)
+#define GAL_ARM_DISK_DECORR 7.0        // Disk thickness decorrelation per arm
+
 /**
- * Core ring-loop renderer.
+ * Multi-arm spiral renderer.
  *
- * TECHNIQUE: Overlapping Rotated Elliptical Orbits
- * For NUM_RINGS concentric rings at increasing radius:
- * 1. Rotate UV by (i * TAU * twist) — progressive rotation creates spiral
- * 2. Stretch inner rings x-axis (creates bar/elongation)
- * 3. Gaussian brightness at ring radius
- * 4. Procedural noise for dust lanes
- * 5. Two-tone dust color (cool outer, warm inner)
- * 6. Grid-based point stars with twinkle
- * 7. Inner rings orbit faster (Keplerian: phase / radius)
+ * TECHNIQUE: Overlapping Rotated Elliptical Orbits with Arm Families
+ * For each arm family (spaced TAU/numArms apart):
+ *   For ringsPerArm concentric rings at increasing radius:
+ *   1. Rotate UV by (i * TAU * twist + armOffset) — arm-spaced spirals
+ *   2. Stretch inner rings x-axis (creates bar/elongation)
+ *   3. Gaussian brightness at ring radius
+ *   4. Procedural noise for dust lanes (decorrelated per arm)
+ *   5. Two-tone dust color (cool outer, warm inner)
+ *   6. Grid-based point stars with twinkle (decorrelated per arm)
+ *   7. Inner rings orbit faster (Keplerian: phase / radius)
+ *
+ * Total ring iterations stay constant: arms * ringsPerArm ≈ numRings.
  */
-vec3 _galRenderRingLoop(Galaxy g, vec2 uv) {
+vec3 _galRenderSpiral(Galaxy g, vec2 uv) {
   vec3 col = vec3(0.0);
 
   // Two-tone dust palette (astronomical, no green)
@@ -149,78 +157,90 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv) {
   vec3 coolDust = vec3(0.4, 0.5, 1.0);
   vec3 warmDust = vec3(1.0, 0.75, 0.35);
 
-  float flip = 1.0;
+  float arms = max(g.numArms, 1.0);
+  float ringsPerArm = g.numRings / arms;
+  float totalRings = arms * ringsPerArm;
+
   float t = g.time * GAL_ORBIT_SPEED;
   // Seed-based rotation direction
   t *= (mod(g.seed, 2.0) < 1.0 ? 1.0 : -1.0);
 
-  for (int j = 0; j < GAL_MAX_RINGS; j++) {
-    float i = float(j) / g.numRings;
-    if (i >= 1.0) break;
-    flip *= -1.0;
+  for (int a = 0; a < GAL_MAX_ARM_FAMILIES; a++) {
+    if (float(a) >= arms) break;
+    float armOffset = float(a) * _GAL_TAU / arms;
 
-    // Disk thickness: decorrelated Y perturbation between rings
-    float z = mix(g.diskThickness, 0.0, i) * flip
-            * fract(sin(i * GAL_RING_DECORR_A) * GAL_RING_DECORR_B);
+    float flip = 1.0;
+    for (int j = 0; j < GAL_MAX_RINGS; j++) {
+      float i = float(j) / ringsPerArm;
+      if (i >= 1.0) break;
+      flip *= -1.0;
 
-    // Ring radius: inner to outer
-    float r = mix(0.1, 1.0, i);
+      // Disk thickness: decorrelated Y perturbation between rings
+      float z = mix(g.diskThickness, 0.0, i) * flip
+              * fract(sin((i + float(a) * GAL_ARM_DISK_DECORR) * GAL_RING_DECORR_A) * GAL_RING_DECORR_B);
 
-    // Slight UV offset from disk thickness
-    vec2 ringUv = uv + vec2(0.0, z * 0.5);
+      // Ring radius: inner to outer
+      float r = mix(0.1, 1.0, i);
 
-    // Spiral twist: progressive rotation creates arm structure
-    vec2 st = ringUv * _galRot(i * _GAL_TAU * g.twist);
+      // Slight UV offset from disk thickness
+      vec2 ringUv = uv + vec2(0.0, z * 0.5);
 
-    // Inner ring elongation (bar effect fading to circular at outer edge)
-    st.x *= mix(g.innerStretch, 1.0, i);
+      // Spiral twist: progressive rotation creates arm structure
+      // armOffset spaces arms evenly around the disk
+      vec2 st = ringUv * _galRot(i * _GAL_TAU * g.twist + armOffset);
 
-    // Ring brightness: Gaussian peak at radius r
-    float ell = exp(-0.5 * abs(dot(st, st) - r) * g.ringWidth);
+      // Inner ring elongation (bar effect fading to circular at outer edge)
+      st.x *= mix(g.innerStretch, 1.0, i);
 
-    // Orbital motion UV — inner rings orbit faster (Kepler: t/r)
-    vec2 texUv = GAL_DUST_UV_SCALE * st * _galRot(i * 100.0 + t / max(r, 0.01));
+      // Ring brightness: Gaussian peak at radius r
+      float ell = exp(-0.5 * abs(dot(st, st) - r) * g.ringWidth);
 
-    // Dust detail: noise squared for contrast (dark lanes + bright knots)
-    float rawDust = valueNoise2D((texUv + vec2(i)) * GAL_DUST_NOISE_FREQ);
-    vec3 dust = vec3(rawDust * rawDust);
+      // Orbital motion UV — inner rings orbit faster (Kepler: t/r)
+      vec2 texUv = GAL_DUST_UV_SCALE * st * _galRot(i * 100.0 + t / max(r, 0.01));
 
-    // Combined brightness with contrast shaping
-    vec3 dL = pow(max(ell * dust / max(r, 0.01), vec3(0.0)), vec3(0.5 + g.dustContrast));
+      // Dust detail: noise squared for contrast (dark lanes + bright knots)
+      // Per-arm decorrelation via offset to avoid identical dust patterns
+      float rawDust = valueNoise2D((texUv + vec2(i + float(a) * GAL_ARM_DUST_DECORR)) * GAL_DUST_NOISE_FREQ);
+      vec3 dust = vec3(rawDust * rawDust);
 
-    // Two-tone dust color: warm inner → cool outer
-    // Smoothly transition from warm (core) to cool (outer disc)
-    float warmFrac = g.dustWarmth * (1.0 - smoothstep(0.15, 0.6, i));
-    vec3 dustCol = mix(coolDust, warmDust, warmFrac);
+      // Combined brightness with contrast shaping
+      vec3 dL = pow(max(ell * dust / max(r, 0.01), vec3(0.0)), vec3(0.5 + g.dustContrast));
 
-    col += dL * dustCol;
+      // Two-tone dust color: warm inner → cool outer
+      // Smoothly transition from warm (core) to cool (outer disc)
+      float warmFrac = g.dustWarmth * (1.0 - smoothstep(0.15, 0.6, i));
+      vec3 dustCol = mix(coolDust, warmDust, warmFrac);
 
-    // === Point Stars ===
-    vec2 starId = floor(texUv * g.starDensity);
-    vec2 starUv = fract(texUv * g.starDensity) - 0.5;
-    float n = hashN2(starId + vec2(i * 17.3, i * 31.7));
-    float starDist = length(starUv);
+      col += dL * dustCol;
 
-    float sL = smoothstep(GAL_STAR_GLOW, 0.0, starDist)
-             * pow(max(dL.r, 0.0), 2.0) * GAL_STAR_BRIGHT
-             / max(starDist, 0.001);
+      // === Point Stars ===
+      vec2 starId = floor(texUv * g.starDensity);
+      vec2 starUv = fract(texUv * g.starDensity) - 0.5;
+      // Per-arm decorrelation for star hash
+      float n = hashN2(starId + vec2(i * 17.3 + float(a) * GAL_ARM_STAR_DECORR_A, i * 31.7));
+      float starDist = length(starUv);
 
-    // Twinkle + rare supernova
-    float sN = sL;
-    sL *= sin(n * GAL_TWINKLE_FREQ + g.time) * 0.5 + 0.5;
-    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0,
-      sin(n * GAL_TWINKLE_FREQ + g.time * 0.05)) * GAL_SUPERNOVA_MULT;
+      float sL = smoothstep(GAL_STAR_GLOW, 0.0, starDist)
+               * pow(max(dL.r, 0.0), 2.0) * GAL_STAR_BRIGHT
+               / max(starDist, 0.001);
 
-    // Stars: white-hot with slight color variation
-    if (i > 3.0 / g.starDensity) {
-      vec3 hotStar = mix(vec3(0.85, 0.88, 1.0), vec3(1.0, 0.97, 0.9), n);
-      vec3 starCol = mix(dustCol, hotStar, 0.6 + n * 0.4);
-      col += sL * starCol;
+      // Twinkle + rare supernova
+      float sN = sL;
+      sL *= sin(n * GAL_TWINKLE_FREQ + g.time) * 0.5 + 0.5;
+      sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0,
+        sin(n * GAL_TWINKLE_FREQ + g.time * 0.05)) * GAL_SUPERNOVA_MULT;
+
+      // Stars: white-hot with slight color variation
+      if (i > 3.0 / g.starDensity) {
+        vec3 hotStar = mix(vec3(0.85, 0.88, 1.0), vec3(1.0, 0.97, 0.9), n);
+        vec3 starCol = mix(dustCol, hotStar, 0.6 + n * 0.4);
+        col += sL * starCol;
+      }
     }
   }
 
-  // Normalize by ring count
-  col /= g.numRings;
+  // Normalize by total ring count (arms * ringsPerArm)
+  col /= totalRings;
 
   // Radial fadeout — smooth edge
   col *= smoothstep(GAL_MAX_RADIUS, 0.7, length(uv));
@@ -242,8 +262,8 @@ vec3 renderGalaxy(Galaxy g, vec2 fragCoord) {
 
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
-  // Ring-loop dust + stars
-  vec3 col = _galRenderRingLoop(g, uv);
+  // Ring-loop dust + stars (spiral renderer)
+  vec3 col = _galRenderSpiral(g, uv);
 
   // Bulge glow: warm golden-white center
   vec3 bulgeTint = mix(vec3(1.0, 0.9, 0.8), g.color, 0.5);
