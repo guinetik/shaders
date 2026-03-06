@@ -1,22 +1,24 @@
 /**
- * Galaxy Generator Library
+ * Galaxy Generator Library — Density Wave Ring-Loop
  * @author guinetik
  * @date 2026-03-05
  *
- * Provides Galaxy struct and polymorphic renderGalaxy() dispatcher.
- * Strategy pattern: render implementation varies by galaxy type.
+ * Renders galaxies via the Megaparsecs ring-loop technique, parameterized
+ * by Hubble morphology type for shape diversity.
  *
- * TECHNIQUE: Overlapping Rotated Elliptical Orbits (Megaparsecs)
- * A galaxy is rendered as many concentric elliptical rings, each slightly
- * rotated. Spiral structure emerges from cumulative rotation (twist param).
- * Inner rings are more elongated and orbit faster (Keplerian).
- * Procedural valueNoise2D provides dust detail.
+ * TECHNIQUE: Overlapping Rotated Elliptical Orbits
+ * Concentric rings at increasing radius, each progressively rotated by
+ * `twist * TAU`. Spiral arms emerge from cumulative rotation. Inner ring
+ * elongation creates bars. Procedural noise adds dust texture.
+ * Point stars via grid hash with twinkle.
  *
- * Based on "Megaparsecs" by Martijn Steinrucken (BigWings), CC BY-NC-SA 3.0.
- * Each type renderer is independently replaceable — today all delegate to
- * renderRingLoop(), but any can be swapped for a different technique later.
+ * Color model: two-tone dust (cool blue-white outer → warm gold inner)
+ * with per-galaxy hue tint for Hubble XDF-style diversity.
  *
- * Requires: noise-value common (valueNoise2D, hashN2)
+ * Based on "Megaparsecs" by BigWings, CC BY-NC-SA 3.0.
+ * Morphology parameterization inspired by beltoforion.de Galaxy-Renderer.
+ *
+ * Requires: noise-value (valueNoise2D, hashN2), color (hsl2rgb)
  */
 
 #ifndef _GAL_TAU
@@ -24,41 +26,36 @@
 #endif
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CONSTANTS
+// RENDERING CONSTANTS
 // ─────────────────────────────────────────────────────────────────────────────
 
-#define GAL_MAX_RADIUS 1.5              // Early-out distance (in tilted UV space)
-#define GAL_MIN_COS_TILT 0.15           // Minimum cos(tilt) — clamps max edge-on stretch
-#define GAL_RING_PHASE_OFFSET 100.0     // Per-ring orbital phase spread
+#define GAL_MAX_RADIUS 1.5              // Early-out distance (normalized UV)
+#define GAL_MIN_COS_TILT 0.15           // Minimum cos(tilt) for edge-on clamp
+#define GAL_MAX_RINGS 25                // Fixed upper bound for ring loop
 #define GAL_ORBIT_SPEED 0.1             // Time multiplier for orbital motion
 #define GAL_DUST_UV_SCALE 0.2           // UV scale for dust sampling
-#define GAL_DUST_NOISE_FREQ 4.0         // Noise frequency multiplier
-#define GAL_STAR_GLOW_RADIUS 0.5        // Smoothstep falloff for star points
-#define GAL_STAR_BRIGHTNESS 0.5         // Star point intensity (bright to stand out over dust)
-#define GAL_SUPERNOVA_THRESH 0.9999     // sin() threshold for supernova flash
+#define GAL_DUST_NOISE_FREQ 4.0         // Noise frequency for dust detail
+#define GAL_RING_DECORR_A 563.2         // Ring decorrelation seed A
+#define GAL_RING_DECORR_B 673.2         // Ring decorrelation seed B
+
+// Stars
+#define GAL_STAR_GLOW 0.5               // Star glow radius
+#define GAL_STAR_BRIGHT 0.5             // Star brightness
+#define GAL_TWINKLE_FREQ 784.0          // Star twinkle frequency
+#define GAL_SUPERNOVA_THRESH 0.9999     // Supernova flash threshold
 #define GAL_SUPERNOVA_MULT 10.0         // Supernova brightness boost
-#define GAL_INNER_RADIUS 0.1            // Innermost ring radius (normalized)
-#define GAL_OUTER_RADIUS 1.0            // Outermost ring radius (normalized)
-#define GAL_MAX_RINGS 25                // Fixed upper bound for ring loop (integer)
-#define GAL_RING_DECORR_A 563.2         // Ring-to-ring decorrelation seed A
-#define GAL_RING_DECORR_B 673.2         // Ring-to-ring decorrelation seed B
-#define GAL_STAR_OFFSET_A 17.3          // Star ID offset multiplier (decorrelation)
-#define GAL_STAR_OFFSET_B 31.7          // Star ID offset multiplier (decorrelation)
-#define GAL_TWINKLE_FREQ 784.0          // Star twinkle oscillation frequency
-#define GAL_SUPERNOVA_TIME_SCALE 0.05   // Supernova pulse time multiplier (slow)
-#define GAL_STAR_COLOR_FREQ 100.0       // Star color variation frequency
 
 // ─────────────────────────────────────────────────────────────────────────────
 // UTILITIES
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** 2D rotation matrix (galaxy-local to avoid name clashes) */
+/** 2D rotation matrix */
 mat2 _galRot(float a) {
   float s = sin(a), c = cos(a);
   return mat2(c, -s, s, c);
 }
 
-/** Deterministic per-galaxy random from seed + channel offset. Returns [0, 1). */
+/** Deterministic per-galaxy random. Returns [0, 1). */
 float _galSeedHash(float seed, float channel) {
   return fract(sin(seed * 127.1 + channel * 311.7) * 43758.5453);
 }
@@ -67,368 +64,191 @@ float _galSeedHash(float seed, float channel) {
 // DATA STRUCTURES
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Galaxy entity with morphology and physical parameters */
+/**
+ * Galaxy with morphology-driven ring-loop parameters.
+ *
+ * Shape controlled by:
+ * - twist: spiral winding (0 = no arms, 0.7–1.5 = spiral)
+ * - innerStretch: bar elongation (1.0 = round, 3+ = strong bar)
+ * - ringWidth: ring Gaussian sharpness (8 = diffuse, 25 = tight)
+ * - numRings: ring count (15–25)
+ *
+ * Color controlled by:
+ * - color: per-galaxy hue tint (applied as post-multiply)
+ * - dustWarmth: warm/cool dust balance (0 = blue, 1 = gold)
+ */
 struct Galaxy {
-  int type;            // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
-  float seed;          // deterministic randomness (float, not uint)
-  vec2 center;         // center position in screen pixels
-  float scale;         // radius in pixels (galaxy extends to this distance)
-  float angleX;        // tilt angle — fake 3D via UV compression
-  float angleY;        // secondary tilt (reserved for future use)
-  float angleZ;        // in-plane rotation angle
-  vec3 color;          // base tint color
-  float axialRatio;    // b/a elongation (0.3–1.0, from DB axial_ratio)
-  float mass_log10;    // log10 stellar mass (9–12, from DB)
-  float velocity_kmps; // CMB velocity km/s (reserved for future use)
-  float distance_mpc;  // distance in Mpc (reserved for future use)
-  float time;          // animation time (caller passes iTime)
-};
+  float seed;
+  vec2 center;         // screen pixels
+  float scale;         // radius in pixels
+  float angleX;        // 3D tilt (Y-compression)
+  float angleZ;        // in-plane rotation
+  float time;          // animation time
 
-/**
- * Ring-loop rendering style parameters.
- * Each galaxy type constructs its own GalaxyStyle to drive the ring loop.
- */
-struct GalaxyStyle {
-  float twist;         // Spiral winding per ring. 0.0=no arms, 1.0=classic spiral, 1.5+=tight.
-  float innerStretch;  // Inner ring X elongation. 1.0=circular, 3.5=strong bar.
-  float ringWidth;     // Gaussian sharpness of rings. 8=diffuse, 25=tight bands.
-  float numRings;      // Ring count. 15–25 range. More=smoother, slower.
-  float diskThickness; // Ring-to-ring Y perturbation amplitude. 0.01–0.1.
-  float bulgeSize;     // Center glow Gaussian tightness. Higher=smaller bulge.
-  float bulgeBright;   // Center glow intensity. 0.5–2.0.
-  float dustContrast;  // Dust pow() exponent. Lower=softer, higher=sharper.
-  float starDensity;   // Star grid resolution. 4–12. More=denser star field.
+  // Ring-loop shape params
+  float twist;         // spiral winding per ring (0 = none, 1+ = spiral)
+  float innerStretch;  // inner ring X elongation (1 = round, 3.5 = bar)
+  float ringWidth;     // Gaussian sharpness (8 = diffuse, 25 = tight)
+  float numRings;      // ring count (15–25)
+  float diskThickness; // ring-to-ring Y perturbation (0.01–0.1)
+
+  // Bulge
+  float bulgeSize;     // Gaussian tightness (higher = smaller bulge)
+  float bulgeBright;   // center glow intensity
+
+  // Dust/color
+  float dustContrast;  // pow() exponent on dust (lower = softer)
+  float starDensity;   // star grid resolution (4–12)
+  vec3 color;          // per-galaxy hue tint (from HSL palette)
+  float dustWarmth;    // 0 = cool blue-white, 1 = warm gold
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SHARED HELPERS
+// TILT
 // ─────────────────────────────────────────────────────────────────────────────
 
-/**
- * 3D tilt via UV Y-stretch (ray-plane intersection approximation).
- *
- * TECHNIQUE: When viewing a tilted disk, screen-space Y maps to disk-space
- * positions that are FARTHER apart (not closer). A point 0.3 above center
- * on screen corresponds to a point 0.6 on the disk if tilted 60 degrees.
- * This stretches Y so points off the disk plane map to large UV distances
- * where the ring Gaussian is near zero — creating natural thin edge-on shapes.
- *
- * cos(0)=1.0 → face-on (no stretch). cos(PI/2)→0 → edge-on (max stretch).
- * Clamped to GAL_MIN_COS_TILT to prevent infinite stretch at exactly 90 degrees.
- */
+/** Fake 3D via UV Y-stretch. */
 vec2 _galApplyTilt(vec2 uv, float angleX) {
   uv.y /= max(abs(cos(angleX)), GAL_MIN_COS_TILT);
   return uv;
 }
 
-/**
- * Gaussian center glow (galaxy bulge/core).
- * Returns warm-tinted radial glow at UV origin.
- */
+// ─────────────────────────────────────────────────────────────────────────────
+// BULGE
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Radial center glow with warm tint. */
 vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
   return vec3(exp(-0.5 * dot(uv, uv) * size)) * brightness * tint;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// RING-LOOP RENDERER
+// ─────────────────────────────────────────────────────────────────────────────
+
 /**
- * Core ring-loop renderer — Megaparsecs technique.
+ * Core ring-loop renderer.
  *
  * TECHNIQUE: Overlapping Rotated Elliptical Orbits
  * For NUM_RINGS concentric rings at increasing radius:
- * 1. Rotate UV by (i * TAU * twist) — creates spiral from overlap
- * 2. Stretch inner rings (creates bar/elongation)
+ * 1. Rotate UV by (i * TAU * twist) — progressive rotation creates spiral
+ * 2. Stretch inner rings x-axis (creates bar/elongation)
  * 3. Gaussian brightness at ring radius
- * 4. Procedural noise for dust detail
- * 5. Grid-based point stars with twinkle + supernova
- * 6. Inner rings orbit faster (Keplerian: phase / radius)
- *
- * @param g     Galaxy (seed, color used for dust tint and rotation direction)
- * @param uv    Normalized UV centered at galaxy, roughly [-1, 1]
- * @param style Type-specific ring parameters
- * @return HDR color (may exceed 1.0, caller handles tonemapping)
+ * 4. Procedural noise for dust lanes
+ * 5. Two-tone dust color (cool outer, warm inner)
+ * 6. Grid-based point stars with twinkle
+ * 7. Inner rings orbit faster (Keplerian: phase / radius)
  */
-vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
+vec3 _galRenderRingLoop(Galaxy g, vec2 uv) {
   vec3 col = vec3(0.0);
 
-  // Seed-varied dust color: astronomical palette (no green).
-  // Cool = blue-white (young OB stars), warm = gold (old K/M stars)
-  float dustH = _galSeedHash(g.seed, 99.0);
-  vec3 coolDust = vec3(0.35, 0.45, 1.0);   // blue-white
-  vec3 warmDust = vec3(0.95, 0.70, 0.35);  // gold
-  vec3 dustCol = mix(coolDust, warmDust, dustH);
+  // Two-tone dust palette (astronomical, no green)
+  // Cool = blue-white (young OB associations), warm = gold (old K/M stars)
+  vec3 coolDust = vec3(0.4, 0.5, 1.0);
+  vec3 warmDust = vec3(1.0, 0.75, 0.35);
 
   float flip = 1.0;
   float t = g.time * GAL_ORBIT_SPEED;
-  // Seed-based rotation direction (clockwise vs counter-clockwise)
+  // Seed-based rotation direction
   t *= (mod(g.seed, 2.0) < 1.0 ? 1.0 : -1.0);
 
   for (int j = 0; j < GAL_MAX_RINGS; j++) {
-    float i = float(j) / style.numRings;
+    float i = float(j) / g.numRings;
     if (i >= 1.0) break;
     flip *= -1.0;
 
-    // Ring-to-ring Y perturbation (disk thickness, decorrelates rings)
-    float z = mix(style.diskThickness, 0.0, i) * flip * fract(sin(i * GAL_RING_DECORR_A) * GAL_RING_DECORR_B);
+    // Disk thickness: decorrelated Y perturbation between rings
+    float z = mix(g.diskThickness, 0.0, i) * flip
+            * fract(sin(i * GAL_RING_DECORR_A) * GAL_RING_DECORR_B);
 
     // Ring radius: inner to outer
-    float r = mix(GAL_INNER_RADIUS, GAL_OUTER_RADIUS, i);
+    float r = mix(0.1, 1.0, i);
 
-    // Slight UV perturbation from disk thickness
+    // Slight UV offset from disk thickness
     vec2 ringUv = uv + vec2(0.0, z * 0.5);
 
-    // Spiral twist: progressive rotation per ring
-    vec2 st = ringUv * _galRot(i * _GAL_TAU * style.twist);
+    // Spiral twist: progressive rotation creates arm structure
+    vec2 st = ringUv * _galRot(i * _GAL_TAU * g.twist);
 
-    // Inner ring elongation (bar effect on inner, circular on outer)
-    st.x *= mix(style.innerStretch, 1.0, i);
+    // Inner ring elongation (bar effect fading to circular at outer edge)
+    st.x *= mix(g.innerStretch, 1.0, i);
 
     // Ring brightness: Gaussian peak at radius r
-    float ell = exp(-0.5 * abs(dot(st, st) - r) * style.ringWidth);
+    float ell = exp(-0.5 * abs(dot(st, st) - r) * g.ringWidth);
 
     // Orbital motion UV — inner rings orbit faster (Kepler: t/r)
-    vec2 texUv = GAL_DUST_UV_SCALE * st * _galRot(i * GAL_RING_PHASE_OFFSET + t / r);
+    vec2 texUv = GAL_DUST_UV_SCALE * st * _galRot(i * 100.0 + t / max(r, 0.01));
 
-    // Dust detail: procedural noise (replaces Megaparsecs texture lookup).
-    // Squared for contrast — creates dark dust lanes and bright knots like real galaxies.
-    // Without squaring, smooth noise makes rings look like mandalas/nebulae.
+    // Dust detail: noise squared for contrast (dark lanes + bright knots)
     float rawDust = valueNoise2D((texUv + vec2(i)) * GAL_DUST_NOISE_FREQ);
     vec3 dust = vec3(rawDust * rawDust);
 
     // Combined brightness with contrast shaping
-    vec3 dL = pow(max(ell * dust / r, vec3(0.0)), vec3(0.5 + style.dustContrast));
+    vec3 dL = pow(max(ell * dust / max(r, 0.01), vec3(0.0)), vec3(0.5 + g.dustContrast));
 
-    // Accumulate dust contribution
+    // Two-tone dust color: warm inner → cool outer
+    // Smoothly transition from warm (core) to cool (outer disc)
+    float warmFrac = g.dustWarmth * (1.0 - smoothstep(0.15, 0.6, i));
+    vec3 dustCol = mix(coolDust, warmDust, warmFrac);
+
     col += dL * dustCol;
 
     // === Point Stars ===
-    vec2 starId = floor(texUv * style.starDensity);
-    vec2 starUv = fract(texUv * style.starDensity) - 0.5;
-    float n = hashN2(starId + vec2(i * GAL_STAR_OFFSET_A, i * GAL_STAR_OFFSET_B));
+    vec2 starId = floor(texUv * g.starDensity);
+    vec2 starUv = fract(texUv * g.starDensity) - 0.5;
+    float n = hashN2(starId + vec2(i * 17.3, i * 31.7));
     float starDist = length(starUv);
 
-    // Star glow: bright point with 1/distance falloff
-    float sL = smoothstep(GAL_STAR_GLOW_RADIUS, 0.0, starDist)
-             * pow(max(dL.r, 0.0), 2.0) * GAL_STAR_BRIGHTNESS
+    float sL = smoothstep(GAL_STAR_GLOW, 0.0, starDist)
+             * pow(max(dL.r, 0.0), 2.0) * GAL_STAR_BRIGHT
              / max(starDist, 0.001);
 
     // Twinkle + rare supernova
     float sN = sL;
     sL *= sin(n * GAL_TWINKLE_FREQ + g.time) * 0.5 + 0.5;
-    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0, sin(n * GAL_TWINKLE_FREQ + g.time * GAL_SUPERNOVA_TIME_SCALE))
-        * GAL_SUPERNOVA_MULT;
+    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0,
+      sin(n * GAL_TWINKLE_FREQ + g.time * 0.05)) * GAL_SUPERNOVA_MULT;
 
-    // Add stars (skip innermost rings to avoid center clutter)
-    if (i > 3.0 / style.starDensity) {
-      // Stars are predominantly white-hot with slight color variation.
-      // High white blend (0.6+) ensures stars read as point sources, not colored fog.
+    // Stars: white-hot with slight color variation
+    if (i > 3.0 / g.starDensity) {
       vec3 hotStar = mix(vec3(0.85, 0.88, 1.0), vec3(1.0, 0.97, 0.9), n);
       vec3 starCol = mix(dustCol, hotStar, 0.6 + n * 0.4);
       col += sL * starCol;
     }
   }
 
-  // Normalize accumulated brightness by ring count
-  col /= style.numRings;
+  // Normalize by ring count
+  col /= g.numRings;
 
-  // Radial fadeout — feather edges to prevent harsh outlines.
-  // Galaxy fades smoothly from full brightness at 70% radius to zero at max radius.
-  col *= smoothstep(GAL_MAX_RADIUS, GAL_OUTER_RADIUS * 0.7, length(uv));
+  // Radial fadeout — smooth edge
+  col *= smoothstep(GAL_MAX_RADIUS, 0.7, length(uv));
 
   return col;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TYPE-SPECIFIC RENDERERS
-// Each type owns its rendering. Today all call _galRenderRingLoop() with
-// type-specific GalaxyStyle. Any renderer can be rewritten independently
-// with a completely different technique without touching the others.
+// PUBLIC API
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Render spiral galaxy (type 0).
- * Classic 2-armed spiral: moderate twist, inner elongation, visible arms.
- */
-vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
-  vec2 uv = (fragCoord - g.center) / g.scale;
-  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-
-  float h0 = _galSeedHash(g.seed, 0.0);
-  float h1 = _galSeedHash(g.seed, 1.0);
-  float h2 = _galSeedHash(g.seed, 2.0);
-  float h3 = _galSeedHash(g.seed, 3.0);
-  float h4 = _galSeedHash(g.seed, 4.0);
-
-  GalaxyStyle s;
-  s.twist         = mix(0.7, 1.4, h0);
-  s.innerStretch  = mix(1.5, 2.8, g.axialRatio * 0.5 + h1 * 0.5);
-  s.ringWidth     = mix(12.0, 20.0, h2);
-  s.numRings      = mix(16.0, 24.0, h3);
-  s.diskThickness = mix(0.02, 0.06, h4);
-  s.bulgeSize     = mix(20.0, 35.0, _galSeedHash(g.seed, 5.0));
-  s.bulgeBright   = mix(0.8, 1.6, _galSeedHash(g.seed, 6.0));
-  s.dustContrast  = mix(0.3, 0.7, _galSeedHash(g.seed, 7.0));
-  s.starDensity   = mix(6.0, 10.0, _galSeedHash(g.seed, 8.0));
-
-  vec3 col = _galRenderRingLoop(g, uv, s);
-  col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.9, 0.8), g.color, 0.6));
-  col *= g.color;
-  return col;
-}
-
-/**
- * Render barred spiral galaxy (type 1).
- * Strong inner bar (high stretch), arms emerge from bar ends.
- */
-vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
-  vec2 uv = (fragCoord - g.center) / g.scale;
-  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-
-  float h0 = _galSeedHash(g.seed, 10.0);
-  float h1 = _galSeedHash(g.seed, 11.0);
-  float h2 = _galSeedHash(g.seed, 12.0);
-  float h3 = _galSeedHash(g.seed, 13.0);
-  float h4 = _galSeedHash(g.seed, 14.0);
-
-  GalaxyStyle s;
-  s.twist         = mix(1.0, 1.6, h0);
-  s.innerStretch  = mix(2.5, 4.5, g.axialRatio * 0.4 + h1 * 0.6);
-  s.ringWidth     = mix(9.0, 16.0, h2);
-  s.numRings      = mix(16.0, 24.0, h3);
-  s.diskThickness = mix(0.02, 0.06, h4);
-  s.bulgeSize     = mix(16.0, 28.0, _galSeedHash(g.seed, 15.0));
-  s.bulgeBright   = mix(0.7, 1.4, _galSeedHash(g.seed, 16.0));
-  s.dustContrast  = mix(0.3, 0.7, _galSeedHash(g.seed, 17.0));
-  s.starDensity   = mix(6.0, 10.0, _galSeedHash(g.seed, 18.0));
-
-  vec3 col = _galRenderRingLoop(g, uv, s);
-  col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.9, 0.7), g.color, 0.6));
-  col *= g.color;
-  return col;
-}
-
-/**
- * Render elliptical galaxy (type 2).
- * No twist, smooth round glow, bright bulge, minimal dust.
- * Replaceable later with Sersic profile or volumetric technique.
- */
-vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
-  vec2 uv = (fragCoord - g.center) / g.scale;
-  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-
-  float h0 = _galSeedHash(g.seed, 20.0);
-  float h1 = _galSeedHash(g.seed, 21.0);
-  float h2 = _galSeedHash(g.seed, 22.0);
-  float h3 = _galSeedHash(g.seed, 23.0);
-  float h4 = _galSeedHash(g.seed, 24.0);
-
-  GalaxyStyle s;
-  s.twist         = mix(0.0, 0.05, h0);
-  s.innerStretch  = mix(1.0, 1.6, (1.0 - g.axialRatio) * 0.5 + h1 * 0.5);
-  s.ringWidth     = mix(6.0, 12.0, h2);
-  s.numRings      = mix(12.0, 18.0, h3);
-  s.diskThickness = mix(0.05, 0.12, h4);
-  s.bulgeSize     = mix(10.0, 22.0, _galSeedHash(g.seed, 25.0));
-  s.bulgeBright   = mix(1.5, 2.5, _galSeedHash(g.seed, 26.0));
-  s.dustContrast  = mix(0.6, 1.0, _galSeedHash(g.seed, 27.0));
-  s.starDensity   = mix(3.0, 6.0, _galSeedHash(g.seed, 28.0));
-
-  vec3 col = _galRenderRingLoop(g, uv, s);
-  col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.8, 0.6), g.color, 0.7));
-  col *= g.color;
-  return col;
-}
-
-/**
- * Render lenticular galaxy (type 3).
- * Very thin disk (tight rings), bright dominant bulge, nearly no arms.
- * Replaceable later with disk+bulge decomposition.
- */
-vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
-  vec2 uv = (fragCoord - g.center) / g.scale;
-  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-
-  float h0 = _galSeedHash(g.seed, 30.0);
-  float h1 = _galSeedHash(g.seed, 31.0);
-  float h2 = _galSeedHash(g.seed, 32.0);
-  float h3 = _galSeedHash(g.seed, 33.0);
-  float h4 = _galSeedHash(g.seed, 34.0);
-
-  GalaxyStyle s;
-  s.twist         = mix(0.02, 0.10, h0);
-  s.innerStretch  = mix(1.3, 2.2, (1.0 - g.axialRatio) * 0.5 + h1 * 0.5);
-  s.ringWidth     = mix(16.0, 25.0, h2);
-  s.numRings      = mix(14.0, 22.0, h3);
-  s.diskThickness = mix(0.01, 0.04, h4);
-  s.bulgeSize     = mix(24.0, 38.0, _galSeedHash(g.seed, 35.0));
-  s.bulgeBright   = mix(1.1, 2.0, _galSeedHash(g.seed, 36.0));
-  s.dustContrast  = mix(0.4, 0.8, _galSeedHash(g.seed, 37.0));
-  s.starDensity   = mix(4.0, 8.0, _galSeedHash(g.seed, 38.0));
-
-  vec3 col = _galRenderRingLoop(g, uv, s);
-  col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(1.0, 0.85, 0.65), g.color, 0.6));
-  col *= g.color;
-  return col;
-}
-
-/**
- * Render irregular galaxy (type 4).
- * Moderate twist, high disk thickness, lots of dust — clumpy and chaotic.
- * Replaceable later with clump-based or particle technique.
- */
-vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
-  vec2 uv = (fragCoord - g.center) / g.scale;
-  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
-  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
-
-  float h0 = _galSeedHash(g.seed, 40.0);
-  float h1 = _galSeedHash(g.seed, 41.0);
-  float h2 = _galSeedHash(g.seed, 42.0);
-  float h3 = _galSeedHash(g.seed, 43.0);
-  float h4 = _galSeedHash(g.seed, 44.0);
-
-  GalaxyStyle s;
-  s.twist         = mix(0.1, 0.5, h0);
-  s.innerStretch  = mix(1.0, 2.0, h1);
-  s.ringWidth     = mix(7.0, 14.0, h2);
-  s.numRings      = mix(12.0, 20.0, h3);
-  s.diskThickness = mix(0.06, 0.14, h4);
-  s.bulgeSize     = mix(30.0, 50.0, _galSeedHash(g.seed, 45.0));
-  s.bulgeBright   = mix(0.3, 0.8, _galSeedHash(g.seed, 46.0));
-  s.dustContrast  = mix(0.2, 0.6, _galSeedHash(g.seed, 47.0));
-  s.starDensity   = mix(8.0, 12.0, _galSeedHash(g.seed, 48.0));
-
-  vec3 col = _galRenderRingLoop(g, uv, s);
-  col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
-           mix(vec3(0.9, 0.85, 1.0), g.color, 0.6));
-  col *= g.color;
-  return col;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// POLYMORPHIC DISPATCHER
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * Render galaxy by dispatching to type-specific renderer.
- *
- * @param g         Galaxy to render
- * @param fragCoord Fragment coordinate (screen pixels)
- * @return Color contribution (HDR)
+ * Render a galaxy.
+ * Per-galaxy hue tint applied as post-multiply for XDF-like color diversity.
  */
 vec3 renderGalaxy(Galaxy g, vec2 fragCoord) {
-  switch(g.type) {
-    case 0: return renderSpiral(g, fragCoord);
-    case 1: return renderBarredSpiral(g, fragCoord);
-    case 2: return renderElliptical(g, fragCoord);
-    case 3: return renderLenticular(g, fragCoord);
-    case 4: return renderIrregular(g, fragCoord);
-  }
-  return vec3(0.0);
+  vec2 uv = (fragCoord - g.center) / g.scale;
+  uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
+
+  if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
+
+  // Ring-loop dust + stars
+  vec3 col = _galRenderRingLoop(g, uv);
+
+  // Bulge glow: warm golden-white center
+  vec3 bulgeTint = mix(vec3(1.0, 0.9, 0.8), g.color, 0.5);
+  col += _galRenderBulge(uv, g.bulgeSize, g.bulgeBright, bulgeTint);
+
+  // Per-galaxy hue tint (post-multiply for color diversity)
+  col *= g.color;
+
+  return col;
 }
