@@ -299,8 +299,11 @@ vec3 _galRenderIrregular(Galaxy g, vec2 uv) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Render a galaxy.
- * Per-galaxy hue tint applied as post-multiply for XDF-like color diversity.
+ * Render a galaxy with polymorphic dispatch by Hubble type.
+ *
+ * Spiral types (0, 1) use the multi-arm ring-loop density wave renderer.
+ * Non-spiral types (2, 3, 4) use feathered Gaussian disk stubs.
+ * All types get a central bulge glow and per-galaxy hue tint post-multiply.
  */
 vec3 renderGalaxy(Galaxy g, vec2 fragCoord) {
   vec2 uv = (fragCoord - g.center) / g.scale;
@@ -308,8 +311,21 @@ vec3 renderGalaxy(Galaxy g, vec2 fragCoord) {
 
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
-  // Ring-loop dust + stars (spiral renderer)
-  vec3 col = _galRenderSpiral(g, uv);
+  // Polymorphic dispatch by Hubble morphology type
+  vec3 col;
+  if (g.type == 0 || g.type == 1) {
+    // Spiral / Barred Spiral — multi-arm density wave ring-loop
+    col = _galRenderSpiral(g, uv);
+  } else if (g.type == 2) {
+    // Elliptical — smooth feathered glow
+    col = _galRenderElliptical(g, uv);
+  } else if (g.type == 3) {
+    // Lenticular — thin disc + bright bulge
+    col = _galRenderLenticular(g, uv);
+  } else {
+    // Irregular — chaotic clumpy disk
+    col = _galRenderIrregular(g, uv);
+  }
 
   // Bulge glow: warm golden-white center
   vec3 bulgeTint = mix(vec3(1.0, 0.9, 0.8), g.color, 0.5);

@@ -67,9 +67,10 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
   float h6 = _gridHashSeed(seed, 26u);
   float h7 = _gridHashSeed(seed, 27u);
   float h8 = _gridHashSeed(seed, 28u);
+  float h9 = _gridHashSeed(seed, 29u);  // extra hash for starDensity (type 0)
 
   if (morphType == 0) {
-    // Spiral
+    // Spiral (Sa/Sb/Sc): 2–4 arms
     g.twist         = mix(0.7, 1.4, h0);
     g.innerStretch  = mix(1.5, 2.8, h1);
     g.ringWidth     = mix(12.0, 20.0, h2);
@@ -78,10 +79,11 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
     g.bulgeSize     = mix(20.0, 35.0, h5);
     g.bulgeBright   = mix(0.8, 1.6, h6);
     g.dustContrast  = mix(0.3, 0.7, h7);
-    g.starDensity   = mix(6.0, 10.0, h8);
+    g.numArms       = floor(mix(2.0, 5.0, h8));  // yields 2, 3, or 4
+    g.starDensity   = mix(6.0, 10.0, h9);
     g.dustWarmth    = mix(0.6, 0.9, h0);
   } else if (morphType == 1) {
-    // Barred Spiral
+    // Barred Spiral (SBa/SBb): always 2 arms from bar ends
     g.twist         = mix(1.0, 1.6, h0);
     g.innerStretch  = mix(2.5, 4.5, h1);
     g.ringWidth     = mix(9.0, 16.0, h2);
@@ -90,10 +92,11 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
     g.bulgeSize     = mix(16.0, 28.0, h5);
     g.bulgeBright   = mix(0.7, 1.4, h6);
     g.dustContrast  = mix(0.3, 0.7, h7);
+    g.numArms       = 2.0;
     g.starDensity   = mix(6.0, 10.0, h8);
     g.dustWarmth    = mix(0.5, 0.8, h0);
   } else if (morphType == 2) {
-    // Elliptical
+    // Elliptical (E0–E7): no arms, feathered disk
     g.twist         = mix(0.0, 0.05, h0);
     g.innerStretch  = mix(1.0, 1.6, h1);
     g.ringWidth     = mix(6.0, 12.0, h2);
@@ -102,10 +105,11 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
     g.bulgeSize     = mix(10.0, 22.0, h5);
     g.bulgeBright   = mix(1.5, 2.5, h6);
     g.dustContrast  = mix(0.6, 1.0, h7);
+    g.numArms       = 0.0;
     g.starDensity   = mix(3.0, 6.0, h8);
     g.dustWarmth    = mix(0.7, 1.0, h0);
   } else if (morphType == 3) {
-    // Lenticular
+    // Lenticular (S0): no arms, feathered disk
     g.twist         = mix(0.02, 0.10, h0);
     g.innerStretch  = mix(1.3, 2.2, h1);
     g.ringWidth     = mix(16.0, 25.0, h2);
@@ -114,10 +118,11 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
     g.bulgeSize     = mix(24.0, 38.0, h5);
     g.bulgeBright   = mix(1.1, 2.0, h6);
     g.dustContrast  = mix(0.4, 0.8, h7);
+    g.numArms       = 0.0;
     g.starDensity   = mix(4.0, 8.0, h8);
     g.dustWarmth    = mix(0.6, 0.9, h0);
   } else {
-    // Irregular
+    // Irregular (Irr): no arms, feathered disk
     g.twist         = mix(0.1, 0.5, h0);
     g.innerStretch  = mix(1.0, 2.0, h1);
     g.ringWidth     = mix(7.0, 14.0, h2);
@@ -126,6 +131,7 @@ void _galSetMorphology(inout Galaxy g, int morphType, uint seed) {
     g.bulgeSize     = mix(30.0, 50.0, h5);
     g.bulgeBright   = mix(0.3, 0.8, h6);
     g.dustContrast  = mix(0.2, 0.6, h7);
+    g.numArms       = 0.0;
     g.starDensity   = mix(8.0, 12.0, h8);
     g.dustWarmth    = mix(0.3, 0.6, h0);
   }
@@ -178,6 +184,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
       // Morphology
       int morphType = int(_gridHashSeed(cycleSeed, 50u) * float(NUM_MORPHOLOGIES));
+      g.type = morphType;
       _galSetMorphology(g, morphType, cycleSeed);
 
       col += renderGalaxy(g, fragCoord);
