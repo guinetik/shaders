@@ -249,6 +249,52 @@ vec3 _galRenderSpiral(Galaxy g, vec2 uv) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// FEATHERED DISK RENDERERS (non-spiral types)
+// ─────────────────────────────────────────────────────────────────────────────
+
+#define GAL_FEATHER_INNER 0.3          // Inner edge of disk feather (smoothstep)
+#define GAL_FEATHER_OUTER 1.2          // Outer edge of disk feather (smoothstep)
+#define GAL_FEATHER_GAUSS 2.0          // Gaussian falloff exponent for disk center
+#define GAL_FEATHER_CENTER_W 0.6       // Weight of Gaussian center glow
+#define GAL_FEATHER_DISK_W 0.4         // Weight of feathered disk edge
+#define GAL_FEATHER_NOISE_SCALE 3.0    // UV scale for noise perturbation
+#define GAL_FEATHER_NOISE_AMP 0.15     // Noise amplitude (0.15 = ±15% variation)
+#define GAL_FEATHER_NOISE_BASE 0.85    // Noise base level (center of variation)
+
+/**
+ * Feathered Gaussian disk — base renderer for non-spiral types.
+ *
+ * TECHNIQUE: Gaussian + smoothstep disk with noise perturbation
+ * Combines a central Gaussian glow with a feathered disk edge.
+ * Procedural noise breaks up the smooth profile for visual interest.
+ * Brightness scaled by bulgeBright for consistent per-galaxy intensity.
+ */
+vec3 _galRenderFeatheredDisk(Galaxy g, vec2 uv) {
+  float d = length(uv);
+  float disk = smoothstep(GAL_FEATHER_OUTER, GAL_FEATHER_INNER, d);
+  float intensity = exp(-GAL_FEATHER_GAUSS * d * d) * GAL_FEATHER_CENTER_W
+                  + disk * GAL_FEATHER_DISK_W;
+  float noise = valueNoise2D(uv * GAL_FEATHER_NOISE_SCALE + vec2(g.seed))
+              * GAL_FEATHER_NOISE_AMP + GAL_FEATHER_NOISE_BASE;
+  return g.color * intensity * noise * g.bulgeBright;
+}
+
+/** Elliptical (E0–E7): smooth feathered glow, dominant bulge. */
+vec3 _galRenderElliptical(Galaxy g, vec2 uv) {
+  return _galRenderFeatheredDisk(g, uv);
+}
+
+/** Lenticular (S0): thin disc with bright bulge. */
+vec3 _galRenderLenticular(Galaxy g, vec2 uv) {
+  return _galRenderFeatheredDisk(g, uv);
+}
+
+/** Irregular (Irr): chaotic clumpy disk. */
+vec3 _galRenderIrregular(Galaxy g, vec2 uv) {
+  return _galRenderFeatheredDisk(g, uv);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // PUBLIC API
 // ─────────────────────────────────────────────────────────────────────────────
 
