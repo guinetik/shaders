@@ -63,6 +63,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       g.seed       = cycleSeed;
       g.center     = cellCenter;
       g.scale      = galaxyRadius;
+      g.time       = iTime;
 
       // Orientation
       g.angleX     = _gridHashSeed(cycleSeed, 1u) * _GAL_TAU;

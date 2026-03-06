@@ -76,6 +76,7 @@ struct Galaxy {
   float mass_log10;    // log10 stellar mass (9–12, from DB)
   float velocity_kmps; // CMB velocity km/s (reserved for future use)
   float distance_mpc;  // distance in Mpc (reserved for future use)
+  float time;          // animation time (caller passes iTime)
 };
 
 /**
@@ -148,7 +149,7 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   vec3 dustCol = vec3(0.3, 0.6, 1.0);
 
   float flip = 1.0;
-  float t = iTime * GAL_ORBIT_SPEED;
+  float t = g.time * GAL_ORBIT_SPEED;
   // Seed-based rotation direction (clockwise vs counter-clockwise)
   t *= (float(g.seed % 2u) * 2.0 - 1.0);
 
@@ -200,8 +201,8 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
 
     // Twinkle + rare supernova
     float sN = sL;
-    sL *= sin(n * GAL_TWINKLE_FREQ + iTime) * 0.5 + 0.5;
-    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0, sin(n * GAL_TWINKLE_FREQ + iTime * GAL_SUPERNOVA_TIME_SCALE))
+    sL *= sin(n * GAL_TWINKLE_FREQ + g.time) * 0.5 + 0.5;
+    sL += sN * smoothstep(GAL_SUPERNOVA_THRESH, 1.0, sin(n * GAL_TWINKLE_FREQ + g.time * GAL_SUPERNOVA_TIME_SCALE))
         * GAL_SUPERNOVA_MULT;
 
     // Add stars (skip innermost rings to avoid center clutter)
