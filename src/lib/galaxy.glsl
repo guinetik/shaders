@@ -78,6 +78,7 @@ float _galSeedHash(float seed, float channel) {
  * - dustWarmth: warm/cool dust balance (0 = blue, 1 = gold)
  */
 struct Galaxy {
+  int type;            // Hubble type: 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
   float seed;
   vec2 center;         // screen pixels
   float scale;         // radius in pixels
@@ -99,6 +100,7 @@ struct Galaxy {
   // Dust/color
   float dustContrast;  // pow() exponent on dust (lower = softer)
   float starDensity;   // star grid resolution (4–12)
+  float numArms;       // spiral arm count (2–4 for spiral, 2 for barred, 0 for non-spiral)
   vec3 color;          // per-galaxy hue tint (from HSL palette)
   float dustWarmth;    // 0 = cool blue-white, 1 = warm gold
 };
