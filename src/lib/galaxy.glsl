@@ -34,7 +34,7 @@
 #define GAL_DUST_UV_SCALE 0.2           // UV scale for dust sampling
 #define GAL_DUST_NOISE_FREQ 4.0         // Noise frequency multiplier
 #define GAL_STAR_GLOW_RADIUS 0.5        // Smoothstep falloff for star points
-#define GAL_STAR_BRIGHTNESS 0.2         // Star point intensity
+#define GAL_STAR_BRIGHTNESS 0.5         // Star point intensity (bright to stand out over dust)
 #define GAL_SUPERNOVA_THRESH 0.9999     // sin() threshold for supernova flash
 #define GAL_SUPERNOVA_MULT 10.0         // Supernova brightness boost
 #define GAL_INNER_RADIUS 0.1            // Innermost ring radius (normalized)
@@ -58,6 +58,11 @@ mat2 _galRot(float a) {
   return mat2(c, -s, s, c);
 }
 
+/** Deterministic per-galaxy random from seed + channel offset. Returns [0, 1). */
+float _galSeedHash(float seed, float channel) {
+  return fract(sin(seed * 127.1 + channel * 311.7) * 43758.5453);
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // DATA STRUCTURES
 // ─────────────────────────────────────────────────────────────────────────────
@@ -65,7 +70,7 @@ mat2 _galRot(float a) {
 /** Galaxy entity with morphology and physical parameters */
 struct Galaxy {
   int type;            // 0=spiral, 1=barred, 2=elliptical, 3=lenticular, 4=irregular
-  uint seed;           // deterministic randomness
+  float seed;          // deterministic randomness (float, not uint)
   vec2 center;         // center position in screen pixels
   float scale;         // radius in pixels (galaxy extends to this distance)
   float angleX;        // tilt angle — fake 3D via UV compression
@@ -144,14 +149,17 @@ vec3 _galRenderBulge(vec2 uv, float size, float brightness, vec3 tint) {
 vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
   vec3 col = vec3(0.0);
 
-  // Dust base color: bright blue-white (Megaparsecs original).
-  // Galaxy color is applied as a post-multiply tint by each type renderer.
-  vec3 dustCol = vec3(0.3, 0.6, 1.0);
+  // Seed-varied dust color: astronomical palette (no green).
+  // Cool = blue-white (young OB stars), warm = gold (old K/M stars)
+  float dustH = _galSeedHash(g.seed, 99.0);
+  vec3 coolDust = vec3(0.35, 0.45, 1.0);   // blue-white
+  vec3 warmDust = vec3(0.95, 0.70, 0.35);  // gold
+  vec3 dustCol = mix(coolDust, warmDust, dustH);
 
   float flip = 1.0;
   float t = g.time * GAL_ORBIT_SPEED;
   // Seed-based rotation direction (clockwise vs counter-clockwise)
-  t *= (float(g.seed % 2u) * 2.0 - 1.0);
+  t *= (mod(g.seed, 2.0) < 1.0 ? 1.0 : -1.0);
 
   for (int j = 0; j < GAL_MAX_RINGS; j++) {
     float i = float(j) / style.numRings;
@@ -179,8 +187,11 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
     // Orbital motion UV — inner rings orbit faster (Kepler: t/r)
     vec2 texUv = GAL_DUST_UV_SCALE * st * _galRot(i * GAL_RING_PHASE_OFFSET + t / r);
 
-    // Dust detail: procedural noise (replaces Megaparsecs texture lookup)
-    vec3 dust = vec3(valueNoise2D((texUv + vec2(i)) * GAL_DUST_NOISE_FREQ));
+    // Dust detail: procedural noise (replaces Megaparsecs texture lookup).
+    // Squared for contrast — creates dark dust lanes and bright knots like real galaxies.
+    // Without squaring, smooth noise makes rings look like mandalas/nebulae.
+    float rawDust = valueNoise2D((texUv + vec2(i)) * GAL_DUST_NOISE_FREQ);
+    vec3 dust = vec3(rawDust * rawDust);
 
     // Combined brightness with contrast shaping
     vec3 dL = pow(max(ell * dust / r, vec3(0.0)), vec3(0.5 + style.dustContrast));
@@ -207,14 +218,20 @@ vec3 _galRenderRingLoop(Galaxy g, vec2 uv, GalaxyStyle style) {
 
     // Add stars (skip innermost rings to avoid center clutter)
     if (i > 3.0 / style.starDensity) {
-      // Star color: mix galaxy tint with hot white (bright stars are whiter)
-      vec3 starCol = mix(dustCol, vec3(1.0), 0.3 + n * 0.5);
+      // Stars are predominantly white-hot with slight color variation.
+      // High white blend (0.6+) ensures stars read as point sources, not colored fog.
+      vec3 hotStar = mix(vec3(0.85, 0.88, 1.0), vec3(1.0, 0.97, 0.9), n);
+      vec3 starCol = mix(dustCol, hotStar, 0.6 + n * 0.4);
       col += sL * starCol;
     }
   }
 
   // Normalize accumulated brightness by ring count
   col /= style.numRings;
+
+  // Radial fadeout — feather edges to prevent harsh outlines.
+  // Galaxy fades smoothly from full brightness at 70% radius to zero at max radius.
+  col *= smoothstep(GAL_MAX_RADIUS, GAL_OUTER_RADIUS * 0.7, length(uv));
 
   return col;
 }
@@ -235,16 +252,22 @@ vec3 renderSpiral(Galaxy g, vec2 fragCoord) {
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
+  float h0 = _galSeedHash(g.seed, 0.0);
+  float h1 = _galSeedHash(g.seed, 1.0);
+  float h2 = _galSeedHash(g.seed, 2.0);
+  float h3 = _galSeedHash(g.seed, 3.0);
+  float h4 = _galSeedHash(g.seed, 4.0);
+
   GalaxyStyle s;
-  s.twist        = 1.0;
-  s.innerStretch = mix(1.8, 2.2, g.axialRatio);
-  s.ringWidth    = 15.0;
-  s.numRings     = 20.0;
-  s.diskThickness = 0.04;
-  s.bulgeSize    = 25.0;
-  s.bulgeBright  = 1.2;
-  s.dustContrast = 0.5;
-  s.starDensity  = 8.0;
+  s.twist         = mix(0.7, 1.4, h0);
+  s.innerStretch  = mix(1.5, 2.8, g.axialRatio * 0.5 + h1 * 0.5);
+  s.ringWidth     = mix(12.0, 20.0, h2);
+  s.numRings      = mix(16.0, 24.0, h3);
+  s.diskThickness = mix(0.02, 0.06, h4);
+  s.bulgeSize     = mix(20.0, 35.0, _galSeedHash(g.seed, 5.0));
+  s.bulgeBright   = mix(0.8, 1.6, _galSeedHash(g.seed, 6.0));
+  s.dustContrast  = mix(0.3, 0.7, _galSeedHash(g.seed, 7.0));
+  s.starDensity   = mix(6.0, 10.0, _galSeedHash(g.seed, 8.0));
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
@@ -262,16 +285,22 @@ vec3 renderBarredSpiral(Galaxy g, vec2 fragCoord) {
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
+  float h0 = _galSeedHash(g.seed, 10.0);
+  float h1 = _galSeedHash(g.seed, 11.0);
+  float h2 = _galSeedHash(g.seed, 12.0);
+  float h3 = _galSeedHash(g.seed, 13.0);
+  float h4 = _galSeedHash(g.seed, 14.0);
+
   GalaxyStyle s;
-  s.twist        = 1.3;
-  s.innerStretch = mix(3.0, 4.0, g.axialRatio);
-  s.ringWidth    = 12.0;
-  s.numRings     = 20.0;
-  s.diskThickness = 0.04;
-  s.bulgeSize    = 20.0;
-  s.bulgeBright  = 1.0;
-  s.dustContrast = 0.5;
-  s.starDensity  = 8.0;
+  s.twist         = mix(1.0, 1.6, h0);
+  s.innerStretch  = mix(2.5, 4.5, g.axialRatio * 0.4 + h1 * 0.6);
+  s.ringWidth     = mix(9.0, 16.0, h2);
+  s.numRings      = mix(16.0, 24.0, h3);
+  s.diskThickness = mix(0.02, 0.06, h4);
+  s.bulgeSize     = mix(16.0, 28.0, _galSeedHash(g.seed, 15.0));
+  s.bulgeBright   = mix(0.7, 1.4, _galSeedHash(g.seed, 16.0));
+  s.dustContrast  = mix(0.3, 0.7, _galSeedHash(g.seed, 17.0));
+  s.starDensity   = mix(6.0, 10.0, _galSeedHash(g.seed, 18.0));
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
@@ -290,16 +319,22 @@ vec3 renderElliptical(Galaxy g, vec2 fragCoord) {
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
+  float h0 = _galSeedHash(g.seed, 20.0);
+  float h1 = _galSeedHash(g.seed, 21.0);
+  float h2 = _galSeedHash(g.seed, 22.0);
+  float h3 = _galSeedHash(g.seed, 23.0);
+  float h4 = _galSeedHash(g.seed, 24.0);
+
   GalaxyStyle s;
-  s.twist        = 0.0;
-  s.innerStretch = mix(1.0, 1.4, 1.0 - g.axialRatio);
-  s.ringWidth    = 8.0;
-  s.numRings     = 15.0;
-  s.diskThickness = 0.08;
-  s.bulgeSize    = 15.0;
-  s.bulgeBright  = 2.0;
-  s.dustContrast = 0.8;
-  s.starDensity  = 4.0;
+  s.twist         = mix(0.0, 0.05, h0);
+  s.innerStretch  = mix(1.0, 1.6, (1.0 - g.axialRatio) * 0.5 + h1 * 0.5);
+  s.ringWidth     = mix(6.0, 12.0, h2);
+  s.numRings      = mix(12.0, 18.0, h3);
+  s.diskThickness = mix(0.05, 0.12, h4);
+  s.bulgeSize     = mix(10.0, 22.0, _galSeedHash(g.seed, 25.0));
+  s.bulgeBright   = mix(1.5, 2.5, _galSeedHash(g.seed, 26.0));
+  s.dustContrast  = mix(0.6, 1.0, _galSeedHash(g.seed, 27.0));
+  s.starDensity   = mix(3.0, 6.0, _galSeedHash(g.seed, 28.0));
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
@@ -318,16 +353,22 @@ vec3 renderLenticular(Galaxy g, vec2 fragCoord) {
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
+  float h0 = _galSeedHash(g.seed, 30.0);
+  float h1 = _galSeedHash(g.seed, 31.0);
+  float h2 = _galSeedHash(g.seed, 32.0);
+  float h3 = _galSeedHash(g.seed, 33.0);
+  float h4 = _galSeedHash(g.seed, 34.0);
+
   GalaxyStyle s;
-  s.twist        = 0.05;
-  s.innerStretch = mix(1.5, 2.0, 1.0 - g.axialRatio);
-  s.ringWidth    = 20.0;
-  s.numRings     = 18.0;
-  s.diskThickness = 0.02;
-  s.bulgeSize    = 30.0;
-  s.bulgeBright  = 1.5;
-  s.dustContrast = 0.6;
-  s.starDensity  = 6.0;
+  s.twist         = mix(0.02, 0.10, h0);
+  s.innerStretch  = mix(1.3, 2.2, (1.0 - g.axialRatio) * 0.5 + h1 * 0.5);
+  s.ringWidth     = mix(16.0, 25.0, h2);
+  s.numRings      = mix(14.0, 22.0, h3);
+  s.diskThickness = mix(0.01, 0.04, h4);
+  s.bulgeSize     = mix(24.0, 38.0, _galSeedHash(g.seed, 35.0));
+  s.bulgeBright   = mix(1.1, 2.0, _galSeedHash(g.seed, 36.0));
+  s.dustContrast  = mix(0.4, 0.8, _galSeedHash(g.seed, 37.0));
+  s.starDensity   = mix(4.0, 8.0, _galSeedHash(g.seed, 38.0));
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,
@@ -346,16 +387,22 @@ vec3 renderIrregular(Galaxy g, vec2 fragCoord) {
   uv = _galApplyTilt(uv * _galRot(g.angleZ), g.angleX);
   if (length(uv) > GAL_MAX_RADIUS) return vec3(0.0);
 
+  float h0 = _galSeedHash(g.seed, 40.0);
+  float h1 = _galSeedHash(g.seed, 41.0);
+  float h2 = _galSeedHash(g.seed, 42.0);
+  float h3 = _galSeedHash(g.seed, 43.0);
+  float h4 = _galSeedHash(g.seed, 44.0);
+
   GalaxyStyle s;
-  s.twist        = 0.3;
-  s.innerStretch = 1.5;
-  s.ringWidth    = 10.0;
-  s.numRings     = 16.0;
-  s.diskThickness = 0.1;
-  s.bulgeSize    = 40.0;
-  s.bulgeBright  = 0.6;
-  s.dustContrast = 0.4;
-  s.starDensity  = 10.0;
+  s.twist         = mix(0.1, 0.5, h0);
+  s.innerStretch  = mix(1.0, 2.0, h1);
+  s.ringWidth     = mix(7.0, 14.0, h2);
+  s.numRings      = mix(12.0, 20.0, h3);
+  s.diskThickness = mix(0.06, 0.14, h4);
+  s.bulgeSize     = mix(30.0, 50.0, _galSeedHash(g.seed, 45.0));
+  s.bulgeBright   = mix(0.3, 0.8, _galSeedHash(g.seed, 46.0));
+  s.dustContrast  = mix(0.2, 0.6, _galSeedHash(g.seed, 47.0));
+  s.starDensity   = mix(8.0, 12.0, _galSeedHash(g.seed, 48.0));
 
   vec3 col = _galRenderRingLoop(g, uv, s);
   col += _galRenderBulge(uv, s.bulgeSize, s.bulgeBright,

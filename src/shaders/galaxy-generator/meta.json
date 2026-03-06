@@ -1,10 +1,10 @@
 {
   "title": "Galaxy Generator",
-  "description": "Grid-based galaxy generator with polymorphic rendering by type. 3×3 layout cycling every 7 seconds.",
+  "description": "Procedural galaxy renderer using the Megaparsecs ring-loop technique — overlapping rotated elliptical orbits with Keplerian motion. 3×3 grid cycles through 5 Hubble morphology types (spiral, barred spiral, elliptical, lenticular, irregular) every 7 seconds. Based on BigWings' Megaparsecs, CC BY-NC-SA 3.0.",
   "date": "2026-03-05",
   "tags": ["procedural", "particles", "astronomy", "generative"],
   "links": {},
-  "commons": ["noise-value", "galaxy"],
+  "commons": ["noise-value", "color", "galaxy"],
   "channels": {
     "image": { "iChannel0": "buffer-a" },
     "bufferA": { "iChannel0": "buffer-a" }

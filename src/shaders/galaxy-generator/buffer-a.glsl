@@ -59,8 +59,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
       // Build Galaxy
       Galaxy g;
-      g.type       = typeIndex % 5;
-      g.seed       = cycleSeed;
+      g.type       = int(_gridHashSeed(cycleSeed, 50u) * 4.99);
+      // Hash seed to small float — large floats degrade sin-hash precision
+      g.seed       = _gridHash(cycleSeed) * 999.0 + 1.0;
       g.center     = cellCenter;
       g.scale      = galaxyRadius;
       g.time       = iTime;
@@ -70,28 +71,16 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       g.angleY     = _gridHashSeed(cycleSeed, 2u) * _GAL_TAU;
       g.angleZ     = _gridHashSeed(cycleSeed, 3u) * _GAL_TAU;
 
-      // Color tint — bright values with type-specific hue bias.
-      // Applied as post-multiply on the bright blue-white dust rendering.
-      // All tints stay on the stellar blackbody sequence: red-orange-yellow-white-blue.
-      // No green — blackbody peak at green wavelengths produces perceived white.
-      float h1 = _gridHashSeed(cycleSeed, 4u);
-      int gtype = typeIndex % 5;
-      if (gtype == 0) {
-        // Spiral: cool blue tint (young O/B star population)
-        g.color = mix(vec3(0.7, 0.8, 1.0), vec3(0.85, 0.85, 1.0), h1);
-      } else if (gtype == 1) {
-        // Barred spiral: warm gold tint (older bar + blue arms)
-        g.color = mix(vec3(1.0, 0.8, 0.5), vec3(1.0, 0.9, 0.65), h1);
-      } else if (gtype == 2) {
-        // Elliptical: red-orange tint (old K/M star population)
-        g.color = mix(vec3(1.0, 0.55, 0.3), vec3(1.0, 0.75, 0.45), h1);
-      } else if (gtype == 3) {
-        // Lenticular: warm yellow-white tint (transitional population)
-        g.color = mix(vec3(1.0, 0.7, 0.45), vec3(1.0, 0.85, 0.6), h1);
-      } else {
-        // Irregular: blue to pink-magenta tint (starburst + HII emission)
-        g.color = mix(vec3(0.65, 0.7, 1.0), vec3(1.0, 0.55, 0.7), h1);
-      }
+      // Color tint — vibrant HSL palette, every galaxy gets a unique hue.
+      // Full spectrum EXCEPT green (blackbody peak at green = perceived white).
+      // Hue mapped: red→gold→[skip green]→cyan→blue→violet→pink→red
+      float rawH = _gridHashSeed(cycleSeed, 4u);
+      float hue = rawH < 0.3
+        ? rawH * 200.0              // [0°, 60°] — red to yellow-gold
+        : 170.0 + (rawH - 0.3) * 271.4; // [170°, 360°] — cyan to blue to pink to red
+      float sat = 0.35 + _gridHashSeed(cycleSeed, 5u) * 0.55; // 0.35–0.9
+      float lit = 0.6 + _gridHashSeed(cycleSeed, 6u) * 0.3;   // 0.6–0.9
+      g.color = hsl2rgb(hue, sat, lit);
 
       // Physical parameters (from DB schema)
       g.axialRatio    = 0.3 + _gridHashSeed(cycleSeed, 7u) * 0.7;
