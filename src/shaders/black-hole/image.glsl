@@ -41,6 +41,7 @@
 #define ADAPTIVE_FAR 1.5
 #define ADAPTIVE_INNER 0.2
 #define ADAPTIVE_OUTER 1.5
+#define ESCAPE_RADIUS 3.0       // Beyond this, outward-bound rays exit early
 
 // Accretion disk
 #define DISK_TORUS_MAJOR 1.0
@@ -50,7 +51,7 @@
 #define DISK_INTENSITY 0.5
 #define DISK_FALLOFF 100.0
 #define DOPPLER_STRENGTH 0.7
-#define FBM_OCTAVES 4
+#define FBM_OCTAVES 3
 
 // Accretion disk colors (hot white center → orange → deep red edge)
 #define OUTER_DISK_COLOR vec3(0.5, 0.12, 0.02)
@@ -77,27 +78,14 @@
 // Post-processing
 #define GAMMA vec3(0.45)
 
-// ── Signed Distance Functions ──────────────────────────────
-
-/** Distance from point p to a sphere at origin. */
-float sdfSphere(vec3 p, float radius) {
-    return length(p) - radius;
-}
-
-/**
- * Distance from point p to a torus.
- * t.x = major radius, t.y = minor radius.
- */
-float sdfTorus(vec3 p, vec2 t) {
-    vec2 q = vec2(length(p.xz) - t.x, p.y);
-    return length(q) - t.y;
-}
-
 // ── Procedural Noise ───────────────────────────────────────
 
-/** Hash function — pseudo-random from 2D input. */
+/** Integer hash — fast pseudo-random from 2D input (no trig). */
 float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+    uvec2 q = uvec2(ivec2(p)) * uvec2(1597334673u, 3812015801u);
+    uint n = (q.x ^ q.y) * 1597334673u;
+    n ^= n >> 16u;
+    return float(n) * (1.0 / float(0xFFFFFFFFu));
 }
 
 /**
@@ -198,6 +186,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 rayVel = rayDir;
     vec3 finalColor = vec3(0.0);
     float notCaptured = 1.0;
+    float diskRotSpeed = iTime * DISK_ROTATION_SPEED;
 
     for (int i = 0; i < MAX_STEPS; i++) {
 
@@ -213,8 +202,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         // Advance ray
         rayPos += rayVel * adaptiveStep * notCaptured;
 
-        // Newton's inverse-square acceleration
-        rayVel += normalize(toBH) * (GRAVITY_STRENGTH / distSq);
+        // Newton's inverse-square acceleration (toBH/dist avoids redundant normalize)
+        rayVel += toBH * (GRAVITY_STRENGTH / (dist * distSq));
 
         // Check capture
         float distToHorizon = dist - EVENT_HORIZON_RADIUS;
@@ -222,44 +211,52 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
         if (notCaptured < CAPTURE_THRESHOLD) break;
 
+        // Early escape: ray has left the strong-field region and heads outward
+        if (dist > ESCAPE_RADIUS && dot(rayVel, toBH) < 0.0) break;
+
         // ── Accretion disk ─────────────────────────────────
 
+        // Inline torus SDF — reuses diskRadius, skips redundant length()
         float diskRadius = length(toBH.xz);
-        float diskAngle = atan(toBH.x, toBH.z);
+        vec2 torusQ = vec2(diskRadius - DISK_TORUS_MAJOR, rayPos.y * DISK_FLATTEN);
+        float diskMask = smoothstep(0.0, 1.0, -(length(torusQ) - DISK_TORUS_MINOR));
 
-        // Rotating angle for Kerr disk spin
-        float rotAngle = diskAngle + iTime * DISK_ROTATION_SPEED;
+        // Skip expensive noise/atan/cos when ray is outside disk volume
+        if (diskMask > 0.001) {
+            float diskAngle = atan(toBH.x, toBH.z);
 
-        // FBM turbulence — visible clumps that rotate with the disk
-        vec2 diskUV = vec2(diskRadius * 8.0, rotAngle * 5.0);
-        float turbulence = fbmNoise(diskUV) * 0.5 + 0.5;
-        // Second layer at different scale for finer detail
-        turbulence *= fbmNoise(diskUV * 2.3 + 7.0) * 0.4 + 0.6;
+            // Rotating angle for Kerr disk spin
+            float rotAngle = diskAngle + diskRotSpeed;
 
-        // Doppler beaming — approaching side much brighter, receding side dim
-        float doppler = 1.0 + cos(rotAngle) * DOPPLER_STRENGTH;
+            // FBM turbulence — visible clumps that rotate with the disk
+            vec2 diskUV = vec2(diskRadius * 8.0, rotAngle * 5.0);
+            float turbulence = fbmNoise(diskUV) * 0.5 + 0.5;
+            // Second layer at different scale for finer detail
+            turbulence *= fbmNoise(diskUV * 2.3 + 7.0) * 0.4 + 0.6;
 
-        // Radial heat gradient: hot white center → orange → deep red edge
-        float distFromBH = dist - EVENT_HORIZON_RADIUS;
-        float t = clamp(pow(max(distFromBH, 0.0), 1.5), 0.0, 1.0);
-        vec3 diskColor = mix(INNER_DISK_COLOR, MID_DISK_COLOR, smoothstep(0.0, 0.4, t));
-        diskColor = mix(diskColor, OUTER_DISK_COLOR, smoothstep(0.3, 1.0, t));
-        diskColor *= turbulence * doppler;
-        diskColor *= DISK_INTENSITY / (0.001 + distFromBH * DISK_FALLOFF);
+            // Doppler beaming — approaching side much brighter, receding side dim
+            float doppler = 1.0 + cos(rotAngle) * DOPPLER_STRENGTH;
 
-        // Disk shape: flattened torus SDF
-        vec3 flatPos = rayPos * vec3(1.0, DISK_FLATTEN, 1.0);
-        float diskMask = smoothstep(0.0, 1.0, -sdfTorus(flatPos, vec2(DISK_TORUS_MAJOR, DISK_TORUS_MINOR)));
+            // Radial heat gradient: hot white center → orange → deep red edge
+            float distFromBH = dist - EVENT_HORIZON_RADIUS;
+            float t = clamp(pow(max(distFromBH, 0.0), 1.5), 0.0, 1.0);
+            vec3 diskColor = mix(INNER_DISK_COLOR, MID_DISK_COLOR, smoothstep(0.0, 0.4, t));
+            diskColor = mix(diskColor, OUTER_DISK_COLOR, smoothstep(0.3, 1.0, t));
+            diskColor *= turbulence * doppler;
+            diskColor *= DISK_INTENSITY / (0.001 + distFromBH * DISK_FALLOFF);
 
-        finalColor += max(vec3(0.0), diskColor * diskMask * notCaptured);
+            finalColor += max(vec3(0.0), diskColor * diskMask * notCaptured);
+        }
 
         // Subtle ambient glow near event horizon
         finalColor += GLOW_COLOR * (1.0 / distSq) * GLOW_INTENSITY * notCaptured;
 
-        // Photon ring (Einstein ring) — bright blue-white band at photon sphere
+        // Photon ring — only contributes when dist ≈ PHOTON_SPHERE_RADIUS
         float ringDist = abs(dist - PHOTON_SPHERE_RADIUS);
-        float ring = exp(-ringDist * ringDist / (PHOTON_RING_WIDTH * PHOTON_RING_WIDTH));
-        finalColor += PHOTON_RING_COLOR * ring * PHOTON_RING_INTENSITY * notCaptured;
+        if (ringDist < 0.1) {
+            float ring = exp(-ringDist * ringDist / (PHOTON_RING_WIDTH * PHOTON_RING_WIDTH));
+            finalColor += PHOTON_RING_COLOR * ring * PHOTON_RING_INTENSITY * notCaptured;
+        }
     }
 
     // ── Starfield background (for escaped rays) ────────────
